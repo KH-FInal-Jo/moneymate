@@ -15,6 +15,7 @@
 	</properties>
 	<dependencies>
 	<!-- ㅎㅎ 연수 주석 -->
+	<!-- ㅎㅎ 호진 주석 -->
 		<!-- Spring -->
 		<dependency>
 			<groupId>org.springframework</groupId>
