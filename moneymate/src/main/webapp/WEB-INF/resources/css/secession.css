@@ -1,0 +1,42 @@
+.myPage-notice-main{
+    display: flex;
+    margin: auto;
+    flex-direction: column;
+}
+
+.board-notice-name{
+}
+
+.sub{
+    text-align: center;
+    margin-top: 50px;
+}
+
+#textarea{
+    width: 500px;
+    height: 300px;
+    resize: none;
+}
+
+.textarea1{
+    margin: 50px auto;
+}
+
+.check{
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.btn{
+    margin: 0 300px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.btn > button {
+    width: 120px;
+    height: 30px;
+    cursor: pointer;
+    background-color: rgb(12, 64, 202);
+    border: 0;
+}
