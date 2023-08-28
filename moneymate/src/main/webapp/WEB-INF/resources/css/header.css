@@ -1,0 +1,53 @@
+main{
+    width: 1900px;
+}
+
+.head{
+    border: 1px solid black;
+    display: flex;
+    height: 200px;
+}
+
+/* 로고 이미지 */
+.head > div:nth-of-type(1){
+    color: red;
+    display: flex;
+    flex-basis: 15%;
+    border: 1px solid black;
+    width: 70%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+/* 헤더 nav, 프로필 */
+.head > div:nth-of-type(2){
+    display: flex;
+    flex-basis: 85%;
+    border: 1px solid black;
+
+}
+
+/* 헤더 nav */
+.head-board > div:nth-of-type(1){
+    display: flex;
+    flex-basis: 80%;
+    border: 1px solid black;
+    justify-content: end;
+    align-items: center;
+    font-size: 25px;
+    font-weight: 500;
+    padding: 50px;
+}
+
+/* 헤더 nav 글 */
+.nav > span{
+    padding: 25px;
+}
+
+/* 프로필 */
+.head-board > div:nth-of-type(2){
+    display: flex;
+    flex-basis: 20%;
+    border: 1px solid black;
+}
