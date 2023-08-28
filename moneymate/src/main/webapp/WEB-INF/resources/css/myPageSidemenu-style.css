@@ -1,0 +1,104 @@
+/* myPage 사이드 메뉴 전체 크기 */
+.myPage-notice-content{
+    width: 1250px;
+    height: 850px;
+    margin: 30px auto;
+    display: flex;
+
+}
+
+/* 사이드바, 보드 메인 넓이 정하기 */
+
+.myPage-sidemenu{
+    width: 25%;
+    display: flex;
+    flex-direction: column;
+
+    border: 2px solid rgb(177, 177, 231);
+
+    border-radius: 30px;
+
+}
+
+.myPage-notice-main{
+    width: 75%;
+}
+
+
+/* 사이드바 커뮤니티 문구 스타일 */
+.myPage-sidemenu > div:first-child{
+
+    border-radius: 20px;
+    width: 99%;
+    height: 100px;
+    background-color: rgb(65, 65, 240);
+    color: white;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    padding-left: 5px;
+
+    font-size: 20px;
+
+    border-bottom: 2px solid rgb(177, 177, 231);
+
+}
+
+/* 사이드바 게시판 스타일 */
+.myPage-sidemenu-list{
+    width: 100%;
+    padding: 0 20px 0 0;
+        /* 상 우 하 좌 */
+    margin: 0;
+}
+
+.myPage-sidemenu-list > li{
+    list-style: none;
+    height: 60px;
+    font-size: 18px;
+
+    border-bottom: 2px solid rgb(177, 177, 231);
+
+    display: flex;
+
+    padding-left: 5px;
+
+    
+}
+
+.myPage-sidemenu-list > li > a{
+    text-decoration: 0;
+    color: black;
+    height: 100%;
+
+    display: flex;
+    align-items: center;
+
+    width: 93%;
+
+    justify-content: space-between;
+
+}
+
+.myPage-sidemenu-list > li:hover{
+    background-color: #ddd;
+    cursor: pointer;
+}
+
+/* 보드 게시판 메인 스타일 */
+
+/* 게시판 이름 구역 스타일 */
+.myPage-notice-name{
+    width: 100%;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    padding-left: 10px;
+
+    font-size: 23px;
+
+
+    border-bottom: 2px solid rgb(177, 177, 231);
+}
