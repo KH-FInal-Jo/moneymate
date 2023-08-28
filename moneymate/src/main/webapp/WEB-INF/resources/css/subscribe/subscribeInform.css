@@ -1,0 +1,225 @@
+*{box-sizing: border-box;}
+/* div{border: 1px solid black;} */
+main{
+    /* border: 1px solid black; */
+    width: 1200px;
+    margin: auto;
+}
+
+#first-div{
+    display: flex
+}
+
+#first-div>div{
+    font-size: 40px;
+    margin-top: 20px;
+}
+
+#first-div>img{
+    width: 250px;
+}
+
+/* 선택창들 */
+
+
+
+#second-div{
+    margin-top: 40px;
+    display: flex;
+    justify-content: space-between;
+}
+
+#second-div>div{
+    text-align: center;
+    transition-duration: 0.5s;
+}
+
+#second-div>div:hover{
+    transform: scale(1.1);
+}
+
+#second-div>div:nth-child(1){
+    width: 300px;
+    height: 200px;
+    border: 3px solid rgb(12,64,202);
+    border-radius: 10px;
+    margin-top: 40px;
+}
+
+#second-div>div:nth-child(1)>div:nth-child(1){ /* 한 달 글씨 */
+    font-weight: bold;
+    margin-top: 10px;
+    font-size: 20px;
+}
+
+#second-div>div:nth-child(1) span{ /* ₩ */
+    font-size: 28px;
+}
+
+#second-div>div:nth-child(1)>div:nth-child(2){ /* 2,900 */
+    font-size: 40px;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+#monthBtn{ /* 한 달 선택 버튼 */
+    margin-top: 20px;
+    width: 200px;
+    height: 40px;
+    border-radius: 5px;
+    border: 0;
+    background-color: rgb(140, 165, 233);
+    font-size: 20px;
+    letter-spacing: 10px;
+    font-weight: bold;
+}
+
+#monthBtn:hover{
+    background-color:  rgb(12,64,202);
+    color: white;
+    cursor: pointer;
+}
+
+/* 일 년 */
+
+#second-div>div:nth-child(2){
+    width: 400px;
+    height: 300px;
+    border: 3px solid rgb(12,64,202);
+    border-radius: 10px;
+}
+
+#second-div>div:nth-child(2)>div:nth-child(1){ /* 일 년 */
+    font-size: 30px;
+    font-weight: bold;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+#popular{
+    display: flex;
+    justify-content: center;
+}
+
+#popular>div:nth-child(1){ /* 왕관 div */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-right: 10px;
+}
+
+#popular img{ /* 왕관 */
+    width: 20px;
+}
+
+#popular>div:nth-child(2){ /* 가장 인기 많은 */
+    font-size: 15px;
+    color: rgb(255, 183, 67);
+    font-weight: bold;
+}
+#second-div>div:nth-child(2)>div:nth-child(3){ /* 10% 할인 */
+    margin-top: 3px;
+    font-size: 15px;
+    color: red;
+    font-weight: bold;
+}
+
+#second-div>div:nth-child(2) span{ /* ₩ */
+    font-size: 35px;
+    font-weight: bold;
+}
+#second-div>div:nth-child(2)>div:nth-child(4){ /* 31,900 */
+    margin-top: 10px;
+    font-size: 60px;
+    font-weight: bold;
+}
+
+#second-div>div:nth-child(2)>div:nth-child(5){
+    margin-top: 20px;
+}
+
+#yearBtn{ /* 일 년 선택 버튼 */
+    width: 280px;
+    height: 50px;
+    border-radius: 5px;
+    border: 0;
+    background-color: rgb(140, 165, 233);
+    font-size: 25px;
+    letter-spacing: 10px;
+    font-weight: bold;
+}
+
+#yearBtn:hover{
+    background-color:  rgb(12,64,202);
+    color: white;
+    cursor: pointer;
+}
+
+/* 육 개월 */
+
+#second-div>div:nth-child(3){
+    width: 350px;
+    height: 250px;
+    border: 3px solid rgb(12,64,202);
+    border-radius: 10px;
+    margin-top: 30px;
+}
+
+#second-div>div:nth-child(3)>div:nth-child(1){ /* 육 개월 */
+    font-size: 25px;
+    font-weight: bold;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+#second-div>div:nth-child(3)>div:nth-child(2){ /* 5%할인 */
+    margin-top: 3px;
+    font-size: 15px;
+    color: red;
+    font-weight: bold;
+}
+
+#second-div>div:nth-child(3) span{ /* ₩ */
+    font-size: 30px;
+    font-weight: bold;
+}
+
+#second-div>div:nth-child(3)>div:nth-child(3){ /* 31,900 */
+    margin-top: 10px;
+    font-size: 50px;
+    font-weight: bold;
+}
+
+#sixBtn{
+    margin-top: 20px;
+    width: 220px;
+    height: 45px;
+    border-radius: 5px;
+    border: 0;
+    background-color: rgb(140, 165, 233);
+    font-size: 25px;
+    letter-spacing: 10px;
+    font-weight: bold;
+
+}
+
+#sixBtn:hover{
+    background-color:  rgb(12,64,202);
+    color: white;
+    cursor: pointer;
+}
+
+#third-div{
+    margin-top: 50px;
+}
+
+#third-div>div{
+    margin-top: 10px;
+}
+
+#third-div img{
+    width: 40px;
+}
+
+
+
