@@ -14,7 +14,7 @@
     display: flex;
     flex-direction: column;
 
-    border-right: 1px solid rgb(177, 177, 231);
+    border-right: 1px solid rgb(161, 194, 221);
 
 }
 
@@ -42,8 +42,19 @@
 
     font-size: 20px;
 
-    border-bottom: 2px solid rgb(177, 177, 231);
+    border-bottom: 2px solid rgb(12,64,202);
 
+}
+
+/* 사이드바 커뮤니티 글씨 */
+
+.board-community-header > div:first-child{
+    font-size: 25px;
+}
+
+.board-community-header > div:last-child{
+    color: yellow;
+    font-weight: bold;
 }
 
 /* 사이드바 게시판 스타일 */
@@ -59,7 +70,7 @@
     height: 60px;
     font-size: 18px;
 
-    border-bottom: 2px solid rgb(177, 177, 231);
+    border-bottom: 2px solid rgb(161, 194, 221);
 
     display: flex;
 
@@ -100,9 +111,12 @@
     font-size: 23px;
     font-weight: bold;
 
+    background-color: rgb(220, 241, 248);
 
-    border-top: 2px solid rgb(177, 177, 231);
-    border-bottom: 5px solid rgb(177, 177, 231);
+
+    border-top: 2px solid rgb(161, 194, 221);
+
+    border-bottom: 5px solid rgb(161, 194, 221);
 }
 
 
