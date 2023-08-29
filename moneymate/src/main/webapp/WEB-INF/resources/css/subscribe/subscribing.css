@@ -1,5 +1,5 @@
 #main{
-    border: 3px solid lightgray;
+    border: 3px solid lightblue;
     border-radius: 5px;
     width: 1200px;
     margin: auto;
@@ -8,7 +8,7 @@
 /* div{border: 1px solid black;} */
 
 /* 결제진행 */
-main>div:nth-of-type(1){
+#main>div:nth-of-type(1){
     font-size: 40px;
     font-weight: bold;
     margin-left: 10px;
@@ -89,5 +89,198 @@ main>div:nth-of-type(1){
 
 /* 결제 정보 */
 #main>div:nth-of-type(4){
-    
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 15px;
+    font-size: 25px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+/* 마일리지/결제수단 */
+#fifth{
+    display: flex;
+}
+
+
+#fifth>div:nth-of-type(1){ /* 마일리지 영역 */
+    width: 50%;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+#fifth>div:nth-of-type(1)>div:nth-of-type(1){ /* 마일리지 글씨 */
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+#haveMileage>span{ /* 보유 마일리지, 사용할 마일리지 */
+    font-size: 13px;
+    font-weight: bold;
+    padding-right: 60px;
+}
+
+#howMileage>input[type='text']{
+    width: 50px;
+    height: 30px;
+    font-size: 15px;
+    text-align: center;
+    outline: none;
+    border: 2px solid #ddd;
+    margin-left: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background-color: #eee;
+}
+
+#howMileage>input[type='text']:nth-of-type(1){ /* 마일리지 사이 간격 띄어주기 */
+    margin-right: 80px;
+}
+
+#howMileage>input[type='text']:nth-of-type(2){
+    margin-right: 20px;
+}
+
+#price-area{ /* 상품금액. 마일리지, 총 결제금액 영역 */
+    border: 3px solid rgb(102, 142, 250);
+    border-radius: 5px;
+    margin-top: 10px;
+    width: 500px;
+}
+#price-area>div:nth-of-type(1){
+    margin-top: 10px;
+}
+
+#price-area>div:nth-of-type(1)>span{ /* 글씨 */
+    padding-left: 20px;
+    font-size: 13px;
+    font-weight: bold;
+    padding-right: 60px;
+}
+
+#price-area>div:nth-of-type(1)>span:nth-of-type(3){
+    padding-left: 55px;
+}
+
+#price-area>div:nth-of-type(2){
+    margin-left: 10px;
+    margin-bottom: 10px;
+}
+
+#price-area input[type='text']{
+    width: 80px;
+    height: 50px;
+    outline: none;
+    text-align: center;
+    font-size: 30px;
+    border: 0;
+}
+
+#price-area>div:nth-of-type(2) span:nth-of-type(1){ /* 빼기 기호 */
+    font-size: 30px;
+    font-weight: bold;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+#price-area>div:nth-of-type(2) span:nth-of-type(2){ /* = 기호 */
+    font-size: 30px;
+    font-weight: bold;
+    padding-left: 25px;
+    padding-right: 25px;
+}
+
+#price-area input[type='text']:nth-of-type(3){
+    font-size: 50px;
+    width: 150px;
+    height: 65px;
+}
+
+/* 결제수단 영역 */
+
+#by-area>div:nth-of-type(1){ /* 결제수단 글씨 */
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 30px;
+}
+
+#by-area>div:nth-of-type(2){
+    margin-bottom: 40px;
+}
+
+#by-area>div:nth-of-type(2) button{ /* 결제수단-버튼 영역 */
+    width: 200px;
+    height: 40px;
+    margin-right: 30px;
+    letter-spacing: 2px;
+    font-size: 20px;
+    cursor: pointer;
+    border: 2px solid rgb(102, 142, 250);
+    color: rgb(102, 142, 250);
+    font-weight: bold;
+    background-color: white;
+    border-radius: 10px;
+}
+
+#by-area>div:nth-of-type(2) button:hover{
+    background-color: lightblue;
+    border: 1px solid lightblue;
+    color: white;
+}
+
+#by-area>div:nth-of-type(3){ /* 무통장 입금은 익일 자정~ */
+    font-size: 15px;
+    color: red;
+    margin-bottom: 10px;
+}
+
+#by-area>div:nth-of-type(4){ /* 은행 계좌 */
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+#by-area>div:nth-of-type(5){ /* 입금자명 */
+    font-size: 16px;
+    font-weight: bold;
+}
+
+#inform-area{ /* ..너무 비어보여서 넣는 div */
+    width: 430px;
+    height: 80px;
+    border: 1px solid #ddd;
+    font-size: small;
+}
+
+#warning{
+    width: 30px;
+}
+
+#inform-area>div{
+    margin-left: 5px;
+}
+
+.none-area{
+    display: none;
+}
+
+#btn-area{ /* 버튼 영역 */
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+
+#nextBtn{
+    margin-left: 30px;
+}
+
+#btn-area button{
+    width: 120px;
+    height: 30px;
+    cursor: pointer;
+    border-radius: 5px;
+    background-color: lightblue;
+    border: 0;
+    font-weight: bold;
 }
