@@ -188,10 +188,50 @@
 #board-notice-title{
     height: 60px;
     font-size: 22px;
+    border-radius: 15px;
 }
+
 /* 내용 */
 #board-notice-write-content{
     height: 300px;
     padding-top: 20px;
     font-size: 22px;
+
+    resize: none;
+
+    border-radius: 15px;
+
+}
+
+/* 이전으로, 등록 버튼 컨테이너 */
+.board-notice-write-container > div:last-child{
+    width: 93%;
+    display: flex;
+
+    justify-content: space-between;
+    align-items: center;
+
+    
+}
+
+.board-notice-write-container button{
+
+    width: 120px;
+    height: 40px;
+    font-size: 17px;
+
+    background-color: white;
+    color: rgb(12,64,202);
+    border: 1px solid rgb(12,64,202);
+    font-weight: bold;
+
+    margin-top: 50px;
+
+}
+
+.board-notice-write-container button:hover{
+
+    background-color: rgb(12,64,202);
+    color: white;
+    cursor: pointer;
 }

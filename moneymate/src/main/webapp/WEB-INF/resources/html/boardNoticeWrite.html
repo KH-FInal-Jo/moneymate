@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/board/boardSidemenu-style.css">
     <link rel="stylesheet" href="../css/board/boardNoticeDetail.css">
+    <link rel="stylesheet" href="../css/header.css">
     <title>공지사항(작성하기)</title>
     <script src="https://kit.fontawesome.com/98acdabf0d.js"
 	crossorigin="anonymous"></script>
@@ -12,7 +13,34 @@
 <body>
 
     <main>
-        <section>******************* Header 들어갈 부분 *****************</section>
+        <section>
+            <div class="head">
+                <div><a href=""><img src="../images/로고.png"></a></div>
+                <div class="head-board">
+                    <!-- 헤더 글 -->
+                    <div class="nav">
+                        <a href=""><span>커뮤니티</span></a>
+                        <a href=""><span>가계부</span></a>
+                        <a href=""><span>소비 테스트</span></a>
+                        <a href=""><span>이벤트게시판</span></a>
+                        <a href=""><span>마이페이지</span></a>
+        
+                    </div>
+                    <!-- 헤더 프로필 -->
+                    <div class="login">
+                        <div>
+                            
+                            <img src="../images/로그인 아이콘.png">
+                        </div>
+                        <div>
+                            <a href=""><span>LOGIN</span></a>
+                            <a href=""><span>회원가입</span></a>
+    
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
         <section class="board-notice-content">
 
@@ -39,13 +67,13 @@
 
                 <div class="board-notice-write-container">
 
-                <input type="text" id="board-notice-title" placeholder="제목을 입력해주세요.">
-                <textarea name="board-notice-write-content" id="board-notice-write-content" placeholder="내용을 입력해주세요."></textarea>
+                    <input type="text" id="board-notice-title" name="board-notice-title" placeholder="제목을 입력해주세요.">
+                    <textarea name="board-notice-write-content" id="board-notice-write-content" placeholder="내용을 입력해주세요."></textarea>
 
-                <div>
-                    <button type="button">이전으로</button>
-                    <button type="button">등록</button>
-                </div>
+                    <div>
+                        <button type="button">이전으로</button>
+                        <button type="button">등록</button>
+                    </div>
                 </div>
          
 
