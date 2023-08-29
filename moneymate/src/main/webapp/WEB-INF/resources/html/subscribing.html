@@ -9,29 +9,31 @@
 </head>
 <body>
 
-    <div id="main">
+    <form action="#" id="Frm">
 
-        <!-- 결제 진행 -->
-        <div>결제 진행</div>
+        <div id="main">
 
-        <!-- 결제자 정보 -->
-        <div id="info">
-            <div>결제자 정보</div>
-            <div>
-                <span>회원 닉네임</span>
-                <input type="text" readonly name="memberNickname" value="유저">
+            <!-- 결제 진행 -->
+            <div>결제 진행</div>
+
+            <!-- 결제자 정보 -->
+            <div id="info">
+                <div>결제자 정보</div>
+                <div>
+                    <span>회원 닉네임</span>
+                    <input type="text" readonly name="memberNickname" value="유저">
+                </div>
+                <div>
+                    <span>회원 이메일</span>
+                    <input type="email" readonly name="memberEmail" value="user01@nver.com">
+                </div>
             </div>
-            <div>
-                <span>회원 이메일</span>
-                <input type="email" readonly name="memberEmail" value="user01@nver.com">
-            </div>
-        </div>
 
-        <!-- 약관 동의 -->
-        <div id="agree-area">
-            <div>약관 동의</div>
-            <div>
-                <textarea>
+            <!-- 약관 동의 -->
+            <div id="agree-area">
+                <div>약관 동의</div>
+                <div>
+                    <textarea disabled>
 1. 샘플 약관
 1. 샘플 약관
 1. 샘플 약관
@@ -46,29 +48,89 @@
 1. 샘플 약관
 1. 샘플 약관
 1. 샘플 약관</textarea>
+                </div>
+                <span>* 필수동의약관입니다.</span>
+                <div>
+                    <input type="radio" name="agree" id="yes">
+                    <label for="yes">동의합니다.</label>
+                    <input type="radio" name="agree" id="no">
+                    <label for="no">동의하지 않습니다.</label>
+                </div>
             </div>
-            <span>* 필수동의약관입니다.</span>
-            <div>
-                <input type="radio" name="agree" id="yes">
-                <label for="yes">동의합니다.</label>
-                <input type="radio" name="agree" id="no">
-                <label for="no">동의하지 않습니다.</label>
+
+            <!-- 결제 정보 글씨 -->
+            <div>결제 정보</div>
+
+            <!-- 마일리지/결제수단 -->
+            <div id="fifth">
+                <div>
+                    <div>마일리지</div>
+
+                    <div id="haveMileage">
+                        <span>보유 마일리지</span>
+                        <span>사용할 마일리지</span>
+                    </div>
+
+                    <div id="howMileage">
+                        <input type="text" name="haveMile" id="haveMile" readonly value="500">
+                        <input type="text" name="useMile" class="useMile" value="0">
+                        <input type="checkbox" name="allMile" id="allMile">
+                        <label for="allMile">전액 사용</label>
+                    </div>
+
+                    <div id="price-area">
+                        <div>
+                            <span>상품 금액</span>
+                            <span>마일리지 사용</span>
+                            <span>총 결제금액</span>
+                        </div>
+                        <div>
+                            <input type="text" id="prePrice" readonly value="2900">
+                            <span> - </span>
+                            <input type="text" readonly class="useMile" value="100">
+                            <span> = </span>
+                            <!-- <span>₩</span> -->
+                            <input type="text" id="realPrice" value="2800" readonly>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="by-area">
+                    <div>결제 수단</div>
+                    <div>
+                        <button type="button" id="cashBtn">무통장 입금</button>
+                        <button type="button" id="creditBtn">신용 카드</button>
+                    </div>
+                    <div class="none-area">*무통장 입금은 익일 자정까지 진행해주세요.</div>
+                    <div class="none-area">우리 111-1111-1111 머니메이트</div>
+                    <div class="none-area">
+                        <span>입금자 명 :</span>
+                        <input type="text" name="cashName" placeholder="입금자명을 입력해주세요">
+                    </div>
+
+                    <div id="inform-area">
+                        <img src="../images/warning.png" id="warning"> <br>
+                        <div>
+                            기재되어있는 회원정보를 확인해주세요. <br>
+                            결제 후 환불은 절대 불가합니다.
+                        </div>
+                    </div>
+                </div>
             </div>
+
+            <!-- 버튼 영역 -->
+            <div id="btn-area">
+                <button type="button" id="prevBtn">이전으로</button>
+                <button id="nextBtn">결제 진행</button>
+            </div>
+
+
         </div>
-
-        <!-- 결제 정보 글씨 -->
-        <div>결제 정보</div>
-
-        <!-- 마일리지/결제수단 -->
-        <div></div>
-
-        <!-- 버튼 영역 -->
-        <div></div>
-
-
-    </div>
+    </form>
 
     <footer style="height: 100px;">footer</footer>
+
+    <script src="../js/subscribing.js"></script>
     
 </body>
 </html>
