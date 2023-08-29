@@ -1,5 +1,5 @@
-main{
-    border: 2px solid rgb(12,64,202);
+#main{
+    border: 3px solid lightgray;
     border-radius: 5px;
     width: 1200px;
     margin: auto;
@@ -13,8 +13,8 @@ main>div:nth-of-type(1){
     font-weight: bold;
     margin-left: 10px;
     margin-right: 10px;
-    margin-top: 10px;
-    padding-bottom: 10px;
+    margin-top: 20px;
+    padding-bottom: 20px;
     border-bottom: 3px solid #ddd;
 }
 
@@ -22,13 +22,13 @@ main>div:nth-of-type(1){
 #info{
     margin-left: 10px;
     margin-right: 10px;
-    margin-top: 10px;
+    margin-top: 15px;
 }
 
 #info>div:nth-of-type(1){
     font-size: 25px;
     font-weight: bold;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
 }
 
 #info span{
@@ -49,7 +49,7 @@ main>div:nth-of-type(1){
 }
 
 #info>div:nth-of-type(3){
-    padding-bottom: 10px;
+    padding-bottom: 20px;
     border-bottom: 3px solid #ddd;
 }
 
@@ -57,7 +57,7 @@ main>div:nth-of-type(1){
 #agree-area{
     margin-left: 10px;
     margin-right: 10px;
-    margin-top: 10px;
+    margin-top: 15px;
 }
 
 #agree-area>div:nth-of-type(1){
@@ -83,6 +83,11 @@ main>div:nth-of-type(1){
 
 #agree-area>div:nth-of-type(3){
     margin-top: 5px;
-    padding-bottom: 10px;
+    padding-bottom: 15px;
     border-bottom: 3px solid #ddd;
+}
+
+/* 결제 정보 */
+#main>div:nth-of-type(4){
+    
 }
