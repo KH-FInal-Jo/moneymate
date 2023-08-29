@@ -1,0 +1,185 @@
+/* myPage 사이드 메뉴 전체 크기 */
+.myPage-container{
+    width: 1200px;
+    height: 850px;
+    margin: 30px auto;
+    display: flex;
+
+}
+
+/* 사이드바, 마이페이지 메인 넓이 정하기 */
+
+.myPage-sidemenu{
+    width: 25%;
+    display: flex;
+    flex-direction: column;
+
+
+}
+
+.myPage-main{
+    width: 75%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+
+}
+
+/* 마이페이지 작은 메뉴창 스타일 */
+.myPage-content-header{
+    width: 100%;
+    height: 30%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    box-shadow: 0px 1px 9px 5px skyblue; 
+
+    border-top-left-radius: 80px;
+    border-top-right-radius: 80px;
+    
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    padding-top: 10px;
+}
+/* 마이페이지 글씨 부분 스타일 */
+.myPage-content-header > div:first-child{
+    width: 80%;
+    height: 20%;
+
+
+    box-shadow: 13px 2px 5px 5px rgb(203, 204, 202); 
+
+    margin-top: -5px;
+    margin-bottom: 10px;
+    margin-left: -10px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    color: black;
+
+
+    border-radius: 70%;
+
+
+}
+/* 구독 관련 부분 스타일 */
+.myPage-sub-content{
+    width: 100%;
+    height: 65%;
+}
+/* 구독 현황 스타일 */
+.myPage-sub-content > div:first-child{
+    width: 100%;
+    height: 15%;
+    display: flex;
+
+    padding-top: 8px;
+
+    justify-content: center;
+
+    font-size: 16px;
+}
+
+.myPage-sub-content > div:first-child > span:last-of-type{
+    color: blue;
+    font-weight: bold;
+}
+
+
+/* 구독 등급 표시 */
+.myPage-sub-content > div:nth-child(2){
+    width: 100%;
+    height: 40%;
+    display: flex;
+    justify-content: center;
+}
+
+/* 구독 일반, 골드 플래티넘 스타일 */
+.myPage-sub-content > div:nth-child(2) > div{
+    width: 65px;
+    height: 90%;
+
+    margin: 10px;
+
+    background-color: rgb(243, 208, 215);
+    border-radius: 50%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border-style: groove;
+}
+
+.myPage-sub-content > div:nth-child(2) > div:last-child{
+    background-color: rgb(190, 126, 250);
+    color: white;
+    
+}
+
+/* 구독 홍보 멘트 */
+.myPage-sub-content > div:nth-child(3){
+    width: 90%;
+    height: 20%;
+
+    display: flex;
+    justify-content: end;
+
+    text-align: start;
+
+    padding-top: 23px;
+    padding-left: 13px;
+
+
+    font-size: 15px;
+}
+
+.myPage-sub-content i{
+    margin-top: 19px;
+    margin-right: 15px;
+    font-size: 34px;
+    color: skyblue;
+}
+
+/* 마이페이지 사이드메뉴 */
+.myPage-member-list{
+    display: flex;
+    width: 100%;
+    height: 60%;
+}
+
+.myPage-sidemenu-list{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+
+    margin-left: 0;
+
+}
+
+.myPage-member-list a{
+
+    text-decoration: 0;
+    color: black;
+
+    font-size: 23px;
+}
+.myPage-member-list li{
+    width: 100%;
+
+    display: flex;
+    list-style: none;
+
+    padding-bottom: 17px;
+    padding-top: 17px;
+
+    border-bottom: 1px solid gray;
+
+    margin-left: 0;
+
+}
