@@ -7,7 +7,7 @@
     height: 500px;
     display: flex;
     flex-direction: column;
-    margin:  100px auto;
+    margin:  200px auto;
     border: 1px solid lightgray /* rgb(12, 64, 202) */;
     border-radius: 5%;
 }
@@ -100,3 +100,13 @@
     padding-top: 50px;
     margin-top: 10px;
 }
+
+.spans a {
+    text-decoration: none;
+    color: black;
+}
+
+.spans a:hover {
+    font-weight: bold;
+}
+

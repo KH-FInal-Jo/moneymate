@@ -24,11 +24,11 @@
 
 .check{
     text-align: center;
-    margin-bottom: 50px;
+    margin-bottom: 20px;
 }
 
 .btn{
-    margin: 0 300px;
+    margin: 30px 300px;
     display: flex;
     justify-content: space-between;
 }
@@ -38,5 +38,17 @@
     height: 30px;
     cursor: pointer;
     background-color: rgb(12, 64, 202);
+    border-radius: 5%;
     border: 0;
+}
+
+.inputPw{
+    margin-bottom: 20px;
+    text-align: center;
+}
+.inputPw > input{
+    height: 30px;
+    width: 250px;
+    font-size: 15px;
+    padding-left: 10px;
 }
