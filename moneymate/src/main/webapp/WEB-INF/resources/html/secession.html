@@ -7,24 +7,58 @@
 
     <link rel="stylesheet" href="../css/myPageSidemenu-style.css">
     <link rel="stylesheet" href="../css/secession.css">
+    <link rel="stylesheet" href="../css/header.css">
 </head>
 <body>
 
-    <main>
-        <section>******************* Header 들어갈 부분 *****************</section>
+    <cmain>
+        <section>
+            <main>
+
+
+                <div class="head">
+                    <div><a href=""><img src="../images/로고.png"></a></div>
+                    <div class="head-board">
+                        <!-- 헤더 글 -->
+                        <div class="nav">
+                            <a href=""><span>커뮤니티</span></a>
+                            <a href=""><span>가계부</span></a>
+                            <a href=""><span>소비 테스트</span></a>
+                            <a href=""><span>이벤트게시판</span></a>
+                            <a href=""><span>마이페이지</span></a>
+            
+                        </div>
+                        <!-- 헤더 프로필 -->
+                        <div class="login">
+                            <div>
+                                
+                                <img src="../images/로그인 아이콘.png">
+                            </div>
+                            <div>
+                                <a href=""><span>LOGIN</span></a>
+                                <a href=""><span>회원가입</span></a>
+        
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        
+        
+            </main>
+        
+
+        </section>
 
         <section class="myPage-notice-content">
 
             <section class="myPage-sidemenu">
                 <div class="myPage-community-header">
-                    <div>마이페이지</div>
+                    <div><h1>마이페이지</h1></div>
                     <div>myPage</div>
                 </div>
                 <ul class="myPage-sidemenu-list">
 
                     <li><a href="#">내 정보<i class="fa-solid fa-caret-right fa-xl"></i></a></li>
-                    
-                    <li><a href="#">내 정보 수정<i class="fa-solid fa-caret-right fa-xl"></i></a></li>
                     
                     <li><a href="#">비밀번호 재설정<i class="fa-solid fa-caret-right fa-xl"></i></a></li>
                     
@@ -33,6 +67,8 @@
                     <li><a href="#">내가 쓴 글<i class="fa-solid fa-caret-right fa-xl"></i></a></li>
 
                     <li><a href="#">좋아요 목록<i class="fa-solid fa-caret-right fa-xl"></i></a></li>
+
+                    <li><a href="#">북마크 조회<i class="fa-solid fa-caret-right fa-xl"></i></a></li>
                 </ul>
 
             </section>
@@ -66,23 +102,30 @@
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 </textarea>
                 </div>
+                
+                <form action="secession" method="POST" name="myPageFrm" id="secessionFrm">
+                    <div class="check">
+                        <input type="checkbox" id="check">
+                        <label for="check">위 사항을 모두 확인하였으며, 이에 동의합니다.</label>
+                    </div>
 
-                <div class="check">
-                    <input type="checkbox" id="check">
-                    <label for="check">위 사항을 모두 확인하였으며, 이에 동의합니다.</label>
-                </div>
+
+                        <div class="inputPw">
+                            <label>비밀번호</label>
+                            <input type="password" name="memberPw" id="memberPw" maxlength="30">              
+                        </div>
 
 
 
-                <div class="btn">
-                    <button id="qu">그만두기</button>
-                    <button>탈퇴하기</button>
-                </div>
-
+                    <div class="btn">
+                        <button id="qu">그만두기</button>
+                        <button>탈퇴하기</button>
+                    </div>
+                </form>
             </section>
 
         </section>
-    </main>
+    </cmain>
     
 </body>
 </html>
