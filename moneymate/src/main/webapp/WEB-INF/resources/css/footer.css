@@ -1,0 +1,14 @@
+.footer{
+    color: #929292;
+    
+}
+
+.main{
+    width: 1200px;
+    height: 292px;
+    border: solid 1px black;
+}
+
+.moon{
+    height: 100px;
+}
