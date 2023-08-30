@@ -3,79 +3,86 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>회원 탈퇴</title>
-
-    <link rel="stylesheet" href="../css/myPageSidemenu-style.css">
-    <link rel="stylesheet" href="../css/secession.css">
     <link rel="stylesheet" href="../css/header.css">
+    <link rel="stylesheet" href="../css/member/myPageSidemenu.css">
+    <link rel="stylesheet" href="../css/secession.css">
+    <script src="https://kit.fontawesome.com/98acdabf0d.js"
+	crossorigin="anonymous"></script>
+    <title>마이페이지 사이드메뉴</title>
 </head>
 <body>
 
-    <cmain>
+    <main>
         <section>
-            <main>
-
-
-                <div class="head">
-                    <div><a href=""><img src="../images/로고.png"></a></div>
-                    <div class="head-board">
-                        <!-- 헤더 글 -->
-                        <div class="nav">
-                            <a href=""><span>커뮤니티</span></a>
-                            <a href=""><span>가계부</span></a>
-                            <a href=""><span>소비 테스트</span></a>
-                            <a href=""><span>이벤트게시판</span></a>
-                            <a href=""><span>마이페이지</span></a>
-            
-                        </div>
-                        <!-- 헤더 프로필 -->
-                        <div class="login">
-                            <div>
-                                
-                                <img src="../images/로그인 아이콘.png">
-                            </div>
-                            <div>
-                                <a href=""><span>LOGIN</span></a>
-                                <a href=""><span>회원가입</span></a>
+            <div class="head">
+                <div><a href=""><img src="../images/로고.png"></a></div>
+                <div class="head-board">
+                    <!-- 헤더 글 -->
+                    <div class="nav">
+                        <a href=""><span>커뮤니티</span></a>
+                        <a href=""><span>가계부</span></a>
+                        <a href=""><span>소비 테스트</span></a>
+                        <a href=""><span>이벤트게시판</span></a>
+                        <a href=""><span>마이페이지</span></a>
         
-                            </div>
+                    </div>
+                    <!-- 헤더 프로필 -->
+                    <div class="login">
+                        <div>
+                            
+                            <img src="../images/로그인 아이콘.png">
+                        </div>
+                        <div>
+                            <a href=""><span>LOGIN</span></a>
+                            <a href=""><span>회원가입</span></a>
+    
                         </div>
                     </div>
                 </div>
-        
-        
-            </main>
-        
-
+            </div>
         </section>
 
-        <section class="myPage-notice-content">
+        <section class="myPage-container">
 
             <section class="myPage-sidemenu">
-                <div class="myPage-community-header">
-                    <div><h1>마이페이지</h1></div>
-                    <div>myPage</div>
+                <div class="myPage-content-header">
+                    <div>마이페이지</div>
+                    <div class="myPage-sub-content">
+                        <div><span>나의 구독 현황 >></span><span> 플래티넘</span></div>
+                        <div>
+                            <div>일반</div>
+                            <div>골드</div>
+                            <div>플래티넘</div>
+                        </div>
+                        <div><i class="fa-solid fa-feather fa-xl"></i>구독구독하면 혜택이 많아져서 너무 좋아요 다들 하세요</div>
+
+                    </div>
                 </div>
-                <ul class="myPage-sidemenu-list">
+                <div class="myPage-member-list">
+                    <ul class="myPage-sidemenu-list">
+    
+                        <li><a href="#">내 정보 조회</i></a></li>
+                        
+                        <li><a href="#">내 정보 수정</i></a></li>
+                        
+                        <li><a href="#">비밀번호 재설정</i></a></li>
+                        
+                        <li><a href="#">내가 쓴 글</i></a></li>
+    
+                        <li><a href="#">좋아요 목록</a></li>
+    
+                        <li><a href="#">북마크 조회</a></li>
+    
+                        <li><a href="#">회원 탈퇴</a></li>
+                    </ul>
 
-                    <li><a href="#">내 정보<i class="fa-solid fa-caret-right fa-xl"></i></a></li>
-                    
-                    <li><a href="#">비밀번호 재설정<i class="fa-solid fa-caret-right fa-xl"></i></a></li>
-                    
-                    <li><a href="#">회원 탈퇴<i class="fa-solid fa-caret-right fa-xl"></i></a></li>
-
-                    <li><a href="#">내가 쓴 글<i class="fa-solid fa-caret-right fa-xl"></i></a></li>
-
-                    <li><a href="#">좋아요 목록<i class="fa-solid fa-caret-right fa-xl"></i></a></li>
-
-                    <li><a href="#">북마크 조회<i class="fa-solid fa-caret-right fa-xl"></i></a></li>
-                </ul>
+                </div>
 
             </section>
 
             <section class="myPage-notice-main">
-                <div class="myPage-notice-name">회원 탈퇴
-
+                <div class="myPage-notice-name">
+                    회원 탈퇴
                 </div>
 
                 <div class="sub">
@@ -111,7 +118,7 @@
 
 
                         <div class="inputPw">
-                            <label>비밀번호</label>
+                            <label for="memberPw">비밀번호</label>
                             <input type="password" name="memberPw" id="memberPw" maxlength="30">              
                         </div>
 
@@ -123,9 +130,8 @@
                     </div>
                 </form>
             </section>
-
         </section>
-    </cmain>
+    </main>
     
 </body>
 </html>
