@@ -13,21 +13,27 @@
 
         <div>결제 확인</div>
 
-        <div>
-            <span>구독 기간</span>
-            <input type="text" value="2023/02/01 ~ 2023/02/08">
-        </div>
+        <table>
+            <tr>
+                <td id="td-time">구독 기간</td>
+                <td><input type="text" id="time" value="2023/02/01 ~ 2023/02/28" readonly></td>
+            </tr>
+            <tr>
+                <td id="td-by">결제 정보</td>
+                <td id="by">무통장입금(임시)</td>
+            </tr>
+            <tr>
+                <td id="td-price">결제 금액</td>
+                <td id="price"><input type="text" id="time" value="2900" readonly></td>
+            </tr>
+            <tr>
+                <td colspan="2" id="td-inform">결제 정보는 이메일에서도 확인하실 수 있습니다.</td>
+            </tr>
+        </table>
 
         <div>
-            <span>결제 정보</span>
-            <span></span>
+            <button type="button" id="btn">확인</button>
         </div>
-
-        <div></div>
-
-        <div></div>
-
-        <div></div>
 
     </div>
 

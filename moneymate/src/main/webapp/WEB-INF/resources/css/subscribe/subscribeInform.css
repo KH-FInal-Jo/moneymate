@@ -41,7 +41,15 @@ main{
 #second-div>div:nth-child(1){
     width: 300px;
     height: 200px;
-    border: 3px solid rgb(12,64,202);
+    border: 3px solid transparent;
+    background-image: linear-gradient(#fff, #fff),linear-gradient(
+        90deg,
+        rgba(140, 165, 233,1) 0%,
+        rgba(79, 209, 197, 1) 100%
+    );
+    background-origin: border-box;
+    background-clip: content-box, border-box;
+    /* border: 3px solid rgb(12,64,202); */
     border-radius: 10px;
     margin-top: 40px;
 }
@@ -61,8 +69,8 @@ main{
     font-weight: bold;
     margin-top: 20px;
 }
-
-#monthBtn{ /* 한 달 선택 버튼 */
+/* 한 달 선택 버튼 */
+/* #monthBtn{ 
     margin-top: 20px;
     width: 200px;
     height: 40px;
@@ -72,20 +80,27 @@ main{
     font-size: 20px;
     letter-spacing: 10px;
     font-weight: bold;
-}
+} */
 
-#monthBtn:hover{
+/* #monthBtn:hover{
     background-color:  rgb(12,64,202);
     color: white;
     cursor: pointer;
-}
+} */
 
 /* 일 년 */
 
 #second-div>div:nth-child(2){
     width: 400px;
     height: 300px;
-    border: 3px solid rgb(12,64,202);
+    border: 3px solid transparent;
+    background-image: linear-gradient(#fff, #fff),linear-gradient(
+        90deg,
+        rgba(140, 165, 233,1) 0%,
+        rgba(79, 209, 197, 1) 100%
+    );
+    background-origin: border-box;
+    background-clip: content-box, border-box;
     border-radius: 10px;
 }
 
@@ -137,8 +152,8 @@ main{
 #second-div>div:nth-child(2)>div:nth-child(5){
     margin-top: 20px;
 }
-
-#yearBtn{ /* 일 년 선택 버튼 */
+/* 일 년 선택 버튼 */
+/* #yearBtn{ 
     width: 280px;
     height: 50px;
     border-radius: 5px;
@@ -147,20 +162,27 @@ main{
     font-size: 25px;
     letter-spacing: 10px;
     font-weight: bold;
-}
+} */
 
-#yearBtn:hover{
+/* #yearBtn:hover{
     background-color:  rgb(12,64,202);
     color: white;
     cursor: pointer;
-}
+} */
 
 /* 육 개월 */
 
 #second-div>div:nth-child(3){
     width: 350px;
     height: 250px;
-    border: 3px solid rgb(12,64,202);
+    border: 3px solid transparent;
+    background-image: linear-gradient(#fff, #fff),linear-gradient(
+        90deg,
+        rgba(140, 165, 233,1) 0%,
+        rgba(79, 209, 197, 1) 100%
+    );
+    background-origin: border-box;
+    background-clip: content-box, border-box;
     border-radius: 10px;
     margin-top: 30px;
 }
@@ -190,7 +212,7 @@ main{
     font-weight: bold;
 }
 
-#sixBtn{
+/* #sixBtn{
     margin-top: 20px;
     width: 220px;
     height: 45px;
@@ -207,7 +229,7 @@ main{
     background-color:  rgb(12,64,202);
     color: white;
     cursor: pointer;
-}
+} */
 
 #third-div{
     margin-top: 50px;
@@ -223,3 +245,55 @@ main{
 
 
 
+.w-btn-neon2 {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    position: relative;
+    border: none;
+    min-width: 200px;
+    min-height: 50px;
+    background: linear-gradient(
+        90deg,
+        rgba(140, 165, 233,1) 0%,
+        rgba(79, 209, 197, 1) 100%
+        /* rgba(129, 230, 217, 1) 0%,
+        rgba(79, 209, 197, 1) 100% */
+    );
+    border-radius: 200px;
+    color: darkslategray;
+    cursor: pointer;
+    box-shadow: 12px 12px 24px rgba(79, 209, 197, 0.64);
+    font-weight: 700;
+    transition: 0.3s;
+    letter-spacing: 3px;
+    font-size: 20px;
+}
+@keyframes ring {
+    0% {
+        width: 30px;
+        height: 30px;
+        opacity: 1;
+    }
+    100% {
+        width: 300px;
+        height: 300px;
+        opacity: 0;
+    }
+}
+.w-btn-neon2:hover {
+    transform: scale(1.2);
+}
+
+.w-btn-neon2:hover::after {
+    content: "";
+    width: 30px;
+    height: 30px;
+    border-radius: 100%;
+    border: 6px solid rgb(140, 165, 233);
+    position: absolute;
+    z-index: -1;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: ring 1.5s infinite;
+}
