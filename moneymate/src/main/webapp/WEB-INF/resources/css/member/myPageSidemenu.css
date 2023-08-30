@@ -35,35 +35,34 @@
     justify-content: center;
     align-items: center;
 
-    box-shadow: 0px 1px 9px 5px skyblue; 
+    box-shadow: 0px 1px 5px 2px skyblue; 
 
-    border-top-left-radius: 80px;
-    border-top-right-radius: 80px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
     
-    border-bottom-left-radius: 15px;
-    border-bottom-right-radius: 15px;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
     padding-top: 10px;
 }
 /* 마이페이지 글씨 부분 스타일 */
 .myPage-content-header > div:first-child{
-    width: 80%;
-    height: 20%;
+    width: 60%;
+    height: 22%;
 
 
-    box-shadow: 13px 2px 5px 5px rgb(203, 204, 202); 
-
-    margin-top: -5px;
+    margin-top: -30px;
     margin-bottom: 10px;
-    margin-left: -10px;
+    margin-left: -100px;
+    padding-left: 20px;
 
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: start;
     font-size: 22px;
     color: black;
 
 
-    border-radius: 70%;
+    border-radius: 0%;
 
 
 }
@@ -80,13 +79,15 @@
 
     padding-top: 8px;
 
-    justify-content: center;
+    padding-left: 20px;
+
+    justify-content: start;
 
     font-size: 16px;
 }
 
 .myPage-sub-content > div:first-child > span:last-of-type{
-    color: blue;
+    color: rgb(82, 82, 255);
     font-weight: bold;
 }
 
@@ -106,19 +107,19 @@
 
     margin: 10px;
 
-    background-color: rgb(243, 208, 215);
+    background-color: lightcyan;
     border-radius: 50%;
 
     display: flex;
     justify-content: center;
     align-items: center;
 
-    border-style: groove;
+    border-style: ridge;
 }
 
 .myPage-sub-content > div:nth-child(2) > div:last-child{
-    background-color: rgb(190, 126, 250);
-    color: white;
+    background-color: skyblue;
+    color: black;
     
 }
 
@@ -136,6 +137,7 @@
     padding-left: 13px;
 
 
+    color: gray;
     font-size: 15px;
 }
 
