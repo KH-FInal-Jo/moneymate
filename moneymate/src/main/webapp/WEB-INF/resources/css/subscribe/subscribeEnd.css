@@ -1,0 +1,7 @@
+*{box-sizing: border-box;}
+div{border: 1px solid black;}
+#main{
+    border: 1px solid black;
+    width: 1200px;
+    margin: auto;
+}
