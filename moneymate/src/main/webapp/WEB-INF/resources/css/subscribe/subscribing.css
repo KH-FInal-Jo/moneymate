@@ -245,6 +245,13 @@
     font-weight: bold;
 }
 
+input[name="cashName"]{
+    margin-left: 10px;
+    border: 0;
+    outline: none;
+    border-bottom: 2px solid #ddd;
+}
+
 #inform-area{ /* ..너무 비어보여서 넣는 div */
     width: 430px;
     height: 80px;
