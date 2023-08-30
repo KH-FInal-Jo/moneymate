@@ -1,0 +1,38 @@
+.main{
+    width: 1200px;
+    height: 1800px;
+    
+
+}
+
+.container{
+    width: 80%;
+    height: 100%;
+    display: flex;    
+}
+
+.container1{
+    width: 400px;
+    height: 300px;
+}
+
+.container2{
+    
+}
+
+.container1-2{
+    width: 100%;
+    display: flex;
+    text-align: center;
+    font-size: 80px;
+    font-weight: bold;
+    justify-content: center;
+    
+}
+
+.container1-2-1{
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+}
+
