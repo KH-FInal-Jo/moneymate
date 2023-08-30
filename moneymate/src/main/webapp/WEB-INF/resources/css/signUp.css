@@ -14,21 +14,6 @@
 
 
 
-.signup-find-area{
-    margin-top: 10px;
-    padding-left: 5px;
-}
-
-.signup-find-area > a{
-    color : black;
-    text-decoration: none;
-    font-size: 14px;
-}
-
-.signup-find-area > span{
-    padding: 0 10px;
-}
-
 
 /* input 태그를 감싸고 있는 div 태그 */
 .signUp-input-area{
