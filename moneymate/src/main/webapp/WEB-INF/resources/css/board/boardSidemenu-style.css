@@ -13,7 +13,7 @@
     display: flex;
     flex-direction: column;
 
-    border-right: 1px solid skyblue;
+    border-right: 1px solid gray;
 
 }
 
@@ -70,7 +70,7 @@
     height: 60px;
     font-size: 18px;
 
-    border-bottom: 2px solid skyblue;
+    border-bottom: 2px solid #ddd;
 
     display: flex;
 
@@ -98,6 +98,10 @@
     cursor: pointer;
 }
 
+.board-sidemenu-list i{
+    color: gray;
+}
+
 /* 보드 게시판 메인 스타일 */
 
 /* 게시판 이름 구역 스타일 */
@@ -113,12 +117,10 @@
 
     
     
-    border-top: 2px solid skyblue;
-    border-bottom: 4px solid skyblue;
-
+    border-top: 2px solid rgb(175, 173, 173);
+    border-bottom: 4px solid rgb(175, 173, 173);
 
     border-left: 0;
-    
 }
 
 

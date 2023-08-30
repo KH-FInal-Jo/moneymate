@@ -13,8 +13,6 @@
     width: 25%;
     display: flex;
     flex-direction: column;
-
-
 }
 
 .myPage-main{
@@ -37,18 +35,13 @@
 
     box-shadow: 0px 1px 5px 2px skyblue; 
 
-    border-top-left-radius: 20px;
-    border-top-right-radius: 20px;
-    
-    border-bottom-left-radius: 20px;
-    border-bottom-right-radius: 20px;
+    border-radius: 22px;
     padding-top: 10px;
 }
 /* 마이페이지 글씨 부분 스타일 */
 .myPage-content-header > div:first-child{
     width: 60%;
     height: 22%;
-
 
     margin-top: -30px;
     margin-bottom: 10px;
@@ -58,7 +51,7 @@
     display: flex;
     align-items: center;
     justify-content: start;
-    font-size: 22px;
+    font-size: 25px;
     color: black;
 
 
@@ -83,12 +76,14 @@
 
     justify-content: start;
 
-    font-size: 16px;
+    font-size: 15px;
 }
 
 .myPage-sub-content > div:first-child > span:last-of-type{
     color: rgb(82, 82, 255);
     font-weight: bold;
+
+    cursor: pointer;
 }
 
 
@@ -114,6 +109,8 @@
     justify-content: center;
     align-items: center;
 
+    font-size: 15px;
+
     border-style: ridge;
 }
 
@@ -123,29 +120,28 @@
     
 }
 
-/* 구독 홍보 멘트 */
+/* 마일리지 */
 .myPage-sub-content > div:nth-child(3){
     width: 90%;
     height: 20%;
 
     display: flex;
-    justify-content: end;
+    justify-content: start;
 
     text-align: start;
 
-    padding-top: 23px;
-    padding-left: 13px;
-
+    padding-top: 40px;
+    padding-left: 20px;
 
     color: gray;
-    font-size: 15px;
+    font-size: 18px;
 }
 
 .myPage-sub-content i{
-    margin-top: 19px;
+    margin-top: 10px;
     margin-right: 15px;
     font-size: 34px;
-    color: skyblue;
+    color: rgba(210, 228, 47, 0.767);
 }
 
 /* 마이페이지 사이드메뉴 */
@@ -153,6 +149,13 @@
     display: flex;
     width: 100%;
     height: 60%;
+
+    box-shadow: 0px 2px 6px 3px skyblue; 
+
+    margin-top: 7px;
+
+    border-radius: 30px;
+
 }
 
 .myPage-sidemenu-list{
@@ -160,8 +163,8 @@
     flex-direction: column;
     width: 100%;
 
-    margin-left: 0;
-
+    justify-content: start;
+    align-items: start;
 }
 
 .myPage-member-list a{
@@ -171,17 +174,20 @@
 
     font-size: 23px;
 }
-.myPage-member-list li{
+.myPage-sidemenu-list > li{
+
     width: 100%;
 
-    display: flex;
-    list-style: none;
+    font-size: 20px;
 
-    padding-bottom: 17px;
-    padding-top: 17px;
+    padding-bottom: 14px;
+    padding-top: 23px;
 
-    border-bottom: 1px solid gray;
+    cursor: pointer;
 
-    margin-left: 0;
+    color: rgb(82, 191, 235);
+}
 
+.myPage-sidemenu-list a:hover{
+    color: skyblue;
 }
