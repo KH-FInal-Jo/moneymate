@@ -244,6 +244,13 @@ body{
   width: 280px;
   height: 200px;
   border: 1px solid #ddd;
+  overflow: auto;
+  -ms-overflow-style: none; /* 인터넷 익스플로러 */
+  scrollbar-width: none; /* 파이어폭스 */
+}
+
+#groups::-webkit-scrollbar {
+  display: none;
 }
 
 .input-email{
@@ -251,6 +258,8 @@ body{
   height: 30px;
   border-radius: 20px;
   padding-left: 10px;
+  border: 0;
+  background-color: #eee;
 }
 
 #groups span{  /* x버튼 */
@@ -259,7 +268,7 @@ body{
 
 .each-email{
   position: relative;
-  border: 1px solid pink;
+  margin-bottom: 5px;
 }
 
 .x-btn{
@@ -268,4 +277,11 @@ body{
   top: 5px;
   margin-left: 5px;
   cursor: pointer;
+}
+
+#inviteFrm>div:nth-of-type(2){
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
 }
