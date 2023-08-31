@@ -1,3 +1,14 @@
+*{
+    box-sizing: border-box;
+}
+
+.myPage-container{
+    width: 1200px;
+    margin: auto;
+}
+
+
+
 .list {
     margin: 30px;
     height: 715px;
@@ -26,11 +37,32 @@
     height: 100%;
     border: 1px solid black;
 }
-.content{
+
+.thumbnail img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    vertical-align: middle; 
+}
+
+.board{
     width: 85%;
     height: 100%;
     border: 1px solid black;
+    display: flex;
+    flex-direction: column;
 }
+
+.title{
+    height: 20%;
+}
+.content{
+    height: 60%;
+}
+.etc{
+    height: 20%;
+}
+
 
 .page{
     margin-top: 20px;

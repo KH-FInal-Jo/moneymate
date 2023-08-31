@@ -4,7 +4,7 @@
 
 .container {
     width: 600px;
-    height: 500px;
+    height: 450px;
     display: flex;
     flex-direction: column;
     margin:  200px auto;
@@ -26,6 +26,12 @@
     text-align: center;
 }
 
+.inputs{
+    border: 3px solid #ddd;
+    margin: 0px 30%;
+}
+
+
 .input  div:first-child{
     margin-bottom: 10px;
 }
@@ -34,6 +40,8 @@
     height: 30px;
     width: 200px;
     padding-left: 10px;
+    outline: none;
+    border: 0;
 }
 
 
@@ -41,6 +49,15 @@
     width: 200px;
     height: 30px;
     margin-top: 20px;
+    border: 0;
+    border-radius: 10px;
+    cursor: pointer;
+    background-color: rgb(12, 64, 202);
+
+}
+
+.btn1:hover{
+
 }
 
 .saveId {

@@ -1,0 +1,97 @@
+/* 마이페이지 북마크 조회 스타일 */
+.myPage-main{
+    width: 100%;
+    height: 1300px;
+    display: flex;
+
+    margin-left: 40px;
+}
+/* 북마크 제목 */
+.myPage-list-header-name{
+    width: 100%;
+    height: 140px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 25px;
+
+    border: 3px solid skyblue;
+
+    border-radius: 25px;
+
+    margin-bottom: 60px;
+}
+
+/* 북마크 목록 컨테이너 */
+.myPage-list-container{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+/* 게시글 컨테이너 스타일 */
+.myPage-bookmark{
+    width: 97%;
+    height: 200px;
+    display: flex;
+    padding-bottom: 40px;
+
+}
+
+/* 북마크 스타일 */
+.myPage-bookmark i {
+    color: skyblue;
+    cursor: pointer;
+}
+
+.myPage-bookmark > div:nth-child(1){
+    width: 10%;
+    
+    margin-left: -20px;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* 북마크 사진 스타일 */
+.myPage-bookmark > div:nth-child(2){
+    height: 100%;
+    width: 35%;
+
+    background-color: pink;
+    margin-right: 20px;
+}
+.myPage-bookmark img{
+    width: 100%;
+    height: 100%;
+
+    background-color: yellow;
+    
+}
+
+/* 북마크 관련 게시글 제목, 내용 */
+.myPage-bookmark > div:nth-child(3){
+    width: 55%;
+    border: 2px solid skyblue;
+    padding: 12px;
+}
+.myPage-bookmark > div:nth-child(3) > div:first-child{
+    width: 100%;
+    height: 20%;
+    font-size: 17px;
+    font-weight: bold;
+
+    border-bottom: 2px solid skyblue;
+
+    border-bottom-style: dashed;
+
+}
+.myPage-bookmark > div:nth-child(3) > div:last-child{
+    width: 100%;
+    height: 72%;
+    font-size: 20px;
+
+    margin-top: 10px;
+}
