@@ -1,0 +1,109 @@
+.accountBook-main{
+    display: flex;
+    flex-direction: column;
+    width: 1200px;
+    border: 1px solid black;
+    margin: auto;
+}
+
+/* 날짜 */
+.date{
+    display: flex;
+    border: 1px solid black;
+    align-items: center;
+    padding: 50px 0px;
+
+
+    font-size: 29px;
+}
+/* 화살표,날짜문구 간격 */
+.date > span{
+    margin: 0 10px;
+}
+
+/* 화살표 */
+.fa-solid{
+    cursor: pointer;
+}
+
+/* 지출, 수입 버튼영역 */
+.btn-area{
+    display: flex;
+    align-items: center;
+    padding: 30px 10px;
+}
+
+.btn-area button{
+    width: 220px;
+    height: 70px;
+    font-size: 20px;
+
+    background-color: rgb(88, 117, 221);
+    color: white;
+    border: 0;
+    border-radius: 10px;
+}
+
+/* 지출 버튼 */
+#spend{
+    margin-right: 30px;
+}
+/* 수입 버튼 */
+#income{
+    margin-right: 50px;
+}
+
+/* 플러스 버튼 */
+.fa-regular{
+    cursor: pointer;
+}
+
+/* 차트 영역 */
+.chart {
+    position: relative;
+    display:inline-block;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    transition: 0.3s;
+
+    border: 1px solid black;
+    padding-top: 100px;
+  }
+
+.chart-shape{
+    background: #fff;
+    display : block;
+    position: absolute;
+    top:50%; left:50%;
+    width:100px; height:100px;
+    border-radius: 50%;
+    text-align:center; 
+    line-height: 100px;
+    font-size:25px;
+     transform: translate(-50%, -50%);
+  }
+
+  .chart{
+    animation: pie1 0.5s forwards;
+  }
+
+  @keyframes pie1{
+    0%{background : conic-gradient(#ccc 0% 0%, #ffffff 0% 100%)}
+    6%{background : conic-gradient(#ccc 0% 5%, #ffffff 0% 100%)}
+    12%{background : conic-gradient(#ccc 0% 10%, #ffffff 0% 100%)}
+    18%{background : conic-gradient(#ccc 0% 15%, #ffffff 0% 100%)}
+    25%{background : conic-gradient(#ccc 0% 20%, #ffffff 0% 100%)}
+    33%{background : conic-gradient(#ccc 0% 25%, #ffffff 0% 100%)}
+    38%{background : conic-gradient(#ccc 0% 30%, #ffffff 0% 100%)}
+    44%{background : conic-gradient(#ccc 0% 35%, #ffffff 0% 100%)}
+    50%{background : conic-gradient(#ccc 0% 40%, #ffffff 0% 100%)}
+    56%{background : conic-gradient(#ccc 0% 45%, #ffffff 0% 100%)}
+    62%{background : conic-gradient(#ccc 0% 50%, #ffffff 0% 100%)}
+    68%{background : conic-gradient(#ccc 0% 55%, #ffffff 0% 100%)}
+    75%{background : conic-gradient(#ccc 0% 60%, #ffffff 0% 100%)}
+    82%{background : conic-gradient(#ccc 0% 65%, #ffffff 0% 100%)}
+    88%{background : conic-gradient(#ccc 0% 70%, #ffffff 0% 100%)}
+    94%{background : conic-gradient(#ccc 0% 75%, #ffffff 0% 100%)}
+    100%{background : conic-gradient(#ccc 0% 95%, #ffffff 80% 100%)}
+  }
