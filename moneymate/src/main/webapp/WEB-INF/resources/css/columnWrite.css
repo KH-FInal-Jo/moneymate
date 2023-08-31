@@ -1,0 +1,64 @@
+.Cwrite-main{
+    display: flex;
+    width: 1200px;
+    border: 1px solid black;
+    margin: auto;
+}
+/* 사이드바 */
+.side{
+    width: 25%;
+    border: 1px solid black;
+}
+/* 게시글 작성 메인 */
+.write-main{
+    display: flex;
+    width: 75%;
+    border: 1px solid black;
+    flex-direction: column;
+    margin-left: 20px;
+}
+/* 제목 입력 input */
+#Wtitle{
+    height: 30px;
+    width: 700px;
+}
+
+.img-box{
+    border: 1px solid black;
+    display: flex;
+    align-items: center;
+}
+/*  파일첨부 */
+.inputImage{
+    display: none;
+    
+}
+/* 사진첨부 */
+.photo{
+    cursor: pointer;
+    font-size: 18px;
+}
+
+/* 내용 */
+.text > textarea {
+    width: 100%;
+    height: 400px;
+    resize: none;
+    font-size: 18px;
+    margin: 20px 0;
+}
+/* 버튼 영역 */
+.btn{
+    display: flex;
+    justify-content: end;
+}
+
+/* 등록하기 버튼 */
+#finish{
+    background-color: wheat;
+    border: 0;
+    width: 100px;
+    height: 30px;
+    font-size: 15px;
+    cursor: pointer;
+}
