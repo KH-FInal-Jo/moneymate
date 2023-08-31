@@ -1,0 +1,51 @@
+.footer{
+    color: #929292;
+    height: 125px;
+    margin-left: 80px;
+    font-size: 18px;
+    font-weight: bold;
+    
+    
+}
+
+.main{
+    width: 1900px;
+    height: 355px;
+   
+}
+.container{
+    width: 1900px;
+    height: 355px;
+}
+
+.container1{
+    width: 100%;
+    display: flex;
+    margin-left: 80px;
+
+}
+.container1-1{   
+    width: 100%; 
+    display: flex;
+    justify-content: space-between;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+
+/* 빈공간 */
+.moon{ 
+    height: 135px;
+}
+
+.moon2{
+    height: 100px;
+    display: flex;
+    justify-content: end;
+    
+}
+
+.moon2>img{    
+    object-fit: cover;
+    margin-right: 100px;
+}
