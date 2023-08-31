@@ -72,7 +72,7 @@
     display: block;
     width: 48px;
     height: 24px;
-    text-indent: -250%; /* 라벨 텍스트 왼쪽으로 이동*/
+    text-indent: -300%; /* 라벨 텍스트 왼쪽으로 이동*/
     user-select: none; /* 라벨 텍스트 선택 차단 */
 }
 .saveId label::before,
@@ -109,8 +109,8 @@
 }
 
 .saveId > label {
-    font-size: 12px;
-
+    font-size: 15px;
+    
 }
 
 .spans{
