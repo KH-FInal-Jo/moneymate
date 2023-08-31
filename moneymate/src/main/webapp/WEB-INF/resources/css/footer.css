@@ -8,28 +8,36 @@
     
 }
 
-.main{
-    width: 1900px;
+.Fmain{
+    width: 1200px;
     height: 355px;
    
 }
-.container{
+.Fcontainer{
     width: 1900px;
     height: 355px;
 }
 
-.container1{
+.Fcontainer1{
     width: 100%;
     display: flex;
-    margin-left: 80px;
+    /* margin-left: 80px; */
 
 }
-.container1-1{   
+.Fcontainer1-1{   
     width: 100%; 
     display: flex;
     justify-content: space-between;
     font-size: 18px;
     font-weight: bold;
+}
+
+.Fcontainer2{
+    width: 100%;
+    height: 80%;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
 }
 
 
@@ -47,5 +55,5 @@
 
 .moon2>img{    
     object-fit: cover;
-    margin-right: 100px;
+    /* margin-right: 100px; */
 }
