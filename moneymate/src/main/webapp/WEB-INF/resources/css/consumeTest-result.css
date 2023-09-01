@@ -1,0 +1,48 @@
+.body{
+    background-image: url("../images/background3.png") ;
+}
+
+#start-main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    padding-top: 80px;
+}
+
+.result{
+    font-size: 30px;
+    color: crimson;
+    font-weight: bold;
+}
+
+.result-img{
+    width: 500px;
+}
+
+
+.result-img > img{
+    width: 100%;
+    
+}
+
+li{
+    font-weight: bold;
+    font-size: 20px;
+}
+
+
+.vibration{
+    animation: vibration 2s infinite;
+}
+
+
+@keyframes vibration {
+    from {
+      transform: rotate(1deg);
+    }
+    to {
+      transform: rotate(-1deg);
+    }
+  }
