@@ -1,3 +1,8 @@
+* { box-sizing: border-box; }
+section {border: 1px solid black;} 
+div {border: 1px solid black;} 
+
+
 .footer{
     color: #929292;
     height: 125px;
@@ -14,7 +19,7 @@
    
 }
 .Fcontainer{
-    width: 1900px;
+    width: 1200px;
     height: 355px;
 }
 
@@ -43,7 +48,7 @@
 
 /* 빈공간 */
 .moon{ 
-    height: 135px;
+    height: 100px;
 }
 
 .moon2{
