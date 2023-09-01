@@ -7,6 +7,9 @@
     <link rel="stylesheet" href="../css/header.css">
     <link rel="stylesheet" href="../css/account/accountBookDetail.css">
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.css">
+
     <script src="https://kit.fontawesome.com/a5af36132e.js" crossorigin="anonymous"></script>
 
     <title>가계부 상세보기</title>
@@ -69,13 +72,13 @@
             <span><i class="fa-regular fa-square-plus fa-4x" style="color: #0c40ca;"></i></span>
         </div>
 
-        <div class="chart">
-            <span class="chart-shape">
-                80%
-            </span>
+        <div class="chart-div">
+            <canvas id="pieChartCanvas" width="300px" height="300px"></canvas>
         </div>
 
     </main>
     
+    <script src="../js/accountBookDeatil.js"></script>
+
 </body>
 </html>
