@@ -1,0 +1,203 @@
+/* 가계부 썸네임 */
+.accBk-thumbnail{
+    width: 100%;
+    margin-top: 30px;
+    height: 600px;
+}
+/* 가계부 수입, 지출, 계산기 부분 */
+.accBk-container{
+    width: 1200px;
+    margin: auto;
+    display: flex;
+}
+
+/* 가계부 수입, 지출 기록 컨테이너 */
+.accBk-top{
+    width: 50%;
+    height: 600px;
+
+    margin-top: 20px;
+
+    display: flex;
+    flex-direction: column;
+
+    padding: 20px;
+}
+/* 가계부 계산기 부분 */
+.accBk-cal{
+    width: 50%;
+    height: 600px;
+}
+
+/* 가계부 전체 padding */
+.accBk-top > div{
+    padding-bottom: 20px;
+}
+
+/* 가계부 이미지 스타일 */
+.accBk-thumbnail > img{
+    width: 100%;
+    height: 100%;
+}
+
+/* 제목 */
+.accBk-top > div:nth-child(1){
+    width: 500px;
+    font-size: 28px;
+    margin-bottom: 30px;
+    border-bottom: 2px solid rgb(201, 194, 194);
+}
+
+.accBk-top > div:nth-child(1) > i{
+    margin-right: 15px;
+}
+
+
+/* 가계부 금액 적는 부분 스타일 */
+.accBk-top > div:nth-child(2){
+    width: 350px;
+    height: 30px;
+}
+.accBk-top > div:nth-child(2)>input{
+    width: 90%;
+    height: 30px;
+}
+
+/* 가계부 지출, 수입, 이체 버튼 */
+.accBk-top > div:nth-child(3)>button{
+    width: 109px;
+    height: 40px;
+    font-size: 17px;
+    border: 0;
+    background-color: skyblue;
+    cursor: pointer;
+}
+
+.accBk-top > div:nth-child(3)>button:hover{
+    background-color: white;
+    border: 2px solid skyblue;
+    color: skyblue;
+}
+
+/* 가계부 상세 정보 입력 */
+.accBk-top table{
+    width: 500px;
+    height: 350px;
+    border-collapse : collapse;
+    background-color: #eee;
+
+
+    box-shadow: 3px 3px 3px 3px #afabab;
+
+}
+.accBk-top td, th{
+    padding-left: 5px;
+
+}
+.accBk-top th{
+    background-color: rgb(196, 241, 113);
+}
+
+
+/* 카테고리 버튼 */
+.accBk-top table button{
+    width: 80px;
+    height: 30px;
+
+    background-color: skyblue;
+    border: 0;
+
+    cursor: pointer;
+}
+
+.accBk-top table input{
+    width: 300px;
+    height: 30px;
+}
+
+/* ***************************************** */
+/* 계산기 */
+.accBk-cal {
+    height: 600px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    margin-top: 70px;
+
+}
+.calculator {
+    background-color: rgb(182, 78, 182);
+    width: 370px;
+    height: 500px;
+    padding: 10px 20px;
+    border: solid 3px #ffffff;
+
+    box-shadow: 0px 2px 5px 3px rgb(182, 78, 182);
+}
+.calculator__display--for-advanced {
+    background-color: rgba(118, 161, 240, 0.979);
+    height: 100px;
+    width: 93%;
+    border-radius: 10px;
+    font-size: 35px;
+    text-align: center;
+    vertical-align: middle;
+    padding: 25px 15px;
+    overflow: hidden;
+    overflow-wrap: break-word;
+}
+.calculator__buttons {
+    background-color: #ffffff;
+    width: 95%;
+    height: 320px;
+    margin-top: 10px;
+    padding: 10px;
+    border-radius: 10px;
+    font-size: 25px;
+}
+.clear__and__enter {
+    text-align: center;
+    height: 50px;
+    margin: 10px;
+    border-radius: 10px;
+    background-color: #ffffff;
+}
+.clear__and__enter > button {
+    border-radius: 10px;
+    width: 125px;
+    height: 50px;
+    margin: 0px 0px;
+    background-color: rgba(118, 161, 240, 0.979); 
+    cursor: pointer;
+    outline: none;
+    border: 0px solid #30bb98;
+}
+.button__row {
+    border-radius: 10px;
+    text-align: center;
+    height: 50px;
+    margin: 10px;
+    background-color: #ffffff;
+}
+.button__row > button {
+    width: 60px;
+    height: 50px;
+    border-radius: 10px;
+    cursor: pointer;
+    outline: none;
+    background-color: #bdb2b2;
+}
+.button__row > .operator {
+    color: #ffffff;
+    background-color: #313132;
+}
+.button__row > .double {
+    width: 125px;
+}
+.button__row > .isPressed {
+    background-color: #00da75;
+}
+
+
+

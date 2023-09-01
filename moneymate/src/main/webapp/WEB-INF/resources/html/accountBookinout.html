@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/account/accountBookInout.css">
+    <link rel="stylesheet" href="../css/header.css">
+    <script src="https://kit.fontawesome.com/98acdabf0d.js"
+	crossorigin="anonymous"></script>
+</head>
+    <title>가계부 수입지출 기록/마일리지</title>
+</head>
+<body>
+    
+    <main>
+        <section>
+            <div class="head">
+                <div><a href=""><img src="../images/로고.png"></a></div>
+                <div class="head-board">
+                    <!-- 헤더 글 -->
+                    <div class="nav">
+                        <a href=""><span>커뮤니티</span></a>
+                        <a href=""><span>가계부</span></a>
+                        <a href=""><span>소비 테스트</span></a>
+                        <a href=""><span>이벤트게시판</span></a>
+                        <a href=""><span>마이페이지</span></a>
+        
+                    </div>
+                    <!-- 헤더 프로필 -->
+                    <div class="login">
+                        <div>
+                            
+                            <img src="../images/로그인 아이콘.png">
+                        </div>
+                        <div>
+                            <a href=""><span>LOGIN</span></a>
+                            <a href=""><span>회원가입</span></a>
+    
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="accBk-thumbnail">
+            <img src="../images/accountThumbnail.jpg">
+        </section>
+
+        <section class="accBk-container">
+            <div class="accBk-top">
+                <div><i class="fa-solid fa-pen-to-square fa-xl"></i>가계부</div>
+                <div>
+                    <input type="text" id="accBk-money" name="inputMoney" placeholder="금액을 입력해주세요.">원
+                </div>
+                <div>
+                    <button type="button">지출</button>
+                    <button type="button">수입</button>
+                    <button type="button">이체</button>
+
+                </div>
+                <div>
+                    <table border="1">
+                        <tr>
+                            <th>카테고리</th>
+                            <td><button type="button">선택</button></td>
+                        </tr>
+                        <tr>
+                            <th>결제내역</th>
+                            <td><input type="text" name="accBk-list"></td>
+                        </tr>
+                        <tr>
+                            <th>결제수단</th>
+                            <td><select name="accBk-" id="accBk-payment">
+                                <option value="1">무통장입금</option>
+                            </select></td>
+                        </tr>
+                        <tr>
+                            <th>날짜</th>
+                            <td><select name="accBk-date" id="accBk-date">
+                                <option value="1">날짜..</option>
+                            </select></td>
+                        </tr>
+                        <tr>
+                            <th>메모</th>
+                            <td><input type="text" name="accBk-memo" id="accBk-memp"></td>
+                        </tr> 
+                        
+                    </table>
+                </div>
+            </div>
+            <div class="accBk-cal">
+                <div class="calculator">
+                    <div class="calculator__display--for-advanced">0</div>
+                    <div class="calculator__buttons">
+                    <div class="clear__and__enter">
+                        <button class="clear">AC</button>
+                        <button class="calculate">Enter</button>
+                    </div>
+                    <div class="button__row">
+                        <button class="number">7</button>
+                        <button class="number">8</button>
+                        <button class="number">9</button>
+                        <button class="operator">+</button>
+                    </div>
+                    <div class="button__row">
+                        <button class="number">4</button>
+                        <button class="number">5</button>
+                        <button class="number">6</button>
+                        <button class="operator">-</button>
+                    </div>
+                    <div class="button__row">
+                        <button class="number">1</button>
+                        <button class="number">2</button>
+                        <button class="number">3</button>
+                        <button class="operator">*</button>
+                    </div>
+                    <div class="button__row">
+                        <button class="number double">0</button>
+                        <button class="decimal">.</button>
+                        <button class="operator">/</button>
+                    </div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+
+
+    </main>
+
+    <script src="../js/accountInout.js"></script>
+
+</body>
+</html>
