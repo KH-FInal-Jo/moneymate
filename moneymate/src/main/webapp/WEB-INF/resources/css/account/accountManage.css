@@ -14,6 +14,7 @@ body{
     justify-content: center;
     align-items: center;
     height: 800px;
+    position: relative;
 }
 
 #container{
@@ -56,12 +57,7 @@ body{
     scrollbar-width: none; /* 파이어폭스 */
 }
 
-.content>div{
-    height: 50px;
-    position: relative;
-}
-
-.content span{
+.spans{
     position: absolute;
     top: 5px;
     left: 60px;
@@ -70,6 +66,8 @@ body{
 .user{
   display: flex;
   text-align: center;
+  height: 50px;
+    position: relative;
 }
 
 .profile{
@@ -140,3 +138,150 @@ body{
     height: 100%;
     width: 100%;
   }
+
+  /* 새로 생성하기 */
+#new{
+  background-color: white;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 40px;
+}
+
+#new:hover{
+  animation: motion 0.3s linear 0s infinite alternate; margin-top: 0;
+  cursor: pointer;
+}
+
+#plus-img{
+  width: 80px;
+  
+}
+
+@keyframes motion {
+	0% {margin-top: 0px;}
+	100% {margin-top: 30px;}
+}
+
+/* 모달창 */
+#modal{
+  position: absolute;
+  width: 300px;
+  height: 500px;
+  background-color: white;
+  border-radius: 5px;
+  z-index: 2;
+  
+}
+
+#modal>div:nth-of-type(1){
+  height: 120px;
+  display: flex;
+  justify-content: center;
+}
+
+#modal>div:nth-of-type(1)>img{
+  width: 120px;
+}
+
+#modal>div:nth-of-type(2){ /* 그룹 초대 글씨 */
+  margin-top: 10px;
+  margin-left: 10px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+#add-group{
+  margin-left: 10px;
+  width: 200px;
+  height: 25px;
+  border: 0;
+  border-bottom: 2px solid #ddd;
+  outline: none;
+}
+#input{
+  position: relative;
+  margin-top: 5px;
+}
+
+.email-img{
+  width: 20px;
+  position: absolute;
+  left: 190px;
+}
+
+#addBtn{
+  position: absolute;
+  right: 10px;
+  width: 60px;
+  height: 25px;
+  background-color: lightblue;
+  border: 0;
+  border-radius: 5px;
+  cursor: pointer;
+  transition-duration: 0.2s;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+#addBtn:hover{
+  transform: scale(1.1);
+}
+
+#modal>div:nth-of-type(4){ /* 나의 그룹원 글씨 */
+  margin-left: 10px;
+  margin-top: 10px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+#groups{
+  margin-left: 10px;
+  margin-top: 10px;
+  width: 280px;
+  height: 200px;
+  border: 1px solid #ddd;
+  overflow: auto;
+  -ms-overflow-style: none; /* 인터넷 익스플로러 */
+  scrollbar-width: none; /* 파이어폭스 */
+}
+
+#groups::-webkit-scrollbar {
+  display: none;
+}
+
+.input-email{
+  width: 200px;
+  height: 30px;
+  border-radius: 20px;
+  padding-left: 10px;
+  border: 0;
+  background-color: #eee;
+}
+
+#groups span{  /* x버튼 */
+  background-color: red;
+}
+
+.each-email{
+  position: relative;
+  margin-bottom: 5px;
+}
+
+.x-btn{
+  width: 20px;
+  position: absolute;
+  top: 5px;
+  margin-left: 5px;
+  cursor: pointer;
+}
+
+#inviteFrm>div:nth-of-type(2){
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
