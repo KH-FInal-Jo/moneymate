@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="../css/signUp.css">
     <link rel="stylesheet" href="../css/footer.css">
 
+
 </head>
 <body>
     <main>
@@ -45,88 +46,98 @@
 
     <section class="signUp-content">
 
+        <form action="#" method="post" name="signUp-form">
 
-        <form action="/member/signUp" method="POST" name="signUpFrm" id="signUpFrm">
-            
-            <label for="memberId">
-                <span>아이디(이메일)</span>
+            <label for="memberEmail">
+                <span class="required">*</span> 아이디(이메일)
             </label>
 
-            <div class="input-area">
-                <input type="text" name="memberId" placeholder="아이디(이메일)" id="memberId"><button>전송</button>
-            </div>
-            <div>
-                <span>사용가능한 아이디 입니다.</span>
+            <div class="signUp-input-area">
+                <input type="text" id="memberEmail" name="memberEmail"
+                        placeholder="아이디(이메일)" maxlength="30"
+                        autocomplete="off" required>
+
+                <button type="button">인증번호 받기</button>
             </div>
 
-            <label for="key">
-                <span>인증번호</span>
+            <span class="signUp-message">메일을 받을 수 있는 이메일을 입력해 주세요.</span>
+
+            <label for="emailCheck">
+                <span class="required">*</span> 인증번호
             </label>
-            
-            <div class="input-area">
-                <input type="text" name="key" placeholder="인증번호" id="key"><button>인증</button>
+
+            <div class="signUp-input-area">
+                <input type="text" id="emailCheck"
+                        placeholder="인증번호 입력" maxlength="6"
+                        autocomplete="off">
+
+                <button type="button">인증하기</button>
             </div>
 
-            <div>
-                <span>인증이 완료되었습니다.</span>
-            </div>
+            <span class="signUp-message confirm">인증되었습니다.</span>
+
 
             <label for="memberPw">
-                <span>비밀번호</span>
+                <span class="required">*</span> 비밀번호
             </label>
 
-            <div class="input-area">
-                <input type="password" name="memberPw" placeholder="비밀번호" id="memberPw">
+            <div class="signUp-input-area">
+                <input type="password" id="memberPw" name="memberPw"
+                        placeholder="비밀번호" maxlength="30">
             </div>
 
-            <div class="input-area">
-                <input type="password" name="memberPwCheck" placeholder="비밀번호 확인" id="memberPwCheck">
+            <div class="signUp-input-area">
+                <input type="password" id="memberPwConfirm"
+                        placeholder="비밀번호 확인" maxlength="30">
             </div>
 
-            <div>
-                <span>비밀번호가 일치합니다.</span>
-            </div>
+            <span class="signUp-message error">비밀번호가 일치하지 않습니다.</span>
 
             <label for="memberNickname">
-                <span>닉네임</span>
+                <span class="required">*</span> 닉네임
             </label>
-            <div class="input-area">
-                <input type="text" name="memberNickname" placeholder="닉네임" id="memberNickname">
+
+            <div class="signUp-input-area">
+                <input type="text" id="memberNickname" name="memberNickname"
+                        placeholder="닉네임" maxlength="10">
             </div>
-            <div>
-                <span>사용가능한 닉네임 입니다.</span>
-            </div>
+
+            <span class="signUp-message confirm">사용 가능한 닉네임입니다.</span>
 
             <label for="memberTel">
-                <span>전화번호</span>
+                <span class="required">*</span> 전화번호
             </label>
-            <div class="input-area">
-                <input type="text" name="memberTel" placeholder="전화번호" id="memberTel">
+
+            <div class="signUp-input-area">
+                <input type="text" id="memberTel" name="memberTel"
+                        placeholder="(- 없이 숫자만 입력)" maxlength="11">
             </div>
 
+            <span class="signUp-message error">전화번호 형식이 올바르지 않습니다.</span>
 
-            <span>주소</span>
+            <label for="memberAddress">
+                주소
+            </label>
 
+            <div class="signUp-input-area">
+                <input type="text" id="memberAddress" name="memberAddress"
+                        placeholder="우편번호" maxlength="6">
 
-            <div class="input-area">
-                <input type="text" name="memberAddress" placeholder="우편번호" maxlength="6" id="sample6_postcode"><button type="button" onclick="sample6_execDaumPostcode()">검색</button>
+                <button type="button">검색</button>
             </div>
 
-
-            <div class="input-area">
-                <input type="text" name="memberAddress" placeholder="도로명/지번 주소" id="sample6_address">
+            <div class="signUp-input-area">
+                <input type="text" name="memberAddress" placeholder="도로명주소">
             </div>
 
-
-            <div class="input-area">
-                <input type="text" name="memberAddress" placeholder="상세 주소" id="sample6_detailAddress">
+            <div class="signUp-input-area">
+                <input type="text" name="memberAddress" placeholder="상세주소">
             </div>
 
+            <button type="submit" id="signUp-btn">가입하기</button>
 
-
-
-            <button id="signUpBtn">가입하기</button>
         </form>
+
     </section>
 
     
