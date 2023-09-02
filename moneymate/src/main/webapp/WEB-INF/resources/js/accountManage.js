@@ -7,7 +7,11 @@ $(".hover").mouseleave(
 
 $("#new").click(function(){
 
+  // console.log(11111);
+
   $("#modal").css("display", "block");
-  $("#main").sytle("backgroundColor", "rgba(0, 0, 0, 0.5)");
+  $("#main-container").css("backgroundColor", "rgba(0, 0, 0, 0.5)");
+  $("#new").css("z-index", "auto");
 
 })
+
