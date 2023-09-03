@@ -30,7 +30,7 @@
 }
 
 /* 가계부 전체 padding */
-.accBk-top > div{
+.accBk-record > div{
     padding-bottom: 20px;
 }
 
@@ -41,102 +41,165 @@
 }
 
 /* 제목 */
-.accBk-top > div:nth-child(1){
+.accBk-top > div{
     width: 500px;
     font-size: 28px;
     margin-bottom: 30px;
     border-bottom: 2px solid rgb(201, 194, 194);
+    padding-bottom: 15px;
 }
 
-.accBk-top > div:nth-child(1) > i{
+.accBk-top i{
     margin-right: 15px;
 }
 
 
 /* 가계부 금액 적는 부분 스타일 */
-.accBk-top > div:nth-child(2){
+.accBk-record > div:nth-child(1){
     width: 350px;
     height: 30px;
 }
-.accBk-top > div:nth-child(2)>input{
+.accBk-record > div:nth-child(1)>input{
     width: 90%;
     height: 30px;
 }
 
 /* 가계부 지출, 수입, 이체 버튼 */
-.accBk-top > div:nth-child(3)>button{
+.accBk-record > div:nth-child(2)>button{
     width: 109px;
     height: 40px;
     font-size: 17px;
     border: 0;
-    background-color: skyblue;
+
+    color: white;
+
+    background: rgb(70, 187, 233);
+    background: linear-gradient(0deg, rgb(84, 198, 243) 0%, rgb(31, 137, 243) 100%);
     cursor: pointer;
+    transition: all 0.3s ease;
 }
 
-.accBk-top > div:nth-child(3)>button:hover{
+
+.accBk-record > div:nth-child(2)>button:hover{
     background-color: white;
-    border: 2px solid skyblue;
-    color: skyblue;
+
+    color: white;
 }
+
+.frame {
+    width: 90%;
+    margin: 40px auto;
+    text-align: center;
+  }
+
+
 
 /* 가계부 상세 정보 입력 */
-.accBk-top table{
+.accBk-record table{
     width: 500px;
     height: 350px;
     border-collapse : collapse;
-    background-color: #eee;
+    background-color: white;
 
 
-    box-shadow: 3px 3px 3px 3px #afabab;
+    box-shadow: 2px 1px 3px 1px #cfcfce;
+    border: 0;
 
 }
-.accBk-top td, th{
+.accBk-record td, th{
     padding-left: 5px;
-
+    border: 0;
 }
-.accBk-top th{
-    background-color: rgb(196, 241, 113);
+.accBk-record th{
+    background-color: #2dee4d7a;
 }
 
 
 /* 카테고리 버튼 */
-.accBk-top table button{
-    width: 80px;
-    height: 30px;
-
-    background-color: skyblue;
+.accBk-record table button{
+    height: 20px;
     border: 0;
+    background-color: white;
 
+    font-size: 16px;
+    font-weight: bold;
     cursor: pointer;
 }
 
-.accBk-top table input{
+.accBk-record table input{
     width: 300px;
     height: 30px;
 }
+
+/* 제출하기 버튼 */
+.accBk-record > div:last-child > button{
+    width: 200px;
+    height: 40px;
+    font-size: 20px;
+
+    cursor: pointer;
+
+    margin-top: 30px;
+
+}
+
+.btn-hover {
+    width: 200px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #fff;
+    cursor: pointer;
+    height: 55px;
+    text-align:center;
+    border: none;
+    background-size: 300% 100%;
+
+    border-radius: 50px;
+    moz-transition: all .4s ease-in-out;
+    -o-transition: all .4s ease-in-out;
+    -webkit-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out;
+}
+
+.btn-hover:hover {
+    background-position: 100% 0;
+    moz-transition: all .4s ease-in-out;
+    -o-transition: all .4s ease-in-out;
+    -webkit-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out;
+}
+
+.btn-hover:focus {
+    outline: none;
+}
+
+.btn-hover.color-1 {
+    background-image: linear-gradient(to right, #25aae1, #40e495, #30dd8a, #2bb673);
+    box-shadow: 0 1px 3px 0 rgba(49, 196, 190, 0.75);
+}
+
 
 /* ***************************************** */
 /* 계산기 */
 .accBk-cal {
     height: 600px;
     display: flex;
-    justify-content: center;
+    justify-content: end;
     align-items: center;
 
     margin-top: 70px;
 
 }
 .calculator {
-    background-color: rgb(182, 78, 182);
+    background-color: skyblue;
     width: 370px;
     height: 500px;
     padding: 10px 20px;
-    border: solid 3px #ffffff;
 
-    box-shadow: 0px 2px 5px 3px rgb(182, 78, 182);
+    box-shadow: 0px 2px 5px 3px rgb(146, 185, 218);
 }
 .calculator__display--for-advanced {
-    background-color: rgba(118, 161, 240, 0.979);
+    background-color: rgb(247, 246, 246);
     height: 100px;
     width: 93%;
     border-radius: 10px;
@@ -168,11 +231,16 @@
     width: 125px;
     height: 50px;
     margin: 0px 0px;
-    background-color: rgba(118, 161, 240, 0.979); 
+    background-color: skyblue; 
     cursor: pointer;
     outline: none;
     border: 0px solid #30bb98;
 }
+.clear__and__enter > button:hover{
+    background-color: white;
+    border: 3px solid skyblue;
+}
+
 .button__row {
     border-radius: 10px;
     text-align: center;
@@ -186,11 +254,18 @@
     border-radius: 10px;
     cursor: pointer;
     outline: none;
-    background-color: #bdb2b2;
+    background-color: #eeecec;
+
+    border: 2px solid rgb(194, 189, 189);
 }
+.button__row > button:hover{
+    color: white;
+}
+
 .button__row > .operator {
     color: #ffffff;
-    background-color: #313132;
+    background-color: #505052;
+    border: 0;
 }
 .button__row > .double {
     width: 125px;
@@ -199,5 +274,139 @@
     background-color: #00da75;
 }
 
+/* ******************************************** */
+
+/* 가계부 마일리지 컨테이너 스타일 */
+.accMileage-container{
+    width: 1200px;
+    margin: auto;
+    display: flex;
+
+    border-top: 2px solid rgb(201, 194, 194);;
+
+    margin-top: 50px
+}
+
+/* 가계부 목표 금액 설정 */
+.accMileage-left{
+    width: 50%;
+    height: 600px;
+
+    margin-top: 20px;
+
+    display: flex;
+    flex-direction: column;
+    
+    padding: 20px;
+}
+
+/* 마일리지 컨테이너 왼쪽 부분 전체 스타일 */
+.accMileage-left > div{
+    margin-bottom: 30px;
+}
+
+/* 기간 스타일 */
+.accMileage-left > div:first-child{
+    width: 500px;
+    font-size: 28px;
+}
+/* 한달 목표 예산 설정 스타일 */
+.accMileage-left > div:nth-child(2){
+    margin-top: 20px;
+    width: 500px;
+    font-size: 22px;
+
+}
+.accMileage-left > div:nth-child(2)>div:first-child{
+    font-size: 23px;
+    font-weight: bold;
+}
+
+
+/* 사용금액 스타일 */
+.accMileage-left > div:nth-child(3){
+    font-size: 22px;
+}
+
+.accMileage-left > div:nth-child(3)>div:first-child{
+    font-size: 23px;
+    font-weight: bold;
+}
+
+/* 프로그레스 스타일 */
+.accMileage-left > div:nth-child(4){
+    width: 460px;
+    height: 100px;
+    margin-top: 12px;
+}
+
+.accMileage-left progress{
+    width: 100%;
+    height: 100%;
+}
+
+/* 목표 설정 버튼 */
+.accMileage-left button{
+    width: 100%;
+    height: 50%;
+    background: linear-gradient(0deg, #3ef189 0%, #16d610 100%);
+    font-size: 17px;
+    border: 0;
+
+}
+.accMileage-left button:hover{
+
+    cursor: pointer;
+}
+
+
+
+
+/* 마일리지 오른쪽 컨테이너 스타일 */
+.accMileage-right{
+    width: 50%;
+    height: 600px;
+
+    margin-top: 50px;
+
+    display: flex;
+    flex-direction: column;
+
+    
+}
+
+/* 마일리지 썸네일 스타일 */
+.accMileage-right > div:first-of-type{
+    display: flex;
+    justify-content: end;
+
+}
+
+.accMileage-right img{
+    width: 80%;
+    height: 340px;
+}
+
+/* 나의 마일리지 찾으러 가기 버튼 스타일 */
+.accMileage-right > div:last-child{
+    display: flex;
+    justify-content: end;
+
+    width: 100%;
+}
+.accMileage-right button{
+    width: 80%;
+    height: 60px;
+    margin-top: 20px;
+    font-size: 17px;
+    background: rgb(70, 187, 233);
+    background: linear-gradient(0deg, rgb(84, 198, 243) 0%, rgb(31, 137, 243) 100%);
+    border: 0;
+    color: white;
+}
+.accMileage-right button:hover{
+
+    cursor: pointer;
+}
 
 

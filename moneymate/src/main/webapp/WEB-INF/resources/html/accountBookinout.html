@@ -46,48 +46,60 @@
             <img src="../images/accountThumbnail.jpg">
         </section>
 
+        <!-- 가계부 윗부분 -->
         <section class="accBk-container">
             <div class="accBk-top">
-                <div><i class="fa-solid fa-pen-to-square fa-xl"></i>가계부</div>
-                <div>
-                    <input type="text" id="accBk-money" name="inputMoney" placeholder="금액을 입력해주세요.">원
-                </div>
-                <div>
-                    <button type="button">지출</button>
-                    <button type="button">수입</button>
-                    <button type="button">이체</button>
 
-                </div>
-                <div>
-                    <table border="1">
-                        <tr>
-                            <th>카테고리</th>
-                            <td><button type="button">선택</button></td>
-                        </tr>
-                        <tr>
-                            <th>결제내역</th>
-                            <td><input type="text" name="accBk-list"></td>
-                        </tr>
-                        <tr>
-                            <th>결제수단</th>
-                            <td><select name="accBk-" id="accBk-payment">
-                                <option value="1">무통장입금</option>
-                            </select></td>
-                        </tr>
-                        <tr>
-                            <th>날짜</th>
-                            <td><select name="accBk-date" id="accBk-date">
-                                <option value="1">날짜..</option>
-                            </select></td>
-                        </tr>
-                        <tr>
-                            <th>메모</th>
-                            <td><input type="text" name="accBk-memo" id="accBk-memp"></td>
-                        </tr> 
-                        
-                    </table>
-                </div>
+                <div><i class="fa-solid fa-pen-to-square fa-xl"></i>가계부</div>
+
+                <form action="#">
+
+                    <div class="accBk-record">
+
+                        <div>
+                            <input type="text" id="accBk-money" name="inputMoney" placeholder="금액을 입력해주세요.">원
+                        </div>
+                        <div>
+                            <button type="button" value="expenditure">지출</button>
+                            <button type="button" value="income">수입</button>
+                            <button type="button" value="transfer">이체</button>
+        
+                        </div>
+                        <div>
+                            <table border="1">
+                                <tr>
+                                    <th>카테고리</th>
+                                    <td><button type="button">선택 <i class="fa-solid fa-right-to-bracket fa-lg"></i></button></td>
+                                </tr>
+                                <tr>
+                                    <th>결제내역</th>
+                                    <td><input type="text" name="accBk-list"></td>
+                                </tr>
+                                <tr>
+                                    <th>결제수단</th>
+                                    <td><select name="accBk-payment" id="accBk-payment" value="accBkPayment">
+                                        <option value="1">무통장입금</option>
+                                    </select></td>
+                                </tr>
+                                <tr>
+                                    <th>날짜</th>
+                                    <td><input type="date" value="accBkDate"></td>
+                                </tr>
+                                <tr>
+                                    <th>메모</th>
+                                    <td><input type="text" name="accBk-memo" id="accBk-memp"></td>
+                                </tr> 
+                                
+                            </table>
+                        </div>
+
+                        <div><button type="submit" class="btn-hover color-1">제출하기</button></div>
+                    </div>
+
+
+                </form>
             </div>
+            <!-- 가계부 계산기 -->
             <div class="accBk-cal">
                 <div class="calculator">
                     <div class="calculator__display--for-advanced">0</div>
@@ -123,6 +135,31 @@
                 </div>
             </div>
 
+        </section>
+
+        <!-- 가계부 밑부분 -->
+        <section class="accMileage-container">
+            <div class="accMileage-left">
+                <div>2023.08.01 ~ 2023.08.31</div>
+                <div>
+                    <div>한달 목표 예산</div>
+                    <div>5,000,000 원</div>
+                </div>
+                <div>
+                    <div>사용 금액</div>
+                    <div>3.000.000 원</div>
+                </div>
+                <!-- 목표예산 프로그레스 -->
+                <div>
+                    <progress value="80" max="100"></progress>
+                    <button type="button">목표 예산설정</button>
+                </div>
+            </div>
+
+            <div class="accMileage-right">
+                <div><img src="../images/MileageThumbnail.jpg"></div>
+                <div><button type="button">나의 마일리지 확인하러 가기!</button></div>
+            </div>
         </section>
 
 
