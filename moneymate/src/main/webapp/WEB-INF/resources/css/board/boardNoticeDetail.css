@@ -192,7 +192,6 @@
 #board-notice-title{
     height: 60px;
     font-size: 22px;
-    border-radius: 15px;
 }
 
 /* 내용 */
@@ -203,7 +202,6 @@
 
     resize: none;
 
-    border-radius: 15px;
 
 }
 

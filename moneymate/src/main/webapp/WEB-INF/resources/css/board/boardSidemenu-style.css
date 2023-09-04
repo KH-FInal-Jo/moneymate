@@ -50,10 +50,14 @@
 
 .board-community-header > div:first-child{
     font-size: 25px;
+    display: flex;
+    justify-content: center;
 }
 
 .board-community-header > div:last-child{
-    color: yellow;
+    color: rgb(252, 252, 75);
+    display: flex;
+    justify-content: center;
     font-weight: bold;
 }
 
