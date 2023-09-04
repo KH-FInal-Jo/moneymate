@@ -2,19 +2,35 @@
     display: flex;
     flex-direction: column;
     width: 1200px;
-    border: 1px solid black;
     margin: auto;
+}
+
+/* 최상단 문구 */
+h1{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f5f5f5;
+    height: 100px;
+    width: 1600px;
+}
+
+/* 최상단 이미지 */
+.head-img{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 100px;
 }
 
 /* 날짜 */
 .date{
     display: flex;
-    border: 1px solid black;
     align-items: center;
     padding: 50px 0px;
 
 
     font-size: 29px;
+    border-top: 1px solid #ccc;
 }
 /* 화살표,날짜문구 간격 */
 .date > span{
@@ -47,15 +63,22 @@
 /* 지출 버튼 */
 #spend{
     margin-right: 30px;
+    cursor: pointer;
 }
 /* 수입 버튼 */
 #income{
     margin-right: 50px;
+    cursor: pointer;
 }
 
 /* 플러스 버튼 */
 .fa-regular{
     cursor: pointer;
+}
+
+/* 차트, 내역 영역 */
+.all-area{
+    display: flex;
 }
 
 /* 차트 영역 */
@@ -119,59 +142,50 @@
 .detail-area{
     display: flex;
     flex-direction: column;
-    width: 80%;
-    margin: 100px auto auto auto;
+    width: 60%;
+    height: 500px;
+    margin: 100px 10px auto auto;
 
-
+    overflow: auto;
 }
 
-/* 내역 디테일 */
-.detail{
-    border: 1px solid black;
-    display: flex;
-    background-color: #ddd;
-    height: 150px;
+/* 스크롤바 설정*/
+.detail-area::-webkit-scrollbar{
+    width: 12px;
 }
-/* 내역 */
-.detail > div:nth-of-type(1){
-    display: flex;
-    flex-direction: column;
-    flex-basis: 70%;
-    border: 1px solid black;
 
-    font-size: 25px;
-    padding: 10px 10px;
+/* 스크롤바 막대 */
+.detail-area::-webkit-scrollbar-thumb {
+    background: rgb(68, 137, 210); /* 스크롤바 막대 색상 */
+    border: 2px solid white; /* 스크롤바 막대 테두리 설정  */
+    border-radius: 12px 12px 12px 12px;
+}
+/* 테이블 */
+.tb{
+    margin-bottom: 100px;
+    background-color: #e3ebf2ee;
+    padding-left: 10px;
+    border-radius: 10px;
+}
+td{
+    padding: 10px 0;
 }
 /* 날짜 */
-.detail-left > div:nth-of-type(1){
-    display: flex;
-    flex-basis: 33.3%;
-    border: 1px solid black;
+.spend-date{
+    font-size: 20px;
 }
-/* 거래내역 */
-.detail-left > div:nth-of-type(2){
-    display: flex;
-    flex-basis: 33.3%;
-    border: 1px solid black;
-
+/* 어디에 썼는지 */
+.where{
+    font-size: 20px;
 }
 /* 카테고리 */
-.detail-left > div:nth-of-type(3){
-    display: flex;
-    flex-basis: 33.3%;
-    border: 1px solid black;
-
-    font-size: 16px;
-
+.category{
+    border-bottom: 1px solid #ccc;
+    font-size: 13px;
 }
 /* 금액 */
-.detail > div:nth-of-type(2){
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-basis: 30%;
-    border: 1px solid black;
-
-    font-size: 25px;
-    
+.price{
+    border-bottom: 1px solid #ccc;
+    width: 150px;
+    font-size: 20px;
 }
