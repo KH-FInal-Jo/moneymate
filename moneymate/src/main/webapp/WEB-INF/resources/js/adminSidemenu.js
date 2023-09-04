@@ -1,6 +1,6 @@
-const adminReportContainer = document.getElementById("admin-report-container");
+const adminReportContainer = document.getElementById("j-admin-report-container");
 
-const adminCom = document.getElementById("admin-com");
+const adminCom = document.getElementById("j-admin-com");
 
 function reportBtn(){
 
@@ -29,3 +29,4 @@ function adminCommunity(){
 
 
 }
+

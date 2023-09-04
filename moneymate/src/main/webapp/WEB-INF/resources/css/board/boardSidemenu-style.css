@@ -8,7 +8,7 @@
 }
 
 /* 사이드바, 보드 메인 넓이 정하기 */
-.board-sidemenu{
+.j-board-sidemenu{
     width: 25%;
     display: flex;
     flex-direction: column;
@@ -26,7 +26,7 @@
 
 
 /* 사이드바 커뮤니티 문구 스타일 */
-.board-sidemenu > div:first-child{
+.j-board-sidemenu > div:first-child{
 
     width: 99%;
     height: 100px;
@@ -48,13 +48,13 @@
 
 /* 사이드바 커뮤니티 글씨 */
 
-.board-community-header > div:first-child{
+.j-board-community-header > div:first-child{
     font-size: 25px;
     display: flex;
     justify-content: center;
 }
 
-.board-community-header > div:last-child{
+.j-board-community-header > div:last-child{
     color: rgb(252, 252, 75);
     display: flex;
     justify-content: center;
@@ -62,14 +62,14 @@
 }
 
 /* 사이드바 게시판 스타일 */
-.board-sidemenu-list{
+.j-board-sidemenu-list{
     width: 100%;
     padding: 0 20px 0 0;
         /* 상 우 하 좌 */
     margin: 0;
 }
 
-.board-sidemenu-list > li{
+.j-board-sidemenu-list > li{
     list-style: none;
     height: 60px;
     font-size: 18px;
@@ -83,7 +83,7 @@
     
 }
 
-.board-sidemenu-list > li > a{
+.j-board-sidemenu-list > li > a{
     text-decoration: 0;
     color: black;
     height: 100%;
@@ -97,12 +97,12 @@
 
 }
 
-.board-sidemenu-list > li:hover{
+.j-board-sidemenu-list > li:hover{
     background-color: #ddd;
     cursor: pointer;
 }
 
-.board-sidemenu-list i{
+.j-board-sidemenu-list i{
     color: gray;
 }
 
