@@ -1,10 +1,47 @@
-div{
-    border: 1px solid black;
-}
+
 
 .free-board{
     margin: auto;
     margin-top: 50px;
     width: 1200px;
     height: auto;
+    border: 1px solid black;
+    padding: 10px;
 }
+
+.board-head{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.board-head1{
+    display: flex;
+    align-items: center;
+    width: 80%;
+}
+
+.board-head1 > span{
+    margin-left: 30px;
+}
+
+.board-head1 > i{
+    margin-right: 10px;
+}
+
+.board-head1 > img {
+    height: 50px
+}
+
+.board-head2{
+    padding-right: 50px;
+    width: 20%;
+    line-height: 50%;
+}
+
+.hr{
+    border: 3px solid #ddd;
+}
+
+
+

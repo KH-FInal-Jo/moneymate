@@ -7,7 +7,6 @@
 
     <link rel="stylesheet" href="../css/header.css">
     <link rel="stylesheet" href="../css/signUp.css">
-    <link rel="stylesheet" href="../css/footer.css">
 
 
 </head>
@@ -48,6 +47,16 @@
 
         <form action="#" method="post" name="signUp-form">
 
+            <textarea class="check">약관동의
+1.
+2.
+3.
+4.
+            </textarea>
+            <br>
+            <input type="checkbox" id="check">동의합니다.
+
+
             <label for="memberEmail">
                 <span class="required">*</span> 아이디(이메일)
             </label>
@@ -57,10 +66,10 @@
                         placeholder="아이디(이메일)" maxlength="30"
                         autocomplete="off" required>
 
-                <button type="button">인증번호 받기</button>
+                <button type="button" id="authKey">인증번호 받기</button>
             </div>
 
-            <span class="signUp-message">메일을 받을 수 있는 이메일을 입력해 주세요.</span>
+            <span class="signUp-message" id="emailMessage">메일을 받을 수 있는 이메일을 입력해 주세요.</span>
 
             <label for="emailCheck">
                 <span class="required">*</span> 인증번호
@@ -91,7 +100,7 @@
                         placeholder="비밀번호 확인" maxlength="30">
             </div>
 
-            <span class="signUp-message error">비밀번호가 일치하지 않습니다.</span>
+            <span class="signUp-message error" id="pwMessage">비밀번호가 일치하지 않습니다.</span>
 
             <label for="memberNickname">
                 <span class="required">*</span> 닉네임
@@ -115,24 +124,25 @@
 
             <span class="signUp-message error">전화번호 형식이 올바르지 않습니다.</span>
 
-            <label for="memberAddress">
-                주소
-            </label>
+            <label for="memberAddress">주소</label>
+
 
             <div class="signUp-input-area">
-                <input type="text" id="memberAddress" name="memberAddress"
-                        placeholder="우편번호" maxlength="6">
-
-                <button type="button">검색</button>
+                <input type="text" name="memberAddress" id="sample6_postcode" placeholder="우편번호" maxlength="6">
+               
+                <button type="button" onclick="sample6_execDaumPostcode()">검색</button>
             </div>
 
-            <div class="signUp-input-area">
-                <input type="text" name="memberAddress" placeholder="도로명주소">
-            </div>
 
             <div class="signUp-input-area">
-                <input type="text" name="memberAddress" placeholder="상세주소">
+                <input type="text" name="memberAddress" id="sample6_address" placeholder="도로명/지번 주소">
             </div>
+
+
+            <div class="signUp-input-area">
+                <input type="text" name="memberAddress" id="sample6_detailAddress" placeholder="상세 주소">
+            </div>
+
 
             <button type="submit" id="signUp-btn">가입하기</button>
 
@@ -182,4 +192,31 @@
 
 
 </footer>
+
+<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+
+    <script>
+        function sample6_execDaumPostcode() {
+            new daum.Postcode({
+                oncomplete: function(data) {
+
+                    var addr = ''; 
+
+                    if (data.userSelectedType === 'R') {
+                        addr = data.roadAddress;
+                    } else { 
+                        addr = data.jibunAddress;
+                    }
+
+                    document.getElementById('sample6_postcode').value = data.zonecode;
+                    document.getElementById("sample6_address").value = addr;
+                    document.getElementById("sample6_detailAddress").focus();
+                }
+            }).open();
+        }
+    </script>
+
+
+
+<script src="../js/signUp.js"></script>
 </html>

@@ -10,6 +10,12 @@
     padding: 0 5px;
 }
 
+.check{
+    resize: none;
+    width: 500px;
+    height: 200px;
+}
+
 /* 회원가입 폼 */
 form[name="signUp-form"]{
     margin-top: 30px;
@@ -36,7 +42,7 @@ form[name="signUp-form"] > label{
 /* input에 포커스가 맞춰졌을 때 밑줄 색 변화 */
 /* :focus-within : 내부 input에 포커스가 맞춰졌을 때 */
 .signUp-input-area:focus-within{
-    border-bottom: 2px solid #455ba8;
+    border-bottom: 2px solid rgb(12, 64, 202);
 }
 
 /* input 태그 */
@@ -68,7 +74,7 @@ form[name="signUp-form"] > label{
     letter-spacing: -1px; /* 자간 */
 }
 
-.confirm{ color: green;}
+.confirm{ color: rgb(12, 64, 202);}
 .error{ color: red;}
 
 /* 가입하기 버튼 */
@@ -82,7 +88,7 @@ form[name="signUp-form"] > label{
     font-weight: bold;
 
     color: white;
-    background-color: #455ba8;
+    background-color: rgb(12, 64, 202);
 
     cursor: pointer;
 }
