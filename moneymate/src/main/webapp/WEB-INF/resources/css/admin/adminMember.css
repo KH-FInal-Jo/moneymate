@@ -1,0 +1,93 @@
+*{box-sizing: border-box;}
+/* div{border: 1px solid black;} */
+
+#all{
+    display: flex;
+    width: 1200px;
+    margin: auto;
+}
+#main{
+    margin: auto;
+    width: 860px;
+    height: 800px;
+
+    position: relative;
+}
+
+#main>div:nth-of-type(1){
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    font-weight: bold;
+    height: 60px;
+}
+
+#search{
+    margin-top: 10px;
+    margin-left: 10px;
+    height: 30px;
+    margin-bottom: 30px;
+}
+
+#searchBtn{
+    margin-left: 10px;
+    height: 28px;
+    width: 50px;
+
+    border: 0;
+    background-color: rgba(140, 165, 233,1);
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* table */
+table{
+    width: 100%;
+    border-collapse: collapse;
+}
+
+td{
+    text-align: center;
+    height: 30px;
+}
+
+/* 페이지네이션 */
+/* 페이지네이션 */
+.pagination{
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    padding: 0;
+}
+
+.pagination li{
+    width: 20px;
+    margin: 0 5px;
+    text-align: center;
+}
+
+.pagination a{
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.current{
+    font-weight: bold;
+    background-color: #455ba8;
+    border-radius: 50%;
+    color: white !important;
+    letter-spacing: 0 !important;
+}
+
+.pagination-area{
+    position: absolute;
+    bottom: 10px;
+    left: 25%;
+}
+
+a{
+    text-decoration: none;
+    color: black;
+}

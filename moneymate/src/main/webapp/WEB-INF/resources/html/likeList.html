@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>좋아요 목록</title>
+    <script src="https://kit.fontawesome.com/f7459b8054.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../css/member/likeList.css">
+    <link rel="stylesheet" href="../css/header.css">
+    <link rel="stylesheet" href="../css/footer.css">
+    <link rel="stylesheet" href="../css/member/myPageSidemenu.css">
+</head>
+<body>
+    
+    <div id="all">
+        <div id="sidebar" style="width: 25%; color: pink;"></div>
+
+        <div id="main">
+
+            <div>좋아요 목록</div>
+
+            <div>
+                <!-- <form action="#">
+                    <select name="bt" id="bt">
+                        <option value="whole">전체</option>
+                        <option value="free">자유게시판</option>
+                        <option value="column">칼럼게시판</option>
+                    </select>
+                </form> -->
+
+                <article class="cont-select">
+                    <button class="btn-select">전체</button>
+                    <ul class="list-member">
+                      <li><button type="button">전체</button></li>
+                      <li><button type="button">자유게시판</button></li>
+                      <li><button type="button">컬럼게시판</button></li>
+                    </ul>
+                  </article>
+            </div>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>게시판</th>
+                        <th>제목</th>
+                        <th>작성자</th>
+                        <th>작성일</th>
+                        <th>조회수</th>
+                        <th>좋아요</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <th colspan="6" id="noneLike">좋아요한 게시글이 없습니다.</th>
+                    </tr>
+
+                    <tr>
+                        <td>[자유게시판]</td>
+                        <td>
+                            <img src="../images/close.png" class="thumbnail">
+                            <a href="#" class="title">자유로운 게시판이네요~ [3]</a>
+                        </td>
+                        <td>유저일</td>
+                        <td>2023.10.01</td>
+                        <td>5</td>
+                        <td>
+                            <i class="fa-solid fa-heart" id="boardLike"></i>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>[컬럼게시판]</td>
+                        <td>
+                            <img src="" class="thumbnail">
+                            <a href="#" class="title">컬럼 게시판이네요~ [3]</a>
+                        </td>
+                        <td>유저일</td>
+                        <td>2023.10.01</td>
+                        <td>5</td>
+                        <td>
+                            <i class="fa-solid fa-heart" id="boardLike"></i>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>[자유게시판]</td>
+                        <td>
+                            <img src="../images/crown.png" class="thumbnail">
+                            <a href="#" class="title">자유로운 게시판이네요~ [3]</a>
+                        </td>
+                        <td>유저일</td>
+                        <td>2023.10.01</td>
+                        <td>5</td>
+                        <td>
+                            <i class="fa-solid fa-heart" id="boardLike"></i>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>[컬럼게시판]</td>
+                        <td>
+                            <img src="../images/check.png" class="thumbnail">
+                            <a href="#" class="title">자유로운 게시판이네요~ [3]</a>
+                        </td>
+                        <td>유저일</td>
+                        <td>2023.10.01</td>
+                        <td>5</td>
+                        <td>
+                            <i class="fa-solid fa-heart" id="boardLike"></i>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>[컬럼게시판]</td>
+                        <td>
+                            <img src="../images/check.png" class="thumbnail">
+                            <a href="#" class="title">자유로운 게시판이네요~ [3]</a>
+                        </td>
+                        <td>유저일</td>
+                        <td>2023.10.01</td>
+                        <td>5</td>
+                        <td>
+                            <i class="fa-solid fa-heart" id="boardLike"></i>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>[컬럼게시판]</td>
+                        <td>
+                            <img src="../images/check.png" class="thumbnail">
+                            <a href="#" class="title">자유로운 게시판이네요~ [3]</a>
+                        </td>
+                        <td>유저일</td>
+                        <td>2023.10.01</td>
+                        <td>5</td>
+                        <td>
+                            <i class="fa-solid fa-heart" id="boardLike"></i>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>[컬럼게시판]</td>
+                        <td>
+                            <img src="../images/check.png" class="thumbnail">
+                            <a href="#" class="title">자유로운 게시판이네요~ [3]</a>
+                        </td>
+                        <td>유저일</td>
+                        <td>2023.10.01</td>
+                        <td>5</td>
+                        <td>
+                            <i class="fa-solid fa-heart" id="boardLike"></i>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>[컬럼게시판]</td>
+                        <td>
+                            <img src="../images/check.png" class="thumbnail">
+                            <a href="#" class="title">자유로운 게시판이네요~ [3]</a>
+                        </td>
+                        <td>유저일</td>
+                        <td>2023.10.01</td>
+                        <td>5</td>
+                        <td>
+                            <i class="fa-solid fa-heart" id="boardLike"></i>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>[컬럼게시판]</td>
+                        <td>
+                            <img src="../images/check.png" class="thumbnail">
+                            <a href="#" class="title">자유로운 게시판이네요~ [3]</a>
+                        </td>
+                        <td>유저일</td>
+                        <td>2023.10.01</td>
+                        <td>5</td>
+                        <td>
+                            <i class="fa-solid fa-heart" id="boardLike"></i>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>[컬럼게시판]</td>
+                        <td>
+                            <img src="../images/check.png" class="thumbnail">
+                            <a href="#" class="title">자유로운 게시판이네요~ [3]</a>
+                        </td>
+                        <td>유저일</td>
+                        <td>2023.10.01</td>
+                        <td>5</td>
+                        <td>
+                            <i class="fa-solid fa-heart" id="boardLike"></i>
+                        </td>
+                    </tr>
+                </tbody>
+
+            </table>
+
+            <div class="pagination-area">
+
+
+                <ul class="pagination">
+                
+                    <!-- 첫 페이지로 이동 -->
+                    <li><a href="#">&lt;&lt;</a></li>
+
+                    <!-- 이전 목록 시작 번호로 이동 -->
+                    <li><a href="#">&lt;</a></li>
+
+               
+                    <!-- 특정 페이지로 이동 -->
+
+                    <!-- <c:forEach var="i" begin="${pagination.startPage}" end="${pagination.endPage}">
+                        <c:choose>
+                           <c:when test="${i == pagination.currentPage}"> -->
+                                <li><a class="current">1</a></li>
+                                <li><a href="#">2</a></li>
+                                <li><a  href="#">3</a></li>
+                                <li><a href="#">4</a></li>
+                                <li><a href="#">5</a></li>
+                                <li><a href="#">6</a></li>
+                                <li><a href="#">7</a></li>
+                                <li><a href="#">8</a></li>
+                                <li><a href="#">9</a></li>
+                                <li><a href="#">10</a></li>
+                          <!--  </c:when>
+                        
+                           <c:otherwise> -->
+                                <!-- <li><a href="/board/${boardCode}?cp=${i}${sp}">${i}</a></li> -->
+                           <!-- </c:otherwise>
+                        </c:choose>
+                        
+                    </c:forEach> -->
+                    
+                    
+                    
+                    <!-- 다음 목록 시작 번호로 이동 -->
+                    <li><a href="#">&gt;</a></li>
+
+                    <!-- 끝 페이지로 이동 -->
+                    <li><a href="#">&gt;&gt;</a></li>
+
+                </ul>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <script src="../js/likeList.js"></script>
+</body>
+</html>
