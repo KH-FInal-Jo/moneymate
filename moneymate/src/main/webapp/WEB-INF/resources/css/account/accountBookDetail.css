@@ -71,6 +71,13 @@
     padding-top: 100px;
   }
 
+  /* 차트 div */
+  .chart-div{
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+  }
+
 .chart-shape{
     background: #fff;
     display : block;
@@ -107,3 +114,64 @@
     94%{background : conic-gradient(#ccc 0% 75%, #ffffff 0% 100%)}
     100%{background : conic-gradient(#ccc 0% 95%, #ffffff 80% 100%)}
   }
+
+/* 내역 */
+.detail-area{
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    margin: 100px auto auto auto;
+
+
+}
+
+/* 내역 디테일 */
+.detail{
+    border: 1px solid black;
+    display: flex;
+    background-color: #ddd;
+    height: 150px;
+}
+/* 내역 */
+.detail > div:nth-of-type(1){
+    display: flex;
+    flex-direction: column;
+    flex-basis: 70%;
+    border: 1px solid black;
+
+    font-size: 25px;
+    padding: 10px 10px;
+}
+/* 날짜 */
+.detail-left > div:nth-of-type(1){
+    display: flex;
+    flex-basis: 33.3%;
+    border: 1px solid black;
+}
+/* 거래내역 */
+.detail-left > div:nth-of-type(2){
+    display: flex;
+    flex-basis: 33.3%;
+    border: 1px solid black;
+
+}
+/* 카테고리 */
+.detail-left > div:nth-of-type(3){
+    display: flex;
+    flex-basis: 33.3%;
+    border: 1px solid black;
+
+    font-size: 16px;
+
+}
+/* 금액 */
+.detail > div:nth-of-type(2){
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-basis: 30%;
+    border: 1px solid black;
+
+    font-size: 25px;
+    
+}
