@@ -9,7 +9,7 @@
 
 /* 사이드바, 마이페이지 메인 넓이 정하기 */
 
-.myPage-sidemenu{
+.j-myPage-sidemenu{
     width: 25%;
     display: flex;
     flex-direction: column;
@@ -24,7 +24,7 @@
 }
 
 /* 마이페이지 작은 메뉴창 스타일 */
-.myPage-content-header{
+.j-myPage-content-header{
     width: 100%;
     height: 30%;
 
@@ -40,7 +40,7 @@
 }
 
 /* 마이페이지 글씨 부분 스타일 */
-.myPage-content-header > div:first-child{
+.j-myPage-content-header > div:first-child{
     width: 60%;
     height: 22%;
 
@@ -61,12 +61,12 @@
 
 }
 /* 구독 관련 부분 스타일 */
-.myPage-sub-content{
+.j-myPage-sub-content{
     width: 100%;
     height: 65%;
 }
 /* 구독 현황 스타일 */
-.myPage-sub-content > div:first-child{
+.j-myPage-sub-content > div:first-child{
     width: 100%;
     height: 15%;
     display: flex;
@@ -80,7 +80,7 @@
     font-size: 15px;
 }
 
-.myPage-sub-content > div:first-child > span:last-of-type{
+.j-myPage-sub-content > div:first-child > span:last-of-type{
     color: rgb(82, 82, 255);
     font-weight: bold;
 
@@ -89,7 +89,7 @@
 
 
 /* 구독 등급 표시 */
-.myPage-sub-content > div:nth-child(2){
+.j-myPage-sub-content > div:nth-child(2){
     width: 100%;
     height: 40%;
     display: flex;
@@ -97,7 +97,7 @@
 }
 
 /* 구독 일반, 골드 플래티넘 스타일 */
-.myPage-sub-content > div:nth-child(2) > div{
+.j-myPage-sub-content > div:nth-child(2) > div{
     width: 65px;
     height: 90%;
 
@@ -115,14 +115,14 @@
     border-style: ridge;
 }
 
-.myPage-sub-content > div:nth-child(2) > div:last-child{
+.j-myPage-sub-content > div:nth-child(2) > div:last-child{
     background-color: skyblue;
     color: black;
     
 }
 
 /* 마일리지 */
-.myPage-sub-content > div:nth-child(3){
+.j-myPage-sub-content > div:nth-child(3){
     width: 90%;
     height: 20%;
 
@@ -138,7 +138,7 @@
     font-size: 18px;
 }
 
-.myPage-sub-content i{
+.j-myPage-sub-content i{
     margin-top: 10px;
     margin-right: 15px;
     font-size: 34px;
@@ -146,7 +146,7 @@
 }
 
 /* 마이페이지 사이드메뉴 */
-.myPage-member-list{
+.j-myPage-member-list{
     display: flex;
     width: 100%;
     height: 60%;
@@ -159,7 +159,7 @@
 
 }
 
-.myPage-sidemenu-list{
+.j-myPage-sidemenu-list{
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -168,14 +168,14 @@
     align-items: start;
 }
 
-.myPage-member-list a{
+.j-myPage-member-list a{
 
     text-decoration: 0;
     color: black;
 
     font-size: 23px;
 }
-.myPage-sidemenu-list > li{
+.j-myPage-sidemenu-list > li{
 
     width: 100%;
 
@@ -189,6 +189,6 @@
     color: rgb(82, 191, 235);
 }
 
-.myPage-sidemenu-list a:hover{
+.j-myPage-sidemenu-list a:hover{
     color: skyblue;
 }
