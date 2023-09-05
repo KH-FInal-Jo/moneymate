@@ -127,6 +127,8 @@
     display: flex;
     justify-content: center;
 
+    white-space: pre-wrap;
+
     font-size: 20px;
 }
 /* 게시글 작성 부분 */
@@ -140,6 +142,9 @@
     font-size: 18px;
 
     margin-top: 5px;
+
+    white-space: pre-wrap;
+
 
 }
 /* 목록으로 버튼 */

@@ -445,7 +445,7 @@
 
 /* 가계부 목표 금액 설정 */
 .accMileage-left{
-    width: 50%;
+    width: 35%;
     height: 800px;
 
     margin-top: 20px;
@@ -479,29 +479,66 @@
 }
 
 /* 기간 선택 스타일 */
-/* .accDateRecord{
-    margin-left: 25px;
-    font-size: 22px;
-    margin-top: -10px;
-    height: 30px;
-    width: 130px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.accMileage-container > div:nth-child(2){
+    width: 15%;
 
-    border: 4px solid skyblue;
+    margin-left: -15px;
+    margin-top: 35px;
 }
-.accDateRecord:hover{
+
+
+
+.accDate{
+    width: 400px;
+    height: 55px;
+}
+/* 기간선택 버튼 */
+.accDateRecordBtn{
+    margin-top: -15px;
+    height: 40px;
+    width: 100px;
+
+    background-color: white;
+    color: skyblue;
+    border: 3px solid skyblue;
+    font-weight: bold;
+}
+.accDateRecordBtn:hover{
     background-color: skyblue;
     color: white;
-
     cursor: pointer;
-} */
+}
 
+/* 숨어져있는 날짜 선택 창 */
+.accDateRecord{
+    width: 150px;
+
+    height: 130px;
+
+    border: 4px solid skyblue;
+
+    display: none;
+
+    padding: 20px;
+
+    margin-top: 25px;
+
+}
+.accDateRecord > input{
+    margin-bottom: 20px;
+
+    height: 30px;
+}
+.accDateRecord > button{
+    background-color: skyblue;
+    border: 0;
+    padding: 5px;
+    color: white;
+    font-weight: bold;
+}
 
 /* 한달 목표 예산 설정 스타일 */
 .accMileage-left > div:nth-child(2)>div:first-child{
-    margin-top: 20px;
     width: 400px;
     font-size: 23px;
     display: flex;
@@ -642,10 +679,12 @@ progress::-webkit-progress-value {
 
 /* 마일리지 오른쪽 컨테이너 스타일 */
 .accMileage-right{
-    width: 50%;
+    width: 48%;
     height: 600px;
 
     margin-top: 50px;
+
+    margin-left: 20px;
 
     display: flex;
     flex-direction: column;

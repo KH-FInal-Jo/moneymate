@@ -1,3 +1,5 @@
+/* 계산기 스타일 */
+
 const calculator = document.querySelector('.calculator'); 
 const buttons = calculator.querySelector('.calculator__buttons'); 
 const operator = document.querySelector('.calculator__operator');
@@ -87,7 +89,7 @@ buttons.addEventListener('click', function (event) {
   });
 
 
-  /* 목표 예산 설정하기 스타일을 위한 변수 */
+/* 목표 예산 설정하기 스타일을 위한 변수 */
 const accTargetBtn = document.getElementsByClassName("accTargetBtn")[0];
 const accTarget = document.getElementsByClassName("accTarget")[0];
 const accTargetContainer = document.getElementsByClassName("accTarget-container")[0];
@@ -282,6 +284,50 @@ accBk12.addEventListener("click", function(){
   inputCategoryName.innerHTML = "";
   inputCategoryName.innerHTML = accBk12.innerHTML;
 })
+
+/* 기간 설정 */
+const accDateRecordBtn = document.getElementsByClassName("accDateRecordBtn")[0];
+const accDateRecord = document.getElementsByClassName("accDateRecord")[0];
+
+
+accDateRecordBtn.addEventListener("click", function(){
+
+  
+  if(accDateRecord.style.display !== 'none'){
+      accDateRecord.style.display = 'none';
+    }else{
+      accDateRecord.style.display = 'block';
+  
+    }
+
+})
+
+/* 날짜 입력 가져오기 */
+const accDateChange = document.getElementById("accDateChange");
+
+const startDateInput = document.querySelector("#startDateInput");
+const endDateInput = document.querySelector("#endDateInput");
+
+const startDate = document.getElementsByClassName("startDate")[0];
+const endDate = document.getElementsByClassName("endDate")[0];
+
+
+accDateChange.addEventListener("click", function(){
+
+  if(startDateInput != null){
+
+    startDate.innerHTML = startDateInput.value;
+  }
+  if(endDateInput != null){
+
+    endDate.innerHTML = endDateInput.value;
+  }
+
+  accDateRecord.style.display = 'none';
+
+})
+
+
 
 
 

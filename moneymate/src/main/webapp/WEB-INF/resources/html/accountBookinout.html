@@ -192,18 +192,18 @@
             <div class="accMileage-left">
                 <div>
                     <i class="fa-regular fa-calendar-days fa-xl"></i>
-                    <div class="accDate">2023.08.01 ~ 2023.08.31</div>
-                    <div class="accDateRecord">
-                    </div>
+                    <div class="accDate"><span class="startDate">
+                        2023-08-01</span> ~ <span class="endDate">2023-08-31</span></div>
                 </div>
-                <div>
+                
+                <div class="accTargetCon">
                     <div>한달 목표 예산</div>
                     <div>
                         <div class="accTargetMoney">5,000,000</div>
                         <div>원</div>
                     </div>
                 </div>
-                <div>
+                <div class="accTargetUsed">
                     <div>사용 금액</div>
                     <div>
                         <div class="accUsedMoney">3,000,000</div>
@@ -221,6 +221,16 @@
 
                 </div>
             </div>
+            <div>
+                <button class="accDateRecordBtn">기간선택</button>
+                <div class="accDateRecord">
+                    <input type="date" id="startDateInput">
+                    <input type="date" id="endDateInput">
+                    <input type="submit" id="accDateChange">변경하기</input>
+                </div>
+
+            </div>
+
 
             <div class="accMileage-right">
                 <div><img src="../images/MileageThumbnail.jpg"></div>
