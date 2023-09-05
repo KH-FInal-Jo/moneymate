@@ -1,8 +1,24 @@
+@font-face { /* 애플산돌고딕 폰트 적용 */
+    font-family: "SDGothic";
+    src: url("/moneymate/src/fonts/AppleSDGothicNeoSB.ttf") format("truetype");
+    font-weight: normal;
+  }
+
+* {
+    font-family: 'SDGothic', serif;
+    white-space: pre-wrap;
+}
+
 *{
     box-sizing: border-box;
 }
 
-.myPage-notice-content{
+.myPage-notice-name{
+    padding-left: 70px;
+    font-size: 25px;
+}
+
+.myPage-notice-main{
     width: 1200px;
     margin: auto;
 }
