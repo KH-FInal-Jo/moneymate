@@ -102,7 +102,7 @@ h1{
     height: 70px;
     font-size: 20px;
 
-    background-color: rgb(88, 117, 221);
+    
     color: white;
     border: 0;
     border-radius: 10px;
@@ -112,11 +112,13 @@ h1{
 #spend{
     margin-right: 30px;
     cursor: pointer;
+    background-color: #31c770;
 }
 /* 수입 버튼 */
 #income{
     margin-right: 50px;
     cursor: pointer;
+    background-color: #ccc;
 }
 
 /* 플러스 버튼 */
@@ -146,6 +148,18 @@ h1{
 
   /* 차트 div */
   .chart-div{
+    display: flex;
+    justify-content: start;
+    margin-top: 100px;
+
+    height: 100%;
+    width: 80%;
+
+
+  }
+
+  /* 차트 div2 */
+  .chart-div2{
     display: flex;
     justify-content: start;
     margin-top: 100px;
@@ -221,6 +235,17 @@ h1{
     background-color: #e3ebf2ee;
     padding-left: 10px;
     border-radius: 10px;
+
+}
+
+/* 수입내역 테이블 */
+.income-tb{
+    margin-bottom: 100px;
+    background-color: #e3ebf2ee;
+    padding-left: 10px;
+    border-radius: 10px;
+
+    display: none;
 
 }
 td{
