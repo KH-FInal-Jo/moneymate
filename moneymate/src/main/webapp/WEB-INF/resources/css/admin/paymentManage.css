@@ -29,6 +29,11 @@
 .thead{
     background-color: #ddd;
     border-color: #ddd;
+    height: 40px;
+}
+
+.tbody > tr {
+    height: 40px;
 }
 
 .page{

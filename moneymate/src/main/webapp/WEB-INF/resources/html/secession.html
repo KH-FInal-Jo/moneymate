@@ -125,13 +125,33 @@
 
 
                     <div class="btn">
-                        <button id="qu">그만두기</button>
-                        <button>탈퇴하기</button>
+                        <button id="quitSecession">그만두기</button>
+                        <button id="secession">탈퇴하기</button>
                     </div>
                 </form>
             </section>
         </section>
     </main>
     
+
+    <script>
+        const secession = document.getElementById("secession");
+        const secessionFrm = document.getElementById("secessionFrm");
+        const memberPw = document.getElementById("memberPw");
+        const check = document.getElementById("check");
+
+        secessionFrm.addEventListener("submit", e => {
+            if(check.checked == false){
+                e.preventDefault();
+                alert("위 약관을 동의해주세요.");
+            }
+            // 비밀번호 체크
+                
+        })
+
+
+
+    </script>
+
 </body>
 </html>

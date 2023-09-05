@@ -1,13 +1,26 @@
+@font-face { /* 애플산돌고딕 폰트 적용 */
+    font-family: "SDGothic";
+    src: url("/moneymate/src/fonts/AppleSDGothicNeoSB.ttf") format("truetype");
+    font-weight: normal;
+  }
+
+* {
+font-family: 'SDGothic', serif;
+}
+
+
 /* 회원가입 영역 */
 .signUp-content{
     display: flex;
     justify-content: center;
+    padding: 50px;
 }
 
-/* 필수 */
-.required{
-    color: red;
-    padding: 0 5px;
+.name {
+    font-size: 30px;
+    font-weight: bold;
+    margin-bottom: 50px;
+    text-align: center;
 }
 
 .check{
@@ -16,19 +29,15 @@
     height: 200px;
 }
 
-/* 회원가입 폼 */
+
 form[name="signUp-form"]{
-    margin-top: 30px;
+    margin-top: 50px;
+    padding: 20px 50px;
+    border: 2px solid royalblue;
+    border-radius: 20px;
 }
 
-/* 회원가입 폼 내부 input 제목(label) */
-form[name="signUp-form"] > label{
-    display: block;
-    margin-top: 40px;
-    font-size: 18px;
-}
 
-/* input을 감싸고 있는 div */
 .signUp-input-area{
     width: 500px;
     height: 50px;
@@ -36,30 +45,33 @@ form[name="signUp-form"] > label{
     border-bottom: 2px solid #ddd;
     
     display: flex;
-    align-items: center; /* 세로 중앙 */
+    align-items: center; 
 }
 
-/* input에 포커스가 맞춰졌을 때 밑줄 색 변화 */
-/* :focus-within : 내부 input에 포커스가 맞춰졌을 때 */
+.signUp-input-area > i {
+    padding-top: 10px;
+}
+
+
+
 .signUp-input-area:focus-within{
     border-bottom: 2px solid rgb(12, 64, 202);
 }
 
-/* input 태그 */
+
 .signUp-input-area > input{
     width: 70%;
-    padding: 15px 10px 5px; /* 상, 좌우, 하 */
+    padding: 15px 10px 5px; 
 
     font-size: 16px;
     font-weight: bold;
 
     border: 0;
-    outline: 0; /* input 선택 시 테두리 */
+    outline: 0; 
 }
 
-/* button 태그 */
 .signUp-input-area > button{
-    width: 30%;
+    width: 20%;
     height: 70%;
 
     background-color: white;
@@ -68,16 +80,14 @@ form[name="signUp-form"] > label{
     cursor: pointer;
 }
 
-/* 회원가입 관련 메시지 */
 .signUp-messsage{
     font-size: 14px;
-    letter-spacing: -1px; /* 자간 */
 }
 
 .confirm{ color: rgb(12, 64, 202);}
 .error{ color: red;}
 
-/* 가입하기 버튼 */
+
 #signUp-btn{
     width: 100%;
     padding: 10px;
