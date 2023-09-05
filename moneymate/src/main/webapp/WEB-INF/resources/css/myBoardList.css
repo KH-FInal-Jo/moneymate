@@ -1,8 +1,23 @@
+@font-face { /* 애플산돌고딕 폰트 적용 */
+    font-family: "SDGothic";
+    src: url("/moneymate/src/fonts/AppleSDGothicNeoSB.ttf") format("truetype");
+    font-weight: normal;
+  }
+
+* {
+    font-family: 'SDGothic', serif;
+}
+
 *{
     box-sizing: border-box;
 }
 
-.myPage-notice-content{
+.myPage-notice-name{
+    padding-left: 70px;
+    font-size: 25px;
+}
+
+.myPage-notice-main{
     width: 1200px;
     margin: auto;
 }
@@ -35,7 +50,6 @@
 .thumbnail{
     width: 15%;
     height: 100%;
-    border: 1px solid black;
 }
 
 .thumbnail img {
@@ -48,7 +62,6 @@
 .board{
     width: 85%;
     height: 100%;
-    border: 1px solid black;
     display: flex;
     flex-direction: column;
 }

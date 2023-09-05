@@ -1,3 +1,13 @@
+@font-face { /* 애플산돌고딕 폰트 적용 */
+    font-family: "SDGothic";
+    src: url("/moneymate/src/fonts/AppleSDGothicNeoSB.ttf") format("truetype");
+    font-weight: normal;
+  }
+
+* {
+font-family: 'SDGothic', serif;
+}
+
 @import url("https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap");
 
 .body{
@@ -106,15 +116,38 @@
     }
 }
 
-.answer > button {
+.answer  button {
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
 
     cursor: pointer;
   
-    transition: 0.5s;
+    transition: 1s;
 }
 
-.answer > button:hover {
+.answer  button:hover {
     border: 1px solid;
 	box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.5), 0 0 20px 
+}
+
+body{
+    animation: fadein 2000ms ease-out;
+    -moz-animation: fadein 2000ms ease-out; /* Firefox */
+    -webkit-animation: fadein 2000ms ease-out; /* Safari and  Chrome */
+    -o-animation: fadein 2000ms ease-out; /* Opera */
+}
+@keyframes fadein {
+    from {opacity:0;}
+    to {opacity:1;}
+}
+@-moz-keyframes fadein { /* Firefox */
+    from {opacity:0;}
+    to {opacity:1;}
+}
+@-webkit-keyframes fadein { /* Safari and Chrome */
+    from {opacity:0;}
+    to {opacity:1;}
+}
+@-o-keyframes fadein { /* Opera */
+    from {opacity:0;}
+    to {opacity: 1;}
 }
