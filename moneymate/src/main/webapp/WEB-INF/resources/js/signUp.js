@@ -97,6 +97,6 @@ memberPw.addEventListener("input", ()=> {
     if(regEx.test(memberPw.value)){
         checkObj.memberPw = true;
 
-
+        
     }
 })
