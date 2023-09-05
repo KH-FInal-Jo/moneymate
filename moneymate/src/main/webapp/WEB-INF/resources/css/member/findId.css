@@ -73,3 +73,37 @@ label {
 .underline{
     text-decoration: underline;
 }
+
+label{
+    margin-left: auto;
+    font-size: 25px;
+}
+.findcontainer2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+#findFont>p{
+    font-size: 30px;
+    font-weight: bold;
+    text-align: center;
+
+}
+
+.findContainer1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#imgTop{
+   text-align: center;
+    
+}
+
+.findContainer4{
+    height: 300px;
+}
