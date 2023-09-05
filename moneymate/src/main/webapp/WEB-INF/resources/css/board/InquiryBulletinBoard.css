@@ -1,3 +1,6 @@
+
+
+
 /* 공지사항 글제목, 검색창 스타일 */
 .InquiryBulletinBoardsearch{
     display: flex;
@@ -5,6 +8,7 @@
     height: 20%;
     justify-content: end;
     align-items: end;
+    white-space : pre-wrap;
 }
 /* 글제목, 작성자 셀렉트 */
 .InquiryBulletinBoardsearch select{
