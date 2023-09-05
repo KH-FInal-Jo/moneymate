@@ -1,3 +1,14 @@
+@font-face { /* 애플산돌고딕 폰트 적용 */
+    font-family: "SDGothic";
+    src: url("/src/fonts/AppleSDGothicNeoSB.ttf") format("truetype");
+    font-weight: normal;
+  }
+
+* {
+font-family: 'SDGothic', serif;
+}
+
+
 /* 가계부 썸네임 */
 .accBk-thumbnail{
     width: 100%;

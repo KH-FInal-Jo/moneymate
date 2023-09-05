@@ -3,26 +3,113 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/member/chatting.css">
+    <script src="https://kit.fontawesome.com/98acdabf0d.js"
+	crossorigin="anonymous"></script>
     <title>채팅</title>
 </head>
 <body>
 
     <main>
         <div class="chat-left-bar">
-            <div class="leftBarIcon1"></div>
-            <div class="leftBarIcon2"></div>
-            <div class="leftBarIcon3"></div>
-            <div class="leftBarIcon4"></div>
+            <div class="leftBarIcon1"><i class="fa-solid fa-house fa-2xl"></i></div>
+            <div class="leftBarIcon2"><i class="fa-solid fa-user-plus fa-2xl"></i></div>
+            <div class="leftBarIcon3"><i class="fa-solid fa-users fa-2xl"></i></div>
+            <div class="leftBarIcon4"><i class="fa-solid fa-comments fa-2xl"></i></div>
         </div>
 
-        <div class="leftBar1"></div>
+
+        <!-- 유저 이름으로 찾아서 채팅하기 -->
+        <div class="leftBar1">
+            <div>
+                <i class="fa-solid fa-magnifying-glass fa-2xl"></i><input type="text" name="inputName" placeholder="검색어를 입력하세요.">
+            </div>
+            <div>
+                <li class="result-row">
+                    <img class="result-row-img" src="../images/몽자.jpg">
+                    <span>유저일</span>
+                </li>
+                <li class="result-row">
+                    <img class="result-row-img" src="../images/몽자.jpg">
+                    <span>유저일</span>
+                </li>
+                <li class="result-row">
+                    <img class="result-row-img" src="../images/몽자.jpg">
+                    <span>유저일</span>
+                </li>
+                <li class="result-row">
+                    <img class="result-row-img" src="../images/몽자.jpg">
+                    <span>유저일</span>
+                </li>
+                <li class="result-row">
+                    <img class="result-row-img" src="../images/몽자.jpg">
+                    <span>유저일</span>
+                </li>
+                <li class="result-row">
+                    <img class="result-row-img" src="../images/몽자.jpg">
+                    <span>유저일</span>
+                </li>
+     
+            </div>
+
+        </div>
         <div class="leftBar2"></div>
         <div class="leftBar3"></div>
         <div class="leftBar4"></div>
 
+        <div class="chatting-main">
+
+            <div>
+                <i class="fa-regular fa-comment fa-2xl"></i> 채팅
+            </div>
+
+            <div class="display-chatting">
+                <div class="opponentUser">
+                    <img class="result-row-img" src="../images/몽자.jpg">
+                    <span>유저일</span>
+                </div>
+
+                <ul class="chatting-message">
+                    <li class="my-chat">
+                       <span class="chatDate">14:01</span>
+                       <p class="chat">안녕~~~~~~~~~~</p>
+                    </li>
+     
+                    <li class="target-chat">
+                        <div>
+                            <div>
+                                <img src="../images/몽자.jpg">
+    
+                            </div>
+                            <div>상대유저</div>
+                        </div>
+     
+                        <div>
+                            <p class="chat">
+                                안녕하세요~~~~~~~~~~~~~
+                            </p>
+                            <span class="chatDate">14:05</span>
+                        </div>
+                    </li>
+                 </ul>   
+
+            </div>
+
+            <div>
+                <div>
+                    <input type="text" name="chatting-input">
+                </div>
+                <div>
+                    <button>보내기</button>
+                </div>
+            </div>
 
         </div>
+
+
     </main>
+
+    <script src="../js/chatting.js"></script>
     
 </body>
 </html>
