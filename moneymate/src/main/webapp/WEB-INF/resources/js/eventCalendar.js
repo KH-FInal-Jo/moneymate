@@ -52,10 +52,16 @@ function buildCalendar() {
 
 // 날짜 선택
 function choiceDate(newDIV) {
-    if (document.getElementsByClassName("choiceDay")[0]) {                              // 기존에 선택한 날짜가 있으면
+    /* if (document.getElementsByClassName("choiceDay")[0]) {                              // 기존에 선택한 날짜가 있으면
         document.getElementsByClassName("choiceDay")[0].classList.remove("choiceDay");  // 해당 날짜의 "choiceDay" class 제거
-    }
+    } */
     newDIV.classList.add("choiceDay");           // 선택된 날짜에 "choiceDay" class 추가
+
+    document.getElementById("modal").style.display = "block";
+    
+
+
+
 }
 
 // 이전달 버튼 클릭
@@ -76,4 +82,11 @@ function leftPad(value) {
         return value;
     }
     return value;
+}
+
+
+
+/* 모달창 확인 버튼 누른 경우 */
+function gotoEventList(){
+    location.href = "https://www.naver.com/";
 }
