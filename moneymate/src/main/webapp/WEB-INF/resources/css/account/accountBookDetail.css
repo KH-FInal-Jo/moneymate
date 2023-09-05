@@ -1,8 +1,30 @@
+@font-face { /* 애플산돌고딕 폰트 적용 */
+    font-family: "SDGothic";
+    src: url("/moneymate/src/fonts/AppleSDGothicNeoSB.ttf") format("truetype");
+    font-weight: normal;
+  }
+
+* {
+font-family: 'SDGothic', serif;
+}
+
 .accountBook-main{
     display: flex;
-    flex-direction: column;
     width: 1200px;
     margin: auto;
+}
+
+.accountBook-main > section:nth-of-type(1){
+    display: flex;
+    flex-direction: column;
+    flex-basis: 60%;
+    margin-bottom: 100px;
+}
+
+.accountBook-main > section:nth-of-type(2){
+    display: flex;
+    flex-basis: 40%;
+    margin-bottom: 100px;
 }
 
 /* 최상단 문구 */
@@ -15,11 +37,38 @@ h1{
     width: 100%;
 }
 
-/* 최상단 이미지 */
-.head-img{
+.intro{
     display: flex;
-    justify-content: center;
-    margin-bottom: 100px;
+}
+
+.intro > div:nth-of-type(1){
+    display: flex;
+    flex-basis: 60%;
+}
+.intro > div:nth-of-type(2){
+
+    display: flex;
+    flex-basis: 40%;
+    background-color: rgb(0, 0, 0);
+
+    font-size: 40px;
+    font-weight: bold;
+    color: white;
+    padding-left: 30px;
+    padding-top: 100px;
+
+    line-height: 150px;
+}
+
+
+
+
+
+
+/* 최상단 이미지 */
+.head-img > img{
+    width: 100%;
+    height: 800px;
 }
 
 /* 날짜 */
@@ -70,6 +119,7 @@ h1{
 
 .day-date > input{
     margin-right: 20px;
+    padding: 0 5px;
     margin-left: 5px;
     border-radius: 5px;
     border-color: rgb(88, 117, 221);
@@ -77,8 +127,8 @@ h1{
 
 /* 일 변경하기 */
 #day-btn{
-    height: 30px;
-    width: 110px;
+    height: 35px;
+    width: 90px;
     font-size: 17px;
     border-radius: 7px;
     border: 0;
@@ -149,7 +199,7 @@ h1{
   /* 차트 div */
   .chart-div{
     display: flex;
-    justify-content: start;
+    justify-content: center;
     margin-top: 100px;
 
     height: 100%;
@@ -161,7 +211,7 @@ h1{
   /* 차트 div2 */
   .chart-div2{
     display: flex;
-    justify-content: start;
+    justify-content: center;
     margin-top: 100px;
 
     height: 100%;
@@ -211,9 +261,10 @@ h1{
 .detail-area{
     display: flex;
     flex-direction: column;
-    width: 60%;
-    height: 500px;
+    width: 90%;
+    height: 700px;
     margin: 100px 10px auto auto;
+
 
     overflow: auto;
 }

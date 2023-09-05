@@ -73,7 +73,7 @@ incomeBtn.addEventListener("click", ()=>{
     spendBtn.style.backgroundColor = '#ccc'
 
     spendDiv.style.display = 'none';
-    incomeDiv.style.display = 'block';
+    incomeDiv.style.display = 'flex';
 
     tb.style.display = 'none';
     incomeTb.style.display = 'block';
@@ -87,7 +87,7 @@ spendBtn.addEventListener("click", ()=>{
     incomeBtn.style.backgroundColor = '#ccc'
 
     incomeDiv.style.display = 'none';
-    spendDiv.style.display = 'block';
+    spendDiv.style.display = 'flex';
 
     incomeTb.style.display = 'none';
     tb.style.display = 'block';
