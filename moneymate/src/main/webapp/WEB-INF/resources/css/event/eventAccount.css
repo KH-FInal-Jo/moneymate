@@ -1,2 +1,170 @@
 *{box-sizing: border-box;}
-div{border: 1px solid black;}
+/* div{border: 1px solid black;} */
+
+#main{
+    width: 1200px;
+    margin: auto;
+}
+
+#main>div:nth-of-type(1){
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+/* 조회수 */
+#main>div:nth-of-type(2){
+    padding-left: 1050px;
+}
+
+/* 본문 */
+#event img{
+    margin: 20px;
+    max-width: 1155px;
+}
+
+
+#commentList{
+    list-style: none;
+    border-top : 2px solid #ccc;
+    border-bottom : 2px solid #ccc;
+}
+
+.comment-li{
+    padding: 15px 0;
+}
+
+.writer{
+    display: flex;
+    align-items: center;
+}
+
+.writer img{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.writer span{
+    font-weight: bold;
+    margin-left: 10px;
+}
+
+.writeDate{
+    font-size: 12px;
+    color: #d4c6c6;
+}
+
+.contentImg{
+    width: 200px;
+}
+
+.contentArea{
+    white-space: pre-wrap;
+    padding-top: 10px;
+}
+
+/* 좋아요 */
+.likeArea{
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 60px;
+    margin-bottom: 10px;
+}
+#commentLike{
+    font-size: 1.5em;
+    color: red;
+    cursor: pointer;
+}
+
+.btn-area{
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 10px;
+}
+
+.btn-area button{
+    width: 50px;
+    height: 30px;
+    margin-right: 10px;
+
+    font-weight: bold;
+    border: 0;
+    background-color: rgb(102, 142, 250);
+    color : white;
+
+    cursor: pointer;
+
+    border-radius: 10px;
+}
+
+.btn-area button:nth-of-type(2){
+    margin-right: 40px;
+}
+
+
+
+/* 댓글 등록 */
+.writeArea{
+    position: relative;
+    margin-left: 40px;
+}
+
+.writeArea textarea{
+    resize: none;
+    width: 1120px;
+    height: 100px;
+
+    padding: 10px;
+}
+
+.imgInput{
+    display: none;
+}
+
+.camera{
+    width: 30px;
+    position: absolute;
+    bottom: 10px;
+    left: 15px;
+
+    cursor: pointer;
+}
+.camera:hover{
+    transform: scale(1.1);
+}
+
+.preview{
+    max-width: 200px;
+    max-height: 140px;
+}
+
+#insertBtn{
+    position: absolute;
+    bottom: 10px;
+    right: 40px;
+
+    width: 50px;
+    height: 30px;
+    border: 0;
+    background-color: #ddd;
+
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.delete-image{
+    position: absolute;
+    top: 0;
+    left: 10px;
+
+    cursor: pointer;
+    font-weight: bold;
+
+    display: none;
+
+    text-shadow: 1px 1px 1px rgb(0, 255, 0);
+}

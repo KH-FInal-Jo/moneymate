@@ -5,13 +5,84 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>가계부 이벤트</title>
 
+    <script src="https://kit.fontawesome.com/f7459b8054.js" crossorigin="anonymous"></script>
+
     <link rel="stylesheet" href="../css/event/eventAccount.css">
 </head>
 <body>
 
-    <div id="main"></div>
+    <!-- 
+        한 사람당 하나만 댓글 쓸 수 있음
+        페이지 조회할 떄 조회한 사람이 댓글 썼는지 안 썼는지 조회 필수 !! 제발 제발
+     -->
+
+    <div id="main">
+        <div>가계부 자랑하기(임시 제목)</div>
+        <div>
+            <span>조회수</span>
+            <span>5</span>
+        </div>
+
+        <div id="event">
+            <img src="../images/background2.png"> <!-- 본문 이미지 -->   
+        </div>
+
+        <div id="commentArea">
+
+            <ul id="commentList">
+                <li class="comment-li">
+                    <p class="writer">
+                        <img src="../images/background3.png">
+                        <span>유저일</span>
+                        <span class="writeDate">2023.10.02</span>
+                    </p>
+
+                    <div class="comment-area">
+                        <img src="../images/calendarEvent.png" class="contentImg">
+                        <p class="contentArea">댓글내용이이지지ㅣ지지지지ㅣ
+dfgdgfdg
+                        </p>
+
+                        <div class="likeArea">
+                            <!-- <i class="fa-regular fa-heart" id="commentLike"></i> -->
+                            <i class="fa-solid fa-heart" id="commentLike"></i>
+                        </ㅇ>
+                    </div>
+
+                    <div class="btn-area">
+                        <button type="button" onclick="updateBtn(this)">수정</button>
+                        <button type="button">삭제</button>
+                    </div>
+                </li>
 
 
+            </ul>
+
+        </div>
+
+
+        <!-- 댓글 작성 -->
+        <div class="writeArea">
+            <input type="file" class="imgInput" id="imgInput">
+            <label for="imgInput">
+                <img src="../images/camera1.png" alt="카메라 사진" class="camera" id="imgInput">
+            </label>
+            <img class="preview">
+            <!-- <img src="../images/dog1.jpg" class="preview"> -->
+            <button id="insertBtn">등록</button>
+            <span class="delete-image">&times;</span>
+            <textarea class="commentWrite"></textarea>
+        </div>
+
+
+
+
+
+
+    </div>
+
+
+    <script src="../js/eventAccount.js"></script>
     
 </body>
 </html>
