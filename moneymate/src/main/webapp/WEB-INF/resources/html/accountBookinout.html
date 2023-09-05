@@ -65,32 +65,82 @@
                             <button type="button" value="transfer">이체</button>
         
                         </div>
-                        <div>
-                            <table border="1">
+                        <div class="accBk-record-category">
+                           <!--  <table border="1" id="table">
                                 <tr>
                                     <th>카테고리</th>
-                                    <td><button type="button">선택 <i class="fa-solid fa-right-to-bracket fa-lg"></i></button></td>
+                                    <td><button type="button" class="categoryBtn">선택 <i class="fa-solid fa-right-to-bracket fa-lg"></i>
+                                            <div class="category">식비</div></button></td>
                                 </tr>
-                                <tr>
+                                <tr class="tr1">
                                     <th>결제내역</th>
                                     <td><input type="text" name="accBk-list"></td>
                                 </tr>
-                                <tr>
+                                <tr class="tr2">
                                     <th>결제수단</th>
                                     <td><select name="accBk-payment" id="accBk-payment" value="accBkPayment">
                                         <option value="1">무통장입금</option>
                                     </select></td>
                                 </tr>
-                                <tr>
+                                <tr class="tr3">
                                     <th>날짜</th>
                                     <td><input type="date" value="accBkDate"></td>
                                 </tr>
-                                <tr>
+                                <tr class="tr4">
                                     <th>메모</th>
                                     <td><input type="text" name="accBk-memo" id="accBk-memp"></td>
                                 </tr> 
                                 
-                            </table>
+                            </table> -->
+
+                            <div>
+                                <div>카테고리</div>
+                                <div class="categoryBtn">선택 <i class="fa-solid fa-right-to-bracket fa-lg"></i></div><span class="inputCategoryName"></span>
+                            </div>
+                            <div class="accBk-category-table">
+                                <div>
+                                    <div class="accBk1" name="eat">식비</div>
+                                    <div class="accBk2" name="traffic">교통</div>
+                                    <div class="accBk3" name="culrural">문화생활</div>
+                                    <div class="accBk4" name="mart">마트</div>
+                                </div>
+                                <div>
+                                    <div class="accBk5" name="fashion">패션</div>
+                                    <div class="accBk6" name="beauty">미용</div>
+                                    <div class="accBk7" name="lifeStyle">생활용품</div>
+                                    <div class="accBk8" name="residential">주거/통신</div>
+                                </div>
+                                <div>
+                                    <div class="accBk9" name="health">건강</div>
+                                    <div class="accBk10" name="education">교육</div>
+                                    <div class="accBk11" name="event">경조사</div>
+                                    <div class="accBk12" name="parent">부모님</div>
+                                </div>
+                            </div>
+                            <div class="accBkResult2">
+                                <div>결제내역</div>
+                                <div>
+                                    <input type="text" name="accBkWrite">
+                                </div>
+                            </div>
+                            <div class="accBkResult3">
+                                <div>결제수단</div>
+                                <div>
+                                    <select name="accBk-payment" id="accBk-payment" value="accBkPayment">
+                                        <option value="1">무통장입금</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="accBkResult4">
+                                <div>날짜</div>
+                                <div><input type="date" value="accBkDate" class="date"></div>
+                            </div>
+                            <div class="accBkResult5">
+                                <div>메모</div>
+                                <div><input type="text" name="accBkMemo"></div>
+                            </div>
+
+                            
                         </div>
 
                         <div><button type="submit" class="btn-hover color-1">제출하기</button></div>
@@ -161,7 +211,7 @@
                     <button type="button" class="accTargetBtn"><i class="fa-solid fa-gear fa-lg"></i>목표 예산설정</button>
                     <div class="accTarget">
                         <input type="text" class="accTargetInput" placeholder="금액을 입력해주세요." name="accTarget"> 원
-                        <button onclick="accTargetInput2()">등록</button>
+                        <button class="accTargetBtn2" onclick="accTargetInput2()">등록</button>
                     </div>
 
                 </div>

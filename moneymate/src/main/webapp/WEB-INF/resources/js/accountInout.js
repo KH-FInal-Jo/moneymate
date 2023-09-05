@@ -161,20 +161,128 @@ function accTargetInput2(){
 
 const accUsedMoney = document.getElementsByClassName("accUsedMoney")[0];
 const accProgress = document.getElementsByClassName("accProgress")[0];
+const accTargetBtn2 = document.getElementsByClassName("accTargetBtn2")[0];
 
-/* 프로그래스바 .. 하다가 실패 */
-(function(){
-
-  let num1 = accUsedMoney.innerHTML;
-  num1 = Number(num1);
+/* 프로그래스바 .. */
+accTargetBtn2.addEventListener("click", function(){
+  
+  
+  let str1 = accTargetMoney.innerHTML;
+  let str2 = accUsedMoney.innerHTML;
+  let num1 = parseInt(str1.replace(/,/g, ''), 10);
+  let num2 = parseInt(str2.replace(/,/g, ''), 10);
+  
+  let result = num2/num1*100;
+  
+  accProgress.value = result;
 
   console.log(num1);
+  console.log(num2);
+  console.log(result);
+  
+})
 
-  if(accTargetMoney != null){
-  }
+/* 카테고리 상세 박스 */
+const categoryBox = document.getElementsByClassName("accBk-category-table")[0];
+const categoryBtn = document.getElementsByClassName("categoryBtn")[0];
+const accBkResult2 = document.getElementsByClassName("accBkResult2")[0];
+const accBkResult3 = document.getElementsByClassName("accBkResult3")[0];
+const accBkResult4 = document.getElementsByClassName("accBkResult4")[0];
+const accBkResult5 = document.getElementsByClassName("accBkResult5")[0];
+
+categoryBtn.addEventListener("click", function(){
+
+  
+  if(categoryBox.style.display !== 'none'){
+        categoryBox.style.display = 'none';
+        accBkResult2.style.display = 'block';
+        accBkResult2.style.display = 'flex';
+        accBkResult3.style.display = 'block';
+        accBkResult3.style.display = 'flex';
+        accBkResult4.style.display = 'block';
+        accBkResult4.style.display = 'flex';
+        accBkResult5.style.display = 'block';
+        accBkResult5.style.display = 'flex';
+    }else{
+      categoryBox.style.display = 'block';
+      categoryBox.style.display = 'flex';
+      categoryBox.style.height = '300px';
+
+      accBkResult2.style.display = 'none';
+      accBkResult3.style.display = 'none';
+      accBkResult4.style.display = 'none';
+      accBkResult5.style.display = 'none';
+  
+    }
+
+
+})
+
+/* 카테고리 상세 내용 클릭시 이벤트  */
+const accBk1 = document.getElementsByClassName("accBk1")[0];
+const accBk2 = document.getElementsByClassName("accBk2")[0];
+const accBk3 = document.getElementsByClassName("accBk3")[0];
+const accBk4 = document.getElementsByClassName("accBk4")[0];
+const accBk5 = document.getElementsByClassName("accBk5")[0];
+const accBk6 = document.getElementsByClassName("accBk6")[0];
+const accBk7 = document.getElementsByClassName("accBk7")[0];
+const accBk8 = document.getElementsByClassName("accBk8")[0];
+const accBk9 = document.getElementsByClassName("accBk9")[0];
+const accBk10 = document.getElementsByClassName("accBk10")[0];
+const accBk11 = document.getElementsByClassName("accBk11")[0];
+const accBk12 = document.getElementsByClassName("accBk12")[0];
+
+const inputCategoryName = document.getElementsByClassName("inputCategoryName")[0];
+
+accBk1.addEventListener("click", function(){
+  inputCategoryName.innerHTML = "";
+  inputCategoryName.innerHTML = accBk1.innerHTML;
+})
+accBk2.addEventListener("click", function(){
+  inputCategoryName.innerHTML = "";
+  inputCategoryName.innerHTML = accBk2.innerHTML;
+})
+accBk3.addEventListener("click", function(){
+  inputCategoryName.innerHTML = "";
+  inputCategoryName.innerHTML = accBk3.innerHTML;
+})
+accBk4.addEventListener("click", function(){
+  inputCategoryName.innerHTML = "";
+  inputCategoryName.innerHTML = accBk4.innerHTML;
+})
+accBk5.addEventListener("click", function(){
+  inputCategoryName.innerHTML = "";
+  inputCategoryName.innerHTML = accBk5.innerHTML;
+})
+accBk6.addEventListener("click", function(){
+  inputCategoryName.innerHTML = "";
+  inputCategoryName.innerHTML = accBk6.innerHTML;
+})
+accBk7.addEventListener("click", function(){
+  inputCategoryName.innerHTML = "";
+  inputCategoryName.innerHTML = accBk7.innerHTML;
+})
+accBk8.addEventListener("click", function(){
+  inputCategoryName.innerHTML = "";
+  inputCategoryName.innerHTML = accBk8.innerHTML;
+})
+accBk9.addEventListener("click", function(){
+  inputCategoryName.innerHTML = "";
+  inputCategoryName.innerHTML = accBk9.innerHTML;
+})
+accBk10.addEventListener("click", function(){
+  inputCategoryName.innerHTML = "";
+  inputCategoryName.innerHTML = accBk10.innerHTML;
+})
+accBk11.addEventListener("click", function(){
+  inputCategoryName.innerHTML = "";
+  inputCategoryName.innerHTML = accBk11.innerHTML;
+})
+accBk12.addEventListener("click", function(){
+  inputCategoryName.innerHTML = "";
+  inputCategoryName.innerHTML = accBk12.innerHTML;
+})
 
 
 
-
-})();
 
