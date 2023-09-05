@@ -2,6 +2,9 @@ window.onload = function () {
     pieChartDraw();
 }
 
+
+
+
 let pieChartData = {
     labels: ['식비', '교통비', '주거비', '관리비', '유흥', '생필품'],
     datasets: [{
