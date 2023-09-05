@@ -6,7 +6,6 @@
 
 * {
     font-family: 'SDGothic', serif;
-    white-space: pre-wrap;
 }
 
 *{
@@ -51,7 +50,6 @@
 .thumbnail{
     width: 15%;
     height: 100%;
-    border: 1px solid black;
 }
 
 .thumbnail img {
@@ -64,7 +62,6 @@
 .board{
     width: 85%;
     height: 100%;
-    border: 1px solid black;
     display: flex;
     flex-direction: column;
 }
