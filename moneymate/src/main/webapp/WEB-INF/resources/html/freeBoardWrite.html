@@ -5,7 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>자유게시판 작성</title>
 
-    <link rel="stylesheet">
+    <link rel="stylesheet" href="../css/header.css">
+    <link rel="stylesheet" href="../css/board/boardSidemenu-style.css">
+    <link rel="stylesheet" href="../css/board/freeBoardWrtie.css">
     
 </head>
 <body>
@@ -38,6 +40,94 @@
                 </div>
             </div>
         </section>
+
+        <section class="board-notice-content">
+
+            <section class="j-board-sidemenu">
+                <div class="j-board-community-header">
+                    <div>커뮤니티</div>
+                    <div>community</div>
+                </div>
+                <ul class="j-board-sidemenu-list">
+
+                    <li><a href="#">공지사항<i class="fa-solid fa-caret-right fa-xl"></i></a></li>
+                    
+                    <li><a href="#">문의게시판<i class="fa-solid fa-caret-right fa-xl"></i></a></li>
+                    
+                    <li><a href="#">자유게시판<i class="fa-solid fa-caret-right fa-xl"></i></a></li>
+                    
+                    <li><a href="#">컬럼게시판<i class="fa-solid fa-caret-right fa-xl"></i></a></li>
+                </ul>
+
+            </section>
+
+            <section class="board-free-main">
+                <div class="subject">자유게시판 글쓰기</div>
+
+                <form class="board-write" id="boardWriteFrm" enctype="multipart/form-data">
+                    <h1 class="board-title">
+                        <input type="text" name="boardTitle" placeholder="제목" value="">
+                    </h1>
+
+                    <h5>업로드 이미지</h5>
+                    <div class="img-box">
+
+                        <div class="boardImg">
+                            <label for="img1">
+                                <img class="preview" src="">
+                            </label>
+                            <input type="file" name="images" class="inputImage" id="img1" accept="image/*">
+                            <span class="delete-image">&times;</span>
+                        </div>
+
+                        <div class="boardImg">
+                            <label for="img2">
+                                <img class="preview" src="">
+                            </label>
+                            <input type="file" name="images" class="inputImage" id="img2" accept="image/*">
+                            <span class="delete-image">&times;</span>
+                        </div>
+
+                        <div class="boardImg">
+                            <label for="img3">
+                                <img class="preview" src="">
+                            </label>
+                            <input type="file" name="images" class="inputImage" id="img3" accept="image/*">
+                            <span class="delete-image">&times;</span>
+                        </div>
+
+                        <div class="boardImg">
+                            <label for="img4">
+                                <img class="preview" src="">
+                            </label>
+                            <input type="file" name="images" class="inputImage" id="img4" accept="image/*">
+                            <span class="delete-image">&times;</span>
+                        </div>
+
+                        <div class="boardImg">
+                            <label for="img5">
+                                <img class="preview" src="">
+                            </label>
+                            <input type="file" name="images" class="inputImage" id="img5" accept="image/*">
+                            <span class="delete-image">&times;</span>
+                        </div>
+                    </div>
+
+                    <div class="board-content">
+                        <textarea class="boardContent">테스트 게시글 내용입니다.</textarea>
+                    </div>
+
+                    <div class="board-btn-area">
+                        <button type="submit" id="writebtn">등록</button>
+                    </div>
+
+                </form>
+    
+            </section>
+        </section>
+
+
+
     </main>
 </body>
 </html>
