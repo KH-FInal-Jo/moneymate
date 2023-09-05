@@ -1,21 +1,115 @@
 @import url('https://fonts.googleapis.com/css?family=Questrial&display=swap');
 
-body { background-color : skyblue; } 
+body{
+    background-image: url("../../images/background3.png");
 
-div {
+}
+
+#main { 
+    /* background-color : skyblue; */
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+
+    position: relative;
+
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+@font-face {
+    font-family: 'TheJamsil5Bold';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2302_01@1.0/TheJamsil5Bold.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+}
+
+#title{
+    height: 160px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 40px;
+    font-weight: bold;
+
+    background-image: linear-gradient(to right, rgb(10, 10, 214), rgb(216, 43, 179));
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+
+    /* color: white; */
+    font-family: 'TheJamsil5Bold';
+    
+}
+
+#img1{
+    position: absolute;
+    margin-bottom: 10px;
+    top: 90px;
+    left: 930px;
+}
+#img2{
+    position: absolute;
+    margin-bottom: 10px;
+    top: 50px;
+    left: 250px;
+}
+#img3{
+    position: absolute;
+    margin-bottom: 10px;
+    top: 300px;
+    left: 100px;
+}
+#img4{
+    position: absolute;
+    margin-bottom: 10px;
+    top: 600px;
+    left: 960px;
+}
+#img5{
+    position: absolute;
+    margin-bottom: 10px;
+    top: 400px;
+    left: 1000px;
+}
+
+#stampImg{
+    width: 150px;
+}
+#calendarImg{
+    width: 150px;
+    transform: rotate(340deg);
+}
+#coin1{
+    width: 150px;
+    transform: rotate(40deg);
+}
+#coin2{
+    width: 150px;
+    transform: rotate(340deg);
+}
+#coin3{
+    width: 150px;
+    transform: rotate(340deg);
+}
+
+#container {
     background-color : white;
     height: auto;
-    width: 400px;
+    width: 640px;
     margin: 0px;
     padding: 20px;
     margin: 0 auto;
     border-radius:5px;
     box-shadow:0px 40px 30px -20px rgba(0,0,0,0.3);
+
 }
 
 td {
-    width: 50px;
-    height: 50px;
+    width: 80px;
+    height: 80px;
 }
 
 .Calendar {
