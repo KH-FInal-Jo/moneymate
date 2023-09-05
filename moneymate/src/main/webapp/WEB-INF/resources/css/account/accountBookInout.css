@@ -461,15 +461,44 @@
 .accMileage-left > div{
     margin-bottom: 30px;
 }
+/* 기간 관련 스타일 */
+.accMileage-left > div:first-child{
+    display: flex;
+}
 
 /* 기간 스타일 */
-.accMileage-left > div:first-child{
-    width: 500px;
-    font-size: 28px;
+.accMileage-left > div:first-child>div:nth-child(2){
+    font-size: 30px;
+    margin-top: -18px;
 }
-.accMileage-left > div:first-child>i{
+/* 날짜 아이콘 */
+.accMileage-left > div:first-child> i{
     margin-right: 17px;
+
+    font-size: 35px;
 }
+
+/* 기간 선택 스타일 */
+/* .accDateRecord{
+    margin-left: 25px;
+    font-size: 22px;
+    margin-top: -10px;
+    height: 30px;
+    width: 130px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border: 4px solid skyblue;
+}
+.accDateRecord:hover{
+    background-color: skyblue;
+    color: white;
+
+    cursor: pointer;
+} */
+
+
 /* 한달 목표 예산 설정 스타일 */
 .accMileage-left > div:nth-child(2)>div:first-child{
     margin-top: 20px;
