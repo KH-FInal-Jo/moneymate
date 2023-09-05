@@ -1,5 +1,15 @@
+@font-face { /* 애플산돌고딕 폰트 적용 */
+    font-family: "SDGothic";
+    src: url("/src/fonts/AppleSDGothicNeoSB.ttf") format("truetype");
+    font-weight: normal;
+  }
+
+* {
+font-family: 'SDGothic', serif;
+}
+
 .container {
-    width: 50%;
+    width: 75%;
     background-color: #fff;
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
@@ -14,38 +24,78 @@ h1 {
 }
 
 .profile {
+    display: flex;
+
     text-align: center;
     margin-bottom: 20px;
     position: relative; /* 이미지와 버튼을 상대적으로 배치 */
 }
 
 .profile img {
-    width: 100px;
-    height: 100px;
+    width: 300px;
+    height: 300px;
     border-radius: 50%;
     margin-bottom: 10px;
 }
+.image-section{
+    flex-basis: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.image-section > div{
+    display: flex;
+    align-items: center;
+}
 
-#imageInput {
+.image-section  input{
     display: none;
-    position: absolute; /* 이미지 위에 겹치게 배치 */
-    left: 0;
-    top: 0;
-    opacity: 0; /* 숨겨진 input 요소를 보이지 않게 함 */
+}
+
+.input-row{
+
+    /* justify-content: flex-start; */
+    display:flex;
+    flex-grow: inherit;
 }
 
 #changeButton {
+    width: 100px;
+    height: 50px;
+    cursor: pointer;
+
     background-color: #007BFF;
     color: #fff;
-    padding: 5px 10px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.borderno{
+    border-width: 0;
+}
+
+#chooseButton{
+    width: 100px;
+    height: 50px;
+    background-color: #007BFF;
+    color: #fff;
+    cursor: pointer;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
+
+    margin-right: 10px;
+
     border: none;
     border-radius: 3px;
     cursor: pointer;
     font-weight: bold;
-    margin-top: 5px;
-    position: absolute; /* 이미지 위에 겹치게 배치 */
-    left: 0;
-    bottom: 0;
 }
 
 label {
@@ -55,28 +105,34 @@ label {
 }
 
 input, textarea {
-    width: 100%;
     padding: 10px;
     margin: 5px 0;
     border: 1px solid #ccc;
     border-radius: 3px;
 }
 
-button {
-    background-color: #007BFF;
-    color: #fff;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 3px;
-    cursor: pointer;
-    font-weight: bold;
-    margin-top: 10px;
+#searchButton{
+    background-color: white;
 }
 
-button:hover {
+#searchButton:hover {
+    color: white;
     background-color: #0056b3;
+    cursor: pointer;
 }
 
 button+button{
     margin-left: 0;
 }
+
+.info-section{
+    flex-basis: 50%;
+}
+.info-section > table{
+    width: 100%;
+}
+
+.info-section input{
+    width: 100%;
+}
+

@@ -3,15 +3,7 @@ section {border: 1px solid black;}
 div {border: 1px solid black;} 
 
 
-@font-face { /* 애플산돌고딕 폰트 적용 */
-    font-family: "SDGothic";
-    src: url("/moneymate/src/fonts/AppleSDGothicNeoSB.ttf") format("truetype");
-    font-weight: normal;
-  }
 
-* {
-font-family: 'SDGothic', serif;
-}
 
 .footer{
     color: #929292;

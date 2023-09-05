@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,10 +9,10 @@
     <link rel="stylesheet" href="../css/member/myPageSidemenu.css">
     <link rel="stylesheet" href="../css/member/myPageBookMark.css">
     <link rel="stylesheet" href="../css/member/myInfo.css">
-    <script src="https://kit.fontawesome.com/98acdabf0d.js"
-	crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/98acdabf0d.js" crossorigin="anonymous"></script>
     <title>내 정보 조회</title>
 </head>
+
 <body>
 
     <main>
@@ -27,18 +28,18 @@
                         <a href=""><span>소비 테스트</span></a>
                         <a href=""><span>이벤트게시판</span></a>
                         <a href=""><span>마이페이지</span></a>
-        
+
                     </div>
                     <!-- 헤더 프로필 -->
                     <div class="login">
                         <div>
-                            
+
                             <img src="../images/로그인 아이콘.png">
                         </div>
                         <div>
                             <a href=""><span>LOGIN</span></a>
                             <a href=""><span>회원가입</span></a>
-    
+
                         </div>
                     </div>
                 </div>
@@ -63,135 +64,146 @@
                 </div>
                 <div class="j-myPage-member-list">
                     <ul class="j-myPage-sidemenu-list">
-    
+
                         <li><a href="#">내 정보 조회</i></a></li>
-                        
+
                         <li><a href="#">내 정보 수정</i></a></li>
-                        
+
                         <li><a href="#">비밀번호 재설정</i></a></li>
-                        
+
                         <li><a href="#">내가 쓴 글</i></a></li>
-    
+
                         <li><a href="#">좋아요 목록</a></li>
-    
+
                         <li><a href="#">북마크 조회</a></li>
-    
+
                         <li><a href="#">회원 탈퇴</a></li>
                     </ul>
 
-                    
+
 
                 </div>
 
             </section>
 
-            <!-- 중간영역 -->
-           
-            <!DOCTYPE html>
-            <html lang="en">
-            <head>
-                <meta charset="UTF-8">
-                <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                <link rel="stylesheet" href="edit_profile.css">
-                <script src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=YOUR_API_KEY"></script> <!-- Daum 주소 찾기 API 스크립트 -->
-                <title>내 정보 수정</title>
-            </head>
-            <body>
-                <div class="container">
-                    <h1>내 정보 수정</h1>
-            
+            <div class="container">
+                <h1>내 정보 수정</h1>
+                <form action="#">
                     <div class="profile">
+
                         <div class="image-section">
-                            <img src="../images/dog1.jpg" alt="프로필 이미지">
-                            <input type="file" id="imageInput" accept="image/*">
-                            <button id="changeButton">이미지 선택</button>
-                            <button type="submit">변경하기</button>
+                            <img src="../images/dog1.jpg" class="myInfoImg" alt="프로필 이미지">
+
+                            <div>
+                                <input type="file" name="imageInput" id="imageInput" accept="image/*">
+                                <label for="imageInput" id="chooseButton">
+                                    이미지 선택
+                                </label>
+                                <button type="submit" id="changeButton">변경하기</button>
+                            </div>
                         </div>
-            
+
                         <div class="info-section">
-                            <div class="input-row">
-                                <label for="name">이름:</label>
-                                <input type="text" id="name" name="name" value="사용자 이름">
-                            </div>
-            
-                            <div class="input-row">
-                                <label for="username">아이디:</label>
-                                <input type="text" id="username" name="username" value="사용자 아이디">
-                            </div>
-            
-                            <div class="input-row">
-                                <label for="email">이메일:</label>
-                                <input type="email" id="email" name="email" value="user@example.com">
-                            </div>
-            
-                            <div class="input-row">
-                                <label for="phone">전화번호:</label>
-                                <input type="tel" id="phone" name="phone" value="010-1234-5678">
-                            </div>
-            
-                            <div class="input-row">
-                                <label for="address">주소검색:</label>
-                                <input type="text" id="address" name="address" placeholder="주소를 검색하세요">
-                                <button id="searchButton">검색</button>
-                            </div>
-            
-                            <!-- 주소 검색 결과 표시 영역 -->
-                            <div id="addressResult"></div>
+
+                            <table>
+                                <tr>
+                                    <th>이름</th>
+                                    <td  class="borderno"><input></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <th>아이디</th>
+                                    <td><input></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <th>이메일</th>
+                                    <td><input></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <th>전화번호</th>
+                                    <td><input></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <th><button id="searchButton">주소검색</th>
+                                    <td><input></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <th></th>
+                                    <td><input></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <th></th>
+                                    <td><input></td>
+                                    <td></td>
+                                </tr>
+
+
+                            </table>
+                           
                         </div>
                     </div>
-                    
+                </form>
+
+            </div>
+
+
+</body>
+
+</html>
+
+
+</section>
+
+
+
+
+<!-- 푸터 -->
+<footer>
+
+    <section class="Fmain">
+        <section class="Fcontainer">
+            <section class="moon"></section>
+            <div class="Fcontainer1">
+                <div class="Fcontainer1-1">
+                    <a href="#">제휴문의</a>
+                    <a href="#">이용약관</a>
+                    <a href="#">개인정보처리방침</a>
+                    <a href="#">1:1문의</a>
                 </div>
-            
-                
-            </body>
-            </html>
-            
-        
+                <div class="Fcontainer1-1"></div>
+                <div class="Fcontainer1-1"></div>
+
+
+            </div>
+
+            <div class="footer">
+                <br>
+                머니메이트(주) | 대표자 : 강호연진석 | 주소 : 서울 강남구 테헤란로 낙산공원 정상 | 사업자등록번호 : 214-89-82019
+                <br>
+                <a href="#">이메일 : help@moneymate.com</a>
+                <br>
+                Copyright © 2023 Muneymate Inc. All right reserved.
+            </div>
+
+            <section class="moon2">
+                <img src="../images/로고.png">
+            </section>
         </section>
 
-        
+    </section>
 
 
-        <!-- 푸터 -->
-        <footer>
-        
-            <section class="Fmain">
-                <section class="Fcontainer">
-                    <section class="moon"></section>
-                    <div class="Fcontainer1">
-                        <div class="Fcontainer1-1"> 
-                            <a href="#">제휴문의</a>
-                            <a href="#">이용약관</a>
-                            <a href="#">개인정보처리방침</a>
-                            <a href="#">1:1문의</a></div>
-                        <div class="Fcontainer1-1"></div>
-                        <div class="Fcontainer1-1"></div>
-                       
-                       
-                    </div>
-                    
-                    <div class="footer">                    
-                        <br>
-                        머니메이트(주) | 대표자 : 강호연진석 | 주소 : 서울 강남구 테헤란로 낙산공원 정상 | 사업자등록번호 : 214-89-82019
-                        <br>
-                        <a href="#">이메일 : help@moneymate.com</a> 
-                        <br>
-                        Copyright © 2023 Muneymate Inc. All right reserved.
-                    </div>
-                    
-                    <section class="moon2">
-                        <img src="../images/로고.png">
-                    </section>
-                </section>
-                
-            </section>
-            
-            
-        
-        
-        </footer>
-    </main>
-    
+
+
+</footer>
+</main>
+
 </body>
 <script src="../js/myInfo.js"></script>
+
 </html>
