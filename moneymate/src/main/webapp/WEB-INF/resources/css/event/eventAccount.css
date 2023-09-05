@@ -113,13 +113,24 @@
     margin-left: 40px;
 }
 
-.writeArea textarea{
+.commentWrite{
+    outline: none;
     resize: none;
     width: 1120px;
     height: 100px;
 
     padding: 10px;
 }
+
+.updateWrite{
+    outline: none;
+    resize: none;
+
+    width: 1080px;
+    height: 100px;
+
+}
+
 
 .imgInput{
     display: none;
@@ -128,7 +139,7 @@
 .camera{
     width: 30px;
     position: absolute;
-    bottom: 10px;
+    bottom: 15px;
     left: 15px;
 
     cursor: pointer;
@@ -144,8 +155,8 @@
 
 #insertBtn{
     position: absolute;
-    bottom: 10px;
-    right: 40px;
+    bottom: 15px;
+    right: 50px;
 
     width: 50px;
     height: 30px;
@@ -165,6 +176,81 @@
     font-weight: bold;
 
     display: none;
+
+    text-shadow: 1px 1px 1px rgb(0, 255, 0);
+}
+
+
+
+
+
+/* 댓글 수정 */
+.writeArea1{
+    position: relative;
+    margin-left: 40px;
+}
+
+.commentWrite1{
+    outline: none;
+    resize: none;
+    width: 1120px;
+    height: 100px;
+
+    padding: 10px;
+}
+
+.updateWrite1{
+    outline: none;
+    resize: none;
+
+    width: 1080px;
+    height: 100px;
+
+}
+
+
+.imgInput1{
+    display: none;
+}
+
+.camera1{
+    width: 30px;
+    position: absolute;
+    bottom: 15px;
+    left: 15px;
+
+    cursor: pointer;
+}
+.camera1:hover{
+    transform: scale(1.1);
+}
+
+.preview1{
+    max-width: 200px;
+    max-height: 140px;
+}
+
+#insertBtn1{
+    position: absolute;
+    bottom: 15px;
+    right: 50px;
+
+    width: 50px;
+    height: 30px;
+    border: 0;
+    background-color: #ddd;
+
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.delete-image1{
+    position: absolute;
+    top: 0;
+    left: 10px;
+
+    cursor: pointer;
+    font-weight: bold;
 
     text-shadow: 1px 1px 1px rgb(0, 255, 0);
 }
