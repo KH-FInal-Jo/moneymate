@@ -1,257 +1,139 @@
-
-
-
-/* 공지사항 글제목, 검색창 스타일 */
-.InquiryBulletinBoardsearch{
-    display: flex;
+.InquiryBulletinBoardmain{
     width: 100%;
-    height: 20%;
-    justify-content: end;
-    align-items: end;
-    white-space : pre-wrap;
 }
-/* 글제목, 작성자 셀렉트 */
-.InquiryBulletinBoardsearch select{
-    width: 120px;
-    height: 40px;
-    margin-right: 5px;
 
-    margin-top: 100px;
-}
-/* 검색창 */
-#InquiryBulletinBoardsearch{
-    width: 200px;
-    height: 28px;
-
-    padding: 5px;
-    font-size: 15px;
-
-}
-/* 공지사항 목록 스타일 */
-.InquiryBulletinBoardlist{
-    width: 98%;
-    height: 400px;
-
-    margin-left: 15px;
-    margin-right: 0;
+.search-container {
     display: flex;
-    justify-content: center;
-    align-items: end;
 }
 
-
-
-
-.InquiryBulletinBoardlist > table{
-    width: 100%;
-    border : 1px solid rgb(156, 154, 154);
-    border-collapse : collapse;
+.search-input {
+    flex-grow: 1;
+    padding: 8px;
+    border: 1px solid #ccc;
 }
 
-.InquiryBulletinBoardlist-header{
-    background-color: #ddddddbb;
-    color: black;
-}
-
-.InquiryBulletinBoardlist tr, td, th{
-    border: 0;
-}
-
-.InquiryBulletinBoardlist tr{
-    border-bottom: 1px solid gray;
-}
-
-.InquiryBulletinBoardlist tr:first-child{
-    font-weight: bold;
-}
-
-.InquiryBulletinBoardlist tr > td:hover{
-    cursor: pointer;
-    color: rgb(12,64,202);
-}
-
-/* 글쓰기 버튼 */
-.InquiryBulletinBoardwrtie-btn{
-    width: 100%;
-    height: 130px;
-    display: flex;
-    justify-content: end;
-    align-items: end;
-}
-
-.InquiryBulletinBoardwrtie-btn > button{
-    width: 130px;
-    height: 45px;
-
-    font-size: 18px;
-    font-weight: bold;
-
-    border: 2px solid rgb(12,64,202);
-    background-color: white;
-    color: rgb(12,64,202);
-
-    cursor: pointer;
-
-}
-
-.InquiryBulletinBoardwrtie-btn > button:hover{
-    background-color: rgb(12,64,202);
-    color: white;
-    border: 1px solid white;
-}
-
-
-
-/* ****************************************** */
-/* 공지사항 상세 페이지 스타일 */
-.InquiryBulletinBoardcontainer{
-
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-
-    padding-top: 70px;
-    align-items: center;
-
-    margin-left: 10px;
-
-}
-/* 게시글 작성자, 작성일, 조회수 스타일 */
-.InquiryBulletinBoardcontainer > div{
-    width: 92%;
-    height: 55px;
-    display: flex;
-    align-items: center;
-
-    border-bottom: 1px solid #ddd;
-}
-/* 게시글 제목 */
-.InquiryBulletinBoardcontainer > div:first-child{
-    background-color: rgba(184, 177, 177, 0.932);
-    display: flex;
-    justify-content: center;
-
-    font-size: 20px;
-}
-/* 게시글 작성 부분 */
-#InquiryBulletinBoardcontent{
-    width: 91%;
-    height: 380px;
-
-    resize: none;
-    border: 1px solid gray;
-
-    font-size: 18px;
-
-    margin-top: 5px;
-
-}
-/* 목록으로 버튼 */
-.InquiryBulletinBoardcontainer>div:last-child{
-    display: flex;
-    justify-content: end;
-
-    border: 0;
-}
-.InquiryBulletinBoardcontainer button{
-    width: 120px;
-    height: 40px;
-    font-size: 17px;
-
-    background-color: white;
-    color: rgb(12,64,202);
-    border: 1px solid rgb(12,64,202);
-    font-weight: bold;
-
-    margin-top: 50px;
-
-}
-.InquiryBulletinBoardcontainer button:hover{
-    background-color: rgb(12,64,202);
-    color: white;
+.search-button {
+    padding: 8px;
+    background-color: #333;
+    color: #fff;
+    border: none;
     cursor: pointer;
 }
 
-/* *********************************************************** */
-/* 공지사항 게시글 작성하기 */
-.InquiryBulletinBoardwrite-container{
+
+table {
     width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    border: 1px solid #ccc;
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+/* 표시 데이터를 정렬하기 위한 클래스 */
+.center {
+    text-align: center;
+}
+
+.search-container {
     display: flex;
-    flex-direction: column;
-
-    padding-top: 100px;
-    align-items: center;
-
-    margin-left: 10px;
-
+    align-items: center; /* 세로 중앙 정렬 */
+    margin-top: 10px;
 }
-.InquiryBulletinBoardwrite-container > *{
-    width: 92%;
+
+#search-input {
+    flex-grow: 1;
+    padding: 8px;
+    border: 1px solid #ccc;
+}
+
+.search-button {
+    background-color: #333;
+    color: #fff;
+    padding: 8px;
+    border: none;
+    cursor: pointer;
+}
+
+.search-button i {
+    font-size: 20px; /* 돋보기 아이콘 크기 조정 */
+}
+
+ /* 작성자 가운데 정렬 */
+ td:nth-child(3) {
+    text-align: center;
+}
+
+/* select와 검색창 가로 정렬 */
+.Bcontainer3 {
     display: flex;
-    align-items: center;
-
-}
-
-/* 제목 */
-#InquiryBulletinBoard-title{
-    height: 60px;
-    font-size: 22px;
-}
-
-/* 내용 */
-#InquiryBulletinBoardwrite-content{
-    height: 300px;
-    padding-top: 20px;
-    font-size: 22px;
-
-    resize: none;
-
-
-}
-
-/* 이전으로, 등록 버튼 컨테이너 */
-.InquiryBulletinBoardcontainer > div:last-child{
-    width: 93%;
-    display: flex;
-
     justify-content: space-between;
     align-items: center;
-
-    
+    margin-top: 10px;
 }
 
-.InquiryBulletinBoardcontainer button{
-
-    width: 120px;
-    height: 40px;
-    font-size: 17px;
-
-    background-color: white;
-    color: rgb(12,64,202);
-    border: 1px solid rgb(12,64,202);
-    font-weight: bold;
-
-    margin-top: 50px;
-
+.pagination-container {
+    text-align: center;
+    margin-top: 20px;
 }
 
-.InquiryBulletinBoardcontainer button:hover{
-
-    background-color: rgb(12,64,202);
-    color: white;
-    cursor: pointer;
+.pagination {
+    display: inline-block;
+    padding: 0;
+    margin: 0;
 }
 
-.InquiryBulletinBoardname{
-    font-size: 28px;
+.pagination li {
+    display: inline;
+    list-style: none;
+    margin-right: 5px;
 }
 
-.InquiryBulletinBoardbtn{
+.pagination li a {
+    text-decoration: none;
+    color: #007bff;
+    /* background-color: #f0f0f0; */
+    padding: 5px 10px;
+    /* border: 1px solid #ddd; */
+    border-radius: 3px;
+}
+
+.pagination li a:hover {
+    background-color: #007bff;
+    color: #fff;
+}
+
+.write-button {
+    display: block;
+    width: 100px;
+    margin: 20px auto;
+    text-align: center;
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 3px;
+    transition: background-color 0.3s ease;
+}
+
+.write-button:hover {
+    background-color: #0056b3;
+}
+
+.Bcontainer5{
+    width: 100%;
     display: flex;
-    align-items: end;
-    justify-content: end;
+    align-items: center;
+    justify-content: center;
+   
 }
 
-InquiryBulletinBoardbtn > button{
-    font-size: 20px;
+.Bcontainer5-1{
+    width: 33.3%;
 }
