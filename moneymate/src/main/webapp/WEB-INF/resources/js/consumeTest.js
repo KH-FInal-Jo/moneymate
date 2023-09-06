@@ -4,6 +4,7 @@ const q2 = document.querySelector(".q2");
 const q3 = document.querySelector(".q3");
 const q4 = document.querySelector(".q4");
 const q5 = document.querySelector(".q5");
+const thumbnail = document.querySelector(".thumbnail");
 const resultPage = document.querySelector(".result-main");
 const progress = document.getElementById("progress");
 
@@ -44,7 +45,11 @@ const onClick = (e) => {
         progress.value = 80;
         img.setAttribute("src", "../images/질문5.png");
     } else if (result.length === 5) {
-       
+        q5.style.display = "none";
+        resultPage.style.display="flex";
+        progress.value = 100;
+        img.style.display = "none";
+        thumbnail.style.display = "none";
     }
 };
 

@@ -50,12 +50,16 @@ font-family: 'SDGothic', serif;
     }
 }
 
-.start-main button{
+.result-main button{
     width: 500px;
-    height: 30px;
+    height: 25px;
     border: 0;
     font-weight: bold;
     cursor: pointer;
+}
+
+.result-main button:hover{
+    box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.5), 0 0 20px ;
 }
 
 #btn-re{
