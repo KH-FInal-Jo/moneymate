@@ -12,14 +12,7 @@ font-family: 'SDGothic', serif;
     background-image: url("../images/background3.png") ;
 }
 
-#start-main{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
 
-    padding-top: 80px;
-}
 
 .result{
     font-size: 30px;
@@ -37,7 +30,7 @@ font-family: 'SDGothic', serif;
     
 }
 
-li{
+.result-main li{
     font-weight: bold;
     font-size: 20px;
 }
@@ -55,4 +48,16 @@ li{
     to {
       transform: rotate(-1deg);
     }
-  }
+}
+
+.start-main button{
+    width: 500px;
+    height: 30px;
+    border: 0;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#btn-re{
+    margin-bottom: 10px;
+}
