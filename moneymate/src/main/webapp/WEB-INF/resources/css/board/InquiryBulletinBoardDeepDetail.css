@@ -236,26 +236,9 @@
 
 }
 
-.InquiryBulletinBoardmain{
-    width: 100%;
-}
-
 .board-notice-write-container button:hover{
 
     background-color: rgb(12,64,202);
     color: white;
     cursor: pointer;
-}
-
-.btnClick{
-    display: flex;
-}
-
-.btnClick>button{
-    border-radius: 30px;
-}
-
-button:hover{
-    background-color: black;
-    transition: 0.5s;
 }

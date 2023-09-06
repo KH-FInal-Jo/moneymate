@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/board/boardSidemenu-style.css">
     <link rel="stylesheet" href="../css/board/InquiryBulletinBoard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link rel="stylesheet" href="../css/header.css">
     <link rel="stylesheet" href="../css/footer.css">
     <title>문의게시판</title>
@@ -64,77 +65,104 @@
             </section>
 
             <section class="InquiryBulletinBoardmain">
-                <div class="InquiryBulletinBoardname">문의게시판</div>
-
-                <div class="InquiryBulletinBoardsearch">
-                    <form action="#">
-
-                        <select name="sel">
-                            <option value="1">글제목</option>
-                            <option value="2">작성자</option>
-    
-                        </select>
+                
+                <div class="Bcontainer1">문의게시판</div>
+                
+                <div class="Bcontainer2"></div>
+                
+                <div class="Bcontainer3">
+                    <select name="open" id="open">
+                        <option value="">게시글</option>
+                        <option value="">#</option>
+                        <option value="">#</option>
+                        <option value="">#</option>
+                        <option value="">#</option>
+                    </select>
+                    <form action="/search" method="get">
+                        <div class="search-container">
+                            <label for="search-input" class="sr-only">검색어 입력:</label>
+                            <input type="text" id="search-input" name="q" placeholder="검색어를 입력하세요..." required>
+                            <button type="submit" class="search-button"><i class="fas fa-search"></i></button>
+                        </div>
                     </form>
-
-                    <input type="text" id="InquiryBulletinBoardsearch" placeholder="검색어를 입력해주세요.">
-
                 </div>
-                <div class="InquiryBulletinBoardlist">
-                    <table border="1" class="InquiryBulletinBoardtable">
-                        <tr class="InquiryBulletinBoardlistheader">
-                            <th width="50px">번호</th>
-                            <th width="400px" height="60px">제목</th>
-                            <td width="100px">작성자</td>
-                            <th width="100px">작성일</th>
-                            <th width="50px">조회수</th>
-                        </tr>
-                        <tr>
-                            <th height="60px">0</th>
-                            <a href="#"><td>문의게시판 게시글 제목입니다.[5]</td></a>
-                            <td>유저일</td>
-                            <td>2023.08.28</td>
-                            <td>10</td>
-                        </tr>
+                
+                <div class="Bcontainer4">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th class="center">번호</th>
+                                <th>제목</th>
+                                <th class="center">작성자</th>
+                                <th class="center">작성일</th>
+                                <th class="center">조회수</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="center">5</td>
+                                <td>문의게시판 게시글 제목입니다.</td>
+                                <td>유저일</td>
+                                <td class="center">2023.08.23</td>
+                                <td class="center">10</td>
+                            </tr>
+                           
+                            <tr>
+                                <td class="center">4</td>
+                                <td>문의게시판 게시글 제목입니다.</td>
+                                <td>유저이</td>
+                                <td class="center">2023.08.23</td>
+                                <td class="center">10</td>
+                            </tr>
 
-                        <tr>
-                            <th height="60px">1</th>
-                            <a href="#"><td>문의게시판 게시글 제목입니다.[5]</td></a>
-                            <td>유저이</td>
-                            <td>2023.08.28</td>
-                            <td>10</td>
-                        </tr>
+                            <tr>
+                                <td class="center">3</td>
+                                <td>문의게시판 게시글 제목입니다.</td>
+                                <td>유저삼</td>
+                                <td class="center">2023.08.23</td>
+                                <td class="center">10</td>
+                            </tr>
 
-                        <tr>
-                            <th height="60px">2</th>
-                            <a href="#"><td>문의게시판 게시글 제목입니다.[5]</td></a>
-                            <td>유저삼</td>
-                            <td>2023.08.28</td>
-                            <td>10</td>
-                        </tr>
+                            <tr>
+                                <td class="center">2</td>
+                                <td>문의게시판 게시글 제목입니다.</td>
+                                <td>유저사</td>
+                                <td class="center">2023.08.23</td>
+                                <td class="center">10</td>
+                            </tr>
 
-                        <tr>
-                            <th height="60px">3</th>
-                            <a href="#"><td>문의게시판 게시글 제목입니다.[5]</td></a>
-                            <td>유저사</td>
-                            <td>2023.08.28</td>
-                            <td>10</td>
-                        </tr>
-
-                        <tr>
-                            <th height="60px">4</th>
-                            <a href="#"><td>문의게시판 게시글 제목입니다.[5]</td></a>
-                            <td>유저오</td>
-                            <td>2023.08.28</td>
-                            <td>10</td>
-                        </tr>
-
+                            <tr>
+                                <td class="center">1</td>
+                                <td>문의게시판 게시글 제목입니다.</td>
+                                <td>유저오</td>
+                                <td class="center">2023.08.23</td>
+                                <td class="center">10</td>
+                            </tr>
+                        </tbody>
                     </table>
-
                 </div>
 
-                <div class="InquiryBulletinBoardbtn">
-                    <button type="button" class="btnst">글쓰기</button>
+                <div class="Bcontainer5">
+
+                    <div class="Bcontainer5-1"></div>
+
+                    <div class="Bcontainer5-1">
+                        <div class="pagination-container">
+                            <ul class="pagination">
+                                <li><a href="#">&laquo;</a></li>
+                                <li><a href="#">1</a></li>
+                                <li><a href="#">2</a></li>
+                                <li><a href="#">3</a></li>
+                                <li><a href="#">&raquo;</a></li>
+                            </ul>
+                        </div>
+                    
+                    </div>
+                    <div class="Bcontainer5-1">
+                        <a href="#" class="write-button">글쓰기</a>
+                    </div>
                 </div>
+
 
             </section>
 
