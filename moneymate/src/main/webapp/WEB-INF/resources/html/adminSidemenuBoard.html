@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/member/adminSidemenu.css">
+    <link rel="stylesheet" href="../css/header.css">
+    <title>게시판 신고관리</title>
+</head>
+<body>
+
+    <main>
+        <section>
+            <div class="head">
+                <div><a href=""><img src="../images/로고.png"></a></div>
+                <div class="head-board">
+                    <!-- 헤더 글 -->
+                    <div class="nav">
+                        <a href=""><span>커뮤니티</span></a>
+                        <a href=""><span>가계부</span></a>
+                        <a href=""><span>소비 테스트</span></a>
+                        <a href=""><span>이벤트게시판</span></a>
+                        <a href=""><span>마이페이지</span></a>
+        
+                    </div>
+                    <!-- 헤더 프로필 -->
+                    <div class="login">
+                        <div>
+                            
+                            <img src="../images/로그인 아이콘.png">
+                        </div>
+                        <div>
+                            <a href=""><span>LOGIN</span></a>
+                            <a href=""><span>회원가입</span></a>
+    
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="admin-container">
+
+            <section class="j-admin-sidemenu">
+                <div class="j-admin-sidemenu-container">
+                    <div class="j-admin-sidemenu-title">회원 관리</div>
+
+                    <div class="j-admin-sidemenu-content">
+                        <div id="j-admin-report" onclick="reportBtn()">신고 관리</div>
+                        <div id="j-admin-report-container">
+                            <div><a href="#">채팅</a></div>
+                            <div><a href="#">게시판</a></div>
+                        </div>
+                        <div>결제 관리</div>
+                        <div id="j-admin-community-list" onclick="adminCommunity()">게시판 관리</div>
+                            <div id="j-admin-com">
+                                <div><a href="#">공지사항</a></div>
+                                <div><a href="#">문의게시판</a></div>
+                                <div><a href="#">자유게시판</a></div>
+                                <div><a href="#">컬럼게시판</a></div>
+                                <div><a href="#">이벤트게시판</a></div>
+    
+                            </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="admin-main">
+                <div class="admin-report-list">
+                    <table border="1" class="admin-report-table">
+                        <tr class="admin-report-list-header">
+                            <th width="28px">회원번호</th>
+                            <th width="30px" height="60px">닉네임</th>
+                            <th width="20px">이메일</th>
+                            <th width="80px">게시판내용</th>
+                            <th width="50px">신고이유</th>
+                            <th width="50px">신고날짜</th>
+                            <th width="40px">승인여부</th>
+                        </tr>
+                        <tr>
+                            <th>1</th>
+                            <a href="#"><th width="30px" height="50px">유저일</th></a>
+                            <td width="40px">user01@naver.com</td>
+                            <a href="#"><td width="120px">게시판내용</td></a>
+                            <a href="#"><td width="50px">게시판내용이 이상해요</td></a>
+                            <td width="50px">2023.08.30</td>
+                            <td width="40px"><button type="button">승인</button></td>
+                        </tr>
+
+                        <tr>
+                            <th>1</th>
+                            <a href="#"><th width="30px" height="50px">유저일</th></a>
+                            <td width="40px">user01@naver.com</td>
+                            <a href="#"><td width="120px">게시판내용</td></a>
+                            <a href="#"><td width="50px">게시판내용이 이상해요</td></a>
+                            <td width="50px">2023.08.30</td>
+                            <td width="40px"><button type="button">승인</button></td>
+                        </tr>
+
+                        <tr>
+                            <th>1</th>
+                            <a href="#"><th width="30px" height="50px">유저일</th></a>
+                            <td width="40px">user01@naver.com</td>
+                            <a href="#"><td width="120px">게시판내용</td></a>
+                            <a href="#"><td width="50px">게시판내용이 이상해요</td></a>
+                            <td width="50px">2023.08.30</td>
+                            <td width="40px"><button type="button">승인</button></td>
+                        </tr>
+
+                        <tr>
+                            <th>1</th>
+                            <a href="#"><th width="30px" height="50px">유저일</th></a>
+                            <td width="40px">user01@naver.com</td>
+                            <a href="#"><td width="120px">게시판내용</td></a>
+                            <a href="#"><td width="50px">게시판내용이 이상해요</td></a>
+                            <td width="50px">2023.08.30</td>
+                            <td width="40px"><button type="button">승인</button></td>
+                        </tr>
+
+
+
+                    </table>
+
+                </div>
+
+                
+
+            </section>
+
+        </section>
+    </main>
+
+    <script src="../js/adminSidemenu.js"></script>
+    
+</body>
+</html>
