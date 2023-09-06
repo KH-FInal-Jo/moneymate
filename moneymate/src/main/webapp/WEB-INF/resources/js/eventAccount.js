@@ -2,6 +2,10 @@ const preview = document.getElementsByClassName("preview"); // 미리보기 이�
 const imgInput = document.getElementsByClassName("imgInput"); // 파일 태그
 const deleteImage = document.getElementsByClassName("delete-image"); // x버튼
 
+let flag = true; // 댓글 등록 시 또 댓글 등록 못하게 !!!
+// 삭제할 경우 true로 바꿔주고
+// 다시 등록하는 경우엔 false로 바꿔줘야 함
+
 for(let i = 0; i<imgInput.length; i++){ 
     imgInput[i].addEventListener("change", e => { // 파일 선택
         const file = e.target.files[0];
@@ -35,7 +39,6 @@ for(let i = 0; i<imgInput.length; i++){
     })
 }
 
-let flag = true; // 댓글 등록 시 또 댓글 등록 못하게 !!!
 
 /* 댓글 수정 화면 전환 */
 function updateBtn(btn){
@@ -113,12 +116,79 @@ function updateBtn(btn){
 
     const cancelBtn = document.createElement("button");
     cancelBtn.innerText = "취소";
-    cancelBtn.setAttribute("onclick", "updateCancel()");
+    cancelBtn.setAttribute("onclick", "updateCancel(this)");
 
     commentBtnArea.append(updateBtn, cancelBtn);
 
     commentRow.append(bigDiv, commentBtnArea);
 
+    /* -------------------------------------------------------- */
+
+    // 수정 미리보기 
+    const preview1 = document.getElementsByClassName("preview1")[0]; // 미리보기
+    const deleteImage1 = document.getElementsByClassName("delete-image1")[0]; // 미리보기
+    const updateImg = document.getElementById("updateImg"); // 파일 태그
+
+    updateImg.addEventListener("change", e => { // 파일 선택
+        console.log(1111111)
+        const file = e.target.files[0];
+
+
+        if(file != undefined){ // 선택눌렀다가 취소된 게 경우가 아닐 경우
+
+            const reader = new FileReader();
+
+            reader.readAsDataURL(file);
+
+            reader.onload = e => {
+                preview1.setAttribute("src", e.target.result);
+                deleteImage1.style.display = "block"
+            }
+
+
+        } else { // 선택 -> 취소 인 경우
+            preview1.removeAttribute("src");
+            deleteImage1.style.display = "none"
+        }
+    });
+
+    // 수정 미리보기 사진 삭제하는 경우
+    deleteImage1.addEventListener("click", () => {
+        if(preview1.getAttribute("src") != ""){
+
+            preview1.removeAttribute("src");
+
+            deleteImage1.style.display = "none";
+
+            updateImg.value="";
+        }
+    })
+
 
 
 }
+
+// 수정 취소
+function updateCancel(btn){
+
+    if(confirm("댓글 수정을 취소하시겠습니까?")){
+        btn.parentElement.parentElement.innerHTML = rowContent;
+    }
+}
+
+// 댓글 좋아요 백에서 진행하깅
+/* const commentLike = document.getElementById("commentLike");
+
+commentLike.addEventListener("cilck", e => {
+    // 로그인 여부 검사
+
+    let check; // 이미 좋아요 -> 0
+               // 기존 빈하트 -> 1
+
+    if(e.target.classList.contains("fa-regular")){
+        check = 0;
+    } else {
+        check = 1;
+    }
+
+}) */

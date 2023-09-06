@@ -20,10 +20,16 @@
     padding-left: 1050px;
 }
 
+#event{
+    display: flex;
+    justify-content: center;
+
+    border-top: 2px solid #ddd;
+}
+
 /* 본문 */
 #event img{
     margin: 20px;
-    max-width: 1155px;
 }
 
 
