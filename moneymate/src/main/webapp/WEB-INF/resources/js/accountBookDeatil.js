@@ -7,6 +7,8 @@ const incomeTb = document.querySelector(".income-tb")
 // 지출내역 테이블
 const tb = document.querySelector(".tb")
 
+console.log()
+
 
 window.onload = function () {
     pieChartDraw();

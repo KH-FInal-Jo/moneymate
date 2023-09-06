@@ -52,6 +52,43 @@ font-family: 'SDGothic', serif;
     text-decoration: none;
     color: black;
 }
+/* 마이페이지 마진 */
+.nav > a:nth-of-type(5){
+    margin-right: 50px;
+}
+
+/* 알람 숫자 */
+#alarm-number{
+    position: absolute;
+
+    top: 110px;
+
+    text-align: center;
+    background-color: red;
+    color: white;
+
+    width: 30px;
+    height: 28px;
+
+    border-radius: 50%;
+
+}
+
+/* 알림함 */
+#alarm-page{
+    display: none;
+
+    position: absolute;
+    top: 140px;
+    right: 210px;
+    border-radius: 10px;
+
+    width: 300px;
+    height: 400px;
+
+    background-color: rgb(236, 236, 194);
+}
+
 
 /* 프로필 */
 .head-board > div:nth-of-type(2){
