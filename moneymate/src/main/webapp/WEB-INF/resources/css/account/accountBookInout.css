@@ -188,24 +188,24 @@ font-family: 'SDGothic', serif;
 
 /* 카테고리 스타일 */
 .accBk-record-category > div:first-child>div:nth-child(2){
-    margin-left: 30px;
+    margin-left: 40px;
     cursor: pointer;
     font-size: 20px;
 }
 
 .accBk-record-category > div:nth-child(3)>div:last-child{
-    margin-left: 30px;
+    margin-left: 40px;
 }
 .accBk-record-category > div:nth-child(4)>div:last-child{
-    margin-left: 30px;
+    margin-left: 40px;
 }
 
 .accBk-record-category > div:nth-child(5)>div:last-child{
-    margin-left: 75px;
+    margin-left: 76px;
 }
 
 .accBk-record-category > div:nth-child(6)>div:last-child{
-    margin-left: 75px;
+    margin-left: 76px;
 }
 
 /* 상세보기 제목들 스타일주기 */
@@ -397,6 +397,8 @@ font-family: 'SDGothic', serif;
     width: 125px;
     height: 50px;
     margin: 0px 0px;
+
+    font-size: 18px;
     background-color: skyblue; 
     cursor: pointer;
     outline: none;
@@ -421,6 +423,8 @@ font-family: 'SDGothic', serif;
     cursor: pointer;
     outline: none;
     background-color: #eeecec;
+
+    font-size: 15px;
 
     border: 2px solid rgb(194, 189, 189);
 }
@@ -539,14 +543,30 @@ font-family: 'SDGothic', serif;
     margin-bottom: 20px;
 
     height: 30px;
+
+    cursor: pointer;
 }
-.accDateRecord > button{
+
+#accDateChange{
     background-color: skyblue;
     border: 0;
-    padding: 5px;
     color: white;
-    font-weight: bold;
+    padding: 5px;
+
+    width: 80px;
+    height: 30px;
+
+    cursor: pointer;
 }
+#accDateChange:hover{
+    background-color: white;
+    color: skyblue;
+    font-weight: bold;
+    border: 2px solid skyblue;
+}
+
+
+
 
 /* 한달 목표 예산 설정 스타일 */
 .accMileage-left > div:nth-child(2)>div:first-child{
