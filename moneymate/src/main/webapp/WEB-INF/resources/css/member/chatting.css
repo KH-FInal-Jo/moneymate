@@ -10,8 +10,9 @@ font-family: 'SDGothic', serif;
 
 main {
     width: 1700px;
-    height: 875px;
+    height: 780px;
     margin: auto;
+
 
     display: flex;
 }
@@ -39,13 +40,24 @@ main {
 
     cursor: pointer;
 }
+.chat-left-bar > div:hover{
+    color: white;
+}
+
+
 /* 중간 검색 관련 창(바뀜) */
 .leftBar1{
     width: 36%;
-    height: 90%;
+    height: 88.7%;
 
     border-top: 2px solid #ddd;
     margin-top: 20px;
+    padding-bottom: 124px;
+
+    border-bottom: 4px solid #ddd;
+
+    display: none;
+
 
 }
 
@@ -74,9 +86,149 @@ main {
     color: gray;
 }
 
+.leftBar1 > div:nth-child(2){
+    margin-top: 25px;
+    margin-left: 20px;
+    font-size: 23px;
+}
+
+.leftBar1 > div:nth-child(3){
+    margin-top: 25px;
+}
+/* 일치하는 회원이 없습니다. */
+.undefind{
+
+    width: 98%;
+
+    margin-left: 20px;
+    font-size: 25px;
+    margin-top: 30px;
+}
+
 
 /* 검색어 나오는 창 */
 .leftBar1 li{
+    list-style: none;
+
+    padding: 20px;
+    width: 91%;
+    height: 65px;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+
+    margin-left: 7px;
+
+    border-radius: 20px;
+
+    cursor: pointer;
+
+    border-bottom: 2px solid #ddd;
+
+}
+
+.leftBar1 li:hover{
+    background-color: #e1eaf8;
+}
+
+
+
+/* 이미지 */
+.leftBar1 li > img{
+    width: 65px;
+    height: 100%;
+    margin-right: 20px;
+
+    border-radius: 50%;
+
+}
+.leftBar1 li > span{
+    display: inline-block;
+}
+
+/* ---------------------------------------------------- */
+/* leftBar2 스타일 */
+.leftBar2{
+    width: 36%;
+    height: 88.7%;
+
+    border-top: 2px solid #ddd;
+    margin-top: 20px;
+    padding-bottom: 124px;
+
+    border-bottom: 4px solid #ddd;
+
+    display: none;
+
+}
+
+.leftBar2 input{
+    width: 100%;
+    height: 40px;
+    padding-left: 20px;
+    padding-top: 20px;
+    border: 0;
+    font-size: 23px;
+    
+    margin-bottom: 20px;
+    outline: none;
+}
+
+.leftBar2 > div:first-child{
+    display: flex;
+
+    border-bottom: 4px solid #ddd;
+}
+
+.leftBar2 > div:first-child > i{
+    margin-top: 37px;
+    margin-left: 10px;
+    font-size: 44px;
+    color: gray;
+}
+
+/* 유저 프로필 */
+.chat-my-profile{
+    height: 60px;
+    display: flex;
+    align-items: center;
+    padding: 5px;
+
+    border: 5px solid rgb(134, 230, 134);
+    border-left: 0;
+    border-right: 0;
+    border-top: 0;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+
+    margin-top: 10px;
+}
+
+.chat-my-profile img{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #8fa8ce;
+
+}
+
+.chat-my-profile > div:nth-child(1){
+    margin-right: 10px;
+    margin-left: 20px;
+
+
+}
+
+.chat-my-profile > div:nth-child(3){
+    width: 400px;
+    display: flex;
+    justify-content: end;
+    margin-left: 30px;
+}
+
+
+/* 검색어 나오는 창 */
+.leftBar2 li{
     list-style: none;
     
     padding: 20px;
@@ -92,7 +244,7 @@ main {
 }
 
 /* 이미지 */
-.leftBar1 li > img{
+.leftBar2 li > img{
     width: 65px;
     height: 100%;
     margin-right: 20px;
@@ -100,14 +252,163 @@ main {
     border-radius: 50%;
 
 }
-.leftBar1 li > span{
+.leftBar2 li > span{
     display: inline-block;
 }
+
+/* ------------------------------------------------- */
+/* ---------------------------------------------------- */
+/* leftBar3 스타일 */
+.leftBar3{
+    width: 36%;
+    height: 88.7%;
+
+    border-top: 2px solid #ddd;
+    margin-top: 20px;
+    padding-bottom: 124px;
+
+    border-bottom: 4px solid #ddd;
+
+    flex-direction: column;
+
+
+}
+
+.leftBar3 input{
+    width: 100%;
+    height: 40px;
+    padding-left: 20px;
+    padding-top: 20px;
+    border: 0;
+    font-size: 23px;
+    
+    margin-bottom: 20px;
+    outline: none;
+}
+
+.leftBar3 > div:first-child{
+    display: flex;
+
+    border-bottom: 4px solid #ddd;
+}
+
+.leftBar3 > div:first-child > i{
+    margin-top: 37px;
+    margin-left: 10px;
+    font-size: 44px;
+    color: gray;
+}
+
+
+
+/* 검색어 나오는 창 */
+.result-row3{
+    width: 95%;
+    height: 90px;
+
+    border: 3px solid #ddd;
+    margin: auto;
+
+    border-radius: 20px;
+
+    margin-top: 20px;
+    display: flex;
+
+    border: 5px solid #e1eaf8;
+    cursor: pointer;
+}
+.result-row3:hover{
+    background-color: #e1eaf8;
+}
+
+.chatMessage3{
+    display: flex;
+}
+
+/* 채팅 메세지 상대 프사 */
+.chatMessage3 > div:first-child{
+    width: 65px;
+    margin: auto;
+    margin-left: 10px;
+}
+
+.chatMessage3 img{
+    width: 65px;
+    height: 65px;
+
+    border-radius: 50%;
+}
+
+.chatMessage3 > div:nth-child(2){
+    margin-left: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: -10px;
+
+    width: 360px;
+
+}
+.chatMessage3 > div:nth-child(2) > div:first-child{
+    padding-bottom: 10px;
+    font-weight: bold;
+}
+.chatMessage3 > div:nth-child(2) > div:last-child{
+    color: rgb(107, 105, 105);
+}
+
+/* 날짜 */
+.chatMessage3 > div:nth-child(3)>div:first-child{
+    width: 80px;
+    display: flex;
+    justify-content: end;
+    padding-top: 5px;
+
+    color: rgb(107, 105, 105);
+}
+
+.chatMessage3 > div:nth-child(3){
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* 안읽은 문자 개수 */
+.chatMessage3 > div:nth-child(3)>div:last-child{
+    background-color: red;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+
+    margin-left: 2px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    margin-top: 10px;
+    margin-left:10px;
+}
+
+
+
+
+
+
+/* ------------------------------------------------- */
+
+
+
+
 
 /* 오른쪽 채팅 화면 */
 .chatting-main{
     width: 60%;
-    height: 1000px;
+    height: 821px;
 
     margin-top: 20px;
     margin-left: 1px;
@@ -116,7 +417,7 @@ main {
 }
 .chatting-main > div:first-child{
     font-size: 22px;
-    height: 82px;
+    height: 70px;
     border-top: 1px solid #ddd;
     border-bottom: 4px solid #ddd;
 
@@ -133,7 +434,7 @@ main {
 .display-chatting{
     padding: 10px;
 
-    height: 730px;
+    height: 612px;
 
     display: flex;
     flex-direction: column;
@@ -142,18 +443,22 @@ main {
 /* 상대 유저 간단 정보 */
 .display-chatting > div:nth-child(1){
     width: 97%;
-    height: 80px;
+    height: 75px;
     display: flex;
 
-    border-bottom: 3px solid #ddd;
+    border-bottom: 3px solid #b9b7b7;
     align-items: center;
 
     padding: 10px;
 
+
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+
 }
 .display-chatting > div:nth-child(1) > img{
-    width: 70px;
-    height: 70px;
+    width: 60px;
+    height: 60px;
     border-radius: 50%;
     margin-right: 20px;
 }
@@ -173,7 +478,6 @@ main {
     margin-top: 0px;
 
     font-size: 25px;
-    background-color: #ddd;
 }
 
 .target-chat{
@@ -206,19 +510,30 @@ main {
 }
 
 /* 채팅 입력칸 */
+.chatting-main > div:first-child{
+    height: 51px;
+}
+
+
 .chatting-main > div:last-child{
     display: flex;
     align-items: end;
-    background-color: pink;
 
+    
     height: 100px;
     border: 1px solid gray;
 }
 .chatting-main > div:last-child>div:first-child>input{
-    width: 850px;
-    height: 95px;
+    width: 800px;
+    height: 57px;
+    outline: none;
+    padding: 20px;
+    font-size: 18px;
 
 }
+
+/* 보내기 버튼 */
+
 .chatting-main > div:last-child button{
     width: 150px;
     height: 100px;
@@ -226,6 +541,79 @@ main {
     font-size: 22px;
 
     cursor: pointer;
+}
+
+
+/* 채팅 화면 스타일 */
+.wrap {
+    padding: 40px 0;
+
+    width: 100%;
+
+    overflow: auto;
+}
+
+.wrap .chat {
+    display: flex;
+    align-items: flex-start;
+    padding: 20px;
+    margin: 0;
+}
+
+.wrap .chat .icon {
+    position: relative;
+    overflow: hidden;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #eee;
+}
+
+.icon > img {
+    width: 100%;
+}
+
+.wrap .chat .textbox {
+    position: relative;
+    display: inline-block;
+    max-width: calc(100% - 70px);
+    padding: 10px;
+    margin-top: 7px;
+    font-size: 16px;
+    border-radius: 10px;
+}
+
+.wrap .chat .textbox::before {
+    position: absolute;
+    display: block;
+    top: 0;
+    font-size: 1.5rem;
+}
+
+.wrap .ch1 .textbox {
+    margin-left: 20px;
+    background-color: #ddd;
+}
+
+.wrap .ch1 .textbox::before {
+    left: -15px;
+    content: "◀";
+    color: #ddd;
+}
+
+.wrap .ch2 {
+    flex-direction: row-reverse;
+}
+
+.wrap .ch2 .textbox {
+    margin-right: 20px;
+    background-color: #F9EB54;
+}
+
+.wrap .ch2 .textbox::before {
+    right: -15px;
+    content: "▶";
+    color: #F9EB54;
 }
 
 
