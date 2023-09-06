@@ -3,6 +3,7 @@ const checkObj = {
         "memberEmail" : false,
         "memberPw" : false,
         "memberPwConfirm" : false,
+        "memberName" : false,
         "memberNickname" : false,
         "memberTel" : false,
         "authKey" : false
@@ -153,6 +154,39 @@ memberPwConfirm.addEventListener("input", () => {
 
         }
     } 
+});
+
+// 이름 유효성 검사
+const memberName = document.getElementById("memberName");
+const nameMessage = document.getElementById("nameMessage");
+
+memberName.addEventListener("input", () => {
+    if(memberName.value.trim().length == 0){
+        nameMessage.innerText = "한글,영여,숫자로만 2~20글자"
+        nameMessage.classList.remove("error", "confirm");
+
+        checkObj.memberName = false;
+        return;
+    }
+
+    const regEx = /[가-힣\a-z\A-Z]{2,20}$/;
+
+    if(regEx.test(memberName.value)){
+        nameMessage.innerText = "이름 형식이 유효합니다.";
+        nameMessage.classList.remove("error");
+        nameMessage.classList.add("confirm");
+
+        checkObj.memberName = true;
+    } else {
+        nameMessage.innerText = "이름 형식이 유효하지 않습니다.";
+        nameMessage.classList.remove("confirm");
+        nameMessage.classList.add("error");
+
+        checkObj.memberName = false;
+    }
+
+
+
 });
 
 
