@@ -3,15 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/board/boardSidemenu-style.css">
-    <link rel="stylesheet" href="../css/board/InquiryBulletinBoardDetail.css">
+    <title>문의게시판 상세</title>
+
+    <script src="https://kit.fontawesome.com/d76028de4f.js" crossorigin="anonymous"></script>
+
     <link rel="stylesheet" href="../css/header.css">
-    <title>문의게시판 작성하기</title>
-    <script src="https://kit.fontawesome.com/98acdabf0d.js"
-	crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../css/board/InquiryBulletinBoardDetail.css">
+    <link rel="stylesheet" href="../css/board/boardSidemenu-style.css">
 </head>
 <body>
-
     <main>
         <section>
             <div class="head">
@@ -62,27 +62,85 @@
 
             </section>
 
-            <section class="board-notice-main">
-                <div class="board-notice-name">문의게시판>작성하기</div>
-
-                <div class="board-notice-detail-container">
-                    <div>제목을 입력해주세요</div>
-                    <textarea name="board-notice-content" id="board-notice-content">내용을 입력해주세요.
-                    </textarea>
-
-                    <div>
-                        <button type="button">이전으로</button>
-                        <button type="button">등록하기</button>                    
+            <section class="board-free-main">
+                <div class="board-name"> 문의게시판</div>
+                <div class="boardTitle">
+                    <h1>게시글 1번 제목</h1>
+                </div>
+    
+                
+    
+                <div class="board-head">
+                    <div class="board-head1">
+                        <img src="../images/몽자.jpg" >
+                        <span>닉네임</span>
                     </div>
-
+        
+                    <div class="board-head2">
+                        <p><span>작성일 : 2023-09-04 15:08:44</span></p>
+                        <p><span>수정일 : 2023-09-04 15:08:44</span></p>
+                        <p><span>조회수 : 10</span></p>
+                    </div>
+                    
+                </div>
+    
+    
+                
+    
+                <div class="board-content">게시글 내용</div>
+    
+                
+    
+                <div class="btn-area">
+                    <button>수정</button>
+                    <button>삭제</button>
+                    <button>목록으로</button>
                 </div>
 
-         
+                
 
+                <div class="comment-area">
+                    <ul>
+                        <li id="comment-list">
+                            <p class="commentWriter">
+                                <img src="../images/몽자.jpg">
+                                <span>닉네임</span>
+                            </p>
+
+                            <p id="comment-content">댓글 내용</p>
+
+                            <div>
+                                <div class="btn-area2">
+                                    <button>답글</button>
+                                    <button>수정</button>
+                                    <button>삭제</button>
+                                </div>
+
+                                <div class="createDate">
+                                    작성일 : 2023-09-05
+                                </div>
+                            </div>
+
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="comment-write-area">
+                    <textarea id="commentContent"></textarea>
+                    <button id="addComment">
+                        댓글<br>
+                        등록
+                    </button>
+                </div>
+    
             </section>
-
         </section>
+
+
+
     </main>
+
+
     
 </body>
 </html>

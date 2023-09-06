@@ -1,261 +1,172 @@
-/* 공지사항 글제목, 검색창 스타일 */
-.board-notice-sel-search{
-    display: flex;
-    width: 100%;
-    height: 20%;
-    justify-content: end;
-    align-items: end;
-}
-/* 글제목, 작성자 셀렉트 */
-.board-notice-sel-search select{
-    width: 120px;
-    height: 40px;
-    margin-right: 5px;
+@font-face { /* 애플산돌고딕 폰트 적용 */
+    font-family: "SDGothic";
+    src: url("/src/fonts/AppleSDGothicNeoSB.ttf") format("truetype");
+    font-weight: normal;
+  }
 
-    margin-top: 100px;
-}
-/* 검색창 */
-#board-notice-search{
-    width: 200px;
-    height: 28px;
-
-    padding: 5px;
-    font-size: 15px;
-
-}
-/* 공지사항 목록 스타일 */
-.board-notice-list{
-    width: 98%;
-    height: 400px;
-
-    margin-left: 20px;
-    margin-right: 0;
-    display: flex;
-    justify-content: center;
-    align-items: end;
-}
-
-
-
-
-.board-notice-list > table{
-    width: 100%;
-    border : 1px solid rgb(156, 154, 154);
-    border-collapse : collapse;
-}
-
-.board-notice-list-header{
-    background-color: #ddddddbb;
-    color: black;
-}
-
-.board-notice-list tr, td, th{
-    border: 0;
-}
-
-.board-notice-list tr{
-    border-bottom: 1px solid gray;
-}
-
-.board-notice-list tr:first-child{
-    font-weight: bold;
-}
-
-.board-notice-list tr > td:hover{
-    cursor: pointer;
-    color: rgb(12,64,202);
-}
-
-/* 글쓰기 버튼 */
-.board-notice-wrtie-btn{
-    width: 100%;
-    height: 130px;
-    display: flex;
-    justify-content: end;
-    align-items: end;
-}
-
-.board-notice-wrtie-btn > button{
-    width: 130px;
-    height: 45px;
-
-    font-size: 18px;
-    font-weight: bold;
-
-    border: 2px solid rgb(12,64,202);
-    background-color: white;
-    color: rgb(12,64,202);
-
-    cursor: pointer;
-
-}
-
-.board-notice-wrtie-btn > button:hover{
-    background-color: rgb(12,64,202);
-    color: white;
-    border: 1px solid white;
-}
-
-
-
-/* ****************************************** */
-/* 공지사항 상세 페이지 스타일 */
-.board-notice-detail-container{
-
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-
-    padding-top: 70px;
-    align-items: center;
-
-    margin-left: 10px;
-
-}
-/* 게시글 작성자, 작성일, 조회수 스타일 */
-.board-notice-detail-container > div{
-    width: 92%;
-    height: 55px;
-    display: flex;
-    align-items: center;
-
-    border-bottom: 1px solid #ddd;
-}
-/* 게시글 제목 */
-.board-notice-detail-container > div:first-child{
-    background-color: rgba(184, 177, 177, 0.932);
-    display: flex;
-    justify-content: center;
-
-    white-space: pre-wrap;
-
-    font-size: 20px;
-}
-/* 게시글 작성 부분 */
-#board-notice-content{
-    width: 91%;
-    height: 380px;
-
-    resize: none;
-    border: 1px solid gray;
-
-    font-size: 18px;
-
-    margin-top: 5px;
-
-    white-space: pre-wrap;
-
-
-}
-/* 목록으로 버튼 */
-.board-notice-detail-container>div:last-child{
-    display: flex;
-    justify-content: end;
-
-    border: 0;
-}
-.board-notice-detail-container button{
-    width: 120px;
-    height: 40px;
-    font-size: 17px;
-
-    background-color: white;
-    color: rgb(12,64,202);
-    border: 1px solid rgb(12,64,202);
-    font-weight: bold;
-
-    margin-top: 50px;
-
-}
-.board-notice-detail-container button:hover{
-    background-color: rgb(12,64,202);
-    color: white;
-    cursor: pointer;
-}
-
-/* *********************************************************** */
-/* 공지사항 게시글 작성하기 */
-.board-notice-write-container{
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-
-    padding-top: 100px;
-    align-items: center;
-
-    margin-left: 10px;
-
-}
-.board-notice-write-container > *{
-    width: 92%;
-    display: flex;
-    align-items: center;
-
-}
-
-/* 제목 */
-#board-notice-title{
-    height: 60px;
-    font-size: 22px;
-}
-
-/* 내용 */
-#board-notice-write-content{
-    height: 300px;
-    padding-top: 20px;
-    font-size: 22px;
-
-    resize: none;
-
-
-}
-
-/* 이전으로, 등록 버튼 컨테이너 */
-.board-notice-write-container > div:last-child{
-    width: 93%;
-    display: flex;
-
-    justify-content: space-between;
-    align-items: center;
-
+* {
+    font-family: 'SDGothic', serif;
     
 }
 
-.board-notice-write-container button{
-
-    width: 120px;
-    height: 40px;
-    font-size: 17px;
-
-    background-color: white;
-    color: rgb(12,64,202);
-    border: 1px solid rgb(12,64,202);
-    font-weight: bold;
-
-    margin-top: 50px;
-
-}
-
-.InquiryBulletinBoardmain{
+.board-free-main{
+    margin: auto;
     width: 100%;
+    height: auto;
+    padding: 25px 50px;
 }
 
-.board-notice-write-container button:hover{
+.board-name{
+    display: flex;
+    font-size: 30px;
+    font-weight: bold;
+    align-items: center;
+    border-bottom: 2px solid #ddd;
+}
 
-    background-color: rgb(12,64,202);
+.board-head{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.board-head1{
+    display: flex;
+    align-items: center;
+    width: 80%;
+    font-size: larger;
+}
+
+.board-head1 > span{
+    margin-left: 30px;
+}
+
+.board-head1 > i{
+    margin-right: 10px;
+}
+
+.board-head1 > img {
+    height: 50px
+}
+
+.board-head2{
+    padding-right: 30px;
+    width: 30%;
+    line-height: 50%;
+}
+
+.hr{
+    border: 1px solid #ddd;
+}
+
+.img-box{
+    display: flex;
+    justify-content: space-between;
+}
+
+.boardImg{
+    text-align: center;
+    border-bottom: 2px solid #ddd;
+    padding-top: 10px;
+}
+
+.board-content{
+    padding: 10px ;
+    border: 1px solid black;
+    min-height: 500px;
+    margin-bottom: 20px;
+}
+
+
+.btn-area{
+    text-align: end;
+    border-bottom: 2px solid #ddd;
+    padding-bottom: 10px;
+}
+
+.btn-area > button {
+    border: 0;
+    background-color: rgb(12, 64, 202);
     color: white;
+    font-weight: bold;
+    width: 100px;
+    height: 30px;
     cursor: pointer;
 }
 
-.btnClick{
+.comment-area{
+    margin: 30px 0;
+    width: 100%;
+}
+
+
+#comment-list{
+    list-style: none;
     display: flex;
+    align-items: center;
 }
 
-.btnClick>button{
-    border-radius: 30px;
+.commentWriter{
+    display: flex;
+    width: 20%;
+    
 }
 
-button:hover{
-    background-color: black;
-    transition: 0.5s;
+
+#comment-content{
+    width: 60%;
+}
+
+.commentWriter > img{
+    height: 50px;
+    margin-right: 10px;
+}
+
+
+
+.comment-write-area{
+    display: flex;
+    min-height: 70px;
+    justify-content: center;
+    
+    margin: 30px 0;
+}
+
+.comment-write-area > textarea{
+    resize: none;
+    flex-basis: 80%;
+}
+
+.comment-write-area > button{
+    flex-basis: 10%;
+    height: 70px;
+    cursor: pointer;
+    border: 0;
+    background-color: rgb(12, 64, 202);
+    color: white;
+    font-weight: bold;
+}
+
+.commentWriter{
+    display: flex;
+    align-items: center;
+}
+
+.btn-area2{
+    padding-top: 40px;
+}
+
+.createDate {
+    font-size: 12px;
+    margin: 10px 0;
+}
+
+
+.boardImg a {
+    text-decoration: none;
+    color: black;
+}
+
+.boardTitle{
+    border-bottom: 2px solid #ddd;
 }
