@@ -6,7 +6,6 @@
 
 * {
     font-family: 'SDGothic', serif;
-    white-space: pre-wrap;
 }
 
 
@@ -86,10 +85,20 @@
 
 }
 
+#sel {
+    height: 30px;
+}
+
+#query{
+    height: 24px;
+}
+
 #btn1{
     border: 0;
     background-color: rgb(12,64,202);
     border-radius: 3px;
+    height: 30px;
+    width: 50px;
     color: white;
 
 }

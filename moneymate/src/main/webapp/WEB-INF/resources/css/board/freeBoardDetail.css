@@ -6,7 +6,6 @@
 
 * {
     font-family: 'SDGothic', serif;
-    white-space: pre-wrap;
 }
 
 .board-free-main{
@@ -102,6 +101,8 @@
     list-style: none;
     display: flex;
     align-items: center;
+    border-bottom: 2px solid #ddd;
+    border-top: 2px solid #ddd;
 }
 
 .commentWriter{
