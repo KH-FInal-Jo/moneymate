@@ -52,12 +52,15 @@ body{
 }
 #event2{
     cursor: pointer;
+    background-color: #eee;
 }
 
 #event2:hover{
     transform: scale(1.1);
 }
-
+#eventImg1{
+    width: 396px;
+}
 
 
 #eventImg2{
@@ -70,12 +73,12 @@ body{
     font-weight: bold;
     font-size: 20px;
 
-    background-color: #eee;
+    
 }
 #event2-name{
     margin-top: 10px;
     font-weight: bold;
-    font-size: 30px;
+    font-size: 20px;
 
     
 }
