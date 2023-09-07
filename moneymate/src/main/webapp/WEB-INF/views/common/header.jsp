@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 
-<link rel="stylesheet" href="/WEB-INF/resources/css/header.css">
+<link rel="stylesheet" href="/resources/css/header.css">
 
 </head>
 <body>
@@ -14,7 +14,7 @@
 
 
         <div class="head">
-            <div><a href=""><img src="../images/로고.png"></a></div>
+            <div><a href=""><img src="/resources/images/로고.png"></a></div>
             <div class="head-board">
                 <!-- 헤더 글 -->
                 <div class="nav">
@@ -51,7 +51,7 @@
                 <div class="login">
                     <div>
                         
-                        <img src="../images/로그인 아이콘.png">
+                        <img src="/resources/images/로그인 아이콘.png">
                     </div>
                     <div>
                         <a href=""><span>LOGIN</span></a>
@@ -68,6 +68,6 @@
 
     </main>
 
-    <script src="../js/header.js"></script>
+    <script src="/resources/js/header.js"></script>
 </body>
 </html>

@@ -5,7 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>메인페이지</title>
-<link rel="stylesheet" href="/WEB-INF/resources/css/header.css">
+<link rel="stylesheet" href="/resources/css/header.css">
 </head>
 <body>
 	<jsp:include page="/WEB-INF/views/common/header.jsp" />
