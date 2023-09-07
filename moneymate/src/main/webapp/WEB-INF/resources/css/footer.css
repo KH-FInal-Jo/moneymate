@@ -1,6 +1,6 @@
-* { box-sizing: border-box; }
+/* * { box-sizing: border-box; }
 section {border: 1px solid black;} 
-div {border: 1px solid black;} 
+div {border: 1px solid black;}  */
 
 
 
@@ -73,3 +73,12 @@ div {border: 1px solid black;}
     /* margin-right: 100px; */
 }
 
+.Fcontainer1-1>a{
+    text-decoration: none;
+    color: #929292;
+}
+
+.footer>a{
+    text-decoration: none;
+    color: #929292;
+}

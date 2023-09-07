@@ -3,15 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/board/boardSidemenu-style.css">
-    <link rel="stylesheet" href="../css/board/InquiryBulletinBoardDeepDetail.css">
+    <title>문의게시판 작성</title>
+
     <link rel="stylesheet" href="../css/header.css">
-    <title>문의게시판 상세</title>
-    <script src="https://kit.fontawesome.com/98acdabf0d.js"
-	crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../css/board/boardSidemenu-style.css">
+    <link rel="stylesheet" href="../css/board/InquiryBulletinBoardWrtie.css">
+    
 </head>
 <body>
-
     <main>
         <section>
             <div class="head">
@@ -62,27 +61,34 @@
 
             </section>
 
-            <section class="board-notice-main">
-                <div class="board-notice-name">문의게시판</div>
+            <section class="board-free-main">
+                <div class="subject">문의게시판 글쓰기</div>
 
-                <div class="board-notice-detail-container">
-                    <div>제목을 입력해주세요</div>
-                    <textarea name="board-notice-content" id="board-notice-content">내용을 입력해주세요.
-                    </textarea>
+                <form class="board-write" id="boardWriteFrm" enctype="multipart/form-data">
+                    <h1 class="board-title">
+                        <input type="text" name="boardTitle" placeholder="제목" value="">
+                    </h1>
 
-                    <div class="btnClick">
-                        <button type="button">이전으로</button>
-                        <button type="button">등록하기</button>                    
+                   
+                    <div class="board-content">
+                        <textarea class="boardContent">테스트 게시글 내용입니다.</textarea>
                     </div>
 
-                </div>
+                    <div class="board-btn-area">
+                        <button type="submit" id="writebtn">등록</button>
+                    </div>
 
-         
-
-            </section>
-
-        </section>
-    </main>
+                </form>
     
+            </section>
+        </section>
+
+
+
+    </main>
+
+
+    <script src="../js/freeBoardWrite.js"></script>
+
 </body>
 </html>

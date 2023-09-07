@@ -1,5 +1,25 @@
+@font-face { /* 애플산돌고딕 폰트 적용 */
+    font-family: "SDGothic";
+    src: url("/src/fonts/AppleSDGothicNeoSB.ttf") format("truetype");
+    font-weight: normal;
+  }
+
+* {
+font-family: 'SDGothic', serif;
+}
+
+
 .InquiryBulletinBoardmain{
     width: 100%;
+}
+
+.Bcontainer1{
+    font-size: 30px;
+    font-weight: bold;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    padding-left:   20px;
 }
 
 .search-container {
@@ -76,6 +96,7 @@ th {
     justify-content: space-between;
     align-items: center;
     margin-top: 10px;
+    margin-bottom: 20px;
 }
 
 .pagination-container {
@@ -136,4 +157,71 @@ th {
 
 .Bcontainer5-1{
     width: 33.3%;
+}
+
+/* 게시판 테이블 스타일 제거 */
+.Bcontainer4 table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.Bcontainer4 th, .Bcontainer4 td {
+    border: none;
+    padding: 10px;
+    text-align: center; /* 텍스트를 가운데 정렬 */
+}
+
+/* 테이블 헤더 스타일 */
+.Bcontainer4 th {
+    background-color: #f0f0f0;
+    font-weight: bold;
+}
+
+/* 테이블 셀 스타일 */
+.Bcontainer4 td {
+    border-bottom: 1px solid #ddd;
+}
+
+/* 마지막 행의 border-bottom 제거 */
+.Bcontainer4 tbody tr:last-child td {
+    border-bottom: none;
+}
+
+/* 검색어 입력 폼과 select 태그 스타일 수정 */
+.Bcontainer3 {
+    display: flex;
+    justify-content: flex-end; /* 내용을 오른쪽으로 정렬 */
+    align-items: center; /* 수직 가운데 정렬 */
+}
+
+#search-input {
+    width: 100%; /* 검색어 입력 폼을 가득 채우도록 크기 조정 */
+    padding: 10px;
+    margin-left: 20px;
+}
+
+#open {
+    width: 100px;/* select 태그 크기 조정 */
+    height: 37px;
+     /* select 태그와 검색 버튼 사이 여백 추가 */
+    margin-top: 10px;
+}
+
+/* 검색 버튼 스타일 수정 */
+.search-button {
+    padding: 10px 20px; /* 버튼 크기 조정 */
+    background-color: #007bff; /* 배경색 변경 */
+    border: none;
+    color: #fff;
+    cursor: pointer;
+}
+
+/* 검색 버튼에 마우스 호버 시 스타일 변경 */
+.search-button:hover {
+    background-color: #0056b3; /* 호버 시 배경색 변경 */
+}
+
+/* 검색 버튼 아이콘 위치 조정 */
+.search-button i {
+    margin-right: 5px;
 }
