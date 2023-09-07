@@ -21,6 +21,7 @@
     font-weight: bold;
     align-items: center;
     border-bottom: 2px solid #ddd;
+    padding-bottom: 10px;
 }
 
 .board-head{
@@ -101,8 +102,6 @@
     list-style: none;
     display: flex;
     align-items: center;
-    border-bottom: 2px solid #ddd;
-    border-top: 2px solid #ddd;
 }
 
 .commentWriter{
