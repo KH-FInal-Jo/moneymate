@@ -29,7 +29,7 @@
         </div>
 
         <div class="input">
-            <form>
+            <form action="/member/login" method="post" id="loginFrm">
 
                 <div class="inputs">
                     <i class="fa-regular fa-id-badge"></i><input type="text" id="inputId" class="inputId">
