@@ -54,7 +54,7 @@
                         <img src="/resources/images/로그인 아이콘.png">
                     </div>
                     <div>
-                        <a href=""><span>LOGIN</span></a>
+                        <a href="/member/login"><span>LOGIN</span></a>
                         <a href=""><span>회원가입</span></a>
 
                     </div>
