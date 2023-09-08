@@ -6,7 +6,6 @@
 <meta charset="UTF-8">
 <title>공지사항</title>
 <link rel="stylesheet" href="/resources/css/board/boardNoticeDetail.css">
-<link rel="stylesheet" href="/resources/css/board/boardSidemenu-style.css">
 <script src="https://kit.fontawesome.com/98acdabf0d.js"
 	crossorigin="anonymous"></script>
 </head>
