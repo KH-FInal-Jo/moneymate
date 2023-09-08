@@ -6,7 +6,9 @@
 	<update id="updateInfo" parameterType="Member">
 		UPDATE MEMBER SET
 		MEMBER_NICKNAME = #{memberNickname}
-		,MEMBER_TEL =
+		,MEMBER_TEL = #{memberTel}
+		,MEMBER_ADDRESS = #{memberAddress}
+		WHERE MEMBER_NO = #{memberNo}
 	</update>
 
 </mapper>
