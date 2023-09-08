@@ -9,6 +9,9 @@
 
 <link rel="stylesheet" href="/resources/css/header.css">
 
+<script src="https://kit.fontawesome.com/a5af36132e.js" crossorigin="anonymous"></script>
+<script src="../js/jquery-3.7.0.min.js"></script>
+
 </head>
 <body>
    <main class="headMain">
