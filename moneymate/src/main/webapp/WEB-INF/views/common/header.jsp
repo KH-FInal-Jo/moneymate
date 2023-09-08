@@ -26,7 +26,7 @@
                     <a href="/account"><span>가계부</span></a>
                     <a href="/consumetest"><span>소비 테스트</span></a>
                     <a href="/event"><span>이벤트게시판</span></a>
-                    <a href="/mypage"><span>마이페이지</span></a>
+                    <a href="/member/mypage"><span>마이페이지</span></a>
                     
                     <c:if test="${loginMember.authority == 1}">
                        <a href="/admin"><span>관리자</span></a>
