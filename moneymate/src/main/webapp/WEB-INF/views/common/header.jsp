@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,7 +11,7 @@
 
 </head>
 <body>
-	<main class="headMain">
+   <main class="headMain">
 
 
         <div class="head">
@@ -18,11 +19,15 @@
             <div class="head-board">
                 <!-- 헤더 글 -->
                 <div class="nav">
-                    <a href=""><span>커뮤니티</span></a>
-                    <a href=""><span>가계부</span></a>
-                    <a href=""><span>소비 테스트</span></a>
-                    <a href=""><span>이벤트게시판</span></a>
-                    <a href=""><span>마이페이지</span></a>
+                    <a href="/community/1"><span>커뮤니티</span></a>
+                    <a href="/account"><span>가계부</span></a>
+                    <a href="/consumetest"><span>소비 테스트</span></a>
+                    <a href="/event"><span>이벤트게시판</span></a>
+                    <a href="/mypage"><span>마이페이지</span></a>
+                    
+                    <c:if test="${loginMember.authority == 1}">
+                       <a href="/admin"><span>관리자</span></a>
+                    </c:if>
                     <span><i class="fa-solid fa-bell fa-2x" id="alarm-btn" style="color: #efe834;"></i></span>
                     <div class="alarm-area">
                         
