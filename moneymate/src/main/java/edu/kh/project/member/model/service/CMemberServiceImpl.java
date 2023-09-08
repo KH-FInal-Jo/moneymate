@@ -1,7 +1,9 @@
 package edu.kh.project.member.model.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import edu.kh.project.member.model.dao.CMemberDAO;
 import edu.kh.project.member.model.dto.Member;
@@ -11,19 +13,49 @@ public class CMemberServiceImpl implements CMemberService {
 	
 	@Autowired
 	private CMemberDAO dao;
+	
+	@Autowired
+	private BCryptPasswordEncoder bcrypt;
 
+	
+	// 로그인
 	@Override
 	public Member login(Member inputMember) {
 		
 		Member loginMember = dao.login(inputMember);
 		
-		if(loginMember != null) {
-			loginMember.setMemberPw(null);
-		} else {
-			loginMember = null;
+		
+		if(loginMember != null) { 
+			
+			
+			
+			if(bcrypt.matches(inputMember.getMemberPw(), loginMember.getMemberPw())) { // 같을 경우
+				
+				// 비밀번호를 유지하지 않기 위해서 로그인 정보에서 제거
+				loginMember.setMemberPw(null);
+				
+			} else { // 다를 경우
+				loginMember = null; // 로그인 실패처럼 만듦
+			}
+			
 		}
 		
 		return loginMember;
+	}
+
+	
+	// 회원가입
+	@Transactional(rollbackFor = Exception.class)
+	@Override
+	public int signUp(Member inputMember) {
+		
+		String encPw = bcrypt.encode(inputMember.getMemberPw());
+		
+		inputMember.setMemberPw(encPw);
+		
+		int result = dao.signUp(inputMember);
+		
+		return result;
 	}
 
 }
