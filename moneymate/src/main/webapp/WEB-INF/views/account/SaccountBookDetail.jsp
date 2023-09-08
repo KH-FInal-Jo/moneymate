@@ -18,11 +18,13 @@
 </head>
 <body>
 
-    <head>
+	
+	<<jsp:include page="/WEB-INF/views/common/header.jsp"></jsp:include>
+    <!-- <head>
         <div class="head">
             <div><a href=""><img src="../images/로고.png"></a></div>
             <div class="head-board">
-                <!-- 헤더 글 -->
+                헤더 글
                 <div class="nav">
                     <a href=""><span>커뮤니티</span></a>
                     <a href=""><span>가계부</span></a>
@@ -31,7 +33,7 @@
                     <a href=""><span>마이페이지</span></a>
     
                 </div>
-                <!-- 헤더 프로필 -->
+                헤더 프로필
                 <div class="login">
                     <div>
                         
@@ -45,7 +47,7 @@
                 </div>
             </div>
         </div>
-    </head>
+    </head> -->
     <h1>
         나의 지출 현황과 통계를 확인해보세요!
     </h1>
