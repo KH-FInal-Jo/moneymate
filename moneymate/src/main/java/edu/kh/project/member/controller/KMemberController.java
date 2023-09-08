@@ -20,12 +20,12 @@ public class KMemberController {
 	@Autowired
 	private KMemberService service;
 	
-	@GetMapping("/KmyInfo")
+	@GetMapping("/mypage")
 	public String KmyInfo() {
 		return "/member/KmyInfo";
 	}
 	
-	@PostMapping("/KmyInfo")
+	@PostMapping("/mypage")
 	public String myInfo(Member updateMember, String[]memberAddress
 							, @SessionAttribute("loginMember")Member loginMember
 							, RedirectAttributes ra) {
