@@ -101,6 +101,38 @@ spendBtn.addEventListener("click", ()=>{
 /* 달력 default 월 */
 const month = new Date().toISOString().slice(5, 7);
 
-// console.log(month)
+console.log(month)
+
+// ajax 코드 작성
+fetch("/account/changeMonth",{
+    method : "POST",
+    headers : {"Content-Type" : "application/json"},
+    body : JSON.stringify(month)
+})
+.then(resp => resp.text()) // 응답 객체를 필요한 형태로 파싱하여 리턴
+.then(count => {
+    console.log("count : " + count )
+
+    if(count == -1){
+        // insert,delete 실패 시
+        console.log("좋아요 처리 실패")
+        return;
+    }
+
+    // toggle() : 클래스가 있으면 없애고, 없으면 추가하고
+    e.target.classList.toggle("fa-regular")
+    e.target.classList.toggle("fa-solid")
+
+    // 현재 게시글의 좋아요 수를 화면에 출력
+    e.target.nextElementSibling.innerText = count;
+
+
+}) // 파싱된 데이터를 받아서 처리하는 코드 작성
+
+.catch(err => {
+    console.log("예외 발생")
+    console.log(err)
+})// 예외 발생 시 처리하는 부분
+
 
 

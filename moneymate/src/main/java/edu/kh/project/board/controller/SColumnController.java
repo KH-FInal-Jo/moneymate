@@ -16,5 +16,7 @@ public class SColumnController {
 	public String detail() {
 		return "board/ScolumnDetail";
 	}
+	
+	
 
 }
