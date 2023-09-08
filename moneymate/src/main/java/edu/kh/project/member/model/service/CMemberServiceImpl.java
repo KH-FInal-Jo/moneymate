@@ -58,4 +58,20 @@ public class CMemberServiceImpl implements CMemberService {
 		return result;
 	}
 
+	// 회원탈퇴
+	@Transactional(rollbackFor = {Exception.class})
+	@Override
+	public int secession(String memberPw, int memberNo) {
+		// 회원번호 일치하는 회원의 비밀번호 조회
+		String encPw = dao.selectEncPw(memberNo);
+
+		// 비밀번호 일치하면
+		if(bcrypt.matches(memberPw, encPw)) {
+			return dao.secession(memberNo);
+		}
+
+		return 0;	
+		
+	}
+
 }

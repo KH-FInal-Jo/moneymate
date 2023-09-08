@@ -40,7 +40,7 @@
                 </div>
                 
                 <div class="saveId">
-                    <input type="checkbox" name="saveId1" id="saveId1" value="1">
+                    <input type="checkbox" name="saveId" id="saveId1" value="1">
                     <label for="saveId1">아이디 저장</label>
                 </div>
 

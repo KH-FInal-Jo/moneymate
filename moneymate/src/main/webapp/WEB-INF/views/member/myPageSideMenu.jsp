@@ -36,7 +36,7 @@
 
 			<li><a href="#">북마크 조회</a></li>
 
-			<li><a href="#">회원 탈퇴</a></li>
+			<li><a href="/member/mypage/secession">회원 탈퇴</a></li>
 		</ul>
 
 	</div>

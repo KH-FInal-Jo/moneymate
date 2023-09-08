@@ -19,4 +19,8 @@ public interface CMemberService {
 	 */
 	int signUp(Member inputMember);
 
+
+
+	int secession(String memberPw, int memberNo);
+
 }
