@@ -84,7 +84,7 @@ font-family: 'SDGothic', serif;
 
 /* 알림함 */
 #alarm-page{
-    display: flex;
+    display: none;
     flex-direction: column;
 
     position: absolute;
