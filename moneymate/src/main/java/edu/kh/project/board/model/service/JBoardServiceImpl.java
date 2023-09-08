@@ -15,10 +15,30 @@ public class JBoardServiceImpl implements JBoardService{
 	@Autowired
 	private JBoardDAO dao;
 
+	// 공지사항 목록 조회
 	@Override
-	public Map<String, Object> selectBoardNotice(int boardCode) {
-		// TODO Auto-generated method stub
-		return null;
+	public List<JBoard> selectBoardNotice(int boardCode) {
+		return dao.selectBoardNotice(boardCode);
+	}
+
+	// 공지사항 상세조회
+	@Override
+	public List<JBoard> boardNoticeDetail(Map<String, Object> map) {
+		return dao.boardNoticeDetail(map);
+	}
+
+	// 공지사항 작성
+	@Override
+	public int boardNoticeInsert(JBoard board) {
+		
+		int boardNo = dao.nextBoardNo();
+		
+		board.setBoardNo(boardNo);
+		
+		int result = dao.insertBoardNotice(board);
+		
+		
+		return result;
 	}
 
 

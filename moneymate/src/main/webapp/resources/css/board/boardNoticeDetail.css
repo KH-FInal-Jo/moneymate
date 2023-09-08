@@ -35,6 +35,14 @@
     align-items: end;
 }
 
+.board-notice-table a{
+    text-decoration: none;
+    color: black;
+}
+.board-notice-table a:hover{
+    color: rgb(12,64,202);
+}
+
 
 
 

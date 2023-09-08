@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,6 +11,7 @@
 
 <script src="https://kit.fontawesome.com/98acdabf0d.js"
 	crossorigin="anonymous"></script>
+
 <title>Insert title here</title>
 </head>
 <body>
@@ -25,14 +27,28 @@
 				<div class="board-notice-name">공지사항</div>
 
 				<div class="board-notice-detail-container">
-					<div>게시글 제목입니다.</div>
+
+				<c:forEach var="board" items="${boardList}">
+					
+
+					<div>${board.boardTitle}</div>
+
+					<div>작성자 : ${board.memberNickname}</div>
+					<div>작성일 : ${board.boardCreateDate}</div>
+					<div>조회수 : ${board.readCount}</div>
+
+				
+
+					<%-- <div>게시글 제목입니다.</div>
 
 					<div>작성자 : 관리자</div>
 					<div>작성일 : 2023.08.28</div>
-					<div>조회수 : 10</div>
+					<div>조회수 : 10</div> --%>
 
-					<textarea name="board-notice-content" id="board-notice-content">게시글 내용입니다.
+					<textarea name="board-notice-content" id="board-notice-content">${board.boardContent}
                     </textarea>
+
+				</c:forEach>
 
 					<div>
 						<button type="button">목록으로</button>
@@ -44,7 +60,12 @@
 			</section>
 
 		</section>
+		
+		<jsp:include page="/WEB-INF/views/common/footer.jsp" />
+		
 	</main>
+	
+	
 
 </body>
 </html>

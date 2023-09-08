@@ -20,4 +20,6 @@ public class JBoard {
 	private int boardCode;
 	private int memberNo;
 	
+	private String memberNickname;
+	
 }
