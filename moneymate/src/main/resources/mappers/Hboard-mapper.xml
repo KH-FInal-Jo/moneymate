@@ -1,4 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="HBoardMapper">
+
+	<resultMap type="Member" id="member_rm">
+     
+     	<id property="memberNo" column="MEMBER_NO" />
+     	
+     	<!-- DB의 일반 컬럼들 -->
+     	<result property="memberEmail" column="MEMBER_EMAIL"/>
+     	<result property="memberPw" column="MEMBER_PW"/>
+     	<result property="memberName" column="MEMBER_NAME"/>
+     	<result property="memberNickname" column="MEMBER_NICKNAME"/>
+     	<result property="memberTel" column="MEMBER_TEL"/>
+     	<result property="memberAddress" column="MEMBER_ADDRESS"/>
+     	<result property="secessionFlag" column="SECESSION_FL"/>
+     	<result property="authority" column="AUTHORITY"/>
+     	<result property="profileImage" column="PROFILE"/>
+     	
+     </resultMap>
+     
+     
+     <!-- 출첵 이전 날짜 조회 -->
+     <select id="calendarList" resultType="string">
+     	SELECT TO_CHAR(TO_DATE( CALENDAR_DT, 'YYYY-MM-DD HH24:MI:SS'), 'YYYY-MM-DD') AS CALENDAR_DT
+		FROM EVENT_CALENDAR
+		WHERE MEMBER_NO = #{memberNo}
+     </select>
+     
+     <!-- 출첵 오늘 날짜 누른 경우 -->
+     <insert id="calendarToday">
+     	INSERT INTO EVENT_CALENDAR VALUES( ${memberNo} , SYSDATE )
+     </insert>
+
+
 </mapper>

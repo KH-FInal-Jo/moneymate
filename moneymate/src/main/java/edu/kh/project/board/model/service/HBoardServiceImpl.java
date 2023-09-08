@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import edu.kh.project.board.model.dao.HBoardDAO;
 
@@ -17,6 +18,13 @@ public class HBoardServiceImpl implements HBoardService {
 	@Override
 	public List<String> calendarList(int memberNo) {
 		return dao.calendarList(memberNo);
+	}
+
+	// 출첵 오늘 날짜 누른 경우
+	@Transactional(rollbackFor = {Exception.class})
+	@Override
+	public int calendarToday(int memberNo) {
+		return dao.calendarToday(memberNo);
 	}
 
 }

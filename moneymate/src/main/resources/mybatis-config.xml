@@ -22,6 +22,7 @@
 		<mapper resource="/mappers/Jboard-mapper.xml" />
 		<mapper resource="/mappers/Cmember-mapper.xml" />
 		<mapper resource="/mappers/Kmember-mapper.xml" />
+		<mapper resource="/mappers/Hboard-mapper.xml" />
 		
 	</mappers>
 	
