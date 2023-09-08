@@ -8,9 +8,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>칼럼 상세보기</title>
 
-    <link rel="stylesheet" href="resources/css/columnDetail.css">
-    <link rel="stylesheet" href="resources/css/header.css">
-    <link rel="stylesheet" href="resources/css/board/boardSidemenu-style.css">
+    <link rel="stylesheet" href="/resources/css/columnDetail.css">
+    <link rel="stylesheet" href="/resources/css/header.css">
+    <link rel="stylesheet" href="/resources/css/board/boardSidemenu-style.css">
 
     <script src="https://kit.fontawesome.com/a5af36132e.js" crossorigin="anonymous"></script>
 </head>
@@ -62,7 +62,7 @@
             </div>
             <div class="article">
                 <div class="articleImage">
-                    <img src="resources/images/금융칼럼.jpg">
+                    <img src="/resources/images/금융칼럼.jpg">
                 </div>
                 <div class="articleMain">
 
@@ -71,7 +71,7 @@
                 </div>
 
                 <div class="articleImage">
-                    <img src="resources/images/금융칼럼.jpg">
+                    <img src="/resources/images/금융칼럼.jpg">
                 </div>
                 <div class="articleMain">
 
@@ -93,17 +93,17 @@
             <div class="other">
                 <div class="otherView">
 
-                    <div><a href="#"><img src="resources/images/dog1.jpg"></a></div>
+                    <div><a href="#"><img src="/resources/images/dog1.jpg"></a></div>
                     <div><a href="#">다른 칼럼 제목</a></div>
 
                 </div>
                 <div class="otherView">
-                    <div><a href=""><img src="resources/images/금융칼럼.jpg"></a></div>
+                    <div><a href=""><img src="/resources/images/금융칼럼.jpg"></a></div>
                     <div><a href="">다른 칼럼 제목다른 칼럼 제목다른 칼럼 제목다른 칼럼 제목다른 칼럼 제목</a></div>
 
                 </div>
                 <div class="otherView">
-                    <div><a href=""><img src="resources/images/dog1.jpg"></a></div>
+                    <div><a href=""><img src="/resources/images/dog1.jpg"></a></div>
                     <div><a href="#">다른 칼럼 제목</a></div>
 
                 </div>

@@ -10,7 +10,7 @@
 <link rel="stylesheet" href="/resources/css/header.css">
 
 <script src="https://kit.fontawesome.com/a5af36132e.js" crossorigin="anonymous"></script>
-<script src="../js/jquery-3.7.0.min.js"></script>
+<script src="resources/js/jquery-3.7.0.min.js"></script>
 
 </head>
 <body>
@@ -18,7 +18,7 @@
 
 
         <div class="head">
-            <div><a href=""><img src="/resources/images/로고.png"></a></div>
+            <div><a href="/"><img src="/resources/images/로고.png"></a></div>
             <div class="head-board">
                 <!-- 헤더 글 -->
                 <div class="nav">
@@ -62,9 +62,17 @@
                         <img src="/resources/images/로그인 아이콘.png">
                     </div>
                     <div>
-                        <a href="/member/login"><span>LOGIN</span></a>
-                        <a href="/member/signUp"><span>회원가입</span></a>
-
+                        <c:choose>
+                            <c:when test="${empty loginMember}">
+                                <a href="/member/login"><span>LOGIN</span></a>
+                                <a href="/member/signUp"><span>회원가입</span></a>
+                            </c:when>
+                        
+                            <c:otherwise>
+                                <a href="/member/logout"><span>로그아웃</span></a>
+                            </c:otherwise>
+                        </c:choose>
+                        
                     </div>
                     <div>
                         
