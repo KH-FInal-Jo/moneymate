@@ -12,6 +12,14 @@
 	</settings>
 	
 	<!-- 별칭 -->
+	<typeAliases>
+		<typeAlias type="edu.kh.project.board.model.dto.JBoard" alias="JBoard" />
+	</typeAliases>
 	
 	<!-- mapper 연결 -->
+	<mappers>
+		<mapper resource="/mappers/Jboard-mapper.xml" />
+	</mappers>
+	
+	
 </configuration>
