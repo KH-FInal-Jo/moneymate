@@ -14,11 +14,14 @@
 	<!-- 별칭 -->
 	<typeAliases>
 		<typeAlias type="edu.kh.project.board.model.dto.JBoard" alias="JBoard" />
+		<typeAlias type="edu.kh.project.member.model.dto.Member" alias="Member" />
+		
 	</typeAliases>
 	
 	<!-- mapper 연결 -->
 	<mappers>
 		<mapper resource="/mappers/Jboard-mapper.xml" />
+		<mapper resource="/mappers/Cmember-mapper.xml" />
 	</mappers>
 	
 	

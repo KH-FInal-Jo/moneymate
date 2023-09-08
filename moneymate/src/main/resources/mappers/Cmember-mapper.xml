@@ -21,7 +21,7 @@
      </resultMap>
      
      
-     <select id="login" parameterType="">
+     <select id="login" parameterType="Member" resultMap="member_rm">
      	SELECT MEMBER_NO, MEMBER_EMAIL, MEMBER_NAME, MEMBER_NICKNAME, MEMBER_TEL,
      		MEMBER_ADDRESS, AUTHORITY, PROFILE FROM "MEMBER"
      	WHERE SECESSION_FL= 'N'
