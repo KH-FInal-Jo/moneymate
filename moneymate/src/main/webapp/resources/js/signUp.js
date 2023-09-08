@@ -6,7 +6,7 @@ const checkObj = {
         "memberName" : false,
         "memberNickname" : false,
         "memberTel" : false,
-        "authKey" : false
+        /* "authKey" : false */
 };
 
 
@@ -208,6 +208,11 @@ memberNickname.addEventListener("input", ()=> {
     if(regEx.test(memberNickname.value)){
         // 닉네임 중복검사 진행해야함
         console.log("1");
+        checkObj.memberNickname = true;
+
+        nickMessage.innerText="유효한 닉네임 형식입니다.";
+        nickMessage.classList.add("confirm");
+        nickMessage.classList.remove("error");
 
 
     } else{
