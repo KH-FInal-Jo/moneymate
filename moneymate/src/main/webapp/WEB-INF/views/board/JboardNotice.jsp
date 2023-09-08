@@ -90,7 +90,7 @@
 				</div>
 
 				<div class="board-notice-wrtie-btn">
-					<button type="button">글쓰기</button>
+					<button type="button" id="NoticeWriteBtn">글쓰기</button>
 				</div>
 
 			</section>
@@ -98,5 +98,6 @@
 		</section>
 	</main>
 
+	<script src="../resources/js/boardNotice.js"></script>
 </body>
 </html>
