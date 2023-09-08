@@ -25,4 +25,15 @@ public class CMemberDAO {
 		return sqlSession.insert("CmemberMapper.signUp", inputMember);
 	}
 
+	// 회원 비밀번호 조회
+	public String selectEncPw(int memberNo) {
+		return sqlSession.selectOne("CmemberMapper.selectEncPw", memberNo);
+	}
+
+	// 회원탈퇴
+	public int secession(int memberNo) {
+		// TODO Auto-generated method stub
+		return sqlSession.update("CmemberMapper.secession", memberNo);
+	}
+
 }

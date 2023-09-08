@@ -1,5 +1,6 @@
 package edu.kh.project.member.controller;
 
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.SessionAttribute;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
@@ -113,6 +115,54 @@ public class CMemberController {
 
 		return "redirect:/";
 	}
+	
+	@GetMapping("mypage/secession")
+	public String secession () {
+		return "member/secession";
+	}
+	
+	@PostMapping("mypage/secession")
+	public String secession (String memberPw, @SessionAttribute("loginMember") Member loginMember
+							, SessionStatus status, HttpServletResponse resp, RedirectAttributes ra) {
+		
+		
+		int memberNo = loginMember.getMemberNo();
+		
+		int result = service.secession(memberPw, memberNo);
+		
+		String path = "redirect:";
+		String message = null;
+		
+		
+		if(result>0) { 
+			
+			status.setComplete();
+			
+			Cookie cookie = new Cookie("saveId", "");
+			
+			cookie.setMaxAge(0); 
+			
+			cookie.setPath("/"); 
+			
+			resp.addCookie(cookie); 
+			
+			message = "탈퇴되었습니다.";
+			
+			path += "/";
+			
+			
+		} else { 
+			
+			message = "현재 비밀번호가 일치하지 않습니다.";
+			
+			path += "secession";
+		}
+		
+		ra.addFlashAttribute("message", message);
+		
+		return path;
+	}
+	
 	
 	
 	
