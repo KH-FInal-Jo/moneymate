@@ -33,6 +33,12 @@ function buildCalendar() {
         newDIV.innerHTML = leftPad(nowDay.getDate());        // 추가한 열에 날짜 입력
         nowColumn.appendChild(newDIV);
 
+        // !!!!!!!!!!!!
+        // 서버에서 받아온 날짜 배열과 비교하여 날짜가 일치하면 backgroundColor를 pink로 변경
+        if (calendarList.includes(getFormattedDate(nowDay))) {
+            newDIV.style.backgroundColor = "pink";
+        }
+
         if (nowDay.getDay() == 6) {                 // 토요일인 경우
             nowRow = tbody_Calendar.insertRow();    // 새로운 행 추가
         }
@@ -43,12 +49,24 @@ function buildCalendar() {
         else if (nowDay.getFullYear() == today.getFullYear() && nowDay.getMonth() == today.getMonth() && nowDay.getDate() == today.getDate()) { // 오늘인 경우           
             newDIV.className = "today";
             newDIV.onclick = function () { choiceDate(this); }
+
+            
         }
         else {                                      // 미래인 경우
             newDIV.className = "pastDay";
         }
     }
 }
+
+// 서버에서 받아온 날짜와 JavaScript Date 객체의 날짜 형식을 비교하기 위한 함수
+function getFormattedDate(date) {
+    let year = date.getFullYear().toString().slice(-2); // 년도에서 뒤의 2자리만 가져옵니다.
+    let month = (date.getMonth() + 1).toString().padStart(2, "0");
+    let day = date.getDate().toString().padStart(2, "0");
+    return year + "-" + month + "-" + day;
+}
+
+
 
 // 날짜 선택
 function choiceDate(newDIV) {
@@ -88,5 +106,20 @@ function leftPad(value) {
 
 /* 모달창 확인 버튼 누른 경우 */
 function gotoEventList(){
-    location.href = "https://www.naver.com/";
+
+    fetch("/event/calendar/today")
+
+    .then(resp => resp.text())
+
+    .then(count => {
+        console.log(count)
+
+        if(count == 1){
+            console.log("성공 !!!!!!!!")
+        }
+    })
+
+    .catch(err =>{console.log(err); console.log("예외 발생")})
+
+    location.href = "/";
 }
