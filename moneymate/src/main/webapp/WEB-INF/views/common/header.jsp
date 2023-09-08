@@ -62,9 +62,17 @@
                         <img src="/resources/images/로그인 아이콘.png">
                     </div>
                     <div>
-                        <a href="/member/login"><span>LOGIN</span></a>
-                        <a href="/member/signUp"><span>회원가입</span></a>
-
+                        <c:choose>
+                            <c:when test="${empty loginMember}">
+                                <a href="/member/login"><span>LOGIN</span></a>
+                                <a href="/member/signUp"><span>회원가입</span></a>
+                            </c:when>
+                        
+                            <c:otherwise>
+                                <a href="/member/logout"><span>로그아웃</span></a>
+                            </c:otherwise>
+                        </c:choose>
+                        
                     </div>
                     <div>
                         
