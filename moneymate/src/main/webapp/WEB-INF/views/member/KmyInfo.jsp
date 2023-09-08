@@ -69,6 +69,7 @@
                                     <td><input></td>
                                     <td></td>
                                 </tr>
+                                <c:set var="addr" value="${fn:split(loginMember.memberAddress, '^^^')}"/>
                                 <tr>
                                     <th><button id="searchButton">주소검색</th>
                                     <td><input></td>
@@ -101,9 +102,6 @@
 
 
 </section>
-
-
-
 
 <!-- 푸터 -->
 <jsp:include page="/WEB-INF/views/common/footer.jsp"/>
