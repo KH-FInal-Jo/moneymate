@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import edu.kh.project.board.model.dao.JBoardDAO;
 import edu.kh.project.board.model.dto.JBoard;
+import edu.kh.project.common.utility.Util;
 
 @Service
 public class JBoardServiceImpl implements JBoardService{
@@ -31,12 +32,14 @@ public class JBoardServiceImpl implements JBoardService{
 	@Override
 	public int boardNoticeInsert(JBoard board) {
 		
+		board.setBoardContent(Util.XSSHandling( board.getBoardContent() ));
+		board.setBoardTitle(Util.XSSHandling( board.getBoardTitle() ));
+		
 		int boardNo = dao.nextBoardNo();
 		
 		board.setBoardNo(boardNo);
 		
 		int result = dao.insertBoardNotice(board);
-		
 		
 		return result;
 	}
