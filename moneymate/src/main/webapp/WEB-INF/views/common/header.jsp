@@ -55,7 +55,7 @@
                     </div>
                     <div>
                         <a href="/member/login"><span>LOGIN</span></a>
-                        <a href=""><span>회원가입</span></a>
+                        <a href="/member/signUp"><span>회원가입</span></a>
 
                     </div>
                     <div>
