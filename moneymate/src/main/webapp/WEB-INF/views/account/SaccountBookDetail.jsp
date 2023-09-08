@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"  %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"  %>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,34 +22,14 @@
 
 	
 	<<jsp:include page="/WEB-INF/views/common/header.jsp"></jsp:include>
-    <!-- <head>
-        <div class="head">
-            <div><a href=""><img src="../images/로고.png"></a></div>
-            <div class="head-board">
-                헤더 글
-                <div class="nav">
-                    <a href=""><span>커뮤니티</span></a>
-                    <a href=""><span>가계부</span></a>
-                    <a href=""><span>소비 테스트</span></a>
-                    <a href=""><span>이벤트게시판</span></a>
-                    <a href=""><span>마이페이지</span></a>
-    
-                </div>
-                헤더 프로필
-                <div class="login">
-                    <div>
-                        
-                        <img src="../images/로그인 아이콘.png">
-                    </div>
-                    <div>
-                        <a href=""><span>LOGIN</span></a>
-                        <a href=""><span>회원가입</span></a>
+	
 
-                    </div>
-                </div>
-            </div>
-        </div>
-    </head> -->
+ 
+
+
+
+
+
     <h1>
         나의 지출 현황과 통계를 확인해보세요!
     </h1>
@@ -75,7 +57,7 @@
             <div class="date">
                 <!-- 월 변경 -->
                 <span>
-                    <input id="month" type="month" value="2023-08">
+                    <input id="month" type="month">
                         
                 </span>
                 <button id="month-btn">변경하기</button>

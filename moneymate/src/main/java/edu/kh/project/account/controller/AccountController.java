@@ -14,5 +14,7 @@ public class AccountController {
 	public String accountBook() {
 		return "account/SaccountBookDetail";
 	}
+	
+	
 
 }

@@ -7,16 +7,18 @@ const incomeTb = document.querySelector(".income-tb")
 // 지출내역 테이블
 const tb = document.querySelector(".tb")
 
-console.log()
 
 
 window.onload = function () {
     pieChartDraw();
     pieChartDraw2();
-
+    
     /* 수입 차트 처음엔 안보임 */
     incomeDiv.style.display = 'none';
 }
+
+/* default 월 설정(현재월) */
+document.getElementById("month").value= new Date().toISOString().slice(0, 7);
 
 
 
@@ -94,3 +96,11 @@ spendBtn.addEventListener("click", ()=>{
     incomeTb.style.display = 'none';
     tb.style.display = 'block';
 })
+
+
+/* 달력 default 월 */
+const month = new Date().toISOString().slice(5, 7);
+
+// console.log(month)
+
+
