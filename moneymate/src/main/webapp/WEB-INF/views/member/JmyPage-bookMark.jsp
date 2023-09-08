@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<link rel="stylesheet" href="/resources/css/member/myPageSidemenu.css">
+
 <link rel="stylesheet" href="/resources/css/member/myPageBookMark.css">
 <script src="https://kit.fontawesome.com/98acdabf0d.js"
 	crossorigin="anonymous"></script>
