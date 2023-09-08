@@ -32,11 +32,11 @@
             <form action="/member/login" method="post" id="loginFrm">
 
                 <div class="inputs">
-                    <i class="fa-regular fa-id-badge"></i><input type="text" id="inputId" class="inputId">
+                    <i class="fa-regular fa-id-badge"></i><input type="text" id="inputId" class="inputId" name="memberEmail">
                 </div>
     
                 <div class="inputs">
-                    <i class="fa-solid fa-lock"></i><input type="password" id="inputPwd">
+                    <i class="fa-solid fa-lock"></i><input type="password" id="inputPwd" name="memberPw">
                 </div>
                 
                 <div class="saveId">

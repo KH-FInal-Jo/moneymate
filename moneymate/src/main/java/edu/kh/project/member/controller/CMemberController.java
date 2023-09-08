@@ -1,8 +1,15 @@
 package edu.kh.project.member.controller;
 
+import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import edu.kh.project.member.model.dto.Member;
 
 @Controller
 @RequestMapping("/member")
@@ -13,6 +20,24 @@ public class CMemberController {
 	public String login() {
 		return "member/login";
 	}
+	
+	@PostMapping("/login")
+	public String login(Member inputMember, Model model, @RequestHeader(value="referer") String referer, HttpServletResponse resp) {
+		
+		System.out.println(inputMember);
+		
+		String path = "/";
+		return path;
+	}
+	
+	@GetMapping("/signUp")
+	public String signUp() {
+		return "member/signUp";
+	}
+	
+	
+	
+	
 	
 	
 
