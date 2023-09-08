@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -45,45 +46,18 @@
 							<th width="100px">작성일</th>
 							<th width="50px">조회수</th>
 						</tr>
-						<tr>
-							<th height="60px">0</th>
-							<a href="#"><td>공지사항 테스트 글입니다.</td></a>
-							<td>관리자</td>
-							<td>2023.08.28</td>
-							<td>10</td>
-						</tr>
 
-						<tr>
-							<th height="60px">1</th>
-							<a href="#"><td>공지사항 테스트 글입니다.</td></a>
-							<td>관리자</td>
-							<td>2023.08.28</td>
-							<td>10</td>
-						</tr>
 
-						<tr>
-							<th height="60px">2</th>
-							<a href="#"><td>공지사항 테스트 글입니다.</td></a>
-							<td>관리자</td>
-							<td>2023.08.28</td>
-							<td>10</td>
-						</tr>
+						<c:forEach var="board" items="${boardList}">
+							<tr>
+								<th height="60px">${board.boardNo}</th>
+								<td><a href="/community/${boardCode}/${board.boardNo}">${board.boardTitle}</a></td>
+								<td>${board.memberNickname}</td>
+								<td>${board.boardCreateDate}</td>
+								<td>${board.readCount}</td>
+							</tr>
+						</c:forEach>
 
-						<tr>
-							<th height="60px">3</th>
-							<a href="#"><td>공지사항 테스트 글입니다.</td></a>
-							<td>관리자</td>
-							<td>2023.08.28</td>
-							<td>10</td>
-						</tr>
-
-						<tr>
-							<th height="60px">4</th>
-							<a href="#"><td>공지사항 테스트 글입니다.</td></a>
-							<td>관리자</td>
-							<td>2023.08.28</td>
-							<td>10</td>
-						</tr>
 
 					</table>
 
@@ -96,6 +70,11 @@
 			</section>
 
 		</section>
+		
+		<jsp:include page="/WEB-INF/views/common/footer.jsp" />
+		
+		
+		
 	</main>
 
 	<script src="../resources/js/boardNotice.js"></script>

@@ -22,18 +22,18 @@
 			<section class="board-notice-main">
 				<div class="board-notice-name">공지사항 > 작성하기</div>
 
-				<form action="#">
+				<form action="/community/${boardCode}/insert" method="POST">
 
 					<div class="board-notice-write-container">
 
 						<input type="text" id="board-notice-title"
-							name="board-notice-title" placeholder="제목을 입력해주세요.">
-						<textarea name="board-notice-write-content"
+							name="boardTitle" placeholder="제목을 입력해주세요.">
+						<textarea name="boardContent"
 							id="board-notice-write-content" placeholder="내용을 입력해주세요."></textarea>
 
 						<div>
 							<button type="button">이전으로</button>
-							<button type="button">등록</button>
+							<button type="submit">등록</button>
 						</div>
 					</div>
 
@@ -44,7 +44,10 @@
 			</section>
 
 		</section>
+		
+		<jsp:include page="/WEB-INF/views/common/footer.jsp" />
 	</main>
+	
 
 </body>
 </html>
