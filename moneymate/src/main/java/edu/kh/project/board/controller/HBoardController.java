@@ -40,7 +40,8 @@ public class HBoardController {
 		
 		if(calendarList != null) {
 			
-			Gson gson = new Gson();
+			Gson gson = new Gson(); // gson으로 자바스크립트에서 쓸 수 있게  !!!!!
+			
 			String calendarListJson = gson.toJson(calendarList);
 			
 			model.addAttribute("calendarListJson",calendarListJson);
@@ -52,8 +53,6 @@ public class HBoardController {
 	@GetMapping("/event/calendar/today")
 	@ResponseBody
 	public int calendarToday(@SessionAttribute("loginMember") Member loginMember) {
-		
-		System.out.println("왜???????????????? "+loginMember);
 		
 		int memberNo = loginMember.getMemberNo();
 		

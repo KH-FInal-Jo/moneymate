@@ -26,7 +26,6 @@ public class HBoardDAO {
 	 */
 	public int calendarToday(int memberNo) {
 		
-		System.out.println("memberNo : " + memberNo);
 		return sqlSession.insert("HBoardMapper.calendarToday", memberNo);
 	}
 

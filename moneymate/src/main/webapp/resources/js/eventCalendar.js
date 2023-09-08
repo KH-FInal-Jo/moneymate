@@ -48,7 +48,12 @@ function buildCalendar() {
         }
         else if (nowDay.getFullYear() == today.getFullYear() && nowDay.getMonth() == today.getMonth() && nowDay.getDate() == today.getDate()) { // 오늘인 경우           
             newDIV.className = "today";
-            newDIV.onclick = function () { choiceDate(this); }
+            newDIV.onclick = function () { 
+
+                choiceDate(this);
+             }
+
+
 
             
         }
@@ -73,13 +78,16 @@ function choiceDate(newDIV) {
     /* if (document.getElementsByClassName("choiceDay")[0]) {                              // 기존에 선택한 날짜가 있으면
         document.getElementsByClassName("choiceDay")[0].classList.remove("choiceDay");  // 해당 날짜의 "choiceDay" class 제거
     } */
+
+    if(getComputedStyle(newDIV).backgroundColor == "rgb(255, 192, 203)"){
+        alert("오늘 이미 출석체크를 하셨습니다.");
+        return;
+    }
+
     newDIV.classList.add("choiceDay");           // 선택된 날짜에 "choiceDay" class 추가
 
     document.getElementById("modal").style.display = "block";
     
-
-
-
 }
 
 // 이전달 버튼 클릭

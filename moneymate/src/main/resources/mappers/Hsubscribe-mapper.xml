@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="HBoardMapper">
+<mapper namespace="HsubscribeMapper">
+
 
 	<resultMap type="Member" id="member_rm">
      
@@ -19,18 +20,6 @@
      	
      </resultMap>
      
-     
-     <!-- 출첵 이전 날짜 조회 -->
-     <select id="calendarList" resultType="string">
-     	SELECT TO_CHAR(TO_DATE( CALENDAR_DT, 'YYYY-MM-DD HH24:MI:SS'), 'YY-MM-DD') AS CALENDAR_DT
-		FROM EVENT_CALENDAR
-		WHERE MEMBER_NO = #{memberNo}
-     </select>
-     
-     <!-- 출첵 오늘 날짜 누른 경우 -->
-     <insert id="calendarToday">
-     	INSERT INTO EVENT_CALENDAR VALUES( ${memberNo} , SYSDATE )
-     </insert>
-
-
+    
+	
 </mapper>
