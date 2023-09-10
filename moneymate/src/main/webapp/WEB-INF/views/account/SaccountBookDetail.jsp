@@ -57,9 +57,11 @@
             <div class="date">
                 <!-- 월 변경 -->
                 <span>
-                    <input id="month" type="month">
+                    <input id="month" type="month" name="month">
                         
                 </span>
+                <span class="span-one">1</span>
+                <span class="span-one">9</span>
                 <button id="month-btn">변경하기</button>
             </div>
     

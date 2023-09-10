@@ -109,6 +109,11 @@ h1{
 
 }
 
+#span-one{
+    margin: 0 10px;
+    cursor: pointer;
+}
+
 /* 일 변경 */
 .day-date{
     display: flex;
