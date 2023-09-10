@@ -2,6 +2,12 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="SmemberMapper">
 	
-	
+	<select id="changeMonth" resultType="_int">
+		SELECT SUM(ACNT_MN) FROM ACCOUNTBOOK
+		WHERE ACNT_DATE IN (SELECT ACNT_DATE FROM ACCOUNTBOOK
+		WHERE SUBSTR(ACNT_DATE,7,1)=#{month})
+		AND MEMBER_NO = #{memberNo}
+		AND ACNT_ST = 'N'
+	</select>
 	
 </mapper>

@@ -24,6 +24,7 @@
 		<mapper resource="/mappers/Kmember-mapper.xml" />
 		<mapper resource="/mappers/Hboard-mapper.xml" />
 		<mapper resource="/mappers/Hsubscribe-mapper.xml" />
+		<mapper resource="/mappers/Smember-mapper.xml" />
 	</mappers>
 	
 	

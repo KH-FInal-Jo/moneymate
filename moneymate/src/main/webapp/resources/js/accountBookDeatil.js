@@ -9,6 +9,7 @@ const tb = document.querySelector(".tb")
 
 
 
+
 window.onload = function () {
     pieChartDraw();
     pieChartDraw2();
@@ -18,7 +19,7 @@ window.onload = function () {
 }
 
 /* default 월 설정(현재월) */
-document.getElementById("month").value= new Date().toISOString().slice(0, 7);
+document.getElementById("month").value = new Date().toISOString().slice(0, 7);
 
 
 
@@ -98,41 +99,48 @@ spendBtn.addEventListener("click", ()=>{
 })
 
 
-/* 달력 default 월 */
-const month = new Date().toISOString().slice(5, 7);
 
-console.log(month)
+const one = document.getElementsByClassName("span-one")
+for(let i=0; i<one.length; i++){
 
-// ajax 코드 작성
-fetch("/account/changeMonth",{
-    method : "POST",
-    headers : {"Content-Type" : "application/json"},
-    body : JSON.stringify(month)
-})
-.then(resp => resp.text()) // 응답 객체를 필요한 형태로 파싱하여 리턴
-.then(count => {
-    console.log("count : " + count )
-
-    if(count == -1){
-        // insert,delete 실패 시
-        console.log("좋아요 처리 실패")
-        return;
-    }
-
-    // toggle() : 클래스가 있으면 없애고, 없으면 추가하고
-    e.target.classList.toggle("fa-regular")
-    e.target.classList.toggle("fa-solid")
-
-    // 현재 게시글의 좋아요 수를 화면에 출력
-    e.target.nextElementSibling.innerText = count;
+    one[i].addEventListener("click", e=>{
+        // console.log(e.target.innerText)
+        const month = e.target.innerText
+        // console.log(month)
 
 
-}) // 파싱된 데이터를 받아서 처리하는 코드 작성
+        /* 달력 default 월 */
+        
+        const changeBtn = document.getElementById("month-btn")
+        changeBtn.addEventListener("click", () => {
+            console.log(month);
+            // ajax 코드 작성
+            fetch(`/account/changeMonth?month=${month}`)
+                .then(resp => resp.json()) // JSON 응답 파싱
+                .then(data => {
+                    console.log("응답 데이터: ", data);
+                    // 여기서 data를 사용하여 필요한 처리를 수행하세요.
 
-.catch(err => {
-    console.log("예외 발생")
-    console.log(err)
-})// 예외 발생 시 처리하는 부분
+                    const spend = document.getElementById("spend")
+
+                    spend.innerText = ""
+                    spend.innerText = "지출 : " + data
+
+                })
+                .catch(err => {
+                    console.log("예외 발생");
+                    console.log(err);
+                });
+        });
+
+
+
+
+
+
+    })
+}
+
 
 
 
