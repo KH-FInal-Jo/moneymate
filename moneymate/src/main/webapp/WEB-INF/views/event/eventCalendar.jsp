@@ -25,19 +25,19 @@
         </div>
 
         <div  id="img1">
-            <img src="../images/stamp.png" id="stampImg">
+            <img src="/resources/images/stamp.png" id="stampImg">
         </div>
         <div  id="img2">
-            <img src="../images/calendarEvent.png" id="calendarImg">
+            <img src="/resources/images/calendarEvent.png" id="calendarImg">
         </div>
         <div  id="img3">
-            <img src="../images/coin1.png" id="coin1">
+            <img src="/resources/images/coin1.png" id="coin1">
         </div>
         <div  id="img4">
-            <img src="../images/coin1.png" id="coin2">
+            <img src="/resources/images/coin1.png" id="coin2">
         </div>
         <div  id="img5">
-            <img src="../images/coin2.png" id="coin3">
+            <img src="/resources/images/coin2.png" id="coin3">
         </div>
 
         <div id="container">
@@ -84,7 +84,7 @@
 
     <script>
         // var calendarList = <c:out value="${calendarList}" />;
-        var calendarList = ${calendarListJson};
+        var calendarList = "${calendarListJson}";
         // JavaScript 코드에서 calendarList를 사용할 수 있습니다.
         console.log(calendarList); // 확인을 위해 콘솔에 출력
     </script>
