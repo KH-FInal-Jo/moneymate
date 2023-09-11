@@ -1,8 +1,14 @@
 package edu.kh.project.board.model.dao;
 
+import java.util.List;
+
+import org.apache.ibatis.session.RowBounds;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+
+import edu.kh.project.board.model.dto.CBoard;
+import edu.kh.project.board.model.dto.CPagination;
 
 @Repository
 public class CBoardDAO {
@@ -12,6 +18,16 @@ public class CBoardDAO {
 
 	public int getListCount(int boardCode) {
 		return sqlSession.selectOne("CboardMapper.getListCount", boardCode);
+	}
+
+	public List<CBoard> selectBoardList(CPagination pagination, int boardCode) {
+		
+		int offset
+		= (pagination.getCurrentPage() - 1) * pagination.getLimit();
+		
+		RowBounds rowBounds = new RowBounds(offset, pagination.getLimit());
+		
+		return sqlSession.selectList("CboardMapper.selectBoardList", boardCode, rowBounds);
 	}
 
 }

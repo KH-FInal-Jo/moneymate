@@ -67,4 +67,15 @@
 		WHERE BOARD_CODE = #{boardCode}
 		AND BOARD_DEL_FL = 'N'	
 	</select>
+	
+	
+	
+	<select id="selectBoardList">
+	
+	
+	
+	</select>
+	
+	
+	
 </mapper>
