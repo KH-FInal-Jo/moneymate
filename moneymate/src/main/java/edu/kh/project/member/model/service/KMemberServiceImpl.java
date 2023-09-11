@@ -23,4 +23,10 @@ public class KMemberServiceImpl implements KMemberService{
 		return dao.updateInfo(updateMember);
 	}
 
+	@Override
+	public int changePw(String currentPw, String newPw, int memberNo) {
+		
+		return dao.changePw(newPw, memberNo);
+	}
+
 }
