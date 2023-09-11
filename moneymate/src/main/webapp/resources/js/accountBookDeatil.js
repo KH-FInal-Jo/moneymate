@@ -112,6 +112,7 @@ cal.addEventListener("click", ()=>{
 
 })
 
+const changeBtn = document.getElementById("month-btn")
 
 /* 설정되어있는 월 */
 const dateMonth = document.getElementById("date-month")
@@ -130,7 +131,6 @@ for(let i=0; i<lineMonth.length; i++){
         dateMonth.innerText = ""
         dateMonth.innerText = month + "월"
 
-        const changeBtn = document.getElementById("month-btn")
         changeBtn.addEventListener("click", () => {
             console.log(month);
             // ajax 코드 작성
@@ -148,6 +148,9 @@ for(let i=0; i<lineMonth.length; i++){
                     spend.innerText = ""
                     spend.innerText = "지출 : " + data + "원"
 
+
+
+
                 })
                 .catch(err => {
                     console.log("예외 발생");
@@ -160,4 +163,49 @@ for(let i=0; i<lineMonth.length; i++){
 
     })
 
+}
+
+
+
+/* 지출,수입 내역 업데이트 */
+
+for(let i=0; i<lineMonth.length; i++){
+    lineMonth[i].addEventListener("click", e=>{
+    console.log(e.currentTarget.firstElementChild.innerText)
+
+    const month = e.currentTarget.firstElementChild.innerText;
+    
+
+
+    changeBtn.addEventListener("click", () => {
+        // ajax 코드 작성
+        fetch(`/account/changeMonthUpdate?month=${month}`)
+            .then(resp => resp.json()) // JSON 응답 파싱
+            .then(aList => {
+                console.log("응답 데이터: ", aList);
+                // 여기서 data를 사용하여 필요한 처리를 수행하세요.
+                for(let account of aList){
+    
+                    console.log(account)
+    
+    
+    
+    
+                }
+    
+    
+                
+    
+            })
+            .catch(err => {
+                console.log("예외 발생");
+                console.log(err);
+    
+                spend.innerText = ""
+                spend.innerText = "내역 없음"
+            });
+    });
+
+
+    })
 }

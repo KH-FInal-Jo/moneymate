@@ -1,18 +1,20 @@
 package edu.kh.project.account.controller;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.SessionAttribute;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
+import edu.kh.project.account.model.dto.SAccount;
 import edu.kh.project.account.model.service.AccountService;
 import edu.kh.project.account.model.service.AccountServiceImpl;
 import edu.kh.project.member.model.dto.Member;
@@ -45,6 +47,23 @@ public class AccountController {
 	    
 	    System.out.println("건너오나?" + map);
 	    return service.changeMonth(map); // 예시 JSON 응답
+	}
+	
+	
+	
+	@GetMapping(value = "/account/changeMonthUpdate", produces = "application/json; charset=UTF-8")
+	@ResponseBody
+	public List<SAccount> changeMonthUpdate(@RequestParam("month") String month, @SessionAttribute("loginMember") Member loginMember) {
+	    int memberNo = loginMember.getMemberNo();
+	    
+	    Map<String, Object> map = new HashMap<String, Object>();
+	    
+	    map.put("month", month);
+	    map.put("memberNo", memberNo);
+	    
+	    System.out.println("업데이트 : " + map);
+	    
+	    return service.changeMonthUpdate(map); // 예시 JSON 응답
 	}
 	
 	
