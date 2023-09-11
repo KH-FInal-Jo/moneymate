@@ -56,22 +56,75 @@
             
             <div class="date">
                 <!-- 월 변경 -->
-                <span>
-                    <input id="month" type="month" name="month">
-                        
-                </span>
-                <span class="span-one">1</span>
-                <span class="span-one">9</span>
-                <span class="span-one">8</span>
+                <div >
+                    <span>2023년</span>
+                    <span id="date-month">8월</span>
+                    <span><i class="fa-regular fa-calendar" style="color: #ec1818;"></i></span>
+
+                </div>
                 <button id="month-btn">변경하기</button>
             </div>
+            
+            <div class="change-area">
+                
+                <div class="line">
+                    <div>
+                        <div>1</div>
+                        <div>월</div>
+                    </div>
+                    <div>
+                        <div>2</div>
+                        <div>월</div>
+                    </div>
+                    <div>
+                        <div>3</div>
+                        <div>월</div>
+                    </div>
+                    <div>
+                        <div>4</div>
+                        <div>월</div>
+                    </div>
+                </div>
+                <div class="line">
+                    <div>
+                        <div>5</div>
+                        <div>월</div>
+                    </div>
+                    <div>
+                        <div>6</div>
+                        <div>월</div>
+                    </div>
+                    <div>
+                        <div>7</div>
+                        <div>월</div>
+                    </div>
+                    <div>
+                        <div>8</div>
+                        <div>월</div>
+                    </div>
+                </div>
+                <div class="line">
+                    <div>
+                        <div>9</div>
+                        <div>월</div>
+                    </div>
+                    <div>
+                        <div>10</div>
+                        <div>월</div>
+                    </div>
+                    <div>
+                        <div>11</div>
+                        <div>월</div>
+                    </div>
+                    <div>
+                        <div>12</div>
+                        <div>월</div>
+                    </div>
+                </div>
+            </div>
+
     
             <!-- 일 변경(시작, 끝) -->
-            <div class="day-date">
-                시작 : <input type="date" value="2023-08-01" min="2023-08-01">
-                끝 : <input type="date" value="2023-08-31" max="2023-08-31">
-                <button id="day-btn">변경하기</button>
-            </div>
             
     
             <div class="btn-area">

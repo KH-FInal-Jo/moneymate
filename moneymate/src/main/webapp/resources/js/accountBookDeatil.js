@@ -8,37 +8,7 @@ const incomeTb = document.querySelector(".income-tb")
 const tb = document.querySelector(".tb")
 
 
-
-
-window.onload = function () {
-    pieChartDraw();
-    pieChartDraw2();
-    
-    /* 수입 차트 처음엔 안보임 */
-    incomeDiv.style.display = 'none';
-}
-
 /* default 월 설정(현재월) */
-document.getElementById("month").value = new Date().toISOString().slice(0, 7);
-
-
-
-/* 지출 */
-let pieChartData = {
-    labels: ['식비', '교통비', '주거비', '관리비', '유흥', '생필품'],
-    datasets: [{
-        data: [10, 20, 50, 5, 10, 5],
-        backgroundColor: ['rgb(255, 99, 132)', 'rgb(255, 159, 64)', 'rgb(255, 205, 86)', 'rgb(75, 192, 192)', 'rgb(54, 162, 235)', 'rgb(153, 102, 255)']
-    }] 
-};
-/* 수입 */
-let pieChartData2 = {
-    labels: ['수입','성공'],
-    datasets: [{
-        data: [50,50],
-        backgroundColor: ['rgb(255, 99, 132)', 'rgb(255, 159, 64)', 'rgb(255, 205, 86)', 'rgb(75, 192, 192)', 'rgb(54, 162, 235)', 'rgb(153, 102, 255)']
-    }] 
-};
 
 /* 지출 차트 */
 let pieChartDraw = function () {
@@ -65,6 +35,39 @@ let pieChartDraw2 = function () {
         }
     });
 };
+
+
+window.onload = function () {
+    pieChartDraw();
+    pieChartDraw2();
+    
+    /* 수입 차트 처음엔 안보임 */
+    incomeDiv.style.display = 'none';
+}
+
+
+
+
+
+
+/* 지출 */
+let pieChartData = {
+    labels: ['식비', '교통비', '주거비', '관리비', '유흥', '생필품'],
+    datasets: [{
+        data: [10, 20, 50, 5, 10, 5],
+        backgroundColor: ['rgb(255, 99, 132)', 'rgb(255, 159, 64)', 'rgb(255, 205, 86)', 'rgb(75, 192, 192)', 'rgb(54, 162, 235)', 'rgb(153, 102, 255)']
+    }] 
+};
+/* 수입 */
+let pieChartData2 = {
+    labels: ['수입','성공'],
+    datasets: [{
+        data: [50,50],
+        backgroundColor: ['rgb(255, 99, 132)', 'rgb(255, 159, 64)', 'rgb(255, 205, 86)', 'rgb(75, 192, 192)', 'rgb(54, 162, 235)', 'rgb(153, 102, 255)']
+    }] 
+};
+
+
 
 // 수입 버튼
 const incomeBtn = document.getElementById("income")
@@ -99,7 +102,7 @@ spendBtn.addEventListener("click", ()=>{
 })
 
 
-
+const dateMonth = document.getElementById("date-month")
 const one = document.getElementsByClassName("span-one")
 for(let i=0; i<one.length; i++){
 
@@ -107,6 +110,8 @@ for(let i=0; i<one.length; i++){
         // console.log(e.target.innerText)
         const month = e.target.innerText
         // console.log(month)
+
+
 
 
         /* 달력 default 월 */
@@ -122,6 +127,10 @@ for(let i=0; i<one.length; i++){
                     // 여기서 data를 사용하여 필요한 처리를 수행하세요.
 
                     const spend = document.getElementById("spend")
+
+                    dateMonth.innerText = ""
+                    dateMonth.innerText = e.target.innerText + "월"
+
 
                     spend.innerText = ""
                     spend.innerText = "지출 : " + data
