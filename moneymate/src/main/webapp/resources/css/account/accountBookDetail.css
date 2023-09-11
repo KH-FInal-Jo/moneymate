@@ -20,13 +20,13 @@ font-family: 'SDGothic', serif;
     display: flex;
     flex-direction: column;
     flex-basis: 60%;
-    margin-bottom: 100px;
+
+    position: relative;
 }
 
 .accountBook-main > section:nth-of-type(2){
     display: flex;
     flex-basis: 40%;
-    margin-bottom: 100px;
 }
 
 /* 최상단 문구 */
@@ -84,19 +84,48 @@ h1{
     border-top: 1px solid #ccc;
 }
 /* 날짜 월 */
-#month{
-    display: flex;
-    width: 300px;
-    height: 60px;
-    font-size: 30px;
-    border-radius: 20px;
-    border-color: rgb(88, 117, 221);
-    padding: 0 15px;
-
+.date > div:nth-of-type(1){
+    border: 3px solid black;
+    border-radius: 10px;
 
     margin-right: 20px;
-    margin-left: 10px;
+    padding: 10px;
 }
+
+/* 월 변경 페이지 */
+.change-area{
+    border: 1px solid black;
+    background-color: beige;
+    position: absolute;
+
+    top: 130px;
+    left: 10px;
+
+    opacity: 0.9;
+
+    width: 220px;
+
+}
+
+/* 월 변경 줄 */
+.line{
+    display: flex;
+    font-size: 23px;
+    border-bottom: 1px solid #acaaaacc;
+
+    padding: 10px 0;
+
+    justify-content: space-evenly;
+}
+
+/* 월 */
+.line > div{
+    padding: 5px 10px;
+    display: flex;
+
+}
+
+
 
 /* 월 변경하기 */
 #month-btn{
@@ -109,7 +138,11 @@ h1{
 
 }
 
-#span-one{
+#date-month{
+    padding-right: 40px;
+}
+
+.span-one{
     margin: 0 10px;
     cursor: pointer;
 }
@@ -152,6 +185,8 @@ h1{
     display: flex;
     align-items: center;
     padding: 30px 10px;
+
+    margin-top: 30px;
 }
 
 .btn-area button{
@@ -209,7 +244,7 @@ h1{
     justify-content: center;
     margin-top: 80px;
 
-    height: 100%;
+    height: 80%;
     width: 80%;
 
 
@@ -221,7 +256,7 @@ h1{
     justify-content: center;
     margin-top: 80px;
 
-    height: 100%;
+    height: 80%;
     width: 80%;
 
 
