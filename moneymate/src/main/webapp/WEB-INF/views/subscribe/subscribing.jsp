@@ -20,7 +20,7 @@
 
     <jsp:include page="/WEB-INF/views/common/header.jsp"/>
 
-    <form action="#" id="Frm" method="POST">
+    <form action="/subscribe/end/cash" id="Frm" method="POST">
 
         <div id="main">
 
@@ -96,12 +96,12 @@
                             <span>총 결제금액</span>
                         </div>
                         <div>
-                            <input type="text" id="prePrice" readonly value="${map.prevPrice}">
+                            <input type="text" name="prePrice" id="prePrice" readonly value="${map.prevPrice}">
                             <span> - </span>
-                            <input type="text" readonly class="useMile" value="0">
+                            <input type="text" name="useMile" readonly class="useMile" value="0">
                             <span> = </span>
                             <!-- <span>₩</span> -->
-                            <input type="text" id="realPrice" value="${map.prevPrice}" readonly>
+                            <input type="text" name="realPrice" id="realPrice" value="${map.prevPrice}" readonly>
                         </div>
                     </div>
                 </div>
@@ -109,15 +109,15 @@
                 <div id="by-area">
                     <div>결제 수단</div>
                     <div>
-                        <button type="button" id="cashBtn">무통장 입금</button>
+                        <%-- <button type="button" id="cashBtn">무통장 입금</button> --%>
                         <button type="button" id="creditBtn">신용 카드</button>
                     </div>
-                    <div class="none-area">*무통장 입금은 익일 자정까지 진행해주세요.</div>
+                    <%-- <div class="none-area">*무통장 입금은 익일 자정까지 진행해주세요.</div>
                     <div class="none-area">우리 111-1111-1111 머니메이트</div>
                     <div class="none-area">
                         <span>입금자 명 :</span>
-                        <input type="text" name="cashName" placeholder="입금자명을 입력해주세요">
-                    </div>
+                        <input type="text" id="cashName" name="cashName" placeholder="입금자명을 입력해주세요">
+                    </div> --%>
 
                     <div id="inform-area">
                         <img src="/resources/images/warning.png" id="warning"> <br>
@@ -131,8 +131,8 @@
 
             <!-- 버튼 영역 -->
             <div id="btn-area">
-                <button type="button" id="prevBtn">이전으로</button>
-                <button id="nextBtn">결제 진행</button>
+                <button type="button" id="prevBtn" onClick = "location.href = '/subscribe/info'">이전으로</button>
+                <%-- <button id="nextBtn">결제 진행</button> --%>
             </div>
 
 

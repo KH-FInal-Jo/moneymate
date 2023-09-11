@@ -15,6 +15,7 @@
 	<typeAliases>
 		<typeAlias type="edu.kh.project.board.model.dto.JBoard" alias="JBoard" />
 		<typeAlias type="edu.kh.project.member.model.dto.Member" alias="Member" />
+		<typeAlias type="edu.kh.project.subscribe.model.dto.Subscribe" alias="Subscribe" />
 	</typeAliases>
 	
 	<!-- mapper 연결 -->
@@ -25,6 +26,7 @@
 		<mapper resource="/mappers/Hboard-mapper.xml" />
 		<mapper resource="/mappers/Hsubscribe-mapper.xml" />
 		<mapper resource="/mappers/Smember-mapper.xml" />
+		<mapper resource="/mappers/Hmember-mapper.xml" />
 	</mappers>
 	
 	

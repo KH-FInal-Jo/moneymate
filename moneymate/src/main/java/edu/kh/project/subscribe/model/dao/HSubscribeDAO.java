@@ -19,7 +19,7 @@ public class HSubscribeDAO {
 	 * @return mile
 	 */
 	public int mile(int memberNo) {
-		return sqlSession.selectOne("HBoardMapper.mile", memberNo);
+		return sqlSession.selectOne("HsubscribeMapper.mile", memberNo);
 	}
 
 	/** kg 구독
@@ -27,7 +27,7 @@ public class HSubscribeDAO {
 	 * @return result
 	 */
 	public int susbscribeKg(Subscribe subscribe) {
-		return sqlSession.insert("HBoardMapper.susbscribeKg", subscribe);
+		return sqlSession.insert("HsubscribeMapper.susbscribeKg", subscribe);
 	}
 
 	/** kg 결제
@@ -35,7 +35,24 @@ public class HSubscribeDAO {
 	 * @return result
 	 */
 	public int calculateKg(Subscribe subscribe) {
-		return sqlSession.insert("HBoardMapper.calculateKg", subscribe);
+		return sqlSession.insert("HsubscribeMapper.calculateKg", subscribe);
 	}
+
+	/** 마일리지 차감
+	 * @param subscribe
+	 * @return result
+	 */
+	public int mile(Subscribe subscribe) {
+		return sqlSession.update("HsubscribeMapper.useMile", subscribe);
+	}
+
+	/** 결제 완료 페이지
+	 * @param no
+	 * @return s
+	 */
+	public Subscribe subscribeEnd(int no) {
+		return sqlSession.selectOne("HsubscribeMapper.subscribeEnd", no);
+	}
+
 
 }

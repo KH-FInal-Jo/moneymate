@@ -40,10 +40,10 @@ public class HSubscribeController {
 			prevPrice = 2900;
 		} 
 		if(type == 2) {
-			prevPrice = 31900;
+			prevPrice = 16530;
 		} 
 		if(type == 3) {
-			prevPrice = 16530;
+			prevPrice = 31900;
 		} 
 		
 		// 마일리지 조회
@@ -61,12 +61,11 @@ public class HSubscribeController {
 	
 	@PostMapping("/subscribe/calculate/kg")
 	@ResponseBody
-	public String calcuateKg(@RequestBody Map<String, Object> paramMap
+	public int calcuateKg(@RequestBody Map<String, Object> paramMap
 							, @SessionAttribute("loginMember") Member loginMember) {
 		
 		// 가져온 거 : 실제 가격, 마일리지 전 가격, 사용 마일리지
 		
-		System.out.println("ㅊ음 : " + paramMap);
 		Subscribe subscribe = new Subscribe();
 		
 		if(Integer.parseInt((String) paramMap.get("prePrice")) == 2900) {
@@ -77,11 +76,9 @@ public class HSubscribeController {
 			subscribe.setSubscribeLevel(2);
 		}
 		
-		// SUBSCRIBE 객체에 담기
+		subscribe.setSubscribeLevel(3);
 		
-		Object amountValue = paramMap.get("amount");
-		System.out.println("amountValue class: " + amountValue.getClass().getName());
-
+		// SUBSCRIBE 객체에 담기
 		
 		subscribe.setMemberNo(loginMember.getMemberNo());
 		subscribe.setPrice(Integer.valueOf((String) paramMap.get("amount")));
@@ -89,17 +86,57 @@ public class HSubscribeController {
 		
 		int result = service.kg(subscribe);
 		
-		String res = null;
 		
 		if(result>0) {
-			System.out.println("성공 !!");
-			res = "success";
+			result = subscribe.getSubscribeNo(); // 성공 시 구독 번호 반환
 		} else {
-			System.out.println("실패........");
-			res = "fail";
+			result = 0;
 		}
 		
-		return res;
+		return result;
+	}
+	
+	@GetMapping("/subscribe/end")
+	public String subscribeEnd(int no, Model model) {
+		
+		System.out.println("no + " + no);
+		
+		Subscribe s = service.subscribeEnd(no);
+		
+		model.addAttribute("s", s);
+		
+		return "subscribe/subscribeEnd";
+	}
+	
+	// 무통장인 경우
+	@PostMapping("/subscribe/end/cash")
+	public String subscribeCash(String[] useMile, String cashName, int realPrice, int prePrice) {
+		
+		System.out.println(prePrice);
+		System.out.println(realPrice);
+		System.out.println(cashName);
+		System.out.println("왜..... " +useMile[1]);
+		
+		Subscribe subscribe = new Subscribe();
+		
+		if(prePrice == 2900) {
+			subscribe.setSubscribeLevel(1);
+		}
+		if(prePrice == 16530) {
+			subscribe.setSubscribeLevel(2);
+		}
+		if(prePrice == 31900) {
+			subscribe.setSubscribeLevel(3);
+		}
+		
+		subscribe.setPrice(realPrice);
+		
+		
+		
+		
+		
+		
+		return null;
 	}
 	
 }

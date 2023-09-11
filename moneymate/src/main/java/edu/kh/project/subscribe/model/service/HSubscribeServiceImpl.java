@@ -29,12 +29,24 @@ public class HSubscribeServiceImpl implements HSubscribeService{
 		// 구독에 insert
 		int result = dao.susbscribeKg(subscribe);
 		
-		if(result>0) {
+		if(result>0) { // calculate에 insert
 			result = dao.calculateKg(subscribe);
 		}
 		
+		if(result>0) { // 마일리지 차감
+			result = dao.mile(subscribe);
+		}
 		
 		return result;
+	}
+
+	// 결제 완료 페이지
+	@Override
+	public Subscribe subscribeEnd(int no) {
+		
+		Subscribe s = dao.subscribeEnd(no); // 구독 기간 조회
+		
+		return s;
 	}
 
 }
