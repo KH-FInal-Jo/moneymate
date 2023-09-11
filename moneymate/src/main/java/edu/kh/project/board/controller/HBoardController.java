@@ -44,6 +44,8 @@ public class HBoardController {
 			
 			String calendarListJson = gson.toJson(calendarList);
 			
+			System.out.println(calendarListJson);
+			
 			model.addAttribute("calendarListJson",calendarListJson);
 		}
 		

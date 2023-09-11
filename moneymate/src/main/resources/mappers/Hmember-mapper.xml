@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="HMemberMapper">
+
+	<resultMap type="Member" id="member_rm">
+     
+     	<id property="memberNo" column="MEMBER_NO" />
+     	
+     	<!-- DB의 일반 컬럼들 -->
+     	<result property="memberEmail" column="MEMBER_EMAIL"/>
+     	<result property="memberPw" column="MEMBER_PW"/>
+     	<result property="memberName" column="MEMBER_NAME"/>
+     	<result property="memberNickname" column="MEMBER_NICKNAME"/>
+     	<result property="memberTel" column="MEMBER_TEL"/>
+     	<result property="memberAddress" column="MEMBER_ADDRESS"/>
+     	<result property="secessionFlag" column="SECESSION_FL"/>
+     	<result property="authority" column="AUTHORITY"/>
+     	<result property="profileImage" column="PROFILE"/>
+     	
+     </resultMap>
+     
+</mapper>

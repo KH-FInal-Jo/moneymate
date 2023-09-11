@@ -7,6 +7,7 @@ main{
 }
 
 #first-div{
+    margin-top: 50px;
     display: flex
 }
 
@@ -149,9 +150,9 @@ main{
     font-weight: bold;
 }
 
-#second-div>div:nth-child(2)>div:nth-child(5){
+/* #second-div>div:nth-child(2)>div:nth-child(5){
     margin-top: 20px;
-}
+} */
 /* 일 년 선택 버튼 */
 /* #yearBtn{ 
     width: 280px;

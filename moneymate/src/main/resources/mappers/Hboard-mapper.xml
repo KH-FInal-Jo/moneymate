@@ -3,64 +3,31 @@
 <mapper namespace="HBoardMapper">
 
 	<resultMap type="Member" id="member_rm">
-     
-     	<id property="memberNo" column="MEMBER_NO" />
-     	
-     	<!-- DB의 일반 컬럼들 -->
-     	<result property="memberEmail" column="MEMBER_EMAIL"/>
-     	<result property="memberPw" column="MEMBER_PW"/>
-     	<result property="memberName" column="MEMBER_NAME"/>
-     	<result property="memberNickname" column="MEMBER_NICKNAME"/>
-     	<result property="memberTel" column="MEMBER_TEL"/>
-     	<result property="memberAddress" column="MEMBER_ADDRESS"/>
-     	<result property="secessionFlag" column="SECESSION_FL"/>
-     	<result property="authority" column="AUTHORITY"/>
-     	<result property="profileImage" column="PROFILE"/>
-     	
-     </resultMap>
-     
-     
-     <!-- 마이바티스에 추가해주기 ^^ -->
-     <resultMap type="edu.kh.project.subscribe.model.dto.Subscribe" id="subscribe_rm">
-     	<id property="subscribeNo" column="SUBSCRIBE_NO"/>
-     
-     	<result property="subscribeNo" column="SUBSCRIBE_START"/>
-     	<result property="subscribeStart" column="SUBSCRIBE_START"/>
-     	<result property="subscribeEnd" column="SUBSCRIBE_END"/>
-     	<result property="subscribeLevel" column="SUBSCRIBE_LEVEL"/>
-     	<result property="memberNo" column="MEMBER_NO"/>
-     	
-     	<result property="calculateNo" column="CALCULATE_NO"/>
-     	<result property="calculateWay" column="CALCULATE_WAY"/>
-     	<result property="calculateFl" column="CALCULATE_FL"/>
-     	<result property="price" column="PRICE"/>
-     </resultMap>
-     
-     
-     <!-- 마일리지 조회 -->
-     <select id="mile" resultType="_int">
-     	SELECT MILEAGE FROM MILEAGE WHERE MEMBER_NO = ${memberNo}
-     </select>
-     
-     <!-- kg 결제 시 구독 정보 insert -->
-     <insert id="susbscribeKg" useGeneratedKeys="true">
-     
-     	<selectKey order="BEFORE" resultType="_int" keyProperty="subscribeNo">
-     		SELECT SEQ_SUBSCRIBE_NO.NEXTVAL FROM DUAL
-     	</selectKey>
-     	
-     	INSERT INTO SUBSCRIBE VALUES (#{subscribeNo}
-     		, SYSDATE, SYSDATE + INTERVAL '1' MONTH, #{subscribeLevel}, #{memberNo})
-     </insert>
-     
-     <!-- kg 결제 시 결제 정보 insert -->
-     <insert id="calculateKg" useGeneratedKeys="true">
-     
-     	<selectKey order="BEFORE" resultType="_int" keyProperty="calculateNo">
-     		SELECT SEQ_CALCULATE_NO.NEXTVAL FROM DUAL
-     	</selectKey>
-     	INSERT INTO "CALCULATE" VALUES(#{calculateNo}, 2, 2, #{price}, #{subscribeNo})
-     </insert>
 
+		<id property="memberNo" column="MEMBER_NO" />
 
+		<!-- DB의 일반 컬럼들 -->
+		<result property="memberEmail" column="MEMBER_EMAIL" />
+		<result property="memberPw" column="MEMBER_PW" />
+		<result property="memberName" column="MEMBER_NAME" />
+		<result property="memberNickname" column="MEMBER_NICKNAME" />
+		<result property="memberTel" column="MEMBER_TEL" />
+		<result property="memberAddress" column="MEMBER_ADDRESS" />
+		<result property="secessionFlag" column="SECESSION_FL" />
+		<result property="authority" column="AUTHORITY" />
+		<result property="profileImage" column="PROFILE" />
+
+	</resultMap>
+
+	<!-- 출첵 이전 날짜 조회 -->
+	<select id="calendarList" resultType="string">
+		SELECT TO_CHAR(TO_DATE( CALENDAR_DT, 'YYYY-MM-DD HH24:MI:SS'), 'YY-MM-DD')
+		AS CALENDAR_DT
+		FROM EVENT_CALENDAR
+		WHERE MEMBER_NO = #{memberNo}
+	</select>
+
+	<insert id="calendarToday">
+		INSERT INTO EVENT_CALENDAR VALUES( ${memberNo} , SYSDATE )
+	</insert>
 </mapper>

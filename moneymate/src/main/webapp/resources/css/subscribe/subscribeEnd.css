@@ -1,6 +1,7 @@
 *{box-sizing: border-box;}
 /* div{border: 1px solid black;} */
 #main{
+
     border: 3px solid lightblue;
     width: 600px;
     margin: auto;
@@ -41,6 +42,7 @@ input{
 #td-inform{
     color: rgb(70, 145, 170);
     padding-top: 80px;
+    padding-left: 50px;
 }
 
 /* 버튼 */

@@ -4,22 +4,101 @@
 
 
 	<resultMap type="Member" id="member_rm">
-     
-     	<id property="memberNo" column="MEMBER_NO" />
-     	
-     	<!-- DB의 일반 컬럼들 -->
-     	<result property="memberEmail" column="MEMBER_EMAIL"/>
-     	<result property="memberPw" column="MEMBER_PW"/>
-     	<result property="memberName" column="MEMBER_NAME"/>
-     	<result property="memberNickname" column="MEMBER_NICKNAME"/>
-     	<result property="memberTel" column="MEMBER_TEL"/>
-     	<result property="memberAddress" column="MEMBER_ADDRESS"/>
-     	<result property="secessionFlag" column="SECESSION_FL"/>
-     	<result property="authority" column="AUTHORITY"/>
-     	<result property="profileImage" column="PROFILE"/>
-     	
-     </resultMap>
-     
-    
+
+		<id property="memberNo" column="MEMBER_NO" />
+
+		<!-- DB의 일반 컬럼들 -->
+		<result property="memberEmail" column="MEMBER_EMAIL" />
+		<result property="memberPw" column="MEMBER_PW" />
+		<result property="memberName" column="MEMBER_NAME" />
+		<result property="memberNickname" column="MEMBER_NICKNAME" />
+		<result property="memberTel" column="MEMBER_TEL" />
+		<result property="memberAddress" column="MEMBER_ADDRESS" />
+		<result property="secessionFlag" column="SECESSION_FL" />
+		<result property="authority" column="AUTHORITY" />
+		<result property="profileImage" column="PROFILE" />
+
+	</resultMap>
+
+	<!-- 마이바티스에 추가해주기 ^^ -->
+	<resultMap
+		type="Subscribe" id="subscribe_rm">
+		<id property="subscribeNo" column="SUBSCRIBE_NO" />
+
+		<result property="subscribeNo" column="SUBSCRIBE_NO" />
+		<result property="subscribeStart" column="SUBSCRIBE_START" />
+		<result property="subscribeEnd" column="SUBSCRIBE_END" />
+		<result property="subscribeLevel" column="SUBSCRIBE_LEVEL" />
+		<result property="memberNo" column="MEMBER_NO" />
+
+		<result property="calculateNo" column="CALCULATE_NO" />
+		<result property="calculateWay" column="CALCULATE_WAY" />
+		<result property="calculateFl" column="CALCULATE_FL" />
+		<result property="price" column="PRICE" />
+	</resultMap>
+
+
+	<!-- 마일리지 조회 -->
+	<select id="mile" resultType="_int">
+		SELECT MILEAGE FROM MILEAGE WHERE MEMBER_NO = ${memberNo}
+	</select>
+
+	<!-- kg 결제 시 구독 정보 insert -->
+	<insert id="susbscribeKg" useGeneratedKeys="true">
+
+		<selectKey order="BEFORE" resultType="_int"
+			keyProperty="subscribeNo">
+			SELECT SEQ_SUBSCRIBE_NO.NEXTVAL FROM DUAL
+		</selectKey>
+
+		INSERT INTO SUBSCRIBE VALUES (#{subscribeNo}
+		, SYSDATE, 
+		
+		<choose>
+		
+			<when test="subscribeLevel == 1">
+				SYSDATE + INTERVAL '1' MONTH
+			</when>
+			
+			<when test="subscribeLevel == 2">
+				SYSDATE + INTERVAL '6' MONTH
+			</when>
+			
+			<when test="subscribeLevel == 3">
+				SYSDATE + INTERVAL '1' YEAR
+			</when>
+		
+		</choose>
+		
+		, #{subscribeLevel},
+		#{memberNo})
+	</insert>
+
+	<!-- kg 결제 시 결제 정보 insert -->
+	<insert id="calculateKg" useGeneratedKeys="true">
+
+		<selectKey order="BEFORE" resultType="_int"
+			keyProperty="calculateNo">
+			SELECT SEQ_CALCULATE_NO.NEXTVAL FROM DUAL
+		</selectKey>
+		INSERT INTO "CALCULATE" VALUES(#{calculateNo}, 2, 2, #{price},
+		#{subscribeNo}, #{useMile})
+	</insert>
 	
+	<!-- 결제 시 마일리지 차감 -->
+	<update id="useMile">
+		UPDATE MILEAGE SET MILEAGE = MILEAGE - ${useMile}
+		WHERE MEMBER_NO = #{memberNo}
+	</update>
+	
+	<!-- 결제 완료 페이지 -->
+	<select id="subscribeEnd" resultMap="subscribe_rm">
+		SELECT SUBSCRIBE_START, SUBSCRIBE_END, PRICE, CALCULATE_WAY FROM SUBSCRIBE
+		JOIN CALCULATE USING (SUBSCRIBE_NO)
+		WHERE SUBSCRIBE_NO = #{no}	
+	</select>
+	
+
+
+
 </mapper>

@@ -97,7 +97,7 @@ useMile1.addEventListener("click", () => {
 let flag = true;
 
 /* 무통장입금 버튼 눌렸을 때 */
-cashBtn.addEventListener("click", () => {
+/* cashBtn.addEventListener("click", () => {
 
     flag = false;
 
@@ -106,7 +106,7 @@ cashBtn.addEventListener("click", () => {
     document.getElementsByClassName("none-area")[2].style.display = "block";
 
     document.getElementById("inform-area").style.display = "none";
-})
+}) */
 
 creditBtn.addEventListener("click", () => {
 
@@ -119,8 +119,6 @@ creditBtn.addEventListener("click", () => {
     document.getElementById("inform-area").style.display = "block";
 });
 
-
-// 회원가입할 때 마일리지 테이블도 insert 부탁하기 !!!!!!!!!!!!!!!!!!!
 
 // 결제 api
 $("#creditBtn").click(function () {
@@ -163,10 +161,23 @@ $("#creditBtn").click(function () {
             .then(resp => resp.text())
 
             .then( result => {
-                if(result == "success"){
-                    location.href = "/";
+                if(result > 0 ){
+
+                    /* fetch("")
+
+                    .then()
+
+                    .then()
+
+                    .catch(err => {
+                        console.log(err);
+                    }) */
+
+                    location.href = "/subscribe/end?no=" + result;
+
+
                 } else {
-                    alert("fail.....")
+                    alert("결제에 실패하셨습니다.");
                     location.href = "/";
                 }
             })
@@ -190,7 +201,25 @@ $("#creditBtn").click(function () {
       })
     }
 
+})
 
+// 무통장입금일 경우
+Frm.addEventListener("submit", e => {
+
+    if(!yes.checked){
+        alert("약관동의는 필수입니다.");
+        e.preventDefault();
+        return;
+    }
+
+    // 가져가야 할 것
+    // 사용한 마일리지, 입금자명, 무통장 입금이라는 정보, 결제금액 ! , preprice...(레벨용)
+
+    if(document.getElementById("cashName").value== ""){
+        alert("입금자명을 입력해주세요");
+        e.preventDefault();
+        return;
+    }
 
 
 })

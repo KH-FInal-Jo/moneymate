@@ -1,7 +1,5 @@
 package edu.kh.project.subscribe.model.service;
 
-import java.util.Map;
-
 import edu.kh.project.subscribe.model.dto.Subscribe;
 
 public interface HSubscribeService {
@@ -16,5 +14,11 @@ public interface HSubscribeService {
 	 * @return
 	 */
 	int kg(Subscribe subscribe);
+
+	/** 결제 완료 페이지
+	 * @param no
+	 * @return s
+	 */
+	Subscribe subscribeEnd(int no);
 
 }
