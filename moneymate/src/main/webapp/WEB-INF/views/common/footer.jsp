@@ -41,7 +41,7 @@
                 </div>
                 
                 <section class="moon2">
-                    <img src="../images/로고.png">
+                    <img src="/resources/images/로고.png">
                 </section>
             </section>
             
