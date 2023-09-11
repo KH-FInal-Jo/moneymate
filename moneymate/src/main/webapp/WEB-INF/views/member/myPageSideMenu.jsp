@@ -32,7 +32,7 @@
 
 			<li><a href="#">내가 쓴 글</i></a></li>
 
-			<li><a href="/member/mypage/likeList?memberNo=${loginMember.memberNo}">좋아요 목록</a></li>
+			<li><a href="/member/mypage/likeList/1/{loginMember.memberNo}">좋아요 목록</a></li>
 
 			<li><a href="#">북마크 조회</a></li>
 
