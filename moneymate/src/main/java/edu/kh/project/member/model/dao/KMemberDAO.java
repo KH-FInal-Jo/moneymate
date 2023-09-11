@@ -17,4 +17,13 @@ public class KMemberDAO {
 		return sqlSession.update("KmemberMapper.updateInfo", updateMember);
 	}
 
+
+	public int changePw(String newPw, int memberNo) {
+		Member member = new Member();
+		member.setMemberNo(memberNo);
+		member.setMemberPw(newPw);
+		
+		return sqlSession.update("kmemberMapper.changePw", member);
+	}
+
 }

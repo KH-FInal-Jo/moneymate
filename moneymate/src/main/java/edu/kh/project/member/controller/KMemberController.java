@@ -51,5 +51,35 @@ public class KMemberController {
 		
 		return "/member/KmyInfo";
 	}
+	
+	@PostMapping("/changePw")
+	public String ChangePw( String currentPw, String newPw
+							, @SessionAttribute("loginMember")Member loginMember
+							, RedirectAttributes ra) {
+		
+		int memberNo = loginMember.getMemberNo();
+		
+		int result = service.changePw(currentPw, newPw, memberNo);
+		
+		String path = "rediret:";
+		String message = null;
+		
+		if(result>0) {
+			message="비밀번호가 변경 되었습니다.";
+			path += "myPage";
+		
+		}else {
+			message="비밀번호가 틀립니다.";
+			path += "changePw";
+		}
+		ra.addFlashAttribute("message", message);
+		
+		return path;
+		
+		
+	}
 
 }
+
+
+
