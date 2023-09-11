@@ -21,14 +21,14 @@ const onClick = (e) => {
 
 
     if(result.length === 0){
-        img.setAttribute("src", "../images/질문1.png");
+        img.setAttribute("src", "/resources/images/질문1.png");
 
     } else if (result.length === 1) {
         q1.style.display = "none";
         q2.style.display = "block";
         progress.value = 20;
         progressNum.innerText="1/5";
-        img.setAttribute("src", "../images/질문2.png");
+        img.setAttribute("src", "/resources/images/질문2.png");
 
     } else if (result.length === 2) {
         q1.style.display = "none";
@@ -36,7 +36,7 @@ const onClick = (e) => {
         q3.style.display = "block";
         progress.value = 40;
         progressNum.innerText="2/5";
-        img.setAttribute("src", "../images/질문3.png");
+        img.setAttribute("src", "/resources/images/질문3.png");
 
     } else if (result.length === 3) {
         q1.style.display = "none";
@@ -45,7 +45,7 @@ const onClick = (e) => {
         q4.style.display = "block";
         progress.value = 60;
         progressNum.innerText="3/5";
-        img.setAttribute("src", "../images/질문4.png");
+        img.setAttribute("src", "/resources/images/질문4.png");
 
     } else if (result.length === 4) {
         q1.style.display = "none";
@@ -55,7 +55,7 @@ const onClick = (e) => {
         q5.style.display = "block";
         progress.value = 80;
         progressNum.innerText="4/5";
-        img.setAttribute("src", "../images/질문5.png");
+        img.setAttribute("src", "/resources/images/질문5.png");
         
     } else if (result.length === 5) {
         q5.style.display = "none";
