@@ -101,21 +101,35 @@ spendBtn.addEventListener("click", ()=>{
     tb.style.display = 'block';
 })
 
+/* 월 변경 페이지 */
+const changePage = document.querySelector(".change-area")
 
+/* 캘린더 눌렀을때 */
+const cal = document.querySelector(".fa-calendar")
+cal.addEventListener("click", ()=>{
+
+    changePage.style.display = 'block'
+
+})
+
+
+/* 설정되어있는 월 */
 const dateMonth = document.getElementById("date-month")
-const one = document.getElementsByClassName("span-one")
-for(let i=0; i<one.length; i++){
 
-    one[i].addEventListener("click", e=>{
-        // console.log(e.target.innerText)
-        const month = e.target.innerText
-        // console.log(month)
+/* 1-12월 */
+const lineMonth = document.querySelectorAll(".line-month")
 
+/* 클릭 시 이벤트 발생 */
+for(let i=0; i<lineMonth.length; i++){
+    lineMonth[i].addEventListener("click", e=>{
+        console.log(e.currentTarget.firstElementChild.innerText)
 
+        const month = e.currentTarget.firstElementChild.innerText;
 
+        changePage.style.display = 'none'
+        dateMonth.innerText = ""
+        dateMonth.innerText = month + "월"
 
-        /* 달력 default 월 */
-        
         const changeBtn = document.getElementById("month-btn")
         changeBtn.addEventListener("click", () => {
             console.log(month);
@@ -128,28 +142,22 @@ for(let i=0; i<one.length; i++){
 
                     const spend = document.getElementById("spend")
 
-                    dateMonth.innerText = ""
-                    dateMonth.innerText = e.target.innerText + "월"
+                    
 
 
                     spend.innerText = ""
-                    spend.innerText = "지출 : " + data
+                    spend.innerText = "지출 : " + data + "원"
 
                 })
                 .catch(err => {
                     console.log("예외 발생");
                     console.log(err);
+
+                    spend.innerText = ""
+                    spend.innerText = "내역 없음"
                 });
         });
 
-
-
-
-
-
     })
+
 }
-
-
-
-
