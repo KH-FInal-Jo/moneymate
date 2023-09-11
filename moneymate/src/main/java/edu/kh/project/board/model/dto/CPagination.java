@@ -2,18 +2,18 @@ package edu.kh.project.board.model.dto;
 
 public class CPagination {
 	
-	private int currentPage;      // 현재 페이지 번호
-	private int listCount;         // 전체 게시글 수
+	private int currentPage;    
+	private int listCount;      
 
-	private int limit = 10;         // 한 페이지에 보여질 게시글의 수
-	private int pageSize = 10;      // 목록 하단 페이지 번호의 노출 개수
+	private int limit = 10;         
+	private int pageSize = 10;
 
-	private int maxPage;         // 제일 큰 페이지 번호 == 마지막 페이지 번호
-	private int startPage;         // 목록 하단에 노출된 페이지의 시작 번호
-	private int   endPage;         // 목록 하단에 노출된 페이지의 끝 번호
+	private int maxPage; 
+	private int startPage;        
+	private int   endPage;    
 
-	private int prevPage;         // 목록 하단에 노출된 번호의 이전 목록 끝 번호
-	private int nextPage;         // 목록 하단에 노출된 번호의 다음 목록 시작 번호
+	private int prevPage;  
+	private int nextPage; 
 
 
 	public CPagination(int currentPage, int listCount) {
