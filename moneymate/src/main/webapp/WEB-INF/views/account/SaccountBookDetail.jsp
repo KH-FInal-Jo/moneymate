@@ -68,55 +68,55 @@
             <div class="change-area">
                 
                 <div class="line">
-                    <div>
-                        <div>1</div>
+                    <div class="line-month">
+                        <div id="1">1</div>
                         <div>월</div>
                     </div>
-                    <div>
+                    <div class="line-month">
                         <div>2</div>
                         <div>월</div>
                     </div>
-                    <div>
+                    <div class="line-month">
                         <div>3</div>
                         <div>월</div>
                     </div>
-                    <div>
+                    <div class="line-month">
                         <div>4</div>
                         <div>월</div>
                     </div>
                 </div>
                 <div class="line">
-                    <div>
+                    <div class="line-month">
                         <div>5</div>
                         <div>월</div>
                     </div>
-                    <div>
+                    <div class="line-month">
                         <div>6</div>
                         <div>월</div>
                     </div>
-                    <div>
+                    <div class="line-month">
                         <div>7</div>
                         <div>월</div>
                     </div>
-                    <div>
+                    <div class="line-month">
                         <div>8</div>
                         <div>월</div>
                     </div>
                 </div>
                 <div class="line">
-                    <div>
+                    <div class="line-month">
                         <div>9</div>
                         <div>월</div>
                     </div>
-                    <div>
+                    <div class="line-month">
                         <div>10</div>
                         <div>월</div>
                     </div>
-                    <div>
+                    <div class="line-month">
                         <div>11</div>
                         <div>월</div>
                     </div>
-                    <div>
+                    <div class="line-month">
                         <div>12</div>
                         <div>월</div>
                     </div>
