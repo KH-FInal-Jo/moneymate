@@ -41,4 +41,8 @@
 
 	</div>
 
+	<script>
+		const memberNo = "${loginMember.memberNo}";
+	</script>
+
 </section>
