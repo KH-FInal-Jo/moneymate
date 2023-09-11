@@ -28,6 +28,8 @@
     margin: 30px;
     height: 715px;
 
+    
+
 }
 
 .listOne{
@@ -67,13 +69,22 @@
 }
 
 .title{
+    padding-top: 3px;
     height: 20%;
+    padding-left: 10px;
+    font-size: 18px;
 }
 .content{
     height: 60%;
+    padding-top: 10px;
+    padding-left: 10px;
+    font-size: 15px;
 }
 .etc{
     height: 20%;
+    padding-right: 10px;
+    text-align: end;
+    font-size: 15px;
 }
 
 
@@ -86,10 +97,11 @@ a{
     text-decoration: none;
     color: black;
     margin: 0px 5px;
+    cursor: pointer;
 }
 
 a:hover{
-    font-weight: bold;
+    font-weight: bolder;
 }
 
 button{
@@ -97,8 +109,22 @@ button{
     background-color: #ccc;
     border-radius: 10%;
     cursor: pointer;
+    height: 30px;
 }
 
 button:hover{
     background-color:  rgb(12, 64, 202);
+}
+
+.board:hover {
+    background-color: rgb(201, 211, 243);
+}
+
+.search select{
+    height: 30px;
+    width: 100px;
+}
+
+#query{
+    height: 30px;
 }

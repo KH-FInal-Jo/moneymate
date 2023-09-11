@@ -30,7 +30,7 @@
 
 			<li><a href="#">비밀번호 재설정</i></a></li>
 
-			<li><a href="#">내가 쓴 글</i></a></li>
+			<li><a href="/member/mypage/myboard">내가 쓴 글</i></a></li>
 
 			<li><a href="/member/mypage/likeList/1/{loginMember.memberNo}">좋아요 목록</a></li>
 
