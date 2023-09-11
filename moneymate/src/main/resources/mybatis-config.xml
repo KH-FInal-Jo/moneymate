@@ -16,6 +16,7 @@
 		<typeAlias type="edu.kh.project.board.model.dto.JBoard" alias="JBoard" />
 		<typeAlias type="edu.kh.project.member.model.dto.Member" alias="Member" />
 		<typeAlias type="edu.kh.project.subscribe.model.dto.Subscribe" alias="Subscribe" />
+		<typeAlias type="edu.kh.project.account.model.dto.SAccount" alias="SAccount" />
 	</typeAliases>
 	
 	<!-- mapper 연결 -->

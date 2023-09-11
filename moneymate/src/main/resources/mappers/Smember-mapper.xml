@@ -1,9 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="SmemberMapper">
+
+	<resultMap type="SAccount" id="SAccount-rm">
+	
+		<result property="accountDate" column="ACNT_DATE" />
+		<result property="accountMoney" column="ACNT_MN" />
+		<result property="accountContent" column="ACNT_CONT" />
+		<result property="category" column="CATE_NM" />
+	
+		<collection property="accountList"
+				select="selectAccount" column="ACNT_DATE"
+				javaType="java.util.ArrayList" ofType="SAccount">
+	
+	
+	
+		</collection>
+	
+	</resultMap>
+	
 	
 	<select id="changeMonth" resultType="_int">
 		SELECT SUM(ACNT_MN) FROM ACCOUNTBOOK
+		WHERE ACNT_DATE IN (SELECT ACNT_DATE FROM ACCOUNTBOOK
+		WHERE SUBSTR(ACNT_DATE,7,1)=#{month})
+		AND MEMBER_NO = #{memberNo}
+		AND ACNT_ST = 'N'
+	</select>
+	
+	
+	<select id="selectAccount" resultMap="SAccount-rm">
+		SELECT ACNT_DATE, ACNT_MN, ACNT_CONT, CATE_NM
+		FROM ACCOUNTBOOK
+		JOIN CATEGORY USING(CATE_CD)
 		WHERE ACNT_DATE IN (SELECT ACNT_DATE FROM ACCOUNTBOOK
 		WHERE SUBSTR(ACNT_DATE,7,1)=#{month})
 		AND MEMBER_NO = #{memberNo}

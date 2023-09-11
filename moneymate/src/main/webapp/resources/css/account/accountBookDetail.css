@@ -144,6 +144,8 @@ h1{
     border: 0;
     background-color: #ccc;
 
+    cursor: pointer;
+
 }
 
 #date-month{
@@ -252,8 +254,8 @@ h1{
     justify-content: center;
     margin-top: 80px;
 
-    height: 80%;
-    width: 80%;
+    height: 60%;
+    width: 50%;
 
 
   }
@@ -264,8 +266,8 @@ h1{
     justify-content: center;
     margin-top: 80px;
 
-    height: 80%;
-    width: 80%;
+    height: 60%;
+    width: 50%;
 
 
   }
