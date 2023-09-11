@@ -135,9 +135,57 @@ button + button{
 }
 
 
+
 /* 3쪽 */
 .container1-2{
+    width: 100%;
+    height: 1000px;
+    display: block;
     
+}
+
+.middle1{
+    width: 100%;
+    height: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+#left1{
+    width: 45%;
+    margin-left: 300px;
+    padding-right: 0;
+   
+   
+}
+
+#font1{
+    width: 55%;
+    margin-right: 200px;
+    font-size: 25px;
+    font-weight: bold;
+    
+   
+}
+
+#font2{
+    width: 55%;
+    margin-left: 200px;
+    font-size: 25px;
+    font-weight: bold;
+    
+}  
+
+
+#right1{
+    width: 45%;
+    margin-right: 300px;
+    padding-left: 0;
+   
+   
+
 }
 
 
@@ -219,3 +267,15 @@ button + button{
     padding-top: 150px;
     padding-left: 50px;
 }
+
+/* This only changes this particular animation duration */
+#animate__animated.animate__swing {
+    --animate-duration: 2s;
+  }
+  
+  /* This changes all the animations globally */
+  :root {
+    --animate-duration: 800ms;
+    --animate-delay: 0.9s;
+  }
+
