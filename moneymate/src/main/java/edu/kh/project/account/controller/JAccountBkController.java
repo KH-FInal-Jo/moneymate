@@ -44,6 +44,7 @@ public class JAccountBkController {
 	}
 	
 
+	// 가계부 작성하기
 	@PostMapping("/account/insert")
 	public String accountBkInsert(JAccountBook accountBk
 								, @SessionAttribute("loginMember") Member loginMember
