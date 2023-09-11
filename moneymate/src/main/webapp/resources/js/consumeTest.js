@@ -12,8 +12,7 @@ const progressNum = document.getElementById("progressNum");
 const img = document.getElementById("img");
 
 let result = [];
-let resultNum = localStorage.getItem("key").split(",");
-resultNum = resultNum.reduce((a,b)=>a+b);
+
 
 const onClick = (e) => {
     if (e.target.dataset.num) {
@@ -76,7 +75,8 @@ const onClick = (e) => {
 };
 
 
-
+let resultNum = localStorage.getItem("key").split(",");
+resultNum = resultNum.reduce((a,b)=>a+b);
 
 buttons.forEach((btn)=>btn.addEventListener("click", onClick));
 

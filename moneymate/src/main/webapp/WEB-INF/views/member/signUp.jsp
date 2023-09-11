@@ -38,21 +38,21 @@
                         placeholder="아이디(이메일)" maxlength="30"
                         autocomplete="off" required>
 
-                <button type="button" id="authKey">인증번호 받기</button>
+                <button type="button" id="sendAuthKeyBtn">인증번호 받기</button>
             </div>
 
             <span class="signUp-message" id="emailMessage">메일을 받을 수 있는 이메일을 입력해 주세요.</span>
 
             <div class="signUp-input-area">
                 <i class="fa-solid fa-keyboard" style="color: #000000;"></i>
-                <input type="text" id="emailCheck"
+                <input type="text" id="authKey"
                         placeholder="인증번호 입력" maxlength="6"
                         autocomplete="off">
 
-                <button type="button">인증하기</button>
+                <button type="button" id="checkAuthKeyBtn">인증하기</button>
             </div>
 
-            <span class="signUp-message confirm">인증되었습니다.</span>
+            <span class="signUp-message confirm" id=authKeyMessage>인증되었습니다.</span>
 
             <div class="signUp-input-area">
                 <i class="fa-solid fa-lock" style="color: #000000;"></i>

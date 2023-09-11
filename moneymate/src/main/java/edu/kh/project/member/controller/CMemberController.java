@@ -53,8 +53,21 @@ public class CMemberController {
 			
 			model.addAttribute("loginMember", loginMember);
 			
+			Cookie cookie = new Cookie("saveId", loginMember.getMemberEmail());
+			
+			if(saveId != null) { 
+				cookie.setMaxAge(60 * 60 * 24 * 30); 
+				
+			} else { 
+				cookie.setMaxAge(0);
+			}
+			
+			cookie.setPath("/"); 
+			
+			resp.addCookie(cookie);
+			
 		} else {
-			path += "/";
+			path += referer;
 			message = "회원정보를 확인해주세요.";
 		}
 		

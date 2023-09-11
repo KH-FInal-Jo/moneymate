@@ -1,5 +1,6 @@
 package edu.kh.project.board.model.service;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -26,8 +27,12 @@ public class CBoardServiceImpl implements CBoardService {
 		
 		List<CBoard> boardList = dao.selectBoardList(pagination, boardCode);
 		
+		Map<String, Object> map = new HashMap<String, Object>();
 		
-		return null;
+		map.put("pagination", pagination);
+		map.put("boardList", boardList);
+		
+		return map;
 	}
 
 }

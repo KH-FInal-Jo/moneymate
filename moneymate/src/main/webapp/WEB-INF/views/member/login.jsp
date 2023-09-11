@@ -32,15 +32,19 @@
             <form action="/member/login" method="post" id="loginFrm">
 
                 <div class="inputs">
-                    <i class="fa-regular fa-id-badge"></i><input type="text" id="inputId" class="inputId" name="memberEmail">
+                    <i class="fa-regular fa-id-badge"></i><input type="text" id="inputId" class="inputId" name="memberEmail" value="${cookie.saveId.value}">
                 </div>
     
                 <div class="inputs">
                     <i class="fa-solid fa-lock"></i><input type="password" id="inputPwd" name="memberPw">
                 </div>
                 
+                <c:if test="${ !empty cookie.saveId.value}">
+					<c:set var="chk" value="checked" />
+				</c:if>
+                
                 <div class="saveId">
-                    <input type="checkbox" name="saveId" id="saveId1" value="1">
+                    <input type="checkbox" name="saveId" ${chk} id="saveId1" value="1">
                     <label for="saveId1">아이디 저장</label>
                 </div>
 
@@ -60,7 +64,7 @@
 
         </div>
 
-        <div class="spans">
+        <div class="spans">    
             <span><a href="/member/signUp">회원가입</a></span>
             <span> | </span> 
             <span><a href="#">ID/PW 찾기</a></span>
