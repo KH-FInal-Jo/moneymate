@@ -109,7 +109,7 @@ h1{
 
 }
 
-#span-one{
+.span-one{
     margin: 0 10px;
     cursor: pointer;
 }

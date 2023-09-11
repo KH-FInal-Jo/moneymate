@@ -62,6 +62,7 @@
                 </span>
                 <span class="span-one">1</span>
                 <span class="span-one">9</span>
+                <span class="span-one">8</span>
                 <button id="month-btn">변경하기</button>
             </div>
     
