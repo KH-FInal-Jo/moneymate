@@ -150,6 +150,8 @@ function accTargetInput2(){
 
   if(regEx.test(accTargetInput.value)){
 
+
+
     alert("목표 예산이 설정되었습니다.");
     accTargetMoney.innerHTML = accTargetInput.value;
     accTargetInput.value = "";
@@ -160,6 +162,65 @@ function accTargetInput2(){
   }
 
 }
+
+
+
+// -----------------------------------------------------------------------------
+
+const accTargetInput1 = document.querySelector(".accTargetInput");
+const accProgress1 = document.querySelector(".accProgress");
+
+function accTargetInput4() {
+  const regEx = /^[0-9,]+$/;
+
+  if (accTargetInput1.value == 0 || accTargetInput1.value == "") {
+    alert("입력 형식이 유효하지 않습니다.");
+    accTargetInput1.value = "";
+    accTargetInput1.focus();
+    return;
+  }
+
+  if (regEx.test(accTargetInput1.value)) {
+    const targetAmount = parseInt(accTargetInput1.value.replace(/,/g, ''), 10);
+
+    console.log("zz");
+
+    // 서버에 목표 금액을 업데이트하는 API 요청 보내기 (예: POST 요청)
+    fetch('/account/target', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ targetAmount }), // JSON 형태로 전송
+    })
+    .then(response => response.json())
+    .then(data => {
+      // 서버에서 목표 금액 업데이트에 성공하면 프로그레스 바 업데이트
+      if (data.success) {
+        accProgress1.value = (data.usedAmount / targetAmount) * 100;
+        alert("목표 예산이 설정되었습니다.");
+      } else {
+        alert("목표 예산 설정에 실패했습니다.");
+      }
+    })
+    .catch(error => {
+    });
+    
+    // 입력 필드 초기화
+    accTargetInput1.value = "";
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
 
 const accUsedMoney = document.getElementsByClassName("accUsedMoney")[0];
 const accProgress = document.getElementsByClassName("accProgress")[0];

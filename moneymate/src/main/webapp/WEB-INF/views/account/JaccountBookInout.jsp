@@ -182,19 +182,17 @@
 				<!-- 목표예산 프로그레스 -->
 				<progress value="60" max="100" class="accProgress"></progress>
 
-				<form action="/account/target" method="POST">
-					<div class="accTarget-container">
-						<button type="button" class="accTargetBtn">
-							<i class="fa-solid fa-gear fa-lg"></i>목표 예산설정
-						</button>
-						<div class="accTarget">
-							<input type="text" class="accTargetInput"
-								placeholder="금액을 입력해주세요." name="accTarget"> 원
-							<button class="accTargetBtn2" onclick="accTargetInput2()">등록</button>
-						</div>
-
+				<div class="accTarget-container">
+					<button type="button" class="accTargetBtn">
+						<i class="fa-solid fa-gear fa-lg"></i>목표 예산설정
+					</button>
+					<div class="accTarget">
+						<input type="text" class="accTargetInput"
+							placeholder="금액을 입력해주세요." name="accTarget"> 원
+						<button class="accTargetBtn2" onclick="accTargetInput4()">등록</button>
 					</div>
-				 </form>
+
+				</div>
 			</div>
 			<div>
 				<button class="accDateRecordBtn">기간선택</button>

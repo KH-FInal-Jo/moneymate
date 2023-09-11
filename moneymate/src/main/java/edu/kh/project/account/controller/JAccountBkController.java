@@ -7,6 +7,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttribute;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
@@ -76,14 +78,20 @@ public class JAccountBkController {
 		return path;
 	}
 	
-	// 사용금액 조회하기
+	// 목표금액
 	@PostMapping("/account/target")
-	public String accountBkTarget() {
+	@ResponseBody
+	public String accountBkTarget(@RequestParam("accTarget") String accTarget
+								, @SessionAttribute("loginMember") Member loginMember) {
+		
+		
+		JAccountBook account = new JAccountBook();
+		account.setMemberNo(loginMember.getMemberNo());
+		account.setTargetMoney(accTarget);
 		
 		
 		
-		
-		return null;
+		return service.accountBkTarget(account);
 	}
 
 }
