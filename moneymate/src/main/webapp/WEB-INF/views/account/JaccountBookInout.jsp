@@ -175,7 +175,7 @@
 				<div class="accTargetUsed">
 					<div>사용 금액</div>
 					<div>
-						<div class="accUsedMoney">${useMoney.memberNo}</div>
+						<div class="accUsedMoney">${useMoney}</div>
 						<div>원</div>
 					</div>
 				</div>
