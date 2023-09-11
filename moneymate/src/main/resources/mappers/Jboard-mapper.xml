@@ -86,6 +86,12 @@
 		WHERE INOUT_CONT = '지출'
 		AND MEMBER_NO = #{memberNo}
 	</select>
+	
+	<!-- 목표 금액 설정 -->
+	<select id="accountBkTarget">
+		SELECT TARGET_MN FROM TARGET
+		WHERE MEMBER_NO = #{memberNo}
+	</select>
 
 
 </mapper>

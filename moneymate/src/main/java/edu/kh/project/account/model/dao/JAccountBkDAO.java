@@ -41,5 +41,9 @@ public class JAccountBkDAO {
 		return sqlSession.selectOne("accountUse", memberNo);
 	}
 
+	public String accountBkTarget(JAccountBook account) {
+		return sqlSession.selectOne("accountBkTarget", account);
+	}
+
 
 }

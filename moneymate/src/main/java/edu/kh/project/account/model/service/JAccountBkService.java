@@ -8,4 +8,6 @@ public interface JAccountBkService {
 
 	String accountBkSelect(int memberNo);
 
+	String accountBkTarget(JAccountBook account);
+
 }
