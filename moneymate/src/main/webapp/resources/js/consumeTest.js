@@ -12,11 +12,16 @@ const progressNum = document.getElementById("progressNum");
 const img = document.getElementById("img");
 
 let result = [];
+let resultNum = localStorage.getItem("key").split(",");
+resultNum = resultNum.reduce((a,b)=>a+b);
 
 const onClick = (e) => {
     if (e.target.dataset.num) {
         result.push(e.target.dataset.num);
         localStorage.setItem("key", result);
+        
+
+        
     }
 
 
@@ -64,8 +69,18 @@ const onClick = (e) => {
         progressNum.innerText="5/5";
         img.style.display = "none";
         thumbnail.style.display = "none";
+
+     
+
     }
 };
 
+
+
+
 buttons.forEach((btn)=>btn.addEventListener("click", onClick));
+
+
+
+
 
