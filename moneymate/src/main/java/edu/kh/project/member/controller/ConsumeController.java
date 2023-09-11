@@ -17,7 +17,7 @@ public class ConsumeController {
 	public String consumeTestStart() {
 		return "member/consumeTest";
 	}
-	
+
 	
 	
 	
