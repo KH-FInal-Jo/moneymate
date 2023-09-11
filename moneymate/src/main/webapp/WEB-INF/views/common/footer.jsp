@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+ <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -36,7 +37,7 @@
                     머니메이트(주) | 대표자 : 강호연진석 | 주소 : 서울 강남구 테헤란로 낙산공원 정상 | 사업자등록번호 : 214-89-82019 | 
                     <a href="#">이메일 : help@moneymate.com</a> 
                     <br>
-                    Copyright © 2023 Muneymate Inc. All right reserved.
+                    Copyright © 2023 Moneymate Inc. All right reserved.
                 </div>
                 
                 <section class="moon2">
@@ -57,7 +58,7 @@
             </script>
             
             <%-- message 1회 출력 후 session에서 제거 --%>
-        <c:remove var="message" scope="session" />
+        	<c:remove var="message" scope="session" />
 
             
         </c:if>
