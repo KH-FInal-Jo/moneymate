@@ -78,7 +78,7 @@ font-family: 'SDGothic', serif;
 }
 
 /* 가계부 지출, 수입, 이체 버튼 */
-.accBk-record > div:nth-child(2)>button{
+.accBk-record > div:nth-child(2) > input{
     width: 109px;
     height: 40px;
     font-size: 17px;
@@ -90,13 +90,13 @@ font-family: 'SDGothic', serif;
     background: linear-gradient(0deg, rgb(84, 198, 243) 0%, rgb(31, 137, 243) 100%);
     cursor: pointer;
     transition: all 0.3s ease;
+
 }
 
-
-.accBk-record > div:nth-child(2)>button:hover{
+.inputCategoryName{
+    border: 0;
     background-color: white;
-
-    color: white;
+    font-size: 20px;
 }
 
 .frame {
@@ -104,6 +104,22 @@ font-family: 'SDGothic', serif;
     margin: 40px auto;
     text-align: center;
   }
+
+.accBk-category-table input{
+
+    width: 110px;
+    font-size: 22px;
+    text-align: center;
+    background-color: rgb(161, 216, 238);
+    border: 2px solid rgb(116, 200, 233);
+    cursor: pointer;
+    
+}
+.accBk-category-table input:hover{
+    background-color: white;
+    color: rgb(161, 216, 238);
+    border: 2px solid rgb(116, 200, 233);
+}
 
 
 
@@ -230,7 +246,7 @@ font-family: 'SDGothic', serif;
 
 }
 /* 상세설정 input 창 스타일 */
-.accBk-record-category > div input{
+.accBk-record-category > div > input{
     width: 300px;
     height: 30px;
     font-size: 20px;

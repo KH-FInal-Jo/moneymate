@@ -237,52 +237,52 @@ const accBk12 = document.getElementsByClassName("accBk12")[0];
 const inputCategoryName = document.getElementsByClassName("inputCategoryName")[0];
 
 accBk1.addEventListener("click", function(){
-  inputCategoryName.innerHTML = "";
-  inputCategoryName.innerHTML = accBk1.innerHTML;
+  inputCategoryName.value = "";
+  inputCategoryName.value = accBk1.value;
 })
 accBk2.addEventListener("click", function(){
-  inputCategoryName.innerHTML = "";
-  inputCategoryName.innerHTML = accBk2.innerHTML;
+  inputCategoryName.value = "";
+  inputCategoryName.value = accBk2.value;
 })
 accBk3.addEventListener("click", function(){
-  inputCategoryName.innerHTML = "";
-  inputCategoryName.innerHTML = accBk3.innerHTML;
+  inputCategoryName.value = "";
+  inputCategoryName.value = accBk3.value;
 })
 accBk4.addEventListener("click", function(){
-  inputCategoryName.innerHTML = "";
-  inputCategoryName.innerHTML = accBk4.innerHTML;
+  inputCategoryName.value = "";
+  inputCategoryName.value = accBk4.value;
 })
 accBk5.addEventListener("click", function(){
-  inputCategoryName.innerHTML = "";
-  inputCategoryName.innerHTML = accBk5.innerHTML;
+  inputCategoryName.value = "";
+  inputCategoryName.value = accBk5.value;
 })
 accBk6.addEventListener("click", function(){
-  inputCategoryName.innerHTML = "";
-  inputCategoryName.innerHTML = accBk6.innerHTML;
+  inputCategoryName.value = "";
+  inputCategoryName.value = accBk6.value;
 })
 accBk7.addEventListener("click", function(){
-  inputCategoryName.innerHTML = "";
-  inputCategoryName.innerHTML = accBk7.innerHTML;
+  inputCategoryName.value = "";
+  inputCategoryName.value = accBk7.value;
 })
 accBk8.addEventListener("click", function(){
-  inputCategoryName.innerHTML = "";
-  inputCategoryName.innerHTML = accBk8.innerHTML;
+  inputCategoryName.value = "";
+  inputCategoryName.value = accBk8.value;
 })
 accBk9.addEventListener("click", function(){
-  inputCategoryName.innerHTML = "";
-  inputCategoryName.innerHTML = accBk9.innerHTML;
+  inputCategoryName.value = "";
+  inputCategoryName.value = accBk9.value;
 })
 accBk10.addEventListener("click", function(){
-  inputCategoryName.innerHTML = "";
-  inputCategoryName.innerHTML = accBk10.innerHTML;
+  inputCategoryName.value = "";
+  inputCategoryName.value = accBk10.value;
 })
 accBk11.addEventListener("click", function(){
-  inputCategoryName.innerHTML = "";
-  inputCategoryName.innerHTML = accBk11.innerHTML;
+  inputCategoryName.value = "";
+  inputCategoryName.value = accBk11.value;
 })
 accBk12.addEventListener("click", function(){
-  inputCategoryName.innerHTML = "";
-  inputCategoryName.innerHTML = accBk12.innerHTML;
+  inputCategoryName.value = "";
+  inputCategoryName.value = accBk12.value;
 })
 
 /* 기간 설정 */
@@ -325,6 +325,24 @@ accDateChange.addEventListener("click", function(){
 
   accDateRecord.style.display = 'none';
 
+})
+
+const out = document.getElementsByClassName("out")[0];
+const inin = document.getElementsByClassName("in")[0];
+const trans = document.getElementsByClassName("trans")[0];
+const inoutResult = document.getElementsByClassName("inoutResult")[0];
+
+out.addEventListener("click",  function(){
+  inoutResult.value="";
+  inoutResult.value = out.value;
+})
+inin.addEventListener("click",  function(){
+  inoutResult.value="";
+  inoutResult.value = inin.value;
+})
+trans.addEventListener("click",  function(){
+  inoutResult.value="";
+  inoutResult.value = trans.value;
 })
 
 

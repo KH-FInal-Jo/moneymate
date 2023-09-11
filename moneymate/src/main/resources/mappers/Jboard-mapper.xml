@@ -15,6 +15,15 @@
 	
 			<result property="memberNo" column="MEMBER_NO" />
 	</resultMap>
+	
+	<!-- <resultMap type="JAccountBook" id="account_rm">
+	
+			<id property="accountNo" column=ACNT_NO />
+	
+			<result property="accountMoney" column="ACNT_MN" />
+	
+			<result property="memberNo" column="MEMBER_NO" />
+	</resultMap> -->
 
 
 	<!-- 공지사항 목록 조회 -->
@@ -51,6 +60,40 @@
 		VALUES(#{boardNo}, #{boardTitle},#{boardContent},DEFAULT, DEFAULT, DEFAULT, DEFAULT, 1, 2)
 	
 	</insert>
+	
+	
+	<!-- 가계부 다음 번호 얻어오기 -->
+	<select id="nextAccountNo" resultType="_int">
+		SELECT SEQ_ACNT_NO.NEXTVAL FROM DUAL
+	</select>
+	
+	<!-- 가계부 작성하기 -->
+	<insert id="accountInertInout">
+		INSERT INTO ACCOUNTBOOK VALUES(SEQ_ACNT_NO.NEXTVAL, #{relevantDate}, DEFAULT, #{account}, #{accountMoney},
+					 #{memo}, #{paymentMethod}, #{categoryCode}, #{memberNo}, DEFAULT, #{categoryName}, #{inoutName})
+	
+	</insert>
+	
+	<!-- <insert id="accountInertInout" >
+		
+		INSERT ALL
+      INTO ACCOUNTBOOK VALUES (SEQ_ACNT_NO.NEXTVAL, #{relevantDate}, DEFAULT, #{account}, #{accountMoney}, #{memo},
+                    #{paymentMethod}, 1, #{memberNo}, DEFAULT)
+               
+      INTO CATEGORY VALUES (1, #{categoryName}, 1)
+      INTO INOUTTRANS VALUES (1, #{inoutName})
+    SELECT *
+      FROM DUAL
+	
+	</insert> -->
+	
+	<!-- 가계부 상세조회 -->
+	<select id="accountUse" resultMap="account_rm">
+		SELECT SUM(ACNT_MN) AS TOTAL_EXPENSE
+		FROM ACCOUNTBOOK
+		WHERE INOUT_CONT = '지출'
+		AND MEMBER_NO = #{memberNo}
+	</select>
 
 
 </mapper>
