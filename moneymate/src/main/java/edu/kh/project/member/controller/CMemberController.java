@@ -163,6 +163,11 @@ public class CMemberController {
 		return path;
 	}
 	
+	@GetMapping("mypage/myboard")
+	public String myBoard () {
+		return "member/myBoard";
+	}
+	
 	
 	
 	
