@@ -7,7 +7,7 @@
 		<result property="accountDate" column="ACNT_DATE" />
 		<result property="accountMoney" column="ACNT_MN" />
 		<result property="accountContent" column="ACNT_CONT" />
-		<result property="category" column="CATE_NM" />
+		<result property="category" column="ACNT_CATEGORY" />
 		
 	
 	</resultMap>
@@ -23,7 +23,10 @@
 	
 	
 	<select id="selectAccount" resultMap="SAccount-rm">
-		
+		SELECT ACNT_DATE, ACNT_CONT, ACNT_MN, ACNT_CATEGORY FROM ACCOUNT_DETAIL
+		WHERE ACNT_DATE IN (SELECT ACNT_DATE FROM "ACCOUNT_DETAIL" WHERE SUBSTR(ACNT_DATE, 7, 1) = #{month})
+		AND MEMBER_NO = #{memberNo}
+		AND ACNT_ST = 'N'
 	</select>
 	
 </mapper>

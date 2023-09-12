@@ -155,103 +155,18 @@
                 <table class="tb">
 
                     <tr>
-                        <td colspan="2" class="spend-date">09-04(월)</td>
-                        <td rowspan="3" class="price">-10,500원</td>
+                        <td colspan="2" class="spend-date">s</td>
+                        <td rowspan="3" class="price">d</td>
                     </tr>
                     <tr>
-                        <td colspan="2" class="where">소풍</td>
+                        <td colspan="2" class="where">d</td>
                     </tr>
                     <tr>
-                        <td colspan="2" class="category">한식</td>
+                        <td colspan="2" class="category">d</td>
                     </tr>
 
-                    <tr>
-                        <td colspan="2" class="spend-date">09-04(월)</td>
-                        <td rowspan="3" class="price">-10,500원</td>
-                    </tr>
-                    <tr>
-                        <td colspan="2" class="where">소풍</td>
-                    </tr>
-                    <tr>
-                        <td colspan="2" class="category">한식</td>
-                    </tr>
-
-                    <tr>
-                        <td colspan="2" class="spend-date">09-04(월)</td>
-                        <td rowspan="3" class="price">-10,500원</td>
-                    </tr>
-                    <tr>
-                        <td colspan="2" class="where">소풍</td>
-                    </tr>
-                    <tr>
-                        <td colspan="2" class="category">한식</td>
-                    </tr>
-
-                    <tr>
-                        <td colspan="2" class="spend-date">09-04(월)</td>
-                        <td rowspan="3" class="price">-10,500원</td>
-                    </tr>
-                    <tr>
-                        <td colspan="2" class="where">소풍</td>
-                    </tr>
-                    <tr>
-                        <td colspan="2" class="category">한식</td>
-                    </tr>
-
-                    <tr>
-                        <td colspan="2" class="spend-date">09-04(월)</td>
-                        <td rowspan="3" class="price">-10,500원</td>
-                    </tr>
-                    <tr>
-                        <td colspan="2" class="where">소풍</td>
-                    </tr>
-                    <tr>
-                        <td colspan="2" class="category">한식</td>
-                    </tr>
-
-                    <tr>
-                        <td colspan="2" class="spend-date">09-04(월)</td>
-                        <td rowspan="3" class="price">-10,500원</td>
-                    </tr>
-                    <tr>
-                        <td colspan="2" class="where">소풍</td>
-                    </tr>
-                    <tr>
-                        <td colspan="2" class="category">한식</td>
-                    </tr>
-
-                    <tr>
-                        <td colspan="2" class="spend-date">09-04(월)</td>
-                        <td rowspan="3" class="price">-10,500원</td>
-                    </tr>
-                    <tr>
-                        <td colspan="2" class="where">소풍</td>
-                    </tr>
-                    <tr>
-                        <td colspan="2" class="category">한식</td>
-                    </tr>
-
-                    <tr>
-                        <td colspan="2" class="spend-date">09-04(월)</td>
-                        <td rowspan="3" class="price">-10,500원</td>
-                    </tr>
-                    <tr>
-                        <td colspan="2" class="where">소풍</td>
-                    </tr>
-                    <tr>
-                        <td colspan="2" class="category">한식</td>
-                    </tr>
-
-                    <tr>
-                        <td colspan="2" class="spend-date">09-04(월)</td>
-                        <td rowspan="3" class="price">-10,500원</td>
-                    </tr>
-                    <tr>
-                        <td colspan="2" class="where">소풍</td>
-                    </tr>
-                    <tr>
-                        <td colspan="2" class="category">한식</td>
-                    </tr>
+                  
+                    
 
                    
                 </table>
