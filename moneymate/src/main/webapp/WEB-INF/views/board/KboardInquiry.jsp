@@ -45,14 +45,15 @@
                 <div class="Bcontainer2"></div>
                 
                 <div class="Bcontainer3">
-                    <select name="open" id="open">
-                        <option value="">게시글</option>
-                        <option value="">#</option>
-                        <option value="">#</option>
-                        <option value="">#</option>
-                        <option value="">#</option>
-                    </select>
-                    <form action="/search" method="get">
+                    <form action="/search" method="get" id="boardSearch">
+                        <select name="open" id="open">
+                            <option value="t">게시글</option>
+                            <option value="tn">제목</option>
+                            <option value="c">내용</option>
+                            <option value="tc">제목+내용</option>
+                            <option value="w">작성자</option>
+                        </select>
+                   
                         <div class="search-container">
                             <label for="search-input" class="sr-only">검색어 입력:</label>
                             <input type="text" id="search-input" name="q" placeholder="검색어를 입력하세요..." required>
@@ -123,6 +124,42 @@
                     <div class="Bcontainer5-1">
                         <div class="pagination-container">
                             <ul class="pagination">
+                                <!-- 첫 페이지로 이동 -->
+                    <li><a href="/board/${boardCode}?cp=1${sp}">&lt;&lt;</a></li>
+
+                    <!-- 이전 목록 마지막 번호로 이동 -->
+                    <li><a href="/board/${boardCode}?cp=${pagination.prevPage}${sp}">&lt;</a></li>
+
+               
+                    <!-- 특정 페이지로 이동 -->
+                    <c:forEach var="i" begin="${pagination.startPage}" 
+                                end="${pagination.endPage}" step="1">
+
+                            <c:choose>
+                               <c:when test="${i == pagination.currentPage}">
+                                    <!-- 현재 보고있는 페이지 -->
+                                    <li><a class="current">${i}</a></li>
+                               </c:when>
+                            
+                               <c:otherwise>
+
+                                    <!-- 현재 페이지를 제외한 나머지 -->
+                                    <li><a href="/board/${boardCode}?cp=${i}${sp}">${i}</a></li>
+                               </c:otherwise>
+                            </c:choose>
+
+                            
+
+                    </c:forEach>
+                    
+                    
+                    <!-- 다음 목록 시작 번호로 이동 -->
+                    <li><a href="/board/${boardCode}?cp=${pagination.nextPage}${sp}">&gt;</a></li>
+
+                    <!-- 끝 페이지로 이동 -->
+                    <li><a href="/board/${boardCode}?cp=${pagination.maxPage}${sp}">&gt;&gt;</a></li>
+
+
                                 <li><a href="#">&laquo;</a></li>
                                 <li><a href="#">1</a></li>
                                 <li><a href="#">2</a></li>
@@ -133,7 +170,7 @@
                     
                     </div>
                     <div class="Bcontainer5-1">
-                        <a href="#" class="write-button">글쓰기</a>
+                        <a href="#" id="write-button">글쓰기</a>
                     </div>
                 </div>
 
