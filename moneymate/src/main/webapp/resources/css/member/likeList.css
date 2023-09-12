@@ -19,13 +19,67 @@ a{
 }
 
 #main>div:nth-of-type(1){
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100px;
-    font-size: 30px;
-    font-weight: bold;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 45px;
+  font-weight: bold;
 }
+
+/* -------------------------------------------------- */
+
+#main>div:nth-of-type(3){
+  margin-top: 90px;
+}
+.eachOne{
+  display: flex;
+  margin-left: 50px;
+  margin-bottom: 50px;
+  
+}
+
+.boardLike{
+  font-size: 1.5em;
+  color: red;
+  cursor: pointer;
+}
+
+.thumbnail{
+  max-width: 250px;
+  max-height: 145px;
+}
+
+.eachOne>div:nth-of-type(1){
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80px;
+}
+.eachOne>div:nth-of-type(2){
+  width: 250px;
+}
+
+.likeContent{
+  margin-left: 50px;
+  cursor: pointer;
+}
+
+.likeContent>div:nth-child(1){
+  height: 40px;
+  font-size: 20px;
+  font-weight: bold;
+  width: 100%;
+}
+
+.likeContent span{
+  font-size: 18px;
+}
+
+.likeContent span:hover{
+  text-decoration: underline;
+}
+
 
 /* select문 */
 
@@ -122,88 +176,7 @@ a{
     background-color: #F8E4FF;
   }
 
-table{
-    width: 840px;
-    margin: auto;
-}
 
-#noneLike{
-    height: 50px;
-}
-
-thead th:nth-of-type(1){
-    width: 120px;
-}
-
-thead th:nth-of-type(2){
-    width: 350px;
-}
-thead th:nth-of-type(3){
-    width: 80px;
-}
-thead th:nth-of-type(4){
-    width: 130px;
-}
-
-thead th{
-    background-color: #ddd;
-    height: 50px;
-}
-
-tbody td{
-    border-bottom: 1px solid #ddd;
-}
-
-tbody>tr>td:nth-of-type(6){
-    text-align: center;
-}
-
-#boardLike{
-    font-size: 1.5em;
-    color: red;
-    cursor: pointer;
-}
-
-tbody>tr>td:nth-of-type(2){
-    position: relative;
-}
-
-td{
-    height: 45px;
-}
-
-tbody>tr>td:nth-of-type(1){
-    text-align: center;
-}
-tbody>tr>td:nth-of-type(3){
-    text-align: center;
-}
-tbody>tr>td:nth-of-type(4){
-    text-align: center;
-}
-tbody>tr>td:nth-of-type(5){
-    text-align: center;
-}
-
-.thumbnail{
-    max-height: 25px;
-    max-width: 50px;
-    position: absolute;
-    top: 9px;
-    left: 10px;
-}
-
-.title{
-    position: absolute;
-    top: 10px;
-    left: 70px;
-    text-decoration: none;
-    color: black;
-}
-
-.title:hover{
-    border-bottom: 1px solid black;
-}
 
 /* 페이지네이션 */
 .pagination{
@@ -235,6 +208,6 @@ tbody>tr>td:nth-of-type(5){
 
 .pagination-area{
     position: absolute;
-    bottom: 10px;
     left: 25%;
+    bottom: 5px;
 }
