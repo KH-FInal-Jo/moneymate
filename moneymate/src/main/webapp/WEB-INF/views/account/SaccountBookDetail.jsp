@@ -130,7 +130,9 @@
             <div class="btn-area">
                 <span><button id="spend">지출 : 2,000,450원</button></span>
                 <span><button id="income">수입 : 5,123,456원</button></span>
-                <span><i class="fa-regular fa-square-plus fa-4x" style="color: #0c40ca;"></i></span>
+                <c:if test="${!empty loginMember}" >
+                    <span><a href="/account/insert"><i class="fa-regular fa-square-plus fa-4x" style="color: #0c40ca;"></i></a></span>
+                </c:if>
             </div>
 
             <!-- 지출 차트 -->
