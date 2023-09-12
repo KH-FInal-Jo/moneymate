@@ -1,5 +1,6 @@
 package edu.kh.project.member.controller;
 
+import java.util.HashMap;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,8 +24,19 @@ public class HMemberController {
 							, @RequestParam(value="cp", required = false, defaultValue = "1") int cp
 							, Model model) {
 		
+		System.out.println(boardCode);
+		System.out.println(memberNo);
+		System.out.println(cp);
+		
 		// 좋아요 목록 조회
 		// 게시판 이름, 게시글 제목, 썸네일, 작성자, 작성일, 조회수 (좋아요한 게시글만)
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("boardCode", boardCode);
+		map.put("memberNo", memberNo);
+		map.put("cp", cp);
+		
+		Map<String, Object> resMap = service.selectLike(map);
+		
 		
 		
 		

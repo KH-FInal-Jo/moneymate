@@ -1,3 +1,7 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"  %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"  %>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,15 +9,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>좋아요 목록</title>
     <script src="https://kit.fontawesome.com/f7459b8054.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="../css/member/likeList.css">
-    <link rel="stylesheet" href="../css/header.css">
-    <link rel="stylesheet" href="../css/footer.css">
-    <link rel="stylesheet" href="../css/member/myPageSidemenu.css">
+  
+    <link rel="stylesheet" href="/resources/css/member/myPageSidemenu.css">
+    <link rel="stylesheet" href="/resources/css/member/myPageSidemenu.css">
+    <link rel="stylesheet" href="/resources/css/member/likeList.css">
+    <link rel="stylesheet" href="/resources/css/header.css">
 </head>
 <body>
+
+    <jsp:include page="/WEB-INF/views/common/header.jsp"/>
     
     <div id="all">
-        <div id="sidebar" style="width: 25%; color: pink;"></div>
+        <jsp:include page="/WEB-INF/views/member/muPageSideMenu.jsp"/>
 
         <div id="main">
 
@@ -43,7 +50,7 @@
                     <i class="fa-solid fa-heart boardLike"></i>
                 </div>
                 <div>
-                    <img src="../images/background3.png" class="thumbnail">
+                    <img src="/resources/images/background3.png" class="thumbnail">
                 </div>
                 <div class="likeContent"  onclick="location.href='/'">
                     <div>[자유게시판]</div>
@@ -57,7 +64,7 @@
                     <i class="fa-solid fa-heart boardLike"></i>
                 </div>
                 <div>
-                    <img src="../images/accountEvent3.png" class="thumbnail">
+                    <img src="/resources/images/accountEvent3.png" class="thumbnail">
                 </div>
                 <div class="likeContent">
                     <div>[컬럼게시판]</div>
@@ -71,7 +78,7 @@
                     <i class="fa-solid fa-heart boardLike"></i>
                 </div>
                 <div>
-                    <img src="../images/camera1.png" class="thumbnail">
+                    <img src="/resources/images/camera1.png" class="thumbnail">
                 </div>
                 <div class="likeContent">
                     <div>[자유게시판]</div>
@@ -132,7 +139,9 @@
 
     </div>
 
+    <jsp:include page="/WEB-INF/views/common/footer.jsp"/>
 
-    <script src="../js/likeList.js"></script>
+
+    <script src="/resources/js/likeList.js"></script>
 </body>
 </html>
