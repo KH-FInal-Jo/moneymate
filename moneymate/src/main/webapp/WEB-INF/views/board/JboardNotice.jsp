@@ -62,10 +62,12 @@
 					</table>
 
 				</div>
+				<c:if test="${loginMember.authority == 1}">
 
-				<div class="board-notice-wrtie-btn">
-					<button type="button" id="NoticeWriteBtn">글쓰기</button>
-				</div>
+					<div class="board-notice-wrtie-btn">
+						<button type="button" id="NoticeWriteBtn">글쓰기</button>
+					</div>
+				</c:if>
 
 			</section>
 

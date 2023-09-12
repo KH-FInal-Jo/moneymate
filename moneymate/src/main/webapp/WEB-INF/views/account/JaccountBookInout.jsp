@@ -168,7 +168,6 @@
 					<div>한달 목표 예산</div>
 					<div>
 						<div class="accTargetMoney">5,000,000</div>
-						<a href="/account/insert" >클릭</a>
 						<div>원</div>
 					</div>
 				</div>

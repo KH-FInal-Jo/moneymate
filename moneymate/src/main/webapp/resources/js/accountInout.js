@@ -114,6 +114,21 @@ accTargetBtn.addEventListener("click", function(){
 
 })
 
+/* 사용금액 콤마 넣기 */
+document.addEventListener("DOMContentLoaded", function() {
+
+  (function() {
+
+    const input = document.querySelector(".accUsedMoney");
+    var useMoney = input.innerHTML;
+    var formattedMoney = parseInt(useMoney).toLocaleString('ko-KR');
+    input.innerHTML = formattedMoney;
+  })();
+
+});
+
+
+
 /* 목표 금액 input값 콤마 넣기 */
 const a = 1000000000000;
 
@@ -181,17 +196,15 @@ function accTargetInput4() {
   }
 
   if (regEx.test(accTargetInput1.value)) {
+
     const targetAmount = parseInt(accTargetInput1.value.replace(/,/g, ''), 10);
 
-    console.log("zz");
-
-    // 서버에 목표 금액을 업데이트하는 API 요청 보내기 (예: POST 요청)
     fetch('/account/target', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ targetAmount }), // JSON 형태로 전송
+      body: JSON.stringify({ targetAmount }), 
     })
     .then(response => response.json())
     .then(data => {
@@ -203,8 +216,6 @@ function accTargetInput4() {
         alert("목표 예산 설정에 실패했습니다.");
       }
     })
-    .catch(error => {
-    });
     
     // 입력 필드 초기화
     accTargetInput1.value = "";
