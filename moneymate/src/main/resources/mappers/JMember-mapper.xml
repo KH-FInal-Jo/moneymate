@@ -3,11 +3,43 @@
 <mapper namespace="JMemberMapper">
 
 
-	<select id="selectMypage">
-		SELECT SUBSCRIBE_LEVEL 
-		FROM SUBSCRIBE
-		WHERE MEMBER_NO = #{memberNo}
-		AND SUBSCRIBE_END >= SYSDATE
+	<resultMap type="JMember" id="jmember_rm">
+     
+     	<id property="memberNo" column="MEMBER_NO" />
+     	
+     	<!-- DB의 일반 컬럼들 -->
+     	<result property="memberEmail" column="MEMBER_EMAIL"/>
+     	<result property="memberPw" column="MEMBER_PW"/>
+     	<result property="memberName" column="MEMBER_NAME"/>
+     	<result property="memberNickname" column="MEMBER_NICKNAME"/>
+     	<result property="memberTel" column="MEMBER_TEL"/>
+     	<result property="memberAddress" column="MEMBER_ADDRESS"/>
+     	<result property="secessionFlag" column="SECESSION_FL"/>
+     	<result property="authority" column="AUTHORITY"/>
+     	<result property="profileImage" column="PROFILE"/>
+     	
+     	<result property="subscribeNo" column="SUBSCRIBE_NO"/>
+     	<result property="subscribeLevel" column="SUBSCRIBE_LEVEL"/>
+     	<result property="mileage" column="MILEAGE"/>
+     	
+     </resultMap>
+
+	<select id="selectMypage" resultMap="jmember_rm">
+		SELECT
+		  M.MEMBER_NO,
+		  <![CDATA[
+		  CASE
+		    WHEN S.SUBSCRIBE_END < CURRENT_DATE THEN '0'
+		    ELSE COALESCE(TO_CHAR(S.SUBSCRIBE_LEVEL), '0')
+		  END AS SUBSCRIBE_LEVEL,
+		  COALESCE(M.MILEAGE, 0) AS MILEAGE
+		  ]]>
+		FROM
+		  MEMBER M
+		LEFT JOIN
+		  SUBSCRIBE S ON M.MEMBER_NO = S.MEMBER_NO
+		WHERE
+		  M.MEMBER_NO = #{memberNo}
 	</select>
 
 </mapper>

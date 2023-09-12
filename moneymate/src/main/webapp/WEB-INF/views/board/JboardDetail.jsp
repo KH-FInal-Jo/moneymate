@@ -49,6 +49,9 @@
 				</c:forEach>
 
 					<div>
+						<button type="button">수정</button>
+						<button type="button">삭제</button>
+
 						<button type="button">목록으로</button>
 					</div>
 
