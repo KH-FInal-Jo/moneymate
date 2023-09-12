@@ -63,6 +63,10 @@ public class AccountController {
 	    
 	    System.out.println("업데이트 : " + map);
 	    
+	    SAccount sa = new SAccount();
+	    
+	    System.out.println("날짜 : " + sa.getAccountDate());
+	    
 	    return service.changeMonthUpdate(map); // 예시 JSON 응답
 	}
 	
