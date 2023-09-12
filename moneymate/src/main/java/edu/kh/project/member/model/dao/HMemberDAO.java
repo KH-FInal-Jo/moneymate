@@ -37,7 +37,7 @@ public class HMemberDAO {
 		
 		RowBounds rowBounds = new RowBounds(offset, pagination.getLimit());
 		
-		return sqlSession.selectList("HMemberMapper.selectLikeList", map);
+		return sqlSession.selectList("HMemberMapper.selectLikeList", map, rowBounds);
 	}
 
 }

@@ -27,6 +27,10 @@ tr{
     height: 50px;
 }
 
+.time{
+    font-size: 20px;
+}
+
 #td-time, #td-by, #td-price{
     font-size: 20px;
     width: 180px;

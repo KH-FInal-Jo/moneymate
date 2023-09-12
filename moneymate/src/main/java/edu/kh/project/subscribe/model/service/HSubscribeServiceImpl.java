@@ -26,14 +26,16 @@ public class HSubscribeServiceImpl implements HSubscribeService{
 	@Override
 	public int kg(Subscribe subscribe) {
 		
-		// 구독에 insert
-		int result = dao.susbscribeKg(subscribe);
+		// 결제에 insert 
+		int result = dao.calculateKg(subscribe);
 		
-		if(result>0) { // calculate에 insert
-			result = dao.calculateKg(subscribe);
+		// 구독 테이블에 insert
+		if(result>0) {
+			result = dao.subscribeKg(subscribe);
 		}
 		
-		if(result>0) { // 마일리지 차감
+		// 사용한 마일리지 차감
+		if(result > 0) {
 			result = dao.mile(subscribe);
 		}
 		

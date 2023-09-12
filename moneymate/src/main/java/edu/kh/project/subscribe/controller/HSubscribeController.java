@@ -76,8 +76,6 @@ public class HSubscribeController {
 			subscribe.setSubscribeLevel(2);
 		}
 		
-		subscribe.setSubscribeLevel(3);
-		
 		// SUBSCRIBE 객체에 담기
 		
 		subscribe.setMemberNo(loginMember.getMemberNo());
