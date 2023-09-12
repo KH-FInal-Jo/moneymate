@@ -56,13 +56,13 @@
 	
 	<!-- 가계부 다음 번호 얻어오기 -->
 	<select id="nextAccountNo" resultType="_int">
-		SELECT SEQ_ACNT_NO.NEXTVAL FROM DUAL
+		SELECT SEQ_DETAIL_NO.NEXTVAL FROM DUAL
 	</select>
 	
 	<!-- 가계부 작성하기 -->
 	<insert id="accountInertInout">
-		INSERT INTO ACCOUNTBOOK VALUES(SEQ_ACNT_NO.NEXTVAL, #{relevantDate}, DEFAULT, #{account}, #{accountMoney},
-					 #{memo}, #{paymentMethod}, #{categoryCode}, #{memberNo}, DEFAULT, #{categoryName}, #{inoutName})
+		INSERT INTO ACCOUNT_DETAIL VALUES(SEQ_DETAIL_NO.NEXTVAL, #{relevantDate}, DEFAULT, #{account}, #{accountMoney},
+					 #{memo}, #{paymentMethod},  #{memberNo}, DEFAULT, #{inoutName}, #{categoryName} )
 	
 	</insert>
 	
@@ -82,11 +82,12 @@
 	<!-- 가계부 상세조회 -->
 	<select id="accountUse" resultType="string">
 		SELECT SUM(ACNT_MN) AS TOTAL_EXPENSE
-		FROM ACCOUNTBOOK
-		WHERE INOUT_CONT = '지출'
+		FROM ACCOUNT_DETAIL
+		WHERE INOUT_NM = '지출'
 		AND MEMBER_NO = #{memberNo}
 	</select>
 	
+	<!-- 목표금액 설정 후 insert -->
 	<insert id="targetInsert">
 		INSERT INTO TARGET VALUES(#{targetMoney}, #{memberNo})
 	</insert>
