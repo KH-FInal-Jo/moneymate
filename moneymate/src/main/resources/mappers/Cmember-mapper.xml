@@ -31,7 +31,7 @@
      <!-- 회원가입 -->
      <insert id="signUp">
      	INSERT INTO "MEMBER" VALUES (SEQ_MEMBER_NO.NEXTVAL, #{memberEmail}, #{memberPw}
-     		, #{memberName}, #{memberNickname}, #{memberTel}, #{memberAddress}, DEFAULT, DEFAULT, '')
+     		, #{memberName}, #{memberNickname}, #{memberTel}, #{memberAddress}, DEFAULT, DEFAULT, '', 0)
      </insert>
      
      <!-- 회원 비밀번호 -->
