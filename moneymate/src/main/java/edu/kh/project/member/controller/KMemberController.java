@@ -24,6 +24,7 @@ public class KMemberController {
 	@Autowired
 	private KMemberService service;
 	
+	// 마이페이지 상세조회
 	@GetMapping("/mypage")
 	public String KmyInfo(@SessionAttribute("loginMember") Member loginMember
 						, Model model) {
@@ -32,7 +33,7 @@ public class KMemberController {
 		
 		List<JMember> memberList = service.selectMypage(memberNo);
 		
-		model.addAttribute(memberList);
+		model.addAttribute("memberList",memberList);
 		
 		return "/member/KmyInfo";
 	}

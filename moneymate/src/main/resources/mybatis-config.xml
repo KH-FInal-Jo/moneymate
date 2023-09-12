@@ -18,6 +18,7 @@
 		<typeAlias type="edu.kh.project.board.model.dto.CBoardImage" alias="CBoardImage" />
 		<typeAlias type="edu.kh.project.board.model.dto.CComment" alias="CComment" />
 		<typeAlias type="edu.kh.project.member.model.dto.Member" alias="Member" />
+		<typeAlias type="edu.kh.project.member.model.dto.JMember" alias="JMember" />
 		<typeAlias type="edu.kh.project.subscribe.model.dto.Subscribe" alias="Subscribe" />
 		<typeAlias type="edu.kh.project.account.model.dto.SAccount" alias="SAccount" />
 	</typeAliases>

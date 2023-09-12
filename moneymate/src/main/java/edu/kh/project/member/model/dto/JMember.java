@@ -24,5 +24,6 @@ public class JMember {
 	
 	private int subscribeNo;
 	private int subscribeLevel;
+	private int mileage;
 
 }
