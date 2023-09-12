@@ -3,6 +3,7 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"  %>
 
 <c:set var="boardList" value="${resMap.boardList}"/>
+<c:set var="pagination" value="${resMap.pagination}"/>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -50,26 +51,36 @@
                   </article>
             </div>
 
-            <c:forEach items="${boardList}" var="board">
+            <c:choose>
+                <c:when test="${empty boardList}">
+                    <div id="none">좋아요한 게시글이 없습니다.</div>
+                </c:when>
 
-                <div class="eachOne">
-                    <div>
-                        <i class="fa-solid fa-heart boardLike"></i>
-                    </div>
-                    <div>
-                        <c:if test="${!empty board.thumbnail}" >
-                            <img src="${board.thumbnail}" class="thumbnail">
-                        </c:if>
-                    </div>
-                    <div class="likeContent"  onclick="location.href='/'">
-                        <div>${board.boardName}</div>
-                        <div>
-                            <span>${board.boardTitle}</span>
+                <c:otherwise>
+                    <c:forEach items="${boardList}" var="board">
+        
+                        <div class="eachOne">
+                            <div>
+                                <i class="fa-solid fa-heart boardLike" onclick="cancelLike(${board.boardNo})"></i>
+                            </div>
+                            <div>
+                                <c:if test="${!empty board.thumbnail}" >
+                                    <img src="${board.thumbnail}" class="thumbnail">
+                                </c:if>
+                            </div>
+                            <div class="likeContent"  onclick="location.href='/'">
+                                <div>${board.boardName}</div>
+                                <div>
+                                    <span>${board.boardTitle}</span>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                </div>
+        
+                    </c:forEach>
 
-            </c:forEach>
+                </c:otherwise>
+            </c:choose>
+
 
             <div class="pagination-area">
 
@@ -79,9 +90,9 @@
                 <ul class="pagination">
                 
                     <!-- 첫 페이지로 이동 -->
-                    <li><a href="/member/mypage/likeList/${location.pathname.split("/")[4]}/${loginMember.memberNo}">&lt;&lt;</a></li>
+                    <li><a href="/member/mypage/likeList/${boardCode}/${loginMember.memberNo}">&lt;&lt;</a></li>
                     <!-- 이전 목록 시작 번호로 이동 -->
-                    <li><a href="#">&lt;</a></li>
+                    <li><a href="/member/mypage/likeList/${boardCode}/${loginMember.memberNo}?cp=${pagination.prevPage}">&lt;</a></li>
 
                
                     <!-- 특정 페이지로 이동 -->
@@ -91,20 +102,11 @@
                     <c:forEach var="i" begin="${pagination.startPage}" end="${pagination.endPage}">
                         <c:choose>
                            <c:when test="${i == pagination.currentPage}"> 
-                                <li><a class="current">1</a></li>
-                                <li><a href="#">2</a></li>
-                                <li><a  href="#">3</a></li>
-                                <li><a href="#">4</a></li>
-                                <li><a href="#">5</a></li>
-                                <li><a href="#">6</a></li>
-                                <li><a href="#">7</a></li>
-                                <li><a href="#">8</a></li>
-                                <li><a href="#">9</a></li>
-                                <li><a href="#">10</a></li>
+                                <li><a class="current">${i}</a></li>
                           </c:when>
                         
                            <c:otherwise> 
-                                <li><a href="/board/${boardCode}?cp=${i}${sp}">${i}</a></li> 
+                                <li><a href="/member/mypage/likeList/${boardCode}/${loginMember.memberNo}?cp=${i}">${i}</a></li> 
                            </c:otherwise>
                         </c:choose>
                         
@@ -113,10 +115,10 @@
                     
                     
                     <!-- 다음 목록 시작 번호로 이동 -->
-                    <li><a href="#">&gt;</a></li>
+                    <li><a href="/member/mypage/likeList/${boardCode}/${loginMember.memberNo}?cp=${pagination.nextPage}">&gt;</a></li>
 
                     <!-- 끝 페이지로 이동 -->
-                    <li><a href="#">&gt;&gt;</a></li>
+                    <li><a href="/member/mypage/likeList/${boardCode}/${loginMember.memberNo}?cp=${pagination.maxPage}">&gt;&gt;</a></li>
 
                 </ul>
             </div>

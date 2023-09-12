@@ -9,3 +9,21 @@ list.addEventListener('click', (event) => {
     btn.classList.remove('on');
   }
 });
+
+function cancelLike(boardNo){
+
+  if(!confirm("좋아요를 취소하시겠습니까?")){
+    return;
+  }
+
+  fetch("/member/mypage/likeList/cancelLike?boardNo=" + boardNo)
+
+  .then(resp => resp.text())
+
+  .then(result => {
+    console.log(result);
+  })
+
+  .catch(e => console.log(e));
+
+}

@@ -6,6 +6,7 @@ import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import edu.kh.project.board.model.dto.CBoard;
 import edu.kh.project.board.model.dto.HPagination;
@@ -36,6 +37,13 @@ public class HMemberServiceImpl implements HMemberService {
 		resMap.put("boardList", boardList);
 		
 		return resMap;
+	}
+
+	// 좋아요 삭제
+	@Transactional(rollbackFor = {Exception.class})
+	@Override
+	public int cancelLike(CBoard board) {
+		return dao.cancelLike(board);
 	}
 
 }

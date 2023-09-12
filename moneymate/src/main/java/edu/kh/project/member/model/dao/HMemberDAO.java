@@ -40,4 +40,12 @@ public class HMemberDAO {
 		return sqlSession.selectList("HMemberMapper.selectLikeList", map, rowBounds);
 	}
 
+	/** 좋아요 삭제
+	 * @param board
+	 * @return result
+	 */
+	public int cancelLike(CBoard board) {
+		return sqlSession.delete("HMemberMapper.cancelLike", board);
+	}
+
 }

@@ -9,9 +9,15 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.SessionAttribute;
+import org.springframework.web.bind.annotation.SessionAttributes;
 
+import edu.kh.project.board.model.dto.CBoard;
+import edu.kh.project.member.model.dto.Member;
 import edu.kh.project.member.model.service.HMemberService;
 
+@SessionAttributes("loginMember")
 @Controller
 public class HMemberController {
 	
@@ -42,6 +48,22 @@ public class HMemberController {
 		model.addAttribute("resMap", resMap);
 		
 		return "member/likeList";
+	}
+	
+	@GetMapping(value="/member/mypage/likeList/cancelLike" , produces = "application/text; charset=UTF-8")
+	@ResponseBody
+	public int cancelLike (int boardNo, @SessionAttribute("loginMember") Member loginMember) {
+		
+		CBoard board = new CBoard();
+		
+		board.setMemberNo(loginMember.getMemberNo());
+		board.setBoardNo(boardNo);
+		
+		int result = service.cancelLike(board);
+		
+		System.out.println("result" + result);
+		
+		return result;
 	}
 
 }
