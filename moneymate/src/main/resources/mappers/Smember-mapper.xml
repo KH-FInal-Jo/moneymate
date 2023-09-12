@@ -8,14 +8,7 @@
 		<result property="accountMoney" column="ACNT_MN" />
 		<result property="accountContent" column="ACNT_CONT" />
 		<result property="category" column="CATE_NM" />
-	
-		<collection property="accountList"
-				select="selectAccount" column="ACNT_DATE"
-				javaType="java.util.ArrayList" ofType="SAccount">
-	
-	
-	
-		</collection>
+		
 	
 	</resultMap>
 	
