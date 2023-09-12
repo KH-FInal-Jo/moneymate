@@ -4,7 +4,10 @@
 
 
 	<select id="selectMypage">
-	
+		SELECT SUBSCRIBE_LEVEL 
+		FROM SUBSCRIBE
+		WHERE MEMBER_NO = #{memberNo}
+		AND SUBSCRIBE_END >= SYSDATE
 	</select>
 
 </mapper>

@@ -16,7 +16,6 @@ public class JMemberController {
 	
 	@GetMapping("/member/mypage/bookMark")
 	public String selectBookMark() {
-		// dfdfdf
 		return null;
 	}
 
