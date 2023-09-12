@@ -35,10 +35,17 @@ public class CBoardServiceImpl implements CBoardService {
 		return map;
 	}
 
+	// 검색시 게시글 목록 조회
 	@Override
 	public Map<String, Object> selectBoardList(Map<String, Object> paramMap, int cp) {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	// 게시글 상세 조회
+	@Override
+	public CBoard selectBoard(Map<String, Object> map) {
+		return dao.selectBoard(map);
 	}
 
 }
