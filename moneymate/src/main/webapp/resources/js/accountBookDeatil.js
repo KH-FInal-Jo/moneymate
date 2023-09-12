@@ -175,7 +175,7 @@ for(let i=0; i<lineMonth.length; i++){
 
     const month = e.currentTarget.firstElementChild.innerText;
     
-
+    
 
     changeBtn.addEventListener("click", () => {
         // ajax 코드 작성
@@ -183,12 +183,23 @@ for(let i=0; i<lineMonth.length; i++){
             .then(resp => resp.json()) // JSON 응답 파싱
             .then(aList => {
                 console.log("응답 데이터: ", aList);
+                const tb = document.querySelector(".tb")
+                tb.innerHTML = ""
                 // 여기서 data를 사용하여 필요한 처리를 수행하세요.
                 for(let account of aList){
     
-                    console.log(account)
-    
-    
+                    const tr = document.createElement("tr")
+                    const td1 = document.createElement("td")
+                    const td2 = document.createElement("td")
+
+                    td1.classList.add("spend-date")
+                    td1.innerHTML = account.accountDate;
+
+                    td2.classList.add("price")
+                    td1.innerHTML = account.accountMoney;
+
+
+
     
     
                 }
