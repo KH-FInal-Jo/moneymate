@@ -35,4 +35,10 @@ public class CBoardServiceImpl implements CBoardService {
 		return map;
 	}
 
+	@Override
+	public Map<String, Object> selectBoardList(Map<String, Object> paramMap, int cp) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

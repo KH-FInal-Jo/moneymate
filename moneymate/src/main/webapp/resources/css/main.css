@@ -290,7 +290,7 @@ button + button{
 
 
 .middle5{
-    width: 100%;
+    width: 90%;
     height: 50%;
     display: flex;
     justify-content: center;
@@ -372,8 +372,8 @@ button + button{
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 70%;
-    margin: 0;
+    height: 60%;    
+    margin-right: 300px;
    
 }
 
@@ -406,3 +406,20 @@ button + button{
     z-index: 1;
 }
 
+
+#image-container{
+    position: relative;
+}
+
+#image{
+    position: absolute;
+}
+
+#image:nth-child(1){
+    transform: rotate(0deg) translate(-150px, -150px);
+    z-index: 2;
+}
+#image:nth-child(2){
+    transform: rotate(0deg) translate(0);
+    z-index: 1;
+}

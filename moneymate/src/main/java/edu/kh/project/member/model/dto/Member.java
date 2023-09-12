@@ -21,5 +21,6 @@ public class Member {
 	private String secessionFlag;
 	private int authority;
 	private String profileImage;
+	private int mileage;
 
 }
