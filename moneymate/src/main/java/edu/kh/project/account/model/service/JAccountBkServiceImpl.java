@@ -33,8 +33,20 @@ public class JAccountBkServiceImpl implements JAccountBkService{
 
 	// 목표금액 설정
 	@Override
-	public String accountBkTarget(JAccountBook account) {
-		return dao.accountBkTarget(account);
+	public int accountBkTarget(JAccountBook account) {
+		
+		int targetMoney = 0;
+		
+		int result = dao.targetInsert(account);
+		
+		if(result > 0) {
+			
+			targetMoney = dao.selectTargetM(account.getMemberNo());
+			
+		}
+		
+		
+		return targetMoney;
 	}
 
 }

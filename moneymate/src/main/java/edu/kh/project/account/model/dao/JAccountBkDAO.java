@@ -45,5 +45,15 @@ public class JAccountBkDAO {
 		return sqlSession.selectOne("accountBkTarget", account);
 	}
 
+	// 목표 금액 insert
+	public int targetInsert(JAccountBook account) {
+		return sqlSession.insert("targetInsert", account);
+	}
+
+	// 목표 금액 가져오기
+	public int selectTargetM(int memberNo) {
+		return sqlSession.selectOne("selectTargetM", memberNo);
+	}
+
 
 }

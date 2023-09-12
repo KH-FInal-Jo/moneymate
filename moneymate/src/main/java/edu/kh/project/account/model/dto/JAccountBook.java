@@ -26,6 +26,6 @@ public class JAccountBook {
 	private String inoutCode;
 	private String inoutName;
 	
-	private String targetMoney;
+	private int targetMoney;
 	
 }

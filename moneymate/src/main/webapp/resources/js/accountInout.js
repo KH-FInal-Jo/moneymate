@@ -204,10 +204,12 @@ function accTargetInput4() {
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ targetAmount }), 
+      body: JSON.stringify({ accTarget :targetAmount }), 
     })
     .then(response => response.json())
     .then(data => {
+
+      console.log("데이터 가라");
       // 서버에서 목표 금액 업데이트에 성공하면 프로그레스 바 업데이트
       if (data.success) {
         accProgress1.value = (data.usedAmount / targetAmount) * 100;
@@ -238,7 +240,7 @@ const accProgress = document.getElementsByClassName("accProgress")[0];
 const accTargetBtn2 = document.getElementsByClassName("accTargetBtn2")[0];
 
 /* 프로그래스바 .. */
-accTargetBtn2.addEventListener("click", function(){
+/* accTargetBtn2.addEventListener("click", function(){
   
   
   let str1 = accTargetMoney.innerHTML;
@@ -254,7 +256,7 @@ accTargetBtn2.addEventListener("click", function(){
   console.log(num2);
   console.log(result);
   
-})
+}) */
 
 /* 카테고리 상세 박스 */
 const categoryBox = document.getElementsByClassName("accBk-category-table")[0];
