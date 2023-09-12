@@ -24,12 +24,12 @@
 
 
 		<collection property="imageList" select="selectImageList"
-			column="BOARD_NO" javaType="java.util.ArrayList" ofType="BoardImage">
+			column="BOARD_NO" javaType="java.util.ArrayList" ofType="CBoardImage">
 		</collection>
 
 		<collection property="commentList"
 			select="selectCommentList" column="BOARD_NO"
-			javaType="java.util.ArrayList" ofType="Comment">
+			javaType="java.util.ArrayList" ofType="CComment">
 		</collection>
 
 	</resultMap>
@@ -101,6 +101,52 @@
 		AND BOARD_CODE
 		= #{boardCode}
 		ORDER BY BOARD_NO DESC
+	</select>
+	
+	
+	<!-- 특정 게시글 이미지 조회 -->
+	<select id="selectImageList" resultMap="boardImage_rm">
+		SELECT * FROM IMAGE
+		WHERE BR_NO = #{boardNo}
+		ORDER BY IMG_LEVEL
+	</select>
+
+	<!-- 특정 게시글 댓글 조회 -->
+	<select id="selectCommentList" resultMap="comment_rm">
+		SELECT LEVEL, C.* FROM
+		(SELECT COMMENT_NO, COMMENT_CONTENT,
+		TO_CHAR(COMMENT_DT, 'YYYY"년" MM"월" DD"일" HH24"시" MI"분" SS"초"') COMMENT_DT
+		, BOARD_NO, MEMBER_NO, MEMBER_NICKNAME, PROFILE, PARENT_NO ,COMMENT_ST
+		FROM "COMMENT"
+		JOIN MEMBER USING (MEMBER_NO)
+		WHERE BOARD_NO = #{boardNo}) C
+		WHERE COMMENT_ST = 'N'
+		START WITH
+		PARENT_NO IS NULL
+		CONNECT BY PRIOR COMMENT_NO = PARENT_NO
+		ORDER SIBLINGS
+		BY COMMENT_NO
+	</select>
+	
+	
+	<!-- 게시글 상세 조회 -->
+	<select id="selectBoard" resultMap="board_rm">
+		SELECT BOARD_NO, BOARD_TITLE,
+		BOARD_CONTENT, BOARD_CODE,
+		READ_COUNT, MEMBER_NICKNAME, MEMBER_NO,
+		PROFILE,
+		TO_CHAR(BOARD_DT,'YYYY"년" MM"월" DD"일" HH24:MI:SS')
+		BOARD_DT,
+		TO_CHAR(BOARD_UPDATE_DT,'YYYY"년" MM"월" DD"일" HH24:MI:SS')
+		BOARD_UPDATE_DT,
+		(SELECT COUNT(*)FROM "LIKE" L
+		WHERE L.BR_NO = B.BOARD_NO) LIKE_COUNT
+		FROM BOARD B
+		JOIN MEMBER USING (MEMBER_NO)
+		WHERE
+		BOARD_ST = 'N'
+		AND BOARD_CODE = #{boardCode}
+		AND BOARD_NO = #{boardNo}
 	</select>
 	
 	

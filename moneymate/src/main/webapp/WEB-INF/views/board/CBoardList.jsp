@@ -48,14 +48,7 @@
                         </thead>
 
                         <tbody>
-                            <tr class="board-body">
-                                <td>1</td>
-                                <td><a href="#">1번 게시글 입니다.</a></td>
-                                <td><a href="#">유저일</a></td>
-                                <td>2023.08.31</td>
-                                <td>1</td>
-                                <td>1</td>
-                            </tr>
+                            
                             
                        <c:choose>
 	                       <c:when test="${empty boardList}">
@@ -74,7 +67,7 @@
 			                                <c:if test="${!empty board.thumbnail}" >
 			                                    <img class="list-thumbnail" src="${board.thumbnail}">
 			                                </c:if>
-		                                    <a href="/board/${boardCode}/${board.boardNo}?cp=${pagination.currentPage}${sp}">${board.boardTitle}</a>   
+		                                    <a href="/board/3/${board.boardNo}?cp=${pagination.currentPage}${sp}">${board.boardTitle}</a>   
 		                                    [${board.commentCount}]                        
 		                                </td>
 		                                <td>${board.memberNickname}</td>

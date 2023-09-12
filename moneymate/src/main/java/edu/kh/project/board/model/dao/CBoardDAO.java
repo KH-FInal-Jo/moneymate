@@ -1,6 +1,7 @@
 package edu.kh.project.board.model.dao;
 
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.session.RowBounds;
 import org.mybatis.spring.SqlSessionTemplate;
@@ -28,6 +29,10 @@ public class CBoardDAO {
 		RowBounds rowBounds = new RowBounds(offset, pagination.getLimit());
 		
 		return sqlSession.selectList("CboardMapper.selectBoardList", boardCode, rowBounds);
+	}
+
+	public CBoard selectBoard(Map<String, Object> map) {
+		return sqlSession.selectOne("boardMapper.selectBoard", map);
 	}
 
 }
