@@ -22,55 +22,11 @@
             <c:set var="sp" value="&key=${param.key}&query=${param.query}"/>
     </c:if>
 
-    <main>
-        <section>
-            <div class="head">
-                <div><a href=""><img src="/resources/images/로고.png"></a></div>
-                <div class="head-board">
-                    <!-- 헤더 글 -->
-                    <div class="nav">
-                        <a href=""><span>커뮤니티</span></a>
-                        <a href=""><span>가계부</span></a>
-                        <a href=""><span>소비 테스트</span></a>
-                        <a href=""><span>이벤트게시판</span></a>
-                        <a href=""><span>마이페이지</span></a>
-        
-                    </div>
-                    <!-- 헤더 프로필 -->
-                    <div class="login">
-                        <div>
-                            
-                            <img src="/resources/images/로그인 아이콘.png">
-                        </div>
-                        <div>
-                            <a href=""><span>LOGIN</span></a>
-                            <a href=""><span>회원가입</span></a>
-    
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+    <jsp:include page="/WEB-INF/views/common/header.jsp" />
 
         <section class="board-notice-content">
 
-            <section class="j-board-sidemenu">
-                <div class="j-board-community-header">
-                    <div>커뮤니티</div>
-                    <div>community</div>
-                </div>
-                <ul class="j-board-sidemenu-list">
-
-                    <li><a href="#">공지사항<i class="fa-solid fa-caret-right fa-xl"></i></a></li>
-                    
-                    <li><a href="#">문의게시판<i class="fa-solid fa-caret-right fa-xl"></i></a></li>
-                    
-                    <li><a href="#">자유게시판<i class="fa-solid fa-caret-right fa-xl"></i></a></li>
-                    
-                    <li><a href="#">컬럼게시판<i class="fa-solid fa-caret-right fa-xl"></i></a></li>
-                </ul>
-
-            </section>
+        <jsp:include page="/WEB-INF/views/board/boardSideMenu.jsp" />
 
 
             <section class="board-notice-main">
@@ -81,7 +37,7 @@
                 <div class="freeBoard-area">
                     <table border="1" class="freeBoard">
                         <thead>
-                            <tr class="board-head">
+                            <tr class="board-header">
                                 <th class="no">번호</th>
                                 <th class="title">제목</th>
                                 <th class="writer">작성자</th>
@@ -112,7 +68,7 @@
 	                       <c:otherwise>
 	                        <!-- 게시글 목록 조회 결과가 있다면 -->
 		                        <c:forEach items="${boardList}" var="board">
-		                            <tr class="board-head">
+		                            <tr class="board-body">
 		                                <td>${board.boardNo}</td>
 		                                <td> 
 			                                <c:if test="${!empty board.thumbnail}" >

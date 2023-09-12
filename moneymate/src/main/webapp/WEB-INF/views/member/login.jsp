@@ -70,5 +70,20 @@
             <span><a href="#">ID/PW 찾기</a></span>
         </div>
     </div>
+    
+    
+    <c:if test="${!empty message}">
+
+            <script>
+                // EL/JSTL 구문이 먼저 해석되는데
+                // 문자열의 경우 따옴표가 없는 상태이니 붙여줘야한다!!!
+                alert("${message}");
+            </script>
+            
+            <%-- message 1회 출력 후 session에서 제거 --%>
+        	<c:remove var="message" scope="session" />
+
+            
+    </c:if>
 </body>
 </html>
