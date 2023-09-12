@@ -13,23 +13,24 @@
 
 </head>
 <body>
+
 	<jsp:include page="/WEB-INF/views/common/header.jsp" />
-	
-	 <section class="container">
+    <section class="container">
 
         <div class="container1">
             <div id="container2">
-                <div id="item1">
+                <div id="item1"class="animate__animated animate__bounce">
                     
-                    <p style=" margin-top: 250px;">
+                    <p style=" margin-top: 250px;"  >
                         내 돈 관리 똑똑하게</p>                    
                     <p>데이터 기반 자동</p>
+                    <p>머니메이트</p>
                     
                 </div>
                 <div id="item2">
-                    <form action=""></form>
+                   <!--  <form action=""></form>
                     <button class="button">로그인</button>
-                    <button class="button">회원가입</button>
+                    <button class="button">회원가입</button> -->
                 </div>
                 <div id="item3">
                     
@@ -48,12 +49,13 @@
         
             </div>
 
-        </div><hr>        
+        </div>
+        <!-- <hr>         -->
 
 
         <!-- 2쪽 -->
-        <div class="container1-1" >
-            <div class="top">데이터 기반 자동 가계부</div>
+        <div class="container1-1">
+            <div class="animate__animated animate__bounce" id="top">데이터 기반 자동 가계부</div>
             <div class="middle" >
                 <div id="left" class="animate__animated animate__flipInY"><img src="/resources/images/img_sreen_light5.png" alt=""></div>
                 <div id="middle" class="animate__animated animate__flipInY"><img src="/resources/images/img_point1.png" alt=""></div>
@@ -61,7 +63,8 @@
 
             </div>
             
-        </div><hr>
+        </div>
+        <!-- <hr> -->
 
         <div class="container1-2">
             <div class="middle1">
@@ -111,10 +114,62 @@
             </div>
 
         </div>
-        <hr>
+        <!-- <hr> -->
 
         
-        <div class="container1">#</div><hr>
+        <div class="container1">
+            <div class="lastContainer3">
+
+                <div class="lastContainer4">
+
+                    <div class="container1-6">
+                        <div id="image-container">
+                            <img src="/resources/images/img_sreen_dark1.png" alt="이미지 1" id="image">
+                            <img src="/resources/images/img_sreen_dark2.png" alt="이미지 2" id="image">
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="lastContainer5">
+                    
+                    <div id="font5-2">
+                        <h1>카드 연동도 쉽게</h1>
+                            
+                        <b>머니메이트</b>
+                            <br>                    
+                        <b>성진조 화이팅</b>
+                                          
+                    </div>
+                    <div id="font5-3">
+                        <b>내 지갑을 지킬 수 있는 가계부</b>
+                        <br>
+                        <b>내 지갑을 지킬 수 있는 가계부</b>
+                        <br>
+                        <b>내 지갑을 지킬 수 있는 가계부</b>
+                        <br>
+                        <b>내 지갑을 지킬 수 있는 가계부</b>
+                        <br>
+                        <b>내 지갑을 지킬 수 있는 가계부</b>
+                        <br>
+                        <b>내 지갑을 지킬 수 있는 가계부</b>
+                        <br>
+                        <b>내 지갑을 지킬 수 있는 가계부</b>
+                        <br>
+                        <b>내 지갑을 지킬 수 있는 가계부</b>
+                        <br>
+                                    
+                    </div>
+
+                </div>
+                
+                
+                
+
+            </div>
+
+        </div>
+        <!-- <hr> -->
         <div class="container1-5">
             <div class="middle5">
                
@@ -127,6 +182,7 @@
                         <br>                                     
                 </div>
                 
+                <div id="right5"><img src="/resources/images/sample1.png"> </div>
                 <div id="right5"><img src="/resources/images/sample1.png"> </div>
             </div>
             <div class="middle5">
@@ -150,21 +206,71 @@
                 </div>
                 
                 <div id="right5"> <img src="/resources/images/sample1.png"> </div>
+                <div id="right5"> <img src="/resources/images/sample1.png"> </div>
             </div>
 
         </div>
-        <hr>
-        <div class="container1">#</div><hr>
+        <!-- <hr> -->
+        <div class="container1">
+  
+            <div class="lastContainer">
+
+                <div class="lastContainer1">
+
+                    <div id="font5-2">
+                        <br>
+                        <h1>똑똑한 습관</h1>
+                            
+                        <b>계획적인 자산관리</b>
+                            <br>                    
+                        <b>머니메이트</b>
+                        <br>                                    
+                    </div>
+                    <br>
+                    <div id="font5-3">
+                        <b>내 지갑을 지킬 수 있는 가계부</b>
+                        <br>
+                        <b>내 지갑을 지킬 수 있는 가계부</b>
+                        <br>
+                        <b>내 지갑을 지킬 수 있는 가계부</b>
+                        <br>
+                        <b>내 지갑을 지킬 수 있는 가계부</b>
+                        <br>
+                        <b>내 지갑을 지킬 수 있는 가계부</b>
+                        <br>
+                        
+                        
+                                    
+                    </div>
+                </div>
+                
+                
+                <div class="lastContainer2">
+
+                    <div class="container1-6">
+                        <div class="image-container">
+                            <img src="/resources/images/img_sreen_dark1.png" alt="이미지 1" class="image">
+                            <img src="/resources/images/img_sreen_dark2.png" alt="이미지 2" class="image">
+                            <img src="/resources/images/img_sreen_dark3.png" alt="이미지 3" class="image">
+                            <img src="/resources/images/img_sreen_dark4.png" alt="이미지 4" class="image">
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+        
+        <!-- <hr> -->
 
     </section>
     
-
-	
-	
 	<jsp:include page="/WEB-INF/views/common/footer.jsp" />
-	
-	<script>document.documentElement.style.setProperty('--animate-duration', '2s');</script>
+<script>document.documentElement.style.setProperty('--animate-duration', '2s');</script>
 
-	
+
 </body>
 </html>
+	
+	
