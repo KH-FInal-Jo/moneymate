@@ -37,11 +37,11 @@ public class HMemberController {
 		
 		Map<String, Object> resMap = service.selectLike(map);
 		
+		System.out.println(resMap);
 		
+		model.addAttribute("resMap", resMap);
 		
-		
-		
-		return null;
+		return "member/likeList";
 	}
 
 }

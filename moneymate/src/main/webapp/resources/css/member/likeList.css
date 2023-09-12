@@ -45,6 +45,12 @@ a{
   cursor: pointer;
 }
 
+.titleName{
+  font-size: 40px;
+  color: pink;
+  cursor: pointer;
+}
+
 .thumbnail{
   max-width: 250px;
   max-height: 145px;
