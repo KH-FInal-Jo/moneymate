@@ -25,9 +25,9 @@
         <table>
             <tr>
                 <td id="td-time">구독 기간</td>
-                <td><input type="text" id="time" value="${s.subscribeStart} ~ ${s.subscribeEnd}" readonly></td>
+                <td><input type="text" class="time" value="${s.subscribeStart} ~ ${s.subscribeEnd}" readonly></td>
             </tr>
-            <tr>
+            <%-- <tr>
                 <td id="td-by">결제 정보</td>
                 <td id="by">
                     <c:if test="${s.calculateWay == 1}" >
@@ -38,10 +38,10 @@
                     </c:if>
                 
                 </td>
-            </tr>
+            </tr> --%>
             <tr>
                 <td id="td-price">결제 금액</td>
-                <td id="price"><input type="text" id="time" value="${s.price}" readonly></td>
+                <td id="price"><input type="text" class="time" value="${s.price}" readonly></td>
             </tr>
             <tr>
                 <td colspan="2" id="td-inform">결제 정보는 이메일에서도 확인하실 수 있습니다.</td>

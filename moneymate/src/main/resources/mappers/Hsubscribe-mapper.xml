@@ -44,7 +44,7 @@
 	</select>
 
 	<!-- kg 결제 시 구독 정보 insert -->
-	<insert id="susbscribeKg" useGeneratedKeys="true">
+	<insert id="subscribeKg" useGeneratedKeys="true">
 
 		<selectKey order="BEFORE" resultType="_int"
 			keyProperty="subscribeNo">
@@ -73,6 +73,12 @@
 		, #{subscribeLevel},
 		#{memberNo})
 	</insert>
+	
+	<!-- 결제 시 마일리지 차감 -->
+	<update id="useMile">
+		UPDATE MEMBER SET MILEAGE = MILEAGE - ${useMile}
+		WHERE MEMBER_NO = #{memberNo}
+	</update>
 
 	<!-- kg 결제 시 결제 정보 insert -->
 	<insert id="calculateKg" useGeneratedKeys="true">
@@ -81,20 +87,14 @@
 			keyProperty="calculateNo">
 			SELECT SEQ_CALCULATE_NO.NEXTVAL FROM DUAL
 		</selectKey>
-		INSERT INTO "CALCULATE" VALUES(#{calculateNo}, 2, 2, #{price},
-		#{subscribeNo}, #{useMile})
+		INSERT INTO "CALCULATE" VALUES(#{calculateNo}, #{price},
+		 #{useMile}, #{memberNo})
 	</insert>
-	
-	<!-- 결제 시 마일리지 차감 -->
-	<update id="useMile">
-		UPDATE MILEAGE SET MILEAGE = MILEAGE - ${useMile}
-		WHERE MEMBER_NO = #{memberNo}
-	</update>
 	
 	<!-- 결제 완료 페이지 -->
 	<select id="subscribeEnd" resultMap="subscribe_rm">
-		SELECT SUBSCRIBE_START, SUBSCRIBE_END, PRICE, CALCULATE_WAY FROM SUBSCRIBE
-		JOIN CALCULATE USING (SUBSCRIBE_NO)
+		SELECT SUBSCRIBE_START, SUBSCRIBE_END, PRICE FROM SUBSCRIBE
+		JOIN CALCULATE USING (MEMBER_NO)
 		WHERE SUBSCRIBE_NO = #{no}	
 	</select>
 	

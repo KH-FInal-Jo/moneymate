@@ -37,6 +37,15 @@ public class HSubscribeDAO {
 	public int calculateKg(Subscribe subscribe) {
 		return sqlSession.insert("HsubscribeMapper.calculateKg", subscribe);
 	}
+	
+	/** kg 구독
+	 * @param subscribe
+	 * @return
+	 */
+	public int subscribeKg(Subscribe subscribe) {
+		return sqlSession.insert("HsubscribeMapper.subscribeKg", subscribe);
+	}
+
 
 	/** 마일리지 차감
 	 * @param subscribe
@@ -53,6 +62,8 @@ public class HSubscribeDAO {
 	public Subscribe subscribeEnd(int no) {
 		return sqlSession.selectOne("HsubscribeMapper.subscribeEnd", no);
 	}
+
+	
 
 
 }
