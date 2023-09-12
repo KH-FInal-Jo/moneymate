@@ -19,6 +19,7 @@ public class CBoard {
 	private String boardUpdateDate;
 	private int readCount;
 	private int boardCode;
+	private String boardName;
 	
 	private int commentCount;
 	private int likeCount; 

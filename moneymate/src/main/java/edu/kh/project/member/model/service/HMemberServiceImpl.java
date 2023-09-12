@@ -1,5 +1,6 @@
 package edu.kh.project.member.model.service;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -29,8 +30,12 @@ public class HMemberServiceImpl implements HMemberService {
 		// 현재 페이지에 대한 글 조회
 		List<CBoard> boardList = dao.selectLikeList(pagination, map);
 		
+		Map<String, Object> resMap = new HashMap<String, Object>();
 		
-		return null;
+		resMap.put("pagination", pagination);
+		resMap.put("boardList", boardList);
+		
+		return resMap;
 	}
 
 }
