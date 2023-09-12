@@ -17,13 +17,14 @@
      	<result property="secessionFlag" column="SECESSION_FL"/>
      	<result property="authority" column="AUTHORITY"/>
      	<result property="profileImage" column="PROFILE"/>
+     	<result property="mileage" column="MILEAGE"/>
      	
      </resultMap>
      
      <!-- 로그인 -->
      <select id="login" parameterType="Member" resultMap="member_rm">
      	SELECT MEMBER_NO, MEMBER_PW, MEMBER_EMAIL, MEMBER_NAME, MEMBER_NICKNAME, MEMBER_TEL,
-     		MEMBER_ADDRESS, AUTHORITY, PROFILE FROM "MEMBER"
+     		MEMBER_ADDRESS, AUTHORITY, PROFILE, MILEAGE FROM "MEMBER"
      	WHERE SECESSION_FL= 'N'
      	AND MEMBER_EMAIL = #{memberEmail}
      </select>
@@ -31,7 +32,7 @@
      <!-- 회원가입 -->
      <insert id="signUp">
      	INSERT INTO "MEMBER" VALUES (SEQ_MEMBER_NO.NEXTVAL, #{memberEmail}, #{memberPw}
-     		, #{memberName}, #{memberNickname}, #{memberTel}, #{memberAddress}, DEFAULT, DEFAULT, '')
+     		, #{memberName}, #{memberNickname}, #{memberTel}, #{memberAddress}, DEFAULT, DEFAULT, '', DEFAULT)
      </insert>
      
      <!-- 회원 비밀번호 -->
