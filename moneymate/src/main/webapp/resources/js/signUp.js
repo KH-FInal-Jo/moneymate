@@ -48,10 +48,10 @@ memberEmail.addEventListener("input", () => {
     const regEx = /^[A-Za-z\d\-\_]{4,}@[가-힣\w\-\_]+(\.\w+){1,3}$/;
 
     if(regEx.test(memberEmail.value)){
-       /*  fetch()
+        fetch()
         .then()
         .then()
-        .catch() */
+        .catch()
         // 중복검사 해야함
         emailMessage.innerText="올바른 이메일 형식입니다.";
         emailMessage.classList.remove("error");
