@@ -130,7 +130,7 @@ th {
     color: #fff;
 }
 
-.write-button {
+#write-button {
     display: block;
     width: 100px;
     margin: 20px auto;
