@@ -44,7 +44,7 @@
 							<input type="text" name="selectedValue" value="이체" class="trans" readonly/>
 
 
-							<input type="text" name="inoutName" class="inoutResult"/>
+							<input type="hidden" name="inoutName" class="inoutResult"/>
 
 						</div>
 						<div class="accBk-record-category">

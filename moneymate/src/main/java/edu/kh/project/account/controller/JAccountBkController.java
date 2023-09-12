@@ -79,19 +79,25 @@ public class JAccountBkController {
 	}
 	
 	// 목표금액
-	@PostMapping("/account/target")
+	@PostMapping(value="/account/target", 
+			 produces = "application/json; charset=UTF-8")
 	@ResponseBody
-	public String accountBkTarget(@RequestParam("accTarget") String accTarget
+	public int accountBkTarget(@RequestParam("accTarget") int targetAmount
 								, @SessionAttribute("loginMember") Member loginMember) {
 		
+		int memberNo = loginMember.getMemberNo();
 		
 		JAccountBook account = new JAccountBook();
-		account.setMemberNo(loginMember.getMemberNo());
-		account.setTargetMoney(accTarget);
+		
+		account.setMemberNo(memberNo);
+		account.setTargetMoney(targetAmount);
 		
 		
+		int money = service.accountBkTarget(account);
+		System.out.println("금액 가져오니?" +targetAmount);
 		
-		return service.accountBkTarget(account);
+		
+		return money;
 	}
 
 }

@@ -11,8 +11,6 @@
 
 <script src="https://kit.fontawesome.com/98acdabf0d.js"
 	crossorigin="anonymous"></script>
-
-<title>Insert title here</title>
 </head>
 <body>
 

@@ -87,8 +87,12 @@
 		AND MEMBER_NO = #{memberNo}
 	</select>
 	
+	<insert id="targetInsert">
+		INSERT INTO TARGET VALUES(#{targetMoney}, #{memberNo})
+	</insert>
+	
 	<!-- 목표 금액 설정 -->
-	<select id="accountBkTarget">
+	<select id="selectTargetM">
 		SELECT TARGET_MN FROM TARGET
 		WHERE MEMBER_NO = #{memberNo}
 	</select>
