@@ -214,6 +214,15 @@ a{
 
 .pagination-area{
     position: absolute;
-    left: 25%;
+    left: 43%;
     bottom: 5px;
+}
+
+#none{
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 25px;
+  font-weight: bold;
 }
