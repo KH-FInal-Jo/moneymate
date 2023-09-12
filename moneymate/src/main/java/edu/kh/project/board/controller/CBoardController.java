@@ -31,10 +31,16 @@ public class CBoardController {
 		if(paramMap.get("key") == null) {
 			Map<String, Object> map = service.selectBoardList(boardCode, cp);
 			
+			model.addAttribute("map", map);
 			
-		} else {
+			
+		} else { // 검색 O
 			
 			paramMap.put("boardCode", 3);
+			
+			Map<String, Object> map = service.selectBoardList(paramMap, cp);
+			
+			model.addAttribute("map", map);
 		}
 		
 		return "board/CBoardList";
