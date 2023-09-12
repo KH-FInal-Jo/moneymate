@@ -32,6 +32,7 @@
 		<mapper resource="/mappers/Hsubscribe-mapper.xml" />
 		<mapper resource="/mappers/Smember-mapper.xml" />
 		<mapper resource="/mappers/Hmember-mapper.xml" />
+		<mapper resource="/mappers/JMember-mapper.xml" />
 	</mappers>
 	
 	
