@@ -74,4 +74,11 @@ public class CMemberServiceImpl implements CMemberService {
 		
 	}
 
+	
+	// 이메일 중복 검사
+	@Override
+	public int emailDupCheck(String email) {
+		return dao.emailDupCheck(email);
+	}
+
 }
