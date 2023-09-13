@@ -184,12 +184,15 @@ for(let i=0; i<lineMonth.length; i++){
             .then(aList => {
                 console.log("응답 데이터: ", aList);
 
+                /* 지출 내역 영역 */
                 const spendArea = document.querySelector(".spend-area")
                 spendArea.innerText = ""
 
                 // 여기서 data를 사용하여 필요한 처리를 수행하세요.
                 for(let account of aList){
-    
+                    
+                    console.log(aList.length)
+
                     const spendLine = document.createElement("div")
                     spendLine.classList.add("spend-line")
 
@@ -212,13 +215,17 @@ for(let i=0; i<lineMonth.length; i++){
 
                     spendLine.append(spendLeft, moneyDiv)
 
+                    const hr = document.createElement("hr")
 
-                    spendArea.append(spendLine)
+
+
+                    spendArea.append(spendLine, hr)
 
 
     
     
                 }
+
     
     
                 
