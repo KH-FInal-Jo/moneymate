@@ -236,11 +236,5 @@ insertBtn.addEventListener("click" , () => {
         }
     });
 
-
-
-
-
-
-
 })
 

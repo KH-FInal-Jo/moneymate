@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import edu.kh.project.board.model.dto.CComment;
+import edu.kh.project.board.model.dto.HBoardImage;
 
 @Repository
 public class HBoardDAO {
@@ -36,6 +37,25 @@ public class HBoardDAO {
 	 */
 	public List<CComment> commentList() {
 		return sqlSession.selectList("HBoardMapper.commentList");
+	}
+
+	/** 댓글 내용(글자 관련)만 삽입
+	 * @param comment
+	 * @return commentNo
+	 */
+	public int commentInsert(CComment comment) {
+		
+		int result = sqlSession.insert("HBoardMapper.commentInsert", comment);
+		
+		return 0;
+	}
+
+	/** 댓글 이비지 삽입
+	 * @param img
+	 * @return result
+	 */
+	public int insertCommentImage(HBoardImage img) {
+		return sqlSession.insert("HBoardMapper.insertCommentImage", img);
 	}
 
 }
