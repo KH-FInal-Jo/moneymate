@@ -156,11 +156,11 @@
 
                     <div class="spend-line">
                         <div class="spend-left">
-                            <div>2023-09-01</div>
-                            <div>소풍</div>
-                            <div>한식</div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
                         </div>
-                        <div>- 10400원</div>
+                        <div></div>
                     </div>
 
                 </div>
