@@ -32,7 +32,7 @@
 			<div>
 				<i class="fa-solid fa-coins fa-xl"></i></i>마일리지 : ${member.mileage}
 			</c:forEach>
-			</div>
+			
 
 		</div>
 	</div>
