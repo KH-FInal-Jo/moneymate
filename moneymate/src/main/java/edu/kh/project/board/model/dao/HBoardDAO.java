@@ -47,7 +47,9 @@ public class HBoardDAO {
 		
 		int result = sqlSession.insert("HBoardMapper.commentInsert", comment);
 		
-		return 0;
+		if(result>0) result = comment.getCommentNo();
+		
+		return result;
 	}
 
 	/** 댓글 이비지 삽입

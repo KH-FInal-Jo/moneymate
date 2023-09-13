@@ -84,11 +84,15 @@ public class HBoardController {
 	
 	@PostMapping("/event/account/insert")
 	@ResponseBody
-	public int result(CComment comment, @RequestParam("commentImage") MultipartFile commentImage
+	public int result(@RequestParam("commentContent") String commentContent, @RequestParam("commentImage") MultipartFile commentImage
 					, @SessionAttribute("loginMember") Member loginMember
 					, HttpSession session) throws IllegalStateException, IOException {
 		
 		// boardNo는 0 고정
+		
+		CComment comment = new CComment();
+		
+		comment.setCommentContent(commentContent);
 		
 		comment.setMemberNo(loginMember.getMemberNo());
 		String webPath = "/resources/images/event/";

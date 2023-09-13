@@ -71,7 +71,7 @@
 	
 	<!-- 댓글 이미지 삽입 -->
 	<insert id="insertCommentImage">
-		INSERT INTO "IMAGE" VALUES(#{commentNo}, 2, #{imagePath}, #{imageReName}, #{imageOriginal}, 0)
+		INSERT INTO "IMAGE" VALUES(#{brNo}, 2, #{imagePath}, #{imageReName}, #{imageOriginal}, 0)
 	</insert>
 	
 	
