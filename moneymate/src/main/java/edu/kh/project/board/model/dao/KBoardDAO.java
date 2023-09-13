@@ -10,4 +10,9 @@ public class KBoardDAO {
 	@Autowired
 	private SqlSessionTemplate sqlSession;
 
+	public int getListCount(int boardCode) {
+		
+		return sqlSession.selectOne();
+	}
+
 }
