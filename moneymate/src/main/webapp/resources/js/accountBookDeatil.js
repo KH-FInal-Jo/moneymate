@@ -7,8 +7,20 @@ const incomeTb = document.querySelector(".income-tb")
 // 지출내역 테이블
 const tb = document.querySelector(".tb")
 
+// 현재 날짜 구하는 변수
+let today = new Date();
+// 현재 월
+let nowMonth = today.getMonth()+1
+// 현재 월 넣어주기
+document.getElementById("date-month").innerHTML = nowMonth + "월";
 
-/* default 월 설정(현재월) */
+
+// 현재지출 금액, 내역 업데이트
+(function (){
+
+})();
+
+
 
 /* 지출 차트 */
 let pieChartDraw = function () {
