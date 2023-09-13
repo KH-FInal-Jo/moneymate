@@ -32,8 +32,12 @@ public class CMemberDAO {
 
 	// 회원탈퇴
 	public int secession(int memberNo) {
-		// TODO Auto-generated method stub
 		return sqlSession.update("CmemberMapper.secession", memberNo);
+	}
+
+
+	public int emailDupCheck(String email) {
+		return sqlSession.selectOne("CmemberMapper.emailDupCheck", email);
 	}
 
 }
