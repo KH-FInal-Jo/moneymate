@@ -1,5 +1,7 @@
 package edu.kh.project.member.model.dao;
 
+import java.util.Map;
+
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -38,6 +40,16 @@ public class CMemberDAO {
 
 	public int emailDupCheck(String email) {
 		return sqlSession.selectOne("CmemberMapper.emailDupCheck", email);
+	}
+
+
+	public int updateAuthKey(Map<String, String> map) {
+		return sqlSession.update("CmemberMapper.updateAuthKey", map);
+	}
+
+
+	public int insertAuthKey(Map<String, String> map) {
+		return sqlSession.update("CmemberMapper.insertAuthKey", map);
 	}
 
 }

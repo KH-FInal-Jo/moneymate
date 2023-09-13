@@ -144,6 +144,8 @@
 
         </section>
     </main>
+
+    <script src="/resources/js/freeBoard.js" ></script>
     
 </body>
 </html>

@@ -27,4 +27,10 @@ public interface CMemberService {
 
 	int emailDupCheck(String email);
 
+
+
+	int signUp(String email, String title);
+	
+	String createAuthKey();
+
 }

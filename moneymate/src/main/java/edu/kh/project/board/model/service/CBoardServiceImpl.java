@@ -6,10 +6,13 @@ import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.multipart.MultipartFile;
 
 import edu.kh.project.board.model.dao.CBoardDAO;
 import edu.kh.project.board.model.dto.CBoard;
 import edu.kh.project.board.model.dto.CPagination;
+import edu.kh.project.common.utility.Util;
 
 @Service
 public class CBoardServiceImpl implements CBoardService {
@@ -46,6 +49,19 @@ public class CBoardServiceImpl implements CBoardService {
 	@Override
 	public CBoard selectBoard(Map<String, Object> map) {
 		return dao.selectBoard(map);
+	}
+
+	@Transactional(rollbackFor = {Exception.class})
+	@Override
+	public int boardInsert(CBoard board, List<MultipartFile> images, String webPath, String filePath) {
+		
+		board.setBoardContent(Util.XSSHandling(board.getBoardContent()));
+		board.setBoardTitle(Util.XSSHandling(board.getBoardTitle()));
+		
+		int boardNo = dao.boardInsert(board);
+
+		
+		return 0;
 	}
 
 }

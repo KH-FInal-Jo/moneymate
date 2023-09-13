@@ -32,7 +32,17 @@ public class CBoardDAO {
 	}
 
 	public CBoard selectBoard(Map<String, Object> map) {
-		return sqlSession.selectOne("boardMapper.selectBoard", map);
+		return sqlSession.selectOne("CboardMapper.selectBoard", map);
+	}
+
+	
+	
+	// 게시글 삽입
+	public int boardInsert(CBoard board) {
+		
+		int result = sqlSession.insert("CboardMapper.boardInsert", board);
+		
+		return 0;
 	}
 
 }

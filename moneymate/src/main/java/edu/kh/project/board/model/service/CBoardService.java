@@ -1,6 +1,9 @@
 package edu.kh.project.board.model.service;
 
+import java.util.List;
 import java.util.Map;
+
+import org.springframework.web.multipart.MultipartFile;
 
 import edu.kh.project.board.model.dto.CBoard;
 
@@ -11,6 +14,8 @@ public interface CBoardService {
 	Map<String, Object> selectBoardList(Map<String, Object> paramMap, int cp);
 
 	CBoard selectBoard(Map<String, Object> map);
+
+	int boardInsert(CBoard board, List<MultipartFile> images, String webPath, String filePath);
 
 	
 }

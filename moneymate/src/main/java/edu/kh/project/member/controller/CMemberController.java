@@ -24,7 +24,7 @@ import edu.kh.project.member.model.service.CMemberService;
 @Controller
 @RequestMapping("/member")
 
-@SessionAttributes({"loginMember"})
+@SessionAttributes({"loginMember", "authKey"})
 public class CMemberController {
 	
 	@Autowired
@@ -188,9 +188,13 @@ public class CMemberController {
 	@ResponseBody
 	public int emailDupCheck(String email) {
 		
-		System.out.println(email);
-		
 		return service.emailDupCheck(email);
+	}
+	
+	// 이메일인증
+	@GetMapping("/signUp/sendEmail")
+	public int signUp(String email) {
+		return service.signUp(email, "회원 가입");
 	}
 	
 	
