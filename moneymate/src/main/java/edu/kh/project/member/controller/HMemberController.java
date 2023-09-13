@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttribute;
@@ -30,9 +31,9 @@ public class HMemberController {
 							, @RequestParam(value="cp", required = false, defaultValue = "1") int cp
 							, Model model) {
 		
-		System.out.println(boardCode);
-		System.out.println(memberNo);
-		System.out.println(cp);
+		//System.out.println(boardCode);
+		//System.out.println(memberNo);
+		//System.out.println(cp);
 		
 		// 좋아요 목록 조회
 		// 게시판 이름, 게시글 제목, 썸네일, 작성자, 작성일, 조회수 (좋아요한 게시글만)
@@ -43,14 +44,14 @@ public class HMemberController {
 		
 		Map<String, Object> resMap = service.selectLike(map);
 		
-		System.out.println(resMap);
+		//System.out.println(resMap);
 		
 		model.addAttribute("resMap", resMap);
 		
 		return "member/likeList";
 	}
 	
-	@GetMapping(value="/member/mypage/likeList/cancelLike" , produces = "application/text; charset=UTF-8")
+	@GetMapping(value="/member/mypage/likeList/cancelLike")
 	@ResponseBody
 	public int cancelLike (int boardNo, @SessionAttribute("loginMember") Member loginMember) {
 		
@@ -61,7 +62,7 @@ public class HMemberController {
 		
 		int result = service.cancelLike(board);
 		
-		System.out.println("result" + result);
+		System.out.println("result " + result);
 		
 		return result;
 	}
