@@ -69,7 +69,7 @@
 	</select>
 	
 	
-	
+	<!-- 게시글목록조회 -->
 	<select id="selectBoardList" resultMap="board_rm">
 		SELECT BOARD_NO, BOARD_TITLE, MEMBER_NICKNAME, READ_COUNT, 
          
