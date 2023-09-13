@@ -19,7 +19,7 @@
     <main>
     <%-- 헤더 --%>
     <jsp:include page="/WEB-INF/views/common/header.jsp" />
-      
+      <section class="board-notice-content">
         <%-- 사이드바 --%>
            <jsp:include page="/WEB-INF/views/board/boardSideMenu.jsp" />
 
@@ -43,6 +43,7 @@
                 </form>
     
             </section>
+      </section>
 
 
             

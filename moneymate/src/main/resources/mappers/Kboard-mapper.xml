@@ -19,7 +19,7 @@
      	
      </resultMap>
      
-     <resultMap type="CBoard" id="board_rm">
+     <resultMap type="KBoard" id="board_rm">
 
 		<id property="boardNo" column="BOARD_NO" />
 
@@ -30,13 +30,10 @@
 		<result property="boardUpdateDate" column="BOARD_UPDATE_DT" />
 		<result property="readCount" column="READ_COUNT" />
 		<result property="commentCount" column="COMMENT_COUNT" />
-		<result property="likeCount" column="LIKE_COUNT" />
 		<result property="memberNickname" column="MEMBER_NICKNAME" />
 
 		<result property="memberNo" column="MEMBER_NO" />
-		<result property="profileImage" column="PROFILE_IMG" />
 
-		<result property="thumbnail" column="THUMBNAIL" />
 
 
 		<collection property="imageList" select="selectImageList"
@@ -50,7 +47,35 @@
 
 	</resultMap>
 	
+	<!-- 있는 게시글 개수 다 가져오는 거-->
+	<select id="getlistCount" resultType="_int">
+		SELECT COUNT(*) FROM BOARD
+		WHERE BOARD_CODE =#{boardCode}
+		AND BOARD_ST ='N' 
+	</select>
 	
+	
+	<select id="selectboardInquiry" resultMap="board_rm">
+		SELECT 
+		 BOARD_NO, BOARD_TITLE, MEMBER_NICKNAME, READ_COUNT, 
+		 <![CDATA[
+            CASE  
+               WHEN SYSDATE - BOARD_DT < 1/24/60
+               THEN FLOOR( (SYSDATE - BOARD_DT) * 24 * 60 * 60 ) || '초 전'
+               WHEN SYSDATE - BOARD_DT < 1/24
+               THEN FLOOR( (SYSDATE - BOARD_DT) * 24 * 60) || '분 전'
+               WHEN SYSDATE - BOARD_DT < 1
+               THEN FLOOR( (SYSDATE - BOARD_DT) * 24) || '시간 전'
+               ELSE TO_CHAR(BOARD_DT, 'YYYY-MM-DD')
+            END BOARD_DT,            
+         ]]>
+        FROM BOARD
+        JOIN USING(MEMBER_NO)
+        WHERE BOARD_ST='N'
+        AND BOARD_CODE
+        =#{boardCode}
+        ORDER BY BOARD_NO DESC
+	</select>
 	
 
 </mapper>

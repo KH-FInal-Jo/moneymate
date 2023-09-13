@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <%-- map에 저장된 값들을 각각 변수에 저장 --%>
 <c:set var="pagination" value="${map.pagination}"/>
@@ -74,45 +75,24 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td class="center">5</td>
-                                <td>문의게시판 게시글 제목입니다.</td>
-                                <td>유저일</td>
-                                <td class="center">2023.08.23</td>
-                                <td class="center">10</td>
-                            </tr>
-                           
-                            <tr>
-                                <td class="center">4</td>
-                                <td>문의게시판 게시글 제목입니다.</td>
-                                <td>유저이</td>
-                                <td class="center">2023.08.23</td>
-                                <td class="center">10</td>
-                            </tr>
-
-                            <tr>
-                                <td class="center">3</td>
-                                <td>문의게시판 게시글 제목입니다.</td>
-                                <td>유저삼</td>
-                                <td class="center">2023.08.23</td>
-                                <td class="center">10</td>
-                            </tr>
-
-                            <tr>
-                                <td class="center">2</td>
-                                <td>문의게시판 게시글 제목입니다.</td>
-                                <td>유저사</td>
-                                <td class="center">2023.08.23</td>
-                                <td class="center">10</td>
-                            </tr>
-
-                            <tr>
-                                <td class="center">1</td>
-                                <td>문의게시판 게시글 제목입니다.</td>
-                                <td>유저오</td>
-                                <td class="center">2023.08.23</td>
-                                <td class="center">10</td>
-                            </tr>
+                        
+                        	 <c:forEach items="${boardList}" var="board">
+		                            <tr class="board-body">
+		                                <td class="center">${board.boardNo}</td>
+		                                <td> 
+			                                <c:if test="${!empty board.thumbnail}" >
+			                                    <img class="list-thumbnail" src="${board.thumbnail}">
+			                                </c:if>
+		                                    <a href="/community/2/${board.boardNo}?cp=${pagination.currentPage}${sp}">${board.boardTitle}</a>   
+                                                        ${board.commentCount}                        
+		                                </td>
+		                                
+		                                <td >${board.memberNickname}</td>
+		                                <td class="center">${board.boardCreateDate}</td>
+		                                <td class="center">${board.readCount}</td>
+		                            </tr>
+		                   </c:forEach>                            
+                            
                         </tbody>
                     </table>
                 </div>
@@ -170,7 +150,7 @@
                     
                     </div>
                     <div class="Bcontainer5-1">
-                        <a href="/boardInquiryWrtie/${boardCode}?cp${sp}" id="write-button">글쓰기</a>
+                        <button id="insertBtn">글쓰기</button>
                     </div>
                 </div>
 
@@ -182,6 +162,7 @@
 <%-- 푸터 --%>
      <jsp:include page="/WEB-INF/views/common/footer.jsp" />
     </main>
+    <script src="/resources/js/boardInquiry.js"></script>
     
 </body>
 </html>

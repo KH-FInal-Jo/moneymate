@@ -11,7 +11,7 @@ if(insertBtn != null){
         // 해당 주소 요청(GET 방식)
 
         // location.href="/board2/" + location.pathname.split("/")[2];
-        location.href= `/board2/${location.pathname.split("/")[2]}/insert`;
+        location.href= "/community/2/boardInquiryWrtie";
                         // /board2/1/insert
     
     })

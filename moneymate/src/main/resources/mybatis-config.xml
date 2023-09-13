@@ -15,6 +15,7 @@
 	<typeAliases>
 		<typeAlias type="edu.kh.project.board.model.dto.JBoard" alias="JBoard" />
 		<typeAlias type="edu.kh.project.board.model.dto.CBoard" alias="CBoard" />
+		<typeAlias type="edu.kh.project.board.model.dto.KBoard" alias="KBoard" />
 		<typeAlias type="edu.kh.project.board.model.dto.CBoardImage" alias="CBoardImage" />
 		<typeAlias type="edu.kh.project.board.model.dto.CComment" alias="CComment" />
 		<typeAlias type="edu.kh.project.member.model.dto.Member" alias="Member" />
@@ -29,6 +30,7 @@
 		<mapper resource="/mappers/Cmember-mapper.xml" />
 		<mapper resource="/mappers/Cboard-mapper.xml" />
 		<mapper resource="/mappers/Kmember-mapper.xml" />
+		<mapper resource="/mappers/Kboard-mapper.xml" />
 		<mapper resource="/mappers/Hboard-mapper.xml" />
 		<mapper resource="/mappers/Hsubscribe-mapper.xml" />
 		<mapper resource="/mappers/Smember-mapper.xml" />
