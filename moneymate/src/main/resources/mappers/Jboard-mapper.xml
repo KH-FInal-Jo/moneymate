@@ -97,6 +97,36 @@
 		SELECT TARGET_MN FROM TARGET
 		WHERE MEMBER_NO = #{memberNo}
 	</select>
+	
+	
+	
+	<!-- 공지사항 목록 조회 -->
+	<select id="selectBoardUpdate" resultMap="board_rm">
+		SELECT BOARD_NO,BOARD_TITLE,BOARD_CONTENT,BOARD_DT,BOARD_UPDATE_DT,
+        BOARD_ST, READ_COUNT,BOARD_CODE, MEMBER_NO, MEMBER_NICKNAME
+		FROM BOARD
+		JOIN MEMBER USING(MEMBER_NO)
+		WHERE MEMBER_NO = 2
+		AND BOARD_NO = #{boardNo}
+		AND BOARD_CODE = 1
+		AND BOARD_ST = 'N'
+	</select>
+	
+	
+	
+	<update id="boardNoticeUpdate">
+	
+		UPDATE BOARD
+		SET BOARD_TITLE = #{boardTitle}
+		, BOARD_CONTENT = #{boardContent}
+		WHERE BOARD_NO = #{boardNo}
+	
+	</update>
+	
+	<update id="boardDelete">
+		UPDATE BOARD SET BOARD_ST = 'Y'
+		WHERE BOARD_NO = #{boardNo}
+	</update>
 
 
 </mapper>
