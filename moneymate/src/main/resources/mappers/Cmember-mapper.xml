@@ -51,4 +51,31 @@
    		AND SECESSION_FL = 'N'
     </select>
    
+   
+   
+   
+   
+   
+   	<!-- 회원가입 이메일 인증 -->
+   	<update id="updateAuthKey">
+		UPDATE "AUTH_KEY" SET
+		CODE = #{authKey},
+		CREATE_DATE = sysdate
+		WHERE MEMBER_EMAIL = #{email}
+	</update>
+
+	<insert id="insertAuthKey">
+		INSERT INTO "AUTH_KEY" VALUES(SEQ_AUTH_KEY_NO.NEXTVAL, #{authKey}, #{email}, SYSDATE)
+	</insert>
+
+	<select id="checkAuthKey" resultType="int">
+		SELECT COUNT(*) FROM "AUTH_KEY"
+		WHERE MEMBER_EMAIL = #{email}
+		AND CODE = #{inputKey}
+	</select>
+   
+   
+   
+   
+   
 </mapper>
