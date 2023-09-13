@@ -23,26 +23,24 @@ public class KBoardController {
 	public String selectboardInquiry(@RequestParam(value="cp", required=false, defaultValue = "1") int cp
 											, Model model, @RequestParam Map<String, Object> paramMap) {
 		
-		int boardCode = 2;
-		
+		int boardCode = 2;		
 		
 		if(paramMap.get("key") == null) {
 			Map<String, Object> map = service.selectboardInquiry(boardCode, cp);
 			
-			model.addAttribute("map", map);
+			model.addAttribute("map", map);			
 			
-			
-		} else { // 검색 O
-			
-			paramMap.put("boardCode", 2);
-			
-			Map<String, Object> map = service.selectboardInquiry(paramMap, cp);
-			
-			model.addAttribute("map", map);
-		}
-			
+		} else { 
+				
+		}			
 
 		return "board/boardInquiry";
+	}
+	
+	@GetMapping("/boardInquiryWrtie")
+	public String selectboardInquiryWrtie() {
+		
+		return "board/boardInquiryWrtie";
 	}
 
 

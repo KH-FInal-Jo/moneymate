@@ -5,6 +5,8 @@ import java.util.Map;
 public interface KBoardService {
 
 	Map<String, Object> selectboardInquiry(int boardCode, int cp);
+
+	Map<String, Object> selectboardInquiry(Map<String, Object> paramMap, int cp);
 	
 	
 
