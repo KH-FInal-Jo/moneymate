@@ -23,4 +23,8 @@ public interface CMemberService {
 
 	int secession(String memberPw, int memberNo);
 
+
+
+	int emailDupCheck(String email);
+
 }

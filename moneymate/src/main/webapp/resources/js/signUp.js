@@ -48,16 +48,18 @@ memberEmail.addEventListener("input", () => {
     const regEx = /^[A-Za-z\d\-\_]{4,}@[가-힣\w\-\_]+(\.\w+){1,3}$/;
 
     if(regEx.test(memberEmail.value)){
-        fetch()
-        .then()
-        .then()
+        fetch("/member/signUp/emaildupCheck?email="+ memberEmail.value)
+        .then(resp => resp.text())
+        .then(count => {
+            console.log(count);
+            emailMessage.innerText="올바른 이메일 형식입니다.";
+            emailMessage.classList.remove("error");
+            emailMessage.classList.add("confirm");
+    
+            checkObj.memberEmail = true;
+        })
         .catch()
         // 중복검사 해야함
-        emailMessage.innerText="올바른 이메일 형식입니다.";
-        emailMessage.classList.remove("error");
-        emailMessage.classList.add("confirm");
-
-        checkObj.memberEmail = true;
 
     } else{
         emailMessage.innerText="이메일 형식을 확인해주세요.";

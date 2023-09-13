@@ -42,7 +42,7 @@
                 </form> -->
 
                 <article class="cont-select">
-                    <button class="btn-select">전체</button>
+                    <button class="btn-select" id="realBtn">전체</button>
                     <ul class="list-member">
                       <li><button type="button" onclick="location.href='/member/mypage/likeList/0/${loginMember.memberNo}'">전체</button></li>
                       <li><button type="button" onclick="location.href='/member/mypage/likeList/3/${loginMember.memberNo}'">자유게시판</button></li>
@@ -61,7 +61,7 @@
         
                         <div class="eachOne">
                             <div>
-                                <i class="fa-solid fa-heart boardLike" onclick="cancelLike(${board.boardNo})"></i>
+                                <i class="fa-solid fa-heart boardLike"></i>
                             </div>
                             <div>
                                 <c:if test="${!empty board.thumbnail}" >

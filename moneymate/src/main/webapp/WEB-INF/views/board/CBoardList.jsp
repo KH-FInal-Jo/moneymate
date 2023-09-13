@@ -67,7 +67,7 @@
 			                                <c:if test="${!empty board.thumbnail}" >
 			                                    <img class="list-thumbnail" src="${board.thumbnail}">
 			                                </c:if>
-		                                    <a href="/board/3/${board.boardNo}?cp=${pagination.currentPage}${sp}">${board.boardTitle}</a>   
+		                                    <a href="/community/3/${board.boardNo}?cp=${pagination.currentPage}${sp}">${board.boardTitle}</a>   
 		                                    [${board.commentCount}]                        
 		                                </td>
 		                                <td>${board.memberNickname}</td>
@@ -122,7 +122,7 @@
                            </c:when>
                         
                            <c:otherwise>
-                                <li><a href="/board/${boardCode}?cp=${i}${sp}">${i}</a></li>
+                                <li><a href="/community/${boardCode}?cp=${i}${sp}">${i}</a></li>
                            </c:otherwise>
                         </c:choose>
                         
@@ -130,9 +130,9 @@
                     
                     
                     
-                    <li><a href="/board/${boardCode}?cp=${pagination.nextPage}${sp}">&gt;</a></li>
+                    <li><a href="/community/${boardCode}?cp=${pagination.nextPage}${sp}">&gt;</a></li>
 
-                    <li><a href="/board/${boardCode}?cp=${pagination.maxPage}${sp}">&gt;&gt;</a></li>
+                    <li><a href="/community/${boardCode}?cp=${pagination.maxPage}${sp}">&gt;&gt;</a></li>
 
                 </ul>
             </div>

@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttribute;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
@@ -179,6 +180,17 @@ public class CMemberController {
 	@GetMapping("mypage/myboard")
 	public String myBoard () {
 		return "member/myBoard";
+	}
+	
+	
+	// 아이디 중복 검사
+	@GetMapping("/signUp/emaildupCheck")
+	@ResponseBody
+	public int emailDupCheck(String email) {
+		
+		System.out.println(email);
+		
+		return service.emailDupCheck(email);
 	}
 	
 	

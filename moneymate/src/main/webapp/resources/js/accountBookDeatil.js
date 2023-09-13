@@ -183,8 +183,6 @@ for(let i=0; i<lineMonth.length; i++){
             .then(resp => resp.json()) // JSON 응답 파싱
             .then(aList => {
                 console.log("응답 데이터: ", aList);
-                const tb = document.querySelector(".tb")
-                tb.innerHTML = ""
                 // 여기서 data를 사용하여 필요한 처리를 수행하세요.
                 for(let account of aList){
     

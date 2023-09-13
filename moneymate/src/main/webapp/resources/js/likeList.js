@@ -10,7 +10,21 @@ list.addEventListener('click', (event) => {
   }
 });
 
-function cancelLike(boardNo){
+(function(){
+  if(location.pathname.split("/")[4] == 0){
+    document.getElementById("realBtn").innerHTML = "전체"
+  }
+  if(location.pathname.split("/")[4] == 3){
+    document.getElementById("realBtn").innerHTML = "자유게시판"
+  }
+  if(location.pathname.split("/")[4] == 4){
+    document.getElementById("realBtn").innerHTML = "컬럼게시판"
+  }
+})();
+
+/* 선택하면 유지되게 수정해조 */
+
+/* function cancelLike(boardNo){
 
   if(!confirm("좋아요를 취소하시겠습니까?")){
     return;
@@ -26,4 +40,4 @@ function cancelLike(boardNo){
 
   .catch(e => console.log(e));
 
-}
+} */
