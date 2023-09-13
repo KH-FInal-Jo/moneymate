@@ -58,7 +58,7 @@
                 <!-- 월 변경 -->
                 <div >
                     <span>2023년</span>
-                    <span id="date-month">8월</span>
+                    <span id="date-month"></span>
                     <span><i class="fa-regular fa-calendar" style="color: #ec1818;"></i></span>
 
                 </div>
