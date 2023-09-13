@@ -152,42 +152,19 @@
     
             <section class="detail-area">
                 
+                <div class="spend-area">
 
+                    <div class="spend-line">
+                        <div class="spend-left">
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                        </div>
+                        <div></div>
+                    </div>
 
-                <table class="income-tb">
-                    <tr>
-                        <td colspan="2" class="spend-date">09-04(월)</td>
-                        <td rowspan="3" class="price">+1000,500원</td>
-                    </tr>
-                    <tr>
-                        <td colspan="2" class="where">월급</td>
-                    </tr>
-                    <tr>
-                        <td colspan="2" class="category">한식</td>
-                    </tr>
+                </div>
 
-                    <tr>
-                        <td colspan="2" class="spend-date">09-04(월)</td>
-                        <td rowspan="3" class="price">+1000,500원</td>
-                    </tr>
-                    <tr>
-                        <td colspan="2" class="where">월급</td>
-                    </tr>
-                    <tr>
-                        <td colspan="2" class="category">한식</td>
-                    </tr>
-
-                    <tr>
-                        <td colspan="2" class="spend-date">09-04(월)</td>
-                        <td rowspan="3" class="price">+1000,500원</td>
-                    </tr>
-                    <tr>
-                        <td colspan="2" class="where">월급</td>
-                    </tr>
-                    <tr>
-                        <td colspan="2" class="category">한식</td>
-                    </tr>
-                </table>
                 
     
             </section>
