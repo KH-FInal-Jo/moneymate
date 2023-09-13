@@ -1,5 +1,7 @@
 package edu.kh.project.member.controller;
 
+import java.util.Map;
+
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -193,9 +195,22 @@ public class CMemberController {
 	
 	// 이메일인증
 	@GetMapping("/signUp/sendEmail")
+	@ResponseBody
 	public int signUp(String email) {
 		return service.signUp(email, "회원 가입");
 	}
+	
+	
+	@GetMapping("/signUp/checkAuthKey")
+	@ResponseBody
+	public int checkAuthKey(@RequestParam Map<String, Object> paramMap) {
+		
+		System.out.println("param : " + paramMap);
+		
+		return service.checkAuthKey(paramMap);
+	}
+	
+	
 	
 	
 	

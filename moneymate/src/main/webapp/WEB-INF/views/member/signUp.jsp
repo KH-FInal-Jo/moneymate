@@ -52,7 +52,7 @@
                 <button type="button" id="checkAuthKeyBtn">인증하기</button>
             </div>
 
-            <span class="signUp-message confirm" id=authKeyMessage>인증되었습니다.</span>
+            <span class="signUp-message" id=authKeyMessage>인증를 입력해주세요.</span>
 
             <div class="signUp-input-area">
                 <i class="fa-solid fa-lock" style="color: #000000;"></i>

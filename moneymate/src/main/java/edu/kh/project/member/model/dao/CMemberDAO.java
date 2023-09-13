@@ -52,4 +52,9 @@ public class CMemberDAO {
 		return sqlSession.update("CmemberMapper.insertAuthKey", map);
 	}
 
+
+	public int checkAuthKey(Map<String, Object> paramMap) {
+		return sqlSession.selectOne("CmemberMapper.checkAuthKey", paramMap);
+	}
+
 }
