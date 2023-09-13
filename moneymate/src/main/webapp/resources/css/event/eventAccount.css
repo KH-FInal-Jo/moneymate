@@ -40,8 +40,14 @@
 }
 
 .comment-li{
-    padding: 15px 0;
+    padding: 15px 15px;
+    border:  1px solid #ddd;
+    margin-right: 40px;
 }
+
+/* .comment-li>:nth-of-type(2n-1){
+    border-bottom:  5px solid #ddd;
+} */
 
 .writer{
     display: flex;
@@ -119,7 +125,7 @@
     margin-left: 40px;
 }
 
-.commentWrite{
+#commentWrite{
     outline: none;
     resize: none;
     width: 1120px;

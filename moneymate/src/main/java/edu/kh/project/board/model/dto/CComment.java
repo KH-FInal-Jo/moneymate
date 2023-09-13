@@ -18,5 +18,8 @@ public class CComment {
 	private int parentNo;
 	private String memberNickname;
 	private String profileImage;
+	
+	private String commentImage;
+	private int likeCount;
 
 }

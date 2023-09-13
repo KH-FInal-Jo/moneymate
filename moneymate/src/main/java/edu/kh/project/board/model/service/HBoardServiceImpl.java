@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import edu.kh.project.board.model.dao.HBoardDAO;
+import edu.kh.project.board.model.dto.CComment;
 
 @Service
 public class HBoardServiceImpl implements HBoardService {
@@ -25,6 +26,12 @@ public class HBoardServiceImpl implements HBoardService {
 	@Override
 	public int calendarToday(int memberNo) {
 		return dao.calendarToday(memberNo);
+	}
+
+	// 가계부 이벤트 댓글 목록 조회
+	@Override
+	public List<CComment> commentList() {
+		return dao.commentList();
 	}
 
 }

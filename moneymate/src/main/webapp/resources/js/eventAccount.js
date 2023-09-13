@@ -41,7 +41,7 @@ for(let i = 0; i<imgInput.length; i++){
 
 
 /* 댓글 수정 화면 전환 */
-function updateBtn(btn){
+function updateBtn(commentNo, btn){
 
     // 수정 버튼의 부모의 부모
     const commentRow = btn.parentElement.parentElement; // li
@@ -80,7 +80,7 @@ function updateBtn(btn){
 
     const cameraImg = document.createElement("img");
     cameraImg.classList.add("camera1");
-    cameraImg.setAttribute("src", "../images/camera1.png");
+    cameraImg.setAttribute("src", "/resources/images/camera1.png");
 
     const fileInput = document.createElement("input");
     fileInput.classList.add("imgInput1");
@@ -192,3 +192,55 @@ commentLike.addEventListener("cilck", e => {
     }
 
 }) */
+
+// 댓글 등록
+const insertBtn = document.getElementById("insertBtn"); // 등록 버튼
+const commentWrite = document.getElementById("commentWrite"); // 내용
+const inputImg = document.getElementById("imgInput"); // 사진
+
+insertBtn.addEventListener("click" , () => {
+
+    if(loginMemberNo == ""){ // 로그인을 안 한 경우
+        alert("로그인 후 이용해주세요.");
+        return;
+    }
+
+    if(commentWrite.value.trim().length == 0){ // 내용 X
+        alert("댓글 내용 입력 후 등록해주세요");
+        commentWrite.value = "";
+        commentWrite.focus();
+        return;
+    }
+
+    if(inputImg.value == ""){
+        alert("사진 등록은 필수입니다.");
+        return;
+    }
+
+    var form = $('#commentFrm')[0];
+    var formData = new FormData(form);
+    $.ajax({
+        type:"post",
+        enctype:'multipart/form-data',
+        url:'/event/account/insert',
+        data:formData,
+        dataType:'json',
+        processData:false,
+        contentType:false,
+        cache:false,
+        success:function(data){
+            console.log("success : ", data);
+        },
+        error:function(e){
+            console.log("error : ", e);
+        }
+    });
+
+
+
+
+
+
+
+})
+

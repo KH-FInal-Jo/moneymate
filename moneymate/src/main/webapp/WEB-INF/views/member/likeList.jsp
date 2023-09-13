@@ -68,7 +68,7 @@
                                     <img src="${board.thumbnail}" class="thumbnail">
                                 </c:if>
                             </div>
-                            <div class="likeContent"  onclick="location.href='/'">
+                            <div class="likeContent"  onclick="location.href='/community/${boardCode}/${board.boardNo}'">
                                 <div>${board.boardName}</div>
                                 <div>
                                     <span>${board.boardTitle}</span>
