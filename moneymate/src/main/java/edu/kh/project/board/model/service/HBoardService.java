@@ -1,6 +1,9 @@
 package edu.kh.project.board.model.service;
 
+import java.io.IOException;
 import java.util.List;
+
+import org.springframework.web.multipart.MultipartFile;
 
 import edu.kh.project.board.model.dto.CComment;
 
@@ -22,5 +25,15 @@ public interface HBoardService {
 	 * @return commentList
 	 */
 	List<CComment> commentList();
+
+	/** 댓글 삽입
+	 * @param comment
+	 * @param commentImage
+	 * @param webPath
+	 * @param filePath
+	 * @return commentNo
+	 */
+	int commentInsert(CComment comment, MultipartFile commentImage, String webPath, String filePath)
+			throws IllegalStateException, IOException;
 
 }

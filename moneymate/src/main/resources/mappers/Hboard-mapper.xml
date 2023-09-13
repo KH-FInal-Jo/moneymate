@@ -59,6 +59,20 @@
 		WHERE IMG_CD = 2
 	</select>
 	
+	<!-- 댓글 글 관련 삽입 -->
+	<insert id="commentInsert" useGeneratedKeys="true">
+		<selectKey order="BEFORE" resultType="_int" keyProperty="commentNo">
+	         SELECT SEQ_COMMENT_NO.NEXTVAL FROM DUAL
+	    </selectKey>
+	
+		INSERT INTO "COMMENT" VALUES(#{commentNo}, #{commentContent}, 
+		SYSDATE, DEFAULT, #{memberNo}, 0)
+	</insert>
+	
+	<!-- 댓글 이미지 삽입 -->
+	<insert id="insertCommentImage">
+		INSERT INTO "IMAGE" VALUES(#{commentNo}, 2, #{imagePath}, #{imageReName}, #{imageOriginal}, 0)
+	</insert>
 	
 	
 </mapper>

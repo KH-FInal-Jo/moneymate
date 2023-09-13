@@ -1,5 +1,6 @@
 package edu.kh.project.board.controller;
 
+import java.io.IOException;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -83,14 +84,19 @@ public class HBoardController {
 	
 	@PostMapping("/event/account/insert")
 	@ResponseBody
-	public int result(String commentContent, @RequestParam("commentImage") MultipartFile commentImage
+	public int result(CComment comment, @RequestParam("commentImage") MultipartFile commentImage
 					, @SessionAttribute("loginMember") Member loginMember
-					, HttpSession session) {
+					, HttpSession session) throws IllegalStateException, IOException {
 		
 		// boardNo는 0 고정
 		
+		comment.setMemberNo(loginMember.getMemberNo());
+		String webPath = "/resources/images/event/";
+		String filePath = session.getServletContext().getRealPath(webPath);
 		
-		return 0;
+		int commentNo = service.commentInsert(comment, commentImage, webPath, filePath);
+		
+		return commentNo;
 	}
 	
 	
