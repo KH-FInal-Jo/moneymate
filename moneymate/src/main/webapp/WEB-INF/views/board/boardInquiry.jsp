@@ -17,11 +17,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/board/boardSidemenu-style.css">
-    <link rel="stylesheet" href="../css/board/InquiryBulletinBoard.css">
+    <link rel="stylesheet" href="/resources/css/board/boardSidemenu-style.css">
+    <link rel="stylesheet" href="/resources/css/board/InquiryBulletinBoard.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    <link rel="stylesheet" href="../css/header.css">
-    <link rel="stylesheet" href="../css/footer.css">
+    <link rel="stylesheet" href="/resources/css/header.css">
+    <link rel="stylesheet" href="/resources/css/footer.css">
     <title>문의게시판</title>
     <script src="https://kit.fontawesome.com/98acdabf0d.js"
 	crossorigin="anonymous"></script>
@@ -160,17 +160,17 @@
                     <li><a href="/board/${boardCode}?cp=${pagination.maxPage}${sp}">&gt;&gt;</a></li>
 
 
-                                <li><a href="#">&laquo;</a></li>
+                                <%-- <li><a href="#">&laquo;</a></li>
                                 <li><a href="#">1</a></li>
                                 <li><a href="#">2</a></li>
                                 <li><a href="#">3</a></li>
-                                <li><a href="#">&raquo;</a></li>
+                                <li><a href="#">&raquo;</a></li> --%>
                             </ul>
                         </div>
                     
                     </div>
                     <div class="Bcontainer5-1">
-                        <a href="#" id="write-button">글쓰기</a>
+                        <a href="/boardInquiryWrtie/${boardCode}?cp${sp}" id="write-button">글쓰기</a>
                     </div>
                 </div>
 
