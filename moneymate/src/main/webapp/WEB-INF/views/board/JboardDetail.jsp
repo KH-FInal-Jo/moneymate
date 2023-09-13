@@ -27,7 +27,7 @@
 				<div class="board-notice-detail-container">
 
 				<c:forEach var="board" items="${boardList}">
-					
+
 
 					<div>${board.boardTitle}</div>
 
@@ -43,15 +43,19 @@
 					<div>작성일 : 2023.08.28</div>
 					<div>조회수 : 10</div> --%>
 
-					<textarea name="board-notice-content" id="board-notice-content">${board.boardContent}
+					<textarea name="board-notice-content" id="board-notice-content" disabled>${board.boardContent}
                     </textarea>
 
 
 					<div>
-						<button type="button" id="updateBtn" onclick="location.href='/community/1/${board.boardNo}/update'">수정</button>
-						<button type="button">삭제</button>
+						<c:if test="${loginMember.authority == 1}" >
 
-						<button type="button">목록으로</button>
+							<button type="button" id="updateBtn" onclick="location.href='/community/1/${board.boardNo}/update'">수정</button>
+							<button type="button" id="deleteBtn">삭제</button>
+
+						</c:if>
+
+						<button type="button" id="goToBtn">목록으로</button>
 					</div>
 				</c:forEach>
 

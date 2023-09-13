@@ -250,3 +250,10 @@
     color: white;
     cursor: pointer;
 }
+
+
+
+textarea:disabled{
+    background-color: white;
+    color: black;
+}

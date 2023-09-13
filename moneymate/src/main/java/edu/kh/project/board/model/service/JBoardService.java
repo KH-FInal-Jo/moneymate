@@ -16,5 +16,12 @@ public interface JBoardService {
 	// 공지사항 작성
 	int boardNoticeInsert(JBoard board);
 
+	JBoard selectBoardUpdate(int boardNo);
+
+	// 수정하기
+	int boardNoticeUpdate(JBoard board);
+
+	int boardDelete(int boardNo);
+
 
 }

@@ -83,9 +83,6 @@ public class JBoardController {
 		
 		int boardNo = board.getBoardNo();
 
-		System.out.println("boardNo : " +boardNo );
-		
-		
 		String message = null;
 		String path = "redirect:";
 		
@@ -110,20 +107,82 @@ public class JBoardController {
 							, @PathVariable("boardNo") int boardNo
 							, Model model) {
 		
-		Map<String, Object> map = new HashMap<String, Object>();
+		//List<JBoard> boardList = service.selectBoardNotice(boardCode);
 		
-		map.put("boardCode", boardCode);
-		map.put("boardNo", boardNo);
+		//model.addAttribute("boardList", boardList);
 		
-		List<JBoard> boardList = service.boardNoticeDetail(map);
+		JBoard board = service.selectBoardUpdate(boardNo);
 		
-		model.addAttribute("boardList", boardList);
+		model.addAttribute("board", board);
 		
-		System.out.println(boardList);
-		
+		System.out.println(board);
 		
 		return "board/JboardWrite";
 	}
+	
+	// 공지사항 수정하기
+	@PostMapping("/{boardCode:[1]}/{boardNo}/update")
+	public String BoardUpdateInsert(@PathVariable("boardCode") int boardCode
+									, @PathVariable("boardNo") int boardNo
+									,@ModelAttribute JBoard board
+									,RedirectAttributes ra
+									, HttpSession session) {
+		
+		
+		board.setBoardCode(boardCode);
+		
+		int result = service.boardNoticeUpdate(board);
+		
+		int boardNo1 = board.getBoardNo();
+		
+
+		String message = null;
+		String path = "redirect:";
+		
+		if(boardNo1 > 0) { // 성공 시
+			
+			message = "게시글이 수정되었습니다.";
+			path += "/community/" + boardCode + "/" + boardNo;
+			
+		}else {
+			message = "게시글 등록 실패";
+			path += "update";
+		}
+		
+		ra.addFlashAttribute("message", message);
+
+		return path;
+		
+		
+	}
+	
+	// 공지사항 삭제하기
+	@GetMapping("/{boardCode:[1]}/{boardNo}/delete")
+	public String boardDelete(@PathVariable("boardCode") int boardCode
+							, @PathVariable("boardNo") int boardNo
+							,RedirectAttributes ra
+							, HttpSession session) {
+		
+		int result = service.boardDelete(boardNo);
+		
+		String message = null;
+		String path = "redirect:";
+		
+		if(result > 0) { // 성공 시
+			
+			message = "게시글이 삭제되었습니다.";
+			path += "/community/" + boardCode;
+			
+		}else {
+			message = "게시글 삭제 실패";
+		}
+		
+		ra.addFlashAttribute("message", message);
+
+		return path;
+	}
+	
+	
 	
 	
 

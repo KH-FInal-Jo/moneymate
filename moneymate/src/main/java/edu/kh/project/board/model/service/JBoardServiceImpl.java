@@ -44,5 +44,26 @@ public class JBoardServiceImpl implements JBoardService{
 		return result;
 	}
 
+	@Override
+	public JBoard selectBoardUpdate(int boardNo) {
+		return dao.selectBoardUpdate(boardNo);
+	}
+
+	// 수정하기
+	@Override
+	public int boardNoticeUpdate(JBoard board) {
+		
+	
+		board.setBoardContent(Util.XSSHandling( board.getBoardContent() ));
+		board.setBoardTitle(Util.XSSHandling( board.getBoardTitle() ));
+		
+		return dao.boardNoticeUpdate(board);
+	}
+
+	@Override
+	public int boardDelete(int boardNo) {
+		return dao.boardDelete(boardNo);
+	}
+
 
 }

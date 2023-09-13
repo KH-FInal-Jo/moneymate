@@ -42,5 +42,18 @@ public class JBoardDAO {
 		return sqlSession.insert("insertBoardNotice", board);
 	}
 
+	public JBoard selectBoardUpdate(int boardNo) {
+		return sqlSession.selectOne("selectBoardUpdate", boardNo);
+	}
+
+	// 공지사항 수정하기
+	public int boardNoticeUpdate(JBoard board) {
+		return sqlSession.update("boardNoticeUpdate", board);
+	}
+
+	public int boardDelete(int boardNo) {
+		return sqlSession.update("boardDelete", boardNo);
+	}
+
 
 }
