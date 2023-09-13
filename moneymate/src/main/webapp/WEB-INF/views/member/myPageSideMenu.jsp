@@ -7,21 +7,14 @@
 <section class="j-myPage-sidemenu">
 	<div class="j-myPage-content-header">
 		<div>MY PAGE</div>
-		<div class="j-myPage-sub-content">
-			<c:forEach items="${memberList}" var="member">
+		<div class="j-myPage-sub-content" id="memberList">
 			<div>
-				<span>나의 구독 현황 >></span><span> 
-				<c:if test="${member.subscribeLevel == 0}" >
-					<a href="#">구독하러가기</a></c:if>
-				<c:if test="${member.subscribeLevel == 1}" >
+				<span>나의 구독 현황 >></span>
+				<span id="sub"> 
+					<a href="#">구독하러가기</a>
 					한 달
-				</c:if>
-				<c:if test="${member.subscribeLevel == 2}" >
 					6개월
-				</c:if>
-				<c:if test="${member.subscribeLevel == 3}" >
 					일 년
-				</c:if>
 				</span>
 			</div>
 			<div>
@@ -30,8 +23,7 @@
 				<div>프리미엄</div>
 			</div>
 			<div>
-				<i class="fa-solid fa-coins fa-xl"></i></i>마일리지 : ${member.mileage}
-			</c:forEach>
+				<i class="fa-solid fa-coins fa-xl"></i></i>마일리지 : <span id="mileage"></span>
 			</div>
 
 		</div>
@@ -59,5 +51,9 @@
 	<script>
 		const memberNo = "${loginMember.memberNo}";
 	</script>
+
+	<script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+
+	<script src="../resources/js/myPageSide.js"></script>
 
 </section>
