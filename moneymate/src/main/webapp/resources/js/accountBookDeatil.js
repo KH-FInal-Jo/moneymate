@@ -183,19 +183,37 @@ for(let i=0; i<lineMonth.length; i++){
             .then(resp => resp.json()) // JSON 응답 파싱
             .then(aList => {
                 console.log("응답 데이터: ", aList);
+
+                const spendArea = document.querySelector(".spend-area")
+                spendArea.innerText = ""
+
                 // 여기서 data를 사용하여 필요한 처리를 수행하세요.
                 for(let account of aList){
     
-                    const tr = document.createElement("tr")
-                    const td1 = document.createElement("td")
-                    const td2 = document.createElement("td")
+                    const spendLine = document.createElement("div")
+                    spendLine.classList.add("spend-line")
 
-                    td1.classList.add("spend-date")
-                    td1.innerHTML = account.accountDate;
+                    const spendLeft = document.createElement("div")
+                    spendLeft.classList.add("spend-left")
 
-                    td2.classList.add("price")
-                    td1.innerHTML = account.accountMoney;
+                    const div1 = document.createElement("div")
+                    const div2 = document.createElement("div")
+                    const div3 = document.createElement("div")
+                    
+                    div1.innerText = account.accountDate
+                    div2.innerText = account.accountContent
+                    div3.innerText = account.category
 
+                    spendLeft.append(div1, div2, div3)
+
+                    const moneyDiv = document.createElement("div")
+                    moneyDiv.innerText = "-" + account.accountMoney + "원"
+
+
+                    spendLine.append(spendLeft, moneyDiv)
+
+
+                    spendArea.append(spendLine)
 
 
     
