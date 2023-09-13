@@ -104,6 +104,27 @@ public class JBoardController {
 		return path;
 	}
 	
+	// 공지사항 수정 화면
+	@GetMapping("/{boardCode:[1]}/{boardNo}/update")
+	public String BoardUpdate(@PathVariable("boardCode") int boardCode
+							, @PathVariable("boardNo") int boardNo
+							, Model model) {
+		
+		Map<String, Object> map = new HashMap<String, Object>();
+		
+		map.put("boardCode", boardCode);
+		map.put("boardNo", boardNo);
+		
+		List<JBoard> boardList = service.boardNoticeDetail(map);
+		
+		model.addAttribute("boardList", boardList);
+		
+		System.out.println(boardList);
+		
+		
+		return "board/JboardWrite";
+	}
+	
 	
 
 }

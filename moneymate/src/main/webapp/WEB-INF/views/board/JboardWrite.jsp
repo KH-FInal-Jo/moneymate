@@ -21,24 +21,25 @@
 
 			<section class="board-notice-main">
 				<div class="board-notice-name">공지사항 > 작성하기</div>
+				<c:forEach var="board" items="${boardList}">
 
-				<form action="/community/${boardCode}/insert" method="POST">
+					<form action="/community/${boardCode}/insert" method="POST">
 
-					<div class="board-notice-write-container">
+						<div class="board-notice-write-container">
 
-						<input type="text" id="board-notice-title"
-							name="boardTitle" placeholder="제목을 입력해주세요.">
-						<textarea name="boardContent"
-							id="board-notice-write-content" placeholder="내용을 입력해주세요."></textarea>
+							<input type="text" id="board-notice-title" value="${board.boardTitle}"
+								name="boardTitle" placeholder="제목을 입력해주세요.">
+							<textarea name="boardContent"
+								id="board-notice-write-content" placeholder="내용을 입력해주세요.">${board.boardContent}</textarea>
 
-						<div>
-							<button type="button">이전으로</button>
-							<button type="submit">등록</button>
+							<div>
+								<button type="button">이전으로</button>
+								<button type="submit">등록</button>
+							</div>
 						</div>
-					</div>
 
-
-				</form>
+					</form>
+				</c:forEach>
 
 
 			</section>
@@ -47,6 +48,8 @@
 		
 		<jsp:include page="/WEB-INF/views/common/footer.jsp" />
 	</main>
+
+	<script src="../resources/js/boardNotice.js"></script>
 	
 
 </body>

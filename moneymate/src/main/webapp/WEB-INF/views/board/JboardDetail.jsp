@@ -46,14 +46,14 @@
 					<textarea name="board-notice-content" id="board-notice-content">${board.boardContent}
                     </textarea>
 
-				</c:forEach>
 
 					<div>
-						<button type="button">수정</button>
+						<button type="button" id="updateBtn" onclick="location.href='/community/1/${board.boardNo}/update'">수정</button>
 						<button type="button">삭제</button>
 
 						<button type="button">목록으로</button>
 					</div>
+				</c:forEach>
 
 				</div>
 
@@ -63,8 +63,13 @@
 		</section>
 		
 		<jsp:include page="/WEB-INF/views/common/footer.jsp" />
+
+		<script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
 		
 	</main>
+
+
+	<script src="/resources/js/boardNotice.js"></script>
 	
 	
 
