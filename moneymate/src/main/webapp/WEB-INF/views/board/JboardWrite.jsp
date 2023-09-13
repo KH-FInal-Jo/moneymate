@@ -23,6 +23,9 @@
 				<div class="board-notice-name">공지사항 > 작성하기</div>
 				<c:forEach var="board" items="${boardList}">
 
+				${boardList}
+
+
 					<form action="/community/${boardCode}/insert" method="POST">
 
 						<div class="board-notice-write-container">

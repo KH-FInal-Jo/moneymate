@@ -27,15 +27,14 @@ public class JMemberController {
 	}
 	
 	// 마이페이지 상세조회
-	@GetMapping(value="/member/mypage/sidemenu", 
-			 	produces = "application/json; charset=UTF-8")
+	@GetMapping(value="/member/mypage/sidemenu")
 	@ResponseBody
-	public List<JMember> KmyInfo(@SessionAttribute("loginMember") Member loginMember
+	public List<JMember> selectMypage2(@SessionAttribute("loginMember") Member loginMember
 						, Model model) {
 		
 		int memberNo = loginMember.getMemberNo();
 		
-		List<JMember> memberList = service.selectMypage(memberNo);
+		List<JMember> memberList = service.selectMypage2(memberNo);
 		
 		model.addAttribute("memberList",memberList);
 		

@@ -14,7 +14,7 @@ public class JMemberDAO {
 	@Autowired
 	private SqlSessionTemplate sqlSession;
 
-	public List<JMember> selectMypage(int memberNo) {
+	public List<JMember> selectMypage2(int memberNo) {
 		return sqlSession.selectList("JMemberMapper.selectMypage", memberNo);
 	}
 
