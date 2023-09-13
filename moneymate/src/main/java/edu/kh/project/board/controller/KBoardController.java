@@ -14,7 +14,7 @@ public class KBoardController {
 	@Autowired
 	private KBoardService service;
 	
-	public 
+	
 	
 
 }
