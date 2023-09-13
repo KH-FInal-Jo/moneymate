@@ -9,9 +9,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.SessionAttributes;
 
 import edu.kh.project.board.model.service.KBoardService;
 
+@SessionAttributes("loginMember")
 @RequestMapping("/community")
 @Controller
 public class KBoardController {
@@ -20,26 +22,28 @@ public class KBoardController {
 	private KBoardService service;
 
 	@GetMapping("/2")
-	public String selectboardInquiry(@RequestParam(value="cp", required=false, defaultValue = "1") int cp
-											, Model model, @RequestParam Map<String, Object> paramMap) {
+	public String selectboardInquiry(@RequestParam(value="cp", required = false, defaultValue = "1")int cp
+			, Model model
+			, @RequestParam Map<String, Object> paramMap // 전달받은 파라미터가 전부다 담겨있다.
+			) {
 		
-		int boardCode = 2;		
+
+		int boardCode=2;
 		
-		if(paramMap.get("key") == null) {
+		if(paramMap.get("key") ==null) {
 			Map<String, Object> map = service.selectboardInquiry(boardCode, cp);
+			model.addAttribute("map", map);
 			
-			model.addAttribute("map", map);			
-			
-		} else { 
-				
-		}			
+			System.out.println(map);
+		}
+
 
 		return "board/boardInquiry";
 	}
-	
-	@GetMapping("/boardInquiryWrtie")
+
+	@GetMapping("/2/boardInquiryWrtie")
 	public String selectboardInquiryWrtie() {
-		
+
 		return "board/boardInquiryWrtie";
 	}
 
