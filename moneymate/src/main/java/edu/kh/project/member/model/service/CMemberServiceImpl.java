@@ -188,4 +188,10 @@ public class CMemberServiceImpl implements CMemberService {
 		return result;
 	}
 
+
+	@Override
+	public int checkAuthKey(Map<String, Object> paramMap) {
+		return dao.checkAuthKey(paramMap);
+	}
+
 }

@@ -1,5 +1,7 @@
 package edu.kh.project.member.model.service;
 
+import java.util.Map;
+
 import edu.kh.project.member.model.dto.Member;
 
 public interface CMemberService {
@@ -32,5 +34,9 @@ public interface CMemberService {
 	int signUp(String email, String title);
 	
 	String createAuthKey();
+
+
+
+	int checkAuthKey(Map<String, Object> paramMap);
 
 }

@@ -14,15 +14,7 @@ const memberEmail = document.getElementById("memberEmail");
 const emailMessage = document.getElementById("emailMessage");
 const check = document.getElementById("check");
 
-check.addEventListener("click", ()=> {
-    if(confirm("정말 동의하시겠습니까?")){
-        check.checked;
-        checkObj.check = true;
-    }else{
-        check.checked = false;
-        checkObj.check = false;
-    }
-})
+
 
 
 memberEmail.addEventListener("input", () => {
@@ -90,6 +82,9 @@ sendAuthKeyBtn.addEventListener("click", function(){
         fetch("/member/signUp/sendEmail?email="+memberEmail.value)
         .then(resp => resp.text())
         .then(result => {
+
+            console.log(result);
+
             if(result > 0){
                 console.log("인증 번호가 발송되었습니다.")
                 tempEmail = memberEmail.value;
@@ -136,6 +131,38 @@ sendAuthKeyBtn.addEventListener("click", function(){
 
 });
 
+
+const authKey = document.getElementById("authKey");
+const checkAuthKeyBtn = document.getElementById("checkAuthKeyBtn");
+
+checkAuthKeyBtn.addEventListener("click", function(){
+
+    if(authMin > 0 || authSec > 0){
+        const obj = {"inputKey":authKey.value, "email":tempEmail}
+        const query = new URLSearchParams(obj).toString();
+
+        fetch("/member/signUp/checkAuthKey?" + query)
+        .then(resp => resp.text())
+        .then(result => {
+
+            console.log(result);
+
+            if(result > 0){
+                clearInterval(authTimer);
+                authKeyMessage.innerText = "인증되었습니다.";
+                authKeyMessage.classList.add("confirm");
+                checkObj.authKey = true;
+
+            } else{
+                alert("인증번호가 일치하지 않습니다.")
+                checkObj.authKey = false;
+            }
+        })
+        .catch(err => console.log(err));
+    }else{
+        alert("인증 시간이 만료되었습니다. 다시 시도해주세요.")
+    }
+});
 
 
 
