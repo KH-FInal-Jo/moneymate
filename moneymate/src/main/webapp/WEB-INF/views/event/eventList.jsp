@@ -29,7 +29,7 @@
                 <img src="/resources/images/accountEvent3.png" id="eventImg1">
                 <div id="event1-name">출석체크 이벤트</div>
             </div>
-            <div id="event2">
+            <div id="event2" onclick="location.href='/event/account'">
                 <img src="/resources/images/accountEvent2.png" id="eventImg2">
                 <div id="event2-name">가계부 자랑하기</div>
             </div>

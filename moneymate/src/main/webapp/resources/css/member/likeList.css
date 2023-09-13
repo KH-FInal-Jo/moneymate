@@ -40,14 +40,14 @@ a{
 }
 
 .boardLike{
-  font-size: 1.5em;
-  color: red;
+  font-size: 50px;
+  color: pink;
   cursor: pointer;
 }
 
 .titleName{
   font-size: 40px;
-  color: pink;
+  color: rgb(233, 92, 115);
   cursor: pointer;
 }
 
@@ -60,7 +60,7 @@ a{
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 80px;
+  width: 140px;
 }
 .eachOne>div:nth-of-type(2){
   width: 250px;
@@ -206,7 +206,7 @@ a{
 
 .current{
     font-weight: bold;
-    background-color: #455ba8;
+    background-color: #c557db;
     border-radius: 50%;
     color: white !important;
     letter-spacing: 0 !important;

@@ -6,6 +6,8 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import edu.kh.project.board.model.dto.CComment;
+
 @Repository
 public class HBoardDAO {
 	
@@ -27,6 +29,13 @@ public class HBoardDAO {
 	public int calendarToday(int memberNo) {
 		
 		return sqlSession.insert("HBoardMapper.calendarToday", memberNo);
+	}
+
+	/** 가계부 이벤트 댓글 목록 조회
+	 * @return
+	 */
+	public List<CComment> commentList() {
+		return sqlSession.selectList("HBoardMapper.commentList");
 	}
 
 }

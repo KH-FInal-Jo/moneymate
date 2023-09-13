@@ -16,7 +16,24 @@
 		<result property="secessionFlag" column="SECESSION_FL" />
 		<result property="authority" column="AUTHORITY" />
 		<result property="profileImage" column="PROFILE" />
+		
 
+	</resultMap>
+	
+	
+	<resultMap type="CComment" id="comment_rm">
+		<id property="commentNo" column="COMMENT_NO" />
+		<result property="commentContent" column="COMMENT_CONTENT" />
+		<result property="commentCreateDate" column="COMMENT_DT" />
+		<result property="boardNo" column="BOARD_NO" />
+		<result property="memberNo" column="MEMBER_NO" />
+		<result property="commentDeleteFlag" column="COMMENT_ST" />
+		<result property="parentNo" column="PARENT_NO" />
+		<result property="memberNickname" column="MEMBER_NICKNAME" />
+		<result property="profileImage" column="PROFILE" />
+		
+		<result property="likeCount" column="LIKE_COUNT" />
+		<result property="commentImage" column="IMG" />
 	</resultMap>
 
 	<!-- 출첵 이전 날짜 조회 -->
@@ -30,4 +47,18 @@
 	<insert id="calendarToday">
 		INSERT INTO EVENT_CALENDAR VALUES( ${memberNo} , SYSDATE )
 	</insert>
+	
+	
+	<!-- 가계부 이벤트 댓글 목록 조회 -->
+	<select id="commentList" resultMap="comment_rm">
+		SELECT PROFILE, MEMBER_NICKNAME, COMMENT_DT, IMG_PATH || IMG_RENAME IMG, COMMENT_CONTENT,
+	    	(SELECT COUNT(*) FROM "LIKE" WHERE BR_NO = 1 AND LIKE_CODE = 2) LIKE_COUNT
+		FROM "COMMENT"
+		JOIN MEMBER USING(MEMBER_NO)
+		JOIN IMAGE ON ("COMMENT".COMMENT_NO IN IMAGE.BR_NO)
+		WHERE IMG_CD = 2
+	</select>
+	
+	
+	
 </mapper>
