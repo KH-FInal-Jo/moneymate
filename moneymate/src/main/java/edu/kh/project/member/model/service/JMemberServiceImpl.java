@@ -16,7 +16,7 @@ public class JMemberServiceImpl implements JMemberService{
 	
 	// 마이페이지 사이드메뉴 조회
 	@Override
-	public List<JMember> selectMypage(int memberNo) {
-		return dao.selectMypage(memberNo);
+	public List<JMember> selectMypage2(int memberNo) {
+		return dao.selectMypage2(memberNo);
 	}
 }

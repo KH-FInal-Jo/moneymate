@@ -6,6 +6,6 @@ import edu.kh.project.member.model.dto.JMember;
 
 public interface JMemberService {
 
-	List<JMember> selectMypage(int memberNo);
+	List<JMember> selectMypage2(int memberNo);
 
 }

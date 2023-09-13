@@ -23,6 +23,8 @@ public class JMember {
 	private String profileImage;
 	
 	private int subscribeNo;
+	private int subscribeStart;
+	private int subscribeEnd;
 	private int subscribeLevel;
 	private int mileage;
 
