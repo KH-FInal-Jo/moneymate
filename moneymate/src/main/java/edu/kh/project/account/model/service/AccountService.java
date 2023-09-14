@@ -19,6 +19,12 @@ public interface AccountService {
 	 */
 	List<SAccount> changeMonthUpdate(Map<String, Object> map);
 
+	/** 지출 그래프 업데이트
+	 * @param map
+	 * @return
+	 */
+	List<SAccount> changeChart(Map<String, Object> map);
+
 
 
 }

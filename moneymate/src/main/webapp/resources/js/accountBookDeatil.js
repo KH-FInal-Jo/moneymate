@@ -2,10 +2,6 @@
 const incomeDiv = document.querySelector(".chart-div2")
 // 지출 차트
 const spendDiv = document.querySelector(".chart-div")
-// 수입내역 테이블
-const incomeTb = document.querySelector(".income-tb")
-// 지출내역 테이블
-const tb = document.querySelector(".tb")
 
 // 현재 날짜 구하는 변수
 let today = new Date();
@@ -15,25 +11,10 @@ let nowMonth = today.getMonth()+1
 document.getElementById("date-month").innerHTML = nowMonth + "월";
 
 
-// 현재지출 금액, 내역 업데이트
-(function (){
-
-})();
 
 
 
-/* 지출 차트 */
-let pieChartDraw = function () {
-    let ctx = document.getElementById('pieChartCanvas').getContext('2d');
-    
-    window.pieChart = new Chart(ctx, {
-        type: 'pie',
-        data: pieChartData,
-        options: {
-            responsive: false
-        }
-    });
-};
+
 
 /* 수입 차트 */
 let pieChartDraw2 = function () {
@@ -49,27 +30,24 @@ let pieChartDraw2 = function () {
 };
 
 
-window.onload = function () {
-    pieChartDraw();
-    pieChartDraw2();
-    
-    /* 수입 차트 처음엔 안보임 */
-    incomeDiv.style.display = 'none';
-}
 
-
-
-
-
+                        
 
 /* 지출 */
-let pieChartData = {
-    labels: ['식비', '교통비', '주거비', '관리비', '유흥', '생필품'],
-    datasets: [{
-        data: [10, 20, 50, 5, 10, 5],
-        backgroundColor: ['rgb(255, 99, 132)', 'rgb(255, 159, 64)', 'rgb(255, 205, 86)', 'rgb(75, 192, 192)', 'rgb(54, 162, 235)', 'rgb(153, 102, 255)']
-    }] 
-};
+// let pieChartData = {
+// labels: ['식비', '교통비', '주거비', '관리비', '유흥', '생필품'],
+// datasets: [{
+//     data: [10, 20, 50, 5, 10, 5],
+//     backgroundColor: ['rgb(255, 99, 132)', 'rgb(255, 159, 64)', 'rgb(255, 205, 86)', 'rgb(75, 192, 192)', 'rgb(54, 162, 235)', 'rgb(153, 102, 255)']
+// }] 
+// };
+
+
+
+
+
+
+
 /* 수입 */
 let pieChartData2 = {
     labels: ['수입','성공'],
@@ -96,7 +74,6 @@ incomeBtn.addEventListener("click", ()=>{
     incomeDiv.style.display = 'flex';
 
     tb.style.display = 'none';
-    incomeTb.style.display = 'block';
 
 
 })
@@ -123,7 +100,7 @@ cal.addEventListener("click", ()=>{
     changePage.style.display = 'block'
 
 })
-
+// 변경하기 버튼
 const changeBtn = document.getElementById("month-btn")
 
 /* 설정되어있는 월 */
@@ -141,180 +118,192 @@ var parts = currentURL.split('/');
 var accountNo = parts.pop(); // URL을 '/' 문자로 나누고 가장 마지막 요소를 가져옴
 
 
+// 캘린더 클릭 시 월 변경 페이지 보이게
+cal.addEventListener("click", () => {
+  changePage.style.display = 'block';
+});
 
 
-
-/* 클릭 시 이벤트 발생 */
-for(let i=0; i<lineMonth.length; i++){
-    lineMonth[i].addEventListener("click", e=>{
-        console.log(e.currentTarget.firstElementChild.innerText)
-
-        const month = e.currentTarget.firstElementChild.innerText;
-
-        changePage.style.display = 'none'
-        dateMonth.innerText = ""
-        dateMonth.innerText = month + "월"
-
-        changeBtn.addEventListener("click", () => {
-            console.log(month);
-            console.log(accountNo);
-
-            // ajax 코드 작성
-            fetch(`/account/changeMonth?month=${month}&accountNo=${accountNo}`)
-                .then(resp => resp.json()) // JSON 응답 파싱
-                .then(data => {
-                    console.log("응답 데이터: ", data);
-                    // 여기서 data를 사용하여 필요한 처리를 수행하세요.
-
-                    const spend = document.getElementById("spend")
-
-                    
-
-
-                    spend.innerText = ""
-                    spend.innerText = "지출 : " + data + "원"
-
-
-
-
-                })
-                .catch(err => {
-                    console.log("예외 발생");
-                    console.log(err);
-
-                    spend.innerText = ""
-                    spend.innerText = "내역 없음"
-                });
-        });
-
-    })
-
-}
-
-
-
-/* 지출,수입 내역 업데이트 */
-
-for(let i=0; i<lineMonth.length; i++){
-    lineMonth[i].addEventListener("click", e=>{
-    console.log(e.currentTarget.firstElementChild.innerText)
-
-    const month = e.currentTarget.firstElementChild.innerText;
-    
-    
-
-    changeBtn.addEventListener("click", () => {
-        // ajax 코드 작성
-        fetch(`/account/changeMonthUpdate?month=${month}&accountNo=${accountNo}`)
-            .then(resp => resp.json()) // JSON 응답 파싱
-            .then(aList => {
-                console.log("응답 데이터: ", aList);
-
-                
-
-                /* 지출 내역 영역 */
-                const spendArea = document.querySelector(".spend-area")
-                spendArea.innerText = ""
-
-                // 여기서 data를 사용하여 필요한 처리를 수행하세요.
-                for(let account of aList){
-                    
-                    
-
-                    const spendLine = document.createElement("div")
-                    spendLine.classList.add("spend-line")
-
-                    const spendLeft = document.createElement("div")
-                    spendLeft.classList.add("spend-left")
-
-                    const div1 = document.createElement("div")
-                    const div2 = document.createElement("div")
-                    const div3 = document.createElement("div")
-                    
-                    div1.innerText = account.accountDate
-                    div2.innerText = account.accountContent
-                    div3.innerText = account.category
-
-                    spendLeft.append(div1, div2, div3)
-
-                    const moneyDiv = document.createElement("div")
-                    moneyDiv.innerText = "-" + account.accountMoney + "원"
-
-
-                    spendLine.append(spendLeft, moneyDiv)
-
-                    const hr = document.createElement("hr")
-
-
-
-                    spendArea.append(spendLine, hr)
-
-
-    
-    
-                }
-
-    
-    
-                
-    
-            })
-            .catch(err => {
-                console.log("예외 발생");
-                console.log(err);
-    
-                spend.innerText = ""
-                spend.innerText = "내역 없음"
-
-                spendLine.innerText = "지출 내역이 존재하지 않습니다."
-            });
+// 클릭 시 이벤트 발생
+for (let i = 0; i < lineMonth.length; i++) {
+    lineMonth[i].addEventListener("click", e => {
+      const month = e.currentTarget.firstElementChild.innerText;
+      changePage.style.display = 'none';
+      dateMonth.innerText = month + "월";
+  
+      // 이벤트 핸들러 밖에서 fetch 호출
     });
+  }
 
 
-    })
+// changeBtn 클릭 이벤트 핸들러
+changeBtn.addEventListener("click", () => {
+    const month = dateMonth.innerText.replace("월", "");
+    handleFetch(month);
+    handleFetchView(month);
+    handleFetchChart(month);
+});
+
+// 월 지출 합계 금액 fetch 함수
+function handleFetch(month) {
+    console.log("월:", month);
+    console.log("가계부 번호:", accountNo);
+  
+    fetch(`/account/changeMonth?month=${month}&accountNo=${accountNo}`)
+      .then(resp => resp.json())
+      .then(data => {
+        const spend = document.getElementById("spend");
+        if (data !== '') {
+          console.log("응답 데이터 금액:", data);
+          spend.innerHTML = "지출 : " + data + "원";
+        } else {
+          spend.innerText = "내역 없음";
+        }
+      })
+      .catch(err => {
+        console.log("예외 발생");
+        console.log(err);
+        const spend = document.getElementById("spend");
+        spend.innerText = "내역 없음";
+      });
+  }
+
+
+
+// 월 지출 내역 조회 fetch함수
+function handleFetchView(month) {
+    console.log("월:", month);
+    console.log("가계부 번호:", accountNo);
+  
+    fetch(`/account/changeMonthUpdate?month=${month}&accountNo=${accountNo}`)
+      .then(resp => resp.json())
+      .then(aList => {
+        const spendArea = document.querySelector(".spend-area")
+        spendArea.innerText = ""
+        if(aList != ''){
+
+
+            console.log("응답 데이터 지출 내역: ", aList);
+
+            
+
+            /* 지출 내역 영역 */
+            // 여기서 data를 사용하여 필요한 처리를 수행하세요.
+            for(let account of aList){
+                
+                
+
+                const spendLine = document.createElement("div")
+                spendLine.classList.add("spend-line")
+
+                const spendLeft = document.createElement("div")
+                spendLeft.classList.add("spend-left")
+
+                const div1 = document.createElement("div")
+                const div2 = document.createElement("div")
+                const div3 = document.createElement("div")
+                
+                div1.innerText = account.accountDate
+                div2.innerText = account.accountContent
+                div3.innerText = account.category
+
+                spendLeft.append(div1, div2, div3)
+
+                const moneyDiv = document.createElement("div")
+                moneyDiv.innerText = "-" + account.accountMoney + "원"
+
+
+                spendLine.append(spendLeft, moneyDiv)
+
+                const hr = document.createElement("hr")
+
+
+
+                spendArea.append(spendLine, hr)
+
+            }
+
+
+
+
+
+        }
+      })
+      .catch(err => {
+        console.log("예외 발생");
+        console.log(err);
+
+      });
 }
 
 
-// 그래프 차트 데이터 넣기
-/* 클릭 시 이벤트 발생 */
-for(let i=0; i<lineMonth.length; i++){
-    lineMonth[i].addEventListener("click", e=>{
 
 
-        changePage.style.display = 'none'
-        dateMonth.innerText = ""
-        dateMonth.innerText = month + "월"
+// 월 지출 금액 차트호출 fetch 함수
+function handleFetchChart(month) {
+    console.log("월:", month);
+    console.log("가계부 번호:", accountNo);
+  
+       fetch(`/account/changeChart?month=${month}&accountNo=${accountNo}`)
+      .then(resp => resp.json())
+      .then(cList => {
+        const pieChartCanvas = document.getElementById('pieChartCanvas');
+        const ctx = pieChartCanvas.getContext('2d');
 
-        changeBtn.addEventListener("click", () => {
-
-            // ajax 코드 작성
-            fetch(`/account/changeMonth?month=${month}&accountNo=${accountNo}`)
-                .then(resp => resp.json()) // JSON 응답 파싱
-                .then(data => {
-                    console.log("응답 데이터: ", data);
-                    // 여기서 data를 사용하여 필요한 처리를 수행하세요.
-
-                    const spend = document.getElementById("spend")
-
-                    
-
-
-                    spend.innerText = ""
-                    spend.innerText = "지출 : " + data + "원"
+        // 이전 차트 제거
+        if (window.pieChart) {
+            window.pieChart.destroy();
+        }
 
 
+        if(cList == ''){
 
+            console.log("숨김")
 
-                })
-                .catch(err => {
-                    console.log("예외 발생");
-                    console.log(err);
+            return;
 
-                    spend.innerText = ""
-                    spend.innerText = "내역 없음"
-                });
-        });
+        }
+        if(cList != ''){
+            console.log("응답 데이터있음: ", cList);
 
+            let pieChartData = {
+              labels: [],
+              datasets: [{
+                  data: [],
+                  backgroundColor: ['rgb(216, 63, 50)', 'rgb(248, 207, 18)', 'rgb(255, 205, 86)', 'rgb(75, 192, 192)', 'rgb(54, 162, 235)', 'rgb(153, 102, 255)']
+              }] 
+
+            };
+
+            /* 지출 */
+
+            for(let chart of cList){
+                console.log(chart.category)
+                console.log(chart.percent)
+
+                pieChartData.labels.push(chart.category);
+                pieChartData.datasets[0].data.push(chart.percent);
+
+            }
+            // 새로운 차트 생성
+            window.pieChart = new Chart(ctx, {
+                type: 'pie',
+                data: pieChartData,
+                options: {
+                    responsive: false
+                }
+            });
+        }
     })
-
+    .catch(err => {
+        console.log("예외 발생");
+        console.log(err);
+    });
 }
+
+
+
+
+
+
+

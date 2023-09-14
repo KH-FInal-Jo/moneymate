@@ -31,6 +31,8 @@ public class AccountController {
 		return "account/SaccountBookDetail";
 	}
 	
+	
+	// 월 지출금액
 	@GetMapping(value = "/account/changeMonth", produces = "application/json; charset=UTF-8")
 	@ResponseBody
 	public int changeMonth(@RequestParam("month") String month, 
@@ -55,7 +57,7 @@ public class AccountController {
 	}
 	
 	
-	
+	// 월 지출내역 업데이트
 	@GetMapping(value = "/account/changeMonthUpdate", produces = "application/json; charset=UTF-8")
 	@ResponseBody
 	public List<SAccount> changeMonthUpdate(@RequestParam("month") String month, 
@@ -72,6 +74,26 @@ public class AccountController {
 	    System.out.println("업데이트 : " + map);
 	    
 	    return service.changeMonthUpdate(map); // 예시 JSON 응답
+	}
+	
+	
+	// 월 지출 그래프
+	@GetMapping(value = "/account/changeChart", produces = "application/json; charset=UTF-8")
+	@ResponseBody
+	public List<SAccount> changeChart(@RequestParam("month") String month, 
+											@RequestParam("accountNo") String accountNo,
+											@SessionAttribute("loginMember") Member loginMember) {
+	    int memberNo = loginMember.getMemberNo();
+	    
+	    Map<String, Object> map = new HashMap<String, Object>();
+	    
+	    map.put("month", month);
+	    map.put("accountNo", accountNo);
+	    map.put("memberNo", memberNo);
+	    
+	    System.out.println("업데이트 : " + map);
+	    
+	    return service.changeChart(map); // 예시 JSON 응답
 	}
 	
 	
