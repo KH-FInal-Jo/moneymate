@@ -6,8 +6,14 @@ public interface JAccountBkService {
 
 	int accountBkInsert(JAccountBook accountBk);
 
-	String accountBkSelect(int memberNo);
+	int accountBkSelect(int bigAccountNo);
 
 	int accountBkTarget(JAccountBook account);
+
+	// 목표 금액 inserts
+	int insertTarget(JAccountBook accountBk);
+
+	// 목표금액, 날짜 가져오기
+	JAccountBook selectAccountBk(int bigAccountNo);
 
 }

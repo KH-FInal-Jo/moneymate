@@ -15,7 +15,7 @@ public class JAccountBook {
 	private String relevantDate;
 	private String registrationDate;
 	private String account;
-	private String accountMoney;
+	private int accountMoney;
 	private String memo;
 	private String paymentMethod;
 	private int categoryCode;
@@ -27,5 +27,8 @@ public class JAccountBook {
 	private String inoutName;
 	
 	private int targetMoney;
+	private int bigAccountNo;
+	private String startDate;
+	private String endDate;
 	
 }

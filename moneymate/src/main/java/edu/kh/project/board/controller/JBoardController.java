@@ -44,7 +44,7 @@ public class JBoardController {
 	}
 	
 	// 공지사항 상세조회
-	@GetMapping("/{boardCode}/{boardNo}")
+	@GetMapping("/{boardCode:[1]}/{boardNo}")
 	public String boardNoticeDetail(@PathVariable("boardCode") int boardCode
 									, @PathVariable("boardNo") int boardNo
 									, Model model) {

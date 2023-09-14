@@ -27,8 +27,8 @@ public class JAccountBkServiceImpl implements JAccountBkService{
 
 	// 가계부 상세 조회
 	@Override
-	public String accountBkSelect(int memberNo) {
-		return dao.accountBkSelect(memberNo);
+	public int accountBkSelect(int bigAccountNo) {
+		return dao.accountBkSelect(bigAccountNo);
 	}
 
 	// 목표금액 설정
@@ -47,6 +47,20 @@ public class JAccountBkServiceImpl implements JAccountBkService{
 		
 		
 		return targetMoney;
+	}
+
+	// 목표 금액 insert
+	@Override
+	public int insertTarget(JAccountBook accountBk) {
+		
+		
+		return dao.insertTarget(accountBk);
+	}
+
+	// 목표금액, 시작,종료 날짜 가져오기
+	@Override
+	public JAccountBook selectAccountBk(int bigAccountNo) {
+		return dao.selectAccountBk(bigAccountNo);
 	}
 
 }
