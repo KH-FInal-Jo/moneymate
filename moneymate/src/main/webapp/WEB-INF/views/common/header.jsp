@@ -23,7 +23,7 @@
                 <!-- 헤더 글 -->
                 <div class="nav">
                     <a href="/community/1"><span>커뮤니티</span></a>
-                    <a href="/account"><span>가계부</span></a>
+                    <a href="/account/1"><span>가계부</span></a>
                     <a href="/consumetest"><span>소비 테스트</span></a>
                     <a href="/event"><span>이벤트게시판</span></a>
                     <a href="/member/mypage"><span>마이페이지</span></a>

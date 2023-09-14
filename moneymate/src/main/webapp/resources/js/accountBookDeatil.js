@@ -132,6 +132,18 @@ const dateMonth = document.getElementById("date-month")
 /* 1-12월 */
 const lineMonth = document.querySelectorAll(".line-month")
 
+
+// 현재 페이지의 URL 가져오기
+var currentURL = window.location.href;
+
+// URL에서 "1" 추출하기
+var parts = currentURL.split('/');
+var accountNo = parts.pop(); // URL을 '/' 문자로 나누고 가장 마지막 요소를 가져옴
+
+
+
+
+
 /* 클릭 시 이벤트 발생 */
 for(let i=0; i<lineMonth.length; i++){
     lineMonth[i].addEventListener("click", e=>{
@@ -145,8 +157,10 @@ for(let i=0; i<lineMonth.length; i++){
 
         changeBtn.addEventListener("click", () => {
             console.log(month);
+            console.log(accountNo);
+
             // ajax 코드 작성
-            fetch(`/account/changeMonth?month=${month}`)
+            fetch(`/account/changeMonth?month=${month}&accountNo=${accountNo}`)
                 .then(resp => resp.json()) // JSON 응답 파싱
                 .then(data => {
                     console.log("응답 데이터: ", data);
@@ -191,7 +205,7 @@ for(let i=0; i<lineMonth.length; i++){
 
     changeBtn.addEventListener("click", () => {
         // ajax 코드 작성
-        fetch(`/account/changeMonthUpdate?month=${month}`)
+        fetch(`/account/changeMonthUpdate?month=${month}&accountNo=${accountNo}`)
             .then(resp => resp.json()) // JSON 응답 파싱
             .then(aList => {
                 console.log("응답 데이터: ", aList);
@@ -258,4 +272,49 @@ for(let i=0; i<lineMonth.length; i++){
 
 
     })
+}
+
+
+// 그래프 차트 데이터 넣기
+/* 클릭 시 이벤트 발생 */
+for(let i=0; i<lineMonth.length; i++){
+    lineMonth[i].addEventListener("click", e=>{
+
+
+        changePage.style.display = 'none'
+        dateMonth.innerText = ""
+        dateMonth.innerText = month + "월"
+
+        changeBtn.addEventListener("click", () => {
+
+            // ajax 코드 작성
+            fetch(`/account/changeMonth?month=${month}&accountNo=${accountNo}`)
+                .then(resp => resp.json()) // JSON 응답 파싱
+                .then(data => {
+                    console.log("응답 데이터: ", data);
+                    // 여기서 data를 사용하여 필요한 처리를 수행하세요.
+
+                    const spend = document.getElementById("spend")
+
+                    
+
+
+                    spend.innerText = ""
+                    spend.innerText = "지출 : " + data + "원"
+
+
+
+
+                })
+                .catch(err => {
+                    console.log("예외 발생");
+                    console.log(err);
+
+                    spend.innerText = ""
+                    spend.innerText = "내역 없음"
+                });
+        });
+
+    })
+
 }
