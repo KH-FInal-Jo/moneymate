@@ -29,7 +29,7 @@
                     <a href="/member/mypage"><span>마이페이지</span></a>
                     
                     <c:if test="${loginMember.authority == 1}">
-                       <a href="/admin"><span>관리자</span></a>
+                       <a href="/admin/member"><span>관리자</span></a>
                     </c:if>
                     <span><i class="fa-solid fa-bell fa-2x" id="alarm-btn" style="color: #efe834;"></i></span>
                     <div class="alarm-area">

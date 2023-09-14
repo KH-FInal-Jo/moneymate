@@ -1,3 +1,7 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"  %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"  %>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,7 +9,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>회원관리(관리자)</title>
 
-    <link rel="stylesheet" href="../css/admin/adminMember.css">
+    <link rel="stylesheet" href="/resources/css/admin/adminMember.css">
+    <link rel="stylesheet" href="/resources/css/header.css">
+    <link rel="stylesheet" href="/resources/css/footer.css">
+
 </head>
 <body>
 
@@ -13,6 +20,8 @@
         JS 만들어서 마일리지 입력 후 확인 누르면 ajax 통해서 마일리지 PUT 할 수 있게
         탈퇴버튼도 동일
      -->
+
+     <jsp:include page="/WEB-INF/views/common/header.jsp"/>
 
     <div id="all">
 
@@ -320,9 +329,11 @@
 
         </div>
 
+
         
 
     </div>
+        <jsp:include page="/WEB-INF/views/common/footer.jsp"/>
     
 </body>
 </html>
