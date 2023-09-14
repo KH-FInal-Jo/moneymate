@@ -35,6 +35,16 @@ public class AccountDAO {
 	}
 
 
+	/** 지출 그래프
+	 * @param map
+	 * @return
+	 */
+	public List<SAccount> changeChart(Map<String, Object> map) {
+		// TODO Auto-generated method stub
+		return sqlSession.selectList("SmemberMapper.selectChart", map);
+	}
+
+
 	
 	
 

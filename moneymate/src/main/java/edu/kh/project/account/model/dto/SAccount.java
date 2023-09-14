@@ -15,6 +15,7 @@ public class SAccount {
 	private int accountMoney;
 	private String accountContent;
 	private String category;
+	private double percent;
 	
 	private List<SAccount> accountList;
 	

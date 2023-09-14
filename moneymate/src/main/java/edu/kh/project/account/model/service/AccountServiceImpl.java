@@ -31,6 +31,13 @@ public class AccountServiceImpl implements AccountService {
 		return dao.changeMonthUpdate(map);
 	}
 
+	// 지출 그래프
+	@Override
+	public List<SAccount> changeChart(Map<String, Object> map) {
+		// TODO Auto-generated method stub
+		return dao.changeChart(map);
+	}
+
 
 
 }

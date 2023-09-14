@@ -177,6 +177,23 @@
     <jsp:include page="/WEB-INF/views/common/footer.jsp" />
     
 
+
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            var currentURL = window.location.href;
+
+            // URL에서 "1" 추출하기
+            var parts = currentURL.split('/');
+            var accountNo = parts.pop();
+
+            const dateMonth = document.getElementById("date-month")
+            const month = dateMonth.innerText.replace("월", "");
+            handleFetch(month, accountNo);
+            handleFetchView(month, accountNo);
+            handleFetchChart(month, accountNo);
+        });
+    </script>
     <script src="/resources/js/accountBookDeatil.js"></script>
 </body>
 </html>

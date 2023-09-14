@@ -8,6 +8,7 @@
 		<result property="accountMoney" column="ACNT_MN" />
 		<result property="accountContent" column="ACNT_CONT" />
 		<result property="category" column="ACNT_CATEGORY" />
+		<result property="percent" column="PERCENT" />
 		
 	
 	</resultMap>
@@ -35,5 +36,31 @@
 		AND MEMBER_NO = #{memberNo}
 		AND ACNT_ST = 'N'
 	</select>
+	
+	
+	<select id="selectChart" resultMap="SAccount-rm">
+		
+		SELECT ACNT_CATEGORY , SUM(ACNT_MN)AS 합계, ROUND(RATIO_TO_REPORT(SUM(ACNT_MN)) OVER()*100,1) AS PERCENT
+		FROM ACCOUNT_DETAIL
+		JOIN ACCOUNTBOOK USING(ACNT_NO)
+		WHERE ACNT_DATE IN (SELECT ACNT_DATE FROM "ACCOUNT_DETAIL" 
+		                    WHERE SUBSTR(ACNT_DATE, 7, 1) = #{month})
+		AND MEMBER_NO = #{memberNo}
+		AND ACNT_NO = #{accountNo}
+		AND ACNT_ST = 'N'
+		AND INOUT_NM = '지출'
+		GROUP BY ACNT_CATEGORY
+		ORDER BY 합계 DESC
+	
+	</select>
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 </mapper>
