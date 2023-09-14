@@ -98,6 +98,7 @@ const faGear = document.getElementsByClassName("fa-gear")[0];
 /* 목표 예산 설정을 위해 가져와야할 변수 */
 const accTargetMoney = document.getElementsByClassName("accTargetMoney")[0];
 const accTargetInput = document.getElementsByClassName("accTargetInput")[0];
+const accTargetBtn2 = document.getElementsByClassName("accTargetBtn2")[0];
 
 accTargetBtn.addEventListener("click", function(){
     if(accTarget.style.display !== 'none'){
@@ -113,6 +114,13 @@ accTargetBtn.addEventListener("click", function(){
     }
 
 })
+
+accTargetBtn2.addEventListener("click", function(){
+
+  accTarget.style.display = 'none';
+})
+
+
 
 /* 사용금액 콤마 넣기 */
 document.addEventListener("DOMContentLoaded", function() {
@@ -148,96 +156,11 @@ input.addEventListener('keyup', function(e) {
   }
 }) */
 
-/* 목표예산 설정 유효성 검사 */
-function accTargetInput2(){
-
-  const regEx = /^[0-9,]+$/;
-
-  if(accTargetInput.value == 0 || accTargetInput.value == ""){
-
-    alert("입력 형식이 유효하지 않습니다.");
-
-    accTargetInput.value = "";
-    accTargetInput.focus();
-    return;
-
-  }
-
-  if(regEx.test(accTargetInput.value)){
-
-
-
-    alert("목표 예산이 설정되었습니다.");
-    accTargetMoney.innerHTML = accTargetInput.value;
-    accTargetInput.value = "";
-
-    accTarget.style.display = 'none';
-    faGear.style.color = '#b4adad';
-
-  }
-
-}
-
-
-
-// -----------------------------------------------------------------------------
-
-const accTargetInput1 = document.querySelector(".accTargetInput");
-const accProgress1 = document.querySelector(".accProgress");
-
-function accTargetInput4() {
-  const regEx = /^[0-9,]+$/;
-
-  if (accTargetInput1.value == 0 || accTargetInput1.value == "") {
-    alert("입력 형식이 유효하지 않습니다.");
-    accTargetInput1.value = "";
-    accTargetInput1.focus();
-    return;
-  }
-
-  if (regEx.test(accTargetInput1.value)) {
-
-    const targetAmount = parseInt(accTargetInput1.value.replace(/,/g, ''), 10);
-
-    fetch('/account/target', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ accTarget :targetAmount }), 
-    })
-    .then(response => response.json())
-    .then(data => {
-
-      console.log("데이터 가라");
-      // 서버에서 목표 금액 업데이트에 성공하면 프로그레스 바 업데이트
-      if (data.success) {
-        accProgress1.value = (data.usedAmount / targetAmount) * 100;
-        alert("목표 예산이 설정되었습니다.");
-      } else {
-        alert("목표 예산 설정에 실패했습니다.");
-      }
-    })
-    
-    // 입력 필드 초기화
-    accTargetInput1.value = "";
-  }
-}
-
-
-
-
-
-
-
-
-
 
 
 
 const accUsedMoney = document.getElementsByClassName("accUsedMoney")[0];
 const accProgress = document.getElementsByClassName("accProgress")[0];
-const accTargetBtn2 = document.getElementsByClassName("accTargetBtn2")[0];
 
 /* 프로그래스바 .. */
 /* accTargetBtn2.addEventListener("click", function(){
@@ -362,6 +285,7 @@ accBk12.addEventListener("click", function(){
 /* 기간 설정 */
 const accDateRecordBtn = document.getElementsByClassName("accDateRecordBtn")[0];
 const accDateRecord = document.getElementsByClassName("accDateRecord")[0];
+const accDateCh = document.getElementById("accDateChange");
 
 
 accDateRecordBtn.addEventListener("click", function(){
@@ -375,6 +299,15 @@ accDateRecordBtn.addEventListener("click", function(){
     }
 
 })
+
+accDateCh.addEventListener("click", function(){
+
+  accDateRecord.style.display = 'none';
+})
+
+
+
+
 
 /* 날짜 입력 가져오기 */
 /* const accDateChange = document.getElementById("accDateChange");

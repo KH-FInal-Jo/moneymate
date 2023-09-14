@@ -268,6 +268,7 @@
     
 	<jsp:include page="/WEB-INF/views/common/footer.jsp" />
 <script>document.documentElement.style.setProperty('--animate-duration', '2s');</script>
+<script src="/resources/js/main.js"></script>
 
 
 </body>

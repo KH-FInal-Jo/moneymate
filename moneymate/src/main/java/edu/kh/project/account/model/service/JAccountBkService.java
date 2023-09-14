@@ -1,5 +1,7 @@
 package edu.kh.project.account.model.service;
 
+import java.util.List;
+
 import edu.kh.project.account.model.dto.JAccountBook;
 
 public interface JAccountBkService {
@@ -15,5 +17,13 @@ public interface JAccountBkService {
 
 	// 목표금액, 날짜 가져오기
 	JAccountBook selectAccountBk(int bigAccountNo);
+
+	// 목표 금액, 날짜 비교하기
+	//int selectAccountTarget(JAccountBook accountBk);
+
+	List<JAccountBook> selectAccountBk2();
+
+	// 마일리지 입력하기
+	int insertMileage(int selmemberNo);
 
 }
