@@ -90,6 +90,7 @@ public class HBoardController {
 		return "event/eventAccount";
 	}
 	
+	// 댓글 삽입
 	@PostMapping("/event/account/insert")
 	@ResponseBody
 	public int result(@RequestParam("commentContent") String commentContent, @RequestParam("commentImage") MultipartFile commentImage
@@ -125,6 +126,39 @@ public class HBoardController {
 		return service.commentList(loginMember);
 	}
 	
+	// 댓글 수정
+	@PostMapping("/event/account/update")
+	@ResponseBody
+	public int updateComment(@RequestParam("updateContent") String updateContent
+							, @RequestParam("updateFile") MultipartFile updateImage
+							, @RequestParam("commentNo") int commentNo
+							, @SessionAttribute(value="loginMember", required=false) Member loginMember
+							, HttpSession session) throws IllegalStateException, IOException {
+		
+		CComment comment = new CComment();
+		
+		
+		comment.setCommentNo(commentNo);
+		
+		comment.setCommentContent(updateContent);
+		
+		comment.setMemberNo(loginMember.getMemberNo());
+		//System.out.println("first " + comment);
+		String webPath = "/resources/images/event/";
+		String filePath = session.getServletContext().getRealPath(webPath);
+		
+		int result = service.commentUpdate(comment, updateImage, webPath, filePath);
+		
+		//System.out.println("직전 " + result);
+		
+		return result;
+	}
+	
+	@GetMapping("/event/account/delete")
+	@ResponseBody
+	public int deleteComment(int no) {
+		return service.deleteComment(no);
+	}
 	
 
 }

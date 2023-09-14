@@ -85,6 +85,30 @@ public class HBoardDAO {
 		return sqlSession.selectOne("HBoardMapper.countLike", paramMap);
 	}
 
+	/** 댓글 내용 수정
+	 * @param comment
+	 * @return result
+	 */
+	public int commentUpdate(CComment comment) {
+		return sqlSession.update("HBoardMapper.commentUpdate", comment);
+	}
+
+	/** 댓글 이미지 수정
+	 * @param img
+	 * @return
+	 */
+	public int updateCommentImage(HBoardImage img) {
+		return sqlSession.update("HBoardMapper.updateCommentImage", img);
+	}
+
+	/** 댓글 삭제
+	 * @param no
+	 * @return result
+	 */
+	public int deleteComment(int no) {
+		return sqlSession.update("HBoardMapper.deleteComment", no);
+	}
+
 	
 
 	
