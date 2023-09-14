@@ -34,6 +34,7 @@
 		
 		<result property="likeCount" column="LIKE_COUNT" />
 		<result property="commentImage" column="IMG" />
+		<result property="likeCheck" column="LIKE_CHECK" />
 	</resultMap>
 
 	<!-- 출첵 이전 날짜 조회 -->
@@ -49,14 +50,29 @@
 	</insert>
 	
 	
-	<!-- 가계부 이벤트 댓글 목록 조회 -->
+	<!-- 가계부 이벤트 댓글 목록 조회 --> <!-- 회원용 -->
 	<select id="commentList" resultMap="comment_rm">
-		SELECT PROFILE, MEMBER_NICKNAME, COMMENT_DT, IMG_PATH || IMG_RENAME IMG, COMMENT_CONTENT,
-	    	(SELECT COUNT(*) FROM "LIKE" WHERE BR_NO = 1 AND LIKE_CODE = 2) LIKE_COUNT
+		SELECT COMMENT_NO, PROFILE, MEMBER_NICKNAME, COMMENT_DT, IMG_PATH || IMG_RENAME IMG, COMMENT_CONTENT,
+	    	(SELECT COUNT(*) FROM "LIKE" WHERE BR_NO = "COMMENT".COMMENT_NO AND LIKE_CODE = 2) LIKE_COUNT,
+	    	(SELECT COUNT(*) FROM "LIKE"
+		    WHERE BR_NO = "COMMENT".COMMENT_NO
+		    AND LIKE_CODE = 2
+		    AND MEMBER_NO = #{memberNo}) LIKE_CHECK
 		FROM "COMMENT"
 		JOIN MEMBER USING(MEMBER_NO)
 		JOIN IMAGE ON ("COMMENT".COMMENT_NO IN IMAGE.BR_NO)
 		WHERE IMG_CD = 2
+	</select>
+	
+	<!-- 가계부 이벤트 댓글 목록 조회(비회원) -->
+	<select id="NcommentList" resultMap="comment_rm">
+		SELECT COMMENT_NO, PROFILE, MEMBER_NICKNAME, COMMENT_DT, IMG_PATH || IMG_RENAME IMG, COMMENT_CONTENT,
+	    	(SELECT COUNT(*) FROM "LIKE" WHERE BR_NO = "COMMENT".COMMENT_NO AND LIKE_CODE = 2) LIKE_COUNT, 0 LIKE_CHECK
+		FROM "COMMENT"
+		JOIN MEMBER USING(MEMBER_NO)
+		JOIN IMAGE ON ("COMMENT".COMMENT_NO IN IMAGE.BR_NO)
+		WHERE IMG_CD = 2
+		AND COMMENT_ST = 'N'
 	</select>
 	
 	<!-- 댓글 글 관련 삽입 -->
@@ -73,6 +89,21 @@
 	<insert id="insertCommentImage">
 		INSERT INTO "IMAGE" VALUES(#{brNo}, 2, #{imagePath}, #{imageReName}, #{imageOriginal}, 0)
 	</insert>
+	
+	<!-- 좋아요 삽입 -->
+	<insert id="insertLike">
+		INSERT INTO "LIKE" VALUES (#{memberNo}, #{commentNo}, 2)
+	</insert>
+	
+	<!-- 좋아요 삭제 -->
+	<delete id="deleteLike">
+		DELETE FROM "LIKE" WHERE BR_NO = #{commentNo} AND MEMBER_NO = #{memberNo} AND LIKE_CODE = 2
+	</delete>
+	
+	<!-- 좋아요 개수 세기 -->
+	<select id="countLike" resultType="_int">
+		SELECT COUNT(*) FROM "LIKE" WHERE BR_NO = #{commentNo} AND LIKE_CODE = 2
+	</select>
 	
 	
 </mapper>

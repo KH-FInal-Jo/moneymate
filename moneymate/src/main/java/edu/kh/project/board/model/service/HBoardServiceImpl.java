@@ -3,6 +3,7 @@ package edu.kh.project.board.model.service;
 import java.io.File;
 import java.io.IOException;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -14,6 +15,7 @@ import edu.kh.project.board.model.dto.CComment;
 import edu.kh.project.board.model.dto.HBoardImage;
 import edu.kh.project.board.model.exception.FileUploadException;
 import edu.kh.project.common.utility.Util;
+import edu.kh.project.member.model.dto.Member;
 
 @Service
 public class HBoardServiceImpl implements HBoardService {
@@ -36,8 +38,14 @@ public class HBoardServiceImpl implements HBoardService {
 
 	// 가계부 이벤트 댓글 목록 조회
 	@Override
-	public List<CComment> commentList() {
-		return dao.commentList();
+	public List<CComment> commentList(Member loginMember) {
+		return dao.commentList(loginMember);
+	}
+	
+	// 가계부 이벤트 댓글 목록 조회(비회원)
+	@Override
+	public List<CComment> NcommentList() {
+		return dao.NcommentList();
 	}
 
 	// 댓글 삽입
@@ -82,5 +90,30 @@ public class HBoardServiceImpl implements HBoardService {
 		
 		return commentNo;
 	}
+
+	// 댓글 좋아요
+	@Transactional (rollbackFor = {Exception.class})
+	@Override
+	public int eventLike(Map<String, Integer> paramMap) {
+		
+		int result = 0;
+		
+		if(paramMap.get("likeCheck") == 0) { // 좋아요 X -> O
+			result = dao.insertLike(paramMap);
+		} else { // 좋아요 O -> X
+			result = dao.deleteLike(paramMap);
+		}
+		
+		if(result == 0) return -1;
+		
+		// 좋아요 개수 다시 헤아리기
+		int count = dao.countLike(paramMap);
+		
+		return count;
+	}
+
+	
+
+	
 
 }

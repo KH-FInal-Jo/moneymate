@@ -6,6 +6,105 @@ let flag = true; // 댓글 등록 시 또 댓글 등록 못하게 !!!
 // 삭제할 경우 true로 바꿔주고
 // 다시 등록하는 경우엔 false로 바꿔줘야 함
 
+function selectList(){
+    fetch("/event/account/comment")
+
+    .then(resp => resp.json())
+
+    .then(cList => {
+        // console.log(cList)
+        const commentList = document.getElementById("commentList");
+        commentList.innerHTML = ""; // 큰 ul 비우기
+
+        for(let comment of cList){
+
+            const li = document.createElement("li");
+            li.classList.add("comment-li");
+
+            const p = document.createElement("p");
+            p.classList.add("writer");
+            
+            const profileImg = document.createElement("img");
+
+            if( comment.profileImage != null ){ // 프로필 이미지가 있을 경우
+                profileImg.setAttribute("src", comment.profileImage);
+            }else{ // 없을 경우 == 기본이미지
+                profileImg.setAttribute("src", "/resources/images/id.png");
+            }
+            
+            const nickSpan = document.createElement("span");
+            nickSpan.innerHTML = comment.memberNickname;
+            
+            const wDate = document.createElement("span");
+            wDate.classList.add("writeDate");
+            wDate.innerHTML = comment.commentCreateDate;
+
+            p.append(profileImg, nickSpan, wDate);
+
+            /* --------- */
+
+            const cDiv = document.createElement("div");
+            cDiv.classList.add("comment-area"); 
+
+            const contentImg = document.createElement("img");
+            contentImg.classList.add("contentImg");
+            contentImg.setAttribute("src", comment.commentImage);
+
+            const pContent = document.createElement("p");
+            pContent.classList.add("contentArea");
+            pContent.innerHTML = comment.commentContent;
+
+            const lDiv = document.createElement("div");
+            lDiv.classList.add("likeArea");
+
+            const likeI = document.createElement("i");
+            likeI.setAttribute("onclick", "updateLike("+comment.commentNo+", this)");
+
+            if( comment.likeCheck == 1 ){ // 좋아요 되어 있는 경우
+                likeI.classList.add("fa-solid", "fa-heart", "commentLike");
+            }else{ // 빈 하트
+                likeI.classList.add("fa-regular", "fa-heart", "commentLike");
+            }
+
+            const countSpan = document.createElement("span");
+            countSpan.innerHTML = comment.likeCount;
+
+            lDiv.append(likeI, countSpan);
+
+            cDiv.append(contentImg, pContent, lDiv);
+
+            /* -------------- */
+
+            const bDiv = document.createElement("div");
+            bDiv.classList.add("btn-area"); 
+
+            const updateBtn = document.createElement("button");
+            updateBtn.innerText = "수정";
+
+            updateBtn.setAttribute("onclick", "updateBtn("+comment.commentNo+", this)");                        
+
+            const deleteBtn = document.createElement("button");
+            deleteBtn.innerText = "삭제";
+
+            deleteBtn.setAttribute("onclick", "deleteBtn("+comment.commentNo+")");  
+            
+            bDiv.append(updateBtn, deleteBtn);
+
+            /* -------------- */
+
+            li.append(p, cDiv, bDiv);
+
+            commentList.append(li)
+        }
+
+    })
+
+    .catch(e => console.log(e));
+}
+
+
+
+
 for(let i = 0; i<imgInput.length; i++){ 
     imgInput[i].addEventListener("change", e => { // 파일 선택
         const file = e.target.files[0];
@@ -164,8 +263,6 @@ function updateBtn(commentNo, btn){
         }
     })
 
-
-
 }
 
 // 수정 취소
@@ -241,5 +338,51 @@ insertBtn.addEventListener("click" , (e) => {
 });
 
 
-// 남은 거 : selectList, 좋아요(누르기, 개수 조회하기, 여부 조회하기 등....)
+// 좋아요
+function updateLike(commentNo, btn){
+
+    console.log(commentNo)
+
+    if(loginMemberNo == ""){
+        alert("로그인 후 이용해주세요");
+        return;
+    }
+
+    let check;
+
+    if(btn.classList.contains("fa-regular")){ // 빈 하트인 경우
+        check = 0;
+    } else { // 좋아요가 되어있는 경우
+        check = 1;
+    }
+
+    const data = {
+        "commentNo" : commentNo,
+        "memberNo" : loginMemberNo,
+        "likeCheck" : check
+    }
+
+    fetch("/event/account/like", {
+        method : "POST",
+        headers : {"Content-Type" : "application/json"},
+        body : JSON.stringify(data)
+    })
+
+    .then(resp => resp.text())
+
+    .then(count => {
+        if(count == -1){
+            console.log("좋아요 처리 실패(-1)");
+            return;
+        }
+
+        btn.classList.toggle("fa-regular");
+        btn.classList.toggle("fa-solid");
+
+        btn.nextElementSibling.innerText = count;
+    })
+
+    .catch(e => console.log(e))
+}
+
 

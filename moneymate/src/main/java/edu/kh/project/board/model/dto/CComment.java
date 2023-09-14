@@ -21,5 +21,6 @@ public class CComment {
 	
 	private String commentImage;
 	private int likeCount;
+	private int likeCheck;
 
 }
