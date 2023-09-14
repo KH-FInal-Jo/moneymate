@@ -2,6 +2,11 @@ const preview = document.getElementsByClassName("preview"); // 미리보기 이�
 const imgInput = document.getElementsByClassName("imgInput"); // 파일 태그
 const deleteImage = document.getElementsByClassName("delete-image"); // x버튼
 
+const deleteImg = document.getElementsByClassName("delete-image1"); // 수정 x버튼
+const updateImg11 = document.getElementsByClassName("imgInput1"); // 수정 파일
+
+let chk = 1; // 이미지 삭제한 경우 고려
+
 let flag = true; // 댓글 등록 시 또 댓글 등록 못하게 !!!
 // 삭제할 경우 true로 바꿔주고
 // 다시 등록하는 경우엔 false로 바꿔줘야 함
@@ -17,6 +22,10 @@ function selectList(){
         commentList.innerHTML = ""; // 큰 ul 비우기
 
         for(let comment of cList){
+
+            if(comment.memberNo == loginMemberNo){
+                flag = false;
+            }
 
             const li = document.createElement("li");
             li.classList.add("comment-li");
@@ -160,10 +169,13 @@ function updateBtn(commentNo, btn){
     /* ----------------------------------------------------- */
 
     // 새로운 요소 추가
+    const updateFrm = document.createElement("form");
+    updateFrm.setAttribute("id", "updateFrm");
     const bigDiv = document.createElement("div");
     bigDiv.classList.add("writeArea1");
 
     const textarea = document.createElement("textarea");
+    textarea.setAttribute("name", "updateContent");
     textarea.classList.add("updateWrite1");
 
     beforeContent =  beforeContent.replaceAll("&amp;", "&");
@@ -185,6 +197,7 @@ function updateBtn(commentNo, btn){
     fileInput.classList.add("imgInput1");
     fileInput.setAttribute("id", "updateImg");
     fileInput.setAttribute("type", "file");
+    fileInput.setAttribute("name", "updateFile");
 
     const label = document.createElement("label");
     label.setAttribute("for", "updateImg");
@@ -210,16 +223,19 @@ function updateBtn(commentNo, btn){
 
     const updateBtn = document.createElement("button");
     updateBtn.innerText = "수정";
-    updateBtn.setAttribute("onclick", "updateComment()");
+    updateBtn.setAttribute("onclick", "updateComment(" +commentNo+ ", this, event)");
 
 
     const cancelBtn = document.createElement("button");
     cancelBtn.innerText = "취소";
+    cancelBtn.setAttribute("type", "button");
     cancelBtn.setAttribute("onclick", "updateCancel(this)");
 
     commentBtnArea.append(updateBtn, cancelBtn);
 
-    commentRow.append(bigDiv, commentBtnArea);
+    updateFrm.append(bigDiv, commentBtnArea)
+
+    commentRow.append(updateFrm);
 
     /* -------------------------------------------------------- */
 
@@ -263,7 +279,89 @@ function updateBtn(commentNo, btn){
         }
     })
 
+    // 댓글 수정
+    
+    
+    /* const deleteImg = document.getElementsByClassName("delete-image1");
+    const updateImg11 = document.getElementsByClassName("imgInput1"); */
+    
+    
+    
+    if(deleteImg[0] != null){
+    
+        for(let i = 0; i<deleteImg.length; i++){
+            deleteImg[i].addEventListener("click", () => {
+                chk = 0; // x 버튼 눌렀을 경우
+            })
+            
+        }
+    
+    }
+
+    for(let i = 0; i<updateImg11.length; i++){ // x버튼 누른 후 다시 사진 등록했을 때
+        updateImg11[i].addEventListener("change", e => {
+            chk = 2;
+        })
+    }
 }
+
+/* if(document.getElementById("updateFrm") != null){
+    document.getElementById("updateFrm").addEventListener("submit", e=>{
+        e.preventDefault();
+    })
+
+} */
+
+
+
+
+function updateComment(commentNo, btn, event){
+
+    event.preventDefault();
+
+    // 내용, 사진 얻어오기
+    const cImage = btn.parentElement.previousElementSibling.children[3].getAttribute("src");
+    const cContent = btn.parentElement.previousElementSibling.children[4].value;
+
+    if(cContent == ""){
+        alert("댓글 내용 작성 후 등록해주세요.");
+        return;
+    }
+
+    if(chk == 0){
+        alert("사진 등록은 필수입니다.");
+        return;
+    }
+
+    // 비동기 처리
+    var form = $('#updateFrm')[0];
+    var formData = new FormData(form);
+
+    formData.append('commentNo', commentNo);
+    $.ajax({
+        type:"post",
+        enctype:'multipart/form-data',
+        url:'/event/account/update',
+        data:formData,
+        dataType:'json',
+        processData:false,
+        contentType:false,
+        cache:false,
+        success:function(result){
+            console.log("success : ", result);
+            alert("수정되었습니다.")
+            selectList();
+        },
+        error:function(e){
+            console.log("error : ", e);
+        }
+    });
+    
+    // 마지막에 화면 비동기 처리
+
+    
+}
+
 
 // 수정 취소
 function updateCancel(btn){
@@ -289,6 +387,8 @@ commentLike.addEventListener("cilck", e => {
     }
 
 }) */
+
+const temp = document.getElementById("commentFrm").innerHTML;
 
 // 댓글 등록
 const insertBtn = document.getElementById("insertBtn"); // 등록 버튼
@@ -329,6 +429,18 @@ insertBtn.addEventListener("click" , (e) => {
         cache:false,
         success:function(data){
             console.log("success : ", data);
+            
+            commentWrite.value = "";
+            inputImg.value = "";
+            document.getElementById("pre").setAttribute("src", "");
+            deleteImage[0].style.display = 'none';
+
+            document.getElementById("commentFrm").innerHTML = "";
+
+            alert("등록되었습니다.")
+            selectList();
+
+            return;
         },
         error:function(e){
             console.log("error : ", e);
@@ -386,3 +498,126 @@ function updateLike(commentNo, btn){
 }
 
 
+// 댓글 삭제
+function deleteBtn(commentNo){
+    if(!confirm("댓글을 삭제하시겠습니까?")){
+        return;
+    }
+
+    
+    fetch("/event/account/delete?no=" + commentNo)
+
+    .then(resp => resp.text())
+
+    .then(result => {
+        console.log(result);
+        alert("삭제되었습니다.");
+        flag = true;
+
+        document.getElementById("commentFrm").innerHTML = temp;
+        
+
+       /* const reFrm = document.createElement("form");
+       reFrm.setAttribute("id", "commentFrm");
+       reFrm.setAttribute("action", "#");
+
+       const reDiv = document.createElement("div")
+       reDiv.classList.add("writeArea")
+
+       const reInput = document.createElement("input")
+       reInput.setAttribute("type", "file");
+       reInput.setAttribute("class", "imgInput");
+       reInput.setAttribute("id", "imgInput");
+       reInput.setAttribute("name", "commentImage");
+       
+       const reLabel = document.createElement("label")
+       reLabel.setAttribute("for", "imgInput");
+       
+       const reImg = document.createElement("img")
+       reImg.setAttribute("src", "/resources/images/camera1.png");
+       reImg.setAttribute("class", "camera");
+       
+       const rereImg = document.createElement("img");
+       rereImg.setAttribute("id", "pre");
+       rereImg.setAttribute("class", "preview");
+
+       const reButton = document.createElement("button");
+       reButton.innerText="등록"
+       reButton.setAttribute("id", "insertBtn");
+
+       const reSpan = document.createElement("span")
+       reSpan.classList.add("delete-image");
+       reSpan.innerHTML = "X"
+
+       const reText = document.createElement("textarea");
+       reText.setAttribute("id", "commentWrite");
+       reText.setAttribute("name", "commentContent");
+
+       reLabel.append(reImg);
+        reDiv.append(reInput, reLabel, rereImg, reButton, reSpan, reText);
+        reFrm.appendChild(reDiv);
+
+        document.getElementById("main").append(reFrm); */
+
+        //selectList();
+        location.reload(true);
+
+    })
+
+    .catch(e => console.log(e))
+}
+
+// 이벤트 위임을 사용하여 main 부모 요소에 이벤트 리스너를 추가합니다.
+document.getElementById("main").addEventListener("click", function (event) {
+    const target = event.target;
+
+    // 등록 버튼 클릭 이벤트 처리
+    if (target && target.id === "insertBtn") {
+        e.preventDefault();
+
+        if (loginMemberNo === "") {
+            alert("로그인 후 이용해주세요.");
+            return;
+        }
+
+        const commentWrite = target.parentElement.querySelector("#commentWrite");
+        const inputImg = target.parentElement.querySelector("#imgInput");
+
+        if (commentWrite.value.trim().length === 0) {
+            alert("댓글 내용 입력 후 등록해주세요.");
+            commentWrite.value = "";
+            commentWrite.focus();
+            return;
+        }
+
+        if (inputImg.value === "") {
+            alert("사진 등록은 필수입니다.");
+            return;
+        }
+
+        // 나머지 코드 추가 (Ajax 호출 등)
+    }
+
+    // 삭제 버튼 클릭 이벤트 처리
+    if (target && target.classList.contains("delete-image")) {
+        const preview = target.parentElement.querySelector(".preview");
+        const imgInput = target.parentElement.querySelector(".imgInput");
+
+        if (preview.getAttribute("src") !== "") {
+            preview.removeAttribute("src");
+            imgInput.value = "";
+            target.style.display = "none";
+        }
+    }
+
+    // 수정 버튼 클릭 이벤트 처리
+    if (target && target.innerText === "수정") {
+        const commentRow = target.parentElement.parentElement;
+        const commentNo = commentRow.dataset.commentNo;
+
+        // 나머지 수정 버튼 클릭 이벤트 처리 코드 추가
+    }
+
+    // 기타 이벤트 처리 (좋아요 등)
+
+});

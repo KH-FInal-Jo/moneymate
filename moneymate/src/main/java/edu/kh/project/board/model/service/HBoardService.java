@@ -49,6 +49,21 @@ public interface HBoardService {
 	 */
 	int eventLike(Map<String, Integer> paramMap);
 
+	/** 댓글 수정
+	 * @param comment
+	 * @param updateImage
+	 * @param webPath
+	 * @param filePath
+	 * @return
+	 */
+	int commentUpdate(CComment comment, MultipartFile updateImage, String webPath, String filePath) throws IllegalStateException, IOException;
+
+	/** 댓글 삭제
+	 * @param no
+	 * @return result
+	 */
+	int deleteComment(int no);
+
 	
 
 	

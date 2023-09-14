@@ -26,6 +26,8 @@
 
      <jsp:include page="/WEB-INF/views/common/header.jsp"/>
 
+     
+
     <div id="main">
         <div>가계부 자랑하기(임시 제목)</div>
         <div>
@@ -43,7 +45,6 @@
 
                 <c:forEach items="${commentList}" var="comment">
 
-                ${comment}
                     <li class="comment-li">
                         <p class="writer">
                         <c:if test="${empty comment.profileImage}" >
@@ -71,32 +72,44 @@
                             </div>
                         </div>
 
-                        <div class="btn-area">
-                            <button type="button" onclick="updateBtn(${comment.commentNo},this)">수정</button>
-                            <button type="button" onclick="deleteBtn(${comment.commentNo})">삭제</button>
-                        </div>
+                        <c:if test="${loginMember.memberNo == comment.memberNo}" >
+                            <div class="btn-area">
+                                <button type="button" onclick="updateBtn(${comment.commentNo},this)">수정</button>
+                                <button type="button" onclick="deleteBtn(${comment.commentNo})">삭제</button>
+                            </div>
+                        </c:if>
                     </li>
+
+
+                    <%-- 1이면 이미 댓글 작성되어있다.. --%>
+                    <c:if test="${comment.memberNo == loginMember.memberNo}" >
+                        <c:set var="ch"  value="1"/>
+                    </c:if>
                 </c:forEach>
                 
             </ul>
 
         </div>
 
+        <c:if test="${ loginMember != null}" >
+            <c:if test="${ch != 1}" >
+                <form action="#" id="commentFrm">
+                    <div class="writeArea">
+                        <input type="file" class="imgInput" id="imgInput" name="commentImage">
+                        <label for="imgInput">
+                            <img src="/resources/images/camera1.png" alt="카메라 사진" class="camera">
+                        </label>
+                        <img class="preview" id="pre">
+                        <!-- <img src="../images/dog1.jpg" class="preview"> -->
+                        <button id="insertBtn">등록</button>
+                        <span class="delete-image">&times;</span>
+                        <textarea id="commentWrite" name="commentContent"></textarea>
+                    </div>
+                </form>
+            </c:if>
+        </c:if>
 
         <!-- 댓글 작성 -->
-        <form action="#" id="commentFrm">
-            <div class="writeArea">
-                <input type="file" class="imgInput" id="imgInput" name="commentImage">
-                <label for="imgInput">
-                    <img src="/resources/images/camera1.png" alt="카메라 사진" class="camera">
-                </label>
-                <img class="preview">
-                <!-- <img src="../images/dog1.jpg" class="preview"> -->
-                <button id="insertBtn">등록</button>
-                <span class="delete-image">&times;</span>
-                <textarea id="commentWrite" name="commentContent"></textarea>
-            </div>
-        </form>
 
     </div>
 

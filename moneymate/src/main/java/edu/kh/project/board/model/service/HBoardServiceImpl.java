@@ -112,8 +112,57 @@ public class HBoardServiceImpl implements HBoardService {
 		return count;
 	}
 
-	
+	// 댓글 수정
+	@Transactional (rollbackFor = {Exception.class})
+	@Override
+	public int commentUpdate(CComment comment, MultipartFile updateImage, String webPath, String filePath) 
+															throws IllegalStateException, IOException {
+		
+		// XSS
+		comment.setCommentContent(Util.XSSHandling(comment.getCommentContent()));
+		
+		// 내용 insert
+		int result = dao.commentUpdate(comment);
+		
+		if(result > 0) {
+			if(updateImage != null && !updateImage.isEmpty()) { // 사진이 바뀌었다면
+				HBoardImage img = new HBoardImage();
+				
+				img.setImagePath(webPath);
+				img.setBrNo(comment.getCommentNo());
+				
+				String fileName = updateImage.getOriginalFilename();
+				img.setImageOriginal(fileName);
+				img.setImageReName(Util.fileRename(fileName));
+				
+				
+				result = dao.updateCommentImage(img);
+				
+				System.out.println(" 2 : " + result);
+				
+				if(result == 1) {
+					String rename = img.getImageReName();
+					updateImage.transferTo(new File(filePath + rename));
+				} else { // update 실패
+					
+					throw new FileUploadException();
+					
+				}
+			}
+		}
+		
+		
+		return result;
+	}
 
+	// 댓글 삭제
+
+	@Override
+	public int deleteComment(int no) {
+		return dao.deleteComment(no);
+	}
+
+	
 	
 
 }
