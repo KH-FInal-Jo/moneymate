@@ -26,21 +26,26 @@ public class AccountController {
 	@Autowired
 	private AccountService service;
 	
-	@RequestMapping("/account")
+	@RequestMapping("/account/1")
 	public String accountBook() {
 		return "account/SaccountBookDetail";
 	}
 	
 	@GetMapping(value = "/account/changeMonth", produces = "application/json; charset=UTF-8")
 	@ResponseBody
-	public int changeMonth(@RequestParam("month") String month, @SessionAttribute("loginMember") Member loginMember) {
+	public int changeMonth(@RequestParam("month") String month, 
+							@RequestParam("accountNo") String accountNo,
+						@SessionAttribute("loginMember") Member loginMember) {
+					   
 	    System.out.println("달 : " + month);
+	    System.out.println("가계부번호 : " + accountNo);
 	    System.out.println("멤버번호 : " + loginMember.getMemberNo());
 	    int memberNo = loginMember.getMemberNo();
 	    
 	    Map<String, Object> map = new HashMap<String, Object>();
 	    
 	    map.put("month", month);
+	    map.put("accountNo", accountNo);
 	    map.put("memberNo", memberNo);
 	    
 	    
@@ -53,19 +58,18 @@ public class AccountController {
 	
 	@GetMapping(value = "/account/changeMonthUpdate", produces = "application/json; charset=UTF-8")
 	@ResponseBody
-	public List<SAccount> changeMonthUpdate(@RequestParam("month") String month, @SessionAttribute("loginMember") Member loginMember) {
+	public List<SAccount> changeMonthUpdate(@RequestParam("month") String month, 
+											@RequestParam("accountNo") String accountNo,
+											@SessionAttribute("loginMember") Member loginMember) {
 	    int memberNo = loginMember.getMemberNo();
 	    
 	    Map<String, Object> map = new HashMap<String, Object>();
 	    
 	    map.put("month", month);
+	    map.put("accountNo", accountNo);
 	    map.put("memberNo", memberNo);
 	    
 	    System.out.println("업데이트 : " + map);
-	    
-	    SAccount sa = new SAccount();
-	    
-	    System.out.println("날짜 : " + sa.getAccountDate());
 	    
 	    return service.changeMonthUpdate(map); // 예시 JSON 응답
 	}

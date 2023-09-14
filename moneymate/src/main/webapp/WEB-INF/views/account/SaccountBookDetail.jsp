@@ -9,8 +9,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="resources/css/header.css">
-    <link rel="stylesheet" href="resources/css/account/accountBookDetail.css">
+    <link rel="stylesheet" href="/resources/css/account/accountBookDetail.css">
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.bundle.min.js"></script>
     <script src="https://kit.fontawesome.com/a5af36132e.js" crossorigin="anonymous"></script>
@@ -131,7 +130,7 @@
                 <span><button id="spend">지출 : 2,000,450원</button></span>
                 <span><button id="income">수입 : 5,123,456원</button></span>
                 <c:if test="${!empty loginMember}" >
-                    <span><a href="/account/insert?1"><i class="fa-regular fa-square-plus fa-4x" style="color: #0c40ca;"></i></a></span>
+                    <span><a href="/account/insert/1"><i class="fa-regular fa-square-plus fa-4x" style="color: #0c40ca;"></i></a></span>
                 </c:if>
             </div>
 
@@ -174,8 +173,10 @@
 
 
     </main>
-    
-    <script src="resources/js/accountBookDeatil.js"></script>
 
+    <jsp:include page="/WEB-INF/views/common/footer.jsp" />
+    
+
+    <script src="/resources/js/accountBookDeatil.js"></script>
 </body>
 </html>
