@@ -41,5 +41,11 @@
 		WHERE
 		  M.MEMBER_NO = #{memberNo}
 	</select>
+	
+	<update id="insertMileage">
+		UPDATE MEMBER
+		SET MILEAGE = MILEAGE+10000
+		WHERE MEMBER_NO = #{memberNo}
+	</update>
 
 </mapper>

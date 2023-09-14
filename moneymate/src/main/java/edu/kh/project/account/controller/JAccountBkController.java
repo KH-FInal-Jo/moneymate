@@ -27,6 +27,9 @@ public class JAccountBkController {
 
 	@Autowired
 	private JAccountBkService service;
+	
+	@Autowired
+	private HttpSession httpSession;
 
 	@GetMapping("/accountBk/inout")
 	public String accountBkInout() {
@@ -46,8 +49,6 @@ public class JAccountBkController {
 		
 		model.addAttribute("useMoney", useMoney);
 		model.addAttribute("account", account);
-		
-		System.out.println(account);
 		
 		
 		return "account/JaccountBookInout";

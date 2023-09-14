@@ -59,6 +59,8 @@
 		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
 		<property name="dataSource" ref="dataSource" />
 	</bean>
+	
+	
 
 	<!-- 파일 업로드를 위한 MutipartResolver 구현체 CommonsMultipartResolver bean 등록 -> 
 		CommonsMultipartResolver를 bean으로 등록하면 multipart/form-data 형식으로 요청 시 input 

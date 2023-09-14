@@ -156,6 +156,10 @@
 		FROM ACCOUNTBOOK
 		WHERE ACNT_NO = #{bigAccountNo}
 	</select>
+	
+	<select id="selectAccountBk2" resultMap="account_rm">
+		SELECT * FROM ACCOUNTBOOK
+	</select>
 
 
 </mapper>

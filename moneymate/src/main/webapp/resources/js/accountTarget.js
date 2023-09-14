@@ -1,13 +1,13 @@
 // 목표 예산 날짜 정하기
 
-const startDateInput = document.getElementById('startDateInput');
-
-const endDateInput = document.getElementById('endDateInput');
-
-const startDate1 = document.getElementsByClassName("startDate")[0];
-const endDate1 = document.getElementsByClassName("endDate")[0];
 
 document.getElementById('accDateChange').addEventListener('click', function () {
+    const startDateInput = document.getElementById('startDateInput');
+    
+    const endDateInput = document.getElementById('endDateInput');
+    
+    const startDate1 = document.getElementsByClassName("startDate")[0];
+    const endDate1 = document.getElementsByClassName("endDate")[0];
     const startDate = new Date(startDateInput.value);
 
     const endDate = new Date(startDate);
@@ -24,6 +24,8 @@ document.getElementById('accDateChange').addEventListener('click', function () {
 });
 
 startDateInput.addEventListener('change', function () {
+
+    
     const startDate = new Date(startDateInput.value);
     
     const endDate = new Date(startDate);
@@ -40,15 +42,24 @@ startDateInput.addEventListener('change', function () {
 function submitTarget() {
     const targetMoney = document.querySelector('.accTargetInput').value;
 
-    const startDate = new Date(document.querySelector('.startDate').textContent);
     const endDate = new Date(document.querySelector('.endDate').textContent);
 
-    const startDate1 = startDate.toISOString().slice(0, 10);
+    //const startDate1 = startDate.toISOString().slice(0, 10);
+
+    const startDate = document.querySelector('.startDate').textContent;
+
+    // Date 객체로 변환
+    const date = new Date(startDate);
+    const date2 = new Date(endDate);
+
+    // 원하는 형식으로 날짜 문자열 생성
+    const startDate1 = `${date.getFullYear()}-${(date.getMonth() + 1).toString().padStart(2, '0')}-${date.getDate().toString().padStart(2, '0')}`;
+    const endDate2 = `${date2.getFullYear()}-${(date2.getMonth() + 1).toString().padStart(2, '0')}-${date2.getDate().toString().padStart(2, '0')}`;
 
     const data = {
         bigAccountNo: bigAccountNo,
         startDate: startDate1,
-        endDate: endDate,
+        endDate: endDate2,
         targetMoney: targetMoney
     };
 
@@ -64,10 +75,12 @@ function submitTarget() {
         console.log(result);
         alert('목표 예산이 저장되었습니다.');
 
+        document.querySelector('.accTargetMoney').innerHTML = "";
         document.querySelector('.accTargetMoney').innerHTML = targetMoney;
+        document.querySelector('.startDate').innerHTML = "";
         document.querySelector('.startDate').innerHTML = startDate1;
+        document.querySelector('.endDate').innerHTML = "";
         document.querySelector('.endDate').innerHTML = endDate.toISOString().slice(0, 10);
-
 
     })
     .catch(error => {
@@ -75,4 +88,19 @@ function submitTarget() {
         alert('목표 예산을 저장하는 동안 오류가 발생했습니다.');
     });
 }
+
+
+function checkAlert() {
+    $.get("/getAlertMessage", function (data) {
+        if (data) {
+            alert(data);
+        }
+    });
+}
+
+// 페이지 로드 후 5초마다 결과 확인
+setInterval(checkAlert, 5000);
+
+
+
 

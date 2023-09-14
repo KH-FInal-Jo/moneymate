@@ -1,5 +1,7 @@
 package edu.kh.project.account.model.dao;
 
+import java.util.List;
+
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -63,6 +65,21 @@ public class JAccountBkDAO {
 	// 목표금액 , 시작, 종료 날짜 조회
 	public JAccountBook selectAccountBk(int bigAccountNo) {
 		return sqlSession.selectOne("selectAccountBk", bigAccountNo);
+	}
+
+	// 목표금액 전부다 가져ㅇ기
+	/*
+	 * public JAccountBook selectAccountTarget(JAccountBook account) { return
+	 * sqlSession.selectOne("selectAccountBk", account); }
+	 */
+
+	public List<JAccountBook> selectAccountTarget() {
+		
+		return sqlSession.selectList("selectAccountBk2");
+	}
+
+	public int insertMileage(int selmemberNo) {
+		return sqlSession.update("insertMileage", selmemberNo);
 	}
 
 

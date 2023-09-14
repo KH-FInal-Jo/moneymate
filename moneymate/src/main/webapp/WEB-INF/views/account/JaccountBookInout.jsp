@@ -160,7 +160,7 @@
 				<div>
 					<i class="fa-regular fa-calendar-days fa-xl"></i>
 					<div class="accDate">
-						<span class="startDate">${account.startDate}</span>~<span class="dateSeparator">${account.endDate}</span><span class="endDate"></span>
+						<span class="startDate">${account.startDate}</span>~<span class="endDate">${account.endDate}</span>
 					</div>
 				</div>
 
@@ -221,7 +221,7 @@
 	</main>
 
 	<script>
-		const bigAccountNo = ${account.bigAccountNo};
+		const bigAccountNo = ${bigAccountNo};
 		const startDate1 = ${account.startDate};
 		const targetMoney = ${account.targetMoney};
 		console.log(bigAccountNo);
@@ -233,8 +233,8 @@
 
 
 
-	<script src="/resources/js/accountInout.js"></script>
 	<script src="/resources/js/accountTarget.js"></script>
+	<script src="/resources/js/accountInout.js"></script>
 
 
 

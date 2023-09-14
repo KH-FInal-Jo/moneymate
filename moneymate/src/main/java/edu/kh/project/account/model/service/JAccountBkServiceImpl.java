@@ -1,5 +1,9 @@
 package edu.kh.project.account.model.service;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -61,6 +65,81 @@ public class JAccountBkServiceImpl implements JAccountBkService{
 	@Override
 	public JAccountBook selectAccountBk(int bigAccountNo) {
 		return dao.selectAccountBk(bigAccountNo);
+	}
+
+	// 목표금액 달성 여부 조회
+	/*
+	@Override
+	public int selectAccountTarget(JAccountBook accountBk) {
+		
+		
+		JAccountBook account = dao.selectAccountTarget(accountBk);
+		
+		String endDateString = account.getEndDate(); // "2023-09-15"
+
+		DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+
+		LocalDate endDate = LocalDate.parse(endDateString, dateFormatter);
+		
+		LocalDate currentDate = LocalDate.now();
+		
+		
+		// 목표 금액, 시작, 종료 날짜 가져오기
+		if (endDate.isEqual(currentDate)) {
+			
+			
+			
+			
+		}  else {
+		    // endDate가 현재 날짜보다 이후인 경우
+		    // 여기서 원하는 작업을 수행하세요.
+			
+		}
+		
+		
+		
+		
+		return 0;
+	}
+	*/
+
+	@Override
+	public List<JAccountBook> selectAccountBk2() {
+		
+		List<JAccountBook> account = dao.selectAccountTarget();
+		
+		
+		
+		//String endDateString = account.getEndDate(); // "2023-09-15"
+
+		//DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+
+		//LocalDate endDate = LocalDate.parse(endDateString, dateFormatter);
+		
+		//LocalDate currentDate = LocalDate.now();
+		
+		
+		//System.out.println("endDate" +endDate);
+		// 목표 금액, 시작, 종료 날짜 가져오기
+		//if (endDate.isEqual(currentDate)) {
+			
+			
+			
+			
+		//}  else {
+		    // endDate가 현재 날짜보다 이후인 경우
+		    // 여기서 원하는 작업을 수행하세요.
+			
+			//System.out.println("endDate" +endDate);
+		//}
+		
+		
+		return dao.selectAccountTarget();
+	}
+
+	@Override
+	public int insertMileage(int selmemberNo) {
+		return dao.insertMileage(selmemberNo);
 	}
 
 }
