@@ -32,6 +32,21 @@ public class KBoardDAO {
 		
 		
 	}
+	
+	
+	/** 게시글 삽입
+	 * @param board
+	 * @return boardNo
+	 */
+	public int boardInsert(KBoard board) {
+		int result = sqlSession.insert("KboardMapper.boardInsert", board);
+		
+		if(result>0) {
+			result = board.getBoardNo();
+		}
+		
+		return result;
+	}
 
 
 

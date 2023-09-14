@@ -26,9 +26,9 @@
             <section class="board-free-main">
                 <div class="subject">문의게시판 글쓰기</div>
 
-                <form class="board-write" id="boardWriteFrm" enctype="multipart/form-data">
+                <form action="boardInsert" class="board-write" id="boardWriteFrm" enctype="multipart/form-data">
                     <h1 class="board-title">
-                        <input type="text" name="boardTitle" placeholder="제목" value="">
+                        <input type="text" class="boardTitle"  name="boardTitle" placeholder="제목" value="">
                     </h1>
 
                    
@@ -53,7 +53,7 @@
     
     </main>
 
-     <script src="/resources/js/freeBoardWrite.js"></script>
+    <script src="/resources/js/boardInquiryWrtie.js"></script>
     
 </body>
 </html>
