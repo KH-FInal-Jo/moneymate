@@ -36,19 +36,25 @@
 
 
 
-		<collection property="imageList" select="selectImageList"
+		<!-- <collection property="imageList" select="selectImageList"
 			column="BOARD_NO" javaType="java.util.ArrayList" ofType="BoardImage">
-		</collection>
+		</collection> -->
 
-		<collection property="commentList"
+		<!-- <collection property="commentList"
 			select="selectCommentList" column="BOARD_NO"
 			javaType="java.util.ArrayList" ofType="Comment">
+		</collection> -->
+		
+		<!-- <collection property="boardNo"
+			select="selectboardInquiry" column="BOARD_NO"
+			javaType="java.util.ArrayList" ofType="boardNo">
 		</collection>
+		 -->
 
 	</resultMap>
 	
 	<!-- 있는 게시글 개수 다 가져오는 거-->
-	<select id="getlistCount" resultType="_int">
+	<select id="getListCount" resultType="_int">
 		SELECT COUNT(*) FROM BOARD
 		WHERE BOARD_CODE =#{boardCode}
 		AND BOARD_ST ='N' 
@@ -67,15 +73,14 @@
                WHEN SYSDATE - BOARD_DT < 1
                THEN FLOOR( (SYSDATE - BOARD_DT) * 24) || '시간 전'
                ELSE TO_CHAR(BOARD_DT, 'YYYY-MM-DD')
-            END BOARD_DT,            
+            END AS BOARD_DT
          ]]>
-        FROM BOARD
-        JOIN USING(MEMBER_NO)
+        FROM "BOARD"
+        JOIN "MEMBER" USING(MEMBER_NO)
         WHERE BOARD_ST='N'
         AND BOARD_CODE
         =#{boardCode}
         ORDER BY BOARD_NO DESC
 	</select>
 	
-
 </mapper>

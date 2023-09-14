@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import edu.kh.project.board.model.dao.KBoardDAO;
@@ -13,6 +14,8 @@ import edu.kh.project.board.model.dto.KBoard;
 @Service
 public class KBoardServiceImpl implements KBoardService{
 	
+	
+	@Autowired
 	private KBoardDAO dao;
 	
 	

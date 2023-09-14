@@ -80,9 +80,6 @@
 		                            <tr class="board-body">
 		                                <td class="center">${board.boardNo}</td>
 		                                <td> 
-			                                <c:if test="${!empty board.thumbnail}" >
-			                                    <img class="list-thumbnail" src="${board.thumbnail}">
-			                                </c:if>
 		                                    <a href="/community/2/${board.boardNo}?cp=${pagination.currentPage}${sp}">${board.boardTitle}</a>   
                                                         ${board.commentCount}                        
 		                                </td>
@@ -105,7 +102,7 @@
                         <div class="pagination-container">
                             <ul class="pagination">
                                 <!-- 첫 페이지로 이동 -->
-                    <li><a href="/board/${boardCode}?cp=1${sp}">&lt;&lt;</a></li>
+                    <li><a href="/board/${boardCode}?cp=2${sp}">&lt;&lt;</a></li>
 
                     <!-- 이전 목록 마지막 번호로 이동 -->
                     <li><a href="/board/${boardCode}?cp=${pagination.prevPage}${sp}">&lt;</a></li>
