@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 
 import edu.kh.project.board.model.service.KBoardService;
 
-@SessionAttributes("loginMember")
+@SessionAttributes({"loginMember"})
 @RequestMapping("/community")
 @Controller
 public class KBoardController {
@@ -21,14 +21,14 @@ public class KBoardController {
 	@Autowired
 	private KBoardService service;
 
-	@GetMapping("/2")
-	public String selectboardInquiry(@RequestParam(value="cp", required = false, defaultValue = "1")int cp
+	@GetMapping("/{boardCode:[2]}")
+	public String selectboardInquiry(@PathVariable("boardCode")int boardCode, @RequestParam(value="cp", required = false, defaultValue = "1")int cp
 			, Model model
 			, @RequestParam Map<String, Object> paramMap // 전달받은 파라미터가 전부다 담겨있다.
 			) {
 		
 
-		int boardCode=2;
+		
 		
 		if(paramMap.get("key") ==null) {
 			Map<String, Object> map = service.selectboardInquiry(boardCode, cp);
