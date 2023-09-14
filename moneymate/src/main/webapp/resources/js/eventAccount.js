@@ -198,7 +198,9 @@ const insertBtn = document.getElementById("insertBtn"); // 등록 버튼
 const commentWrite = document.getElementById("commentWrite"); // 내용
 const inputImg = document.getElementById("imgInput"); // 사진
 
-insertBtn.addEventListener("click" , () => {
+insertBtn.addEventListener("click" , (e) => {
+
+    e.preventDefault();
 
     if(loginMemberNo == ""){ // 로그인을 안 한 경우
         alert("로그인 후 이용해주세요.");
@@ -236,5 +238,8 @@ insertBtn.addEventListener("click" , () => {
         }
     });
 
-})
+});
+
+
+// 남은 거 : selectList, 좋아요(누르기, 개수 조회하기, 여부 조회하기 등....)
 
