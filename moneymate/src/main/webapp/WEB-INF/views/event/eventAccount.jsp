@@ -42,6 +42,8 @@
             <ul id="commentList">
 
                 <c:forEach items="${commentList}" var="comment">
+
+                ${comment}
                     <li class="comment-li">
                         <p class="writer">
                         <c:if test="${empty comment.profileImage}" >
@@ -59,8 +61,13 @@
                             <p class="contentArea">${comment.commentContent}</p>
 
                             <div class="likeArea">
-                                <%-- <i class="fa-regular fa-heart" id="commentLike"></i>
-                                <i class="fa-solid fa-heart" id="commentLike"></i> --%>
+                                <c:if test="${comment.likeCheck == 1}" >
+                                    <i class="fa-solid fa-heart commentLike" onclick="updateLike(${comment.commentNo}, this)"></i>
+                                </c:if>
+                                <c:if test="${comment.likeCheck == 0}" >
+                                    <i class="fa-regular fa-heart commentLike" onclick="updateLike(${comment.commentNo}, this)"></i>
+                                </c:if>
+                                <span>${comment.likeCount}</span>
                             </div>
                         </div>
 

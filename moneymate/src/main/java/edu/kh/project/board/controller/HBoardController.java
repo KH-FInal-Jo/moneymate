@@ -2,6 +2,7 @@ package edu.kh.project.board.controller;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpSession;
 
@@ -10,6 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -70,12 +72,18 @@ public class HBoardController {
 		return result;
 	}
 	
+	// 댓글 조회
 	@GetMapping("/event/account")
-	public String eventAccount(Model model) {
+	public String eventAccount(Model model ,@SessionAttribute(value="loginMember", required=false) Member loginMember) {
 		
-		List<CComment> commentList = service.commentList();
+		List<CComment> commentList = null;
 		
-		System.out.println(commentList);
+		if(loginMember != null) { // 회원용
+			commentList = service.commentList(loginMember);
+		} else { // 비회원용
+			commentList = service.NcommentList();
+		}
+		
 		
 		model.addAttribute("commentList",commentList);
 		
@@ -85,7 +93,7 @@ public class HBoardController {
 	@PostMapping("/event/account/insert")
 	@ResponseBody
 	public int result(@RequestParam("commentContent") String commentContent, @RequestParam("commentImage") MultipartFile commentImage
-					, @SessionAttribute("loginMember") Member loginMember
+					, @SessionAttribute(value="loginMember", required=false) Member loginMember
 					, HttpSession session) throws IllegalStateException, IOException {
 		
 		// boardNo는 0 고정
@@ -103,6 +111,19 @@ public class HBoardController {
 		return commentNo;
 	}
 	
+	// 좋아요 상태 변화
+	@PostMapping("/event/account/like")
+	@ResponseBody
+	public int eventLike(@RequestBody Map<String, Integer> paramMap) {
+		return service.eventLike(paramMap);
+	}
+	
+	// 댓글 조회(비동기)
+	@GetMapping(value = "/event/account/comment", produces = "application/json; charset=UTF-8")
+	@ResponseBody
+	public List<CComment> commentList(@SessionAttribute("loginMember") Member loginMember){
+		return service.commentList(loginMember);
+	}
 	
 	
 
