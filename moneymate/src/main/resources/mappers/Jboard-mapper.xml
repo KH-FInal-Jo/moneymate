@@ -16,6 +16,17 @@
 			<result property="memberNo" column="MEMBER_NO" />
 	</resultMap>
 	
+	<resultMap type="JAccount" id="account_rm">
+	
+			<id property="bigAccountNo" column="ACNT_NO" />
+	
+			<result property="targetMoney" column="TARGET_MN" />
+			<result property="memberNo" column="MEMBER_NO" />
+			<result property="startDate" column="TARGET_START" />
+			<result property="endDate" column="TARGET_END" />
+	</resultMap>
+	
+	
 
 
 	<!-- 공지사항 목록 조회 -->
@@ -61,8 +72,8 @@
 	
 	<!-- 가계부 작성하기 -->
 	<insert id="accountInertInout">
-		INSERT INTO ACCOUNT_DETAIL VALUES(SEQ_DETAIL_NO.NEXTVAL, #{relevantDate}, DEFAULT, #{account}, #{accountMoney},
-					 #{memo}, #{paymentMethod},  #{memberNo}, DEFAULT, #{inoutName}, #{categoryName} )
+		 INSERT INTO ACCOUNT_DETAIL VALUES(SEQ_DETAIL_NO.NEXTVAL, #{relevantDate}, DEFAULT, #{account}, #{accountMoney}, 
+		 #{memo}, #{paymentMethod}, DEFAULT, #{inoutName}, #{categoryName}, #{bigAccountNo})
 	
 	</insert>
 	
@@ -80,11 +91,12 @@
 	</insert> -->
 	
 	<!-- 가계부 상세조회 -->
-	<select id="accountUse" resultType="string">
+	<select id="accountUse" resultType="_int">
 		SELECT SUM(ACNT_MN) AS TOTAL_EXPENSE
 		FROM ACCOUNT_DETAIL
+        JOIN ACCOUNTBOOK USING(ACNT_NO)
 		WHERE INOUT_NM = '지출'
-		AND MEMBER_NO = #{memberNo}
+		AND ACNT_NO = #{bigAccountNo}
 	</select>
 	
 	<!-- 목표금액 설정 후 insert -->
@@ -113,7 +125,7 @@
 	</select>
 	
 	
-	
+	<!-- 공지사항 수정 -->
 	<update id="boardNoticeUpdate">
 	
 		UPDATE BOARD
@@ -123,10 +135,27 @@
 	
 	</update>
 	
+	<!-- 공지 사항 삭제 -->
 	<update id="boardDelete">
 		UPDATE BOARD SET BOARD_ST = 'Y'
 		WHERE BOARD_NO = #{boardNo}
 	</update>
+	
+	<!-- 목표 금액 설정 -->
+	<update id="targetInsert2">
+		UPDATE ACCOUNTBOOK SET TARGET_MN = #{targetMoney},
+		TARGET_START = #{startDate},
+		TARGET_END = #{endDate}
+		WHERE ACNT_NO = #{bigAccountNo}
+	</update>
+	
+	
+	<!-- 목표 금액, 시작, 종료 날짜 -->
+	<select id="selectAccountBk" resultMap="account_rm">
+		SELECT TARGET_MN, TARGET_START, TARGET_END, ACNT_NO
+		FROM ACCOUNTBOOK
+		WHERE ACNT_NO = #{bigAccountNo}
+	</select>
 
 
 </mapper>

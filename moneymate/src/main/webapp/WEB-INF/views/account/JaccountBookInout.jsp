@@ -30,7 +30,7 @@
 					<i class="fa-solid fa-pen-to-square fa-xl"></i>가계부
 				</div>
 
-				<form action="/account/insert" method="POST">
+				<form action="/account/insert/${bigAccountNo}" method="POST">
 
 					<div class="accBk-record">
 
@@ -160,14 +160,14 @@
 				<div>
 					<i class="fa-regular fa-calendar-days fa-xl"></i>
 					<div class="accDate">
-						<span class="startDate"> 2023-08-01</span> ~ <span class="endDate">2023-08-31</span>
+						<span class="startDate">${account.startDate}</span>~<span class="dateSeparator">${account.endDate}</span><span class="endDate"></span>
 					</div>
 				</div>
 
 				<div class="accTargetCon">
 					<div>한달 목표 예산</div>
 					<div>
-						<div class="accTargetMoney">5,000,000</div>
+						<div class="accTargetMoney">${account.targetMoney}</div>
 						<div>원</div>
 					</div>
 				</div>
@@ -188,7 +188,7 @@
 					<div class="accTarget">
 						<input type="text" class="accTargetInput"
 							placeholder="금액을 입력해주세요." name="accTarget"> 원
-						<button class="accTargetBtn2" onclick="accTargetInput4()">등록</button>
+						<button class="accTargetBtn2"  onclick="submitTarget()">등록</button>
 					</div>
 
 				</div>
@@ -196,9 +196,9 @@
 			<div>
 				<button class="accDateRecordBtn">기간선택</button>
 				<div class="accDateRecord">
-					<input type="date" id="startDateInput"> <input type="date"
-						id="endDateInput"> <input type="submit" id="accDateChange"
-						value="변경하기"></input>
+					<input type="date" id="startDateInput">
+					<input type="date" id="endDateInput">
+					<button id="accDateChange">변경하기</button>
 				</div>
 
 			</div>
@@ -220,9 +220,21 @@
 
 	</main>
 
+	<script>
+		const bigAccountNo = ${account.bigAccountNo};
+		const startDate1 = ${account.startDate};
+		const targetMoney = ${account.targetMoney};
+		console.log(bigAccountNo);
+		console.log(startDate1);
+		console.log(targetMoney);
+	
+	
+	</script>
+
 
 
 	<script src="/resources/js/accountInout.js"></script>
+	<script src="/resources/js/accountTarget.js"></script>
 
 
 

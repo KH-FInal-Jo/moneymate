@@ -37,8 +37,8 @@ public class JAccountBkDAO {
 	}
 
 	// 가계부 상세 조회
-	public String accountBkSelect(int memberNo) {
-		return sqlSession.selectOne("accountUse", memberNo);
+	public int accountBkSelect(int bigAccountNo) {
+		return sqlSession.selectOne("accountUse", bigAccountNo);
 	}
 
 	public String accountBkTarget(JAccountBook account) {
@@ -53,6 +53,16 @@ public class JAccountBkDAO {
 	// 목표 금액 가져오기
 	public int selectTargetM(int memberNo) {
 		return sqlSession.selectOne("selectTargetM", memberNo);
+	}
+
+	// 목표 금액 insert2
+	public int insertTarget(JAccountBook accountBk) {
+		return sqlSession.update("targetInsert2", accountBk);
+	}
+
+	// 목표금액 , 시작, 종료 날짜 조회
+	public JAccountBook selectAccountBk(int bigAccountNo) {
+		return sqlSession.selectOne("selectAccountBk", bigAccountNo);
 	}
 
 

@@ -130,7 +130,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 /* 목표 금액 input값 콤마 넣기 */
-const a = 1000000000000;
+/* const a = 1000000000000;
 
 const input = document.getElementsByClassName("accTargetInput")[0];
 
@@ -146,7 +146,7 @@ input.addEventListener('keyup', function(e) {
     const formatValue = value.toLocaleString('ko-KR');
     input.value = formatValue;
   }
-})
+}) */
 
 /* 목표예산 설정 유효성 검사 */
 function accTargetInput2(){
@@ -377,7 +377,7 @@ accDateRecordBtn.addEventListener("click", function(){
 })
 
 /* 날짜 입력 가져오기 */
-const accDateChange = document.getElementById("accDateChange");
+/* const accDateChange = document.getElementById("accDateChange");
 
 const startDateInput = document.querySelector("#startDateInput");
 const endDateInput = document.querySelector("#endDateInput");
@@ -399,7 +399,7 @@ accDateChange.addEventListener("click", function(){
 
   accDateRecord.style.display = 'none';
 
-})
+}) */
 
 const out = document.getElementsByClassName("out")[0];
 const inin = document.getElementsByClassName("in")[0];
