@@ -2,6 +2,20 @@ const preview = document.getElementsByClassName("preview");
 const inputImage = document.getElementsByClassName("inputImage");
 const deleteImage = document.getElementsByClassName("delete-image");
 
+
+
+for(let i = 1 ; i < inputImage.length ; i++){
+    
+    inputImage[i].addEventListener("change", e => {
+        if(inputImage[0].value == ""){
+            alert("첫번째 항목부터 그림을 첨부해주세요.");
+            inputImage[i].value = "";
+            preview[i].removeAttribute("src");
+
+        }
+    });
+}
+
 for(let i = 0 ; i < inputImage.length ; i++){
 
     inputImage[i].addEventListener("change", e => {
@@ -33,18 +47,7 @@ for(let i = 0 ; i < inputImage.length ; i++){
     });
 }
 
-/* 
-for(let i = 1 ; i < inputImage.length ; i++){
-    
-    inputImage[i].addEventListener("change", e => {
-        if(inputImage[0].value == ""){
-            alert("첫번째 항목부터 그림을 첨부해주세요.");
-            inputImage[i].value = "";
-            preview[i].removeAttribute("src");
 
-        }
-    });
-} */
 
 
 

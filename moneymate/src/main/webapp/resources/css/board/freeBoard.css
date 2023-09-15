@@ -113,7 +113,11 @@
     cursor: pointer;
 }
 
-
+.list-thumbnail{
+     max-height: 30px;
+     left: -15px;
+     top: 17px;
+}
 
 .pagination{
     list-style: none;
@@ -134,7 +138,8 @@
     height: 100%;
 }
 
-
+.title {
+}
 
 a{
     text-decoration: none;
