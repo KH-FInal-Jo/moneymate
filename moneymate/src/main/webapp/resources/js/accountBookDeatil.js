@@ -3,6 +3,9 @@ const incomeDiv = document.querySelector(".chart-div2")
 // 지출 차트
 const spendDiv = document.querySelector(".chart-div")
 
+// 수입 내역 영역
+const incomeArea = document.querySelector(".income-area")
+
 // 현재 날짜 구하는 변수
 let today = new Date();
 // 현재 월
@@ -237,7 +240,7 @@ function handleFetchChart(month) {
               labels: [],
               datasets: [{
                   data: [],
-                  backgroundColor: ['rgb(216, 63, 50)', 'rgb(248, 207, 18)', 'rgb(255, 205, 86)', 'rgb(75, 192, 192)', 'rgb(54, 162, 235)', 'rgb(153, 102, 255)']
+                  backgroundColor: ['rgb(216, 63, 50)', 'rgb(248, 207, 18)', 'rgb(255, 205, 86)', 'rgb(75, 192, 192)', 'rgb(54, 162, 235)', 'rgb(153, 102, 255)', 'rgb(139, 14, 111)', 'rgb(104, 216, 225)','rgb(173, 165, 150)', 'rgb(226, 97, 113)', 'rgb(85, 116, 187)', 'rgb(104, 200, 121)']
               }] 
 
             };
@@ -269,7 +272,7 @@ function handleFetchChart(month) {
 
                 if(chart.category == "식비"){
                   // console.log("식비-------------")
-                  span1.style.backgroundColor = 'rgb(248, 207, 18)'
+                  span1.style.backgroundColor = 'rgb(196, 0, 0)'
                 }else if(chart.category == "교통비"){
                   span1.style.backgroundColor = 'rgb(216, 63, 50)'
                 }else if(chart.category == "건강"){
@@ -297,9 +300,14 @@ function handleFetchChart(month) {
             window.pieChart = new Chart(ctx, {
                 type: 'pie',
                 data: pieChartData,
-                options: {
-                    responsive: false
-                }
+                options:{
+                  responsive: false,
+                 
+                  legend: {
+                      display: false
+                  }
+              
+              }
             });
            
         }
@@ -396,10 +404,15 @@ function handleFetchChartIncome(month) {
             window.pieChart2 = new Chart(ctx, {
                 type: 'pie',
                 data: pieChartData2,
-                options: {
-                    responsive: false
-                }
-            });
+                options:{
+                  responsive: false,
+                  maintainAspectRatio :false,
+                  legend: {
+                      display: false
+                  }
+              
+              }
+                });
            
         }
     })

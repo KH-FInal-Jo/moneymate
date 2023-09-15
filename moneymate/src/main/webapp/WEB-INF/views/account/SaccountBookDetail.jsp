@@ -143,8 +143,8 @@
                         <span class="round"></span>
                         <span class="categoryName">식비</span>
                         <span class="equal">:</span>
-                        <span class="percentNo">50%</span>
-                        <span class="sumMoney">60000원</span>
+                        <span class="percentNo">0%</span>
+                        <span class="sumMoney">0원</span>
                     </div>
                 </div>
             </div>
@@ -217,6 +217,7 @@
         document.addEventListener("DOMContentLoaded", function () {
 
             incomeDiv.style.display = 'none'
+            incomeArea.style.display = 'none'
 
             var currentURL = window.location.href;
 
