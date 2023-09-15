@@ -11,6 +11,7 @@
 
     <link rel="stylesheet" href="/resources/css/account/accountBookDetail.css">
     
+    <%-- <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script> --%>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.bundle.min.js"></script>
     <script src="https://kit.fontawesome.com/a5af36132e.js" crossorigin="anonymous"></script>
 
@@ -20,7 +21,7 @@
 <body>
 
 	
-	<<jsp:include page="/WEB-INF/views/common/header.jsp"></jsp:include>
+	<jsp:include page="/WEB-INF/views/common/header.jsp"></jsp:include>
 	
 
  
@@ -137,11 +138,20 @@
             <!-- 지출 차트 -->
             <div class="chart-div">
                 <canvas id="pieChartCanvas" width="300px" height="300px"></canvas>
+                <div class="category-area">
+                    <div class="category-percent">
+                        <span class="round"></span>
+                        <span class="categoryName">식비</span>
+                        <span class="equal">:</span>
+                        <span class="percentNo">50%</span>
+                    </div>
+                </div>
             </div>
             <!-- 수입 차트 -->
             <div class="chart-div2">
                 <canvas id="pieChartCanvas2" width="300px" height="300px"></canvas>
             </div>
+
 
         </section>
 
@@ -192,7 +202,11 @@
             handleFetch(month, accountNo);
             handleFetchView(month, accountNo);
             handleFetchChart(month, accountNo);
+
+
+
         });
+
     </script>
     <script src="/resources/js/accountBookDeatil.js"></script>
 </body>

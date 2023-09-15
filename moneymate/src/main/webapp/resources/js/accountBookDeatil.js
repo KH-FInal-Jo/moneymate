@@ -16,6 +16,11 @@ document.getElementById("date-month").innerHTML = nowMonth + "월";
 
 
 
+
+
+
+
+
 /* 수입 차트 */
 let pieChartDraw2 = function () {
     let ctx = document.getElementById('pieChartCanvas2').getContext('2d');
@@ -86,8 +91,6 @@ spendBtn.addEventListener("click", ()=>{
     incomeDiv.style.display = 'none';
     spendDiv.style.display = 'flex';
 
-    incomeTb.style.display = 'none';
-    tb.style.display = 'block';
 })
 
 /* 월 변경 페이지 */
@@ -155,7 +158,11 @@ function handleFetch(month) {
         const spend = document.getElementById("spend");
         if (data !== '') {
           console.log("응답 데이터 금액:", data);
-          spend.innerHTML = "지출 : " + data + "원";
+
+          // DB에서 얻어온 지출 합계 금액 콤파 표기법으로 변환
+          var formattedMoney = parseInt(data).toLocaleString('ko-KR');
+
+          spend.innerHTML = "지출 : " + formattedMoney + "원";
         } else {
           spend.innerText = "내역 없음";
         }
@@ -209,8 +216,10 @@ function handleFetchView(month) {
 
                 spendLeft.append(div1, div2, div3)
 
+                // DB에서 얻어온 지출 합계 금액 콤파 표기법으로 변환
+                var spendMoney = parseInt(account.accountMoney).toLocaleString('ko-KR');
                 const moneyDiv = document.createElement("div")
-                moneyDiv.innerText = "-" + account.accountMoney + "원"
+                moneyDiv.innerText = "-" + spendMoney + "원"
 
 
                 spendLine.append(spendLeft, moneyDiv)
@@ -266,6 +275,7 @@ function handleFetchChart(month) {
         if(cList != ''){
             console.log("응답 데이터있음: ", cList);
 
+            // 차트 데이터 영역
             let pieChartData = {
               labels: [],
               datasets: [{
@@ -276,13 +286,43 @@ function handleFetchChart(month) {
             };
 
             /* 지출 */
-
+            const categoryArea = document.querySelector(".category-area")
+            categoryArea.innerHTML = ''
             for(let chart of cList){
                 console.log(chart.category)
                 console.log(chart.percent)
 
                 pieChartData.labels.push(chart.category);
                 pieChartData.datasets[0].data.push(chart.percent);
+
+                const categoryPercent = document.createElement("div")
+                categoryPercent.classList.add("category-percent")
+
+                const span1 = document.createElement("span")
+                const span2 = document.createElement("categoryName")
+                const span3 = document.createElement("equal")
+                const span4 = document.createElement("percentNo")
+                span1.classList.add("round")
+                span2.classList.add("categoryName")
+                span3.classList.add("equal")
+                span4.classList.add("percentNo")
+
+                if(chart.category == "식비"){
+                  // console.log("식비-------------")
+                  span1.style.backgroundColor = 'rgb(248, 207, 18)'
+                }
+
+                span2.innerHTML = chart.category
+                span3.innerHTML = ":"
+                span4.innerHTML = chart.percent + "%"
+
+                categoryPercent.append(span1, span2, span3, span4)
+
+
+                categoryArea.append(categoryPercent)
+
+
+
 
             }
             // 새로운 차트 생성
@@ -300,6 +340,7 @@ function handleFetchChart(month) {
         console.log(err);
     });
 }
+
 
 
 
