@@ -67,6 +67,8 @@ public class JAccountBkController {
 
 		accountBk.setAccountNo(bigAccountNo);
 		
+		System.out.println(accountBk.getCategoryName());
+		
 		if(accountBk.getPaymentMethod() == null) {
 			
 			accountBk.setPaymentMethod("무통장입금");
@@ -80,6 +82,7 @@ public class JAccountBkController {
 		if(result > 0) { // 성공 시
 			
 			System.out.println("accountNo : " +accountBk.getAccountNo());
+			System.out.println("카테고리" + accountBk.getCategoryName());
 
 			message = "가계부가 등록되었습니다.";
 			path += "/account/insert/1";
