@@ -41,7 +41,8 @@ public class KBoardServiceImpl implements KBoardService{
 		return map;
 	}
 
-
+	
+	
 	// 게시글 작성
 	@Transactional(rollbackFor = Exception.class)
 	@Override
@@ -52,11 +53,6 @@ public class KBoardServiceImpl implements KBoardService{
 		
 		int boardNo = dao.boardInsert(board);
 		
-		if(boardNo > 0) {
-			
-		}else {
-			throw new FileUploadException();
-		}
 		return boardNo;
 	}
 
