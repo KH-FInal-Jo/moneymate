@@ -17,6 +17,18 @@ public interface KBoardService {
 	int boardInsert(KBoard board)
 			throws IllegalStateException, IOException;
 
+
+	/**
+	 * @param map
+	 * @return
+	 */
+	KBoard selectBoard(Map<String, Object> map);
+	
+	
+
+
+	
+
 	
 
 }

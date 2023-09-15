@@ -1,6 +1,7 @@
 package edu.kh.project.board.controller;
 
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.Map;
 
 import javax.servlet.http.HttpSession;
@@ -18,6 +19,7 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import edu.kh.project.board.model.dto.KBoard;
+import edu.kh.project.board.model.dto.KBoard;
 import edu.kh.project.board.model.service.KBoardService;
 import edu.kh.project.member.model.dto.Member;
 
@@ -34,14 +36,14 @@ public class KBoardController {
 			, Model model
 			, @RequestParam Map<String, Object> paramMap // 전달받은 파라미터가 전부다 담겨있다.
 			) {
-		
 
-		
-		
+
+
+
 		if(paramMap.get("key") ==null) {
 			Map<String, Object> map = service.selectboardInquiry(boardCode, cp);
 			model.addAttribute("map", map);
-			
+
 			System.out.println(map);
 		}
 
@@ -55,25 +57,24 @@ public class KBoardController {
 		return "board/boardInquiryWrtie";
 	}
 	// 게시글 작성
-	@PostMapping("/2/insert")
+	@PostMapping("/2/insert/boardInsert")
 	public String boardInsert(
-			@PathVariable("/community/2") int boardCode // 작성하고 이동할 페이지
-			, KBoard board // 커맨드 객체
+			KBoard board // 커맨드 객체
 			, @SessionAttribute("loginMember")Member loginMember // 로그인한 회원 번호
 			, RedirectAttributes ra // 리다이렉트시에 데이터 전달
 			, HttpSession session // 파일 저장 경로
 			)throws IllegalStateException, IOException {
-		
-		
+
+
 		// 로그인한 회원번호 얻어와서 board에 세팅
 		board.setMemberNo(loginMember.getMemberNo());
-		
+
 		// 2도 board에 세팅
 		board.setBoardCode(2);
-		
-		
-		int boardNo = service.boardInsert(board);
-		
+
+
+		int boardNo = service.boardInsert(board); // 서비스로 연결
+
 		String message = null;
 		String path = "redirect:";
 
@@ -85,12 +86,34 @@ public class KBoardController {
 			message = "게시글 등록 실패..";
 			path += "insert";
 		}
-		
+
 		ra.addFlashAttribute("message", message);
 
 		return path;
-		
+
 	}
+
+
+	// 게시글 수정 화면 전환
+	@GetMapping("/2/{boardNo}/update")
+	public String boardUpdate(@PathVariable("boardNo") int boardNo
+			, Model model // 데이터 전달용 객체
+			) {
+		
+		Map<String, Object> map = new HashMap<String, Object>();
+
+		map.put("boardNo", boardNo);
+
+
+		KBoard board = new KBoard();
+
+		model.addAttribute("board",board);
+
+		return "board/boardUpdate";
+
+	}
+
+
 
 
 }
