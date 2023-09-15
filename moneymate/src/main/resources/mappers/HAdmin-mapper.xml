@@ -71,5 +71,18 @@
 		ORDER BY MEMBER_NO
 	</select>
 	
+	<!-- 자동완성 -->
+	<select id="selectMember" resultMap="jmember_rm">
+		SELECT MEMBER_NO, MEMBER_NAME, MEMBER_NICKNAME, MEMBER_EMAIL, 
+		    (SELECT COUNT(*) FROM "REPORT" WHERE "REPORT".REPORTED_NO = MEMBER.MEMBER_NO) REPORT_COUNT,
+		    MILEAGE, SECESSION_FL
+		FROM MEMBER
+		WHERE 1=1
+		AND (MEMBER_NICKNAME LIKE '%${query}%'
+		OR MEMBER_NAME LIKE '%${query}%'
+		OR MEMBER_EMAIL LIKE '%${query}%')
+		ORDER BY MEMBER_NO
+	</select>
+	
 	
 </mapper>

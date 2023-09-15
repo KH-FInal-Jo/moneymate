@@ -27,6 +27,7 @@
     margin-top: 10px;
     margin-left: 10px;
     height: 30px;
+    width: 300px;
     margin-bottom: 30px;
 }
 
@@ -84,10 +85,52 @@ td{
 .pagination-area{
     position: absolute;
     bottom: 10px;
-    left: 25%;
+    left: 40%;
 }
 
 a{
     text-decoration: none;
     color: black;
+}
+
+/* 자동완성 */
+#frm{
+    position: relative;
+    display: inline-block;
+}
+
+#temp{
+    height: 30px;
+}
+
+#search{
+    margin-bottom: 0;
+}
+
+#ulArea{
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    z-index: 1;
+    border: 2px solid #ccc;
+    background-color: #fff;
+    list-style: none;
+    margin: 0;
+    margin-left: 10px;
+    padding: 0;
+    display: none;
+    max-height: 200px;
+    overflow-y: auto;
+
+    width: 300px;
+}
+
+#ulArea li{
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+#ulArea li:hover{
+    background-color: #f2f2f2;
 }

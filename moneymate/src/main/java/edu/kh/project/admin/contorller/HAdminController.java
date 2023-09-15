@@ -1,5 +1,6 @@
 package edu.kh.project.admin.contorller;
 
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -52,6 +53,13 @@ public class HAdminController {
 	@ResponseBody
 	public int secession(int no) {
 		return service.secession(no);
+	}
+	
+	// 자동완성
+	@GetMapping("/admin/member/selectMember")
+	@ResponseBody
+	public List<JMember> selectMember(String query){
+		return service.selectMember(query);
 	}
 
 }

@@ -26,6 +26,10 @@
 
      <jsp:include page="/WEB-INF/views/common/header.jsp"/>
 
+    <c:if test="${!empty param.search}" >
+        <c:set var="search" value="&search=${param.search}"/>
+    </c:if>
+
     <div id="all">
 
         <div id="sidebar" style="width: 25%; color: pink;"></div>
@@ -34,11 +38,13 @@
 
             <div>회원관리</div>
 
-            <form action="/admin/member">
-                <input type="search" name="search" id="search" placeholder="닉네임을 입력하세요">
-                <button  id="searchBtn">검색</button>
+            <form action="/admin/member" id="frm">
+                <input type="search" name="search" id="search" placeholder="닉네임을 입력하세요" autocomplete="off">
+                <ul id="ulArea">
+                </ul>
+                <button type="submit" id="searchBtn">검색</button>
             </form>
-
+            <div id="temp"></div>
             <table border="1">
 
                 <thead>
@@ -87,32 +93,23 @@
                 <ul class="pagination">
                 
                     <!-- 첫 페이지로 이동 -->
-                    <li><a href="#">&lt;&lt;</a></li>
+                    <li><a href="/admin/member?cp=1${search}">&lt;&lt;</a></li>
 
                     <!-- 이전 목록 시작 번호로 이동 -->
-                    <li><a href="#">&lt;</a></li>
+                    <li><a href="/admin/member?cp=${pagination.prevPage}${search}">&lt;</a></li>
 
                
                     <!-- 특정 페이지로 이동 -->
 
                     <c:forEach var="i" begin="${pagination.startPage}" end="${pagination.endPage}">
                         <c:choose>
-                           <c:when test="${i == pagination.currentPage}">
-                                <li><a class="current">1</a></li>
-                                <li><a href="#">2</a></li>
-                                <li><a  href="#">3</a></li>
-                                <li><a href="#">4</a></li>
-                                <li><a href="#">5</a></li>
-                                <li><a href="#">6</a></li>
-                                <li><a href="#">7</a></li>
-                                <li><a href="#">8</a></li>
-                                <li><a href="#">9</a></li>
-                                <li><a href="#">10</a></li>
+                           <c:when test="${i == pagination.currentPage}"> 
+                                <li><a class="current">${i}</a></li>
                           </c:when>
                         
                            <c:otherwise> 
-                                <li><a href="/board/${boardCode}?cp=${i}${sp}">${i}</a></li> 
-                          </c:otherwise>
+                                <li><a href="/admin/member?cp=${i}${search}">${i}</a></li> 
+                           </c:otherwise>
                         </c:choose>
                         
                     </c:forEach> 
@@ -120,10 +117,10 @@
                     
                     
                     <!-- 다음 목록 시작 번호로 이동 -->
-                    <li><a href="#">&gt;</a></li>
+                    <li><a href="/admin/member?cp=${pagination.nextPage}${search}">&gt;</a></li>
 
                     <!-- 끝 페이지로 이동 -->
-                    <li><a href="#">&gt;&gt;</a></li>
+                    <li><a href="/admin/member?cp=${pagination.maxPage}${search}">&gt;&gt;</a></li>
 
                 </ul>
             </div>

@@ -38,18 +38,6 @@ public class HAdminServiceImpl implements HAdminService {
 		return map;
 	}
 
-	// 마일리지 업뎃
-	@Override
-	public int mile(Map<String, Object> paramMap) {
-		return dao.mile(paramMap);
-	}
-
-	// 회원 탈퇴
-	@Override
-	public int secession(int no) {
-		return dao.secession(no);
-	}
-
 	// 회원 검색
 	@Override
 	public Map<String, Object> memberList(int cp, Map<String, Object> paramMap) {
@@ -67,6 +55,25 @@ public class HAdminServiceImpl implements HAdminService {
 		
 		return map;
 	}
+	
+	// 마일리지 업뎃
+	@Override
+	public int mile(Map<String, Object> paramMap) {
+		return dao.mile(paramMap);
+	}
+
+	// 회원 탈퇴
+	@Override
+	public int secession(int no) {
+		return dao.secession(no);
+	}
+
+	// 자동완성
+	@Override
+	public List<JMember> selectMember(String query) {
+		return dao.selectMember(query);
+	}
+
 
 	
 
