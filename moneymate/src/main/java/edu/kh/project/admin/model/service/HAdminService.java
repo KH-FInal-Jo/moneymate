@@ -1,5 +1,6 @@
 package edu.kh.project.admin.model.service;
 
+import java.util.List;
 import java.util.Map;
 
 import edu.kh.project.member.model.dto.JMember;
@@ -30,5 +31,11 @@ public interface HAdminService {
 	 * @return
 	 */
 	Map<String, Object> memberList(int cp, Map<String, Object> paramMap);
+
+	/** 자동완성
+	 * @param query
+	 * @return mList
+	 */
+	List<JMember> selectMember(String query);
 
 }

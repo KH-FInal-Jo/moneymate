@@ -23,6 +23,15 @@ public class HAdminDAO {
 	public int getMemberCount() {
 		return sqlSession.selectOne("HAdminMapper.memberCount");
 	}
+	
+	/** 검색 조건에 맞는 회원 수 
+	 * @param paramMap
+	 * @return memberCount
+	 */
+	public int getmemberCount(Map<String, Object> paramMap) {
+		return sqlSession.selectOne("HAdminMapper.getmemberCount", paramMap);
+	}
+
 
 	/** 회원 목록 조회
 	 * @param pagination
@@ -35,7 +44,23 @@ public class HAdminDAO {
 		
 		RowBounds rowBounds = new RowBounds(offset, pagination.getLimit());
 		
-		return sqlSession.selectList("HAdminMapper.memberList" , rowBounds);
+		return sqlSession.selectList("HAdminMapper.memberList" , null, rowBounds);
+	}
+	
+	/** 검색 조건에 맞는 회원 목록 조회
+	 * @param pagination
+	 * @param paramMap
+	 * @return memberList
+	 */
+	public List<JMember> selectMemberList(HHPagination pagination, Map<String, Object> paramMap) {
+		
+		int offset
+		= (pagination.getCurrentPage() - 1) * pagination.getLimit();
+
+		RowBounds rowBounds = new RowBounds(offset, pagination.getLimit());
+
+		// 3) selectList("namespace.id", 파라미터, Rowbounds) 호출
+		return sqlSession.selectList("HAdminMapper.selectMemberList", paramMap, rowBounds);
 	}
 
 	/** 마일리지 업데이트
@@ -54,28 +79,13 @@ public class HAdminDAO {
 		return sqlSession.update("HAdminMapper.secession", no);
 	}
 
-	/** 검색 조건에 맞는 회원 수 
-	 * @param paramMap
-	 * @return memberCount
+	/** 자동완성
+	 * @param query
+	 * @return mList
 	 */
-	public int getmemberCount(Map<String, Object> paramMap) {
-		return sqlSession.selectOne("HAdminMapper.getmemberCount", paramMap);
+	public List<JMember> selectMember(String query) {
+		return sqlSession.selectList("HAdminMapper.selectMember", query);
 	}
 
-	/** 검색 조건에 맞는 회원 목록 조회
-	 * @param pagination
-	 * @param paramMap
-	 * @return memberList
-	 */
-	public List<JMember> selectMemberList(HHPagination pagination, Map<String, Object> paramMap) {
-		
-		int offset
-		= (pagination.getCurrentPage() - 1) * pagination.getLimit();
-
-		RowBounds rowBounds = new RowBounds(offset, pagination.getLimit());
-
-		// 3) selectList("namespace.id", 파라미터, Rowbounds) 호출
-		return sqlSession.selectList("HAdminMapper.selectMemberList", paramMap, rowBounds);
-	}
-
+	
 }

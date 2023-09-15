@@ -162,20 +162,7 @@ $("#creditBtn").click(function () {
 
             .then( result => {
                 if(result > 0 ){
-
-                    /* fetch("")
-
-                    .then()
-
-                    .then()
-
-                    .catch(err => {
-                        console.log(err);
-                    }) */
-
                     location.href = "/subscribe/end?no=" + result;
-
-
                 } else {
                     alert("결제에 실패하셨습니다.");
                     location.href = "/";
@@ -185,11 +172,6 @@ $("#creditBtn").click(function () {
             .catch(err => {
                 console.log(err);
             });
-
-
-
-
-
 
           } else {
             // 결제 실패 시 로직,
