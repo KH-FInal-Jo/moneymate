@@ -26,13 +26,15 @@
 /* 공지사항 목록 스타일 */
 .board-notice-list{
     width: 98%;
-    height: 400px;
+    height: 500px;
 
     margin-left: 20px;
     margin-right: 0;
     display: flex;
     justify-content: center;
-    align-items: end;
+    align-items: start;
+
+    margin-top: 100px;
 }
 
 .board-notice-table a{
@@ -149,12 +151,25 @@
 
     font-size: 18px;
 
-    margin-top: 5px;
 
     white-space: pre-wrap;
 
 
 }
+
+.noticeBtnCon{
+    width: 500px;
+    display: flex;
+}
+
+.noticeBtnCon > div:first-child{
+    width: 100%;
+    justify-content: start;
+    display: flex;
+}
+
+
+
 /* 목록으로 버튼 */
 .board-notice-detail-container>div:last-child{
     display: flex;

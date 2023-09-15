@@ -1,11 +1,15 @@
 package edu.kh.project.member.controller;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttribute;
 import org.springframework.web.bind.annotation.SessionAttributes;
@@ -21,9 +25,24 @@ public class JMemberController {
 	@Autowired
 	private JMemberService service;
 	
-	@GetMapping("/member/mypage/bookMark")
-	public String selectBookMark() {
-		return null;
+	@GetMapping("/member/mypage/bookMark/{boardCode}/{memberNo}")
+	public String selectBookMark(@PathVariable("boardCode") int boardCode,
+								@PathVariable("memberNo") int memberNo
+								, @RequestParam(value="cp", required = false, defaultValue = "1") int cp
+								, Model model) {
+		
+		Map<String, Object> map = new HashMap<String, Object>();
+		
+		map.put("boardCode", boardCode);
+		map.put("memberNo", memberNo);
+		map.put("cp", cp);
+		
+		Map<String, Object> bkmap = service.selectBookmark(map);
+		
+		
+		model.addAttribute("map", bkmap);
+		
+		return "member/JmyPageBkMark";
 	}
 	
 	// 마이페이지 상세조회

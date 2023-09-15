@@ -4,8 +4,14 @@
 <!DOCTYPE html>
 <html>
 <head>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@10/dist/sweetalert2.min.css">
+
+<!-- SweetAlert JavaScript -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>가계부 작성</title>
 <link rel="stylesheet"
 	href="/resources/css/account/accountBookInout.css">
 
@@ -199,7 +205,7 @@
 			<div>
 				<button class="accDateRecordBtn">기간선택</button>
 				<div class="accDateRecord">
-					<input type="date" id="startDateInput">
+					<input type="date" id="startDateInput" min="yyyy-MM-dd">
 					<input type="date" id="endDateInput">
 					<button id="accDateChange">변경하기</button>
 				</div>
@@ -231,12 +237,14 @@
 	
 		const bigAccountNo = `${bigAccountNo}`;
 		const startDate1 = `${account.startDate}`;
+		const endDate1 = `${account.endDate}`;
 		const targetMoney = `${account.targetMoney}`;
 		const useMoney = `${useMoney}`;
 		console.log(useMoney);
 		console.log(bigAccountNo);
 		console.log(startDate1);
 		console.log(targetMoney);
+		console.log(endDate1);
 	</script>
 
 

@@ -36,7 +36,7 @@
 
          <li><a href="/member/mypage/likeList/0/${loginMember.memberNo}">좋아요 목록</a></li>
 
-         <li><a href="#">북마크 조회</a></li>
+         <li><a href="/member/mypage/bookMark/4/${loginMember.memberNo } ">북마크 조회</a></li>
 
          <li><a href="/member/mypage/secession">회원 탈퇴</a></li>
       </ul>

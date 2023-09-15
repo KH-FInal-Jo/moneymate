@@ -1,6 +1,6 @@
 @font-face { /* 애플산돌고딕 폰트 적용 */
     font-family: "SDGothic";
-    src: url("/src/fonts/AppleSDGothicNeoSB.ttf") format("truetype");
+    src: url("/src/main/webapp/resources/fonts/AppleSDGothicNeoSB.ttf") format("truetype");
     font-weight: normal;
   }
 
