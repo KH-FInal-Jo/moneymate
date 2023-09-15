@@ -36,13 +36,13 @@
 
 
 	<resultMap type="CBoardImage" id="boardImage_rm">
-		<id property="imageNo" column="IMG_CD" />
+		<id property="boardNo" column="BR_NO" />
 
 		<result property="imagePath" column="IMG_PATH" />
 		<result property="imageReName" column="IMG_RENAME" />
 		<result property="imageOriginal" column="IMG_ORIGINAL" />
 		<result property="imageOrder" column="IMG_LEVEL" />
-		<result property="boardNo" column="BR_NO" />
+		<result property="imageCode" column="IMG_CD" />
 	</resultMap>
 	
 
@@ -164,9 +164,67 @@
 		#{boardTitle},
 		#{boardContent},
 		DEFAULT, DEFAULT, DEFAULT, DEFAULT,
-		#{memberNo},
-		#{boardCode})
+		#{boardCode},
+		#{memberNo})
 	</insert>
+	
+	
+	<!-- 이미지 리스트(여러 개) 삽입 -->
+	<insert id="insertImageList" parameterType="list">
+		INSERT INTO IMAGE
+		SELECT  A.*
+		FROM (
+
+		<foreach collection="list" item="img" separator=" UNION ALL ">
+			SELECT
+			#{img.boardNo} BR_NO,
+			#{img.imageCode} IMG_CD,
+			#{img.imagePath} IMG_PATH,
+			#{img.imageReName} IMG_RENAME,
+			#{img.imageOriginal} IMG_ORIGINAL,
+			#{img.imageOrder} IMG_LEVEL
+			FROM DUAL
+		</foreach>
+
+		)A
+
+	</insert>
+	
+	
+	
+	<!-- 좋아요 여부 확인 -->
+	<select id="boardLikeCheck" resultType="_int">
+		SELECT COUNT(*) FROM
+		"LIKE"
+		WHERE BR_NO = #{boardNo}
+		AND LIKE_CODE = 1
+		AND MEMBER_NO = #{memberNo}
+	</select>
+
+	<!-- 좋아요 삽입 -->
+	<insert id="insertBoardLike">
+		INSERT INTO "LIKE" VALUES(
+		${memberNo}, ${boardNo}, 1)
+	</insert>
+
+	<!-- 좋아요 삭제 -->
+	<delete id="deleteBoardLike">
+		DELETE FROM "LIKE" WHERE BR_NO = ${boardNo}
+		AND MEMBER_NO = ${memberNo}
+		AND LIKE_CODE = 1
+	</delete>
+
+	<!-- 좋아요 개수 조회 -->
+	<select id="CountBoardLike" resultType="_int">
+		SELECT COUNT(*) FROM
+		"LIKE"
+		WHERE BR_NO = ${boardNo}
+		AND LIKE_CODE = 1
+	</select>
+	
+	
+	
+	
 	
 	
 </mapper>

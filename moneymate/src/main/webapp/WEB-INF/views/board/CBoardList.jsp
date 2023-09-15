@@ -63,7 +63,7 @@
 		                        <c:forEach items="${boardList}" var="board">
 		                            <tr class="board-body">
 		                                <td>${board.boardNo}</td>
-		                                <td> 
+		                                <td class="title"> 
 			                                <c:if test="${!empty board.thumbnail}" >
 			                                    <img class="list-thumbnail" src="${board.thumbnail}">
 			                                </c:if>
@@ -110,9 +110,9 @@
 
                 <ul class="pagination">
                 
-                    <li><a href="/board/${boardCode}?cp=1${sp}">&lt;&lt;</a></li>
+                    <li><a href="/board/3?cp=1${sp}">&lt;&lt;</a></li>
 
-                    <li><a href="/board/${boardCode}?cp=${pagination.prevPage}${sp}">&lt;</a></li>
+                    <li><a href="/board/3?cp=${pagination.prevPage}${sp}">&lt;</a></li>
 
                
                     <c:forEach var="i" begin="${pagination.startPage}" end="${pagination.endPage}">
@@ -122,7 +122,7 @@
                            </c:when>
                         
                            <c:otherwise>
-                                <li><a href="/community/${boardCode}?cp=${i}${sp}">${i}</a></li>
+                                <li><a href="/community/3?cp=${i}${sp}">${i}</a></li>
                            </c:otherwise>
                         </c:choose>
                         
@@ -130,9 +130,9 @@
                     
                     
                     
-                    <li><a href="/community/${boardCode}?cp=${pagination.nextPage}${sp}">&gt;</a></li>
+                    <li><a href="/community/3?cp=${pagination.nextPage}${sp}">&gt;</a></li>
 
-                    <li><a href="/community/${boardCode}?cp=${pagination.maxPage}${sp}">&gt;&gt;</a></li>
+                    <li><a href="/community/3?cp=${pagination.maxPage}${sp}">&gt;&gt;</a></li>
 
                 </ul>
             </div>

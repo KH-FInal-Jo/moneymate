@@ -15,4 +15,6 @@ public class CBoardImage {
 	private String imageOriginal;
 	private int imageOrder;
 	private int boardNo;
+	private int imageCode;
+	
 }

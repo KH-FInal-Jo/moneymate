@@ -72,7 +72,7 @@
                     </div>
 
                     <div class="board-content">
-                        <textarea class="boardContent">테스트 게시글 내용입니다.</textarea>
+                        <textarea class="boardContent" name="boardContent"></textarea>
                     </div>
 
                     <div class="board-btn-area">

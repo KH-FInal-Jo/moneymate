@@ -1,5 +1,6 @@
 package edu.kh.project.board.model.service;
 
+import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 
@@ -15,7 +16,12 @@ public interface CBoardService {
 
 	CBoard selectBoard(Map<String, Object> map);
 
-	int boardInsert(CBoard board, List<MultipartFile> images, String webPath, String filePath);
+	int boardInsert(CBoard board, List<MultipartFile> images, String webPath, String filePath) throws IllegalStateException, IOException;
+
+	int boardLikeCheck(Map<String, Object> map);
+	
+	int like(Map<String, Integer> paramMap);
+
 
 	
 }

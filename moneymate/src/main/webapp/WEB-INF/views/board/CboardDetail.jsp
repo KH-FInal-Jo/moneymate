@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"  %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -24,51 +25,61 @@
             <section class="board-free-main">
                 <div class="board-name">자유게시판</div>
                 <div>
-                    <h1>게시글 1번 제목</h1>
+                    <h1>${board.boardTitle}</h1>
                 </div>
     
                 <hr class="hr">
     
                 <div class="board-head">
                     <div class="board-head1">
-                        <img src="../images/몽자.jpg" >
-                        <span>닉네임</span>
-                        <span class="like-area"><i class="fa-solid fa-heart" style="color: #f50505;"></i>1</span>
+                        <c:choose>
+                       		<c:when test="${empty board.profileImage}">
+                            	<img src="/resources/images/id.png">
+                       		</c:when>
+                    
+                       		<c:otherwise>
+                            	<img src="${board.profileImage}">
+                       		</c:otherwise>
+                    	</c:choose>
+                        <span>${board.memberNickname}</span>
+                        <span class="like-area">
+                        	<c:if test="${!empty likeCheck}" >
+                        		<i class="fa-solid fa-heart" style="color: #f50505;"></i>
+                        	</c:if>
+	                        <c:if test="${empty likeCheck}" >
+	                            <i class="fa-regular fa-heart" id="boardLike"></i>
+	                        </c:if>
+                        </span>
+                        ${board.likeCount}
                     </div>
         
                     <div class="board-head2">
-                        <p><span>작성일 : 2023-09-04 15:08:44</span></p>
-                        <p><span>수정일 : 2023-09-04 15:08:44</span></p>
-                        <p><span>조회수 : 10</span></p>
+                        <p><span>작성일 : ${board.boardCreateDate}</span></p>
+                        
+                        <c:if test="${!empty board.boardUpdateDate}" >
+                        	<p> <span>수정일</span>   ${board.boardUpdateDate} </p>   
+                    	</c:if>
+                        	
+                        <p><span>조회수 :  ${board.readCount}</span></p>
                     </div>
                     
                 </div>
     
     
                 <div class="img-box">
-                    <div class="boardImg">
-                        <img src="../images/몽자.jpg">
-                        <p><a href="#" download="#">다운로드</a></p>         
-                    </div>
-                    <div class="boardImg">
-                        <img src="../images/몽자.jpg">
-                        <p><a href="#" download="#">다운로드</a></p>         
-                    </div>
-                    <div class="boardImg">
-                        <img src="../images/몽자.jpg">
-                        <p><a href="#" download="#">다운로드</a></p>         
-                    </div>
-                    <div class="boardImg">
-                        <img src="../images/몽자.jpg">
-                        <p><a href="#" download="#">다운로드</a></p>         
-                    </div>
-                    <div class="boardImg">
-                        <img src="../images/몽자.jpg">
-                        <p><a href="#" download="#">다운로드</a></p>         
-                    </div>
+                    <c:forEach begin="0" end="${fn:length(board.imageList) - 1}" var="i">
+                        <div class="boardImg">
+                            <c:set var="path" value="${board.imageList[i].imagePath}${board.imageList[i].imageReName}"/>
+                            <img src="${path}">
+                            <p>
+                            <a href="${path}"
+                                download="${board.imageList[i].imageOriginal}">다운로드</a>                
+                            </p>
+                        </div>
+                    </c:forEach>
                 </div>
     
-                <div class="board-content">게시글 내용</div>
+                <div class="board-content">${board.boardContent}</div>
     
                 <hr class="hr">
     
@@ -150,6 +161,10 @@
 
     </main>
 
+    <script>
+        const boardNo = "${board.boardNo}";
+        const loginMemberNo = "${loginMember.memberNo}";
+    </script>
 
     <script src="/resources/js/freeBoardDetail.js"></script>
 </body>
