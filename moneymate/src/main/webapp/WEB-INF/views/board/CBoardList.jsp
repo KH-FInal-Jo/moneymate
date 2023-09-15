@@ -18,8 +18,8 @@
 </head>
 <body>
 
-	<c:if test="${!empty param.key}" >
-            <c:set var="sp" value="&key=${param.key}&query=${param.query}"/>
+	<c:if test="${!empty param.sel}" >
+            <c:set var="sp" value="&sel=${param.sel}&query=${param.query}"/>
     </c:if>
 
     <jsp:include page="/WEB-INF/views/common/header.jsp" />
@@ -32,7 +32,9 @@
             <section class="board-notice-main">
                 <div class="board-notice-name">자유 게시판</div>
 
-                
+                <c:if test="${!empty param.query}" >
+                <h3 class="searchResult">'${param.query}' 검색 결과</h3>
+                </c:if>
 
                 <div class="freeBoard-area">
                     <table border="1" class="freeBoard">
@@ -94,7 +96,7 @@
                                     <option value="tc">제목+내용</option>
                                     <option value="w">작성자</option>
                                 </select>
-                                <input type="text" id="query" name="query">
+                                <input type="text" id="query" name="query" value="${param.query}">
                                 <button id="btn1">검색</button>
                             </div>
                         </form>

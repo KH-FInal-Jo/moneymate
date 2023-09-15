@@ -48,7 +48,7 @@ public class CBoardController {
 
 		int boardCode = 3;
 
-		if (paramMap.get("key") == null) {
+		if (paramMap.get("sel") == null) {
 			Map<String, Object> map = service.selectBoardList(boardCode, cp);
 
 			model.addAttribute("map", map);

@@ -86,7 +86,7 @@
                 <div class="btn-area">
                     <button id="updateBtn">수정</button>
                     <button id="deleteBtn">삭제</button>
-                    <button>목록으로</button>
+                    <button id="goToListBtn">목록으로</button>
                 </div>
 
                 
