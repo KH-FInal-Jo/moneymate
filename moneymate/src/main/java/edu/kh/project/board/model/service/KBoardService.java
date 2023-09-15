@@ -18,11 +18,20 @@ public interface KBoardService {
 			throws IllegalStateException, IOException;
 
 
-	/**
+	
+
+	/**게시글 상세 조회
 	 * @param map
 	 * @return
 	 */
-	KBoard selectBoard(Map<String, Object> map);
+	KBoard selectboardInquiryDetail(Map<String, Object> map);
+
+
+	/** 게시글 수정
+	 * @param board
+	 * @return
+	 */
+	int boardUpdate(KBoard board);
 	
 	
 

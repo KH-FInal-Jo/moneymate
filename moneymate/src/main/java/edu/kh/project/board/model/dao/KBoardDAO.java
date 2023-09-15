@@ -48,6 +48,19 @@ public class KBoardDAO {
 		return result;
 	}
 
+	/**게시글 상세조회
+	 * @param map
+	 * @return
+	 */
+	public KBoard selectboardInquiryDetail(Map<String, Object> map) {
+		return sqlSession.selectOne("KboardMapper.boardInquiryDetail", map);
+	}
+
+	public int boardUpdate(KBoard board) {
+		
+		return sqlSession.update("KboardMapper.boardUpdate", board);
+	}
+
 
 
 	

@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <c:forEach items="${boardTypeList}" var="boardType">
     <c:if test="${boardType.BOARD_CODE == 2}" >
@@ -58,9 +59,11 @@
                     </div>
         
                     <div class="board-head2">
-                        <p><span>작성일 : 2023-09-04 15:08:44</span></p>
-                        <p><span>수정일 : 2023-09-04 15:08:44</span></p>
-                        <p><span>조회수 : 10</span></p>
+                        <p><span>작성일 : ${board.boardCreateDate}</span></p>
+                        <c:if test="${!empty board.boardUpdateDate}" >
+                            <p><span>수정일 : ${board.boardUpdateDate}</span></p>
+                        </c:if>
+                        <p><span>조회수 : ${board.readCount}</span></p>
                     </div>
                     
                 </div>
@@ -68,50 +71,14 @@
     
                 
     
-                <div class="board-content">게시글 내용</div>
+                <div class="board-content">${board.boardContent}</div>
     
                 
     
                 <div class="btn-area">
-                    <button>수정</button>
-                    <button>삭제</button>
-                    <button>목록으로</button>
-                </div>
-
-                
-
-                <div class="comment-area">
-                    <ul>
-                        <li id="comment-list">
-                            <p class="commentWriter">
-                                <img src="../images/몽자.jpg">
-                                <span>닉네임</span>
-                            </p>
-
-                            <p id="comment-content">댓글 내용</p>
-
-                            <div>
-                                <div class="btn-area2">
-                                    <button>답글</button>
-                                    <button>수정</button>
-                                    <button>삭제</button>
-                                </div>
-
-                                <div class="createDate">
-                                    작성일 : 2023-09-05
-                                </div>
-                            </div>
-
-                        </li>
-                    </ul>
-                </div>
-
-                <div class="comment-write-area">
-                    <textarea id="commentContent"></textarea>
-                    <button id="addComment">
-                        댓글<br>
-                        등록
-                    </button>
+                    <button id="updateBtn">수정</button>
+                    <button id="deleteBtn">삭제</button>
+                    <button id="goToList">목록으로</button>
                 </div>
     
             </section>
@@ -120,6 +87,8 @@
      <jsp:include page="/WEB-INF/views/common/footer.jsp" />
 
     </main>
+
+    <script src="/resources/js/boardInquiryDetail.js"></script>
 
 
     

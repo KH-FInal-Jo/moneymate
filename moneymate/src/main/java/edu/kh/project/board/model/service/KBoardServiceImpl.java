@@ -57,12 +57,27 @@ public class KBoardServiceImpl implements KBoardService{
 	}
 
 
-
+	// 게시글 상세조회
 	@Override
-	public KBoard selectBoard(Map<String, Object> map) {
-		return null;
+	public KBoard selectboardInquiryDetail(Map<String, Object> map) {
+	
+		return dao.selectboardInquiryDetail(map);
 	}
 
+
+	// 게시글 수정
+	@Transactional(rollbackFor = Exception.class)
+	@Override
+	public int boardUpdate(KBoard board) {
+		
+		int rowCount = dao.boardUpdate(board);
+		
+		return rowCount;
+	}
+
+
+
+	
 
 
 
