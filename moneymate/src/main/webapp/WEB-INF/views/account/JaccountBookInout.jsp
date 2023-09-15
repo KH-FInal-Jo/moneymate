@@ -60,7 +60,7 @@
 								<div class="categoryBtn">
 									선택 <i class="fa-solid fa-right-to-bracket fa-lg"></i>
 								</div>
-								<input type="text" class="inputCategoryName" name="categoryName" disabled/>
+								<input type="text" class="inputCategoryName" name="categoryName" readonly/>
 							</div>
 							<div class="accBk-category-table">
 								<div>
@@ -233,6 +233,8 @@
 
 
 	<script>
+
+	
 
 	
 		const bigAccountNo = `${bigAccountNo}`;
