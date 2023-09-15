@@ -9,11 +9,12 @@
 		<result property="accountContent" column="ACNT_CONT" />
 		<result property="category" column="ACNT_CATEGORY" />
 		<result property="percent" column="PERCENT" />
+		<result property="sumMoney" column="SUMMONEY" />
 		
 	
 	</resultMap>
 	
-	
+	<!-- 지출 금액 합계 -->
 	<select id="changeMonth" resultType="_int">
 		SELECT SUM(ACNT_MN) AS MONEY
 		FROM "ACCOUNT_DETAIL"
@@ -25,7 +26,7 @@
 		AND ACNT_ST = 'N'
 	</select>
 	
-	
+	<!-- 지출 내역  -->
 	<select id="selectAccount" resultMap="SAccount-rm">
 		SELECT ACNT_DATE, ACNT_CONT, ACNT_MN, ACNT_CATEGORY 
 		FROM ACCOUNT_DETAIL
@@ -35,13 +36,13 @@
 		AND ACNT_NO = #{accountNo}
 		AND MEMBER_NO = #{memberNo}
 		AND ACNT_ST = 'N'
-		
+		ORDER BY ACNT_DATE DESC
 	</select>
 	
-	
+	<!-- 지출 그래프 -->
 	<select id="selectChart" resultMap="SAccount-rm">
 		
-		SELECT ACNT_CATEGORY , SUM(ACNT_MN)AS 합계, ROUND(RATIO_TO_REPORT(SUM(ACNT_MN)) OVER()*100,1) AS PERCENT
+		SELECT ACNT_CATEGORY , SUM(ACNT_MN)AS SUMMONEY, ROUND(RATIO_TO_REPORT(SUM(ACNT_MN)) OVER()*100,1) AS PERCENT
 		FROM ACCOUNT_DETAIL
 		JOIN ACCOUNTBOOK USING(ACNT_NO)
 		WHERE ACNT_DATE IN (SELECT ACNT_DATE FROM "ACCOUNT_DETAIL" 
@@ -51,7 +52,24 @@
 		AND ACNT_ST = 'N'
 		AND INOUT_NM = '지출'
 		GROUP BY ACNT_CATEGORY
-		ORDER BY 합계 DESC
+		ORDER BY 2 DESC
+	
+	</select>
+	
+	<!-- 수입 그래프  -->
+	<select id="selectChartIncome" resultMap="SAccount-rm">
+		
+		SELECT ACNT_CATEGORY , SUM(ACNT_MN)AS SUMMONEY, ROUND(RATIO_TO_REPORT(SUM(ACNT_MN)) OVER()*100,1) AS PERCENT
+			FROM ACCOUNT_DETAIL
+			JOIN ACCOUNTBOOK USING(ACNT_NO)
+			WHERE ACNT_DATE IN (SELECT ACNT_DATE FROM "ACCOUNT_DETAIL" 
+			                    WHERE SUBSTR(ACNT_DATE, 7, 1) = #{month})
+			AND MEMBER_NO = #{memberNo}
+			AND ACNT_NO = #{accountNo}
+			AND ACNT_ST = 'N'
+			AND INOUT_NM = '수입'
+			GROUP BY ACNT_CATEGORY
+			ORDER BY 2 DESC
 	
 	</select>
 	

@@ -144,12 +144,23 @@
                         <span class="categoryName">식비</span>
                         <span class="equal">:</span>
                         <span class="percentNo">50%</span>
+                        <span class="sumMoney">60000원</span>
                     </div>
                 </div>
             </div>
+
+
             <!-- 수입 차트 -->
             <div class="chart-div2">
                 <canvas id="pieChartCanvas2" width="300px" height="300px"></canvas>
+                <div class="Icategory-area">
+                    <div class="categoryIncome-percent">
+                            <span class="Iround"></span>
+                            <span class="IcategoryName">식비</span>
+                            <span class="Iequal">:</span>
+                            <span class="IpercentNo">50%</span>
+                    </div>
+                </div>
             </div>
 
 
@@ -158,13 +169,26 @@
         
         <section class="all-area">
 
-    
+            <%-- 지출 내역 영역 --%>
             <section class="detail-area">
                 
                 <div class="spend-area">
 
                     <div class="spend-line">
                         <div class="spend-left">
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                        </div>
+                        <div></div>
+                    </div>
+
+                </div>
+                <%-- 수입 내역 영역 --%>
+                <div class="income-area">
+
+                    <div class="income-line">
+                        <div class="income-left">
                             <div></div>
                             <div></div>
                             <div></div>
@@ -191,6 +215,9 @@
 
     <script>
         document.addEventListener("DOMContentLoaded", function () {
+
+            incomeDiv.style.display = 'none'
+
             var currentURL = window.location.href;
 
             // URL에서 "1" 추출하기
@@ -202,6 +229,7 @@
             handleFetch(month, accountNo);
             handleFetchView(month, accountNo);
             handleFetchChart(month, accountNo);
+            handleFetchChartIncome(month, accountNo);
 
 
 

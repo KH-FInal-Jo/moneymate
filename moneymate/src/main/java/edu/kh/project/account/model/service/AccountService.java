@@ -25,6 +25,12 @@ public interface AccountService {
 	 */
 	List<SAccount> changeChart(Map<String, Object> map);
 
+	/** 수입 그래프 업데이트
+	 * @param map
+	 * @return
+	 */
+	List<SAccount> changeChartIncome(Map<String, Object> map);
+
 
 
 }

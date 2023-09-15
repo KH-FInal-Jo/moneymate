@@ -21,7 +21,6 @@ font-family: 'SDGothic', serif;
     flex-direction: column;
     flex-basis: 60%;
 
-    height: 890px;
 
     position: relative;
 }
@@ -239,13 +238,11 @@ h1{
 }
 
 /* 차트 영역 */
-.chart {
+.chart{
     position: relative;
     display:inline-block;
-    width: 200px;
-    height: 200px;
-    border-radius: 50%;
     transition: 0.3s;
+
 
     padding-top: 100px;
     
@@ -257,26 +254,26 @@ h1{
     display: flex;
     justify-content: center;
     margin-top: 80px;
-    margin-left: 90px;
+    padding-left: 70px;
 
     height: 40%;
-    width: 40%;
+    width: 60%;
+
     
 
   }
 
-  /* 카테고리,퍼센트 영역 */
+  /* 지출 카테고리,퍼센트 영역 */
   .category-area{
-    border: 1px solid black;
 
     padding-left: 50px;
     display: flex;
     flex-direction: column;
   }
   .category-percent{
-    border: 1px solid black;
-    width: 200px;
+    background-color: #d8daef;
 
+    width: 300px;
     font-size: 20px;
     margin-bottom: 10px;
 
@@ -302,17 +299,63 @@ margin-right: 10px;
 margin-right: 10px;
 }
 
+/* 금액 합계 */
+.sumMoney{
+    margin-left: 10px;
+}
+
+
 /* 차트 div2 */
 .chart-div2{
-display: flex;
-justify-content: center;
-margin-top: 80px;
+    display: flex;
+    justify-content: center;
+    margin-top: 80px;
+    padding-left: 70px;
 
-height: 40%;
-width: 40%;
-
+    height: 40%;
+    width: 60%;
 
   }
+
+
+/* 수입 카테고리,퍼센트 영역 */
+.Icategory-area{
+border: 1px solid black;
+
+padding-left: 50px;
+display: flex;
+flex-direction: column;
+}
+.categoryIncome-percent{
+border: 1px solid black;
+width: 300px;
+
+font-size: 20px;
+margin-bottom: 10px;
+
+display: flex;
+}
+
+/* 동그라미 */
+.Iround{
+margin-right: 10px;
+margin-top: 3px;
+
+width: 20px;
+height: 20px;
+
+border-radius: 50%;
+}
+/* 카테고리명 */
+.IcategoryName{
+margin-right: 10px;
+}
+/* : */
+.Iequal{
+margin-right: 10px;
+}
+
+
 
 .chart-shape{
     background: #fff;
@@ -374,7 +417,7 @@ width: 40%;
     border: 2px solid white; /* 스크롤바 막대 테두리 설정  */
     border-radius: 12px 12px 12px 12px;
 }
-/* 테이블 */
+/* 지출 내역 영역 */
 .spend-line{
     display: flex;
     background-color: rgb(160, 208, 227);
@@ -422,35 +465,50 @@ width: 40%;
 
 }
 
-/* 수입내역 테이블 */
-.income-tb{
-    margin-bottom: 100px;
-    background-color: #e3ebf2ee;
-    padding-left: 10px;
-    border-radius: 10px;
+/* 수입 내역 영역 */
+.income-line{
+    display: flex;
+    background-color: rgb(160, 208, 227);
+}
 
-    display: none;
+.income-line > div:nth-of-type(1){
+    display: flex;
+    flex-direction: column;
+    flex-basis: 70%;
+
+    
+    font-size: 25px;
+}
+
+.income-left > div:nth-of-type(1){
+    display: flex;
+    flex-basis: 40%;
+
+    padding: 10px 10px;
+    font-size: 25px;
 
 }
-td{
-    padding: 10px 0;
+.income-left > div:nth-of-type(2){
+    display: flex;
+    flex-basis: 40%;
+
+    padding: 10px 10px;
+    font-size: 25px;
 }
-/* 날짜 */
-.spend-date{
-    font-size: 20px;
+.income-left > div:nth-of-type(3){
+    display: flex;
+    flex-basis: 20%;
+
+    padding: 10px 10px;
+    font-size: 15px;
+
 }
-/* 어디에 썼는지 */
-.where{
-    font-size: 20px;
-}
-/* 카테고리 */
-.category{
-    border-bottom: 1px solid #ccc;
-    font-size: 13px;
-}
-/* 금액 */
-.price{
-    border-bottom: 1px solid #ccc;
-    width: 150px;
-    font-size: 20px;
+
+.income-line > div:nth-of-type(2){
+    display: flex;
+    flex-basis: 30%;
+
+    justify-content: center;
+    align-items: center;
+
 }
