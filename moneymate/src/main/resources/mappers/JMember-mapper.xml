@@ -47,5 +47,12 @@
 		SET MILEAGE = MILEAGE+10000
 		WHERE MEMBER_NO = #{memberNo}
 	</update>
+	
+	<!-- 알림함 insert -->
+	<insert id="insertAlert">
+		INSERT INTO ALERT (ALERT_NO, ALERT_ST, ALERT_TARGET, MEMBER_NO) 
+		VALUES(SEQ_ALERT_NO.NEXTVAL,DEFAULT, 'O', #{memberNo})
+	</insert>
+	
 
 </mapper>

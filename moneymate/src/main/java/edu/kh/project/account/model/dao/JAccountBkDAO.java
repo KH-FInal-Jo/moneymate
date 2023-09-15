@@ -78,8 +78,14 @@ public class JAccountBkDAO {
 		return sqlSession.selectList("selectAccountBk2");
 	}
 
+	// 마일리지 입력하기
 	public int insertMileage(int selmemberNo) {
 		return sqlSession.update("insertMileage", selmemberNo);
+	}
+
+	// 알림함 insert
+	public int insertAlert(int selmemberNo) {
+		return sqlSession.insert("insertAlert", selmemberNo);
 	}
 
 

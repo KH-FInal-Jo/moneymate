@@ -38,6 +38,9 @@ startDateInput.addEventListener('change', function () {
 
 });
 
+
+  
+
 // 목표예산
 function submitTarget() {
     const targetMoney = document.querySelector('.accTargetInput').value;
@@ -47,6 +50,8 @@ function submitTarget() {
     //const startDate1 = startDate.toISOString().slice(0, 10);
 
     const startDate = document.querySelector('.startDate').textContent;
+
+
 
     // Date 객체로 변환
     const date = new Date(startDate);
@@ -75,6 +80,8 @@ function submitTarget() {
         console.log(result);
         alert('목표 예산이 저장되었습니다.');
 
+        location.reload(true);
+
         document.querySelector('.accTargetMoney').innerHTML = "";
         document.querySelector('.accTargetMoney').innerHTML = targetMoney;
         document.querySelector('.startDate').innerHTML = "";
@@ -89,17 +96,26 @@ function submitTarget() {
     });
 }
 
-
-function checkAlert() {
-    $.get("/getAlertMessage", function (data) {
-        if (data) {
-            alert(data);
-        }
+    function updateProgressBar() {
+      // 여기에 프로그래스바 업데이트 로직을 추가
+      let result = (useMoney / targetMoney) * 100;
+  
+      console.log(result);
+  
+      if (accProgress != null) {
+        accProgress.value = result;
+      }
+    }
+    
+    // 0.01초(10밀리초) 간격으로 updateProgressBar 함수 호출
+    const intervalId = setInterval(updateProgressBar, 100);
+  
+    window.addEventListener('unload', () => {
+      clearInterval(intervalId);
     });
-}
+  
+  
 
-// 페이지 로드 후 5초마다 결과 확인
-setInterval(checkAlert, 5000);
 
 
 

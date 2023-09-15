@@ -92,7 +92,7 @@
 	
 	<!-- 가계부 상세조회 -->
 	<select id="accountUse" resultType="_int">
-		SELECT SUM(ACNT_MN) AS TOTAL_EXPENSE
+		SELECT COALESCE(SUM(ACNT_MN), 0) AS TOTAL_EXPENSE
 		FROM ACCOUNT_DETAIL
         JOIN ACCOUNTBOOK USING(ACNT_NO)
 		WHERE INOUT_NM = '지출'
@@ -152,7 +152,7 @@
 	
 	<!-- 목표 금액, 시작, 종료 날짜 -->
 	<select id="selectAccountBk" resultMap="account_rm">
-		SELECT TARGET_MN, TARGET_START, TARGET_END, ACNT_NO
+		SELECT COALESCE(TARGET_MN, 0) AS TARGET_MN, COALESCE(TARGET_START, ' ') AS TARGET_START, COALESCE(TARGET_END, ' ') AS TARGET_END, ACNT_NO
 		FROM ACCOUNTBOOK
 		WHERE ACNT_NO = #{bigAccountNo}
 	</select>
@@ -160,6 +160,7 @@
 	<select id="selectAccountBk2" resultMap="account_rm">
 		SELECT * FROM ACCOUNTBOOK
 	</select>
+	
 
 
 </mapper>

@@ -137,6 +137,8 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 
+
+
 /* 목표 금액 input값 콤마 넣기 */
 /* const a = 1000000000000;
 
@@ -162,6 +164,7 @@ input.addEventListener('keyup', function(e) {
 const accUsedMoney = document.getElementsByClassName("accUsedMoney")[0];
 const accProgress = document.getElementsByClassName("accProgress")[0];
 
+
 /* 프로그래스바 .. */
 /* accTargetBtn2.addEventListener("click", function(){
   
@@ -174,12 +177,15 @@ const accProgress = document.getElementsByClassName("accProgress")[0];
   let result = num2/num1*100;
   
   accProgress.value = result;
-
+  
   console.log(num1);
   console.log(num2);
   console.log(result);
   
 }) */
+
+
+
 
 /* 카테고리 상세 박스 */
 const categoryBox = document.getElementsByClassName("accBk-category-table")[0];
@@ -342,15 +348,31 @@ const inoutResult = document.getElementsByClassName("inoutResult")[0];
 out.addEventListener("click",  function(){
   inoutResult.value="";
   inoutResult.value = out.value;
+
+  out.style.color = "blue"; 
+  inin.style.color = "white"; 
+  trans.style.color = "white"; 
+
 })
 inin.addEventListener("click",  function(){
   inoutResult.value="";
   inoutResult.value = inin.value;
+
+  inin.style.color = "blue"; 
+  out.style.color = "white"; 
+  trans.style.color = "white";
+
 })
 trans.addEventListener("click",  function(){
   inoutResult.value="";
   inoutResult.value = trans.value;
+
+  trans.style.color = "blue"; 
+  out.style.color = "white"; 
+  inin.style.color = "white";
+  
 })
+
 
 
 

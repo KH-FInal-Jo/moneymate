@@ -26,4 +26,7 @@ public interface JAccountBkService {
 	// 마일리지 입력하기
 	int insertMileage(int selmemberNo);
 
+	// 알림함 insert
+	int insertAlert(int selmemberNo);
+
 }
