@@ -50,7 +50,7 @@
 	                            <i class="fa-regular fa-heart" id="boardLike"></i>
 	                        </c:if>
                         </span>
-                        ${board.likeCount}
+                        <span id="likeCount">${board.likeCount}</span>
                     </div>
         
                     <div class="board-head2">
@@ -62,30 +62,30 @@
                         	
                         <p><span>조회수 :  ${board.readCount}</span></p>
                     </div>
-                    
                 </div>
     
-    
-                <div class="img-box">
-                    <c:forEach begin="0" end="${fn:length(board.imageList) - 1}" var="i">
-                        <div class="boardImg">
-                            <c:set var="path" value="${board.imageList[i].imagePath}${board.imageList[i].imageReName}"/>
-                            <img src="${path}">
-                            <p>
-                            <a href="${path}"
-                                download="${board.imageList[i].imageOriginal}">다운로드</a>                
-                            </p>
-                        </div>
-                    </c:forEach>
-                </div>
+                <c:if test="${fn:length(board.imageList) > 0}" >
+                    <div class="img-box">
+                        <c:forEach begin="0" end="${fn:length(board.imageList) - 1}" var="i">
+                            <div class="boardImg">
+                                <c:set var="path" value="${board.imageList[i].imagePath}${board.imageList[i].imageReName}"/>
+                                <img src="${path}">
+                                <p>
+                                <a href="${path}"
+                                    download="${board.imageList[i].imageOriginal}">다운로드</a>                
+                                </p>
+                            </div>
+                        </c:forEach>
+                    </div>
+                 </c:if>
     
                 <div class="board-content">${board.boardContent}</div>
     
                 <hr class="hr">
     
                 <div class="btn-area">
-                    <button>수정</button>
-                    <button>삭제</button>
+                    <button id="updateBtn">수정</button>
+                    <button id="deleteBtn">삭제</button>
                     <button>목록으로</button>
                 </div>
 
@@ -157,7 +157,7 @@
             </section>
         </section>
 
-
+        <jsp:include page="/WEB-INF/views/common/footer.jsp" />
 
     </main>
 
