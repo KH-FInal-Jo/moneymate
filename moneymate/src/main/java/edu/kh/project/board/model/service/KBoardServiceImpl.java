@@ -58,6 +58,13 @@ public class KBoardServiceImpl implements KBoardService{
 
 
 
+	@Override
+	public KBoard selectBoard(Map<String, Object> map) {
+		return null;
+	}
+
+
+
 
 
 
