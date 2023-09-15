@@ -38,6 +38,7 @@
 		<mapper resource="/mappers/Hmember-mapper.xml" />
 		<mapper resource="/mappers/JMember-mapper.xml" />
 		<mapper resource="/mappers/HAdmin-mapper.xml" />
+		<mapper resource="/mappers/HAccount-mapper.xml" />
 	</mappers>
 	
 	
