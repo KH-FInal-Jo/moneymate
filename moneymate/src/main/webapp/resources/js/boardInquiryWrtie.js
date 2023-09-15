@@ -6,6 +6,8 @@ const boardContent = document.getElementsByClassName("boardContent")[0];
 
 boardWriteFrm.addEventListener("submit", e=>{
 
+    console.log("sadasd")
+
     if(boardtitle.value.trim().length==0){
         alert("제목을 입력해주세요.");
         boardtitle.focus();

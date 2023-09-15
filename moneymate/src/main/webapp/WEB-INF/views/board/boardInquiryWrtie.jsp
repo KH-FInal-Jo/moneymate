@@ -26,14 +26,15 @@
             <section class="board-free-main">
                 <div class="subject">문의게시판 글쓰기</div>
 
-                <form action="boardInsert" class="board-write" id="boardWriteFrm" enctype="multipart/form-data">
+                <form action="/community/2/insert/boardInsert" method="POST" 
+                class="board-write" id="boardWriteFrm" enctype="multipart/form-data">
                     <h1 class="board-title">
                         <input type="text" class="boardTitle"  name="boardTitle" placeholder="제목" value="">
                     </h1>
 
                    
                     <div class="board-content">
-                        <textarea class="boardContent">테스트 게시글 내용입니다.</textarea>
+                        <textarea class="boardContent" name="boardContent"></textarea>
                     </div>
 
                     <div class="board-btn-area">

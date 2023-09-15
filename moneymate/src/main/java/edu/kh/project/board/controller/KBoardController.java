@@ -48,24 +48,29 @@ public class KBoardController {
 
 		return "board/boardInquiry";
 	}
-
+	// 게시글 작성 화면 전환
 	@GetMapping("/2/boardInquiryWrtie")
 	public String selectboardInquiryWrtie() {
 
 		return "board/boardInquiryWrtie";
 	}
-	
-	@PostMapping("/{boardCode:[0-9]+}/insert")
+	// 게시글 작성
+	@PostMapping("/2/insert")
 	public String boardInsert(
-			@PathVariable("boardCode") int boardCode
-			, KBoard board
-			, @SessionAttribute("loginMember")Member loginMember
-			, RedirectAttributes ra
-			, HttpSession session
+			@PathVariable("/community/2") int boardCode // 작성하고 이동할 페이지
+			, KBoard board // 커맨드 객체
+			, @SessionAttribute("loginMember")Member loginMember // 로그인한 회원 번호
+			, RedirectAttributes ra // 리다이렉트시에 데이터 전달
+			, HttpSession session // 파일 저장 경로
 			)throws IllegalStateException, IOException {
 		
+		
+		// 로그인한 회원번호 얻어와서 board에 세팅
 		board.setMemberNo(loginMember.getMemberNo());
-		board.setBoardCode(boardCode);
+		
+		// 2도 board에 세팅
+		board.setBoardCode(2);
+		
 		
 		int boardNo = service.boardInsert(board);
 		
@@ -75,7 +80,7 @@ public class KBoardController {
 		if(boardNo > 0 ) {
 			// 성공 시
 			message = "게시글이 등록 되었습니다.";
-			path += "/board/" + boardCode + "/" + boardNo;
+			path += "/community/2/" + boardNo;
 		}else {
 			message = "게시글 등록 실패..";
 			path += "insert";
