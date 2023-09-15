@@ -138,7 +138,12 @@
     height: 100%;
 }
 
-.title {
+#btn1{
+    cursor: pointer;
+}
+
+.searchResult{
+    margin-left: 40px;
 }
 
 a{
@@ -148,4 +153,12 @@ a{
 
 a:hover{
     font-weight: bold;
+}
+
+.current{
+    font-weight: bold;
+     background-color: rgb(12,64,202);
+     border-radius: 50%;
+     color: white !important;
+     letter-spacing: 0 !important;
 }

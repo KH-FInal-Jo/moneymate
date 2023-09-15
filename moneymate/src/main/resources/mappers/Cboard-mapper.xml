@@ -274,6 +274,101 @@
 	
 	
 	
+	<!-- 특정 게시판의 삭제되지 않고 검색 조건이 일치하는 게시글 수 조회 -->
+	<select id="getListCount_search" resultType="_int">
+		SELECT COUNT(*) FROM BOARD
+		
+		<!-- 작성자 검색 -->
+		<if test='sel == "w"'>
+			JOIN MEMBER USING(MEMBER_NO)
+		</if>
+		
+		WHERE BOARD_ST = 'N'
+		AND BOARD_CODE = #{boardCode}
+		
+		
+		<choose>
+			<when test='sel == "t"'>
+				AND BOARD_TITLE LIKE '%${query}%'
+			</when>
+			
+			<when test='sel == "c"'>
+				AND BOARD_CONTENT LIKE '%${query}%'
+			</when>
+			
+			<when test='sel == "tc"'>
+				AND (BOARD_TITLE LIKE '%${query}%'
+				OR BOARD_CONTENT LIKE '%${query}%')
+			</when>
+			
+			<when test='sel == "w"'>
+				AND MEMBER_NICKNAME LIKE '%${query}%'
+			</when>
+		
+		</choose>
+		
+		
+	</select>
+	
+	
+	<!-- 게시글목록조회 -->
+	<select id="selectBoardList_search" resultMap="board_rm">
+		SELECT BOARD_NO, BOARD_TITLE, MEMBER_NICKNAME, READ_COUNT, 
+         
+         <![CDATA[
+            CASE  
+               WHEN SYSDATE - BOARD_DT < 1/24/60
+               THEN FLOOR( (SYSDATE - BOARD_DT) * 24 * 60 * 60 ) || '초 전'
+               WHEN SYSDATE - BOARD_DT < 1/24
+               THEN FLOOR( (SYSDATE - BOARD_DT) * 24 * 60) || '분 전'
+               WHEN SYSDATE - BOARD_DT < 1
+               THEN FLOOR( (SYSDATE - BOARD_DT) * 24) || '시간 전'
+               ELSE TO_CHAR(BOARD_DT, 'YYYY-MM-DD')
+            END BOARD_DT,
+            
+         ]]>
+		(SELECT COUNT(*) FROM "COMMENT" C
+		WHERE C.BOARD_NO = B.BOARD_NO)
+		COMMENT_COUNT,
+
+		(SELECT COUNT(*) FROM "LIKE" L
+		WHERE L.BR_NO =	B.BOARD_NO) LIKE_COUNT,
+
+		(SELECT IMG_PATH || IMG_RENAME FROM IMAGE I
+		WHERE I.BR_NO = B.BOARD_NO
+		AND IMG_LEVEL = 0) THUMBNAIL
+		FROM "BOARD" B
+		JOIN "MEMBER" USING(MEMBER_NO)
+		WHERE BOARD_ST = 'N'
+		AND BOARD_CODE
+		= #{boardCode}
+		
+		<choose>
+			<when test='sel == "t"'>
+				AND BOARD_TITLE LIKE '%${query}%'
+			</when>
+			
+			<when test='sel == "c"'>
+				AND BOARD_CONTENT LIKE '%${query}%'
+			</when>
+			
+			<when test='sel == "tc"'>
+				AND (BOARD_TITLE LIKE '%${query}%'
+				OR BOARD_CONTENT LIKE '%${query}%')
+			</when>
+			
+			<when test='sel == "w"'>
+				AND MEMBER_NICKNAME LIKE '%${query}%'
+			</when>
+		
+		</choose>
+		
+		ORDER BY BOARD_NO DESC
+	</select>
+	
+	
+	
+	
 	
 	
 	

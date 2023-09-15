@@ -105,6 +105,23 @@ public class CBoardDAO {
 	public int boardDelete(int boardNo) {
 		return sqlSession.update("CboardMapper.boardDelete", boardNo);
 	}
+	
+	// 검색시 게시글 수 조회
+	public int getListCount(Map<String, Object> paramMap) {
+		return sqlSession.selectOne("CboardMapper.getListCount_search", paramMap);
+	}
+
+	// 검색 시 게시글 목록 조회
+	public List<CBoard> selectBoardList(CPagination pagination, Map<String, Object> paramMap) {
+				// 1) offset 계산
+				int offset = (pagination.getCurrentPage() - 1) * pagination.getLimit();
+
+				// 2) Rowbounds 객체 생성
+				RowBounds rowBounds = new RowBounds(offset, pagination.getLimit());
+
+				// 3) selectList("namespace.id", 파라미터, Rowbounds) 호출
+				return sqlSession.selectList("CboardMapper.selectBoardList_search", paramMap, rowBounds);
+	}
 
 
 }
