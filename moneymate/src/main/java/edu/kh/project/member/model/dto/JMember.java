@@ -27,5 +27,7 @@ public class JMember {
 	private int subscribeEnd;
 	private int subscribeLevel;
 	private int mileage;
+	
+	private int reportCount;
 
 }

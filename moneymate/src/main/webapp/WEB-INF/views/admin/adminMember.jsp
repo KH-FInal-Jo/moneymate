@@ -2,6 +2,9 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"  %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"  %>
 
+<c:set var="memberList" value="${map.memberList}"/>
+<c:set var="pagination" value="${map.pagination}"/>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -31,9 +34,10 @@
 
             <div>회원관리</div>
 
-            <!-- 비동기니까 form태그로 안 감쌀게요.. -->
-            <input type="search" name="search" id="search" placeholder="닉네임을 입력하세요">
-            <button type="button" id="searchBtn">검색</button>
+            <form action="/admin/member">
+                <input type="search" name="search" id="search" placeholder="닉네임을 입력하세요">
+                <button  id="searchBtn">검색</button>
+            </form>
 
             <table border="1">
 
@@ -45,236 +49,34 @@
                         <th>이메일</th>
                         <th>신고된 수</th>
                         <th>마일리지</th>
-                        <th>탈퇴 유무</th>
+                        <th>탈퇴 여부</th>
                     </tr>
                 </thead>
 
                 <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>홍길동</td>
-                        <td>유저일</td>
-                        <td>user01@naver.com</td>
-                        <td>3</td>
-                        <td>
-                            <input type="number" name="mile" id="mile" value="1000">
-                            <button type="button" id="mileBtn">확인</button>
-                        </td>
-                        <td>
-                            <span>N</span>
-                            <button type="button" id="secessionBtn">탈퇴</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>김철수</td>
-                        <td>유저이</td>
-                        <td>user02@naver.com</td>
-                        <td>10</td>
-                        <td>
-                            <input type="number" name="mile" id="mile" value="80">
-                            <button type="button" id="mileBtn">확인</button>
-                        </td>
-                        <td>
-                            <span>Y</span>
-                            <!-- <button type="button" id="secessionBtn">탈퇴</button> -->
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>3</td>
-                        <td>홍길동</td>
-                        <td>유저일</td>
-                        <td>user01@naver.com</td>
-                        <td>3</td>
-                        <td>
-                            <input type="number" name="mile" id="mile" value="1000">
-                            <button type="button" id="mileBtn">확인</button>
-                        </td>
-                        <td>
-                            <span>N</span>
-                            <button type="button" id="secessionBtn">탈퇴</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>4</td>
-                        <td>홍길동</td>
-                        <td>유저일</td>
-                        <td>user01@naver.com</td>
-                        <td>3</td>
-                        <td>
-                            <input type="number" name="mile" id="mile" value="1000">
-                            <button type="button" id="mileBtn">확인</button>
-                        </td>
-                        <td>
-                            <span>N</span>
-                            <button type="button" id="secessionBtn">탈퇴</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>5</td>
-                        <td>홍길동</td>
-                        <td>유저일</td>
-                        <td>user01@naver.com</td>
-                        <td>3</td>
-                        <td>
-                            <input type="number" name="mile" id="mile" value="1000">
-                            <button type="button" id="mileBtn">확인</button>
-                        </td>
-                        <td>
-                            <span>N</span>
-                            <button type="button" id="secessionBtn">탈퇴</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>6</td>
-                        <td>홍길동</td>
-                        <td>유저일</td>
-                        <td>user01@naver.com</td>
-                        <td>3</td>
-                        <td>
-                            <input type="number" name="mile" id="mile" value="1000">
-                            <button type="button" id="mileBtn">확인</button>
-                        </td>
-                        <td>
-                            <span>N</span>
-                            <button type="button" id="secessionBtn">탈퇴</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>7</td>
-                        <td>홍길동</td>
-                        <td>유저일</td>
-                        <td>user01@naver.com</td>
-                        <td>3</td>
-                        <td>
-                            <input type="number" name="mile" id="mile" value="1000">
-                            <button type="button" id="mileBtn">확인</button>
-                        </td>
-                        <td>
-                            <span>N</span>
-                            <button type="button" id="secessionBtn">탈퇴</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>8</td>
-                        <td>홍길동</td>
-                        <td>유저일</td>
-                        <td>user01@naver.com</td>
-                        <td>3</td>
-                        <td>
-                            <input type="number" name="mile" id="mile" value="1000">
-                            <button type="button" id="mileBtn">확인</button>
-                        </td>
-                        <td>
-                            <span>Y</span>
-                            <!-- <button type="button" id="secessionBtn">탈퇴</button> -->
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>9</td>
-                        <td>홍길동</td>
-                        <td>유저일</td>
-                        <td>user01@naver.com</td>
-                        <td>3</td>
-                        <td>
-                            <input type="number" name="mile" id="mile" value="1000">
-                            <button type="button" id="mileBtn">확인</button>
-                        </td>
-                        <td>
-                            <span>N</span>
-                            <button type="button" id="secessionBtn">탈퇴</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>10</td>
-                        <td>홍길동</td>
-                        <td>유저일</td>
-                        <td>user01@naver.com</td>
-                        <td>3</td>
-                        <td>
-                            <input type="number" name="mile" id="mile" value="1000">
-                            <button type="button" id="mileBtn">확인</button>
-                        </td>
-                        <td>
-                            <span>Y</span>
-                            <!-- <button type="button" id="secessionBtn">탈퇴</button> -->
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>11</td>
-                        <td>홍길동</td>
-                        <td>유저일</td>
-                        <td>user01@naver.com</td>
-                        <td>3</td>
-                        <td>
-                            <input type="number" name="mile" id="mile" value="1000">
-                            <button type="button" id="mileBtn">확인</button>
-                        </td>
-                        <td>
-                            <span>N</span>
-                            <button type="button" id="secessionBtn">탈퇴</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>12</td>
-                        <td>홍길동</td>
-                        <td>유저일</td>
-                        <td>user01@naver.com</td>
-                        <td>3</td>
-                        <td>
-                            <input type="number" name="mile" id="mile" value="1000">
-                            <button type="button" id="mileBtn">확인</button>
-                        </td>
-                        <td>
-                            <span>N</span>
-                            <button type="button" id="secessionBtn">탈퇴</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>13</td>
-                        <td>홍길동</td>
-                        <td>유저일</td>
-                        <td>user01@naver.com</td>
-                        <td>3</td>
-                        <td>
-                            <input type="number" name="mile" id="mile" value="1000">
-                            <button type="button" id="mileBtn">확인</button>
-                        </td>
-                        <td>
-                            <span>Y</span>
-                            <!-- <button type="button" id="secessionBtn">탈퇴</button> -->
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>14</td>
-                        <td>홍길동</td>
-                        <td>유저일</td>
-                        <td>user01@naver.com</td>
-                        <td>3</td>
-                        <td>
-                            <input type="number" name="mile" id="mile" value="1000">
-                            <button type="button" id="mileBtn">확인</button>
-                        </td>
-                        <td>
-                            <span>N</span>
-                            <button type="button" id="secessionBtn">탈퇴</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>15</td>
-                        <td>홍길동</td>
-                        <td>유저일</td>
-                        <td>user01@naver.com</td>
-                        <td>3</td>
-                        <td>
-                            <input type="number" name="mile" id="mile" value="1000">
-                            <button type="button" id="mileBtn">확인</button>
-                        </td>
-                        <td>
-                            <span>Y</span>
-                            <!-- <button type="button" id="secessionBtn">탈퇴</button> -->
-                        </td>
-                    </tr>
+
+                    <c:forEach items="${memberList}" var="member">
+                        <tr>
+                            <td>${member.memberNo}</td>
+                            <td>${member.memberName}</td>
+                            <td>${member.memberNickname}</td>
+                            <td>${member.memberEmail}</td>
+                            <td>${member.reportCount}</td>
+                            <td>
+                                <input type="number" name="mile" value="${member.mileage}">
+                                <button type="button" onclick="mileUpdate(${member.memberNo}, this)">확인</button>
+                            </td>
+                            <td>
+                                <c:if test="${member.secessionFlag == 'N'}" >
+                                    <span>N</span>
+                                    <button type="button" onclick="secession(${member.memberNo}, this)">탈퇴</button>
+                                </c:if>
+                                <c:if test="${member.secessionFlag != 'N'}" >
+                                    <span>Y</span>
+                                </c:if>
+                            </td>
+                        </tr>
+                    </c:forEach>
                     
                 </tbody>
             </table>
@@ -293,9 +95,9 @@
                
                     <!-- 특정 페이지로 이동 -->
 
-                    <!-- <c:forEach var="i" begin="${pagination.startPage}" end="${pagination.endPage}">
+                    <c:forEach var="i" begin="${pagination.startPage}" end="${pagination.endPage}">
                         <c:choose>
-                           <c:when test="${i == pagination.currentPage}"> -->
+                           <c:when test="${i == pagination.currentPage}">
                                 <li><a class="current">1</a></li>
                                 <li><a href="#">2</a></li>
                                 <li><a  href="#">3</a></li>
@@ -306,14 +108,14 @@
                                 <li><a href="#">8</a></li>
                                 <li><a href="#">9</a></li>
                                 <li><a href="#">10</a></li>
-                          <!--  </c:when>
+                          </c:when>
                         
-                           <c:otherwise> -->
-                                <!-- <li><a href="/board/${boardCode}?cp=${i}${sp}">${i}</a></li> -->
-                           <!-- </c:otherwise>
+                           <c:otherwise> 
+                                <li><a href="/board/${boardCode}?cp=${i}${sp}">${i}</a></li> 
+                          </c:otherwise>
                         </c:choose>
                         
-                    </c:forEach> -->
+                    </c:forEach> 
                     
                     
                     
@@ -334,6 +136,8 @@
 
     </div>
         <jsp:include page="/WEB-INF/views/common/footer.jsp"/>
+
+        <script src="/resources/js/adminMember.js"></script>
     
 </body>
 </html>
