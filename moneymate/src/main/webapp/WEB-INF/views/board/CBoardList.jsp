@@ -86,15 +86,15 @@
 
                 <div class="search-area">
                     <div class="search">
-                        <form>
+                        <form action="${boardCode}" method="get" id="boardSearch">
                             <div>
                                 <select id="sel" name="sel">
-                                    <option value="1" selected>제목</option>
-                                    <option value="2" >내용</option>
-                                    <option value="3">제목+내용</option>
-                                    <option value="4">작성자</option>
+                                    <option value="t" selected>제목</option>
+                                    <option value="c" >내용</option>
+                                    <option value="tc">제목+내용</option>
+                                    <option value="w">작성자</option>
                                 </select>
-                                <input type="text" id="query">
+                                <input type="text" id="query" name="query">
                                 <button id="btn1">검색</button>
                             </div>
                         </form>
@@ -143,6 +143,8 @@
             </section>
 
         </section>
+
+        <jsp:include page="/WEB-INF/views/common/footer.jsp" />
     </main>
 
     <script src="/resources/js/freeBoard.js" ></script>

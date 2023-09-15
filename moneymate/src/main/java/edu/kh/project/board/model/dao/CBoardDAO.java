@@ -76,5 +76,35 @@ public class CBoardDAO {
 		return sqlSession.selectOne("CboardMapper.CountBoardLike", boardNo);
 	}
 
+	// 조회수 처리
+	public int updateReadCount(int boardNo) {
+		return sqlSession.update("CboardMapper.updateReadCount", boardNo);
+	}
+
+	// 게시글 수정
+	public int boardUpdate(CBoard board) {
+		return sqlSession.update("CboardMapper.boardUpdate", board);
+	}
+
+	// 이미지 삭제
+	public int imageDelete(Map<String, Object> deleteMap) {
+		return sqlSession.delete("CboardMapper.imageDelete", deleteMap);
+	}
+
+	// 이미지 수정
+	public int imageUpdate(CBoardImage img) {
+		return sqlSession.update("CboardMapper.imageUpdate", img);
+	}
+
+	// 이미지 삽입
+	public int imageInsert(CBoardImage img) {
+		return sqlSession.insert("CboardMapper.imageInsert", img);
+	}
+
+	// 게시글 삭제
+	public int boardDelete(int boardNo) {
+		return sqlSession.update("CboardMapper.boardDelete", boardNo);
+	}
+
 
 }

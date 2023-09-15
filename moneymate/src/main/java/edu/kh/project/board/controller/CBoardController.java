@@ -2,10 +2,14 @@ package edu.kh.project.board.controller;
 
 import java.io.IOException;
 import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -84,6 +88,74 @@ public class CBoardController {
 				
 				if(result>0) model.addAttribute("likeCheck", "on");
 			}
+			
+			
+			if(loginMember == null || loginMember.getMemberNo() != board.getMemberNo()) {
+				// 비회원 조회수 늘어남 // 작성자가 조회수 늘어나게x
+
+				Cookie c = null;
+				
+				Cookie[] cookies = req.getCookies();
+				
+				if(cookies != null) {
+					for( Cookie cookie : cookies) {
+						if(cookie.getName().equals("readBoardNo")) {
+							c = cookie;
+							
+							break;
+						}
+					}
+				}
+				
+				
+				int result = 0;
+				
+				if(c == null) {
+					
+					c = new Cookie("readBoardNo", "|" + boardNo + "|");
+					
+					result = service.updateReadCount(boardNo);
+					
+				} else {
+					
+					if(c.getValue().indexOf("|" + boardNo + "|") == -1) {
+						
+						
+						c.setValue(c.getValue() + "|" + boardNo + "|");
+						
+						result = service.updateReadCount(boardNo);
+						
+					}
+					
+				}
+				
+				if(result>0) {
+					
+					board.setReadCount(board.getReadCount() + 1);
+					
+					c.setPath("/"); 
+					
+					Calendar cal = Calendar.getInstance();
+					cal.add(cal.DATE , 1);
+					
+					SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+					
+					Date a = new Date();
+					
+					Date temp = new Date(cal.getTimeInMillis());
+					
+					Date b = sdf.parse(sdf.format(temp)); 
+					
+					long diff = (b.getTime() - a.getTime()) / 1000;
+					
+					c.setMaxAge((int)diff); 
+					
+					resp.addCookie(c); 
+					
+				}
+			}
+			
+			
 		}
 		model.addAttribute("board", board);
 
@@ -135,5 +207,95 @@ public class CBoardController {
 
 		return service.like(paramMap);
 	}
+	
+	
+	// 게시글 수정 페이지 전환
+	@GetMapping("/3/{boardNo}/update")
+	public String boardUpdate(@PathVariable("boardNo") int boardNo
+							, Model model
+							) {
+		
+		Map<String, Object> map = new HashMap<String, Object>();
+		
+		map.put("boardCode", 3);
+		map.put("boardNo", boardNo);
+		
+		CBoard board = service.selectBoard(map);
+		
+		model.addAttribute("board", board);
+		
+		return "board/CBoardUpdate";
+	}
+	
+
+	// 게시글 수정
+	@PostMapping("/3/{boardNo}/update")
+	public String boardUpdate(CBoard board // 커맨드 객체 (name == 필드 경우 필드에 파라미터 세팅)
+			, @RequestParam(value="cp", required = false, defaultValue = "1") int cp // 쿼리스트링 유지
+			, @RequestParam(value="deleteList", required = false) String deleteList // 삭제할 이미지 순서
+			, @RequestParam(value="images", required =  false) List<MultipartFile> images // 업로드된 파일 리스트
+			, @PathVariable("boardNo") int boardNo
+			, HttpSession session // 서버 파일 저장 경로를 얻어오는 용도
+			, RedirectAttributes ra // 리다이렉트 시 값 전달용
+			) throws IllegalStateException, IOException {
+		
+		// 1) boardCode, boardNo를 커맨드 객체(board)에 세팅
+		board.setBoardCode(3);
+		board.setBoardNo(boardNo);
+		
+		// board(boardCode, boardNo, boardTitle, boardContent)
+		
+		// 2) 이미지 서버 저장 경로, 웹 접근 경로
+		String webPath = "/resources/images/board/";
+		String filePath = session.getServletContext().getRealPath(webPath);
+		
+		// 3) 게시글 수정 서비스 호출
+		int rowCount = service.boardUpdate(board, images, webPath, filePath, deleteList);
+		
+		// 4) 수행 결과에 따라 message, path 설정
+		String message = null;
+		String path = "redirect:";
+		
+		if(rowCount > 0) {
+			message = "게시글이 수정되었습니다.";
+			path += "/community/3/"  + boardNo + "?cp=" + cp; // 상세 조회 페이지
+		} else {
+			message = "게시글 수정 실패";
+			path += "update";
+		}
+		
+		ra.addFlashAttribute("message", message);
+		
+		return path;
+	}
+	
+	
+	
+	@GetMapping("/3/{boardNo}/delete")
+	public String boardDelete(@PathVariable("boardNo") int boardNo,
+								RedirectAttributes ra) {
+		
+		int boardCode = 3;
+		
+		int result = service.boardDelete(boardNo);
+		
+		String path = "redirect:";
+		String message = "";
+		
+		
+		if (result > 0) {
+			message = "삭제 되었습니다";
+			path += ("/community/" + boardCode );
+		} else {
+			message = "삭제 실패";
+			path += ("/community/" + boardCode + "/" + boardNo );
+		}
+		
+		ra.addFlashAttribute("message", message);
+		
+		return path;
+	}
+	
+	
 
 }

@@ -222,6 +222,56 @@
 		AND LIKE_CODE = 1
 	</select>
 	
+	<!-- 조회수 증가 -->
+	<update id="updateReadCount">
+		UPDATE BOARD SET READ_COUNT = READ_COUNT + 1
+		WHERE
+		BOARD_NO = ${boardNo}
+	</update>
+	
+	
+	<!-- 게시글 수정 -->
+	<update id="boardUpdate">
+		UPDATE BOARD
+		SET BOARD_TITLE = #{boardTitle}, BOARD_CONTENT = #{boardContent}
+		,BOARD_UPDATE_DT = SYSDATE
+		WHERE BOARD_NO = #{boardNo}
+		AND BOARD_CODE = #{boardCode}
+	</update>
+
+	<!-- 이미지 삭제 -->
+	<delete id="imageDelete">
+		DELETE FROM IMAGE
+		WHERE BR_NO = #{boardNo}
+		AND IMG_LEVEL IN
+		(${deleteList})
+	</delete>
+
+	<!-- 이미지 수정 -->
+	<update id="imageUpdate">
+		UPDATE IMAGE SET
+		IMG_PATH = #{imagePath},
+		IMG_RENAME = #{imageReName},
+		IMG_ORIGINAL = #{imageOriginal}
+		WHERE BR_NO = #{boardNo}
+		AND IMG_LEVEL = #{imageOrder}
+	</update>
+
+	<!-- 이미지 삽입(1개) -->
+	<insert id="imageInsert">
+		INSERT INTO IMAGE
+		VALUES( #{boardNo}, 1,
+		#{imagePath}, #{imageReName},
+		#{imageOriginal}, #{imageOrder})
+	</insert>
+	
+	<!-- 게시글 삭제 -->
+	<update id="boardDelete">
+		UPDATE "BOARD" SET
+		BOARD_ST = 'Y'
+		WHERE BOARD_NO = ${boardNo}
+	</update>
+	
 	
 	
 	

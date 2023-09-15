@@ -27,7 +27,6 @@ like.addEventListener("click", (e) => {
     })
     .then(resp => resp.text())
     .then(result => {
-        console.log(result);
 
         if(result == -1){ // insert 혹은 delete 실패
             console.log("좋아요 처리 실패");
@@ -39,11 +38,38 @@ like.addEventListener("click", (e) => {
         e.target.classList.toggle("fa-solid");
 
         // 현재 게시글의 좋아요 수를 화면에 출력
-        e.target.nextElementSibling.innerText = count;
+        document.getElementById("likeCount").innerText = result;
 
     })
     .catch( e => console.log(e));
 
 
 
-})
+});
+
+const updateBtn = document.getElementById("updateBtn");
+
+if(updateBtn != null){
+    updateBtn.addEventListener("click", () => {
+        location.href = location.pathname
+                      + "/update" 
+                      + location.search; 
+    });
+}
+
+
+
+const deleteBtn = document.getElementById("deleteBtn");
+
+if(deleteBtn != null){
+
+    // 게시글 삭제 버튼이 클릭 되었을 때
+    deleteBtn.addEventListener("click", () => {
+    
+        if(confirm("정말 삭제 하시겠습니까?")){
+            location.href 
+            = location.pathname
+                + "/delete";
+        }
+    })
+}

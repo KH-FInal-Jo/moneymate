@@ -22,6 +22,12 @@ public interface CBoardService {
 	
 	int like(Map<String, Integer> paramMap);
 
+	int updateReadCount(int boardNo);
+
+	int boardUpdate(CBoard board, List<MultipartFile> images, String webPath, String filePath, String deleteList) throws IllegalStateException, IOException;
+
+	int boardDelete(int boardNo);
+
 
 	
 }
