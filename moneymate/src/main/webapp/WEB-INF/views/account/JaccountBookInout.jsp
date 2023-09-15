@@ -36,7 +36,7 @@
 
 						<div>
 							<input type="number" id="accBk-money" name="accountMoney"
-								placeholder="금액을 입력해주세요.">원
+								placeholder="금액을 입력해주세요."><h2>원</h2>
 						</div>
 						<div>
 							<input type="text" name="selectedValue" value="지출" class="out" readonly/>
@@ -54,7 +54,7 @@
 								<div class="categoryBtn">
 									선택 <i class="fa-solid fa-right-to-bracket fa-lg"></i>
 								</div>
-								<input type="text" class="inputCategoryName" name="categoryName" readonly/>
+								<input type="text" class="inputCategoryName" name="categoryName" disabled/>
 							</div>
 							<div class="accBk-category-table">
 								<div>
@@ -167,7 +167,7 @@
 				<div class="accTargetCon">
 					<div>한달 목표 예산</div>
 					<div>
-						<div class="accTargetMoney">${account.targetMoney}</div>
+						<div class="accTargetMoney" id="accTargetMoneyId">${account.targetMoney}</div>
 						<div>원</div>
 					</div>
 				</div>
@@ -179,7 +179,10 @@
 					</div>
 				</div>
 				<!-- 목표예산 프로그레스 -->
-				<progress value="60" max="100" class="accProgress"></progress>
+				<c:if test="${useMoney != 0}" >
+					<progress value="" max="100" class="accProgress"></progress>
+
+				</c:if>
 
 				<div class="accTarget-container">
 					<button type="button" class="accTargetBtn">
@@ -209,7 +212,7 @@
 					<img src="/resources/images/MileageThumbnail.jpg">
 				</div>
 				<div>
-					<button type="button">나의 마일리지 확인하러 가기!</button>
+					<button type="button" onclick="window.location.href='/member/mypage'">나의 마일리지 확인하러 가기!</button>
 				</div>
 			</div>
 		</section>
@@ -219,22 +222,26 @@
 
 
 	</main>
+	<script src="/resources/js/accountTarget.js"></script>
+	<script src="/resources/js/accountInout.js"></script>
+
 
 	<script>
-		const bigAccountNo = ${bigAccountNo};
-		const startDate1 = ${account.startDate};
-		const targetMoney = ${account.targetMoney};
+
+	
+		const bigAccountNo = `${bigAccountNo}`;
+		const startDate1 = `${account.startDate}`;
+		const targetMoney = `${account.targetMoney}`;
+		const useMoney = `${useMoney}`;
+		console.log(useMoney);
 		console.log(bigAccountNo);
 		console.log(startDate1);
 		console.log(targetMoney);
-	
-	
 	</script>
 
 
 
-	<script src="/resources/js/accountTarget.js"></script>
-	<script src="/resources/js/accountInout.js"></script>
+
 
 
 

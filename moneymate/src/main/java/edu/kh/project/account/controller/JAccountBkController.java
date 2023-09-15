@@ -47,6 +47,7 @@ public class JAccountBkController {
 		
 		JAccountBook account = service.selectAccountBk(bigAccountNo);
 		
+		
 		model.addAttribute("useMoney", useMoney);
 		model.addAttribute("account", account);
 		
@@ -66,6 +67,11 @@ public class JAccountBkController {
 
 		accountBk.setAccountNo(bigAccountNo);
 		
+		if(accountBk.getPaymentMethod() == null) {
+			
+			accountBk.setPaymentMethod("무통장입금");
+		}
+		
 		int result = service.accountBkInsert(accountBk);
 
 		String message = null;
@@ -76,7 +82,7 @@ public class JAccountBkController {
 			System.out.println("accountNo : " +accountBk.getAccountNo());
 
 			message = "가계부가 등록되었습니다.";
-			path += "/account";
+			path += "/account/insert/1";
 
 		}else {
 			message = "가계부 등록 실패ㅠㅠ";

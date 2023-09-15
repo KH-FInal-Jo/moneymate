@@ -42,8 +42,8 @@ public class TargetBudgetScheduling {
 	SimpleDateFormat outputDateFormat = new SimpleDateFormat("yyyy-MM-dd");
 
 
-	//@Scheduled(cron = "0 0 * * * *") // 자정
-	@Scheduled(cron = "0,30 * * * * *")
+	@Scheduled(cron = "0 0 * * * *") // 자정
+	//@Scheduled(cron = "0,30 * * * * *")
 	public void accountBkSelect() {
 
 		List<JAccountBook> accountBk = service.selectAccountBk2();
@@ -86,7 +86,11 @@ public class TargetBudgetScheduling {
 
 						System.out.println("목표예산 성공!!");
 						
+						// 마일리지 update
 						int result = service.insertMileage(selmemberNo);
+						
+						// 알림함 insert
+						int result2 = service.insertAlert(selmemberNo);
 
 						System.out.println("result 찍히나?" + result);
 

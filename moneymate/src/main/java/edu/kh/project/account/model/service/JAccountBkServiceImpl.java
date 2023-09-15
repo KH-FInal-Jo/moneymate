@@ -137,9 +137,16 @@ public class JAccountBkServiceImpl implements JAccountBkService{
 		return dao.selectAccountTarget();
 	}
 
+	// 마일리지 입력하기
 	@Override
 	public int insertMileage(int selmemberNo) {
 		return dao.insertMileage(selmemberNo);
+	}
+
+	// 알림함 insert
+	@Override
+	public int insertAlert(int selmemberNo) {
+		return dao.insertAlert(selmemberNo);
 	}
 
 }

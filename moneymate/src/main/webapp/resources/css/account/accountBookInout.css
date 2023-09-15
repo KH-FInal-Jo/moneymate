@@ -70,11 +70,20 @@ font-family: 'SDGothic', serif;
 /* 가계부 금액 적는 부분 스타일 */
 .accBk-record > div:nth-child(1){
     width: 350px;
-    height: 30px;
+    height: 50px;
+    display: flex;
 }
 .accBk-record > div:nth-child(1)>input{
     width: 90%;
-    height: 30px;
+    height: 40px;
+
+    font-size: 16px;
+    padding-left: 8px;
+}
+
+.accBk-record > div:nth-child(1)>h2{
+    margin-top: 9px;
+    margin-left: 8px;
 }
 
 /* 가계부 지출, 수입, 이체 버튼 */
@@ -173,11 +182,11 @@ font-family: 'SDGothic', serif;
 /* 가계부 상세 입력 */
 .accBk-record-category{
     width: 500px;
-    height: 350px;
+    height: 320px;
     display: flex;
     flex-direction: column;
     border: 2px solid #ddd;
-    padding: 20px;
+    padding: 25px;
 }
 .accBk-record-category > div:nth-child(1){
     display: flex;
@@ -189,6 +198,9 @@ font-family: 'SDGothic', serif;
     font-size: 21px;
     margin-bottom: 35px;
 }
+
+
+
 .accBk-record-category > div:nth-child(4){
     display: flex;
     font-size: 21px;
@@ -255,7 +267,7 @@ font-family: 'SDGothic', serif;
 }
 /* 상세설정 select 스타일 */
 .accBk-record-category > div select{
-    width: 200px;
+    width: 140px;
     height: 30px;
 }
 
@@ -775,4 +787,18 @@ progress::-webkit-progress-value {
     cursor: pointer;
 }
 
+
+.accBkResult2 input{
+    width: 270px;
+    height: 30px;
+}
+
+.accBkResult4 input{
+    width: 140px;
+    height: 27px;
+}
+.accBkResult5 input{
+    width: 270px;
+    height: 30px;
+}
 
