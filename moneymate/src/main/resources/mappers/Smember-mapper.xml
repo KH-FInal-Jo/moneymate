@@ -35,6 +35,7 @@
 		AND ACNT_NO = #{accountNo}
 		AND MEMBER_NO = #{memberNo}
 		AND ACNT_ST = 'N'
+		
 	</select>
 	
 	
