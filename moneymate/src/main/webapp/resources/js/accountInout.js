@@ -128,63 +128,24 @@ document.addEventListener("DOMContentLoaded", function() {
   (function() {
 
     const input = document.querySelector(".accUsedMoney");
+    const input2 = document.querySelector(".accTargetMoney");
     var useMoney = input.innerHTML;
+    var useMoney2 = input2.innerHTML;
     var formattedMoney = parseInt(useMoney).toLocaleString('ko-KR');
+    var formattedMoney2 = parseInt(useMoney2).toLocaleString('ko-KR');
     input.innerHTML = formattedMoney;
+    input2.innerHTML = formattedMoney2;
+
+
+
   })();
 
 });
 
 
 
-
-
-/* 목표 금액 input값 콤마 넣기 */
-/* const a = 1000000000000;
-
-const input = document.getElementsByClassName("accTargetInput")[0];
-
-input.addEventListener('keyup', function(e) {
-
-  let value = e.target.value;
-
-  value = Number(value.replaceAll(',', ''));
-  if(isNaN(value)) {
-    input.value = "";
-
-  }else {
-    const formatValue = value.toLocaleString('ko-KR');
-    input.value = formatValue;
-  }
-}) */
-
-
-
-
 const accUsedMoney = document.getElementsByClassName("accUsedMoney")[0];
 const accProgress = document.getElementsByClassName("accProgress")[0];
-
-
-/* 프로그래스바 .. */
-/* accTargetBtn2.addEventListener("click", function(){
-  
-  
-  let str1 = accTargetMoney.innerHTML;
-  let str2 = accUsedMoney.innerHTML;
-  let num1 = parseInt(str1.replace(/,/g, ''), 10);
-  let num2 = parseInt(str2.replace(/,/g, ''), 10);
-  
-  let result = num2/num1*100;
-  
-  accProgress.value = result;
-  
-  console.log(num1);
-  console.log(num2);
-  console.log(result);
-  
-}) */
-
-
 
 
 /* 카테고리 상세 박스 */
@@ -312,34 +273,6 @@ accDateCh.addEventListener("click", function(){
 })
 
 
-
-
-
-/* 날짜 입력 가져오기 */
-/* const accDateChange = document.getElementById("accDateChange");
-
-const startDateInput = document.querySelector("#startDateInput");
-const endDateInput = document.querySelector("#endDateInput");
-
-const startDate = document.getElementsByClassName("startDate")[0];
-const endDate = document.getElementsByClassName("endDate")[0];
-
-
-accDateChange.addEventListener("click", function(){
-
-  if(startDateInput != null){
-
-    startDate.innerHTML = startDateInput.value;
-  }
-  if(endDateInput != null){
-
-    endDate.innerHTML = endDateInput.value;
-  }
-
-  accDateRecord.style.display = 'none';
-
-}) */
-
 const out = document.getElementsByClassName("out")[0];
 const inin = document.getElementsByClassName("in")[0];
 const trans = document.getElementsByClassName("trans")[0];
@@ -372,6 +305,18 @@ trans.addEventListener("click",  function(){
   inin.style.color = "white";
   
 })
+
+/* 현재 날짜 얻어오기 */
+
+function getCurrentDate() {
+  const now = new Date();
+  const year = now.getFullYear();
+  const month = String(now.getMonth() + 1).padStart(2, '0');
+  const day = String(now.getDate()).padStart(2, '0'); 
+  return `${year}-${month}-${day}`;
+}
+
+document.getElementById('startDateInput').setAttribute('min', getCurrentDate());
 
 
 

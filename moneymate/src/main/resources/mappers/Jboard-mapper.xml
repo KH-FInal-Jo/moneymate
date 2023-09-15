@@ -26,6 +26,15 @@
 			<result property="endDate" column="TARGET_END" />
 	</resultMap>
 	
+	<!-- 특정 게시판 조회하기 -->
+	<select id="BselectBookmark" resultMap="board_rm">
+		SELECT BOARD_TITLE, BOARD_CONTENT
+		FROM BOARD
+		WHERE MEMBER_NO = #{memberNo}
+		AND BOARD_CODE = 4
+		AND BOARD_ST = 'N'
+	</select>
+	
 	
 
 
@@ -38,6 +47,7 @@
 		WHERE MEMBER_NO = 2
 		AND BOARD_CODE = 1
 		AND BOARD_ST = 'N'
+		ORDER BY BOARD_NO DESC
 	</select>
 	
 	<!-- 공지사항 상세정보 조회 -->

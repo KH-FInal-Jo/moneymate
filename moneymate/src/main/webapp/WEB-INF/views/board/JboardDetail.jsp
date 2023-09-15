@@ -47,13 +47,16 @@
                     </textarea>
 
 
-					<div>
-						<c:if test="${loginMember.authority == 1}" >
+					<div class="noticeBtnCon">
 
-							<button type="button" id="updateBtn" onclick="location.href='/community/1/${board.boardNo}/update'">수정</button>
-							<button type="button" id="deleteBtn">삭제</button>
+						<div>
+							<c:if test="${loginMember.authority == 1}" >
 
-						</c:if>
+								<button type="button" id="updateBtn" onclick="location.href='/community/1/${board.boardNo}/update'">수정</button>
+								<button type="button" id="deleteBtn">삭제</button>
+
+							</c:if>
+						</div>
 
 						<button type="button" id="goToBtn">목록으로</button>
 					</div>

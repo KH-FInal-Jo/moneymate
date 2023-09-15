@@ -54,5 +54,14 @@
 		VALUES(SEQ_ALERT_NO.NEXTVAL,DEFAULT, 'O', #{memberNo})
 	</insert>
 	
+	
+	<!-- 특정 게시판의 삭제되지 않은 게시글 수 조회 -->
+	<select id="BgetListCount" resultType="_int">
+		SELECT COUNT(*) FROM BOARD
+		WHERE BOARD_CODE = #{boardCode}
+		AND BOARD_ST = 'N'
+	</select>
+	
+	
 
 </mapper>

@@ -96,23 +96,30 @@ function submitTarget() {
     });
 }
 
-    function updateProgressBar() {
-      // 여기에 프로그래스바 업데이트 로직을 추가
-      let result = (useMoney / targetMoney) * 100;
-  
-      console.log(result);
-  
-      if (accProgress != null) {
-        accProgress.value = result;
-      }
+function updateProgressBar() {
+    // 여기에 프로그래스바 업데이트 로직을 추가
+    let result = (useMoney / targetMoney) * 100;
+
+    console.log(result);
+
+    if (accProgress != null) {
+    accProgress.value = result;
     }
+}
+
+// 0.01초(10밀리초) 간격으로 updateProgressBar 함수 호출
+const intervalId = setInterval(updateProgressBar, 100);
+
+window.addEventListener('unload', () => {
+    clearInterval(intervalId);
     
-    // 0.01초(10밀리초) 간격으로 updateProgressBar 함수 호출
-    const intervalId = setInterval(updateProgressBar, 100);
-  
-    window.addEventListener('unload', () => {
-      clearInterval(intervalId);
-    });
+});
+
+
+
+
+
+
   
   
 

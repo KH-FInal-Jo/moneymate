@@ -23,7 +23,7 @@
 			<section class="board-notice-main">
 				<div class="board-notice-name">공지사항</div>
 
-				<div class="board-notice-sel-search">
+				<%-- <div class="board-notice-sel-search">
 					<form action="#">
 
 						<select name="sel">
@@ -36,7 +36,7 @@
 					<input type="text" id="board-notice-search"
 						placeholder="검색어를 입력해주세요.">
 
-				</div>
+				</div> --%>
 				<div class="board-notice-list">
 					<table border="1" class="board-notice-table">
 						<tr class="board-notice-list-header">

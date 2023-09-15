@@ -67,8 +67,6 @@ public class TargetBudgetScheduling {
 
 				String formattedDate = outputDateFormat.format(endDate);
 
-				// 지출 금액 가져오기
-
 				if(formattedDate.equals(currentDate.toString())) {
 
 
