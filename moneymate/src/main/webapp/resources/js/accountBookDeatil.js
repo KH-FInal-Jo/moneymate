@@ -21,49 +21,6 @@ document.getElementById("date-month").innerHTML = nowMonth + "월";
 
 
 
-/* 수입 차트 */
-let pieChartDraw2 = function () {
-    let ctx = document.getElementById('pieChartCanvas2').getContext('2d');
-    
-    window.pieChart = new Chart(ctx, {
-        type: 'pie',
-        data: pieChartData2,
-        options: {
-            responsive: false
-        }
-    });
-};
-
-
-
-                        
-
-/* 지출 */
-// let pieChartData = {
-// labels: ['식비', '교통비', '주거비', '관리비', '유흥', '생필품'],
-// datasets: [{
-//     data: [10, 20, 50, 5, 10, 5],
-//     backgroundColor: ['rgb(255, 99, 132)', 'rgb(255, 159, 64)', 'rgb(255, 205, 86)', 'rgb(75, 192, 192)', 'rgb(54, 162, 235)', 'rgb(153, 102, 255)']
-// }] 
-// };
-
-
-
-
-
-
-
-/* 수입 */
-let pieChartData2 = {
-    labels: ['수입','성공'],
-    datasets: [{
-        data: [50,50],
-        backgroundColor: ['rgb(255, 99, 132)', 'rgb(255, 159, 64)', 'rgb(255, 205, 86)', 'rgb(75, 192, 192)', 'rgb(54, 162, 235)', 'rgb(153, 102, 255)']
-    }] 
-};
-
-
-
 // 수입 버튼
 const incomeBtn = document.getElementById("income")
 // 지출 버튼
@@ -78,7 +35,6 @@ incomeBtn.addEventListener("click", ()=>{
     spendDiv.style.display = 'none';
     incomeDiv.style.display = 'flex';
 
-    tb.style.display = 'none';
 
 
 })
@@ -268,7 +224,8 @@ function handleFetchChart(month) {
         if(cList == ''){
 
             console.log("숨김")
-
+            const categoryArea = document.querySelector(".category-area")
+            categoryArea.innerHTML = ''
             return;
 
         }
@@ -285,6 +242,7 @@ function handleFetchChart(month) {
 
             };
 
+
             /* 지출 */
             const categoryArea = document.querySelector(".category-area")
             categoryArea.innerHTML = ''
@@ -299,24 +257,34 @@ function handleFetchChart(month) {
                 categoryPercent.classList.add("category-percent")
 
                 const span1 = document.createElement("span")
-                const span2 = document.createElement("categoryName")
-                const span3 = document.createElement("equal")
-                const span4 = document.createElement("percentNo")
+                const span2 = document.createElement("span")
+                const span3 = document.createElement("span")
+                const span4 = document.createElement("span")
+                const span5 = document.createElement("span")
                 span1.classList.add("round")
                 span2.classList.add("categoryName")
                 span3.classList.add("equal")
                 span4.classList.add("percentNo")
+                span5.classList.add("sumMoney")
 
                 if(chart.category == "식비"){
                   // console.log("식비-------------")
                   span1.style.backgroundColor = 'rgb(248, 207, 18)'
+                }else if(chart.category == "교통비"){
+                  span1.style.backgroundColor = 'rgb(216, 63, 50)'
+                }else if(chart.category == "건강"){
+                  span1.style.backgroundColor = 'rgb(255, 205, 86)'
                 }
 
                 span2.innerHTML = chart.category
                 span3.innerHTML = ":"
                 span4.innerHTML = chart.percent + "%"
+                // DB에서 얻어온 지출 합계 금액 콤파 표기법으로 변환
+                var sumMoney = parseInt(chart.sumMoney).toLocaleString('ko-KR');
+                span5.innerText = sumMoney + "원"
 
-                categoryPercent.append(span1, span2, span3, span4)
+
+                categoryPercent.append(span1, span2, span3, span4, span5)
 
 
                 categoryArea.append(categoryPercent)
@@ -333,6 +301,106 @@ function handleFetchChart(month) {
                     responsive: false
                 }
             });
+           
+        }
+    })
+    .catch(err => {
+        console.log("예외 발생");
+        console.log(err);
+    });
+}
+
+
+
+
+// 월 수입 금액 차트호출 fetch 함수
+function handleFetchChartIncome(month) {
+    console.log("월:", month);
+    console.log("가계부 번호:", accountNo);
+  
+       fetch(`/account/changeChartIncome?month=${month}&accountNo=${accountNo}`)
+      .then(resp => resp.json())
+      .then(cList => {
+        const pieChartCanvas2 = document.getElementById('pieChartCanvas2');
+        const ctx = pieChartCanvas2.getContext('2d');
+
+        // 이전 차트 제거
+        if (window.pieChart2) {
+            window.pieChart2.destroy();
+        }
+
+
+        if(cList == ''){
+
+            console.log("숨김")
+            const IcategoryArea = document.querySelector(".Icategory-area")
+            IcategoryArea.innerHTML = ''
+            return;
+
+        }
+        if(cList != ''){
+            console.log("응답 데이터있음: ", cList);
+
+            // 차트 데이터 영역
+            let pieChartData2 = {
+              labels: [],
+              datasets: [{
+                  data: [],
+                  backgroundColor: ['rgb(216, 63, 50)', 'rgb(248, 207, 18)', 'rgb(255, 205, 86)', 'rgb(75, 192, 192)', 'rgb(54, 162, 235)', 'rgb(153, 102, 255)']
+              }] 
+
+            };
+
+
+            /* 수입 */
+            const IcategoryArea = document.querySelector(".Icategory-area")
+            IcategoryArea.innerHTML = ''
+            for(let chart of cList){
+                console.log(chart.category)
+                console.log(chart.percent)
+
+                pieChartData2.labels.push(chart.category);
+                pieChartData2.datasets[0].data.push(chart.percent);
+
+                const categoryPercent = document.createElement("div")
+                categoryPercent.classList.add("categoryIncome-percent")
+
+                const span1 = document.createElement("span")
+                const span2 = document.createElement("categoryName")
+                const span3 = document.createElement("equal")
+                const span4 = document.createElement("percentNo")
+                span1.classList.add("Iround")
+                span2.classList.add("IcategoryName")
+                span3.classList.add("Iequal")
+                span4.classList.add("IpercentNo")
+
+                if(chart.category == "월급"){
+                  // console.log("식비-------------")
+                  span1.style.backgroundColor = 'rgb(248, 207, 18)'
+                }
+
+                span2.innerHTML = chart.category
+                span3.innerHTML = ":"
+                span4.innerHTML = chart.percent + "%"
+
+                categoryPercent.append(span1, span2, span3, span4)
+
+
+                IcategoryArea.append(categoryPercent)
+
+
+
+
+            }
+            // 새로운 차트 생성
+            window.pieChart2 = new Chart(ctx, {
+                type: 'pie',
+                data: pieChartData2,
+                options: {
+                    responsive: false
+                }
+            });
+           
         }
     })
     .catch(err => {

@@ -97,5 +97,26 @@ public class AccountController {
 	}
 	
 	
+	
+	// 월 수입 그래프
+	@GetMapping(value = "/account/changeChartIncome", produces = "application/json; charset=UTF-8")
+	@ResponseBody
+	public List<SAccount> changeChartIncome(@RequestParam("month") String month, 
+			@RequestParam("accountNo") String accountNo,
+			@SessionAttribute("loginMember") Member loginMember) {
+		int memberNo = loginMember.getMemberNo();
+		
+		Map<String, Object> map = new HashMap<String, Object>();
+		
+		map.put("month", month);
+		map.put("accountNo", accountNo);
+		map.put("memberNo", memberNo);
+		
+		System.out.println("업데이트 : " + map);
+		
+		return service.changeChartIncome(map); // 예시 JSON 응답
+	}
+	
+	
 
 }

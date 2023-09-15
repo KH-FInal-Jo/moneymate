@@ -45,6 +45,16 @@ public class AccountDAO {
 	}
 
 
+	/** 수입 그래프
+	 * @param map
+	 * @return
+	 */
+	public List<SAccount> changeChartIncome(Map<String, Object> map) {
+		// TODO Auto-generated method stub
+		return sqlSession.selectList("SmemberMapper.selectChartIncome",map);
+	}
+
+
 	
 	
 
