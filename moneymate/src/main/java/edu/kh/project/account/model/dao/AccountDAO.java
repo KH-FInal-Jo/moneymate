@@ -24,6 +24,15 @@ public class AccountDAO {
 		System.out.println("dao 확인 : " + map.get("month"));
 		return sqlSession.selectOne("SmemberMapper.changeMonth",map);
 	}
+	
+	/** 월 수입 변경하기
+	 * @param map
+	 * @return
+	 */
+	public int changeMonthIncome(Map<String, Object> map) {
+		// TODO Auto-generated method stub
+		return sqlSession.selectOne("SmemberMapper.changeMonthIncome",map);
+	}
 
 
 	/** 지출 내역 업데이트
@@ -32,6 +41,15 @@ public class AccountDAO {
 	 */
 	public List<SAccount> changeMonthUpdate(Map<String, Object> map) {
 		return sqlSession.selectList("SmemberMapper.selectAccount" , map);
+	}
+	
+	/** 수입 내역 업데이트
+	 * @param map
+	 * @return
+	 */
+	public List<SAccount> changeMonthUpdateIncome(Map<String, Object> map) {
+		// TODO Auto-generated method stub
+		return sqlSession.selectList("SmemberMapper.selectAccountIncome" , map);
 	}
 
 
@@ -53,6 +71,10 @@ public class AccountDAO {
 		// TODO Auto-generated method stub
 		return sqlSession.selectList("SmemberMapper.selectChartIncome",map);
 	}
+
+
+
+	
 
 
 	

@@ -3,8 +3,8 @@ const incomeDiv = document.querySelector(".chart-div2")
 // 지출 차트
 const spendDiv = document.querySelector(".chart-div")
 
-// 수입 내역 영역
-const incomeArea = document.querySelector(".income-area")
+// 존재하지않는 내역 문구
+const notExist = document.querySelector(".notExist")
 
 // 현재 날짜 구하는 변수
 let today = new Date();
@@ -21,7 +21,10 @@ document.getElementById("date-month").innerHTML = nowMonth + "월";
 
 
 
-
+// 수입 내역 영역
+const incomeArea = document.querySelector(".income-area")
+// 지출 내역 영역
+const spendArea = document.querySelector(".spend-area")
 
 
 // 수입 버튼
@@ -38,7 +41,8 @@ incomeBtn.addEventListener("click", ()=>{
     spendDiv.style.display = 'none';
     incomeDiv.style.display = 'flex';
 
-
+    spendArea.style.display = 'none'
+    incomeArea.style.display = 'block'
 
 })
 
@@ -49,6 +53,9 @@ spendBtn.addEventListener("click", ()=>{
 
     incomeDiv.style.display = 'none';
     spendDiv.style.display = 'flex';
+
+    spendArea.style.display = 'block'
+    incomeArea.style.display = 'none'
 
 })
 
@@ -102,8 +109,13 @@ for (let i = 0; i < lineMonth.length; i++) {
 changeBtn.addEventListener("click", () => {
     const month = dateMonth.innerText.replace("월", "");
     handleFetch(month);
+    handleFetchIncome(month);
+
     handleFetchView(month);
+    handleFetchViewIncome(month);
+
     handleFetchChart(month);
+    handleFetchChartIncome(month);
 });
 
 // 월 지출 합계 금액 fetch 함수
@@ -122,15 +134,50 @@ function handleFetch(month) {
           var formattedMoney = parseInt(data).toLocaleString('ko-KR');
 
           spend.innerHTML = "지출 : " + formattedMoney + "원";
-        } else {
-          spend.innerText = "내역 없음";
-        }
+
+        // 존재하지않는 내역 문구
+        const notExist = document.querySelector(".notExist")
+        notExist.style.display = 'none'
+        } 
       })
       .catch(err => {
         console.log("예외 발생");
         console.log(err);
         const spend = document.getElementById("spend");
         spend.innerText = "내역 없음";
+
+        // 존재하지않는 내역 문구
+        const notExist = document.querySelector(".notExist")
+        notExist.style.display = 'flex'
+      });
+  }
+
+
+
+// 월 수입 합계 금액 fetch 함수
+function handleFetchIncome(month) {
+    console.log("월:", month);
+    console.log("가계부 번호:", accountNo);
+  
+    fetch(`/account/changeMonthIncome?month=${month}&accountNo=${accountNo}`)
+      .then(resp => resp.json())
+      .then(income => {
+        const incomebtn = document.getElementById("income");
+        if (income !== '') {
+
+          // DB에서 얻어온 지출 합계 금액 콤파 표기법으로 변환
+          var formattedMoney = parseInt(income).toLocaleString('ko-KR');
+
+          incomebtn.innerHTML = "수입 : " + formattedMoney + "원";
+        } else {
+            incomebtn.innerText = "내역 없음";
+        }
+      })
+      .catch(err => {
+        console.log("예외 발생");
+        console.log(err);
+        const incomebtn = document.getElementById("income");
+        incomebtn.innerText = "내역 없음";
       });
   }
 
@@ -206,6 +253,76 @@ function handleFetchView(month) {
 
 
 
+// 월 수입 내역 조회 fetch함수
+function handleFetchViewIncome(month) {
+    console.log("월:", month);
+    console.log("가계부 번호:", accountNo);
+  
+    fetch(`/account/changeMonthUpdateIncome?month=${month}&accountNo=${accountNo}`)
+      .then(resp => resp.json())
+      .then(aListIncome => {
+        const incomeArea = document.querySelector(".income-area")
+        incomeArea.innerText = ""
+        if(aListIncome != ''){
+
+
+            console.log("응답 데이터 지출 내역: ", aListIncome);
+
+            
+
+            /* 지출 내역 영역 */
+            // 여기서 data를 사용하여 필요한 처리를 수행하세요.
+            for(let account of aListIncome){
+                
+                
+
+                const incomeLine = document.createElement("div")
+                incomeLine.classList.add("income-line")
+
+                const incomeLeft = document.createElement("div")
+                incomeLeft.classList.add("income-left")
+
+                const div1 = document.createElement("div")
+                const div2 = document.createElement("div")
+                const div3 = document.createElement("div")
+                
+                div1.innerText = account.accountDate
+                div2.innerText = account.accountContent
+                div3.innerText = account.category
+
+                incomeLeft.append(div1, div2, div3)
+
+                // DB에서 얻어온 지출 합계 금액 콤파 표기법으로 변환
+                var incomeMoney = parseInt(account.accountMoney).toLocaleString('ko-KR');
+                const moneyDiv = document.createElement("div")
+                moneyDiv.innerText = "+" + incomeMoney + "원"
+
+
+                incomeLine.append(incomeLeft, moneyDiv)
+
+                const hr = document.createElement("hr")
+
+
+
+                incomeArea.append(incomeLine, hr)
+
+            }
+
+
+
+
+
+        }
+      })
+      .catch(err => {
+        console.log("예외 발생");
+        console.log(err);
+
+      });
+}
+
+
+
 
 // 월 지출 금액 차트호출 fetch 함수
 function handleFetchChart(month) {
@@ -228,7 +345,7 @@ function handleFetchChart(month) {
 
             console.log("숨김")
             const categoryArea = document.querySelector(".category-area")
-            categoryArea.innerHTML = ''
+            categoryArea.style.display = 'none'
             return;
 
         }
@@ -248,6 +365,7 @@ function handleFetchChart(month) {
 
             /* 지출 */
             const categoryArea = document.querySelector(".category-area")
+            categoryArea.style.display = 'flex'
             categoryArea.innerHTML = ''
             for(let chart of cList){
                 console.log(chart.category)
@@ -315,6 +433,7 @@ function handleFetchChart(month) {
     .catch(err => {
         console.log("예외 발생");
         console.log(err);
+
     });
 }
 
@@ -342,7 +461,7 @@ function handleFetchChartIncome(month) {
 
             console.log("숨김")
             const IcategoryArea = document.querySelector(".Icategory-area")
-            IcategoryArea.innerHTML = ''
+            IcategoryArea.style.display = 'none'
             return;
 
         }
@@ -362,6 +481,7 @@ function handleFetchChartIncome(month) {
 
             /* 수입 */
             const IcategoryArea = document.querySelector(".Icategory-area")
+            IcategoryArea.style.display = 'flex'
             IcategoryArea.innerHTML = ''
             for(let chart of cList){
                 console.log(chart.category)
@@ -377,10 +497,12 @@ function handleFetchChartIncome(month) {
                 const span2 = document.createElement("categoryName")
                 const span3 = document.createElement("equal")
                 const span4 = document.createElement("percentNo")
+                const span5 = document.createElement("span")
                 span1.classList.add("Iround")
                 span2.classList.add("IcategoryName")
                 span3.classList.add("Iequal")
                 span4.classList.add("IpercentNo")
+                span5.classList.add("sumMoney")
 
                 if(chart.category == "월급"){
                   // console.log("식비-------------")
@@ -390,8 +512,10 @@ function handleFetchChartIncome(month) {
                 span2.innerHTML = chart.category
                 span3.innerHTML = ":"
                 span4.innerHTML = chart.percent + "%"
+                var sumMoney = parseInt(chart.sumMoney).toLocaleString('ko-KR');
+                span5.innerText = "(" + sumMoney + "원)"
 
-                categoryPercent.append(span1, span2, span3, span4)
+                categoryPercent.append(span1, span2, span3, span4, span5)
 
 
                 IcategoryArea.append(categoryPercent)
