@@ -57,6 +57,28 @@ public class AccountController {
 	}
 	
 	
+	
+	// 월 수입금액
+	@GetMapping(value = "/account/changeMonthIncome", produces = "application/json; charset=UTF-8")
+	@ResponseBody
+	public int changeMonthIncome(@RequestParam("month") String month, 
+			@RequestParam("accountNo") String accountNo,
+			@SessionAttribute("loginMember") Member loginMember) {
+		
+		int memberNo = loginMember.getMemberNo();
+		
+		Map<String, Object> map = new HashMap<String, Object>();
+		
+		map.put("month", month);
+		map.put("accountNo", accountNo);
+		map.put("memberNo", memberNo);
+		
+		
+		
+		return service.changeMonthIncome(map); // 예시 JSON 응답
+	}
+	
+	
 	// 월 지출내역 업데이트
 	@GetMapping(value = "/account/changeMonthUpdate", produces = "application/json; charset=UTF-8")
 	@ResponseBody
@@ -74,6 +96,25 @@ public class AccountController {
 	    System.out.println("업데이트 : " + map);
 	    
 	    return service.changeMonthUpdate(map); // 예시 JSON 응답
+	}
+	
+	
+	// 월 수입내역 업데이트
+	@GetMapping(value = "/account/changeMonthUpdateIncome", produces = "application/json; charset=UTF-8")
+	@ResponseBody
+	public List<SAccount> changeMonthUpdateIncome(@RequestParam("month") String month, 
+			@RequestParam("accountNo") String accountNo,
+			@SessionAttribute("loginMember") Member loginMember) {
+		int memberNo = loginMember.getMemberNo();
+		
+		Map<String, Object> map = new HashMap<String, Object>();
+		
+		map.put("month", month);
+		map.put("accountNo", accountNo);
+		map.put("memberNo", memberNo);
+		
+		
+		return service.changeMonthUpdateIncome(map); // 예시 JSON 응답
 	}
 	
 	

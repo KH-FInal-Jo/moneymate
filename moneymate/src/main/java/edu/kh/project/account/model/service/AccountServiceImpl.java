@@ -22,6 +22,13 @@ public class AccountServiceImpl implements AccountService {
 		// TODO Auto-generated method stub
 		return dao.changeMonth(map);
 	}
+	
+	// 월 수입 변경하기
+	@Override
+	public int changeMonthIncome(Map<String, Object> map) {
+		// TODO Auto-generated method stub
+		return dao.changeMonthIncome(map);
+	}
 
 	// 지출 내역 업데이트
 	@Override
@@ -29,6 +36,13 @@ public class AccountServiceImpl implements AccountService {
 		
 		
 		return dao.changeMonthUpdate(map);
+	}
+	
+	// 수입 내역 업데이트
+	@Override
+	public List<SAccount> changeMonthUpdateIncome(Map<String, Object> map) {
+		// TODO Auto-generated method stub
+		return dao.changeMonthUpdateIncome(map);
 	}
 
 	// 지출 그래프
@@ -44,6 +58,8 @@ public class AccountServiceImpl implements AccountService {
 		// TODO Auto-generated method stub
 		return dao.changeChartIncome(map);
 	}
+
+
 
 
 

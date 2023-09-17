@@ -311,6 +311,26 @@ margin-right: 10px;
 }
 
 
+/* 존재하지않는 내역 출력 */
+.notExist{
+    border-radius: 10px;
+    background-color: rgb(228, 225, 225);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    position: absolute;
+    bottom: 300px;
+
+    margin-left: 280px;
+    width: 600px;
+    height: 80px;
+
+    font-size: 25px;
+    font-weight: bold;
+}
+
 /* 차트 div2 */
 .chart-div2{
     display: flex;
@@ -327,33 +347,36 @@ margin-right: 10px;
 /* 수입 카테고리,퍼센트 영역 */
 .Icategory-area{
 
-background-color: #d8daef;
-margin-left: 30px;
-padding-left: 10px;
-display: flex;
-flex-direction: column;
+    padding-left: 50px;
+    display: flex;
+    flex-direction: column;
+    margin-left: 30px;
+    padding-left: 10px;
+    border-radius: 10px;
 
-width: 350px;
-height: 500px;
+    background-color: rgb(228, 225, 225);
+
+    width: 350px;
+    height: 540px;
 }
 .categoryIncome-percent{
-width: 300px;
+    width: 350px;
+    font-size: 20px;
+    margin-bottom: 10px;
+    padding-top: 7px;
 
-font-size: 20px;
-margin-bottom: 10px;
-
-display: flex;
+    display: flex;
 }
 
 /* 동그라미 */
 .Iround{
-margin-right: 10px;
-margin-top: 3px;
-
-width: 20px;
-height: 20px;
-
-border-radius: 50%;
+    margin-right: 10px;
+    margin-top: 3px;
+    
+    width: 20px;
+    height: 20px;
+    
+    border-radius: 50%;
 }
 /* 카테고리명 */
 .IcategoryName{
@@ -477,7 +500,7 @@ margin-right: 10px;
 /* 수입 내역 영역 */
 .income-line{
     display: flex;
-    background-color: rgb(160, 208, 227);
+    background-color: rgb(228, 225, 225);
 }
 
 .income-line > div:nth-of-type(1){
@@ -519,5 +542,6 @@ margin-right: 10px;
 
     justify-content: center;
     align-items: center;
+
 
 }

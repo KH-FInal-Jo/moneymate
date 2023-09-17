@@ -23,6 +23,20 @@
 		WHERE SUBSTR(ACNT_DATE, 7, 1) = #{month})
 		AND ACNT_NO = #{accountNo}
 		AND MEMBER_NO = #{memberNo}
+		AND INOUT_NM = '지출'
+		AND ACNT_ST = 'N'
+	</select>
+	
+	<!-- 수입 금액 합계 -->
+	<select id="changeMonthIncome" resultType="_int">
+		SELECT SUM(ACNT_MN) AS MONEY
+		FROM "ACCOUNT_DETAIL"
+		JOIN ACCOUNTBOOK USING(ACNT_NO)
+		WHERE ACNT_DATE IN (SELECT ACNT_DATE FROM "ACCOUNT_DETAIL" 
+		WHERE SUBSTR(ACNT_DATE, 7, 1) = #{month})
+		AND ACNT_NO = #{accountNo}
+		AND MEMBER_NO = #{memberNo}
+		AND INOUT_NM = '수입'
 		AND ACNT_ST = 'N'
 	</select>
 	
@@ -36,6 +50,21 @@
 		AND ACNT_NO = #{accountNo}
 		AND MEMBER_NO = #{memberNo}
 		AND ACNT_ST = 'N'
+		AND INOUT_NM = '지출'
+		ORDER BY ACNT_DATE DESC
+	</select>
+	
+	<!-- 수입 내역  -->
+	<select id="selectAccountIncome" resultMap="SAccount-rm">
+		SELECT ACNT_DATE, ACNT_CONT, ACNT_MN, ACNT_CATEGORY 
+		FROM ACCOUNT_DETAIL
+		JOIN ACCOUNTBOOK USING(ACNT_NO)
+		WHERE ACNT_DATE IN (SELECT ACNT_DATE FROM "ACCOUNT_DETAIL" 
+		                    WHERE SUBSTR(ACNT_DATE, 7, 1) = #{month})
+		AND ACNT_NO = #{accountNo}
+		AND MEMBER_NO = #{memberNo}
+		AND ACNT_ST = 'N'
+		AND INOUT_NM = '수입'
 		ORDER BY ACNT_DATE DESC
 	</select>
 	

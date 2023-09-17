@@ -147,6 +147,10 @@
                         <span class="sumMoney">0원</span>
                     </div>
                 </div>
+
+            </div>
+            <div class="notExist">
+                해당 월에 대한 내역이 존재하지 않습니다.
             </div>
 
 
@@ -216,6 +220,7 @@
     <script>
         document.addEventListener("DOMContentLoaded", function () {
 
+            notExist.style.display = 'none'
             incomeDiv.style.display = 'none'
             incomeArea.style.display = 'none'
 
@@ -228,7 +233,11 @@
             const dateMonth = document.getElementById("date-month")
             const month = dateMonth.innerText.replace("월", "");
             handleFetch(month, accountNo);
+            handleFetchIncome(month, accountNo);
+
             handleFetchView(month, accountNo);
+            handleFetchViewIncome(month, accountNo);
+
             handleFetchChart(month, accountNo);
             handleFetchChartIncome(month, accountNo);
 
