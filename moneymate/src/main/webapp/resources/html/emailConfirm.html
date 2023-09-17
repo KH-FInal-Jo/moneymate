@@ -7,34 +7,27 @@
 
     <link rel="stylesheet" href="../css/account/emailConfirm.css">
 
-    <script type="text/javascript" src="js/jquery.js"></script>
-    <script type="text/javascript" src="js/snowfall.jquery.js"></script>
-
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 
 </head>
 <body>
-
-    <script type="text/javascript">
-        $(document).ready(function(){
-            $(document).snowfall();
-        });
-    </script>
-
-   
-
-    <canvas id="canvas"></canvas>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.0.js"></script>
 
     <div id="all">
+        <div><img src="../images/로고.png" alt=""></div>
         <div id="main">
-            <div>가계부에 초대되었습니다.</div>
-            <div>
-                <button>거절</button>
-                <button>수락</button>
+            <div>가계부에 초대되었습니다</div>
+            <div id="btnArea">
+                <button id="no">거절</button>
+                <button id="yes">수락</button>
             </div>
         </div>
-
     </div>
+
+
+<div id="confetti"></div>
+
+
 
 
     <script src="../js/emailConfirm.js"></script>

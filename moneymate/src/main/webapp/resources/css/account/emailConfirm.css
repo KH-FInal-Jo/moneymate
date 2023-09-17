@@ -1,18 +1,81 @@
-body {
-    margin: 0;
-    background: #020202;
-    cursor: crosshair;
-  }
-  canvas{display:block}
-  h1 {
-    position: absolute;
-    top: 20%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: #fff;
-    font-family: "Source Sans Pro";
-    font-size: 5em;
-    font-weight: 900;
-    -webkit-user-select: none;
-    user-select: none;
-  }
+@font-face { /* 애플산돌고딕 폰트 적용 */
+  font-family: "SDGothic";
+  src: url("/resources/fonts/AppleSDGothicNeoSB.ttf") format("truetype");
+  font-weight: normal;
+}
+
+/* * {
+font-family: 'SDGothic', serif;
+} */
+
+#confetti{
+	/* background: #000; */
+	height: 100%;
+	left: 0px;
+	position: fixed;
+	top: 0px;
+	width: 100%;
+	z-index: -1;
+}
+
+#all{
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  position: relative;
+}
+
+#all>div:nth-of-type(1){
+  position: absolute;
+  top: 15%
+}
+
+#main{
+  border: 3px solid lightblue;
+  border-radius: 20px;
+  height: 200px;
+  width: 400px;
+  position: relative;
+
+  background-color: rgba(108, 188, 238, 0.5);
+}
+
+#main>div:nth-of-type(1){
+  position: absolute;
+  top: 30px;
+  left: 55px;
+
+  font-size: 25px;
+  font-weight: bold;
+  
+}
+
+#btnArea{
+  position: absolute;
+  top: 130px;
+  left: 110px;
+}
+
+#btnArea button{
+  height: 35px;
+  width: 80px;
+  cursor: pointer;
+  border: 0;
+
+  font-size: 18px;
+}
+
+#btnArea button:hover{
+  font-weight: bold;
+}
+
+#no{
+  margin-right: 20px;
+  background-color: rgb(223, 80, 80);
+}
+
+#yes{
+  background-color: rgb(23, 227, 64);
+}
