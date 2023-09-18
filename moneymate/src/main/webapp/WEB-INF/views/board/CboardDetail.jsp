@@ -43,8 +43,11 @@
                             	<img src="${board.profileImage}">
                        		</c:otherwise>
                     	</c:choose>
-                        <span>${board.memberNickname}</span>
-                        <span class="like-area">
+                        <span id="memberNickname">${board.memberNickname}
+                           
+                        </span>
+                        
+                        <span class="like-area" id="likeArea">
                         	<c:if test="${!empty likeCheck}" >
                         		<i class="fa-solid fa-heart" style="color: #f50505;"></i>
                         	</c:if>
@@ -55,6 +58,8 @@
                         <span id="likeCount">${board.likeCount}</span>
                         
                     </div>
+
+                    
         
                     <div class="board-head2">
                         <p><span>작성일 : ${board.boardCreateDate}</span></p>
@@ -87,8 +92,10 @@
                 <hr class="hr">
     
                 <div class="btn-area">
-                    <button id="updateBtn">수정</button>
-                    <button id="deleteBtn">삭제</button>
+                    <c:if test="${loginMember.memberNo == board.memberNo} || ${loginMember.authority == 1}" >
+                        <button id="updateBtn">수정</button>
+                        <button id="deleteBtn">삭제</button>
+                    </c:if>
                     <button id="goToListBtn">목록으로</button>
                 </div>
 
@@ -126,7 +133,7 @@
                                     <div class="comment-btn-area">
                                         <button onclick="showInsertComment(${comment.commentNo}, this)">답글</button>   
 
-                                        <c:if test="${loginMember.memberNo == comment.memberNo}" >
+                                        <c:if test="${loginMember.memberNo == comment.memberNo} || ${loginMember.authority == 1}" >
                                             <!-- 로그인 회원과 댓글 작성자가 같은 경우 -->  
                                             <button onclick="showUpdateComment(${comment.commentNo}, this)">수정</button>     
                                             <button onclick="deleteComment(${comment.commentNo})">삭제</button>

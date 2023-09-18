@@ -193,9 +193,14 @@ public class CMemberController {
 			
 		} else {
 			
-			  Map<String, Object> map = service.selectMyBoard(paramMap, cp);
-			 
-			  model.addAttribute("map1", map);
+			
+			paramMap.put("myNum", myNum);
+			
+			Map<String, Object> map = service.selectMyBoard(paramMap, cp);
+			
+			System.out.println(map);
+		 
+			model.addAttribute("map1", map);
 			 
 		}
 		

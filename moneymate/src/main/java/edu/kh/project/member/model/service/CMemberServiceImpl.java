@@ -217,11 +217,21 @@ public class CMemberServiceImpl implements CMemberService {
 		return map;
 	}
 
-
+	// 검색시 내가 쓴 게시글 목록 조회
 	@Override
 	public Map<String, Object> selectMyBoard(Map<String, Object> paramMap, int cp) {
-		// TODO Auto-generated method stub
-		return null;
+		
+		int listCount = dao.getListCount(paramMap);
+		
+		CPagination2 pagination = new CPagination2(cp, listCount);
+		
+		List<CBoard> boardList = dao.selectBoardList(pagination, paramMap);
+
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("pagination", pagination);
+		map.put("boardList", boardList);
+
+		return map;
 	}
 
 }

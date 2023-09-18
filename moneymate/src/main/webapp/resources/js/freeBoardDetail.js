@@ -47,6 +47,50 @@ like.addEventListener("click", (e) => {
 
 });
 
+
+function reportMember(boardNo){
+    if(confirm("정말 신고하시겠습니까?")){
+
+        
+        fetch()
+        .then()
+        .then()
+        .catch();
+    }
+}
+
+
+// 회원 신고하기 
+const memberNickname = document.getElementById("memberNickname");
+const report = document.getElementById("report");
+const likeArea = document.getElementById("likeArea");
+
+memberNickname.addEventListener("click", function(){
+
+    const report = document.getElementsByClassName("report");
+
+    const reportBtn = document.createElement("button");
+    reportBtn.innerText = "신고하기";
+    reportBtn.setAttribute("onclick", "reportMember("+boardNo+", this)");
+    reportBtn.classList.add("report");
+    memberNickname.append(reportBtn);
+
+    if(report.length > 0){
+
+        if(true){
+            report[0].nextElementSibling.remove(); 
+            report[0].remove();
+        
+        } else{
+            return;
+        }
+    }
+    
+})
+
+
+
+
 const updateBtn = document.getElementById("updateBtn");
 
 if(updateBtn != null){

@@ -97,6 +97,14 @@
     min-height: 300px;
 }
 
+#memberNickname{
+    cursor: pointer;
+}
+
+.report {
+    border: 0;
+    
+}
 
 .btn-area{
     text-align: end;
