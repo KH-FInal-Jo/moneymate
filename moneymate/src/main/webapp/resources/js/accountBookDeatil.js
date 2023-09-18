@@ -138,8 +138,16 @@ function handleFetch(month) {
         // 존재하지않는 내역 문구
         const notExist = document.querySelector(".notExist")
         notExist.style.display = 'none'
-        } 
-      })
+
+        /* 지출 눌렀을 때 */
+        spendBtn.addEventListener("click", ()=>{
+            // 존재하지않는 내역 문구
+            const notExist = document.querySelector(".notExist")
+            notExist.style.display = 'none'
+        })
+
+      } 
+    })
       .catch(err => {
         console.log("예외 발생");
         console.log(err);
@@ -149,6 +157,14 @@ function handleFetch(month) {
         // 존재하지않는 내역 문구
         const notExist = document.querySelector(".notExist")
         notExist.style.display = 'flex'
+
+        /* 지출 눌렀을 때 */
+        spendBtn.addEventListener("click", ()=>{
+          // 존재하지않는 내역 문구
+          const notExist = document.querySelector(".notExist")
+          notExist.style.display = 'flex'
+      })
+
       });
   }
 
@@ -169,8 +185,14 @@ function handleFetchIncome(month) {
           var formattedMoney = parseInt(income).toLocaleString('ko-KR');
 
           incomebtn.innerHTML = "수입 : " + formattedMoney + "원";
-        } else {
-            incomebtn.innerText = "내역 없음";
+
+           /* 수입 눌렀을 때 */
+        incomeBtn.addEventListener("click", ()=>{
+
+          // 존재하지않는 내역 문구
+          const notExist = document.querySelector(".notExist")
+          notExist.style.display = 'none'
+        })
         }
       })
       .catch(err => {
@@ -178,6 +200,19 @@ function handleFetchIncome(month) {
         console.log(err);
         const incomebtn = document.getElementById("income");
         incomebtn.innerText = "내역 없음";
+
+
+        /* 수입 눌렀을 때 */
+        incomeBtn.addEventListener("click", ()=>{
+
+          // 존재하지않는 내역 문구
+          const notExist = document.querySelector(".notExist")
+          notExist.style.display = 'flex'
+        })
+        
+        
+        
+        
       });
   }
 
@@ -357,7 +392,7 @@ function handleFetchChart(month) {
               labels: [],
               datasets: [{
                   data: [],
-                  backgroundColor: ['rgb(216, 63, 50)', 'rgb(248, 207, 18)', 'rgb(255, 205, 86)', 'rgb(75, 192, 192)', 'rgb(54, 162, 235)', 'rgb(153, 102, 255)', 'rgb(139, 14, 111)', 'rgb(104, 216, 225)','rgb(173, 165, 150)', 'rgb(226, 97, 113)', 'rgb(85, 116, 187)', 'rgb(104, 200, 121)']
+                  backgroundColor: ['rgb(216, 63, 50)', 'rgb(248, 207, 18)', 'rgb(255, 205, 86)', 'rgb(75, 192, 192)', 'rgb(54, 162, 235)', 'rgb(153, 102, 255)', 'rgb(233, 171, 182)', 'rgb(104, 216, 225)','rgb(173, 165, 150)', 'rgb(226, 97, 113)', 'rgb(85, 116, 187)', 'rgb(104, 200, 121)']
               }] 
 
             };
@@ -372,6 +407,7 @@ function handleFetchChart(month) {
                 console.log(chart.percent)
 
                 pieChartData.labels.push(chart.category);
+                console.log("카테고리 : " + chart.category)
                 pieChartData.datasets[0].data.push(chart.percent);
 
                 const categoryPercent = document.createElement("div")
@@ -388,21 +424,52 @@ function handleFetchChart(month) {
                 span4.classList.add("percentNo")
                 span5.classList.add("sumMoney")
 
-                if(chart.category == "식비"){
+                // 카테고리별 차트 색상 설정
+                if(chart.category){
                   // console.log("식비-------------")
-                  span1.style.backgroundColor = 'rgb(196, 0, 0)'
-                }else if(chart.category == "교통비"){
                   span1.style.backgroundColor = 'rgb(216, 63, 50)'
-                }else if(chart.category == "건강"){
+                  span1.style.backgroundColor = 'rgb(248, 207, 18)'
                   span1.style.backgroundColor = 'rgb(255, 205, 86)'
                 }
+                // }else if(chart.category == "교통"){
+                //   span1.style.backgroundColor = 'rgb(248, 207, 18)'
+                // }else if(chart.category == "패션"){
+                //   span1.style.backgroundColor = 'rgb(255, 205, 86)'
+                // }
+                // else if(chart.category == "미용"){
+                //   span1.style.backgroundColor = 'rgb(75, 192, 192)'
+                // }
+                // else if(chart.category == "생활용품"){
+                //   span1.style.backgroundColor = 'rgb(54, 162, 235)'
+                // }
+                // else if(chart.category == "마트"){
+                //   span1.style.backgroundColor = 'rgb(153, 102, 255)'
+                // }
+                // else if(chart.category == "문화생활"){
+                //   span1.style.backgroundColor = 'rgb(233, 171, 182)'
+                // }
+                // else if(chart.category == "부모님"){
+                //   span1.style.backgroundColor = 'rgb(104, 216, 225)'
+                // }
+                // else if(chart.category == "주거/통신"){
+                //   span1.style.backgroundColor = 'rgb(173, 165, 150)'
+                // }
+                // else if(chart.category == "교육"){
+                //   span1.style.backgroundColor = 'rgb(226, 97, 113)'
+                // }
+                // else if(chart.category == "건강"){
+                //   span1.style.backgroundColor = 'rgb(85, 116, 187)'
+                // }
+                // else if(chart.category == "경조사"){
+                //   span1.style.backgroundColor = 'rgb(104, 200, 121)'
+                // }
 
                 span2.innerHTML = chart.category
                 span3.innerHTML = ":"
                 span4.innerHTML = chart.percent + "%"
                 // DB에서 얻어온 지출 합계 금액 콤파 표기법으로 변환
                 var sumMoney = parseInt(chart.sumMoney).toLocaleString('ko-KR');
-                span5.innerText = sumMoney + "원"
+                span5.innerText = "(" + sumMoney + "원)"
 
 
                 categoryPercent.append(span1, span2, span3, span4, span5)

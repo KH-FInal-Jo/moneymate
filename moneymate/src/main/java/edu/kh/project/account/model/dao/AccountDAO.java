@@ -25,6 +25,15 @@ public class AccountDAO {
 		return sqlSession.selectOne("SmemberMapper.changeMonth",map);
 	}
 	
+	/** 월 지출 금액 합계 10-12월
+	 * @param map
+	 * @return
+	 */
+	public int changeMonthUpdateBigger(Map<String, Object> map) {
+		// TODO Auto-generated method stub
+		return sqlSession.selectOne("SmemberMapper.changeMonthBigger",map);
+	}
+	
 	/** 월 수입 변경하기
 	 * @param map
 	 * @return
@@ -33,6 +42,16 @@ public class AccountDAO {
 		// TODO Auto-generated method stub
 		return sqlSession.selectOne("SmemberMapper.changeMonthIncome",map);
 	}
+	
+	/** 월 수입 합계 금액 10-12월
+	 * @param map
+	 * @return
+	 */
+	public int changeMonthIncomeBigger(Map<String, Object> map) {
+		// TODO Auto-generated method stub
+		return sqlSession.selectOne("SmemberMapper.changeMonthIncomeBigger", map);
+	}
+
 
 
 	/** 지출 내역 업데이트
@@ -43,6 +62,15 @@ public class AccountDAO {
 		return sqlSession.selectList("SmemberMapper.selectAccount" , map);
 	}
 	
+	/** 월 지출 내역 10-12월
+	 * @param map
+	 * @return
+	 */
+	public List<SAccount> changeMonthBigger(Map<String, Object> map) {
+		// TODO Auto-generated method stub
+		return sqlSession.selectList("SmemberMapper.selectAccountBigger", map);
+	}
+	
 	/** 수입 내역 업데이트
 	 * @param map
 	 * @return
@@ -50,6 +78,15 @@ public class AccountDAO {
 	public List<SAccount> changeMonthUpdateIncome(Map<String, Object> map) {
 		// TODO Auto-generated method stub
 		return sqlSession.selectList("SmemberMapper.selectAccountIncome" , map);
+	}
+	
+	/** 월 수입 내역 10-12월
+	 * @param map
+	 * @return
+	 */
+	public List<SAccount> changeMonthUpdateIncomeBigger(Map<String, Object> map) {
+		// TODO Auto-generated method stub
+		return sqlSession.selectList("SmemberMapper.selectAccountIncomeBigger", map);
 	}
 
 
@@ -61,6 +98,16 @@ public class AccountDAO {
 		// TODO Auto-generated method stub
 		return sqlSession.selectList("SmemberMapper.selectChart", map);
 	}
+	
+	/** 월 지출 그래프 10-12월
+	 * @param map
+	 * @return
+	 */
+	public List<SAccount> changeChartBigger(Map<String, Object> map) {
+		// TODO Auto-generated method stub
+		return sqlSession.selectList("SmemberMapper.selectChartBigger", map);
+	}
+
 
 
 	/** 수입 그래프
@@ -71,6 +118,23 @@ public class AccountDAO {
 		// TODO Auto-generated method stub
 		return sqlSession.selectList("SmemberMapper.selectChartIncome",map);
 	}
+
+	/** 월 수입 그래프 10-12월
+	 * @param map
+	 * @return
+	 */
+	public List<SAccount> changeChartIncomeBigger(Map<String, Object> map) {
+		// TODO Auto-generated method stub
+		return sqlSession.selectList("SmemberMapper.selectChartIncomeBigger", map);
+	}
+
+	
+	
+
+	
+
+	
+	
 
 
 

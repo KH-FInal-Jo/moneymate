@@ -44,16 +44,29 @@ public class AccountController {
 	    System.out.println("멤버번호 : " + loginMember.getMemberNo());
 	    int memberNo = loginMember.getMemberNo();
 	    
-	    Map<String, Object> map = new HashMap<String, Object>();
 	    
-	    map.put("month", month);
-	    map.put("accountNo", accountNo);
-	    map.put("memberNo", memberNo);
+	    if(month.equals("10") || month.equals("11") || month.equals("12")) {
+	    	
+	    	Map<String, Object> map = new HashMap<String, Object>();
+	 	    
+	 	    map.put("month", month);
+	 	    map.put("accountNo", accountNo);
+	 	    map.put("memberNo", memberNo);
+	    	
+	    	return service.changeMonthUpdateBigger(map); // 예시 JSON 응답
+	    	
+	    }else {
+	    	Map<String, Object> map = new HashMap<String, Object>();
+	 	    
+	 	    map.put("month", month);
+	 	    map.put("accountNo", accountNo);
+	 	    map.put("memberNo", memberNo);
+	    	
+	 	    return service.changeMonth(map); // 예시 JSON 응답
+	    }
 	    
 	    
 	    
-	    System.out.println("건너오나?" + map);
-	    return service.changeMonth(map); // 예시 JSON 응답
 	}
 	
 	
@@ -65,17 +78,30 @@ public class AccountController {
 			@RequestParam("accountNo") String accountNo,
 			@SessionAttribute("loginMember") Member loginMember) {
 		
-		int memberNo = loginMember.getMemberNo();
+		 int memberNo = loginMember.getMemberNo();
 		
-		Map<String, Object> map = new HashMap<String, Object>();
+		 if(month.equals("10") || month.equals("11") || month.equals("12")) {
+		    	
+		    	Map<String, Object> map = new HashMap<String, Object>();
+		 	    
+		 	    map.put("month", month);
+		 	    map.put("accountNo", accountNo);
+		 	    map.put("memberNo", memberNo);
+		    	
+		    	return service.changeMonthIncomeBigger(map); // 예시 JSON 응답
+		    	
+	    }else {
+	    	Map<String, Object> map = new HashMap<String, Object>();
+	 	    
+	 	    map.put("month", month);
+	 	    map.put("accountNo", accountNo);
+	 	    map.put("memberNo", memberNo);
+	    	
+	 	    return service.changeMonthIncome(map); // 예시 JSON 응답
+	    }
 		
-		map.put("month", month);
-		map.put("accountNo", accountNo);
-		map.put("memberNo", memberNo);
 		
 		
-		
-		return service.changeMonthIncome(map); // 예시 JSON 응답
 	}
 	
 	
@@ -87,15 +113,30 @@ public class AccountController {
 											@SessionAttribute("loginMember") Member loginMember) {
 	    int memberNo = loginMember.getMemberNo();
 	    
-	    Map<String, Object> map = new HashMap<String, Object>();
 	    
-	    map.put("month", month);
-	    map.put("accountNo", accountNo);
-	    map.put("memberNo", memberNo);
+	   
+	    if(month.equals("10") || month.equals("11") || month.equals("12")) {
+	    	
+	    	Map<String, Object> map = new HashMap<String, Object>();
+	 	    
+	 	    map.put("month", month);
+	 	    map.put("accountNo", accountNo);
+	 	    map.put("memberNo", memberNo);
+	    	
+	    	return service.changeMonthBigger(map); // 예시 JSON 응답
+	    	
+	    }else {
+	    	Map<String, Object> map = new HashMap<String, Object>();
+	 	    
+	 	    map.put("month", month);
+	 	    map.put("accountNo", accountNo);
+	 	    map.put("memberNo", memberNo);
+	    	
+	 	    return service.changeMonthUpdate(map); // 예시 JSON 응답
+	    }
 	    
-	    System.out.println("업데이트 : " + map);
+	    	
 	    
-	    return service.changeMonthUpdate(map); // 예시 JSON 응답
 	}
 	
 	
@@ -107,14 +148,27 @@ public class AccountController {
 			@SessionAttribute("loginMember") Member loginMember) {
 		int memberNo = loginMember.getMemberNo();
 		
-		Map<String, Object> map = new HashMap<String, Object>();
+		if(month.equals("10") || month.equals("11") || month.equals("12")) {
+	    	
+	    	Map<String, Object> map = new HashMap<String, Object>();
+	 	    
+	 	    map.put("month", month);
+	 	    map.put("accountNo", accountNo);
+	 	    map.put("memberNo", memberNo);
+	    	
+	    	return service.changeMonthUpdateIncomeBigger(map); // 예시 JSON 응답
+	    	
+	    }else {
+	    	Map<String, Object> map = new HashMap<String, Object>();
+	 	    
+	 	    map.put("month", month);
+	 	    map.put("accountNo", accountNo);
+	 	    map.put("memberNo", memberNo);
+	    	
+	 	    return service.changeMonthUpdateIncome(map); // 예시 JSON 응답
+	    }
 		
-		map.put("month", month);
-		map.put("accountNo", accountNo);
-		map.put("memberNo", memberNo);
 		
-		
-		return service.changeMonthUpdateIncome(map); // 예시 JSON 응답
 	}
 	
 	
@@ -126,15 +180,26 @@ public class AccountController {
 											@SessionAttribute("loginMember") Member loginMember) {
 	    int memberNo = loginMember.getMemberNo();
 	    
-	    Map<String, Object> map = new HashMap<String, Object>();
+	    if(month.equals("10") || month.equals("11") || month.equals("12")) {
+	    	
+	    	Map<String, Object> map = new HashMap<String, Object>();
+	 	    
+	 	    map.put("month", month);
+	 	    map.put("accountNo", accountNo);
+	 	    map.put("memberNo", memberNo);
+	    	
+	    	return service.changeChartBigger(map); // 예시 JSON 응답
+	    	
+	    }else {
+	    	Map<String, Object> map = new HashMap<String, Object>();
+	 	    
+	 	    map.put("month", month);
+	 	    map.put("accountNo", accountNo);
+	 	    map.put("memberNo", memberNo);
+	    	
+	 	    return service.changeChart(map); // 예시 JSON 응답
+	    }
 	    
-	    map.put("month", month);
-	    map.put("accountNo", accountNo);
-	    map.put("memberNo", memberNo);
-	    
-	    System.out.println("업데이트 : " + map);
-	    
-	    return service.changeChart(map); // 예시 JSON 응답
 	}
 	
 	
@@ -147,15 +212,26 @@ public class AccountController {
 			@SessionAttribute("loginMember") Member loginMember) {
 		int memberNo = loginMember.getMemberNo();
 		
-		Map<String, Object> map = new HashMap<String, Object>();
+		if(month.equals("10") || month.equals("11") || month.equals("12")) {
+	    	
+	    	Map<String, Object> map = new HashMap<String, Object>();
+	 	    
+	 	    map.put("month", month);
+	 	    map.put("accountNo", accountNo);
+	 	    map.put("memberNo", memberNo);
+	    	
+	    	return service.changeChartIncomeBigger(map); // 예시 JSON 응답
+	    	
+	    }else {
+	    	Map<String, Object> map = new HashMap<String, Object>();
+	 	    
+	 	    map.put("month", month);
+	 	    map.put("accountNo", accountNo);
+	 	    map.put("memberNo", memberNo);
+	    	
+	 	    return service.changeChartIncome(map); // 예시 JSON 응답
+	    }
 		
-		map.put("month", month);
-		map.put("accountNo", accountNo);
-		map.put("memberNo", memberNo);
-		
-		System.out.println("업데이트 : " + map);
-		
-		return service.changeChartIncome(map); // 예시 JSON 응답
 	}
 	
 	
