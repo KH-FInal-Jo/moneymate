@@ -12,4 +12,16 @@ public interface HAccountService {
 	 */
 	Map<String, Object> accountList(Member loginMember);
 
+	/** 이메일 회원 검사
+	 * @param memberEmail
+	 * @return result
+	 */
+	int dupEmail(String memberEmail);
+
+	/** 가계부 생성(개인)
+	 * @param loginMember
+	 * @return
+	 */
+	int pAccount(Member loginMember);
+
 }

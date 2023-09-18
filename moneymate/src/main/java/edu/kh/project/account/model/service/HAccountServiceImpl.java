@@ -35,4 +35,17 @@ public class HAccountServiceImpl implements HAccountService{
 		return map;
 	}
 
+	// 이메일 회원 검사
+	@Override
+	public int dupEmail(String memberEmail) {
+		
+		return dao.dupCheck(memberEmail);
+	}
+
+	// 가계부 생성(개인)
+	@Override
+	public int pAccount(Member loginMember) {
+		return dao.pAccount(loginMember);
+	}
+
 }
