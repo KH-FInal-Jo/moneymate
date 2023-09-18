@@ -141,10 +141,10 @@
                 <div class="category-area">
                     <div class="category-percent">
                         <span class="round"></span>
-                        <span class="categoryName">식비</span>
+                        <span class="categoryName"></span>
                         <span class="equal">:</span>
-                        <span class="percentNo">0%</span>
-                        <span class="sumMoney">0원</span>
+                        <span class="percentNo"></span>
+                        <span class="sumMoney"></span>
                     </div>
                 </div>
 
@@ -160,9 +160,9 @@
                 <div class="Icategory-area">
                     <div class="categoryIncome-percent">
                             <span class="Iround"></span>
-                            <span class="IcategoryName">식비</span>
+                            <span class="IcategoryName"></span>
                             <span class="Iequal">:</span>
-                            <span class="IpercentNo">50%</span>
+                            <span class="IpercentNo"></span>
                     </div>
                 </div>
             </div>
