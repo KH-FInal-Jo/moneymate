@@ -236,8 +236,23 @@ public class AccountController {
 	
 	@GetMapping(value = "/account/categoryName" , produces = "application/json; charset=UTF-8")
 	@ResponseBody
-	public List<SAccount> categoryName (){
+	public List<SAccount> categoryName (@RequestParam("month") String month,
+										@RequestParam("accountNo") String accountNo,
+										@RequestParam("categoryName") String categoryName,
+										@SessionAttribute("loginMember") Member loginMember){
+		// 로그인한 회원의 번호
+		int memberNo = loginMember.getMemberNo();
 		
+		Map<String, Object> map = new HashMap<String, Object>();
+		
+		map.put("month", month);
+		map.put("accountNo", accountNo);
+		map.put("categoryName", categoryName);
+		
+		System.out.println("카테고리명 : " + categoryName);
+		
+		
+		return service.categoryName(map);
 	}
 	
 	

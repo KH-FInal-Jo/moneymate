@@ -128,6 +128,15 @@ public class AccountDAO {
 		return sqlSession.selectList("SmemberMapper.selectChartIncomeBigger", map);
 	}
 
+	/** 카테고리명 조회 내역
+	 * @param map
+	 * @return
+	 */
+	public List<SAccount> categoryName(Map<String, Object> map) {
+		// TODO Auto-generated method stub
+		return sqlSession.selectList("SmemberMapper.categoryName", map);
+	}
+
 	
 	
 
