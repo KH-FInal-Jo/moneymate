@@ -38,11 +38,11 @@
                         <div class="image-section">
 
                             <c:if test="${empty loginMember.profileImage}" >
-                                <img src="/resources/images/dog1.jpg" class="myInfoImg" id ="inputImage" alt="프로필 이미지">
+                                <img src="/resources/images/dog1.jpg" class="myInfoImg" id ="profileImage" alt="프로필 이미지">
                             </c:if>
 
                             <c:if test="${!empty loginMember.profileImage}" >
-                                <img src="${loginMember.imageInput}" id="inputImage">
+                                <img src="${loginMember.profileImage}" id="profileImage">
                             </c:if>
 
 
