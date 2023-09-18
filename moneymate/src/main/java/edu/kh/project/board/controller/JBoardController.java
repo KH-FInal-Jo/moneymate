@@ -91,7 +91,7 @@ public class JBoardController {
 		
 		if(boardNo > 0) { // 성공 시
 			
-			message = "게시글이 등록되었습니다❤";
+			message = "게시글이 등록되었습니다.";
 			path += "/community/" + boardCode + "/" + boardNo;
 			
 		}else {

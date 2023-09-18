@@ -146,7 +146,7 @@
 	</update>
 	
 	<!-- 공지 사항 삭제 -->
-	<update id="boardDelete">
+	<update id="JboardDelete">
 		UPDATE BOARD SET BOARD_ST = 'Y'
 		WHERE BOARD_NO = #{boardNo}
 	</update>

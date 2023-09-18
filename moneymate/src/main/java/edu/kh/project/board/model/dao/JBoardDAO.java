@@ -52,7 +52,7 @@ public class JBoardDAO {
 	}
 
 	public int boardDelete(int boardNo) {
-		return sqlSession.update("boardDelete", boardNo);
+		return sqlSession.update("JboardDelete", boardNo);
 	}
 
 	// 조회수 증가
