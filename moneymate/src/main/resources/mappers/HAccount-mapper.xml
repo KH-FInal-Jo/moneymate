@@ -37,7 +37,7 @@
 	
 	<!-- 개인 가계부 생성 -->
 	<insert id="pAccount">
-	
+		INSERT INTO ACCOUNTBOOK VALUES(SEQ_ACNT_NO.NEXTVAL, 0, #{memberNo}, NULL, NULL)
 	</insert>
 
 	
