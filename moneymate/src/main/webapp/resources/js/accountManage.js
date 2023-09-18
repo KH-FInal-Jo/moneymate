@@ -123,8 +123,17 @@ if(addGroup != null){
           }
         }
 
-        checkImg.style.display = "block";
-        warnImg.style.display = "none";
+        if(addGroup.value == loginMemberEmail){
+          flag = true; // 본인 이메일
+          checkImg.style.display = "none";
+          warnImg.style.display = "block";
+        }
+
+        if(!flag){
+          checkImg.style.display = "block";
+          warnImg.style.display = "none";
+        }
+
 
       } else {
 
