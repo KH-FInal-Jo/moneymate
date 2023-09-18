@@ -24,4 +24,19 @@ public interface HAccountService {
 	 */
 	int pAccount(Member loginMember);
 
+	/** 가계부 생성(그룹)
+	 * @param loginMember
+	 * @param gEmail
+	 * @return
+	 */
+	int gAccount(Member loginMember, String[] gEmail);
+	
+	String createAuthKey();
+
+	/** 초대 수략
+	 * @param key
+	 * @return result
+	 */
+	int inviteAccept(String key);
+
 }

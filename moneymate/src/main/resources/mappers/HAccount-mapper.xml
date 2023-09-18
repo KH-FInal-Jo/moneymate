@@ -6,14 +6,15 @@
 		<id property="accountNo" column="ACNT_NO"/>
 		<result property="memberEmail" column="MEMBER_EMAIL"/>
 		<result property="memberEmails" column="MEMBER_EMAILS"/>
+		<result property="authKey" column="CODE"/>
 	</resultMap>
 	
 	<!-- 개인 가계부 조회 -->
 	<select id="pList" resultMap="account_rm">
 		SELECT ACNT_NO 
-		FROM ACCOUNT_GROUP 
-		WHERE MEMBER_EMAIL =#{memberEmail}
-		AND GROUP_FL = 'Y'
+		FROM ACCOUNTBOOK
+		WHERE MEMBER_NO =#{memberNo}
+		ORDER BY ACNT_NO
 	</select>
 	
 	<!-- 그룹 가계부 조회 -->
@@ -27,6 +28,7 @@
 		                AND GROUP_FL = 'Y')
 		AND GROUP_FL = 'Y'
 		GROUP BY ACNT_NO
+		ORDER BY ACNT_NO
 	</select>
 	
 	<!-- 이메일 중복 검사 -->
@@ -40,6 +42,23 @@
 		INSERT INTO ACCOUNTBOOK VALUES(SEQ_ACNT_NO.NEXTVAL, 0, #{memberNo}, NULL, NULL)
 	</insert>
 
+	<!-- (그룹) 가계부 테이블 insert -->
+	<insert id="insertGroup" useGeneratedKeys="true">
+		<selectKey order="BEFORE" resultType="_int" keyProperty="accountNo">
+			SELECT SEQ_ACNT_NO.NEXTVAL FROM DUAL
+		</selectKey>
+		INSERT INTO ACCOUNTBOOK VALUES(#{accountNo}, 0, #{memberNo}, NULL, NULL)
+	</insert>
+	
+	<!-- 그룹 테이블 insert -->
+	<insert id="group">
+		INSERT INTO ACCOUNT_GROUP VALUES(#{memberEmail}, DEFAULT, #{authKey}, #{accountNo})
+	</insert>
+	
+	<!-- 가계부 초대 수락 -->
+	<update id="inviteAccept">
+		UPDATE ACCOUNT_GROUP SET GROUP_FL = 'Y' WHERE CODE = #{key}
+	</update>
 	
 	
 </mapper>

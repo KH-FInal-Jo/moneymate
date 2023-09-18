@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -30,7 +31,7 @@ public class HAccountController {
 		// 개인 + 그룹 둘 다 조회.. 각각 조회해서 따로 출력하는 방법이 더 좋을 듯
 		Map<String, Object> map = service.accountList(loginMember);
 		
-		// System.out.println(map);
+		System.out.println(map);
 		
 		model.addAttribute("map", map);
 		
@@ -48,12 +49,49 @@ public class HAccountController {
 	// 가계부 생성
 	@PostMapping("/account/create")
 	public String createAccount(String[] gEmail, RedirectAttributes ra, @SessionAttribute("loginMember") Member loginMember) {
-		
+		int result = 0;
 		if(gEmail == null) {
-			int result = service.pAccount(loginMember);
+			result = service.pAccount(loginMember);
+		} else {
+			// 이메일로 회원 초대하는 로직
+			 result = service.gAccount(loginMember, gEmail);
+		}
+		
+		if(result>0) {
+			ra.addFlashAttribute("", "가계부가 생성되었습니다.");
+		} else {
+			ra.addFlashAttribute("", "가계부 생성 실패");
 		}
 		
 		return "redirect:/account/list";
+	}
+	
+	// 초대장 들어가기
+	@GetMapping("/account/invite/{key}")
+	public String emailInvite(@PathVariable("key") String key, Model model) {
+		
+		System.out.println(key);
+		
+		model.addAttribute("key", key);
+		
+		return "account/emailConfirm";
+	}
+	
+	// 초대장 수락
+	@GetMapping("/account/accept/{key}")
+	public String inviteAccept(@PathVariable("key") String key, RedirectAttributes ra) {
+		
+		System.out.println("key : " + key);
+		
+		int result = service.inviteAccept(key);
+		
+		if(result>0) {
+			ra.addFlashAttribute("message", "초대를 수락하셨습니다. \n 로그인 후 이용해주세요 !");
+		} else {
+			ra.addFlashAttribute("message", "가계부 초대 수락 실패..");
+		}
+		
+		return "redirect:/member/login";
 	}
 
 }

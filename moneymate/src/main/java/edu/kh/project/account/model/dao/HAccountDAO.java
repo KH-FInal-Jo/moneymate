@@ -1,6 +1,7 @@
 package edu.kh.project.account.model.dao;
 
 import java.util.List;
+import java.util.Map;
 
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -46,5 +47,31 @@ public class HAccountDAO {
 	public int pAccount(Member loginMember) {
 		return sqlSession.insert("HAccountMapper.pAccount", loginMember);
 	}
+
+	/** 가계부 (그룹) 테이블 insert
+	 * @param map
+	 * @return result
+	 */
+	public int insertGroup(HAccount account) {
+		return sqlSession.insert("HAccountMapper.insertGroup", account);
+	}
+
+	/** 그룹테이블 insert
+	 * @param account
+	 * @return result
+	 */
+	public int group(HAccount account) {
+		return sqlSession.insert("HAccountMapper.group", account);
+	}
+
+	/** 가계부 초대 수락
+	 * @param key
+	 * @return result
+	 */
+	public int inviteAccept(String key) {
+		return sqlSession.update("HAccountMapper.inviteAccept", key);
+	}
+	
+	
 
 }

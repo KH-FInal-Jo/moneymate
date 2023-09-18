@@ -22,11 +22,15 @@
         <div id="main">
             <div>가계부에 초대되었습니다</div>
             <div id="btnArea">
-                <button id="no">거절</button>
-                <button id="yes">수락</button>
+                <button id="no" onclick="goBack()">거절</button>
+                <button id="yes" onclick="location.href='/account/accept/${key}'">수락</button>
             </div>
         </div>
     </div>
+
+    
+
+    <input type="hidden" value="${key}"/>
 
     <div id="confetti"></div>
 

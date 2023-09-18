@@ -55,7 +55,7 @@
 
             <c:forEach items="${pList}" var="list">
                 <div class="account">
-                    <div class="name">개인 가계부</div>
+                    <div class="name">가계부</div>
                     <div class="content">
                         <img src="/resources/images/로고.png" class="logoImg"/>
                         <img src="/resources/images/homework.png" class="logoImg"/>
@@ -69,7 +69,7 @@
 
             <c:forEach items="${gList}" var="list">
                 <div class="account">
-                    <div class="name">그룹 가계부</div>
+                    <div class="name">가계부</div>
                     <div class="content">
                     <c:set var="emails" value="${list.memberEmails}" />
                     <c:set var="emailArray" value="${fn:split(emails, ',,')}" />
@@ -89,6 +89,10 @@
             </div>
         </div>
     </div>
+
+    <script>
+        const loginMemberEmail = "${loginMember.memberEmail}";
+    </script>
 
     <script src="/resources/js/accountManage.js"></script>
     
