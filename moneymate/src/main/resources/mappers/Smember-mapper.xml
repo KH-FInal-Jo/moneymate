@@ -191,6 +191,20 @@
 	</select>
 	
 	
+	<!--카테고리명 조회 지출 내역  -->
+	<select id="selectAccount" resultMap="SAccount-rm">
+		SELECT ACNT_DATE, ACNT_CONT, ACNT_MN, ACNT_CATEGORY 
+		FROM ACCOUNT_DETAIL
+		JOIN ACCOUNTBOOK USING(ACNT_NO)
+		WHERE ACNT_DATE IN (SELECT ACNT_DATE FROM "ACCOUNT_DETAIL" 
+		                    WHERE SUBSTR(ACNT_DATE, 7, 1) = #{month})
+		AND ACNT_NO = #{accountNo}
+		AND MEMBER_NO = #{memberNo}
+		AND ACNT_ST = 'N'
+		AND INOUT_NM = '지출'
+		AND ACNT_CATEGORY = #{categoryName}
+		ORDER BY ACNT_DATE DESC
+	</select>
 	
 	
 	
