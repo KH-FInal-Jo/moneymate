@@ -23,6 +23,7 @@
 		<typeAlias type="edu.kh.project.account.model.dto.JAccountBook" alias="JAccount" />
 		<typeAlias type="edu.kh.project.subscribe.model.dto.Subscribe" alias="Subscribe" />
 		<typeAlias type="edu.kh.project.account.model.dto.SAccount" alias="SAccount" />
+		<typeAlias type="edu.kh.project.account.model.dto.HAccount" alias="HAccount" />
 	</typeAliases>
 	
 	<!-- mapper 연결 -->

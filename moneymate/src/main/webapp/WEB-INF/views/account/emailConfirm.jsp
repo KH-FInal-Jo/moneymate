@@ -7,40 +7,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>이메일 초대</title>
+    <title>Document</title>
 
     <link rel="stylesheet" href="/resources/css/account/emailConfirm.css">
-
-   
 
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 
 </head>
 <body>
-
-
-<canvas id="birthday"></canvas>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.0.js"></script>
 
     <div id="all">
+        <div><img src="/resources/images/로고.png" alt=""></div>
         <div id="main">
-            <div>가계부에 초대되었습니다.</div>
-            <div>
-                <button>거절</button>
-                <button>수락</button>
+            <div>가계부에 초대되었습니다</div>
+            <div id="btnArea">
+                <button id="no">거절</button>
+                <button id="yes">수락</button>
             </div>
         </div>
-
     </div>
 
-    <div class="pyro">
-  <div class="before"></div>
-  <div class="after"></div>
-</div>
-
+    <div id="confetti"></div>
 
     <script src="/resources/js/emailConfirm.js"></script>
-
-    
     
 </body>
 </html>

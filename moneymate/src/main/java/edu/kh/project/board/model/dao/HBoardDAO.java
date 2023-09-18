@@ -31,7 +31,13 @@ public class HBoardDAO {
 	 */
 	public int calendarToday(int memberNo) {
 		
-		return sqlSession.insert("HBoardMapper.calendarToday", memberNo);
+		int result = sqlSession.insert("HBoardMapper.calendarToday", memberNo);
+		
+		if(result>0) {
+			sqlSession.update("HBoardMapper.updateMile", memberNo);
+		}
+		
+		return result;
 	}
 
 	/** 가계부 이벤트 댓글 목록 조회

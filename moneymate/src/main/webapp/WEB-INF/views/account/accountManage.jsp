@@ -1,3 +1,10 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"  %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"  %>
+
+<c:set var="pList"  value="${map.pList}"/>
+<c:set var="gList"  value="${map.gList}"/>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,29 +12,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>가계부 관리</title>
 
-    <link rel="stylesheet" href="../css/account/accountManage.css">
+    <link rel="stylesheet" href="/resources/css/account/accountManage.css">
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 </head>
 <body>
-
-
-
-
     <!-- 가게부 최대 4개만 만들 ㅁ수 있도록 나중에 c:if문 걸어주기!!! -->
     <div id="main">
         <div id="main-container">
 
             <div id="modal"> <!-- 모달창 -->
                 <div>
-                    <img src="../images/add-user.png">
+                    <img src="/resources/images/add-user.png">
                 </div>
                 <div>가계부 이름</div>
                 <div><input type="text" name="accountName" id="accountName"></div>
                 <div>그룹 초대</div>
                 <div id="input">
                     <input type="text" id="add-group" placeholder="이메일 입력">
-                    <img src="../images/check.png" id="check-img">
-                    <img src="../images/warning.png" id="warn-img">
+                    <img src="/resources/images/check.png" id="check-img">
+                    <img src="/resources/images/warning.png" id="warn-img">
                     <button type="button" id="addBtn">추가</button>
                 </div>
 
@@ -50,40 +53,17 @@
         </div>
 
         <div id="container">
-            <div class="account">
-                <div class="name">가계부 1</div>
-                <div class="content">
-                    <div class="user">
-                        <span class="spans">user01@navr.com</span>
+
+            <c:forEach items="gList" var="list">
+                <div class="account">
+                    <div class="name">개인 가계부</div>
+                    <div class="content"></div>
+                    <div class="btn-area">
+                        <button class="snip1535" onclick="location.href='/account/${gList.accountNo}'">상세</button>
+                        <!-- <button type="button" class="moreBtn">상세보기</button> -->
                     </div>
-                    <div class="user">
-                        <span class="spans">user01@navr.com</span>
-                    </div>
-                    <div class="user">
-                        <span class="spans">user01@navr.com</span>
-                    </div>
-                    <div class="user">
-                        <span class="spans">user01@navr.com</span>
-                    </div>
-                    <div class="user">
-                        <span class="spans">user01@navr.com</span>
-                    </div>
-                    <div class="user">
-                        <span class="spans">user01@navr.com</span>
-                    </div>
-                    <div class="user">
-                        <span class="spans">user01@navr.com</span>
-                    </div>
-                    <div class="user">
-                        <span class="spans">user01@navr.com</span>
-                    </div>
-                    
                 </div>
-                <div class="btn-area">
-                    <button class="snip1535">상세</button>
-                    <!-- <button type="button" class="moreBtn">상세보기</button> -->
-                </div>
-            </div>
+            </c:forEach>
             <div class="account">
                 <div class="name">가계부 2</div>
                 <div class="content">
@@ -126,17 +106,10 @@
                     <!-- <button type="button" class="moreBtn">상세보기</button> -->
                 </div>
             </div>
-
-
-            
             <div id="new">
                 <img src="../images/plus.png" id="plus-img">
             </div>
-            
-
         </div>
-    
-
     </div>
 
     <script src="../js/accountManage.js"></script>

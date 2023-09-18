@@ -2,40 +2,35 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="HAccountMapper">
 
-	<resultMap type="Member" id="member_rm">
-
-		<id property="memberNo" column="MEMBER_NO" />
-
-		<!-- DB의 일반 컬럼들 -->
-		<result property="memberEmail" column="MEMBER_EMAIL" />
-		<result property="memberPw" column="MEMBER_PW" />
-		<result property="memberName" column="MEMBER_NAME" />
-		<result property="memberNickname" column="MEMBER_NICKNAME" />
-		<result property="memberTel" column="MEMBER_TEL" />
-		<result property="memberAddress" column="MEMBER_ADDRESS" />
-		<result property="secessionFlag" column="SECESSION_FL" />
-		<result property="authority" column="AUTHORITY" />
-		<result property="profileImage" column="PROFILE" />
-		
-
+	<resultMap type="HAccount" id="account_rm">
+		<id property="accountNo" column="ACNT_NO"/>
+		<result property="memberEmail" column="MEMBER_EMAIL"/>
+		<result property="memberEmails" column="MEMBER_EMAILS"/>
 	</resultMap>
 	
+	<!-- 개인 가계부 조회 -->
+	<select id="pList" resultMap="account_rm">
+		SELECT ACNT_NO 
+		FROM ACCOUNT_GROUP 
+		WHERE MEMBER_EMAIL =#{memberEmail}
+		AND GROUP_FL = 'Y'
+	</select>
 	
-	<resultMap type="CComment" id="comment_rm">
-		<id property="commentNo" column="COMMENT_NO" />
-		<result property="commentContent" column="COMMENT_CONTENT" />
-		<result property="commentCreateDate" column="COMMENT_DT" />
-		<result property="boardNo" column="BOARD_NO" />
-		<result property="memberNo" column="MEMBER_NO" />
-		<result property="commentDeleteFlag" column="COMMENT_ST" />
-		<result property="parentNo" column="PARENT_NO" />
-		<result property="memberNickname" column="MEMBER_NICKNAME" />
-		<result property="profileImage" column="PROFILE" />
-		
-		<result property="likeCount" column="LIKE_COUNT" />
-		<result property="commentImage" column="IMG" />
-		<result property="likeCheck" column="LIKE_CHECK" />
-	</resultMap>
+	<!-- 그룹 가계부 조회 -->
+	<select id="gList" resultMap="account_rm">
+		SELECT ACNT_NO, LISTAGG(MEMBER_EMAIL, ',,') WITHIN GROUP (ORDER BY MEMBER_EMAIL) AS MEMBER_EMAILS
+		FROM ACCOUNT_GROUP
+		WHERE 1=1
+		AND ACNT_NO IN (SELECT ACNT_NO 
+		                FROM ACCOUNT_GROUP 
+		                WHERE MEMBER_EMAIL =#{memberEmail}
+		                AND GROUP_FL = 'Y')
+		AND GROUP_FL = 'Y'
+		GROUP BY ACNT_NO
+	</select>
+	
+	
+	
 
 	
 	
