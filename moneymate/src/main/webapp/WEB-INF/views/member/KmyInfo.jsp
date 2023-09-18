@@ -109,11 +109,6 @@
                                     <td> <input type="text" name="memberJibunAddress" id="sample6_detailAddress" placeholder="상세 주소"></td>
                                     <td></td>
                                 </tr>
-<%-- <input type="text" name="memberPostcode" id="sample6_postcode" placeholder="우편번호" maxlength="6">
-<input type="text" name="memberRoadAddress" id="sample6_address" placeholder="도로명/지번 주소">
-<input type="text" name="memberJibunAddress" id="sample6_detailAddress" placeholder="상세 주소"> --%>
-
-
                             </table>
                            
                         </div>
