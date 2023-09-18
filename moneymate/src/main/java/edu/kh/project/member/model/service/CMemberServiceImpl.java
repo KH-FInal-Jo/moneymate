@@ -1,6 +1,7 @@
 package edu.kh.project.member.model.service;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.mail.Message;
@@ -13,6 +14,9 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import edu.kh.project.board.model.dto.CBoard;
+import edu.kh.project.board.model.dto.CPagination;
+import edu.kh.project.board.model.dto.CPagination2;
 import edu.kh.project.member.model.dao.CMemberDAO;
 import edu.kh.project.member.model.dto.Member;
 
@@ -192,6 +196,32 @@ public class CMemberServiceImpl implements CMemberService {
 	@Override
 	public int checkAuthKey(Map<String, Object> paramMap) {
 		return dao.checkAuthKey(paramMap);
+	}
+
+
+	// 내가 쓴글 목록 조회 
+	@Override
+	public Map<String, Object> selectMyBoard(int cp, int myNum) {
+		
+		int listCount = dao.getListCount(myNum);
+
+		CPagination2 pagination = new CPagination2(cp, listCount);
+		
+		List<CBoard> boardList = dao.selectMyBoard(pagination, myNum);
+		
+		Map<String, Object> map = new HashMap<String, Object>();
+
+		map.put("pagination", pagination);
+		map.put("boardList", boardList);
+		
+		return map;
+	}
+
+
+	@Override
+	public Map<String, Object> selectMyBoard(Map<String, Object> paramMap, int cp) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

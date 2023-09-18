@@ -180,7 +180,25 @@ public class CMemberController {
 	}
 	
 	@GetMapping("mypage/myboard")
-	public String myBoard () {
+	public String myBoard (@RequestParam(value = "cp", required = false, defaultValue = "1") int cp,
+			Model model, @RequestParam Map<String, Object> paramMap,  @SessionAttribute("loginMember") Member loginMember) {
+		
+		
+		int myNum = loginMember.getMemberNo();
+		
+		if (paramMap.get("sel") == null) {
+			Map<String, Object> map = service.selectMyBoard(cp, myNum);
+
+			model.addAttribute("map1", map);
+			
+		} else {
+			
+			  Map<String, Object> map = service.selectMyBoard(paramMap, cp);
+			 
+			  model.addAttribute("map1", map);
+			 
+		}
+		
 		return "member/myBoard";
 	}
 	
@@ -209,6 +227,9 @@ public class CMemberController {
 		
 		return service.checkAuthKey(paramMap);
 	}
+	
+	
+	
 	
 	
 	

@@ -110,34 +110,34 @@
                 <div class="pagination-area">
 
 
-                <ul class="pagination">
+                    <ul class="pagination">
+                    
+                        <li><a href="/community/3?cp=1${sp}">&lt;&lt;</a></li>
+
+                        <li><a href="/community/3?cp=${pagination.prevPage}${sp}">&lt;</a></li>
+
                 
-                    <li><a href="/board/3?cp=1${sp}">&lt;&lt;</a></li>
-
-                    <li><a href="/board/3?cp=${pagination.prevPage}${sp}">&lt;</a></li>
-
-               
-                    <c:forEach var="i" begin="${pagination.startPage}" end="${pagination.endPage}">
-                        <c:choose>
-                           <c:when test="${i == pagination.currentPage}">
-                                <li><a class="current">${i}</a></li>
-                           </c:when>
+                        <c:forEach var="i" begin="${pagination.startPage}" end="${pagination.endPage}">
+                            <c:choose>
+                            <c:when test="${i == pagination.currentPage}">
+                                    <li><a class="current">${i}</a></li>
+                            </c:when>
+                            
+                            <c:otherwise>
+                                    <li><a href="/community/3?cp=${i}${sp}">${i}</a></li>
+                            </c:otherwise>
+                            </c:choose>
+                            
+                        </c:forEach>
                         
-                           <c:otherwise>
-                                <li><a href="/community/3?cp=${i}${sp}">${i}</a></li>
-                           </c:otherwise>
-                        </c:choose>
                         
-                    </c:forEach>
-                    
-                    
-                    
-                    <li><a href="/community/3?cp=${pagination.nextPage}${sp}">&gt;</a></li>
+                        
+                        <li><a href="/community/3?cp=${pagination.nextPage}${sp}">&gt;</a></li>
 
-                    <li><a href="/community/3?cp=${pagination.maxPage}${sp}">&gt;&gt;</a></li>
+                        <li><a href="/community/3?cp=${pagination.maxPage}${sp}">&gt;&gt;</a></li>
 
-                </ul>
-            </div>
+                    </ul>
+                </div>
 
 
                 

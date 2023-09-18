@@ -1,11 +1,16 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
+<c:set var="pagination" value="${map1.pagination}"/>
+<c:set var="boardList" value="${map1.boardList}"/>
+
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://kit.fontawesome.com/d76028de4f.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="/resources/css/header.css">
     <link rel="stylesheet" href="/resources/css/member/myPageSidemenu.css">
     <link rel="stylesheet" href="/resources/css/myBoardList.css">
@@ -15,6 +20,9 @@
 <title>내가 쓴 글</title>
 </head>
 <body>
+    <c:if test="${!empty param.sel}" >
+            <c:set var="sp" value="&sel=${param.sel}&query=${param.query}"/>
+    </c:if>
 
     <main>
         <jsp:include page="/WEB-INF/views/common/header.jsp"/>
@@ -32,73 +40,96 @@
                     <div class="search">
                         <form>
                             <select name="sel">
-                                <option value="1" selected>제목</option>
-                                <option value="2" >내용</option>
-                                <option value="3">제목+내용</option>
+                                <option value="t" selected>제목</option>
+                                <option value="c" >내용</option>
+                                <option value="tc">제목+내용</option>
                             </select>
-                            <input type="text" id="query"> <button>검색</button>
+                            <input type="text" id="query" value="${param.query}"> <button>검색</button>
                         </form>
                     </div>
-                    <div class="listOne">
-                        <div class="thumbnail"><img src="/resources/images/mongja2.jpg"></div>
-                        <div class="board">
-                            <div class="title"><a>1번 게시글 내용입니다 [5]</a></div>
-                            <div class="content"><a>1번 게시글 내용 입니다!!</a></div>
-                            <div class="etc">2023-09-11</div>
-                        </div>
-                    </div>
-                    <div class="listOne">
-                        <div class="thumbnail"><img src="/resources/images/mongja2.jpg"></div>
-                        <div class="board">
-                            <div class="title">1</div>
-                            <div class="content">2</div>
-                            <div class="etc">3</div>
-                        </div>
-                    </div>
-                    <div class="listOne">
-                        <div class="thumbnail"><img src="/resources/images/mongja2.jpg"></div>
-                        <div class="board">
-                            <div class="title">1</div>
-                            <div class="content">2</div>
-                            <div class="etc">3</div>
-                        </div>
-                    </div>
-                    <div class="listOne">
-                        <div class="thumbnail"><img src="/resources/images/mongja2.jpg"></div>
-                        <div class="board">
-                            <div class="title">1</div>
-                            <div class="content">2</div>
-                            <div class="etc">3</div>
-                        </div>
-                    </div>
-                    <div class="listOne">
-                        <div class="thumbnail"><img src="/resources/images/mongja2.jpg"></div>
-                        <div class="board">
-                            <div class="title">1</div>
-                            <div class="content">2</div>
-                            <div class="etc">3</div>
-                        </div>
-                    </div>
-                   
+
+                    <c:choose>
+                        <c:when test="${empty boardList}">
+                            <h3>게시글이 존재하지 않습니다.</h3>
+                        </c:when>
+                    
+                        <c:otherwise>
+                            <c:forEach items="${boardList}" var="board">
+                                <div class="listOne">
+                                    <div class="thumbnail">
+                                        <c:if test="${!empty board.thumbnail}" >
+                                            <img src="${board.thumbnail}">
+                                        </c:if>
+                                        <c:if test="${empty board.thumbnail}" >
+                                            <img src="/resources/images/mongja2.jpg">
+                                        </c:if>
+                                    </div>
+                                    <div class="board">
+                                        <div class="title">
+                                            <c:if test="${board.boardCode == 1}" >
+                                                [공지]
+                                            </c:if>
+                                            <c:if test="${board.boardCode == 2}" >
+                                                [문의]
+                                            </c:if>
+                                            <c:if test="${board.boardCode == 3}" >
+                                                [자유]
+                                            </c:if>
+                                            <a href="/community/${board.boardCode}/${board.boardNo}?cp=${pagination.currentPage}${sp}">${board.boardTitle}</a> [${board.commentCount}]
+                                        </div>
+                                        <div class="content"><a>${board.boardContent}</a></div>
+                                        <div class="etc">
+                                            <div>
+                                                <i class="fa-solid fa-heart" style="color: #f50505;"></i>: ${board.likeCount}
+                                            </div>
+                                            <div>
+                                                조회수 : ${board.readCount}
+                                            </div>
+
+                                            <div>
+                                                <span>${board.boardCreateDate}</span>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </c:forEach>
+                        </c:otherwise>
+                    </c:choose>
+
+                                
 
                     
-                    <div class="page">
-                        <a href="#">&lt;&lt;</a>
-                        <a href="#">&lt;</a>
-                        <a href="#">1</a>
-                        <a href="#">2</a>
-                        <a href="#">3</a>
-                        <a href="#">4</a>
-                        <a href="#">5</a>
-                        <a href="#">6</a>
-                        <a href="#">7</a>
-                        <a href="#">8</a>
-                        <a href="#">9</a>
-                        <a href="#">10</a>
-                        <a href="#">&gt;</a>
-                        <a href="#">&gt;&gt;</a>
-                    </div>
+                <div class="pagination-area">
+
+
+                    <ul class="pagination">
                     
+                        <li><a href="/member/mypage/myboard?cp=1${sp}">&lt;&lt;</a></li>
+
+                        <li><a href="/member/mypage/myboard?cp=${pagination.prevPage}${sp}">&lt;</a></li>
+
+                
+                        <c:forEach var="i" begin="${pagination.startPage}" end="${pagination.endPage}">
+                            <c:choose>
+                            <c:when test="${i == pagination.currentPage}">
+                                    <li><a class="current">${i}</a></li>
+                            </c:when>
+                            
+                            <c:otherwise>
+                                    <li><a href="/member/mypage/myboard?cp=${i}${sp}">${i}</a></li>
+                            </c:otherwise>
+                            </c:choose>
+                            
+                        </c:forEach>
+                        
+                        
+                        
+                        <li><a href="/member/mypage/myboard?cp=${pagination.nextPage}${sp}">&gt;</a></li>
+
+                        <li><a href="/member/mypage/myboard?cp=${pagination.maxPage}${sp}">&gt;&gt;</a></li>
+
+                    </ul>
                 </div>
            
 
