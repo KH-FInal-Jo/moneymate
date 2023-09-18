@@ -49,6 +49,11 @@
 		INSERT INTO EVENT_CALENDAR VALUES( ${memberNo} , SYSDATE )
 	</insert>
 	
+	<!-- 출첵 시 마일 지급 -->
+	<update id="updateMile">
+		UPDATE MEMBER SET MILEAGE = MILEAGE + 5 WHERE MEMBER_NO = #{memberNo}
+	</update>
+	
 	
 	<!-- 가계부 이벤트 댓글 목록 조회 --> <!-- 회원용 -->
 	<select id="commentList" resultMap="comment_rm">
