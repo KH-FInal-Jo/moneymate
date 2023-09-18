@@ -234,6 +234,12 @@ public class AccountController {
 		
 	}
 	
+	@GetMapping(value = "/account/categoryName" , produces = "application/json; charset=UTF-8")
+	@ResponseBody
+	public List<SAccount> categoryName (){
+		
+	}
+	
 	
 
 }

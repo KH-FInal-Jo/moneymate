@@ -231,7 +231,6 @@ function handleFetchView(month) {
         if(aList != ''){
 
 
-            console.log("응답 데이터 지출 내역: ", aList);
 
             
 
@@ -301,7 +300,6 @@ function handleFetchViewIncome(month) {
         if(aListIncome != ''){
 
 
-            console.log("응답 데이터 지출 내역: ", aListIncome);
 
             
 
@@ -385,7 +383,6 @@ function handleFetchChart(month) {
 
         }
         if(cList != ''){
-            console.log("응답 데이터있음: ", cList);
 
             // 차트 데이터 영역
             let pieChartData = {
@@ -403,8 +400,6 @@ function handleFetchChart(month) {
             categoryArea.style.display = 'flex'
             categoryArea.innerHTML = ''
             for(let chart of cList){
-                console.log(chart.category)
-                console.log(chart.percent)
 
                 pieChartData.labels.push(chart.category);
                 pieChartData.datasets[0].data.push(chart.percent);
@@ -422,6 +417,9 @@ function handleFetchChart(month) {
                 span3.classList.add("equal")
                 span4.classList.add("percentNo")
                 span5.classList.add("sumMoney")
+
+             
+
 
                 // 카테고리별 차트 색상 설정
                 if(chart.category == pieChartData.labels[0]){
@@ -467,6 +465,36 @@ function handleFetchChart(month) {
                 var sumMoney = parseInt(chart.sumMoney).toLocaleString('ko-KR');
                 span5.innerText = "(" + sumMoney + "원)"
 
+                span2.addEventListener("click", e=>{
+                  // console.log("클릭ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ")
+                  console.log(e.target.innerText)
+                  const name = e.target.innerText;
+
+                  fetch(`/account/categoryName?month=${month}&accountNo=${accountNo}&name=${name}`)
+                  .then(resp => resp.json())
+                  .then(nameList => {
+
+                    console.log("nameList : " + nameList)
+
+
+
+                  })
+                  .catch(e=> {
+                    console.log(e)
+                    console.log("예외발생")
+                  })
+
+
+
+
+
+
+
+
+
+
+
+                })
 
                 categoryPercent.append(span1, span2, span3, span4, span5)
 
