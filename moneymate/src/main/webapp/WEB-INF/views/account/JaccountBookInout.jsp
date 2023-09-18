@@ -61,6 +61,7 @@
 									선택 <i class="fa-solid fa-right-to-bracket fa-lg"></i>
 								</div>
 								<input type="text" class="inputCategoryName" name="categoryName" readonly/>
+								<button type="button" id="cateChBtn">변경하기</button>
 							</div>
 
 							<div class="accBk-category-table">
@@ -111,8 +112,9 @@
 								<div>
 									<select name="paymentMethod" id="accBk-payment"
 										value="paymentMethod">
-										<option value="1">무통장입금</option>
-										<option value="2">신용카드</option>
+										<option value="1">현금</option>
+										<option value="2">무통장입금</option>
+										<option value="3">신용카드</option>
 									</select>
 								</div>
 							</div>
