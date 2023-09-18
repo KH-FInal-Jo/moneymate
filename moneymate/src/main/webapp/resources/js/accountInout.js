@@ -163,6 +163,7 @@ const accBkResult3 = document.getElementsByClassName("accBkResult3")[0];
 const accBkResult4 = document.getElementsByClassName("accBkResult4")[0];
 const accBkResult5 = document.getElementsByClassName("accBkResult5")[0];
 
+const cateChBtn = document.getElementById("cateChBtn");
 
 
 const inputCategoryName = document.getElementsByClassName("inputCategoryName")[0];
@@ -189,7 +190,6 @@ categoryBtn.addEventListener("click", function(){
     cate3.style.display = 'none';
     cate4.style.display = 'block';
     cate5.style.display = 'block';
-
   }else{
 
     cate1.style.display = 'block';
@@ -198,7 +198,6 @@ categoryBtn.addEventListener("click", function(){
     cate4.style.display = 'none';
     cate5.style.display = 'none';
   }
-
 
   if(categoryBox.style.display !== 'none'){
     categoryBox.style.display = 'none';
@@ -213,20 +212,35 @@ categoryBtn.addEventListener("click", function(){
   }else{
     categoryBox.style.display = 'block';
     categoryBox.style.height = '300px';
-    
     accBkResult2.style.display = 'none';
     accBkResult3.style.display = 'none';
     accBkResult4.style.display = 'none';
     accBkResult5.style.display = 'none';
     
   }
-  
-
-  
-  
-  
 
 })
+
+cateChBtn.addEventListener("click", function(){
+
+
+  if(categoryBox.style.display !== 'none'){
+  categoryBox.style.display = 'none';
+  accBkResult2.style.display = 'block';
+  accBkResult2.style.display = 'flex';
+  accBkResult3.style.display = 'block';
+  accBkResult3.style.display = 'flex';
+  accBkResult4.style.display = 'block';
+  accBkResult4.style.display = 'flex';
+  accBkResult5.style.display = 'block';
+  accBkResult5.style.display = 'flex';
+  }
+
+
+})
+
+
+
 
 /* 카테고리 상세 내용 클릭시 이벤트  */
 const accBk1 = document.getElementsByClassName("accBk1")[0];
@@ -386,6 +400,7 @@ out.addEventListener("click",  function(){
   inin.style.color = "white"; 
   trans.style.color = "white"; 
 
+
 })
 inin.addEventListener("click",  function(){
   inoutResult.value="";
@@ -394,6 +409,7 @@ inin.addEventListener("click",  function(){
   inin.style.color = "blue"; 
   out.style.color = "white"; 
   trans.style.color = "white";
+  
 
 })
 trans.addEventListener("click",  function(){
@@ -405,6 +421,11 @@ trans.addEventListener("click",  function(){
   inin.style.color = "white";
   
 })
+
+
+
+
+
 
 /* 현재 날짜 얻어오기 */
 

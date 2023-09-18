@@ -40,21 +40,21 @@
 				<div class="board-notice-list">
 					<table border="1" class="board-notice-table">
 						<tr class="board-notice-list-header">
-							<th width="50px">번호</th>
-							<th width="400px" height="60px">제목</th>
-							<td width="100px">작성자</td>
-							<th width="100px">작성일</th>
-							<th width="50px">조회수</th>
+							<th width="70px">번호</th>
+							<td width="250px" height="60px">제목</td>
+							<td width="60px">작성자</td>
+							<th width="130px">작성일</th>
+							<th width="40px">조회수</th>
 						</tr>
 
 
 						<c:forEach var="board" items="${boardList}">
-							<tr>
+							<tr class="inputBoard">
 								<th height="60px">${board.boardNo}</th>
-								<td><a href="/community/${boardCode}/${board.boardNo}">${board.boardTitle}</a></td>
+								<td class="inputTitleAd"><a href="/community/${boardCode}/${board.boardNo}">${board.boardTitle}</a></td>
 								<td>${board.memberNickname}</td>
-								<td>${board.boardCreateDate}</td>
-								<td>${board.readCount}</td>
+								<th>${board.boardCreateDate}</th>
+								<th>${board.readCount}</th>
 							</tr>
 						</c:forEach>
 

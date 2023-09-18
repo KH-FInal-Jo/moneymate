@@ -65,5 +65,11 @@ public class JBoardServiceImpl implements JBoardService{
 		return dao.boardDelete(boardNo);
 	}
 
+	// 조회수 증가
+	@Override
+	public int updateRead(int boardNo) {
+		return dao.updateRead(boardNo);
+	}
+
 
 }

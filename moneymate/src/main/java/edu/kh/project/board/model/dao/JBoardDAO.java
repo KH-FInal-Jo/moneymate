@@ -55,5 +55,10 @@ public class JBoardDAO {
 		return sqlSession.update("boardDelete", boardNo);
 	}
 
+	// 조회수 증가
+	public int updateRead(int boardNo) {
+		return sqlSession.update("updateRead", boardNo);
+	}
+
 
 }

@@ -279,12 +279,38 @@ font-family: 'SDGothic', serif;
     
 }
 
+.hiddenCate{
+    width: 200px;
+    display: flex;
+    height: 30px;
+}
+
 /* span 태그 스타일 */
 .inputCategoryName{
     color: rgb(14, 146, 9);
     font-size: 23px;
     font-weight: bold;
     margin-top: -1px;
+    width: 60%;
+}
+
+#cateChBtn{
+
+    width: 100px;
+    height: 40PX;
+    border-radius: 30px;
+    font-size: 18px;
+
+    background-color: rgb(109, 112, 109);
+    border: 0;
+    color: white;
+
+}
+#cateChBtn:hover{
+    cursor: pointer;
+    background-color: white;
+    border: 3px solid rgb(109, 112, 109);
+    color: rgb(109, 112, 109);
 }
 
 /* 카테고리  */

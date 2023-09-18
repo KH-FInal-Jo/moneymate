@@ -171,6 +171,13 @@
 		SELECT * FROM ACCOUNTBOOK
 	</select>
 	
+	<!-- 조회수 증가 -->
+	<update id="updateRead">
+		UPDATE BOARD SET READ_COUNT = READ_COUNT + 1
+		WHERE BOARD_NO = #{boardNo}
+	
+	</update>
+	
 
 
 </mapper>
