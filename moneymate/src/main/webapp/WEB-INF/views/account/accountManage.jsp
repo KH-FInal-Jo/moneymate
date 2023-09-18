@@ -27,14 +27,14 @@
                 
                 <div>그룹 초대</div>
                 <div id="input">
-                    <input type="text" id="add-group" placeholder="이메일 입력">
+                    <input type="text" id="add-group" placeholder="MoneyMate회원 이메일">
                     <img src="/resources/images/check.png" id="check-img">
                     <img src="/resources/images/warning.png" id="warn-img">
                     <button type="button" id="addBtn">추가</button>
                 </div>
 
                 <div>나의 그룹원</div>
-                <form action="#" id="inviteFrm">
+                <form action="/account/create" method="POST" id="inviteFrm">
                     <div id="groups">
                         <!-- <div class="each-email">
                             <input type="text" class="input-email" readonly value="user@nad.com">

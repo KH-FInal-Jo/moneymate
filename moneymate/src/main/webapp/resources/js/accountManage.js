@@ -70,40 +70,88 @@ $(document).ready(function() {
 const addBtn = document.getElementById("addBtn");
 const addGroup = document.getElementById("add-group");
 const groups = document.getElementById("groups");
+const inputEmail = document.getElementsByClassName("input-email");
+const checkImg = document.getElementById("check-img");
+const warnImg = document.getElementById("warn-img");
 
-let flag = false; // 유효한 경우에만 추가될 수 있게 검사
+let flag = true; // 유효한 경우에만 추가될 수 있게 검사      
+                  // false - 가능
 
 
 if(addGroup != null){
-  const reqEx = /^[A-Za-z\d\-\_]{4,}@[가-힣\w\-\_]+(\.\w+){1,3}$/;
-  const checkImg = document.getElementById("check-img");
-  const warnImg = document.getElementById("warn-img");
 
   addGroup.addEventListener("input", () => {
-    // 이메일 유효성 검사(우선 형식만)
-    if(reqEx.test(addGroup.value)){
-  
-      flag = true;
 
-      warnImg.style.display = "none";
-      checkImg.style.display = "block";
-    } else { // 이메일이 유효하지 않다면
-      checkImg.style.display = "none";
-      warnImg.style.display = "block";
+    /* const reqEx = /^[A-Za-z\d\-\_]{4,}@[가-힣\w\-\_]+(\.\w+){1,3}$/;
+
+    if(reqEx.test(addGroup.value)){ // 형식 유효
 
       flag = false;
-    }
+
+      checkImg.style.display = "none";
+      warnImg.style.display = "block";
+    } */
+
+    fetch("/account/emailCheck",{
+      method : "POST",
+      headers : {"Content-Type" : "application/text"},
+      body : addGroup.value
+    })
+
+    .then(resp => resp.text())
+
+    .then(result => {
+      console.log(result)
+      if(result>0){ // 있는 경우에 가능 !!
+
+        const reqEx = /^[A-Za-z\d\-\_]{4,}@[가-힣\w\-\_]+(\.\w+){1,3}$/;
+
+        if(reqEx.test(addGroup.value)){ // 형식 유효
+
+          flag = false;
+
+          checkImg.style.display = "block";
+          warnImg.style.display = "none";
+        }
+
+        for(let i of inputEmail){
+          if(i.value == addGroup.value){
+            flag = true; // 이미 입력한 이메일
+            checkImg.style.display = "none";
+            warnImg.style.display = "block";
+            return;
+          }
+        }
+
+        checkImg.style.display = "block";
+        warnImg.style.display = "none";
+
+      } else {
+
+        flag = true; 
+
+        warnImg.style.display = "block";
+        checkImg.style.display = "none";
+
+        /* if(!flag){
+          
+          checkImg.style.display = "block";
+          warnImg.style.display = "none";
   
+          flag = false;
+        } */
+      }
+    })
+
+    .catch(e => console.log(e))
+
   })
 }
 
 
 if(addBtn!= null){
   addBtn.addEventListener("click", () => {
-    if(flag){
-
-      const checkImg = document.getElementById("check-img");
-      const warnImg = document.getElementById("warn-img");
+    if(!flag){
 
       checkImg.style.display = "none";
       warnImg.style.display = "block";
@@ -116,11 +164,12 @@ if(addBtn!= null){
       const input = document.createElement("input");
       input.classList.add("input-email");
       input.setAttribute("type", "text");
+      input.setAttribute("name", "gEmail");
       input.setAttribute("readonly", "readonly");
       input.value = addGroup.value;
 
       const img = document.createElement("img");
-      img.setAttribute("src", "../images/close.png")
+      img.setAttribute("src", "/resources/images/close.png")
       img.classList.add("x-btn");
 
       div1.append(input)
@@ -141,7 +190,7 @@ if(addBtn!= null){
                 parentDiv.remove();
             }
         });
-});
+      });
 
 
     }else {
@@ -180,18 +229,20 @@ inviteFrm.addEventListener("submit", e => {
   const container = document.getElementById("container");
   const accountDiv = document.createElement("div");
   const newDiv = document.getElementById("new");
-  const accountName = document.getElementById("accountName");
   accountDiv.classList.add("account");
+
+  fetch("/account/make/person")
+
+  .then(resp => resp.text())
+
+  .then(result => {
+    console.log(result);
+  })
+
+  .catch(e => console.log(e));
   
-  const nameDiv = document.createElement("div");
+  /* const nameDiv = document.createElement("div");
 
-  if(accountName.value.trim().length == 0){
-    nameDiv.innerText="새로운 가계부";
-
-  } else {
-    nameDiv.innerText=accountName.value;
-
-  }
   nameDiv.classList.add("name");
 
   const contentDiv = document.createElement("div");
@@ -213,10 +264,10 @@ inviteFrm.addEventListener("submit", e => {
     userDiv.append(emailImg);
     userDiv.append(spans);
     contentDiv.append(userDiv);
-  }
+  } */
 
   /* 버튼 */
-  const btnDiv = document.createElement("div")
+  /* const btnDiv = document.createElement("div")
   const snipBtn = document.createElement("button");
 
   btnDiv.classList.add("btn-area")
@@ -232,8 +283,10 @@ inviteFrm.addEventListener("submit", e => {
   container.insertBefore(accountDiv, newDiv);
 
   accountName.value = "";
-  groups.innerText = "";
-
-
+  groups.innerText = ""; */
 
 })
+
+
+/* 이메일 초대 */
+// 이메일 유효성 검사

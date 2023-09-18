@@ -29,8 +29,16 @@
 		GROUP BY ACNT_NO
 	</select>
 	
+	<!-- 이메일 중복 검사 -->
+	<select id="dupEmail" resultType="_int">
+		SELECT COUNT(*) FROM MEMBER
+		WHERE MEMBER_EMAIL = #{memberEmail}
+	</select>
 	
+	<!-- 개인 가계부 생성 -->
+	<insert id="pAccount">
 	
+	</insert>
 
 	
 	

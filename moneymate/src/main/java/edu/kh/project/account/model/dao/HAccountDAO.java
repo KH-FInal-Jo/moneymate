@@ -31,4 +31,20 @@ public class HAccountDAO {
 		return sqlSession.selectList("HAccountMapper.gList", loginMember);
 	}
 
+	/** 이메일 유효 검사
+	 * @param memberEmail
+	 * @return
+	 */
+	public int dupCheck(String memberEmail) {
+		return sqlSession.selectOne("HAccountMapper.dupEmail", (memberEmail));
+	}
+
+	/** 가계부 생성(개인)
+	 * @param loginMember
+	 * @return result
+	 */
+	public int pAccount(Member loginMember) {
+		return sqlSession.insert("HAccountMapper.pAccount", loginMember);
+	}
+
 }
