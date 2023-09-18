@@ -123,12 +123,7 @@ public class KMemberController {
 		// 프로필 이미지 수정 서비스 호출
 		int result = service.updateProfile(profileImage,webPath, filePath,loginMember);
 		
-		String message = null;
-		if(result > 0) message = "프로필 이미지가 변경되었습니다.";
-		else		   message = "프로필 변경 실패";
-		
-		ra.addFlashAttribute("message",message);
-		
+	
 		return "redirect:profile";
 	}
 

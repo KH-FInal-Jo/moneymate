@@ -31,17 +31,18 @@
 
             <div class="container">
                 <h1>내 정보 수정</h1>
-                <form action="/member/mypage" method="POST" name="myPageFrm" id="UpdateProfile" enctype="multipart/form-date">
+                <form action="/member/mypage" method="POST" name="myPageFrm" id="UpdateProfile" enctype="multipart/form-data">
+
                     <div class="profile">
 
                         <div class="image-section">
 
                             <c:if test="${empty loginMember.profileImage}" >
-                                <img src="/resources/images/dog1.jpg" class="myInfoImg" id ="imageInput" alt="프로필 이미지">
+                                <img src="/resources/images/dog1.jpg" class="myInfoImg" id ="inputImage" alt="프로필 이미지">
                             </c:if>
 
                             <c:if test="${!empty loginMember.profileImage}" >
-                                <img src="${loginMember.imageInput}" id="imageInput">
+                                <img src="${loginMember.imageInput}" id="inputImage">
                             </c:if>
 
 
@@ -93,21 +94,24 @@
                                 <c:set var="addr" value="${fn:split(loginMember.memberAddress, '^^^')}"/>
                                 <tr>
                                     <th><button id="searchButton" type="button" onclick="sample6_execDaumPostcode()">주소검색</th>
-                                    <td><input type="text" name="memberAddress" id="sample6_postcode" placeholder="우편번호" maxlength="6"></td>
+                                    <td><input type="text" name="memberPostcode" id="sample6_postcode" placeholder="우편번호" maxlength="6"></td>
                                     <td></td>                                                                   
                                 </tr>
                                 <tr>
                                     <th></th>
                                     <td>
-                                        <input type="text" name="memberAddress" id="sample6_address" placeholder="도로명/지번 주소">
+                                        <input type="text" name="memberRoadAddress" id="sample6_address" placeholder="도로명/지번 주소">
                                     </td>
                                     <td></td>
                                 </tr>
                                 <tr>
                                     <th></th>
-                                    <td> <input type="text" name="memberAddress" id="sample6_detailAddress" placeholder="상세 주소"></td>
+                                    <td> <input type="text" name="memberJibunAddress" id="sample6_detailAddress" placeholder="상세 주소"></td>
                                     <td></td>
                                 </tr>
+<%-- <input type="text" name="memberPostcode" id="sample6_postcode" placeholder="우편번호" maxlength="6">
+<input type="text" name="memberRoadAddress" id="sample6_address" placeholder="도로명/지번 주소">
+<input type="text" name="memberJibunAddress" id="sample6_detailAddress" placeholder="상세 주소"> --%>
 
 
                             </table>
