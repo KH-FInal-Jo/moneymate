@@ -31,7 +31,7 @@
 
             <div class="container">
                 <h1>내 정보 수정</h1>
-                <form action="/member/mypage" method="POST" name="myPageFrm" id="updateInfo" enctype="multipart/form-date">
+                <form action="/member/mypage" method="POST" name="myPageFrm" id="UpdateProfile" enctype="multipart/form-date">
                     <div class="profile">
 
                         <div class="image-section">
@@ -86,7 +86,7 @@
                                     <th>전화번호</th>
                                     <td>
                                         <input type="text" name="memberTel" maxlength="11"
-                                            value="${loginMember.memberTel}" id="memberEmail">
+                                            value="${loginMember.memberTel}" id="memberTel">
                                     </td>
                                     <td></td>
                                 </tr>
