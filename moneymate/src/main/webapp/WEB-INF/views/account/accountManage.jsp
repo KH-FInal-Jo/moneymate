@@ -24,8 +24,7 @@
                 <div>
                     <img src="/resources/images/add-user.png">
                 </div>
-                <div>가계부 이름</div>
-                <div><input type="text" name="accountName" id="accountName"></div>
+                
                 <div>그룹 초대</div>
                 <div id="input">
                     <input type="text" id="add-group" placeholder="이메일 입력">
@@ -54,65 +53,44 @@
 
         <div id="container">
 
-            <c:forEach items="gList" var="list">
+            <c:forEach items="${pList}" var="list">
                 <div class="account">
                     <div class="name">개인 가계부</div>
-                    <div class="content"></div>
+                    <div class="content">
+                        <img src="/resources/images/로고.png" class="logoImg"/>
+                        <img src="/resources/images/homework.png" class="logoImg"/>
+                    </div>
                     <div class="btn-area">
-                        <button class="snip1535" onclick="location.href='/account/${gList.accountNo}'">상세</button>
+                        <button class="snip1535" onclick="location.href='/account/${list.accountNo}'">상세</button>
                         <!-- <button type="button" class="moreBtn">상세보기</button> -->
                     </div>
                 </div>
             </c:forEach>
-            <div class="account">
-                <div class="name">가계부 2</div>
-                <div class="content">
-                    <div class="user">
-                        <img src="../images/id.png" class="profile">
-                        <span class="spans">user01@navr.com</span>
+
+            <c:forEach items="${gList}" var="list">
+                <div class="account">
+                    <div class="name">그룹 가계부</div>
+                    <div class="content">
+                    <c:set var="emails" value="${list.memberEmails}" />
+                    <c:set var="emailArray" value="${fn:split(emails, ',,')}" />
+                        <c:forEach items="${emailArray}" var="email">
+                            <div class="user">
+                                <span class="spans">${email}</span>
+                            </div>
+                        </c:forEach>
                     </div>
-                    <div class="user">
-                        <img src="../images/id.png" class="profile">
-                        <span class="spans">user01@navr.com</span>
+                    <div class="btn-area">
+                        <button class="snip1535" onclick="location.href='/account/${list.accountNo}'">상세</button>
                     </div>
-                    <div class="user">
-                        <img src="../images/id.png" class="profile">
-                        <span class="spans">user01@navr.com</span>
-                    </div>
-                    <div class="user">
-                        <img src="../images/id.png" class="profile">
-                        <span class="spans">user01@navr.com</span>
-                    </div>
-                    <div class="user">
-                        <img src="../images/id.png" class="profile">
-                        <span class="spans">user01@navr.com</span>
-                    </div>
-                    <div class="user">
-                        <img src="../images/id.png" class="profile">
-                        <span class="spans">user01@navr.com</span>
-                    </div>
-                    <div class="user">
-                        <img src="../images/id.png" class="profile">
-                        <span class="spans">user01@navr.com</span>
-                    </div>
-                    <div class="user">
-                        <img src="../images/id.png" class="profile">
-                        <span class="spans">user01@navr.com</span>
-                    </div>
-                    
                 </div>
-                <div class="btn-area">
-                    <button class="snip1535">상세</button>
-                    <!-- <button type="button" class="moreBtn">상세보기</button> -->
-                </div>
-            </div>
+            </c:forEach>
             <div id="new">
-                <img src="../images/plus.png" id="plus-img">
+                <img src="/resources/images/plus.png" id="plus-img">
             </div>
         </div>
     </div>
 
-    <script src="../js/accountManage.js"></script>
+    <script src="/resources/js/accountManage.js"></script>
     
 </body>
 </html>
