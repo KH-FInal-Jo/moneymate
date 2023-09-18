@@ -7,6 +7,8 @@
 <meta charset="UTF-8">
 <title>자유게시판 상세</title>
 
+<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+
 <script src="https://kit.fontawesome.com/d76028de4f.js" crossorigin="anonymous"></script>
 
 <link rel="stylesheet" href="/resources/css/header.css">
@@ -51,6 +53,7 @@
 	                        </c:if>
                         </span>
                         <span id="likeCount">${board.likeCount}</span>
+                        
                     </div>
         
                     <div class="board-head2">
@@ -90,70 +93,63 @@
                 </div>
 
                 
+                <div id="commentArea">
+                    <div class="comment-list-area">
+                        <ul id="commentList">
 
-                <div class="comment-area">
-                    <ul>
-                        <li id="comment-list">
-                            <p class="commentWriter">
-                                <img src="../images/몽자.jpg">
-                                <span>닉네임</span>
-                            </p>
+                            <c:forEach items="${board.commentList}" var="comment">
+                            
+                                <li class="comment-row <c:if test='${comment.parentNo != 0}'>child-comment</c:if>" >
+                                    <p class="comment-writer">
 
-                            <p id="comment-content">댓글 내용</p>
+                                    <!-- 프로필 이미지 -->
+                                    <c:if test="${empty comment.profileImage}" >
+                                        <%-- 프로필 이미지 없는 경우 --%>
+                                        <img src="/resources/images/id.png">  
+                                    </c:if>
+                                    <c:if test="${!empty comment.profileImage}" >
+                                        <img src="${comment.profileImage}">  
+                                    </c:if>
 
-                            <div>
-                                <div class="btn-area2">
-                                    <button>답글</button>
-                                    <button>수정</button>
-                                    <button>삭제</button>
-                                </div>
+                                    <!-- 닉네임 -->
+                                    <span>${comment.memberNickname}</span>
+                                    
+                                    <!-- 작성일 -->
+                                    <span class="comment-date">${comment.commentCreateDate}</span>
+                                    </p>
+                                
+                                    <!-- 댓글 내용 -->
+                                    <p class="comment-content">${comment.commentContent}</p>
 
-                                <div class="createDate">
-                                    작성일 : 2023-09-05
-                                </div>
-                            </div>
-                        </li>
-                    </ul>
-                    <hr>
+                                    
+                                    <!-- 버튼 영역 -->
+                                    <div class="comment-btn-area">
+                                        <button onclick="showInsertComment(${comment.commentNo}, this)">답글</button>   
+
+                                        <c:if test="${loginMember.memberNo == comment.memberNo}" >
+                                            <!-- 로그인 회원과 댓글 작성자가 같은 경우 -->  
+                                            <button onclick="showUpdateComment(${comment.commentNo}, this)">수정</button>     
+                                            <button onclick="deleteComment(${comment.commentNo})">삭제</button>
+                                        </c:if>   
+                                    </div>
+                                </li>
+
+                            </c:forEach>
+
+                        </ul>
+                    </div>
+
+                    <div class="comment-write-area">
+                        <textarea id="commentContent"></textarea>
+                        <button id="addComment">
+                            댓글<br>
+                            등록
+                        </button>
+                
+                    </div>
                 </div>
 
-
-                <div class="comment-area">
-                    <ul>
-                        <li id="comment-list">
-                            <p class="commentWriter">
-                                <img src="../images/몽자.jpg">
-                                <span>닉네임</span>
-                            </p>
-
-                            <p id="comment-content">댓글 내용</p>
-
-                            <div>
-                                <div class="btn-area2">
-                                    <button>답글</button>
-                                    <button>수정</button>
-                                    <button>삭제</button>
-                                </div>
-
-                                <div class="createDate">
-                                    작성일 : 2023-09-05
-                                </div>
-                            </div>
-
-                        </li>
-                    </ul>
-                    <hr>
-                    
-                </div>
-
-                <div class="comment-write-area">
-                    <textarea id="commentContent"></textarea>
-                    <button id="addComment">
-                        댓글<br>
-                        등록
-                    </button>
-                </div>
-    
+              
             </section>
         </section>
 

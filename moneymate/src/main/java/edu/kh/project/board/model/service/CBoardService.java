@@ -7,6 +7,7 @@ import java.util.Map;
 import org.springframework.web.multipart.MultipartFile;
 
 import edu.kh.project.board.model.dto.CBoard;
+import edu.kh.project.board.model.dto.CComment;
 
 public interface CBoardService {
 
@@ -27,6 +28,18 @@ public interface CBoardService {
 	int boardUpdate(CBoard board, List<MultipartFile> images, String webPath, String filePath, String deleteList) throws IllegalStateException, IOException;
 
 	int boardDelete(int boardNo);
+
+	// 댓글 조회
+	List<CComment> selectComment(int boardNo);
+
+	// 댓글 삽입
+	int insertComment(CComment comment);
+
+	// 댓글 삭제
+	int deleteComment(int commentNo);
+
+	// 댓글 수정
+	int updateComment(CComment comment);
 
 
 	
