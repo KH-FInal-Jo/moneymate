@@ -137,6 +137,33 @@ public class AccountDAO {
 		return sqlSession.selectList("SmemberMapper.categoryName", map);
 	}
 
+	/**  카테고리명 조회 내역 수입
+	 * @param map
+	 * @return
+	 */
+	public List<SAccount> categoryNameIncome(Map<String, Object> map) {
+		// TODO Auto-generated method stub
+		return sqlSession.selectList("SmemberMapper.categoryNameIncome", map);
+	}
+
+	/** 카테고리 조회 내역 10-12월
+	 * @param map
+	 * @return
+	 */
+	public List<SAccount> categoryNameBigger(Map<String, Object> map) {
+		// TODO Auto-generated method stub
+		return sqlSession.selectList("SmemberMapper.categoryNameBigger", map);
+	}
+
+	/** 카테고리 조회 내역 수입 10-12월
+	 * @param map
+	 * @return
+	 */
+	public List<SAccount> categoryNameIncomeBigger(Map<String, Object> map) {
+		// TODO Auto-generated method stub
+		return sqlSession.selectList("SmemberMapper.categoryNameIncomeBigger", map);
+	}
+
 	
 	
 

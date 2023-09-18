@@ -111,6 +111,27 @@ public class AccountServiceImpl implements AccountService {
 		return dao.categoryName(map);
 	}
 
+	// 카테고리명 조회 내역 수입
+	@Override
+	public List<SAccount> categoryNameIncome(Map<String, Object> map) {
+		// TODO Auto-generated method stub
+		return dao.categoryNameIncome(map);
+	}
+
+	// 카테고리 조회 내역 10-12월
+	@Override
+	public List<SAccount> categoryNameBigger(Map<String, Object> map) {
+		// TODO Auto-generated method stub
+		return dao.categoryNameBigger(map);
+	}
+
+	// 카테고리 조회 내역 수입 10-12월
+	@Override
+	public List<SAccount> categoryNameIncomeBigger(Map<String, Object> map) {
+		// TODO Auto-generated method stub
+		return dao.categoryNameIncomeBigger(map);
+	}
+
 	
 
 	

@@ -234,25 +234,72 @@ public class AccountController {
 		
 	}
 	
+	// 카테고리명 조회 내역
 	@GetMapping(value = "/account/categoryName" , produces = "application/json; charset=UTF-8")
 	@ResponseBody
 	public List<SAccount> categoryName (@RequestParam("month") String month,
 										@RequestParam("accountNo") String accountNo,
-										@RequestParam("categoryName") String categoryName,
+										@RequestParam("name") String name,
 										@SessionAttribute("loginMember") Member loginMember){
 		// 로그인한 회원의 번호
 		int memberNo = loginMember.getMemberNo();
 		
-		Map<String, Object> map = new HashMap<String, Object>();
+		if(month.equals("10") || month.equals("11") || month.equals("12")) {
+	    	
+	    	Map<String, Object> map = new HashMap<String, Object>();
+	 	    
+	 	    map.put("month", month);
+	 	    map.put("accountNo", accountNo);
+	 	    map.put("memberNo", memberNo);
+	 	    map.put("name", name);
+	    	
+	    	return service.categoryNameBigger(map); // 예시 JSON 응답
+	    	
+	    }else {
+	    	Map<String, Object> map = new HashMap<String, Object>();
+	 	    
+	 	    map.put("month", month);
+	 	    map.put("accountNo", accountNo);
+	 	    map.put("memberNo", memberNo);
+	 	   map.put("name", name);
+	    	
+	 	   return service.categoryName(map);
+	    }
+	}
+	
+	
+	// 카테고리 조회 내역 수입
+	@GetMapping(value = "/account/categoryNameIncome" , produces = "application/json; charset=UTF-8")
+	@ResponseBody
+	public List<SAccount> categoryNameIncome (@RequestParam("month") String month,
+											@RequestParam("accountNo") String accountNo,
+											@RequestParam("name") String name,
+											@SessionAttribute("loginMember") Member loginMember){
+		// 로그인한 회원의 번호
+		int memberNo = loginMember.getMemberNo();
 		
-		map.put("month", month);
-		map.put("accountNo", accountNo);
-		map.put("categoryName", categoryName);
+		if(month.equals("10") || month.equals("11") || month.equals("12")) {
+	    	
+	    	Map<String, Object> map = new HashMap<String, Object>();
+	 	    
+	 	    map.put("month", month);
+	 	    map.put("accountNo", accountNo);
+	 	    map.put("memberNo", memberNo);
+	 	    map.put("name", name);
+	    	
+	    	return service.categoryNameIncomeBigger(map); // 예시 JSON 응답
+	    	
+	    }else {
+	    	Map<String, Object> map = new HashMap<String, Object>();
+	 	    
+	 	    map.put("month", month);
+	 	    map.put("accountNo", accountNo);
+	 	    map.put("memberNo", memberNo);
+	 	   map.put("name", name);
+	    	
+	 	   return service.categoryNameIncome(map);
+	    }
 		
-		System.out.println("카테고리명 : " + categoryName);
-		
-		
-		return service.categoryName(map);
 	}
 	
 	
