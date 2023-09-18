@@ -30,3 +30,36 @@ document.getElementById('searchButton').addEventListener('click', function () {
         }
     });
 });
+
+
+
+
+    // 페이지가 로드될 때 이벤트 리스너 등록
+    $(document).ready(function () {
+        // "변경하기" 버튼 클릭 시 이벤트 처리
+        $("#changeButton").click(function (e) {
+            e.preventDefault(); // 기본 폼 제출 동작 방지
+
+            // FormData 객체 생성
+            var formData = new FormData($("#updateInfo")[0]);
+
+            // Ajax 요청 보내기
+            $.ajax({
+                type: "POST",
+                url: "/member/mypage",
+                data: formData,
+                processData: false, // FormData 사용 시 필수
+                contentType: false, // FormData 사용 시 필수
+                success: function (data) {
+                    // 서버로부터의 응답 처리
+                    console.log("서버 응답:", data);
+                    // 필요한 동작 수행 (예: 화면 갱신, 알림 표시 등)
+                },
+                error: function (error) {
+                    // 오류 처리
+                    console.error("오류 발생:", error);
+                }
+            });
+        });
+    });
+

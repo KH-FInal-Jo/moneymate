@@ -31,11 +31,19 @@
 
             <div class="container">
                 <h1>내 정보 수정</h1>
-                <form action="/member/KmyInfo" method="POST" name="myPageFrm" id="updateInfo">
+                <form action="/member/mypage" method="POST" name="myPageFrm" id="updateInfo" enctype="multipart/form-date">
                     <div class="profile">
 
                         <div class="image-section">
-                            <img src="/resources/images/dog1.jpg" class="myInfoImg" alt="프로필 이미지">
+
+                            <c:if test="${empty loginMember.profileImage}" >
+                                <img src="/resources/images/dog1.jpg" class="myInfoImg" id ="imageInput" alt="프로필 이미지">
+                            </c:if>
+
+                            <c:if test="${!empty loginMember.profileImage}" >
+                                <img src="${loginMember.imageInput}" id="imageInput">
+                            </c:if>
+
 
                             <div>
                                 <input type="file" name="imageInput" id="imageInput" accept="image/*">
