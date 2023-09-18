@@ -1,11 +1,16 @@
 package edu.kh.project.member.model.dao;
 
+import java.util.List;
 import java.util.Map;
 
+import org.apache.ibatis.session.RowBounds;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import edu.kh.project.board.model.dto.CBoard;
+import edu.kh.project.board.model.dto.CPagination;
+import edu.kh.project.board.model.dto.CPagination2;
 import edu.kh.project.member.model.dto.Member;
 
 @Repository
@@ -55,6 +60,24 @@ public class CMemberDAO {
 
 	public int checkAuthKey(Map<String, Object> paramMap) {
 		return sqlSession.selectOne("CmemberMapper.checkAuthKey", paramMap);
+	}
+
+
+	// 내가 쓴글 갯수 조회
+	public int getListCount(int myNum) {
+		return sqlSession.selectOne("CmemberMapper.getListCount", myNum);
+	}
+
+
+	// 내가 쓴 글 목록 조회
+	public List<CBoard> selectMyBoard(CPagination2 pagination, int myNum) {
+		
+		int offset
+		= (pagination.getCurrentPage() - 1) * pagination.getLimit();
+		
+		RowBounds rowBounds = new RowBounds(offset, pagination.getLimit());
+		
+		return sqlSession.selectList("CmemberMapper.selectMyBoard",  myNum, rowBounds);
 	}
 
 }

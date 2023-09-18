@@ -39,4 +39,12 @@ public interface CMemberService {
 
 	int checkAuthKey(Map<String, Object> paramMap);
 
+
+
+	Map<String, Object> selectMyBoard(int cp, int myNum);
+
+
+
+	Map<String, Object> selectMyBoard(Map<String, Object> paramMap, int cp);
+
 }

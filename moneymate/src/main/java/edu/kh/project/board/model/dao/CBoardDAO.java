@@ -22,6 +22,8 @@ public class CBoardDAO {
 	public int getListCount(int boardCode) {
 		return sqlSession.selectOne("CboardMapper.getListCount", boardCode);
 	}
+	
+	
 
 	public List<CBoard> selectBoardList(CPagination pagination, int boardCode) {
 		
@@ -32,6 +34,8 @@ public class CBoardDAO {
 		
 		return sqlSession.selectList("CboardMapper.selectBoardList", boardCode, rowBounds);
 	}
+	
+	
 
 	public CBoard selectBoard(Map<String, Object> map) {
 		return sqlSession.selectOne("CboardMapper.selectBoard", map);
