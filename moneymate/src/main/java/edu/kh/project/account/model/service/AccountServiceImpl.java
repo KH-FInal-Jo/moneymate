@@ -104,6 +104,13 @@ public class AccountServiceImpl implements AccountService {
 		return dao.changeMonthIncomeBigger(map);
 	}
 
+	// 카테고리명 조회 내역
+	@Override
+	public List<SAccount> categoryName(Map<String, Object> map) {
+		// TODO Auto-generated method stub
+		return dao.categoryName(map);
+	}
+
 	
 
 	

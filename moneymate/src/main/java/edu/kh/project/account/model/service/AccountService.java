@@ -79,6 +79,12 @@ public interface AccountService {
 	 */
 	int changeMonthIncomeBigger(Map<String, Object> map);
 
+	/** 카테고리명 조회 내역
+	 * @param map
+	 * @return
+	 */
+	List<SAccount> categoryName(Map<String, Object> map);
+
 
 
 
