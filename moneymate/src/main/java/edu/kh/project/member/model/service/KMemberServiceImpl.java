@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.multipart.MultipartFile;
 
 import edu.kh.project.member.model.dao.KMemberDAO;
 import edu.kh.project.member.model.dto.JMember;
@@ -36,6 +37,11 @@ public class KMemberServiceImpl implements KMemberService{
 	@Override
 	public List<JMember> selectMypage(int memberNo) {
 		return dao.selectMypage(memberNo);
+	}
+
+	@Override
+	public int updateProfile(MultipartFile profileImage, String webPath, String filePath, Member loginMember) {
+		return dao.updateInfo();
 	}
 
 }

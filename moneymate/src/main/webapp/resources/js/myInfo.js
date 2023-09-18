@@ -31,27 +31,6 @@ document.getElementById('searchButton').addEventListener('click', function () {
     });
 });
 
-// 주소변경
-function sample6_execDaumPostcode() {
-    new daum.Postcode({
-        oncomplete: function(data) {
-            var addr = '';
-
-            if (data.userSelectedType === 'R') {
-                addr = data.roadAddress;
-            } else {
-                addr = data.jibunAddress;
-            }
-
-            document.getElementById('sample6_postcode').value = data.zonecode;
-            document.getElementById("sample6_address").value = addr;
-            document.getElementById("sample6_detailAddress").focus();
-
-            // FormData에도 주소 값을 설정
-            formData.set("memberAddress", data.zonecode + "^^^" + addr);
-        }
-    }).open();
-}
 
 
 
@@ -88,9 +67,10 @@ function sample6_execDaumPostcode() {
 
     //사진 변경
     $("#changeButton").click(function (e) {
+       console.log("sadsad") 
         e.preventDefault();
     
-        var formData = new FormData($("#updateInfo")[0]);
+        var formData = new FormData($("#UpdateProfile")[0]);
         
         // 이미지 파일 추가
         var imageInput = $("#imageInput")[0].files[0];
