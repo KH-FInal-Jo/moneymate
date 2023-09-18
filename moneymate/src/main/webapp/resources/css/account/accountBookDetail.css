@@ -149,6 +149,10 @@ h1{
 
 }
 
+#month-btn:hover{
+    border: 3px solid black;
+}
+
 #date-month{
     padding-right: 40px;
 }
@@ -253,10 +257,10 @@ h1{
     display: flex;
     justify-content: space-between;
     margin-top: 80px;
-    margin-right: 30px;
+    margin-right: 40px;
 
-    height: 40%;
-    width: 50%;
+    height: 35%;
+    width: 40%;
 
     
 
@@ -268,7 +272,7 @@ h1{
     padding-left: 50px;
     display: flex;
     flex-direction: column;
-    margin-left: 30px;
+    margin-left: 60px;
     padding-left: 10px;
     border-radius: 10px;
 
@@ -308,6 +312,8 @@ margin-right: 10px;
 /* 금액 합계 */
 .sumMoney{
     margin-left: 10px;
+
+    color: rgb(49, 202, 49);
 }
 
 
@@ -338,8 +344,8 @@ margin-right: 10px;
     margin-top: 80px;
     margin-right: 30px;
 
-    height: 40%;
-    width: 50%;
+    height: 35%;
+    width: 40%;
 
   }
 
@@ -350,7 +356,7 @@ margin-right: 10px;
     padding-left: 50px;
     display: flex;
     flex-direction: column;
-    margin-left: 30px;
+    margin-left: 60px;
     padding-left: 10px;
     border-radius: 10px;
 

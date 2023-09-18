@@ -27,6 +27,19 @@
 		AND ACNT_ST = 'N'
 	</select>
 	
+	<!-- 지출 금액 합계 10-12월 -->
+	<select id="changeMonthBigger" resultType="_int">
+		SELECT SUM(ACNT_MN) AS MONEY
+		FROM "ACCOUNT_DETAIL"
+		JOIN ACCOUNTBOOK USING(ACNT_NO)
+		WHERE ACNT_DATE IN (SELECT ACNT_DATE FROM "ACCOUNT_DETAIL" 
+		WHERE SUBSTR(ACNT_DATE, 6, 2) = #{month})
+		AND ACNT_NO = #{accountNo}
+		AND MEMBER_NO = #{memberNo}
+		AND INOUT_NM = '지출'
+		AND ACNT_ST = 'N'
+	</select>
+	
 	<!-- 수입 금액 합계 -->
 	<select id="changeMonthIncome" resultType="_int">
 		SELECT SUM(ACNT_MN) AS MONEY
@@ -34,6 +47,19 @@
 		JOIN ACCOUNTBOOK USING(ACNT_NO)
 		WHERE ACNT_DATE IN (SELECT ACNT_DATE FROM "ACCOUNT_DETAIL" 
 		WHERE SUBSTR(ACNT_DATE, 7, 1) = #{month})
+		AND ACNT_NO = #{accountNo}
+		AND MEMBER_NO = #{memberNo}
+		AND INOUT_NM = '수입'
+		AND ACNT_ST = 'N'
+	</select>
+	
+	<!-- 수입 금액 합계 10-12월 -->
+	<select id="changeMonthIncomeBigger" resultType="_int">
+		SELECT SUM(ACNT_MN) AS MONEY
+		FROM "ACCOUNT_DETAIL"
+		JOIN ACCOUNTBOOK USING(ACNT_NO)
+		WHERE ACNT_DATE IN (SELECT ACNT_DATE FROM "ACCOUNT_DETAIL" 
+		WHERE SUBSTR(ACNT_DATE, 6, 2) = #{month})
 		AND ACNT_NO = #{accountNo}
 		AND MEMBER_NO = #{memberNo}
 		AND INOUT_NM = '수입'
@@ -54,6 +80,20 @@
 		ORDER BY ACNT_DATE DESC
 	</select>
 	
+	<!-- 지출 내역 10-12월 -->
+	<select id="selectAccountBigger" resultMap="SAccount-rm">
+		SELECT ACNT_DATE, ACNT_CONT, ACNT_MN, ACNT_CATEGORY 
+		FROM ACCOUNT_DETAIL
+		JOIN ACCOUNTBOOK USING(ACNT_NO)
+		WHERE ACNT_DATE IN (SELECT ACNT_DATE FROM "ACCOUNT_DETAIL" 
+		                    WHERE SUBSTR(ACNT_DATE, 6, 2) = #{month})
+		AND ACNT_NO = #{accountNo}
+		AND MEMBER_NO = #{memberNo}
+		AND ACNT_ST = 'N'
+		AND INOUT_NM = '지출'
+		ORDER BY ACNT_DATE DESC
+	</select>
+	
 	<!-- 수입 내역  -->
 	<select id="selectAccountIncome" resultMap="SAccount-rm">
 		SELECT ACNT_DATE, ACNT_CONT, ACNT_MN, ACNT_CATEGORY 
@@ -61,6 +101,20 @@
 		JOIN ACCOUNTBOOK USING(ACNT_NO)
 		WHERE ACNT_DATE IN (SELECT ACNT_DATE FROM "ACCOUNT_DETAIL" 
 		                    WHERE SUBSTR(ACNT_DATE, 7, 1) = #{month})
+		AND ACNT_NO = #{accountNo}
+		AND MEMBER_NO = #{memberNo}
+		AND ACNT_ST = 'N'
+		AND INOUT_NM = '수입'
+		ORDER BY ACNT_DATE DESC
+	</select>
+	
+	<!-- 수입 내역 10-12월 -->
+	<select id="selectAccountIncomeBigger" resultMap="SAccount-rm">
+		SELECT ACNT_DATE, ACNT_CONT, ACNT_MN, ACNT_CATEGORY 
+		FROM ACCOUNT_DETAIL
+		JOIN ACCOUNTBOOK USING(ACNT_NO)
+		WHERE ACNT_DATE IN (SELECT ACNT_DATE FROM "ACCOUNT_DETAIL" 
+		                    WHERE SUBSTR(ACNT_DATE, 6, 2) = #{month})
 		AND ACNT_NO = #{accountNo}
 		AND MEMBER_NO = #{memberNo}
 		AND ACNT_ST = 'N'
@@ -85,6 +139,23 @@
 	
 	</select>
 	
+	<!-- 지출 그래프 -->
+	<select id="selectChartBigger" resultMap="SAccount-rm">
+		
+		SELECT ACNT_CATEGORY , SUM(ACNT_MN)AS SUMMONEY, ROUND(RATIO_TO_REPORT(SUM(ACNT_MN)) OVER()*100,1) AS PERCENT
+		FROM ACCOUNT_DETAIL
+		JOIN ACCOUNTBOOK USING(ACNT_NO)
+		WHERE ACNT_DATE IN (SELECT ACNT_DATE FROM "ACCOUNT_DETAIL" 
+		                    WHERE SUBSTR(ACNT_DATE, 6, 2) = #{month})
+		AND MEMBER_NO = #{memberNo}
+		AND ACNT_NO = #{accountNo}
+		AND ACNT_ST = 'N'
+		AND INOUT_NM = '지출'
+		GROUP BY ACNT_CATEGORY
+		ORDER BY 2 DESC
+	
+	</select>
+	
 	<!-- 수입 그래프  -->
 	<select id="selectChartIncome" resultMap="SAccount-rm">
 		
@@ -93,6 +164,23 @@
 			JOIN ACCOUNTBOOK USING(ACNT_NO)
 			WHERE ACNT_DATE IN (SELECT ACNT_DATE FROM "ACCOUNT_DETAIL" 
 			                    WHERE SUBSTR(ACNT_DATE, 7, 1) = #{month})
+			AND MEMBER_NO = #{memberNo}
+			AND ACNT_NO = #{accountNo}
+			AND ACNT_ST = 'N'
+			AND INOUT_NM = '수입'
+			GROUP BY ACNT_CATEGORY
+			ORDER BY 2 DESC
+	
+	</select>
+	
+	<!-- 수입 그래프 10-12월 -->
+	<select id="selectChartIncomeBigger" resultMap="SAccount-rm">
+		
+		SELECT ACNT_CATEGORY , SUM(ACNT_MN)AS SUMMONEY, ROUND(RATIO_TO_REPORT(SUM(ACNT_MN)) OVER()*100,1) AS PERCENT
+			FROM ACCOUNT_DETAIL
+			JOIN ACCOUNTBOOK USING(ACNT_NO)
+			WHERE ACNT_DATE IN (SELECT ACNT_DATE FROM "ACCOUNT_DETAIL" 
+			                    WHERE SUBSTR(ACNT_DATE, 6, 2) = #{month})
 			AND MEMBER_NO = #{memberNo}
 			AND ACNT_NO = #{accountNo}
 			AND ACNT_ST = 'N'
