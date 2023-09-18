@@ -31,6 +31,29 @@ document.getElementById('searchButton').addEventListener('click', function () {
     });
 });
 
+// 주소변경
+function sample6_execDaumPostcode() {
+    new daum.Postcode({
+        oncomplete: function(data) {
+            var addr = '';
+
+            if (data.userSelectedType === 'R') {
+                addr = data.roadAddress;
+            } else {
+                addr = data.jibunAddress;
+            }
+
+            document.getElementById('sample6_postcode').value = data.zonecode;
+            document.getElementById("sample6_address").value = addr;
+            document.getElementById("sample6_detailAddress").focus();
+
+            // FormData에도 주소 값을 설정
+            formData.set("memberAddress", data.zonecode + "^^^" + addr);
+        }
+    }).open();
+}
+
+
 
 
 
@@ -63,3 +86,29 @@ document.getElementById('searchButton').addEventListener('click', function () {
         });
     });
 
+    //사진 변경
+    $("#changeButton").click(function (e) {
+        e.preventDefault();
+    
+        var formData = new FormData($("#updateInfo")[0]);
+        
+        // 이미지 파일 추가
+        var imageInput = $("#imageInput")[0].files[0];
+        formData.append("imageInput", imageInput);
+    
+        $.ajax({
+            type: "POST",
+            url: "/member/mypage",
+            data: formData,
+            processData: false,
+            contentType: false,
+            success: function (data) {
+                console.log("서버 응답:", data);
+                // 필요한 동작 수행
+            },
+            error: function (error) {
+                console.error("오류 발생:", error);
+            }
+        });
+    });
+    
