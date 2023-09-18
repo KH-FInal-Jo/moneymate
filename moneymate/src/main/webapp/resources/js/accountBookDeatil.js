@@ -44,6 +44,15 @@ incomeBtn.addEventListener("click", ()=>{
     spendArea.style.display = 'none'
     incomeArea.style.display = 'block'
 
+     // 전체보기 버튼 나타나기
+     const SallViewBtn = document.getElementById("SallView-btn")
+
+      SallViewBtn.addEventListener("click", ()=>{
+
+       SallViewBtn.style.display = 'none'
+     })
+
+
 })
 
 /* 지출 눌렀을 때 */
@@ -56,6 +65,10 @@ spendBtn.addEventListener("click", ()=>{
 
     spendArea.style.display = 'block'
     incomeArea.style.display = 'none'
+
+    // 전체보기 버튼 나타나기
+    const IallViewBtn = document.getElementById("IallView-btn")
+    IallViewBtn.style.display = 'none'
 
 })
 
@@ -135,18 +148,11 @@ function handleFetch(month) {
 
           spend.innerHTML = "지출 : " + formattedMoney + "원";
 
-        // 존재하지않는 내역 문구
-        const notExist = document.querySelector(".notExist")
-        notExist.style.display = 'none'
 
-        /* 지출 눌렀을 때 */
-        spendBtn.addEventListener("click", ()=>{
-            // 존재하지않는 내역 문구
-            const notExist = document.querySelector(".notExist")
-            notExist.style.display = 'none'
-        })
+
 
       } 
+      
     })
       .catch(err => {
         console.log("예외 발생");
@@ -154,16 +160,8 @@ function handleFetch(month) {
         const spend = document.getElementById("spend");
         spend.innerText = "내역 없음";
 
-        // 존재하지않는 내역 문구
-        const notExist = document.querySelector(".notExist")
-        notExist.style.display = 'flex'
 
-        /* 지출 눌렀을 때 */
-        spendBtn.addEventListener("click", ()=>{
-          // 존재하지않는 내역 문구
-          const notExist = document.querySelector(".notExist")
-          notExist.style.display = 'flex'
-      })
+        
 
       });
   }
@@ -178,7 +176,9 @@ function handleFetchIncome(month) {
     fetch(`/account/changeMonthIncome?month=${month}&accountNo=${accountNo}`)
       .then(resp => resp.json())
       .then(income => {
+
         const incomebtn = document.getElementById("income");
+
         if (income !== '') {
 
           // DB에서 얻어온 지출 합계 금액 콤파 표기법으로 변환
@@ -186,13 +186,6 @@ function handleFetchIncome(month) {
 
           incomebtn.innerHTML = "수입 : " + formattedMoney + "원";
 
-           /* 수입 눌렀을 때 */
-        incomeBtn.addEventListener("click", ()=>{
-
-          // 존재하지않는 내역 문구
-          const notExist = document.querySelector(".notExist")
-          notExist.style.display = 'none'
-        })
         }
       })
       .catch(err => {
@@ -202,13 +195,8 @@ function handleFetchIncome(month) {
         incomebtn.innerText = "내역 없음";
 
 
-        /* 수입 눌렀을 때 */
-        incomeBtn.addEventListener("click", ()=>{
 
-          // 존재하지않는 내역 문구
-          const notExist = document.querySelector(".notExist")
-          notExist.style.display = 'flex'
-        })
+
         
         
         
@@ -222,6 +210,10 @@ function handleFetchIncome(month) {
 function handleFetchView(month) {
     console.log("월:", month);
     console.log("가계부 번호:", accountNo);
+
+    //전체보기 버튼 나타나기
+    const SallViewBtn = document.getElementById("SallView-btn")
+    SallViewBtn.style.display = 'none'
   
     fetch(`/account/changeMonthUpdate?month=${month}&accountNo=${accountNo}`)
       .then(resp => resp.json())
@@ -289,6 +281,10 @@ function handleFetchView(month) {
 
 // 월 수입 내역 조회 fetch함수
 function handleFetchViewIncome(month) {
+    //전체보기 버튼 나타나기
+    const IallViewBtn = document.getElementById("IallView-btn")
+    IallViewBtn.style.display = 'none'
+
     console.log("월:", month);
     console.log("가계부 번호:", accountNo);
   
@@ -465,7 +461,22 @@ function handleFetchChart(month) {
                 var sumMoney = parseInt(chart.sumMoney).toLocaleString('ko-KR');
                 span5.innerText = "(" + sumMoney + "원)"
 
+                // 카테고리명 누르면 그 항목에 관한 내역 보기
                 span2.addEventListener("click", e=>{
+                  // 전체보기 버튼 나타나기
+                  const SallViewBtn = document.getElementById("SallView-btn")
+                  SallViewBtn.style.display = 'block'
+
+                  // 전체보기 버튼 클릭시 이벤트
+                  SallViewBtn.addEventListener("click", ()=>{
+                    // 지출내역 조회 함수 호출
+                    handleFetchView(month)
+
+                    // 다시 가리기
+                    SallViewBtn.style.display = 'none'
+
+                  })
+
                   // console.log("클릭ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ")
                   console.log(e.target.innerText)
                   const name = e.target.innerText;
@@ -474,7 +485,51 @@ function handleFetchChart(month) {
                   .then(resp => resp.json())
                   .then(nameList => {
 
-                    console.log("nameList : " + nameList)
+                    if(nameList != ''){
+
+                      const spendArea = document.querySelector(".spend-area")
+                      spendArea.innerText = ""
+
+                      for(let name of nameList){
+                        console.log(name)
+  
+  
+                            /* 지출 내역 영역 */
+                            // 여기서 data를 사용하여 필요한 처리를 수행하세요.
+                              const spendLine = document.createElement("div")
+                              spendLine.classList.add("spend-line")
+  
+                              const spendLeft = document.createElement("div")
+                              spendLeft.classList.add("spend-left")
+  
+                              const div1 = document.createElement("div")
+                              const div2 = document.createElement("div")
+                              const div3 = document.createElement("div")
+                              
+                              div1.innerText = name.accountDate
+                              div2.innerText = name.accountContent
+                              div3.innerText = name.category
+  
+                              spendLeft.append(div1, div2, div3)
+  
+                              // DB에서 얻어온 지출 합계 금액 콤파 표기법으로 변환
+                              var spendMoney = parseInt(name.accountMoney).toLocaleString('ko-KR');
+                              const moneyDiv = document.createElement("div")
+                              moneyDiv.innerText = "-" + spendMoney + "원"
+  
+  
+                              spendLine.append(spendLeft, moneyDiv)
+  
+                              const hr = document.createElement("hr")
+  
+                              spendArea.append(spendLine, hr)
+  
+  
+                      }
+
+
+                    }
+
 
 
 
@@ -483,16 +538,6 @@ function handleFetchChart(month) {
                     console.log(e)
                     console.log("예외발생")
                   })
-
-
-
-
-
-
-
-
-
-
 
                 })
 
@@ -637,6 +682,89 @@ function handleFetchChartIncome(month) {
                 span4.innerHTML = chart.percent + "%"
                 var sumMoney = parseInt(chart.sumMoney).toLocaleString('ko-KR');
                 span5.innerText = "(" + sumMoney + "원)"
+
+                // 카테고리명 누르면 그 항목에 관한 내역 보기
+                span2.addEventListener("click", e=>{
+                  // console.log("클릭ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ")
+
+                   // 전체보기 버튼 나타나기
+                   const IallViewBtn = document.getElementById("IallView-btn")
+                   IallViewBtn.style.display = 'block'
+ 
+                   // 전체보기 버튼 클릭시 이벤트
+                   IallViewBtn.addEventListener("click", ()=>{
+                     // 지출내역 조회 함수 호출
+                     handleFetchViewIncome(month)
+ 
+                     // 다시 가리기
+                     IallViewBtn.style.display = 'none'
+ 
+                   })
+
+                  console.log(e.target.innerText)
+                  const name = e.target.innerText;
+
+                  fetch(`/account/categoryNameIncome?month=${month}&accountNo=${accountNo}&name=${name}`)
+                  .then(resp => resp.json())
+                  .then(nameList => {
+
+                    if(nameList != ''){
+
+                      const incomeArea = document.querySelector(".income-area")
+                      incomeArea.innerText = ""
+
+                      for(let name of nameList){
+                          console.log(name)
+  
+  
+                          /* 수입 내역 영역 */
+                          // 여기서 data를 사용하여 필요한 처리를 수행하세요.
+                          const incomeLine = document.createElement("div")
+                          incomeLine.classList.add("income-line")
+          
+                          const incomeLeft = document.createElement("div")
+                          incomeLeft.classList.add("income-left")
+          
+                          const div1 = document.createElement("div")
+                          const div2 = document.createElement("div")
+                          const div3 = document.createElement("div")
+                          
+                          div1.innerText = name.accountDate
+                          div2.innerText = name.accountContent
+                          div3.innerText = name.category
+          
+                          incomeLeft.append(div1, div2, div3)
+          
+                          // DB에서 얻어온 지출 합계 금액 콤파 표기법으로 변환
+                          var incomeMoney = parseInt(name.accountMoney).toLocaleString('ko-KR');
+                          const moneyDiv = document.createElement("div")
+                          moneyDiv.innerText = "+" + incomeMoney + "원"
+          
+          
+                          incomeLine.append(incomeLeft, moneyDiv)
+          
+                          const hr = document.createElement("hr")
+          
+          
+          
+                          incomeArea.append(incomeLine, hr)
+  
+  
+                      }
+
+
+                    }
+
+
+
+
+                  })
+                  .catch(e=> {
+                    console.log(e)
+                    console.log("예외발생")
+                  })
+
+                })
 
                 categoryPercent.append(span1, span2, span3, span4, span5)
 

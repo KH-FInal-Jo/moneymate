@@ -149,9 +149,7 @@
                 </div>
 
             </div>
-            <div class="notExist">
-                해당 월에 대한 내역이 존재하지 않습니다.
-            </div>
+            
 
 
             <!-- 수입 차트 -->
@@ -163,6 +161,7 @@
                             <span class="IcategoryName"></span>
                             <span class="Iequal">:</span>
                             <span class="IpercentNo"></span>
+                            <span class="sumMoney"></span>
                     </div>
                 </div>
             </div>
@@ -175,6 +174,8 @@
 
             <%-- 지출 내역 영역 --%>
             <section class="detail-area">
+                <button id="SallView-btn">전체보기</button>
+                <button id="IallView-btn">전체보기</button>
                 
                 <div class="spend-area">
 
@@ -220,7 +221,6 @@
     <script>
         document.addEventListener("DOMContentLoaded", function () {
 
-            notExist.style.display = 'none'
             incomeDiv.style.display = 'none'
             incomeArea.style.display = 'none'
 
