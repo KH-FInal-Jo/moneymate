@@ -392,7 +392,7 @@ function handleFetchChart(month) {
               labels: [],
               datasets: [{
                   data: [],
-                  backgroundColor: ['rgb(216, 63, 50)', 'rgb(248, 207, 18)', 'rgb(255, 205, 86)', 'rgb(75, 192, 192)', 'rgb(54, 162, 235)', 'rgb(153, 102, 255)', 'rgb(233, 171, 182)', 'rgb(104, 216, 225)','rgb(173, 165, 150)', 'rgb(226, 97, 113)', 'rgb(85, 116, 187)', 'rgb(104, 200, 121)']
+                  backgroundColor: ['rgb(216, 63, 50)', 'rgb(248, 207, 18)', 'rgb(192, 192, 192)', 'rgb(75, 192, 192)', 'rgb(54, 162, 235)', 'rgb(153, 102, 255)', 'rgb(233, 171, 182)', 'rgb(104, 216, 225)','rgb(76, 76, 76)', 'rgb(226, 97, 113)', 'rgb(85, 116, 187)', 'rgb(104, 200, 121)']
               }] 
 
             };
@@ -407,7 +407,6 @@ function handleFetchChart(month) {
                 console.log(chart.percent)
 
                 pieChartData.labels.push(chart.category);
-                console.log("카테고리 : " + chart.category)
                 pieChartData.datasets[0].data.push(chart.percent);
 
                 const categoryPercent = document.createElement("div")
@@ -425,44 +424,41 @@ function handleFetchChart(month) {
                 span5.classList.add("sumMoney")
 
                 // 카테고리별 차트 색상 설정
-                if(chart.category){
-                  // console.log("식비-------------")
+                if(chart.category == pieChartData.labels[0]){
                   span1.style.backgroundColor = 'rgb(216, 63, 50)'
+                
+                }else if(chart.category == pieChartData.labels[1]){
                   span1.style.backgroundColor = 'rgb(248, 207, 18)'
-                  span1.style.backgroundColor = 'rgb(255, 205, 86)'
+                }else if(chart.category == pieChartData.labels[2]){
+                  span1.style.backgroundColor = 'rgb(192, 192, 192)'
                 }
-                // }else if(chart.category == "교통"){
-                //   span1.style.backgroundColor = 'rgb(248, 207, 18)'
-                // }else if(chart.category == "패션"){
-                //   span1.style.backgroundColor = 'rgb(255, 205, 86)'
-                // }
-                // else if(chart.category == "미용"){
-                //   span1.style.backgroundColor = 'rgb(75, 192, 192)'
-                // }
-                // else if(chart.category == "생활용품"){
-                //   span1.style.backgroundColor = 'rgb(54, 162, 235)'
-                // }
-                // else if(chart.category == "마트"){
-                //   span1.style.backgroundColor = 'rgb(153, 102, 255)'
-                // }
-                // else if(chart.category == "문화생활"){
-                //   span1.style.backgroundColor = 'rgb(233, 171, 182)'
-                // }
-                // else if(chart.category == "부모님"){
-                //   span1.style.backgroundColor = 'rgb(104, 216, 225)'
-                // }
-                // else if(chart.category == "주거/통신"){
-                //   span1.style.backgroundColor = 'rgb(173, 165, 150)'
-                // }
-                // else if(chart.category == "교육"){
-                //   span1.style.backgroundColor = 'rgb(226, 97, 113)'
-                // }
-                // else if(chart.category == "건강"){
-                //   span1.style.backgroundColor = 'rgb(85, 116, 187)'
-                // }
-                // else if(chart.category == "경조사"){
-                //   span1.style.backgroundColor = 'rgb(104, 200, 121)'
-                // }
+                else if(chart.category == pieChartData.labels[3]){
+                  span1.style.backgroundColor = 'rgb(75, 192, 192)'
+                }
+                else if(chart.category == pieChartData.labels[4]){
+                  span1.style.backgroundColor = 'rgb(54, 162, 235)'
+                }
+                else if(chart.category == pieChartData.labels[5]){
+                  span1.style.backgroundColor = 'rgb(153, 102, 255)'
+                }
+                else if(chart.category == pieChartData.labels[6]){
+                  span1.style.backgroundColor = 'rgb(233, 171, 182)'
+                }
+                else if(chart.category == pieChartData.labels[7]){
+                  span1.style.backgroundColor = 'rgb(104, 216, 225)'
+                }
+                else if(chart.category == pieChartData.labels[8]){
+                  span1.style.backgroundColor = 'rgb(76, 76, 76)'
+                }
+                else if(chart.category == pieChartData.labels[9]){
+                  span1.style.backgroundColor = 'rgb(226, 97, 113)'
+                }
+                else if(chart.category == pieChartData.labels[10]){
+                  span1.style.backgroundColor = 'rgb(85, 116, 187)'
+                }
+                else if(chart.category == pieChartData.labels[11]){
+                  span1.style.backgroundColor = 'rgb(104, 200, 121)'
+                }
 
                 span2.innerHTML = chart.category
                 span3.innerHTML = ":"
@@ -540,7 +536,7 @@ function handleFetchChartIncome(month) {
               labels: [],
               datasets: [{
                   data: [],
-                  backgroundColor: ['rgb(216, 63, 50)', 'rgb(248, 207, 18)', 'rgb(255, 205, 86)', 'rgb(75, 192, 192)', 'rgb(54, 162, 235)', 'rgb(153, 102, 255)']
+                  backgroundColor: ['rgb(216, 63, 50)', 'rgb(248, 207, 18)', 'rgb(192, 192, 192)', 'rgb(75, 192, 192)', 'rgb(54, 162, 235)', 'rgb(153, 102, 255)', 'rgb(233, 171, 182)', 'rgb(104, 216, 225)','rgb(76, 76, 76)', 'rgb(226, 97, 113)', 'rgb(85, 116, 187)', 'rgb(104, 200, 121)']
               }] 
 
             };
@@ -571,10 +567,42 @@ function handleFetchChartIncome(month) {
                 span4.classList.add("IpercentNo")
                 span5.classList.add("sumMoney")
 
-                if(chart.category == "월급"){
-                  // console.log("식비-------------")
-                  span1.style.backgroundColor = 'rgb(248, 207, 18)'
-                }
+                  // 카테고리별 차트 색상 설정
+                  if(chart.category == pieChartData2.labels[0]){
+                    span1.style.backgroundColor = 'rgb(216, 63, 50)'
+                  
+                  }else if(chart.category == pieChartData2.labels[1]){
+                    span1.style.backgroundColor = 'rgb(248, 207, 18)'
+                  }else if(chart.category == pieChartData2.labels[2]){
+                    span1.style.backgroundColor = 'rgb(192, 192, 192)'
+                  }
+                  else if(chart.category == pieChartData2.labels[3]){
+                    span1.style.backgroundColor = 'rgb(75, 192, 192)'
+                  }
+                  else if(chart.category == pieChartData2.labels[4]){
+                    span1.style.backgroundColor = 'rgb(54, 162, 235)'
+                  }
+                  else if(chart.category == pieChartData2.labels[5]){
+                    span1.style.backgroundColor = 'rgb(153, 102, 255)'
+                  }
+                  else if(chart.category == pieChartData2.labels[6]){
+                    span1.style.backgroundColor = 'rgb(233, 171, 182)'
+                  }
+                  else if(chart.category == pieChartData2.labels[7]){
+                    span1.style.backgroundColor = 'rgb(104, 216, 225)'
+                  }
+                  else if(chart.category == pieChartData2.labels[8]){
+                    span1.style.backgroundColor = 'rgb(76, 76, 76)'
+                  }
+                  else if(chart.category == pieChartData2.labels[9]){
+                    span1.style.backgroundColor = 'rgb(226, 97, 113)'
+                  }
+                  else if(chart.category == pieChartData2.labels[10]){
+                    span1.style.backgroundColor = 'rgb(85, 116, 187)'
+                  }
+                  else if(chart.category == pieChartData2.labels[11]){
+                    span1.style.backgroundColor = 'rgb(104, 200, 121)'
+                  }
 
                 span2.innerHTML = chart.category
                 span3.innerHTML = ":"
