@@ -83,6 +83,7 @@ function getBoardNo() {
     return null;
 }
 
+const board = document.getElementsByClassName("board-notice-detail-container")[0];
 
-
+  
 

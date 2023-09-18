@@ -23,5 +23,8 @@ public interface JBoardService {
 
 	int boardDelete(int boardNo);
 
+	// 조회수 증가
+	int updateRead(int boardNo);
+
 
 }

@@ -71,10 +71,16 @@
     font-weight: bold;
 }
 
-.board-notice-list tr > td:hover{
+.inputTitleAd:hover{
     cursor: pointer;
     color: rgb(12,64,202);
 }
+
+
+.inputBoard th{
+    font-weight: lighter;
+}
+
 
 /* 글쓰기 버튼 */
 .board-notice-wrtie-btn{

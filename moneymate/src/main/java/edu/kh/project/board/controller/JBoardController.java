@@ -54,9 +54,12 @@ public class JBoardController {
 		map.put("boardCode", boardCode);
 		map.put("boardNo", boardNo);
 		
+		int readCount = service.updateRead(boardNo);
+		
 		List<JBoard> boardList = service.boardNoticeDetail(map);
 		
 		model.addAttribute("boardList", boardList);
+		model.addAttribute("readCount", readCount);
 		
 		return "board/JboardDetail";
 		
