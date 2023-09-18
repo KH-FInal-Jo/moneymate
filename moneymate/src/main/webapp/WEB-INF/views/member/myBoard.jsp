@@ -38,13 +38,13 @@
                 <div class="list">
                     
                     <div class="search">
-                        <form>
+                        <form action="/member/mypage/myboard">
                             <select name="sel">
                                 <option value="t" selected>제목</option>
                                 <option value="c" >내용</option>
                                 <option value="tc">제목+내용</option>
                             </select>
-                            <input type="text" id="query" value="${param.query}"> <button>검색</button>
+                            <input type="text" id="query" name="query" value="${param.query}"> <button>검색</button>
                         </form>
                     </div>
 

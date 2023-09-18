@@ -80,4 +80,22 @@ public class CMemberDAO {
 		return sqlSession.selectList("CmemberMapper.selectMyBoard",  myNum, rowBounds);
 	}
 
+	// 검색 시 게시글 수 조회
+	public int getListCount(Map<String, Object> paramMap) {
+		
+		
+		return sqlSession.selectOne("CmemberMapper.getListCount_search", paramMap);
+	}
+
+	
+	// 검색 시 게시글 목록 조회
+	public List<CBoard> selectBoardList(CPagination2 pagination, Map<String, Object> paramMap) {
+		
+		int offset = (pagination.getCurrentPage() - 1) * pagination.getLimit();
+
+		RowBounds rowBounds = new RowBounds(offset, pagination.getLimit());
+
+		return sqlSession.selectList("CmemberMapper.selectBoardList_search", paramMap, rowBounds);
+	}
+
 }
