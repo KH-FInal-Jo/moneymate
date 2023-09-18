@@ -48,17 +48,12 @@ function submitTarget() {
 
     const endDate = new Date(document.querySelector('.endDate').textContent);
 
-    //const startDate1 = startDate.toISOString().slice(0, 10);
-
     const startDate = document.querySelector('.startDate').textContent;
 
 
-
-    // Date 객체로 변환
     const date = new Date(startDate);
     const date2 = new Date(endDate);
 
-    // 원하는 형식으로 날짜 문자열 생성
     const startDate1 = `${date.getFullYear()}-${(date.getMonth() + 1).toString().padStart(2, '0')}-${date.getDate().toString().padStart(2, '0')}`;
     const endDate2 = `${date2.getFullYear()}-${(date2.getMonth() + 1).toString().padStart(2, '0')}-${date2.getDate().toString().padStart(2, '0')}`;
 
@@ -97,24 +92,38 @@ function submitTarget() {
     });
 }
 
-function updateProgressBar() {
-    // 여기에 프로그래스바 업데이트 로직을 추가
-    let result = (useMoney / targetMoney) * 100;
 
+
+
+function updateProgressBar() {
+    const result = (useMoney / targetMoney) * 100;
     console.log(result);
 
     if (accProgress != null) {
-    accProgress.value = result;
+        accProgress.value = result;
+    }
+
+    if (result > 100) {
+        alert("목표 예산을 초과하였습니다.");
     }
 }
 
-// 0.01초(10밀리초) 간격으로 updateProgressBar 함수 호출
-const intervalId = setInterval(updateProgressBar, 100);
-
-window.addEventListener('unload', () => {
-    clearInterval(intervalId);
-    
+document.addEventListener('DOMContentLoaded', () => {
+    updateProgressBar();
 });
+
+window.addEventListener('beforeunload', () => {
+    clearInterval(intervalId);
+});
+
+window.addEventListener('focus', () => {
+    startProgressBar();
+});
+
+window.addEventListener('blur', () => {
+    stopProgressBar();
+});
+
 
 
 

@@ -119,6 +119,7 @@ font-family: 'SDGothic', serif;
 .accBk-category-table input{
 
     width: 110px;
+    height: 70px;
     font-size: 22px;
     text-align: center;
     background-color: rgb(161, 216, 238);

@@ -43,7 +43,7 @@ public class TargetBudgetScheduling {
 
 
 	@Scheduled(cron = "0 0 * * * *") // 자정
-	//@Scheduled(cron = "0,30 * * * * *")
+	//@Scheduled(cron = "0,30 * * * * *") //  30초 마다 업데이트
 	public void accountBkSelect() {
 
 		List<JAccountBook> accountBk = service.selectAccountBk2();
@@ -76,13 +76,13 @@ public class TargetBudgetScheduling {
 					// 지출 금액 가져오기
 					int useMoney = service.accountBkSelect(selbigAccountNo);
 
-					System.out.println("번호 가져오기" + selbigAccountNo);
-					System.out.println("지출금액 가져오기" + useMoney);
-					System.out.println("멤버넘버 가져오기" + selmemberNo);
+					//System.out.println("번호 가져오기" + selbigAccountNo);
+					//System.out.println("지출금액 가져오기" + useMoney);
+					//System.out.println("멤버넘버 가져오기" + selmemberNo);
 
 					if(useMoney <= targetMoney) {
 
-						System.out.println("목표예산 성공!!");
+						//System.out.println("목표예산 성공!!");
 						
 						// 마일리지 update
 						int result = service.insertMileage(selmemberNo);
@@ -90,23 +90,23 @@ public class TargetBudgetScheduling {
 						// 알림함 insert
 						int result2 = service.insertAlert(selmemberNo);
 
-						System.out.println("result 찍히나?" + result);
+						//System.out.println("result 찍히나?" + result);
 
 					}else {
-						System.out.println("목표예산 실패");
+						//System.out.println("목표예산 실패");
 					}
 
 				}else {
-					System.out.println("날짜가 달라");
+					//System.out.println("날짜가 달라");
 				}
 
-				System.out.println("포맷된 날짜: " + formattedDate);
-				System.out.println("currentDate: " + currentDate);
+				//System.out.println("포맷된 날짜: " + formattedDate);
+				//System.out.println("currentDate: " + currentDate);
 
-				System.out.println("bigAccountNo" + bigAccountNo);
-				System.out.println("targetMoney" + targetMoney);
+				//System.out.println("bigAccountNo" + bigAccountNo);
+				//System.out.println("targetMoney" + targetMoney);
 
-				System.out.println("값 제발" +accountBk);
+				//System.out.println("값 제발" +accountBk);
 			}
 
 		} catch (ParseException e) {
@@ -114,13 +114,7 @@ public class TargetBudgetScheduling {
 			e.printStackTrace();
 		} 
 
-
-
 	}
-
-
-
-
 
 
 }
