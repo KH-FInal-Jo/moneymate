@@ -142,6 +142,13 @@ document.addEventListener("DOMContentLoaded", function() {
 
 });
 
+/* 수입, 지출, 이체 버튼 */
+const out = document.getElementsByClassName("out")[0];
+const inin = document.getElementsByClassName("in")[0];
+const trans = document.getElementsByClassName("trans")[0];
+const inoutResult = document.getElementsByClassName("inoutResult")[0];
+
+
 
 
 const accUsedMoney = document.getElementsByClassName("accUsedMoney")[0];
@@ -156,31 +163,68 @@ const accBkResult3 = document.getElementsByClassName("accBkResult3")[0];
 const accBkResult4 = document.getElementsByClassName("accBkResult4")[0];
 const accBkResult5 = document.getElementsByClassName("accBkResult5")[0];
 
+
+
+const inputCategoryName = document.getElementsByClassName("inputCategoryName")[0];
+
+const inoutResult2 = document.getElementsByClassName("inoutResult")[0];
+
+/* 수입상세 박스 */
+const categoryBox2 = document.getElementsByClassName("accBk-category-table2")[0];
+
+const cate1 = document.getElementById("cate1");
+const cate2 = document.getElementById("cate2");
+const cate3 = document.getElementById("cate3");
+const cate4 = document.getElementById("cate4");
+const cate5 = document.getElementById("cate5");
+
+
+
+
 categoryBtn.addEventListener("click", function(){
 
-  
+  if(inoutResult2.value == '수입'){
+    cate1.style.display = 'none';
+    cate2.style.display = 'none';
+    cate3.style.display = 'none';
+    cate4.style.display = 'block';
+    cate5.style.display = 'block';
+
+  }else{
+
+    cate1.style.display = 'block';
+    cate2.style.display = 'block';
+    cate3.style.display = 'block';
+    cate4.style.display = 'none';
+    cate5.style.display = 'none';
+  }
+
+
   if(categoryBox.style.display !== 'none'){
-        categoryBox.style.display = 'none';
-        accBkResult2.style.display = 'block';
-        accBkResult2.style.display = 'flex';
-        accBkResult3.style.display = 'block';
-        accBkResult3.style.display = 'flex';
-        accBkResult4.style.display = 'block';
-        accBkResult4.style.display = 'flex';
-        accBkResult5.style.display = 'block';
-        accBkResult5.style.display = 'flex';
-    }else{
-      categoryBox.style.display = 'block';
-      categoryBox.style.display = 'flex';
-      categoryBox.style.height = '300px';
-
-      accBkResult2.style.display = 'none';
-      accBkResult3.style.display = 'none';
-      accBkResult4.style.display = 'none';
-      accBkResult5.style.display = 'none';
+    categoryBox.style.display = 'none';
+    accBkResult2.style.display = 'block';
+    accBkResult2.style.display = 'flex';
+    accBkResult3.style.display = 'block';
+    accBkResult3.style.display = 'flex';
+    accBkResult4.style.display = 'block';
+    accBkResult4.style.display = 'flex';
+    accBkResult5.style.display = 'block';
+    accBkResult5.style.display = 'flex';
+  }else{
+    categoryBox.style.display = 'block';
+    categoryBox.style.height = '300px';
+    
+    accBkResult2.style.display = 'none';
+    accBkResult3.style.display = 'none';
+    accBkResult4.style.display = 'none';
+    accBkResult5.style.display = 'none';
+    
+  }
   
-    }
 
+  
+  
+  
 
 })
 
@@ -198,7 +242,18 @@ const accBk10 = document.getElementsByClassName("accBk10")[0];
 const accBk11 = document.getElementsByClassName("accBk11")[0];
 const accBk12 = document.getElementsByClassName("accBk12")[0];
 
-const inputCategoryName = document.getElementsByClassName("inputCategoryName")[0];
+
+const accBk13 = document.getElementsByClassName("accBk2-1")[0];
+const accBk14 = document.getElementsByClassName("accBk2-2")[0];
+const accBk15 = document.getElementsByClassName("accBk2-3")[0];
+const accBk16 = document.getElementsByClassName("accBk2-4")[0];
+const accBk17 = document.getElementsByClassName("accBk2-5")[0];
+const accBk18 = document.getElementsByClassName("accBk2-6")[0];
+
+
+
+
+
 
 accBk1.addEventListener("click", function(){
   inputCategoryName.value = "";
@@ -249,6 +304,54 @@ accBk12.addEventListener("click", function(){
   inputCategoryName.value = accBk12.value;
 })
 
+
+
+
+/* 수입 버튼 */
+accBk13.addEventListener("click", function(){
+  inputCategoryName.value = "";
+  inputCategoryName.value = accBk13.value;
+})
+
+accBk14.addEventListener("click", function(){
+  inputCategoryName.value = "";
+  inputCategoryName.value = accBk14.value;
+})
+
+accBk15.addEventListener("click", function(){
+  inputCategoryName.value = "";
+  inputCategoryName.value = accBk15.value;
+})
+
+accBk16.addEventListener("click", function(){
+  inputCategoryName.value = "";
+  inputCategoryName.value = accBk16.value;
+})
+
+accBk17.addEventListener("click", function(){
+  inputCategoryName.value = "";
+  inputCategoryName.value = accBk17.value;
+})
+
+accBk18.addEventListener("click", function(){
+  inputCategoryName.value = "";
+  inputCategoryName.value = accBk18.value;
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* 기간 설정 */
 const accDateRecordBtn = document.getElementsByClassName("accDateRecordBtn")[0];
 const accDateRecord = document.getElementsByClassName("accDateRecord")[0];
@@ -273,10 +376,7 @@ accDateCh.addEventListener("click", function(){
 })
 
 
-const out = document.getElementsByClassName("out")[0];
-const inin = document.getElementsByClassName("in")[0];
-const trans = document.getElementsByClassName("trans")[0];
-const inoutResult = document.getElementsByClassName("inoutResult")[0];
+
 
 out.addEventListener("click",  function(){
   inoutResult.value="";

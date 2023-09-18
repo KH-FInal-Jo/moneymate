@@ -62,26 +62,44 @@
 								</div>
 								<input type="text" class="inputCategoryName" name="categoryName" readonly/>
 							</div>
+
 							<div class="accBk-category-table">
-								<div>
+								<div id="cate1">
 									<input type="text" value="식비" class="accBk1" name="1" readonly/>
 									<input type="text" value="교통" class="accBk2" name="2" readonly/>
 									<input type="text" value="문화생활" class="accBk3" name="3" readonly/>
 									<input type="text" value="마트" class="accBk4" name="4" readonly/>
 								</div>
-								<div>
+								<div id="cate2">
 									<input type="text" value="패션" class="accBk5" name="5" readonly/>
 									<input type="text" value="미용" class="accBk6" name="6" readonly/>
 									<input type="text" value="생활용품" class="accBk7" name="7" readonly/>
 									<input type="text" value="주거/통신" class="accBk8" name="8" readonly/>
 								</div>
-								<div>
+								<div id="cate3">
 									<input type="text" value="건강" class="accBk9" name="9" readonly/>
 									<input type="text" value="교육" class="accBk10" name="10" readonly/>
 									<input type="text" value="경조사" class="accBk11" name="11" readonly/>
 									<input type="text" value="부모님" class="accBk12" name="12" readonly/>
 								</div>
+
+
+								<%-- 수입 버튼 눌렀을 때 --%>
+								<div id="cate4">
+									<input type="text" value="월급" class="accBk2-1" name="1" readonly/>
+									<input type="text" value="부수입" class="accBk2-2" name="2" readonly/>
+									<input type="text" value="용돈" class="accBk2-3" name="3" readonly/>
+								</div>
+
+								<div id="cate5">
+									<input type="text" value="상여" class="accBk2-4" name="4" readonly/>
+									<input type="text" value="금융소득" class="accBk2-5" name="5" readonly/>
+									<input type="text" value="기타" class="accBk2-6" name="6" readonly/>
+								</div>
 							</div>
+
+
+
 							<div class="accBkResult2">
 								<div>결제내역</div>
 								<div>
@@ -117,6 +135,8 @@
 						<div>
 							<button type="submit" class="btn-hover color-1">제출하기</button>
 						</div>
+
+
 					</div>
 
 
