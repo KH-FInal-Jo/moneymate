@@ -150,6 +150,9 @@
 	</select>
 	
 	
+	<!-- 댓글 조회 -->
+	
+	
 	<!-- 게시글 삽입 -->
 	<insert id="boardInsert" parameterType="CBoard"
 		useGeneratedKeys="true">
@@ -365,6 +368,42 @@
 		
 		ORDER BY BOARD_NO DESC
 	</select>
+	
+	
+	<!-- 댓글 삽입 -->
+	<insert id="insertComment">
+		INSERT INTO "COMMENT"
+		VALUES(SEQ_COMMENT_NO.NEXTVAL, #{commentContent}, DEFAULT, DEFAULT, #{memberNo}, #{boardNo}, 
+		
+		<!-- 동적 sql : if 문 -->
+		
+		<!-- 부모 댓글 -->
+		<if test="parentNo == 0">NULL</if>
+		
+		<!-- 자식 댓글 -->
+		<if test="parentNo != 0">#{parentNo}</if>
+		
+		)
+	</insert>
+	
+	
+	<!-- 댓글 삭제 -->
+	<update id="deleteComment">
+		UPDATE "COMMENT" SET
+		COMMENT_ST = 'Y'
+		WHERE COMMENT_NO = #{commentNo}
+        OR COMMENT_NO IN (SELECT COMMENT_NO FROM "COMMENT" WHERE PARENT_NO = #{commentNo})
+	</update>
+	
+	
+	<!-- 댓글 수정 -->
+	<update id="updateComment">
+		UPDATE "COMMENT"
+		SET COMMENT_CONTENT = #{commentContent}
+		WHERE COMMENT_NO = #{commentNo}
+	</update>
+	
+	
 	
 	
 	

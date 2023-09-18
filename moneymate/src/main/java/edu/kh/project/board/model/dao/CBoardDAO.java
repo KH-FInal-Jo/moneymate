@@ -10,6 +10,7 @@ import org.springframework.stereotype.Repository;
 
 import edu.kh.project.board.model.dto.CBoard;
 import edu.kh.project.board.model.dto.CBoardImage;
+import edu.kh.project.board.model.dto.CComment;
 import edu.kh.project.board.model.dto.CPagination;
 
 @Repository
@@ -121,6 +122,27 @@ public class CBoardDAO {
 
 				// 3) selectList("namespace.id", 파라미터, Rowbounds) 호출
 				return sqlSession.selectList("CboardMapper.selectBoardList_search", paramMap, rowBounds);
+	}
+
+	// 댓글 목록 조회
+	public List<CComment> selectComment(int boardNo) {
+		return sqlSession.selectList("CboardMapper.selectCommentList", boardNo);
+	}
+	
+	
+	// 댓글 작성
+	public int insertComment(CComment comment) {
+		return sqlSession.insert("CboardMapper.insertComment", comment);
+	}
+
+	
+	// 댓글 삭제
+	public int deleteComment(int commentNo) {
+		return sqlSession.delete("CboardMapper.deleteComment", commentNo);
+	}
+
+	public int updateComment(CComment comment) {
+		return sqlSession.update("CboardMapper.updateComment", comment);
 	}
 
 

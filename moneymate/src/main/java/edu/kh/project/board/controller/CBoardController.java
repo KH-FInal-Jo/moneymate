@@ -17,9 +17,11 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -30,6 +32,7 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import edu.kh.project.board.model.dto.CBoard;
+import edu.kh.project.board.model.dto.CComment;
 import edu.kh.project.board.model.service.CBoardService;
 import edu.kh.project.member.model.dto.Member;
 
@@ -294,6 +297,31 @@ public class CBoardController {
 		ra.addFlashAttribute("message", message);
 		
 		return path;
+	}
+	
+	
+	@GetMapping(value = "/comment", produces = "application/json; charset=UTF-8")
+	@ResponseBody
+	public List<CComment> select(int boardNo){
+		return service.selectComment(boardNo);
+	}
+	
+	@PostMapping(value = "/comment")
+	@ResponseBody
+	public int insertComment (@RequestBody CComment comment) {
+		return service.insertComment(comment);
+	}
+	
+	@DeleteMapping("/comment")
+	@ResponseBody
+	public int deleteComment(@RequestBody int commentNo) {
+		return service.deleteComment(commentNo);
+	}
+	
+	@PutMapping("/comment")
+	@ResponseBody
+	public int updateComment(@RequestBody CComment comment) {
+		return service.updateComment(comment);
 	}
 	
 	

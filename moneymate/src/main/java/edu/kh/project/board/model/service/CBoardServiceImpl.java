@@ -15,6 +15,7 @@ import org.springframework.web.multipart.MultipartFile;
 import edu.kh.project.board.model.dao.CBoardDAO;
 import edu.kh.project.board.model.dto.CBoard;
 import edu.kh.project.board.model.dto.CBoardImage;
+import edu.kh.project.board.model.dto.CComment;
 import edu.kh.project.board.model.dto.CPagination;
 import edu.kh.project.board.model.exception.FileUploadException;
 import edu.kh.project.board.model.exception.ImageDeleteException;
@@ -261,6 +262,32 @@ public class CBoardServiceImpl implements CBoardService {
 	public int boardDelete(int boardNo) {
 		int result = dao.boardDelete(boardNo);
 		return result;
+	}
+
+	// 댓글 목록 조회
+	@Override
+	public List<CComment> selectComment(int boardNo) {
+		return dao.selectComment(boardNo);
+	}
+
+	// 댓글 작성
+	@Transactional(rollbackFor = {Exception.class})
+	@Override
+	public int insertComment(CComment comment) {
+		
+		comment.setCommentContent(Util.XSSHandling(comment.getCommentContent()));
+		
+		return dao.insertComment(comment);
+	}
+
+	@Override
+	public int deleteComment(int commentNo) {
+		return dao.deleteComment(commentNo);
+	}
+
+	@Override
+	public int updateComment(CComment comment) {
+		return dao.updateComment(comment);
 	}
 
 
