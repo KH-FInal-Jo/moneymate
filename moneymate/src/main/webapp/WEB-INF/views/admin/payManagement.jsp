@@ -1,5 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
+<c:set var="pagination" value="${map.pagination}"/>
+<c:set var="payList" value="${map.payList}"/>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -18,7 +22,7 @@
 
             <section class="j-admin-sidemenu">
                 <div class="j-admin-sidemenu-container">
-                    <div class="j-admin-sidemenu-title">회원 관리</div>
+                    <div class="j-admin-sidemenu-title"><a href="/admin/member">회원 관리</a></div>
 
                     <div class="j-admin-sidemenu-content">
                         <div id="j-admin-report" onclick="reportBtn()">신고 관리</div>
@@ -41,7 +45,7 @@
             </section>
 
             <section class="main">
-                <div></div>
+                <div><h1>결제관리</h1></div>
                 <table border="1" class="result">
                     <thead class="thead">
                         <tr>
@@ -54,33 +58,60 @@
                     </thead>
     
                     <tbody class="tbody">
-                        <tr>
-                            <td>1</td>
-                            <td>새우깡</td>
-                            <td>rjh10010@naver.com</td>
-                            <td>2023/08/01~2023/08/31</td>
-                            <td>2800마일리지</td>
-                        </tr>
-                        
-                        
+
+                    <c:choose>
+                        <c:when test="${empty payList}">
+                            <tr>
+	                            <th colspan="5">결제 내역이 없습니다.</th>
+	                        </tr>
+                        </c:when>
+                        <c:otherwise>
+                            <c:forEach items="${payList}" var="pay">
+                                <tr>
+                                    <td>${pay.memberNo}</td>
+                                    <td>${pay.memberNickname}</td>
+                                    <td>${pay.memberId}</td>
+                                    <td>${pay.subscribeStart}~${pay.subscribeEnd}</td>
+                                    <td>${pay.useMileage}마일리지</td>
+                                </tr>
+                            </c:forEach>
+
+                        </c:otherwise>
+                    </c:choose>
+
                     </tbody>
                 </table>
     
-                <div class="page">
-                    <a href="#">&lt;&lt;</a>
-                    <a href="#">&lt;</a>
-                    <a href="#">1</a>
-                    <a href="#">2</a>
-                    <a href="#">3</a>
-                    <a href="#">4</a>
-                    <a href="#">5</a>
-                    <a href="#">6</a>
-                    <a href="#">7</a>
-                    <a href="#">8</a>
-                    <a href="#">9</a>
-                    <a href="#">10</a>
-                    <a href="#">&gt;</a>
-                    <a href="#">&gt;&gt;</a>
+                <div class="pagination-area">
+
+
+                    <ul class="pagination">
+                    
+                        <li><a href="/community/3?cp=1">&lt;&lt;</a></li>
+
+                        <li><a href="/community/3?cp=${pagination.prevPage}">&lt;</a></li>
+
+                
+                        <c:forEach var="i" begin="${pagination.startPage}" end="${pagination.endPage}">
+                            <c:choose>
+                            <c:when test="${i == pagination.currentPage}">
+                                    <li><a class="current">${i}</a></li>
+                            </c:when>
+                            
+                            <c:otherwise>
+                                    <li><a href="/community/3?cp=${i}">${i}</a></li>
+                            </c:otherwise>
+                            </c:choose>
+                            
+                        </c:forEach>
+                        
+                        
+                        
+                        <li><a href="/community/3?cp=${pagination.nextPage}">&gt;</a></li>
+
+                        <li><a href="/community/3?cp=${pagination.maxPage}">&gt;&gt;</a></li>
+
+                    </ul>
                 </div>
             </section>
         </section>

@@ -6,15 +6,15 @@
 
 <section class="j-admin-sidemenu">
     <div class="j-admin-sidemenu-container">
-        <div class="j-admin-sidemenu-title">회원 관리</div>
+        <div class="j-admin-sidemenu-title"><a href="/admin/member">회원 관리</a></div>
 
         <div class="j-admin-sidemenu-content">
             <div id="j-admin-report" onclick="reportBtn()">신고 관리</div>
             <div id="j-admin-report-container">
                 <div><a href="#">채팅</a></div>
-                <div><a href="#">게시판</a></div>
+                <div><a href="/admin/reportManage/board">게시판</a></div>
             </div>
-            <div>결제 관리</div>
+            <div><a href="/admin/payment">결제 관리</a></div>
             <div id="j-admin-community-list" onclick="adminCommunity()">게시판 관리</div>
                 <div id="j-admin-com">
                     <div><a href="#">공지사항</a></div>

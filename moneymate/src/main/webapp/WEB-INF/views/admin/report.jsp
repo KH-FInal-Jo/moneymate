@@ -49,7 +49,7 @@
                             <input type="radio" class="radio" name="reportCategory" value="2" id="r2"><label for="r2">불법 광고를 해요.</label><br>
                             <input type="radio" class="radio" name="reportCategory" value="3" id="r3"><label for="r3">개인정보 노출 및 사생활 침해</label><br>
                             <input type="radio" class="radio" name="reportCategory" value="4" id="r4"><label for="r4">도배 글이에요.</label><br>
-                            <input type="radio" class="radio" name="reportCategory" value="5" id="r5"><label for="r4">기타</label><br>
+                            <input type="radio" class="radio" name="reportCategory" value="5" id="r5"><label for="r5">기타</label><br>
 
                             
                             <h5>신고내용</h5>
@@ -68,6 +68,8 @@
 
         
     </main>
+
+    <script src="/resources/js/report.js"></script>
 
 </body>
 </html>
