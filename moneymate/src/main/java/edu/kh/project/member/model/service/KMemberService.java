@@ -16,10 +16,6 @@ public interface KMemberService {
 	// 마이페이지 사이드메뉴 조회
 	List<JMember> selectMypage(int memberNo);
 
-	
-	
-	
-	int updateProfile(MultipartFile profileImage, String webPath, String filePath, Member loginMember);
-	
+		
 
 }
