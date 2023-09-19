@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/header.css">
+    <link rel="stylesheet" href="../css/admin/report.css">
+    <script src="https://kit.fontawesome.com/98acdabf0d.js"
+	crossorigin="anonymous"></script>
+    <title>마이페이지 사이드메뉴</title>
+</head>
+<body>
+
+    <main>
+        <section>
+            <div class="head">
+                <div><a href=""><img src="../images/로고.png"></a></div>
+                <div class="head-board">
+                    <!-- 헤더 글 -->
+                    <div class="nav">
+                        <a href=""><span>커뮤니티</span></a>
+                        <a href=""><span>가계부</span></a>
+                        <a href=""><span>소비 테스트</span></a>
+                        <a href=""><span>이벤트게시판</span></a>
+                        <a href=""><span>마이페이지</span></a>
+        
+                    </div>
+                    <!-- 헤더 프로필 -->
+                    <div class="login">
+                        <div>
+                            
+                            <img src="../images/로그인 아이콘.png">
+                        </div>
+                        <div>
+                            <a href=""><span>LOGIN</span></a>
+                            <a href=""><span>회원가입</span></a>
+    
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <section>
+            <div class="main">
+                <div class="title"><h1>신고하기</h1></div>
+                <form>
+                    <div class="content">
+                        <div class="writer">
+                            <div class="ecc">글쓴이</div>
+                            <div class="bor1">1111111</div>
+                            <input type="hidden" name="badNo" value="">
+                            <input type="hidden" name="badBoardNo" value="">
+                            <input type="hidden" name="badContent" value="">
+                        </div>
+
+                        <div class="writerContent">
+                            <div class="ecc">
+                                게시글
+                                <br>(채팅내용)
+                            </div>
+                            <div class="bor2"><textarea class="writeContent"></textarea></div>
+                        </div>
+                    </div>
+
+                    <div class="reason">
+                        <div class="r-title">
+                            <h3>사유내용</h3>
+                        </div>
+                        <div class="r-reason">
+                            <input type="radio" class="radio" name="reason" value="1" id="r1"><label for="r1">욕설이 너무 심해요.</label><br>
+                            <input type="radio" class="radio" name="reason" value="2" id="r2"><label for="r2">불법 광고를 해요.</label><br>
+                            <input type="radio" class="radio" name="reason" value="3" id="r3"><label for="r3">개인정보 노출 및 사생활 침해</label><br>
+                            <input type="radio" class="radio" name="reason" value="4" id="r4"><label for="r4">도배 글이에요.</label><br>
+                            <input type="radio" class="radio" name="reason" value="5" id="r5"><label for="r4">기타</label><br>
+
+                            
+                            <h5>신고내용</h5>
+                            <textarea name="reportContent" class="reportContent"></textarea>
+                            <div class="btnArea">
+                                <button type="button" id="goBack">뒤로가기</button>
+                                <button id="submit">제출하기</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </section>
+
+        
+    </main>
+    
+
+    
+</body>
+</html>

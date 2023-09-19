@@ -49,14 +49,7 @@ like.addEventListener("click", (e) => {
 
 
 function reportMember(boardNo){
-    if(confirm("정말 신고하시겠습니까?")){
-
-        
-        fetch()
-        .then()
-        .then()
-        .catch();
-    }
+    location.href = "/community/report?boardNo="+boardNo;
 }
 
 
