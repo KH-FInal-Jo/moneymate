@@ -24,6 +24,8 @@
 		<typeAlias type="edu.kh.project.subscribe.model.dto.Subscribe" alias="Subscribe" />
 		<typeAlias type="edu.kh.project.account.model.dto.SAccount" alias="SAccount" />
 		<typeAlias type="edu.kh.project.account.model.dto.HAccount" alias="HAccount" />
+		<typeAlias type="edu.kh.project.chatting.model.dto.ChattingRoom" alias="ChattingRoom"/>
+		<typeAlias type="edu.kh.project.chatting.model.dto.Message" alias="Message"/>
 	</typeAliases>
 	
 	<!-- mapper 연결 -->
@@ -40,6 +42,7 @@
 		<mapper resource="/mappers/JMember-mapper.xml" />
 		<mapper resource="/mappers/HAdmin-mapper.xml" />
 		<mapper resource="/mappers/HAccount-mapper.xml" />
+		<mapper resource="/mappers/chatting-mapper.xml" />
 	</mappers>
 	
 	
