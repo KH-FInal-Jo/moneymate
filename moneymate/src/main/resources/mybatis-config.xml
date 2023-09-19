@@ -29,6 +29,7 @@
 		<typeAlias type="edu.kh.project.board.model.dto.SBoard" alias="SBoard" />
 		<typeAlias type="edu.kh.project.board.model.dto.SBoardImage" alias="SBoardImage" />
         <typeAlias type="edu.kh.project.board.model.dto.CReport" alias="CReport" />
+        <typeAlias type="edu.kh.project.admin.model.dto.CPay" alias="CPay" />
 	</typeAliases>
 	
 	<!-- mapper 연결 -->

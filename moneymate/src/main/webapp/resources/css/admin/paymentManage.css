@@ -44,19 +44,13 @@ font-family: 'SDGothic', serif;
     height: 40px;
 }
 
-.page{
-    margin-top: 30px;
-    text-align: center;
-}
+
 
 a{
     text-decoration: none;
     color: black;
 }
 
-.page > a:hover{
-    font-weight: bold;
-}
 
 
 button{
@@ -70,4 +64,48 @@ button{
 
 button:hover{
     color: black;
+}
+
+.pagination{
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    padding: 0;
+}
+
+.pagination li{
+    width: 20px;
+    margin: 0 5px;
+    text-align: center;
+}
+
+.pagination a{
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+#btn1{
+    cursor: pointer;
+}
+
+.searchResult{
+    margin-left: 40px;
+}
+
+a{
+    text-decoration: none;
+    color: black;
+}
+
+a:hover{
+    font-weight: bold;
+}
+
+.current{
+    font-weight: bold;
+     background-color: rgb(12,64,202);
+     border-radius: 50%;
+     color: white !important;
+     letter-spacing: 0 !important;
 }

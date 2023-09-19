@@ -7,12 +7,18 @@
 <!DOCTYPE html>
 <html>
 <head>
+
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
 <meta charset="UTF-8">
 <title>신고 관리</title>
 
 <link rel="stylesheet" href="/resources/css/header.css">
 <link rel="stylesheet" href="/resources/css/member/adminSidemenu.css">
 <link rel="stylesheet" href="/resources/css/footer.css">
+<link rel="stylesheet" href="/resources/css/admin/reportManage.css">
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 
 
 </head>
@@ -24,7 +30,7 @@
 
            <section class="j-admin-sidemenu">
                 <div class="j-admin-sidemenu-container">
-                    <div class="j-admin-sidemenu-title">회원 관리</div>
+                    <div class="j-admin-sidemenu-title"><a href="/admin/member">회원 관리</a></div>
 
                     <div class="j-admin-sidemenu-content">
                         <div id="j-admin-report" onclick="reportBtn()">신고 관리</div>
@@ -48,6 +54,7 @@
            
 
             <section class="admin-main">
+            <div><h1>신고관리</h1></div>
                 <div class="admin-report-list">
                     <table border="1" class="admin-report-table">
                         <tr class="admin-report-list-header">
@@ -70,13 +77,32 @@
                             <c:otherwise>
                                 <c:forEach items="${reportList}" var="report">
                                     <tr>
-                                        <th>${report.reportedNo}</th>
-                                        <a href="#"><th width="30px" height="50px">유저일</th></a>
-                                        <td width="40px">user01@naver.com</td>
-                                        <a href="#"><td width="120px">${report}</td></a>
-                                        <a href="#"><td width="50px">${report.reportContent}</td></a>
-                                        <td width="50px">2023.08.30</td>
-                                        <td width="40px"><button type="button">승인</button></td>
+                                        <th>${report.reportedNo}</th>  
+                                        <a href="#"><th width="30px" height="50px">${report.memberNickname}</th></a>
+                                        <td width="40px">${report.memberId}</td>
+                                        <td width="120px"><a href="/community/3/${report.boardNo}" >${report.badContent}</a></td>
+                                        <td width="50px">
+                                            <a href="#">
+                                                <c:if test="${report.reportCategory == 1}" >
+                                                    [욕설]
+                                                </c:if>
+                                                <c:if test="${report.reportCategory == 2}" >
+                                                    [광고]
+                                                </c:if>
+                                                <c:if test="${report.reportCategory == 3}" >
+                                                    [정보]
+                                                </c:if>
+                                                <c:if test="${report.reportCategory == 4}" >
+                                                    [도배]
+                                                </c:if>
+                                                <c:if test="${report.reportCategory == 5}" >
+                                                    [기타]
+                                                </c:if>
+                                                ${report.reportContent}
+                                            </a>
+                                        </td>
+                                        <td width="50px">${report.reportDate}</td>
+                                        <td width="40px"><button type="button" id="confirm" onclick="confirm(${report.boardNo}, ${report.reportedNo})">확인</button></td>
                                     </tr>
                                 </c:forEach>
                             </c:otherwise>
@@ -85,6 +111,39 @@
                     </table>
 
                 </div>
+
+                <div class="pagination-area">
+
+
+                    <ul class="pagination">
+                    
+                        <li><a href="/community/3?cp=1">&lt;&lt;</a></li>
+
+                        <li><a href="/community/3?cp=${pagination.prevPage}">&lt;</a></li>
+
+                
+                        <c:forEach var="i" begin="${pagination.startPage}" end="${pagination.endPage}">
+                            <c:choose>
+                            <c:when test="${i == pagination.currentPage}">
+                                    <li><a class="current">${i}</a></li>
+                            </c:when>
+                            
+                            <c:otherwise>
+                                    <li><a href="/community/3?cp=${i}">${i}</a></li>
+                            </c:otherwise>
+                            </c:choose>
+                            
+                        </c:forEach>
+                        
+                        
+                        
+                        <li><a href="/community/3?cp=${pagination.nextPage}">&gt;</a></li>
+
+                        <li><a href="/community/3?cp=${pagination.maxPage}">&gt;&gt;</a></li>
+
+                    </ul>
+                </div>
+
 
                 
 

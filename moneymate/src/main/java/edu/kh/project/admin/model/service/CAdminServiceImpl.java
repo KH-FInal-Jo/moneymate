@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import edu.kh.project.admin.model.dao.CAdminDAO;
+import edu.kh.project.admin.model.dto.CPay;
 import edu.kh.project.board.model.dto.CPagination;
 import edu.kh.project.board.model.dto.CReport;
 
@@ -30,6 +31,33 @@ public class CAdminServiceImpl implements CAdminService {
 		
 		map.put("pagination", pagination);
 		map.put("reportList", reportList);
+		
+		return map;
+	}
+
+	@Override
+	public int reportConfirm(Map<String, Object> paramMap) {
+		return dao.reportConfirm(paramMap);
+	}
+
+	@Override
+	public int reportDupCheck(Map<String, Object> paramMap) {
+		return dao.reportDupCheck(paramMap);
+	}
+
+	@Override
+	public Map<String, Object> selectPayList(int cp) {
+		
+		int payCount = dao.getPayCount();
+		
+		CPagination pagination = new CPagination(cp, payCount);
+		
+		List<CPay> payList = dao.selectPayList(pagination);
+		
+		Map<String, Object> map = new HashMap<String, Object>();
+		
+		map.put("pagination", pagination);
+		map.put("payList", payList);
 		
 		return map;
 	}

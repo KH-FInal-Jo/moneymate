@@ -48,8 +48,33 @@ like.addEventListener("click", (e) => {
 });
 
 
-function reportMember(boardNo){
-    location.href = "/community/report?boardNo="+boardNo;
+function reportMember(boardNo, loginMemberNo){
+
+    const data = {
+        "boardNo" : boardNo,
+        "memberNo" : loginMemberNo
+    }
+    
+    
+    fetch("/admin/reportManage/dupCheck", {
+        method : 'POST',
+        headers : {"Content-Type" : "application/json"},
+        body : JSON.stringify(data)
+    })
+    .then(resp => resp.text())
+    .then(count => {
+        if(count == 0){
+            location.href = "/community/report?boardNo="+boardNo;
+        } else{
+            alert("같은 게시글을 중복 신고할 수 없습니다.");
+        }
+    })
+    .catch();
+
+
+
+
+
 }
 
 
@@ -64,7 +89,7 @@ memberNickname.addEventListener("click", function(){
 
     const reportBtn = document.createElement("button");
     reportBtn.innerText = "신고하기";
-    reportBtn.setAttribute("onclick", "reportMember("+boardNo+", this)");
+    reportBtn.setAttribute("onclick", "reportMember("+boardNo+","+loginMemberNo+", this)");
     reportBtn.classList.add("report");
     memberNickname.append(reportBtn);
 

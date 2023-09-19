@@ -6,7 +6,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import edu.kh.project.admin.model.service.CAdminService;
 
@@ -17,7 +20,14 @@ public class CAdminController {
 	private CAdminService service;
 	
 	@GetMapping("/admin/payment")
-	public String paymentManage () {
+	public String paymentManage (@RequestParam(value="cp", required=false, defaultValue = "1") int cp, Model model) {
+		
+		Map<String, Object> map = service.selectPayList(cp);
+		
+		System.out.println(map);
+		
+		model.addAttribute("map", map);
+		
 		
 		return "admin/payManagement";
 	}
@@ -31,9 +41,28 @@ public class CAdminController {
 		
 		model.addAttribute("map", map);
 		
-		System.out.println(map);
-		
 		
 		return "admin/reportManage";
 	}
+	
+	
+	
+	@PostMapping("/admin/reportManage/confirm")
+	@ResponseBody
+	public int reportConfirm(@RequestBody Map<String, Object> paramMap) {
+		
+		
+		int result = service.reportConfirm(paramMap);
+		
+		return result;
+	}
+	
+	
+	@PostMapping("/admin/reportManage/dupCheck")
+	@ResponseBody
+	public int reportDupCheck(@RequestBody Map<String, Object> paramMap) {
+		
+		return service.reportDupCheck(paramMap);
+	}
+	
 }
