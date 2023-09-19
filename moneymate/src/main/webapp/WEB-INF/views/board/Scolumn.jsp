@@ -6,13 +6,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>칼럼게시판</title>
 
-    <link rel="stylesheet" href="resources/css/header.css">
-    <link rel="stylesheet" href="resources/css/column.css">
-    <link rel="stylesheet" href="resources/css/board/boardSidemenu-style.css">
+    <link rel="stylesheet" href="/resources/css/header.css">
+    <link rel="stylesheet" href="/resources/css/column.css">
+    <link rel="stylesheet" href="/resources/css/board/boardSidemenu-style.css">
 
-    <script src="resources/js/jquery-3.7.0.min.js"></script>
+    <script src="/resources/js/jquery-3.7.0.min.js"></script>
 </head>
 <body>
     <!-- 헤드 -->
@@ -28,30 +28,14 @@
 
     <main class="columnMain">
 
-        <section class="j-board-sidemenu">
-            <div class="j-board-community-header">
-                <div>커뮤니티 </div>
-                <div>community</div>
-            </div>
-            <ul class="j-board-sidemenu-list">
-
-                <li><a href="#">공지사항<i class="fa-solid fa-caret-right fa-xl"></i></a></li>
-                
-                <li><a href="#">문의게시판<i class="fa-solid fa-caret-right fa-xl"></i></a></li>
-                
-                <li><a href="#">자유게시판<i class="fa-solid fa-caret-right fa-xl"></i></a></li>
-                
-                <li><a href="#">컬럼게시판<i class="fa-solid fa-caret-right fa-xl"></i></a></li>
-            </ul>
-
-        </section>
+        <jsp:include page="/WEB-INF/views/board/boardSideMenu.jsp"></jsp:include>
 
 
         <section class="main">
 
             
             <div class="explain">
-                <div><img src="resources/images/금융칼럼.jpg"></div>
+                <div><img src="/resources/images/금융칼럼.jpg"></div>
                 <div class="ex-title"> 
                     <div>
                         #경제,금융에 대해서 얼마나 아니?
@@ -67,15 +51,15 @@
 
                 <div class="one">
                     <div class="one-1">
-                        <div><a href="#"><img src="resources/images/dog1.jpg"></a></div>
+                        <div><a href="#"><img src="/resources/images/dog1.jpg"></a></div>
                         <div><a href="#" class="a-title">20대에게 추천하는 신용/체크카드!dddddddddhflkjas dshajklff sadhf jlk</a></div>
                     </div>
                     <div class="one-2">
-                        <div><a href="#"><img src="resources/images/dog1.jpg"></a></div>
+                        <div><a href="#"><img src="/resources/images/dog1.jpg"></a></div>
                         <div><a href="#" class="a-title">20대에게 추천하는 신용/체크카드! 안ㄴ녕하세요 안영낭ㄴ머ㅏdfk</a></div>
                     </div>
                     <div class="one-3">
-                        <div><a href="#"><img src="resources/images/dog1.jpg"></a></div>
+                        <div><a href="#"><img src="/resources/images/dog1.jpg"></a></div>
                         <div><a href="#" class="a-title">20대에게 추천하는 신용/체크카드!dddd adjlkhf asdjkhlf wqud</a></div>
                     </div>
                 </div>
@@ -137,29 +121,29 @@
                 </div>
                 <div class="one">
                     <div class="one-1">
-                        <div><a href="#"><img src="resources/images/dog1.jpg"></a></div>
+                        <div><a href="#"><img src="/resources/images/dog1.jpg"></a></div>
                         <div><a href="#" class="a-title">20대에게 추천하는 신용/체크카드!dddddddddhflkjas dshajklff sadhf jlk</a></div>
                     </div>
                     <div class="one-2">
-                        <div><a href="#"><img src="resources/images/dog1.jpg"></a></div>
+                        <div><a href="#"><img src="/resources/images/dog1.jpg"></a></div>
                         <div><a href="#" class="a-title">20대에게 추천하는 신용/체크카드! 안ㄴ녕하세요 안영낭ㄴ머ㅏdfk</a></div>
                     </div>
                     <div class="one-3">
-                        <div><a href="#"><img src="resources/images/dog1.jpg"></a></div>
+                        <div><a href="#"><img src="/resources/images/dog1.jpg"></a></div>
                         <div><a href="#" class="a-title">20대에게 추천하는 신용/체크카드!dddd adjlkhf asdjkhlf wqud</a></div>
                     </div>
                 </div>
                 <div class="one">
                     <div class="one-1">
-                        <div><a href="#"><img src="resources/images/dog1.jpg"></a></div>
+                        <div><a href="#"><img src="/resources/images/dog1.jpg"></a></div>
                         <div><a href="#" class="a-title">20대에게 추천하는 신용/체크카드!dddddddddhflkjas dshajklff sadhf jlk</a></div>
                     </div>
                     <div class="one-2">
-                        <div><a href="#"><img src="resources/images/dog1.jpg"></a></div>
+                        <div><a href="#"><img src="/resources/images/dog1.jpg"></a></div>
                         <div><a href="#" class="a-title">20대에게 추천하는 신용/체크카드! 안ㄴ녕하세요 안영낭ㄴ머ㅏdfk</a></div>
                     </div>
                     <div class="one-3">
-                        <div><a href="#"><img src="resources/images/dog1.jpg"></a></div>
+                        <div><a href="#"><img src="/resources/images/dog1.jpg"></a></div>
                         <div><a href="#" class="a-title">20대에게 추천하는 신용/체크카드!dddd adjlkhf asdjkhlf wqud</a></div>
                     </div>
                 </div>
@@ -180,11 +164,9 @@
 
     </main>
 
-    <footer>
-        footer
-    </footer>
+   <jsp:include page="/WEB-INF/views/common/footer.jsp"></jsp:include>
 
-    <script src="resources/js/column.js"></script>
+    <script src="/resources/js/column.js"></script>
     
     
 </body>
