@@ -18,15 +18,17 @@
 
         <section>
             <div class="main">
-                <div class="title"><h1>신고하기</h1></div> ${board}
-                <form action="/community/report" method="POST">
+                <div class="title"><h1>신고하기</h1></div>
+                <form action="/community/report/board" method="POST">
                     <div class="content">
                         <div class="writer">
                             <div class="ecc">글쓴이</div>
                             <div class="bor1">${board.memberNickname}</div>
                             <input type="hidden" name="reportedNo" value="${board.memberNo}">
                             <input type="hidden" name="boardNo" value="${board.boardNo}">
-                            <input type="hidden" name="badContent" value="">
+                            <input type="hidden" name="badContent" value="${board.boardContent}">
+                            <input type="hidden" name="memberId" value="${board.memberId}">
+                            <input type="hidden" name="memberNickname" value="${board.memberNickname}">
                         </div>
 
                         <div class="writerContent">
@@ -43,11 +45,11 @@
                             <h3>사유내용</h3>
                         </div>
                         <div class="r-reason">
-                            <input type="radio" class="radio" name="reportCode" value="1" id="r1"><label for="r1">욕설이 너무 심해요.</label><br>
-                            <input type="radio" class="radio" name="reportCode" value="2" id="r2"><label for="r2">불법 광고를 해요.</label><br>
-                            <input type="radio" class="radio" name="reportCode" value="3" id="r3"><label for="r3">개인정보 노출 및 사생활 침해</label><br>
-                            <input type="radio" class="radio" name="reportCode" value="4" id="r4"><label for="r4">도배 글이에요.</label><br>
-                            <input type="radio" class="radio" name="reportCode" value="5" id="r5"><label for="r4">기타</label><br>
+                            <input type="radio" class="radio" name="reportCategory" value="1" id="r1"><label for="r1">욕설이 너무 심해요.</label><br>
+                            <input type="radio" class="radio" name="reportCategory" value="2" id="r2"><label for="r2">불법 광고를 해요.</label><br>
+                            <input type="radio" class="radio" name="reportCategory" value="3" id="r3"><label for="r3">개인정보 노출 및 사생활 침해</label><br>
+                            <input type="radio" class="radio" name="reportCategory" value="4" id="r4"><label for="r4">도배 글이에요.</label><br>
+                            <input type="radio" class="radio" name="reportCategory" value="5" id="r5"><label for="r4">기타</label><br>
 
                             
                             <h5>신고내용</h5>

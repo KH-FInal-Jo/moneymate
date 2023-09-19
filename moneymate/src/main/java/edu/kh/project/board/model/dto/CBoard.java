@@ -24,7 +24,7 @@ public class CBoard {
 	private int commentCount;
 	private int likeCount; 
 	
-	
+	private String memberId;
 	private String memberNickname; 
 	private int memberNo;
 	private String profileImage;

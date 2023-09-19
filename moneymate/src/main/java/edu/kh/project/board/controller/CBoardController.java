@@ -33,6 +33,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import edu.kh.project.board.model.dto.CBoard;
 import edu.kh.project.board.model.dto.CComment;
+import edu.kh.project.board.model.dto.CReport;
 import edu.kh.project.board.model.service.CBoardService;
 import edu.kh.project.member.model.dto.Member;
 
@@ -342,9 +343,28 @@ public class CBoardController {
 	}
 	
 	
-	@PostMapping("/report")
-	public String report(@SessionAttribute("loginMember") Member loginMember, RedirectAttributes ra, HttpSession session) {
-		return null;
+	@PostMapping("/report/board")
+	public String report(CReport report ,@SessionAttribute("loginMember") Member loginMember, RedirectAttributes ra, HttpSession session) {
+		
+		report.setReportNo(loginMember.getMemberNo());
+		report.setReportCode(1);
+		
+		int result = service.insertReport(report);
+		
+		String message = null;
+		String path = "redirect:";		
+
+		if(result > 0) {
+			message = "신고 접수가 완료 되었습니다.";
+			path += "/community/3/" + report.getBoardNo();
+		} else {
+			message = "신고 접수 중 오류가 발생했습니다.";
+			path += "/community/3/" + report.getBoardNo();
+		}
+		
+		ra.addFlashAttribute("message" ,message);
+		
+		return path;
 	}
 	
 	

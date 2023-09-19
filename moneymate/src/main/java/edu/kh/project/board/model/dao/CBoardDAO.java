@@ -12,6 +12,7 @@ import edu.kh.project.board.model.dto.CBoard;
 import edu.kh.project.board.model.dto.CBoardImage;
 import edu.kh.project.board.model.dto.CComment;
 import edu.kh.project.board.model.dto.CPagination;
+import edu.kh.project.board.model.dto.CReport;
 
 @Repository
 public class CBoardDAO {
@@ -148,6 +149,16 @@ public class CBoardDAO {
 	public int updateComment(CComment comment) {
 		return sqlSession.update("CboardMapper.updateComment", comment);
 	}
+
+
+
+	public int insertReport(CReport report) {
+		return sqlSession.insert("CboardMapper.insertReport", report);
+	}
+
+
+
+	
 
 
 }
