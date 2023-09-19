@@ -85,7 +85,6 @@
             <c:forEach var="room" items="${roomList}">
                 <li class="result-row3" chat-no="${room.chattingNo}" target-no="${room.targetNo}"  onclick="roomListAddEvent(this)" data-id="${room.targetNo}">
                     <div class="chatMessage3">
-                    ${room.targetNo}
                         <div>
                             <c:if test="${!empty room.targetProfile}">
                                 <img class="result-row-img" src="${room.targetProfile}">
@@ -101,10 +100,16 @@
                         </div>
                         <div>
                             <div>
-                                오후 1:15
+                                ${room.sendTime}
                             </div>
                             <div>
-                                <div>2</div>
+                                <%-- <c:if test="${room.notReadCount > 0}">
+                                    <div class="readCount">${room.notReadCount}</div>
+                                 </c:if> --%>
+                                 <c:if test="${room.notReadCount > 0}">
+                                <p class="not-read-count">${room.notReadCount}</p>
+                                </c:if>
+                                 <div></div>
                             </div>
                         </div>
 
@@ -128,29 +133,11 @@
 
                  <div class="wrap">
                     <div class="chat ch1">
-                    </div>
-                    <div class="chat ch2">
-                    </div>
-                    <div class="chat ch1">
                         <div class="icon"><img src="../images/몽자.jpg" alt=""></div>
                         <div class="textbox">넹 잘 지내고있죵 제 영상 자주 시청하시나용 속삭이는 몽자요!!</div>
                     </div>
                     <div class="chat ch2">
                         <div class="textbox">잘 보고있죵! 너무 재밌어요 혹시 사람 아닌가요 ㅋㅋ</div>
-                    </div>
-                    <div class="chat ch1">
-                        <div class="icon"><img src="../images/몽자.jpg" alt=""></div>
-                        <div class="textbox">들켰다..... 멍멍</div>
-                    </div>
-                    <div class="chat ch2">
-                        <div class="textbox">ㅋㅋㅋㅋㅋ 너무 귀여웡 ㅎㅎ 집 가고싶다</div>
-                    </div>
-                    <div class="chat ch1">
-                        <div class="icon"><img src="../images/몽자.jpg" alt=""></div>
-                        <div class="textbox">저도.. 아 엽떡 먹고싶다</div>
-                    </div>
-                    <div class="chat ch2">
-                        <div class="textbox">엽떡이랑 치킨 고고 난 좀이따 집간다~~~~ 행복해~~~ ❤❤❤</div>
                     </div>
                 </div>
 

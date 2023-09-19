@@ -369,10 +369,11 @@ main {
 
 /* 날짜 */
 .chatMessage3 > div:nth-child(3)>div:first-child{
-    width: 80px;
+    width: 120px;
     display: flex;
-    justify-content: end;
+    justify-content: center;
     padding-top: 5px;
+    margin-left: -5px;
 
     color: rgb(107, 105, 105);
 }
@@ -384,7 +385,7 @@ main {
 }
 
 /* 안읽은 문자 개수 */
-.chatMessage3 > div:nth-child(3)>div:last-child{
+.readCount{
     background-color: red;
     color: white;
     font-weight: bold;
@@ -394,14 +395,11 @@ main {
     height: 28px;
     border-radius: 50%;
 
-    margin-left: 2px;
-
     display: flex;
     justify-content: center;
     align-items: center;
 
     margin-top: 10px;
-    margin-left:10px;
 }
 
 
