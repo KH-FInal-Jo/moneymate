@@ -8,6 +8,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import edu.kh.project.board.model.dto.CBoard;
 import edu.kh.project.board.model.dto.CComment;
+import edu.kh.project.board.model.dto.CReport;
 
 public interface CBoardService {
 
@@ -40,6 +41,8 @@ public interface CBoardService {
 
 	// 댓글 수정
 	int updateComment(CComment comment);
+
+	int insertReport(CReport report);
 
 
 	

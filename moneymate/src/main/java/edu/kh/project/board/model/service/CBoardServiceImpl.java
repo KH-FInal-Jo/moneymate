@@ -17,6 +17,7 @@ import edu.kh.project.board.model.dto.CBoard;
 import edu.kh.project.board.model.dto.CBoardImage;
 import edu.kh.project.board.model.dto.CComment;
 import edu.kh.project.board.model.dto.CPagination;
+import edu.kh.project.board.model.dto.CReport;
 import edu.kh.project.board.model.exception.FileUploadException;
 import edu.kh.project.board.model.exception.ImageDeleteException;
 import edu.kh.project.common.utility.Util;
@@ -288,6 +289,18 @@ public class CBoardServiceImpl implements CBoardService {
 	@Override
 	public int updateComment(CComment comment) {
 		return dao.updateComment(comment);
+	}
+
+	// 신고하기
+	@Transactional(rollbackFor = {Exception.class})
+	@Override
+	public int insertReport(CReport report) {
+		report.setReportContent(Util.XSSHandling(report.getReportContent()));
+
+		int result = dao.insertReport(report);
+		
+		return result;
+
 	}
 
 

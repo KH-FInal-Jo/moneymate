@@ -78,8 +78,8 @@
 		                                <td>${board.likeCount}</td>
 		                            </tr>
 		                        </c:forEach>
-	                       </c:otherwise>
-                    </c:choose>
+	                        </c:otherwise>
+                        </c:choose>
                          
                            
                         </tbody>
