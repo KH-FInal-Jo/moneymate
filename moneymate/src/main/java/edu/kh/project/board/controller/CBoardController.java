@@ -325,5 +325,28 @@ public class CBoardController {
 	}
 	
 	
+	@GetMapping("/report")
+	public String report(int boardNo, Model model) {
+		
+		Map<String, Object> map = new HashMap<String, Object>();
+		
+		map.put("boardCode", 3);
+		map.put("boardNo", boardNo);
+		
+		CBoard board = service.selectBoard(map);
+		
+		
+		model.addAttribute("board", board);
+		
+		return "admin/report";
+	}
+	
+	
+	@PostMapping("/report")
+	public String report(@SessionAttribute("loginMember") Member loginMember, RedirectAttributes ra, HttpSession session) {
+		return null;
+	}
+	
+	
 
 }

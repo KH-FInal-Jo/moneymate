@@ -149,7 +149,6 @@
                     <div class="comment-write-area">
                         <textarea id="commentContent"></textarea>
                         <button id="addComment">
-                            댓글<br>
                             등록
                         </button>
                 
