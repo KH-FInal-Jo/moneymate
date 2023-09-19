@@ -52,10 +52,6 @@ function buildCalendar() {
 
                 choiceDate(this);
              }
-
-
-
-            
         }
         else {                                      // 미래인 경우
             newDIV.className = "pastDay";
@@ -129,5 +125,5 @@ function gotoEventList(){
 
     .catch(err =>{console.log(err); console.log("예외 발생")})
 
-    location.href = "/";
+    location.href = "/event";
 }

@@ -21,4 +21,10 @@ public interface HSubscribeService {
 	 */
 	Subscribe subscribeEnd(int no);
 
+	/** 0원 결제
+	 * @param subscribe
+	 * @return result
+	 */
+	int subsZero(Subscribe subscribe);
+
 }

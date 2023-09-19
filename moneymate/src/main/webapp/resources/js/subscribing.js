@@ -108,7 +108,7 @@ let flag = true;
     document.getElementById("inform-area").style.display = "none";
 }) */
 
-creditBtn.addEventListener("click", () => {
+/* creditBtn.addEventListener("click", () => {
 
     flag = true;
 
@@ -117,7 +117,8 @@ creditBtn.addEventListener("click", () => {
     document.getElementsByClassName("none-area")[2].style.display = "none";
 
     document.getElementById("inform-area").style.display = "block";
-});
+}); */
+
 
 
 // 결제 api
@@ -128,59 +129,75 @@ $("#creditBtn").click(function () {
         return;
     } else {
 
-        IMP.init('imp71418067'); 
-        IMP.request_pay({
-        pg: "inicis",
-        pay_method: "card",
-        merchant_uid : 'merchant_'+new Date().getTime(),
-        name : 'moneyMate',
-        amount : parseInt(realPrice.value),
-        buyer_email : memberEmail,
-        buyer_name : memberNickname,
-      }, function (rsp) { // callback
-          if (rsp.success) {
-            // 결제 성공 시 로직,
-            var msg = '결제가 완료되었습니다.';
-            msg += '고유ID : ' + rsp.imp_uid;
-            msg += '상점 거래ID : ' + rsp.merchant_uid;
-            msg += '결제 금액 : ' + rsp.paid_amount;
-            msg += '카드 승인번호 : ' + rsp.apply_num;
-
-            const data = { "amount" : realPrice.value,
-                    "useMile" : useMile1.value,
-                    "prePrice" : prePrice.value };
-
-
-            // ajax
-            fetch("/subscribe/calculate/kg", {
-                method  : "POST",
-                headers : {"Content-Type" : "application/json"},
-                body    : JSON.stringify(data)
-            })
+        if(realPrice.value == 0){
+            fetch("/subscribe/zero?price=" + prePrice.value)
 
             .then(resp => resp.text())
 
-            .then( result => {
-                if(result > 0 ){
-                    location.href = "/subscribe/end?no=" + result;
-                } else {
-                    alert("결제에 실패하셨습니다.");
-                    location.href = "/";
-                }
+            .then(result => {
+                //console.log(result)
+                location.href = "/subscribe/end?no=" + result;
             })
 
-            .catch(err => {
-                console.log(err);
-            });
+            .catch(e => console.log(e))
 
-          } else {
-            // 결제 실패 시 로직,
-            var msg = '결제에 실패하였습니다.';
-            msg += '에러내용 : ' + rsp.error_msg;
-          }
+        } else {
+            IMP.init('imp71418067'); 
+            IMP.request_pay({
+            pg: "inicis",
+            pay_method: "card",
+            merchant_uid : 'merchant_'+new Date().getTime(),
+            name : 'moneyMate',
+            amount : parseInt(realPrice.value),
+            buyer_email : memberEmail,
+            buyer_name : memberNickname,
+          }, function (rsp) { // callback
+              if (rsp.success) {
+                // 결제 성공 시 로직,
+                var msg = '결제가 완료되었습니다.';
+                msg += '고유ID : ' + rsp.imp_uid;
+                msg += '상점 거래ID : ' + rsp.merchant_uid;
+                msg += '결제 금액 : ' + rsp.paid_amount;
+                msg += '카드 승인번호 : ' + rsp.apply_num;
     
-         // alert(msg)
-      })
+                const data = { "amount" : realPrice.value,
+                        "useMile" : useMile1.value,
+                        "prePrice" : prePrice.value };
+    
+    
+                // ajax
+                fetch("/subscribe/calculate/kg", {
+                    method  : "POST",
+                    headers : {"Content-Type" : "application/json"},
+                    body    : JSON.stringify(data)
+                })
+    
+                .then(resp => resp.text())
+    
+                .then( result => {
+                    if(result > 0 ){
+                        location.href = "/subscribe/end?no=" + result;
+                    } else {
+                        alert("결제에 실패하셨습니다.");
+                        location.href = "/";
+                    }
+                })
+    
+                .catch(err => {
+                    console.log(err);
+                });
+    
+              } else {
+                // 결제 실패 시 로직,
+                var msg = '결제에 실패하였습니다.';
+                msg += '에러내용 : ' + rsp.error_msg;
+              }
+    
+        
+             // alert(msg)
+          })
+            
+        }
     }
 
 })
