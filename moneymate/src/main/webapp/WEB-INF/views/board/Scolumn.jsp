@@ -48,6 +48,7 @@
             </div>
             <!-- 컬럼 목록 -->        
 
+                <a href="/community/4/insert"><button id="Swrite">글쓰기</button></a>
 
                 <div class="one">
                     <div class="one-1">
