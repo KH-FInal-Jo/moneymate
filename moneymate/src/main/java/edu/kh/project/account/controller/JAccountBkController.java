@@ -38,7 +38,7 @@ public class JAccountBkController {
 	}
 	
 	// 가계부 상세조회
-	@GetMapping("/account/insert/{bigAccountNo}")
+	@GetMapping("/account/{bigAccountNo}/insert")
 	public String accountBkSelect(@SessionAttribute("loginMember") Member loginMember
 								, @PathVariable("bigAccountNo") int bigAccountNo
 								, Model model) {
