@@ -414,8 +414,29 @@ body {
 
 /* 개인 가계부 */
 .logoImg{
-  margin-left: 17px;
+  margin-left: 35px;
+  width: 160px;
+}
+
+/* 그룹 */
+
+.content1 {
+  width: 230px;
+  height: 260px;
+  margin: auto;
+  padding-top: 10px;
+  overflow: auto;
+  -ms-overflow-style: none;
+  /* 인터넷 익스플로러 */
+  scrollbar-width: none;
+  /* 파이어폭스 */
+  position: relative;
+}
+.logoImg1{
+  position: absolute;
   width: 200px;
+  top: 40px;
+  left: 17px;
 }
 
 @keyframes gradient1 {

@@ -10,6 +10,7 @@
     <title>Document</title>
 
     <link rel="stylesheet" href="/resources/css/account/emailConfirm.css">
+    <link rel="stylesheet" href="/resources/css/footer.css">
 
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 
@@ -33,6 +34,7 @@
     <input type="hidden" value="${key}"/>
 
     <div id="confetti"></div>
+    <jsp:include page="/WEB-INF/views/common/footer.jsp"/>
 
     <script src="/resources/js/emailConfirm.js"></script>
     
