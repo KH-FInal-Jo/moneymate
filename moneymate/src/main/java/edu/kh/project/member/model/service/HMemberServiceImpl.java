@@ -11,6 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 import edu.kh.project.board.model.dto.CBoard;
 import edu.kh.project.board.model.dto.HPagination;
 import edu.kh.project.member.model.dao.HMemberDAO;
+import edu.kh.project.member.model.dto.Member;
 
 @Service
 public class HMemberServiceImpl implements HMemberService {
@@ -44,6 +45,19 @@ public class HMemberServiceImpl implements HMemberService {
 	@Override
 	public int cancelLike(CBoard board) {
 		return dao.cancelLike(board);
+	}
+
+	// 카카오 로그인
+	@Override
+	public Member kakao(Map<String, String> paramMap) {
+		return dao.kakaoLogin(paramMap);
+	}
+
+	// 카카오 회원가입
+	@Transactional (rollbackFor = {Exception.class})
+	@Override
+	public int kakaoSignUp(Map<String, String> paramMap) {
+		return dao.kakaoSignUp(paramMap);
 	}
 
 }

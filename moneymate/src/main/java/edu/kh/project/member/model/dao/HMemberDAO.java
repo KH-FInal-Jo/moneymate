@@ -10,6 +10,7 @@ import org.springframework.stereotype.Repository;
 
 import edu.kh.project.board.model.dto.CBoard;
 import edu.kh.project.board.model.dto.HPagination;
+import edu.kh.project.member.model.dto.Member;
 
 @Repository
 public class HMemberDAO {
@@ -46,6 +47,23 @@ public class HMemberDAO {
 	 */
 	public int cancelLike(CBoard board) {
 		return sqlSession.delete("HMemberMapper.cancelLike", board);
+	}
+
+	/** 카카오 로그인
+	 * @param paramMap
+	 * @return
+	 */
+	public Member kakaoLogin(Map<String, String> paramMap) {
+		return sqlSession.selectOne("HMemberMapper.kakaoLogin", paramMap);
+	}
+
+	/** 카카오 회원가입
+	 * @param paramMap
+	 * @return
+	 */
+	public int kakaoSignUp(Map<String, String> paramMap) {
+		System.out.println("회원가입 DAO까지 왔니?");
+		return sqlSession.insert("HMemberMapper.kakaoSignUp", paramMap);
 	}
 
 }

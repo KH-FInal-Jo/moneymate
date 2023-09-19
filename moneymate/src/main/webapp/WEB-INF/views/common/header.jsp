@@ -11,6 +11,7 @@
 
 <script src="https://kit.fontawesome.com/a5af36132e.js" crossorigin="anonymous"></script>
 <script src="resources/js/jquery-3.7.0.min.js"></script>
+<script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
 
 </head>
 <body>

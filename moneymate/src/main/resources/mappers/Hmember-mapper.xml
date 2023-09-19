@@ -81,4 +81,18 @@
      	DELETE FROM "LIKE" WHERE BR_NO = #{boardNo} AND MEMBER_NO = #{memberNo} AND LIKE_CODE=1
      </delete>
      
+     <!-- 카카오 로그인 -->
+     <select id="kakaoLogin" resultMap="member_rm">
+     	SELECT MEMBER_NO, MEMBER_EMAIL, MEMBER_NAME, MEMBER_NICKNAME, 
+           AUTHORITY, PROFILE FROM "MEMBER"
+        WHERE SECESSION_FL= 'N'
+        AND MEMBER_EMAIL = #{email}
+     </select>
+     
+     <!-- 카카오 회원가입 -->
+     <insert id="kakaoSignUp">
+     	INSERT INTO "MEMBER" VALUES (SEQ_MEMBER_NO.NEXTVAL, #{email}, NULL
+           , #{nickname}, #{nickname}, NULL, NULL, DEFAULT, DEFAULT, #{profile}, 0)
+     </insert>
+     
 </mapper>
