@@ -282,6 +282,8 @@ h1{
     width: 350px;
     height: 540px;
   }
+
+  /* 지출 카테고리,퍼센트 영역 */
   .category-percent{
     width: 350px;
     font-size: 20px;
@@ -451,22 +453,7 @@ margin-right: 10px;
     background-color: rgb(228, 225, 225);
 }
 /* 지출 전체보기 버튼 */
-#SallView-btn{
-    display: none;
-
-    width: 90px;
-    height: 30px;
-
-    border-radius: 5px;
-    cursor: pointer;
-
-    position: absolute;
-    top: 60px;
-    left: 330px;
-
-}
-/* 수입 전체보기 버튼 */
-#IallView-btn{
+#allView-btn{
     display: none;
 
     width: 90px;

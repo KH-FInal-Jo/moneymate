@@ -3,8 +3,6 @@ const incomeDiv = document.querySelector(".chart-div2")
 // 지출 차트
 const spendDiv = document.querySelector(".chart-div")
 
-// 존재하지않는 내역 문구
-const notExist = document.querySelector(".notExist")
 
 // 현재 날짜 구하는 변수
 let today = new Date();
@@ -45,11 +43,11 @@ incomeBtn.addEventListener("click", ()=>{
     incomeArea.style.display = 'block'
 
      // 전체보기 버튼 나타나기
-     const SallViewBtn = document.getElementById("SallView-btn")
+     const allViewBtn = document.getElementById("allView-btn")
 
-      SallViewBtn.addEventListener("click", ()=>{
+      allViewBtn.addEventListener("click", ()=>{
 
-       SallViewBtn.style.display = 'none'
+       allViewBtn.style.display = 'none'
      })
 
 
@@ -67,8 +65,8 @@ spendBtn.addEventListener("click", ()=>{
     incomeArea.style.display = 'none'
 
     // 전체보기 버튼 나타나기
-    const IallViewBtn = document.getElementById("IallView-btn")
-    IallViewBtn.style.display = 'none'
+    const allViewBtn = document.getElementById("allView-btn")
+    allViewBtn.style.display = 'none'
 
 })
 
@@ -160,6 +158,18 @@ function handleFetch(month) {
         const spend = document.getElementById("spend");
         spend.innerText = "내역 없음";
 
+        
+        const incomebtn = document.getElementById("income");
+        if(incomebtn.innerText == '내역 없음' && spend.innerText == '내역 없음'){
+          alert("해당 월에 지출,수입 내역이 존재하지 않습니다.")
+          return;
+        }
+        if(spend.innerText == '내역 없음'){
+          alert("해당 월에 지출 내역이 존재하지 않습니다.")
+
+        }
+
+        
 
         
 
@@ -194,13 +204,13 @@ function handleFetchIncome(month) {
         const incomebtn = document.getElementById("income");
         incomebtn.innerText = "내역 없음";
 
+        const spend = document.getElementById("spend");
 
+        if(spend.innerText !== '내역 없음' && incomebtn.innerText == '내역 없음'){
+          alert("해당 월에 수입 내역이 존재하지 않습니다.")
 
+        }
 
-        
-        
-        
-        
       });
   }
 
@@ -212,8 +222,8 @@ function handleFetchView(month) {
     console.log("가계부 번호:", accountNo);
 
     //전체보기 버튼 나타나기
-    const SallViewBtn = document.getElementById("SallView-btn")
-    SallViewBtn.style.display = 'none'
+    const allViewBtn = document.getElementById("allView-btn")
+    allViewBtn.style.display = 'none'
   
     fetch(`/account/changeMonthUpdate?month=${month}&accountNo=${accountNo}`)
       .then(resp => resp.json())
@@ -282,8 +292,8 @@ function handleFetchView(month) {
 // 월 수입 내역 조회 fetch함수
 function handleFetchViewIncome(month) {
     //전체보기 버튼 나타나기
-    const IallViewBtn = document.getElementById("IallView-btn")
-    IallViewBtn.style.display = 'none'
+    const allViewBtn = document.getElementById("allView-btn")
+    allViewBtn.style.display = 'none'
 
     console.log("월:", month);
     console.log("가계부 번호:", accountNo);
@@ -376,6 +386,9 @@ function handleFetchChart(month) {
             const categoryArea = document.querySelector(".category-area")
             categoryArea.style.display = 'none'
             return;
+            
+
+
 
         }
         if(cList != ''){
@@ -464,16 +477,24 @@ function handleFetchChart(month) {
                 // 카테고리명 누르면 그 항목에 관한 내역 보기
                 span2.addEventListener("click", e=>{
                   // 전체보기 버튼 나타나기
-                  const SallViewBtn = document.getElementById("SallView-btn")
-                  SallViewBtn.style.display = 'block'
+                  const allViewBtn = document.getElementById("allView-btn")
+                  allViewBtn.style.display = 'block'
 
                   // 전체보기 버튼 클릭시 이벤트
-                  SallViewBtn.addEventListener("click", ()=>{
+                  allViewBtn.addEventListener("click", ()=>{
                     // 지출내역 조회 함수 호출
                     handleFetchView(month)
 
                     // 다시 가리기
-                    SallViewBtn.style.display = 'none'
+                    allViewBtn.style.display = 'none'
+
+                  })
+
+                  const incomebtn = document.getElementById("income");
+                  incomebtn.addEventListener("click", ()=>{
+                    allViewBtn.style.display = 'none'
+
+                    handleFetchView(month)
 
                   })
 
@@ -688,18 +709,26 @@ function handleFetchChartIncome(month) {
                   // console.log("클릭ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ")
 
                    // 전체보기 버튼 나타나기
-                   const IallViewBtn = document.getElementById("IallView-btn")
-                   IallViewBtn.style.display = 'block'
+                   const allViewBtn = document.getElementById("allView-btn")
+                   allViewBtn.style.display = 'block'
  
                    // 전체보기 버튼 클릭시 이벤트
-                   IallViewBtn.addEventListener("click", ()=>{
+                   allViewBtn.addEventListener("click", ()=>{
                      // 지출내역 조회 함수 호출
                      handleFetchViewIncome(month)
  
                      // 다시 가리기
-                     IallViewBtn.style.display = 'none'
+                     allViewBtn.style.display = 'none'
  
                    })
+
+                   const spend = document.getElementById("spend")
+                   spend.addEventListener("click", ()=>{
+                    allViewBtn.style.display = 'none'
+
+                    handleFetchViewIncome(month)
+
+                  })
 
                   console.log(e.target.innerText)
                   const name = e.target.innerText;

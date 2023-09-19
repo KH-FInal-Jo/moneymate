@@ -5,16 +5,19 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
+@RequestMapping("/community")
 public class SColumnController {
 	
-	@RequestMapping("/columns")
+	@GetMapping("/4")
 	public String column() {
+		
+		
+		
+		
+		
+		
+		
 		return "board/Scolumn";
-	}
-	
-	@GetMapping("/columns/detail")
-	public String detail() {
-		return "board/ScolumnDetail";
 	}
 	
 	
