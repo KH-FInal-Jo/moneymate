@@ -13,6 +13,7 @@
 <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
 
 
+
 <script src="https://kit.fontawesome.com/d76028de4f.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="/resources/css/member/login.css">
     <link rel="stylesheet" href="/resources/css/header.css">
@@ -55,8 +56,8 @@
                 </div>
                 <div>
                         <div class="btn-area">
-                            <div id="custom-login-btn" onclick="loginWithKakao()">
-                                <img src="//k.kakaocdn.net/14/dn/btqCn0WEmI3/nijroPfbpCa4at5EIsjyf0/o.jpg" width="222" />
+                            <div id="custom-login-btn">
+                                <img src="//k.kakaocdn.net/14/dn/btqCn0WEmI3/nijroPfbpCa4at5EIsjyf0/o.jpg" width="200"  onclick="loginWithKakao()"/>
                             </div>
                         </div>
                     </button>
@@ -74,6 +75,7 @@
     </div>
 
     <script src="/resources/js/kakaoLogin.js"></script>
+    <!-- <script src="/resources/js/kakao2.js"></script> -->
     
     
     <c:if test="${!empty message}">

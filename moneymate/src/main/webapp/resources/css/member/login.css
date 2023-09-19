@@ -160,3 +160,12 @@ font-family: 'SDGothic', serif;
 .spans a:hover {
     font-weight: bold;
 }
+
+#custom-login-btn{
+    margin-top: 10px;
+    border-radius: 10px;
+}
+
+#custom-login-btn img{
+    cursor: pointer;
+}

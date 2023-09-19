@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -63,6 +64,26 @@ public class HMemberController {
 		int result = service.cancelLike(board);
 		
 		System.out.println("result " + result);
+		
+		return result;
+	}
+	
+	@PostMapping("/member/kakao")
+	@ResponseBody
+	public int kakao(@RequestBody Map<String, String> paramMap, Model model) {
+			
+		int result = 0;
+		
+		Member loginMember = service.kakao(paramMap);
+		
+		if(loginMember == null) {
+			result = service.kakaoSignUp(paramMap); 
+			loginMember = service.kakao(paramMap);
+		} else { // 로그인 성공 시 
+			result = 1;
+		}
+		
+		model.addAttribute("loginMember", loginMember);
 		
 		return result;
 	}

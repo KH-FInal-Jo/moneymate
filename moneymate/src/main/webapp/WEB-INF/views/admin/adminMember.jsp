@@ -32,7 +32,7 @@
 
     <div id="all">
 
-        <div id="sidebar" style="width: 25%; color: pink;"></div>
+         <jsp:include page="/WEB-INF/views/admin/adminSidemenu.jsp"/>
 
         <div id="main">
 
