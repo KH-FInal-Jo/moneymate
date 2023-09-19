@@ -34,13 +34,6 @@ public class KMemberDAO {
 	public List<JMember> selectMypage(int memberNo) {
 		return sqlSession.selectList("JMemberMapper.selectMypage", memberNo);
 	}
-
 	
-	// 이미지 변경
-	public int updateProfileImage(Member loginMember) {
 	
-		
-		return sqlSession.update("kmemberMapper.updateProfileImage", loginMember);
-	}
-
 }
