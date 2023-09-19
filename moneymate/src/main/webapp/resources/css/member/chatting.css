@@ -17,6 +17,16 @@ main {
     display: flex;
 }
 
+
+/* 상태메세지 스타일 */
+.stateMessage{
+    width: 400px;
+    text-align: end;
+    color: #0b6cff;
+}
+
+
+
 /* 채팅 왼쪽 사이드 메뉴 */
 .chat-left-bar{
     width: 4%;
@@ -157,7 +167,7 @@ main {
     padding-bottom: 124px;
 
     border-bottom: 4px solid #ddd;
-    display: block;
+    display: none;
 
 
 }
@@ -270,7 +280,6 @@ main {
     border-bottom: 4px solid #ddd;
 
     flex-direction: column;
-    display: none;
 
 
 }
@@ -582,6 +591,7 @@ main {
     margin-top: 7px;
     font-size: 16px;
     border-radius: 10px;
+
 }
 
 .wrap .chat .textbox::before {
@@ -616,8 +626,4 @@ main {
     content: "▶";
     color: #F9EB54;
 }
-
-
-
-
 

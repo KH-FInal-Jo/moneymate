@@ -11,6 +11,7 @@
 		<result property="targetNickName" column="TARGET_NICKNAME" />
 		<result property="targetProfile" column="TARGET_PROFILE" />
 		<result property="notReadCount" column="NOT_READ_COUNT" />
+		<result property="stateMessage" column="ST_MESSAGE" />
 	</resultMap>
 
 	<resultMap type="Message" id="message_rm">
@@ -36,52 +37,58 @@
 
 	<!-- 채팅방 목록 조회 -->
 	<select id="selectRoomList" resultMap="chattingRoom_rm">
-			   SELECT
-		    CR.CHATTING_NO,
-		    (SELECT MESSAGE_CONTENT
-		     FROM (SELECT *
-		           FROM MESSAGE M2
-		           WHERE M2.CHATTING_NO = CR.CHATTING_NO
-		           ORDER BY MESSAG_NO DESC)
-		     WHERE ROWNUM = 1) AS LAST_MESSAGE,
-		    TO_CHAR(NVL((SELECT MAX(SEND_TIME)
-		                 FROM MESSAGE M
-		                 WHERE CR.CHATTING_NO = M.CHATTING_NO), TO_DATE('1900-01-01', 'YYYY-MM-DD')), 'YYYY-MM-DD') AS SEND_TIME,
-		    NVL2((SELECT OPEN_MEMBER
-		          FROM CHATTING_ROOM R2
-		          WHERE R2.CHATTING_NO = CR.CHATTING_NO
-		            AND R2.OPEN_MEMBER = #{memberNo}), CR.PARTICIPANT, CR.OPEN_MEMBER) AS TARGET_NO,
-		    NVL2((SELECT OPEN_MEMBER
-		          FROM CHATTING_ROOM R2
-		          WHERE R2.CHATTING_NO = CR.CHATTING_NO
-		            AND R2.OPEN_MEMBER = #{memberNo}),
-		         (SELECT MEMBER_NICKNAME
-		          FROM MEMBER
-		          WHERE MEMBER_NO = CR.PARTICIPANT),
-		         (SELECT MEMBER_NICKNAME
-		          FROM MEMBER
-		          WHERE MEMBER_NO = CR.OPEN_MEMBER)) AS TARGET_NICKNAME,
-		    NVL2((SELECT OPEN_MEMBER
-		          FROM CHATTING_ROOM R2
-		          WHERE R2.CHATTING_NO = CR.CHATTING_NO
-		            AND R2.OPEN_MEMBER = #{memberNo}),
-		         (SELECT PROFILE
-		          FROM MEMBER
-		          WHERE MEMBER_NO = CR.PARTICIPANT),
-		         (SELECT PROFILE
-		          FROM MEMBER
-		          WHERE MEMBER_NO = CR.OPEN_MEMBER)) AS TARGET_PROFILE,
-		    (SELECT COUNT(*)
-		     FROM MESSAGE M
-		     WHERE M.CHATTING_NO = CR.CHATTING_NO
-		       AND READ_FL = 'N'
-		       AND SENDER_NO != #{memberNo}) AS NOT_READ_COUNT,
-		    (SELECT MAX(MESSAG_NO)
-		     FROM MESSAGE M
-		     WHERE CR.CHATTING_NO = M.CHATTING_NO) AS MAX_MESSAG_NO
+		SELECT
+	    CR.CHATTING_NO,
+	    (SELECT MESSAGE_CONTENT
+	     FROM (SELECT *
+	           FROM MESSAGE M2
+	           WHERE M2.CHATTING_NO = CR.CHATTING_NO
+	           ORDER BY MESSAG_NO DESC)
+	     WHERE ROWNUM = 1) AS LAST_MESSAGE,
+	    TO_CHAR(NVL((SELECT MAX(SEND_TIME)
+	                 FROM MESSAGE M
+	                 WHERE CR.CHATTING_NO = M.CHATTING_NO), TO_DATE('1900-01-01', 'YYYY-MM-DD')), 'YYYY-MM-DD') AS SEND_TIME,
+	    NVL2((SELECT OPEN_MEMBER
+	          FROM CHATTING_ROOM R2
+	          WHERE R2.CHATTING_NO = CR.CHATTING_NO
+	            AND R2.OPEN_MEMBER = #{memberNo}), CR.PARTICIPANT, CR.OPEN_MEMBER) AS TARGET_NO,
+	    NVL2((SELECT OPEN_MEMBER
+	          FROM CHATTING_ROOM R2
+	          WHERE R2.CHATTING_NO = CR.CHATTING_NO
+	            AND R2.OPEN_MEMBER = #{memberNo}),
+	         (SELECT MEMBER_NICKNAME
+	          FROM MEMBER
+	          WHERE MEMBER_NO = CR.PARTICIPANT),
+	         (SELECT MEMBER_NICKNAME
+	          FROM MEMBER
+	          WHERE MEMBER_NO = CR.OPEN_MEMBER)) AS TARGET_NICKNAME,
+	    NVL2((SELECT OPEN_MEMBER
+	          FROM CHATTING_ROOM R2
+	          WHERE R2.CHATTING_NO = CR.CHATTING_NO
+	            AND R2.OPEN_MEMBER = #{memberNo}),
+	         (SELECT PROFILE
+	          FROM MEMBER
+	          WHERE MEMBER_NO = CR.PARTICIPANT),
+	         (SELECT PROFILE
+	          FROM MEMBER
+	          WHERE MEMBER_NO = CR.OPEN_MEMBER)) AS TARGET_PROFILE,
+	    (SELECT COUNT(*)
+	     FROM MESSAGE M
+	     WHERE M.CHATTING_NO = CR.CHATTING_NO
+	       AND READ_FL = 'N'
+	       AND SENDER_NO != #{memberNo}) AS NOT_READ_COUNT,
+	    (SELECT MAX(MESSAG_NO)
+	     FROM MESSAGE M
+	     WHERE CR.CHATTING_NO = M.CHATTING_NO) AS MAX_MESSAG_NO,
+	    (SELECT ST_MESSAGE
+	     FROM MESSAGE
+	     WHERE MESSAG_NO = (SELECT MAX(MESSAG_NO)
+	                         FROM MESSAGE M
+	                         WHERE CR.CHATTING_NO = M.CHATTING_NO)) AS ST_MESSAGE
 		FROM CHATTING_ROOM CR
-		WHERE OPEN_MEMBER =#{memberNo} OR PARTICIPANT = #{memberNo}
+		WHERE OPEN_MEMBER = #{memberNo} OR PARTICIPANT = #{memberNo}
 		ORDER BY MAX_MESSAG_NO DESC NULLS LAST
+
 
 	</select>
 

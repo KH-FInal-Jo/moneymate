@@ -80,7 +80,7 @@ public class JAccountBkController {
 		if(result > 0) { // 성공 시
 			
 			message = "가계부가 등록되었습니다.";
-			path += "/account/insert/1";
+			path += "/account/" + accountBk.getBigAccountNo();
 
 		}else {
 			message = "가계부 등록 실패ㅠㅠ";
