@@ -30,6 +30,9 @@
                     <c:if test="${!empty loginMember}" >
                         <a href="/member/mypage"><span>마이페이지</span></a>
                     </c:if>
+                    <c:if test="${!empty loginMember}" >
+                        <a href="/chatting"><span>채팅</span></a>
+                    </c:if>
                     
                     <c:if test="${loginMember.authority == 1}">
                        <a href="/admin/member"><span>관리자</span></a>

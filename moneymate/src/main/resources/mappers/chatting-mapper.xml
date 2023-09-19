@@ -118,7 +118,7 @@
 	<!-- 채팅 메세지 삽입 -->
 	<insert id="insertMessage">
 		INSERT INTO "MESSAGE"
-		VALUES(SEQ_MESSAGE_NO.NEXTVAL, #{messageContent}, DEFAULT, DEFAULT, #{senderNo}, #{chattingNo})
+		VALUES(SEQ_MESSAGE_NO.NEXTVAL, #{messageContent}, DEFAULT, DEFAULT, #{chattingNo}, #{senderNo})
 	</insert>
 
 

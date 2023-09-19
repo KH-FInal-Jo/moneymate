@@ -344,51 +344,41 @@ function roomListAddEvent() {
 
 // 비동기로 메세지 목록을 조회하는 함수
 function selectChattingFn() {
+
     // 이전 메시지 초기화
-    display.innerHTML = "";
-
+    
     fetch("/chatting/selectMessage?" + `chattingNo=${selectChattingNo}&memberNo=${loginMemberNo}`)
-        .then(resp => resp.json())
-        .then(messageList => {
-            console.log(messageList);
+    .then(resp => resp.json())
+    .then(messageList => {
+        console.log(messageList);
+        display.innerHTML = "";
 
-            // 이전 내용 유지하면서 메시지 추가
-            for (let msg of messageList) {
+      // 이전 내용 유지하면서 메시지 추가
+      for (let msg of messageList) {
+        const chatDiv = document.createElement("div");
+        chatDiv.classList.add("chat", msg.senderNo == loginMemberNo ? "ch2" : "ch1");
 
-                console.log(msg.senderNo);
-                console.log(loginMemberNo);
+        const iconDiv = document.createElement("div");
+        iconDiv.classList.add("icon");
+        const img = document.createElement("img");
+        img.src = msg.senderNo === loginMemberNo ? "../images/my-profile.jpg" : selectTargetProfile;
+        iconDiv.appendChild(img);
 
+        const textboxDiv = document.createElement("div");
+        textboxDiv.classList.add("textbox");
+        textboxDiv.innerText = msg.messageContent;
 
-                const chatDiv = document.createElement("div");
-                chatDiv.classList.add("chat", msg.senderNo === loginMemberNo ? "ch2" : "ch1");
+        chatDiv.appendChild(iconDiv);
+        chatDiv.appendChild(textboxDiv);
 
-                // 아이콘 부분 (프로필 이미지) 생성
-                const iconDiv = document.createElement("div");
-                iconDiv.classList.add("icon");
-                const img = document.createElement("img");
-                img.src = msg.senderNo === loginMemberNo ? "/resources/images/내프로필.jpg" : selectTargetProfile; // 프로필 이미지 경로 설정
-                iconDiv.appendChild(img);
-
-                // 텍스트 박스 부분 생성
-                const textboxDiv = document.createElement("div");
-                textboxDiv.classList.add("textbox");
-                const messageParagraph = document.createElement("p");
-                messageParagraph.innerText = msg.messageContent;
-                textboxDiv.appendChild(messageParagraph);
-
-                // 아이콘과 텍스트 박스를 채팅 div에 추가
-                chatDiv.appendChild(iconDiv);
-                chatDiv.appendChild(textboxDiv);
-
-                display.appendChild(chatDiv);
-            }
-
-            // 스크롤 제일 밑으로 이동
-            display.scrollTop = display.scrollHeight;
-        })
-        .catch(err => console.log(err));
+        display.appendChild(chatDiv);
+    }
+    
+    // 스크롤 제일 밑으로 이동
+    display.scrollTop = display.scrollHeight;
+})
+.catch(err => console.log(err));
 }
-
 
 
 
@@ -422,6 +412,8 @@ const sendMessage = () => {
          "chattingNo": selectChattingNo,
          "messageContent": inputChatting.value,
       };
+      console.log(selectTargetNo);
+      console.log(loginMemberNo);
       console.log(obj)
 
       // JSON.stringify() : 자바스크립트 객체를 JSON 문자열로 변환
@@ -456,7 +448,7 @@ chattingSock.onmessage = function (e) {
  
        // 채팅 메세지를 감싸는 div 요소 생성
        const chatDiv = document.createElement("div");
-       chatDiv.classList.add("chat", msg.senderNo === loginMemberNo ? "ch2" : "ch1");
+       chatDiv.classList.add("chat", msg.senderNo == loginMemberNo ? "ch2" : "ch1");
  
        // 아이콘 부분 (프로필 이미지) 생성
        const iconDiv = document.createElement("div");
@@ -464,20 +456,21 @@ chattingSock.onmessage = function (e) {
        const img = document.createElement("img");
        img.src = msg.senderNo === loginMemberNo ? "/resources/images/내프로필.jpg" : selectTargetProfile; // 프로필 이미지 경로 설정
        iconDiv.appendChild(img);
+
+
+
+       const textboxDiv = document.createElement("div");
+        textboxDiv.classList.add("textbox");
+        textboxDiv.innerText = msg.messageContent;
+
+        chatDiv.appendChild(iconDiv);
+        chatDiv.appendChild(textboxDiv);
+
+        display.appendChild(chatDiv);
+
+
  
        // 텍스트 박스 부분 생성
-       const textboxDiv = document.createElement("div");
-       textboxDiv.classList.add("textbox");
-       const messageParagraph = document.createElement("p");
-       messageParagraph.innerText = msg.messageContent;
-       textboxDiv.appendChild(messageParagraph);
- 
-       // 아이콘과 텍스트 박스를 채팅 div에 추가
-       chatDiv.appendChild(iconDiv);
-       chatDiv.appendChild(textboxDiv);
- 
-       // 채팅 메세지를 채팅 영역에 추가
-       chatDisplay.appendChild(chatDiv);
  
        // 스크롤을 제일 밑으로 이동
        chatDisplay.scrollTop = chatDisplay.scrollHeight;
@@ -485,6 +478,7 @@ chattingSock.onmessage = function (e) {
  
     selectRoomList();
  }
+ 
  
  
 
