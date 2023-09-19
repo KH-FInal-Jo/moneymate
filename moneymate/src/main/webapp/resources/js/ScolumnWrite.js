@@ -52,34 +52,59 @@ const registerBtn = document.getElementById("finish")
 registerBtn.addEventListener("click", ()=>{
     
     // 글제목
-    const title = document.getElementById("Wtitle").value
+    const boardTitle = document.getElementById("Wtitle").value
     // 글 내용
-    const content = textArea.innerHTML
-
-    console.log(title)
-    console.log(content)
-
-
-
-    fetch("/4/register", {
+    const boardContent = textArea.innerHTML
+    
+    console.log(boardTitle)
+    console.log(boardContent)
+    
+    const data = {
+        "boardTitle" : boardTitle,
+        "boardContent" : boardContent
+    }
+    
+    fetch("/community/4/insert/register", {
         method : "POST",
-        headers : {'Content-type' : 'application/json'},
-        body : JSON.stringify({"title" : boardTitle, "content" : boardContent})
+        headers : {
+            "Content-Type": "application/json"
+        },
+        body : JSON.stringify(data)
     })
+
     .then(resp => resp.json())
     .then(result => {
-        if(result > 0){
-            alert("게시글으 등록되었습니다.")
-        }
+        console.log(result)
+    })
+    .catch(err => {
+        console.log(err)
 
+      
 
     })
-    .catch(e => {
-        console.log(e)
-    })
-
-
-
 
 
 })
+
+// function insertColumn(boardTitle,boardContent){
+
+//     fetch(`/community/4/insert/register`, {
+//         method: "POST",
+//         headers: {
+//           "Content-Type": "application/json",
+//           "Accept": "application/json"
+//         },
+//         body: `boardTitle=${encodeURIComponent(boardTitle)}&boardContent=${encodeURIComponent(boardContent)}`
+//     })
+//     .then(resp => resp.json())
+//     .then(result => {
+//         if(result > 0){
+//             alert("게시글으 등록되었습니다.")
+//         }
+
+
+//     })
+//     .catch(e => {
+//         console.log(e)
+//     })
+
