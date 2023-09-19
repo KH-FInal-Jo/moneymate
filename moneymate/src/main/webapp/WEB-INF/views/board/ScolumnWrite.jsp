@@ -48,7 +48,7 @@
                 </div>  
     
                 <div class="btn">
-                   <span><button id="finish">등록하기</button></span>
+                 <span><button id="finish">등록하기</button></span>
                 </div>
     
             </div>
