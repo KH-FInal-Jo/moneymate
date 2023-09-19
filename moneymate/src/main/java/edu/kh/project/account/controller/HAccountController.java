@@ -70,8 +70,6 @@ public class HAccountController {
 	@GetMapping("/account/invite/{key}")
 	public String emailInvite(@PathVariable("key") String key, Model model) {
 		
-		System.out.println(key);
-		
 		model.addAttribute("key", key);
 		
 		return "account/emailConfirm";
@@ -85,8 +83,12 @@ public class HAccountController {
 		
 		int result = service.inviteAccept(key);
 		
+		System.out.println("result : " + result);
+		
+		//result = 0;
+		
 		if(result>0) {
-			ra.addFlashAttribute("message", "초대를 수락하셨습니다. \n 로그인 후 이용해주세요 !");
+			ra.addFlashAttribute("message", "수락완료 ! 로그인 후 이용해주세요");
 		} else {
 			ra.addFlashAttribute("message", "가계부 초대 수락 실패..");
 		}

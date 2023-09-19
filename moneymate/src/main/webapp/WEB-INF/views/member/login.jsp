@@ -10,6 +10,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>로그인 페이지</title>
 
+<script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+
 
 <script src="https://kit.fontawesome.com/d76028de4f.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="/resources/css/member/login.css">
@@ -52,10 +54,10 @@
                     <button id="btn1" class="btn1">Login</button>
                 </div>
                 <div>
-                    <button id="btn2" class="btn2">
                         <div class="btn-area">
-                            <img src="/resources/images/카카오.png" class="kakao">
-                            <span>카카오 로그인</span>
+                            <div id="custom-login-btn" onclick="loginWithKakao()">
+                                <img src="//k.kakaocdn.net/14/dn/btqCn0WEmI3/nijroPfbpCa4at5EIsjyf0/o.jpg" width="222" />
+                            </div>
                         </div>
                     </button>
                 </div>
@@ -70,6 +72,8 @@
             <span><a href="#">ID/PW 찾기</a></span>
         </div>
     </div>
+
+    <script src="/resources/js/kakaoLogin.js"></script>
     
     
     <c:if test="${!empty message}">

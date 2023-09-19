@@ -15,7 +15,6 @@
 </head>
 <body>
 
-   <jsp:include page="/WEB-INF/views/common/header.jsp"/>
 
     <!-- a태그 안 걸고 js로 해결하기!!! -->
     <!-- css 추가하고 싶은데.. 리액트 배운 후에 마우스 따라다니는 선 같은 효과 추가하기... -->

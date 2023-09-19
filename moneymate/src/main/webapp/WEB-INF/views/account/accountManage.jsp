@@ -13,11 +13,15 @@
     <title>가계부 관리</title>
 
     <link rel="stylesheet" href="/resources/css/account/accountManage.css">
+    <link rel="stylesheet" href="/resources/css/header.css">
+    <link rel="stylesheet" href="/resources/css/footer.css">
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 </head>
 <body>
     <!-- 가게부 최대 4개만 만들 ㅁ수 있도록 나중에 c:if문 걸어주기!!! -->
     <div id="main">
+
+
         <div id="main-container">
 
             <div id="modal"> <!-- 모달창 -->
@@ -69,15 +73,16 @@
 
             <c:forEach items="${gList}" var="list">
                 <div class="account">
-                    <div class="name">가계부</div>
-                    <div class="content">
-                    <c:set var="emails" value="${list.memberEmails}" />
-                    <c:set var="emailArray" value="${fn:split(emails, ',,')}" />
-                        <c:forEach items="${emailArray}" var="email">
-                            <div class="user">
-                                <span class="spans">${email}</span>
-                            </div>
-                        </c:forEach>
+                    <div class="name">그룹 가계부</div>
+                    <div class="content1">
+                        <img src="/resources/images/homework.png" class="logoImg1"/>
+                        <c:set var="emails" value="${list.memberEmails}" />
+                        <c:set var="emailArray" value="${fn:split(emails, ',,')}" />
+                            <c:forEach items="${emailArray}" var="email">
+                                <div class="user">
+                                    <span class="spans">${email}</span>
+                                </div>
+                            </c:forEach>
                     </div>
                     <div class="btn-area">
                         <button class="snip1535" onclick="location.href='/account/${list.accountNo}'">상세</button>

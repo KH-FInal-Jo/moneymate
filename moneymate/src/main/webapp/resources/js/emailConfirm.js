@@ -350,10 +350,5 @@ $(document).ready(function() {
 
 /* 거절 버튼을 눌렀을 때 */
 function goBack(){
-    const referer = document.referrer;
-    if(referer){
-        window.location.href = referer;
-    } else {
-        alert("이전 페이지로 돌아갈 수 없습니다.")
-    }
+    window.close();
 }
