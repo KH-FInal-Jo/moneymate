@@ -174,8 +174,7 @@
 
             <%-- 지출 내역 영역 --%>
             <section class="detail-area">
-                <button id="SallView-btn">전체보기</button>
-                <button id="IallView-btn">전체보기</button>
+                <button id="allView-btn">전체보기</button>
                 
                 <div class="spend-area">
 
