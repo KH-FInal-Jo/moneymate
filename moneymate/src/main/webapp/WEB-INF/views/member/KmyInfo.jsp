@@ -47,7 +47,7 @@
 
 
                             <div>
-                                <input type="file" name="imageInput" id="imageInput" accept="image/*">
+                                <input type="file" name="profileImage" id="imageInput" accept="image/*">
                                 <label for="imageInput" id="chooseButton">
                                     이미지 선택
                                 </label>

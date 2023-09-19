@@ -66,5 +66,8 @@
 		PROFILE_IMG = #{profileImage}
 		WHERE MEMBER_NO = #{memberNo}
 	</update>
+	
+	
+	
 
 </mapper>
