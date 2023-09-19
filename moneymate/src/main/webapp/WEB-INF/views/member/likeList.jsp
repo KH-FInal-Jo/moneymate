@@ -10,7 +10,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>좋아요 목록</title>
+    <title>좋아요한 글</title>
     <script src="https://kit.fontawesome.com/f7459b8054.js" crossorigin="anonymous"></script>
   
     <link rel="stylesheet" href="/resources/css/member/myPageSidemenu.css">

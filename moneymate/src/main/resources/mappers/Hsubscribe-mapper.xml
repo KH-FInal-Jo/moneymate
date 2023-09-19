@@ -98,6 +98,51 @@
 		WHERE SUBSCRIBE_NO = #{no}	
 	</select>
 	
+	<!-- 0원 결제(결제테이블) -->
+	<insert id="subsZero">
+		<selectKey order="BEFORE" resultType="_int"
+			keyProperty="calculateNo">
+			SELECT SEQ_CALCULATE_NO.NEXTVAL FROM DUAL
+		</selectKey>
+		INSERT INTO "CALCULATE" VALUES(#{calculateNo}, 0,
+		 #{price}, #{memberNo})
+	</insert>
+	
+	<!-- 0원 결제(구독 테이블) -->
+	<insert id="subsZeroS">
+		<selectKey order="BEFORE" resultType="_int"
+			keyProperty="subscribeNo">
+			SELECT SEQ_SUBSCRIBE_NO.NEXTVAL FROM DUAL
+		</selectKey>
+
+		INSERT INTO SUBSCRIBE VALUES (#{subscribeNo}
+		, SYSDATE, 
+		
+		<choose>
+		
+			<when test="subscribeLevel == 1">
+				SYSDATE + INTERVAL '1' MONTH
+			</when>
+			
+			<when test="subscribeLevel == 2">
+				SYSDATE + INTERVAL '6' MONTH
+			</when>
+			
+			<when test="subscribeLevel == 3">
+				SYSDATE + INTERVAL '1' YEAR
+			</when>
+		
+		</choose>
+		
+		, #{subscribeLevel},
+		#{memberNo})
+	</insert>
+	
+	<!-- 마일리지 차감(0원) -->
+	<update id="subsZeroM">
+		UPDATE MEMBER SET MILEAGE = MILEAGE - ${price}
+		WHERE MEMBER_NO = #{memberNo}
+	</update>
 
 
 

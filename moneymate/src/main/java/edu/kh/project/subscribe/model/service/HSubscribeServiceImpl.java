@@ -11,7 +11,7 @@ import edu.kh.project.subscribe.model.dto.Subscribe;
 
 @Service
 public class HSubscribeServiceImpl implements HSubscribeService{
-	
+
 	@Autowired
 	private HSubscribeDAO dao;
 
@@ -25,30 +25,51 @@ public class HSubscribeServiceImpl implements HSubscribeService{
 	@Transactional (rollbackFor = {Exception.class})
 	@Override
 	public int kg(Subscribe subscribe) {
-		
+
 		// 결제에 insert 
 		int result = dao.calculateKg(subscribe);
-		
+
 		// 구독 테이블에 insert
 		if(result>0) {
 			result = dao.subscribeKg(subscribe);
 		}
-		
+
 		// 사용한 마일리지 차감
 		if(result > 0) {
 			result = dao.mile(subscribe);
 		}
-		
+
 		return result;
 	}
 
 	// 결제 완료 페이지
 	@Override
 	public Subscribe subscribeEnd(int no) {
-		
+
 		Subscribe s = dao.subscribeEnd(no); // 구독 기간 조회
-		
+
 		return s;
+	}
+
+	// 0원 결제
+	@Override
+	public int subsZero(Subscribe subscribe) {
+
+		// 결제에 insert 
+		int result = dao.subsZero(subscribe);
+		
+
+		// 구독 테이블에 insert
+		if(result>0) {
+			result = dao.subsZeroS(subscribe);
+		}
+
+		// 사용한 마일리지 차감
+		if(result > 0) {
+			result = dao.subsZeroM(subscribe);
+		}
+		
+		return result;
 	}
 
 }

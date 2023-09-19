@@ -63,6 +63,30 @@ public class HSubscribeDAO {
 		return sqlSession.selectOne("HsubscribeMapper.subscribeEnd", no);
 	}
 
+	/** 0원 결제(결제)
+	 * @param subscribe
+	 * @return
+	 */
+	public int subsZero(Subscribe subscribe) {
+		return sqlSession.insert("HsubscribeMapper.subsZero", subscribe);
+	}
+
+	/** 0원 결제(구독)
+	 * @param subscribe
+	 * @return
+	 */
+	public int subsZeroS(Subscribe subscribe) {
+		return sqlSession.insert("HsubscribeMapper.subsZeroS", subscribe);
+	}
+
+	/** 마일리지 차감
+	 * @param subscribe
+	 * @return
+	 */
+	public int subsZeroM(Subscribe subscribe) {
+		return sqlSession.update("HsubscribeMapper.subsZeroM", subscribe);
+	}
+
 	
 
 
