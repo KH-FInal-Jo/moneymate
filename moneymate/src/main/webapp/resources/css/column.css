@@ -29,6 +29,15 @@ font-family: 'SDGothic', serif;
     width: 75%;
 }
 
+#Swrite{
+    width: 100px;
+    height: 40px;
+
+    font-weight: bold;
+
+    margin-left: 25px;
+}
+
 /* 칼럼 설명란 */
 .explain{
     display: flex;
