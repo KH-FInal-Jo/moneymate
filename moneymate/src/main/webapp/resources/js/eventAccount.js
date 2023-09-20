@@ -519,10 +519,14 @@ function deleteBtn(commentNo){
 
     .then(result => {
         console.log(result);
-        alert("삭제되었습니다.");
+        
         flag = true;
 
-        document.getElementById("commentFrm").innerHTML = temp;
+        alert("삭제되었습니다.")
+
+        //document.getElementById("commentFrm").innerHTML = temp;
+
+        location.reload(true);
         
 
        /* const reFrm = document.createElement("form");
@@ -568,7 +572,7 @@ function deleteBtn(commentNo){
         document.getElementById("main").append(reFrm); */
 
         //selectList();
-        location.reload(true);
+        
 
     })
 
