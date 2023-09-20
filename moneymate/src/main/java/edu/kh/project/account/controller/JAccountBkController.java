@@ -47,9 +47,17 @@ public class JAccountBkController {
 		
 		JAccountBook account = service.selectAccountBk(bigAccountNo);
 		
+		String sub = service.selectSub(loginMember.getMemberNo());
 		
+		if(sub == null) {
+			sub = "N";
+			
+		}
+		System.out.println(sub);
 		model.addAttribute("useMoney", useMoney);
 		model.addAttribute("account", account);
+		model.addAttribute("sub", sub);
+		
 		
 		
 		return "account/JaccountBookInout";

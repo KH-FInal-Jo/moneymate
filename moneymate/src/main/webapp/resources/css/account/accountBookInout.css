@@ -12,7 +12,7 @@ font-family: 'SDGothic', serif;
 
 .adver1{
     position: fixed;
-    top: 200px;
+    top: 250px;
     width: 400px;
     height: 300px;
 }
@@ -24,6 +24,9 @@ font-family: 'SDGothic', serif;
 .carousel-inner img{
     width: 100%;
     height: 100%;
+}
+.carousel-inner{
+    cursor: pointer;
 }
 
 .subGo{

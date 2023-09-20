@@ -46,7 +46,7 @@
                 <div class="chat-my-profile">
                     <div>
                         <c:if test="${empty loginMember.profileImage}" >
-                            <img src="/resources/images/id.png">
+                            <img src="http://k.kakaocdn.net/dn/dpk9l1/btqmGhA2lKL/Oz0wDuJn1YV2DIn92f6DVK/img_640x640.jpg">
                         </c:if>
 
                         <c:if test="${!empty loginMember.profileImage}" >

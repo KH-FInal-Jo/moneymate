@@ -32,31 +32,37 @@
 		<section class="accBk-thumbnail">
 			<img src="/resources/images/accountThumbnail.jpg">
 		</section>
-		<div class="adver1">
-			<div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
-				<div class="carousel-inner">
-					<div class="carousel-item active" data-bs-interval="2000">
-						<img src="/resources/images/aniLogo.png" class="d-block w-100" alt="...">
-					</div>
-					<div class="carousel-item" data-bs-interval="2000">
-						<img src="/resources/images/khotel.png" class="d-block w-100" alt="...">
-					</div>
-					<div class="carousel-item" data-bs-interval="2000">
-						<img src="/resources/images/i.jpg" class="d-block w-100" alt="...">
-					</div>
-				</div>
-				<button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
-					<span class="carousel-control-prev-icon" aria-hidden="true"></span>
-					<span class="visually-hidden">Previous</span>
-				</button>
-				<button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
-					<span class="carousel-control-next-icon" aria-hidden="true"></span>
-					<span class="visually-hidden">Next</span>
-				</button>
-			</div>
-			<div class="subGo">광고가 싫다면~? <a href="/subscribe/info">구독하러가기 💨</a></div>
 
-		</div>
+		<c:if test="${sub  != 'Y'}" >
+
+			<div class="adver1">
+				<div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
+					<div class="carousel-inner" onclick="location.href='#'  ">
+
+						<div class="carousel-item active" data-bs-interval="2000">
+							<img src="/resources/images/khotel.png" class="d-block w-100" alt="...">
+						</div>
+						<div class="carousel-item" data-bs-interval="2000">
+							<img src="/resources/images/aniLogo.png" class="d-block w-100" alt="...">
+						</div>
+						<div class="carousel-item" data-bs-interval="2000">
+							<img src="/resources/images/i.jpg" class="d-block w-100" alt="...">
+						</div>
+					</div>
+					<button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
+						<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+						<span class="visually-hidden">Previous</span>
+					</button>
+					<button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
+						<span class="carousel-control-next-icon" aria-hidden="true"></span>
+						<span class="visually-hidden">Next</span>
+					</button>
+				</div>
+				<div class="subGo">광고가 싫다면~? <a href="/subscribe/info">구독하러가기 💨</a></div>
+
+			</div>
+
+		</c:if>
 
 		<!-- 가계부 윗부분 -->
 		<section class="accBk-container">

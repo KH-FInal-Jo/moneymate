@@ -149,4 +149,10 @@ public class JAccountBkServiceImpl implements JAccountBkService{
 		return dao.insertAlert(selmemberNo);
 	}
 
+	// 구독 광고 
+	@Override
+	public String selectSub(int memberNo) {
+		return dao.selectSub(memberNo);
+	}
+
 }

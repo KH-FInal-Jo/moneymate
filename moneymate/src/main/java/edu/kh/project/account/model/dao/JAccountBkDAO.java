@@ -88,5 +88,10 @@ public class JAccountBkDAO {
 		return sqlSession.insert("insertAlert", selmemberNo);
 	}
 
+	// 구독 광고
+	public String selectSub(int memberNo) {
+		return sqlSession.selectOne("selectSub", memberNo);
+	}
+
 
 }

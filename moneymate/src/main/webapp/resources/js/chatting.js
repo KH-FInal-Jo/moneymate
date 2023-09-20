@@ -119,7 +119,7 @@ targetInput.addEventListener("input", e => {
                 img.classList.add("result-row-img");
  
                 // 프로필 이미지 여부에 따른 src 속성 선택
-                if (member.profileImage == null) img.setAttribute("src", "/resources/images/user.png");
+                if (member.profileImage == null) img.setAttribute("src", "http://k.kakaocdn.net/dn/dpk9l1/btqmGhA2lKL/Oz0wDuJn1YV2DIn92f6DVK/img_640x640.jpg");
                 else img.setAttribute("src", member.profileImage);
  
                 let nickname = member.memberNickname;
@@ -242,7 +242,7 @@ function selectRoomList() {
             const profileImg = document.createElement("img");
             profileImg.classList.add("result-row-img");
             if (room.targetProfile === null)
-               profileImg.setAttribute("src", "/resources/images/id.png");
+               profileImg.setAttribute("src", "http://k.kakaocdn.net/dn/dpk9l1/btqmGhA2lKL/Oz0wDuJn1YV2DIn92f6DVK/img_640x640.jpg");
             else
                profileImg.setAttribute("src", room.targetProfile);
             
