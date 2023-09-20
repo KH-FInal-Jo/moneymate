@@ -32,6 +32,7 @@
             <div class="container">
                 <h1>내 정보 수정</h1>
                 <form action="/member/mypage" method="POST" name="myPageFrm" id="UpdateProfile" enctype="multipart/form-data">
+                    
 
                     <div class="profile">
 
@@ -45,14 +46,16 @@
                                 <img src="${loginMember.profileImage}" id="profileImage">
                             </c:if>
 
-
+                            <!-- 오류나는 부분 -->
                             <div>
-                                <input type="file" name="profileImage" id="imageInput" accept="image/*">
-                                <label for="imageInput" id="chooseButton">
-                                    이미지 선택
-                                </label>
-                                <button type="submit" id="changeButton">변경하기</button>
+                                <input type="file" name="profile" id="profileImage" accept="image/*">
+                                <label label for="profileImage" id="chooseButton">이미지 선택</label>
+                                <button id="changeButton">변경하기</button>
                             </div>
+                            <!-- 오류나는 부분 -->
+
+                           <button>test</button>
+
                         </div>
 
                         <div class="info-section">
