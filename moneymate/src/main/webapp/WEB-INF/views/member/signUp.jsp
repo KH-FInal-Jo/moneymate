@@ -52,7 +52,18 @@
                 <button type="button" id="checkAuthKeyBtn">인증하기</button>
             </div>
 
-            <span class="signUp-message" id=authKeyMessage>인증를 입력해주세요.</span>
+            <span class="signUp-message" id="authKeyMessage">인증번호를 입력해주세요.</span>
+
+            <button id="open-modal" type="button">→휴대폰 인증으로 대신하기</button>
+
+            <div id="modal">
+                <div class="modal-content">
+                    <h2>휴대폰 인증</h2>
+                    <p><input type="text" placeholder="휴대폰 번호 입력" id="mTel"> <button onclick="authPhone()">인증번호 받기</button></p>
+                    <p><input type="text" placeholder="인증번호 입력" id="confirm"> <button>인증번호 확인</button></p>
+                    <button id="close-modal">닫기</button>
+                </div>
+            </div>
 
             <div class="signUp-input-area">
                 <i class="fa-solid fa-lock" style="color: #000000;"></i>

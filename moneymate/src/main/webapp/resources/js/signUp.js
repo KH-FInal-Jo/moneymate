@@ -166,6 +166,40 @@ checkAuthKeyBtn.addEventListener("click", function(){
 
 
 
+function authPhone(){
+
+    if(checkObj.authKey == true){
+        alert("이미 인증하셨습니다.");
+        return;
+    }
+
+    const mTel = document.getElementById("mTel");
+    const confirmNum = document.getElementById("confirmNum");
+
+
+    fetch("/member/signUp/authPhone?mTel=" + mTel.value)
+    .then(resp => resp.text())
+    .then(result => {
+
+        console.log(result);
+
+        alert("인증번호 전송완료");
+
+
+
+
+
+        
+    })
+    .catch(err => {
+        console.log("인증번호 발송 중 에러 발생");
+    });
+
+    
+}
+
+
+
 
 
 
@@ -302,12 +336,27 @@ memberNickname.addEventListener("input", ()=> {
 
     if(regEx.test(memberNickname.value)){
         // 닉네임 중복검사 진행해야함
-        console.log("1");
-        checkObj.memberNickname = true;
+        fetch("/member/signUp/dupNicknameCheck?nickname="+memberNickname.value)
+        .then(resp => resp.text())
+        .then(count => {
 
-        nickMessage.innerText="유효한 닉네임 형식입니다.";
-        nickMessage.classList.add("confirm");
-        nickMessage.classList.remove("error");
+            console.log(count);
+
+            if(count == 0){
+                checkObj.memberNickname = true;
+        
+                nickMessage.innerText="사용 가능한 닉네임입니다.";
+                nickMessage.classList.add("confirm");
+                nickMessage.classList.remove("error");
+            } else{
+                nickMessage.innerText="이미 사용중인 닉네임입니다.";
+                nickMessage.classList.add("error");
+                nickMessage.classList.remove("confirm");
+        
+                checkObj.memberNickname = false;
+            }
+        })
+        .catch(e => console.log(e));
 
 
     } else{
@@ -378,6 +427,22 @@ document.getElementById("signUpFrm").addEventListener("submit", e => {
         }
     }
 
+});
+
+const modal = document.getElementById("modal");
+const openModalBtn = document.getElementById("open-modal");
+const closeModalBtn = document.getElementById("close-modal");
+
+// 모달창 열기
+openModalBtn.addEventListener("click", () => {
+  modal.style.display = "block";
+  document.body.style.overflow = "hidden"; // 스크롤바 제거
+});
+
+// 모달창 닫기
+closeModalBtn.addEventListener("click", () => {
+  modal.style.display = "none";
+  document.body.style.overflow = "auto"; // 스크롤바 보이기
 });
 
 

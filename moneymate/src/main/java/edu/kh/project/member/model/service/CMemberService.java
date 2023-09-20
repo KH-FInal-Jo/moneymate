@@ -3,6 +3,7 @@ package edu.kh.project.member.model.service;
 import java.util.Map;
 
 import edu.kh.project.member.model.dto.Member;
+import net.nurigo.java_sdk.exceptions.CoolsmsException;
 
 public interface CMemberService {
 
@@ -46,5 +47,13 @@ public interface CMemberService {
 
 
 	Map<String, Object> selectMyBoard(Map<String, Object> paramMap, int cp);
+
+
+
+	int nicknameDupCheck(String nickname);
+
+
+
+	String memberPhoneCheck(String mTel) throws CoolsmsException;
 
 }
