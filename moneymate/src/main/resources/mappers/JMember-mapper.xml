@@ -44,7 +44,7 @@
 	
 	<update id="insertMileage">
 		UPDATE MEMBER
-		SET MILEAGE = MILEAGE+10000
+		SET MILEAGE = MILEAGE+2000
 		WHERE MEMBER_NO = #{memberNo}
 	</update>
 	
@@ -62,6 +62,4 @@
 		AND BOARD_ST = 'N'
 	</select>
 	
-	
-
 </mapper>

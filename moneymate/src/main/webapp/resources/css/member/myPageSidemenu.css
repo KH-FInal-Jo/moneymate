@@ -74,10 +74,10 @@
 
 .myPageSideImg{
     width: 170px;
-    height: 125px;
+    height: 123px;
     border-radius: 20%;
 
-    margin-top: -10px;
+    margin-top: -7px;
 
     display: flex;
 }

@@ -32,7 +32,7 @@
      
 
     <div id="main">
-        <div>가계부 자랑하기(임시 제목)</div>
+        <div>가계부 고수가 되어보세요</div>
         <div>
             <span>조회수</span>
             <span>${readCount}</span>

@@ -24,7 +24,9 @@
                 <!-- 헤더 글 -->
                 <div class="nav">
                     <a href="/community/1"><span>커뮤니티</span></a>
+                    <c:if test="${!empty loginMember}" >
                     <a href="/account/list"><span>가계부</span></a>
+                    </c:if>
                     <a href="/consumetest"><span>소비 테스트</span></a>
                     <a href="/event"><span>이벤트게시판</span></a>
                     <c:if test="${!empty loginMember}" >

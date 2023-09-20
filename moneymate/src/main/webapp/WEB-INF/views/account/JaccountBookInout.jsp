@@ -9,14 +9,19 @@
 
 <!-- SweetAlert JavaScript -->
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
 <meta charset="UTF-8">
 <title>가계부 작성</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 <link rel="stylesheet"
 	href="/resources/css/account/accountBookInout.css">
 
 <script src="https://kit.fontawesome.com/98acdabf0d.js"
 	crossorigin="anonymous"></script>
+
 
 </head>
 <body>
@@ -27,10 +32,36 @@
 		<section class="accBk-thumbnail">
 			<img src="/resources/images/accountThumbnail.jpg">
 		</section>
+		<div class="adver1">
+			<div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
+				<div class="carousel-inner">
+					<div class="carousel-item active" data-bs-interval="2000">
+						<img src="/resources/images/aniLogo.png" class="d-block w-100" alt="...">
+					</div>
+					<div class="carousel-item" data-bs-interval="2000">
+						<img src="/resources/images/khotel.png" class="d-block w-100" alt="...">
+					</div>
+					<div class="carousel-item" data-bs-interval="2000">
+						<img src="/resources/images/i.jpg" class="d-block w-100" alt="...">
+					</div>
+				</div>
+				<button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
+					<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+					<span class="visually-hidden">Previous</span>
+				</button>
+				<button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
+					<span class="carousel-control-next-icon" aria-hidden="true"></span>
+					<span class="visually-hidden">Next</span>
+				</button>
+			</div>
+			<div class="subGo">광고가 싫다면~? <a href="/subscribe/info">구독하러가기 💨</a></div>
+
+		</div>
 
 		<!-- 가계부 윗부분 -->
 		<section class="accBk-container">
 			<div class="accBk-top">
+
 
 				<div>
 					<i class="fa-solid fa-pen-to-square fa-xl"></i>가계부
