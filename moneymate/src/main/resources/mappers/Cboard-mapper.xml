@@ -109,6 +109,7 @@
 
 		(SELECT IMG_PATH || IMG_RENAME FROM IMAGE I
 		WHERE I.BR_NO = B.BOARD_NO
+		AND I.IMG_CD = 1
 		AND IMG_LEVEL = 0) THUMBNAIL
 		FROM "BOARD" B
 		JOIN "MEMBER" USING(MEMBER_NO)
@@ -123,6 +124,7 @@
 	<select id="selectImageList" resultMap="boardImage_rm">
 		SELECT * FROM IMAGE
 		WHERE BR_NO = #{boardNo}
+		AND IMG_CD = 1
 		ORDER BY IMG_LEVEL
 	</select>
 

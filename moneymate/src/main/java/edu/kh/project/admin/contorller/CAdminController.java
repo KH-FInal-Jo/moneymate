@@ -24,7 +24,6 @@ public class CAdminController {
 		
 		Map<String, Object> map = service.selectPayList(cp);
 		
-		System.out.println(map);
 		
 		model.addAttribute("map", map);
 		

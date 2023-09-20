@@ -36,6 +36,7 @@ like.addEventListener("click", (e) => {
         // toggle() : class가 있으면 없애고, 없으면 추가하고 
         e.target.classList.toggle("fa-regular");
         e.target.classList.toggle("fa-solid");
+        e.target.classList.add("red");
 
         // 현재 게시글의 좋아요 수를 화면에 출력
         document.getElementById("likeCount").innerText = result;

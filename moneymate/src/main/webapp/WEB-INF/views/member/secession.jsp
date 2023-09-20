@@ -1,10 +1,10 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="EUC-KR">
-<title>È¸¿øÅ»Åð</title>
+<title>È¸ï¿½ï¿½Å»ï¿½ï¿½</title>
 
 <link rel="stylesheet" href="/resources/css/header.css">
 <link rel="stylesheet" href="/resources/css/footer.css">
@@ -23,27 +23,20 @@
 
 				<section class="myPage-notice-main">
                 <div class="myPage-notice-name">
-                    È¸¿ø Å»Åð
+                    <h1>íšŒì›íƒˆí‡´</h1>
                 </div>
 
                 <div class="sub">
-                    <span>Å»Åð½Ã À¯ÀÇ »çÇ×</span>
+                    <span>íƒˆí‡´ ì‹œ ì£¼ì˜ì‚¬í•­</span>
                 </div>
 
                 <div class="textarea1">
-<textarea id="textarea">»ç¿ëÇÏ°í °è½Å ¾ÆÀÌµð(rjh658)´Â Å»ÅðÇÒ °æ¿ì Àç»ç¿ë ¹× º¹±¸°¡ ºÒ°¡´ÉÇÕ´Ï´Ù.
-Å»ÅðÇÑ ¾ÆÀÌµð´Â º»ÀÎ°ú Å¸ÀÎ ¸ðµÎ Àç»ç¿ë ¹× º¹±¸°¡ ºÒ°¡ÇÏ¿À´Ï ½ÅÁßÇÏ°Ô ¼±ÅÃÇÏ½Ã±â ¹Ù¶ø´Ï´Ù.
-Å»Åð ÈÄ È¸¿øÁ¤º¸ ¹× °³ÀÎÇü ¼­ºñ½º ÀÌ¿ë±â·ÏÀº ¸ðµÎ »èÁ¦µË´Ï´Ù.
-
-È¸¿øÁ¤º¸ ¹× ¸ÞÀÏ, ºí·Î±×, ÁÖ¼Ò·Ï µî °³ÀÎÇü ¼­ºñ½º ÀÌ¿ë±â·ÏÀº ¸ðµÎ »èÁ¦µÇ¸ç, »èÁ¦µÈ µ¥ÀÌÅÍ´Â º¹±¸µÇÁö ¾Ê½À´Ï´Ù.
-»èÁ¦µÇ´Â ³»¿ëÀ» È®ÀÎÇÏ½Ã°í ÇÊ¿äÇÑ µ¥ÀÌÅÍ´Â ¹Ì¸® ¹é¾÷À» ÇØÁÖ¼¼¿ä.
-
-Å»Åð ÈÄ¿¡µµ °Ô½ÃÆÇÇü ¼­ºñ½º¿¡ µî·ÏÇÑ °Ô½Ã¹°Àº ±×´ë·Î ³²¾Æ ÀÖ½À´Ï´Ù.
-´º½º, Ä«Æä, Áö½ÄiN µî¿¡ ¿Ã¸° °Ô½Ã±Û ¹× ´ñ±ÛÀº Å»Åð ½Ã ÀÚµ¿ »èÁ¦µÇÁö ¾Ê°í ±×´ë·Î ³²¾Æ ÀÖ½À´Ï´Ù.
-»èÁ¦¸¦ ¿øÇÏ´Â °Ô½Ã±ÛÀÌ ÀÖ´Ù¸é ¹Ýµå½Ã Å»Åð Àü ºñ°ø°³ Ã³¸®ÇÏ°Å³ª »èÁ¦ÇÏ½Ã±â ¹Ù¶ø´Ï´Ù.
-
-Å»Åð ÈÄ¿¡´Â È¸¿øÁ¤º¸°¡ »èÁ¦µÇ¾î º»ÀÎ ¿©ºÎ¸¦ È®ÀÎÇÒ ¼ö ÀÖ´Â ¹æ¹ýÀÌ ¾ø¾î, °Ô½Ã±ÛÀ» ÀÓÀÇ·Î »èÁ¦ÇØµå¸± ¼ö ¾ø½À´Ï´Ù.
-°Ô½ÃÆÇÇü ¼­ºñ½º Áß "±×¶óÆú¸®¿À"ÀÇ ´ñ±ÛÀº »èÁ¦µË´Ï´Ù.
+<textarea id="textarea">
+ì•½ê´€1.
+ì•½ê´€2.
+ì•½ê´€3.
+ì•½ê´€4.
+ì•½ê´€5.
 
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
@@ -54,20 +47,20 @@
                 <form action="secession" method="POST" name="myPageFrm" id="secessionFrm">
                     <div class="check">
                         <input type="checkbox" id="check">
-                        <label for="check">À§ »çÇ×À» ¸ðµÎ È®ÀÎÇÏ¿´À¸¸ç, ÀÌ¿¡ µ¿ÀÇÇÕ´Ï´Ù.</label>
+                        <label for="check">ìœ„ ì•½ê´€ì„ ëª¨ë‘ ì½ì—ˆìœ¼ë©°, ì´ì— ë™ì˜í•©ë‹ˆë‹¤.</label>
                     </div>
 
 
                         <div class="inputPw">
-                            <label for="memberPw">ºñ¹Ð¹øÈ£</label>
+                            <label for="memberPw">í˜„ìž¬ ë¹„ë°€ë²ˆí˜¸ : </label>
                             <input type="password" name="memberPw" id="memberPw" maxlength="30">              
                         </div>
 
 
 
                     <div class="btn">
-                        <button id="quitSecession">±×¸¸µÎ±â</button>
-                        <button id="secession">Å»ÅðÇÏ±â</button>
+                        <button id="quitSecession">ê·¸ë§Œë‘ê¸°</button>
+                        <button id="secession">íƒˆí‡´í•˜ê¸°</button>
                     </div>
                 </form>
             </section>
@@ -84,14 +77,15 @@
         secessionFrm.addEventListener("submit", e => {
             if(check.checked == false){
                 e.preventDefault();
-                alert("À§ ¾à°üÀ» µ¿ÀÇÇØÁÖ¼¼¿ä.");
+                alert("ì•½ê´€ì„ ì½ê³  ë™ì˜í•´ì£¼ì„¸ìš”.");
             }
-            // ºñ¹Ð¹øÈ£ Ã¼Å©
                 
         })
 
 
 
     </script>
+
+    <jsp:include page="/WEB-INF/views/common/footer.jsp"/>
 </body>
 </html>
