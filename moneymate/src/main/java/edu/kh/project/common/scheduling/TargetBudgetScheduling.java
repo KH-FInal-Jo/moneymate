@@ -48,8 +48,8 @@ public class TargetBudgetScheduling {
 	SimpleDateFormat outputDateFormat = new SimpleDateFormat("yyyy-MM-dd");
 
 
-	//@Scheduled(cron = "0 0 * * * *") // 자정
-	@Scheduled(cron = "0,30 * * * * *") //  30초 마다 업데이트
+	@Scheduled(cron = "0 0 * * * *") // 자정
+	//@Scheduled(cron = "0,30 * * * * *") //  30초 마다 업데이트
 	public void accountBkSelect() {
 
 		List<JAccountBook> accountBk = service.selectAccountBk2();

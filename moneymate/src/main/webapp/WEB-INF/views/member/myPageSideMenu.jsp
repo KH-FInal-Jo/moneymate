@@ -9,7 +9,14 @@
       <div>My page</div>
 	   <div>
 	  	<%-- 프사 들어갈 예정 --%>
-	  	<img src="/resources/images/mongja2.jpg" class="myPageSideImg">
+      <c:if test="${empty loginMember.profileImage}" >
+         <img src="/resources/images/id.jpg" class="myPageSideImg">
+      </c:if>
+
+      <c:if test="${!empty loginMember.profileImage}" >
+         <img src="${loginMember.profileImage}" class="myPageSideImg">
+      </c:if>
+	  	<%-- <img src="/resources/images/mongja2.jpg" class="myPageSideImg"> --%>
 	   </div>
       <div class="j-myPage-sub-content" id="memberList">
          <div>
@@ -33,7 +40,7 @@
 
          <li><a href="/member/mypage/likeList/0/${loginMember.memberNo}">좋아요 목록</a></li>
 
-         <li><a href="/member/mypage/bookMark/4/${loginMember.memberNo }">북마크 조회</a></li>
+         <%-- <li><a href="/member/mypage/bookMark/4/${loginMember.memberNo }">북마크 조회</a></li> --%>
 
          <li><a href="/member/mypage/secession">회원 탈퇴</a></li>
       </ul>
