@@ -162,6 +162,24 @@ public class HBoardServiceImpl implements HBoardService {
 		return dao.deleteComment(no);
 	}
 
+	// 조회수 중가
+	@Override
+	public int updateEventRead() {
+		return dao.updateEventRead();
+	}
+
+	// 조회수 조회 
+	@Override
+	public int eventReadCount() {
+		return dao.eventReadCount();
+	}
+
+	// db 이벤트 사진 목록 조회
+	@Override
+	public List<String> selectDbEvent() {
+		return dao.selectDbEvent();
+	}
+
 	
 	
 

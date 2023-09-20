@@ -1,8 +1,10 @@
 package edu.kh.project.common.scheduling;
 
+import java.io.File;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 
@@ -21,6 +23,7 @@ import org.springframework.web.client.RestTemplate;
 
 import edu.kh.project.account.model.dto.JAccountBook;
 import edu.kh.project.account.model.service.JAccountBkService;
+import edu.kh.project.board.model.service.HBoardService;
 import edu.kh.project.member.model.dto.JMember;
 import edu.kh.project.member.model.dto.Member;
 
@@ -34,6 +37,9 @@ public class TargetBudgetScheduling {
 
 	@Autowired
 	private JAccountBkService service;
+	
+	@Autowired
+	private HBoardService hService;
 
 	@Autowired
 	private HttpSession httpSession;
@@ -115,6 +121,60 @@ public class TargetBudgetScheduling {
 		} 
 
 	}
+	
+	// 삭제된 이벤트 이미지 제거 메소드
+	@Scheduled(cron = "0,30 * * * * *")
+	public void deleteImage() {
+		System.out.println("----------- 삭제된 이미지 DB 제거 -----------");
+		
+		String filePath = servletContext.getRealPath("/resources/images/event");
+		
+		File path = new File(filePath);
+		File[] eventArr = path.listFiles();
+		
+		List<File> imageList = Arrays.asList(eventArr);
+		
+		List<String> dbEventList = hService.selectDbEvent();
+		
+		if(!imageList.isEmpty()) {
+			for(File file : imageList) {
+				if(dbEventList.indexOf(file.getName()) == -1) {
+					System.out.println(file.getName() + " 삭제");
+					file.delete(); 
+				}
+			}
+		}
+		
+		System.out.println("----------- 이벤트 이미지 삭제 스케줄러 종료 -----------");
+		
+	}
+	
+	// 삭제된 게시판 이미지 제거 메소드
+		@Scheduled(cron = "0,30 * * * * *")
+		public void deleteBoardImage() {
+			System.out.println("----------- 삭제된 이미지 DB 제거 -----------");
+			
+			String filePath = servletContext.getRealPath("/resources/images/board");
+			
+			File path = new File(filePath);
+			File[] eventArr = path.listFiles();
+			
+			List<File> imageList = Arrays.asList(eventArr);
+			
+			List<String> dbEventList = hService.selectDbEvent();
+			
+			if(!imageList.isEmpty()) {
+				for(File file : imageList) {
+					if(dbEventList.indexOf(file.getName()) == -1) {
+						System.out.println(file.getName() + " 삭제");
+						file.delete(); 
+					}
+				}
+			}
+			
+			System.out.println("----------- 이벤트 이미지 삭제 스케줄러 종료 -----------");
+			
+		}
 
 
 }

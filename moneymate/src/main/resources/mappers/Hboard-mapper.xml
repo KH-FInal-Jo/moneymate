@@ -130,5 +130,19 @@
 		WHERE COMMENT_NO = #{no}
 	</update>
 	
+	<!-- 조회수 증가 -->
+	<update id="updateEventRead">
+		UPDATE BOARD SET READ_COUNT = READ_COUNT + 1 WHERE BOARD_NO = 0
+	</update>
+	
+	<!-- 조회수 조회 -->
+	<select id="eventReadCount" resultType="_int">
+		SELECT READ_COUNT FROM BOARD WHERE BOARD_NO = 0
+	</select>
+	
+	<!-- db 이벤트 사진 목록 조회 -->
+	<select id="selectDbEvent" resultType="string">
+		SELECT IMG_RENAME FROM IMAGE
+	</select>
 	
 </mapper>
