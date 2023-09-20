@@ -382,12 +382,12 @@ main {
 
 /* 날짜 */
 .sendtime{
-    width: 120px;
+    width: 300px;
     display: flex;
-    justify-content: center;
+    justify-content: start;
     padding-top: 5px;
-    margin-left: -5px;
 
+    margin-left: 80px;
     color: rgb(107, 105, 105);
 }
 
@@ -395,24 +395,25 @@ main {
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 100px;
+    height: 70px;
 }
 
 /* 안읽은 문자 개수 */
-.readCount{
+.not-read-count{
     background-color: red;
     color: white;
     font-weight: bold;
-    font-size: 18px;
+    font-size: 15px;
 
-    width: 28px;
-    height: 28px;
+    width: 20px;
+    height: 20px;
     border-radius: 50%;
 
     display: flex;
     justify-content: center;
     align-items: center;
 
-    margin-top: 10px;
 }
 
 
