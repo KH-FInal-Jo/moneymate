@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"  %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 
@@ -39,24 +39,23 @@
                         <div class="image-section">
 
                             <c:if test="${empty loginMember.profileImage}" >
-                                <img src="/resources/images/dog1.jpg" class="myInfoImg" id ="profileImage" alt="프로필 이미지">
+                                <img src="/resources/images/dog1.jpg" class="myInfoImg" id ="profileImageDisplay" alt="프로필 이미지">
                             </c:if>
 
                             <c:if test="${!empty loginMember.profileImage}" >
-                                <img src="${loginMember.profileImage}" id="profileImage">
+                                <img src="${loginMember.profileImage}" id="profileImageDisplay">
                             </c:if>
-
-                            <!-- 오류나는 부분 -->
+                        </div>
+                            
+                        <!-- 오류나는 부분 -->
                             <div>
+                              
+                                <label for="profileImage" id="chooseButton">이미지 선택</label>
                                 <input type="file" name="profile" id="profileImage" accept="image/*">
-                                <label label for="profileImage" id="chooseButton">이미지 선택</label>
                                 <button id="changeButton">변경하기</button>
+
                             </div>
                             <!-- 오류나는 부분 -->
-
-                           <button>test</button>
-
-                        </div>
 
                         <div class="info-section">
 

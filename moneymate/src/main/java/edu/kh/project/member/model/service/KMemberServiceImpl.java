@@ -21,6 +21,7 @@ public class KMemberServiceImpl implements KMemberService{
 	@Autowired
 	private KMemberDAO dao;
 	
+	@Autowired
 	private BCryptPasswordEncoder bcrypt;
 
 	@Transactional(rollbackFor = {Exception.class})
@@ -43,18 +44,18 @@ public class KMemberServiceImpl implements KMemberService{
 	}
 
 	@Override
-	public int updateProfile(MultipartFile profileImage, String webPath, String filePath, Member loginMember)  throws IllegalStateException, IOException {
+	public int updateProfile(MultipartFile profile, String webPath, String filePath, Member loginMember)  throws IllegalStateException, IOException {
 		
 		// 프로필 이미지 변경 실패 대비
 				String temp = loginMember.getProfileImage(); // 이전 이미지 저장 
 				
 				String rename = null; // 변경 이름 저장 변수
 				
-				if(profileImage.getSize() > 0) {
+				if(profile.getSize() > 0) {
 					// 업로드된 이미지가 있을 경우  
 					
 					// 1) 파일 이름 변경 
-					rename = Util.fileRename(profileImage.getOriginalFilename());
+					rename = Util.fileRename(profile.getOriginalFilename());
 					
 					// 2) 바뀐 이름 loginMember에 세팅
 					loginMember.setProfileImage(webPath + rename);
@@ -73,7 +74,7 @@ public class KMemberServiceImpl implements KMemberService{
 					// 성공
 					// 새 이미지가 업로드 된 경우
 					if(rename != null) {
-						profileImage.transferTo(new File(filePath + rename));
+						profile.transferTo(new File(filePath + rename));
 					}
 				}else {
 					// 실패

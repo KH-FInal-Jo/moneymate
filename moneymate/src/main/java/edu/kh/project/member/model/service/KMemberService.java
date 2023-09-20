@@ -19,7 +19,7 @@ public interface KMemberService {
 
 	
 	// 이미지 변경
-	int updateProfile(MultipartFile profileImage, String webPath, String filePath, Member loginMember) throws IllegalStateException, IOException;
+	int updateProfile(MultipartFile profile, String webPath, String filePath, Member loginMember) throws IllegalStateException, IOException;
 
 		
 
