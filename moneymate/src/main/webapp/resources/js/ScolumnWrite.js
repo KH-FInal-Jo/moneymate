@@ -23,7 +23,6 @@ for(let i =0; i < inputImage.length; i++){
             const div = document.createElement("div")
             const img = document.createElement("img")
             img.classList.add("text-img")
-            img.setAttribute("value" , images)
             
 
             const reader = new FileReader(); // 파일을 읽는 객체
@@ -46,6 +45,9 @@ for(let i =0; i < inputImage.length; i++){
 
 }
 
+const images = document.getElementsByName("images")
+console.log(images)
+
 // 등록 버튼 ajax
 const registerBtn = document.getElementById("finish")
 
@@ -54,7 +56,7 @@ registerBtn.addEventListener("click", ()=>{
     // 글제목
     const boardTitle = document.getElementById("Wtitle").value
     // 글 내용
-    const boardContent = textArea.innerHTML
+    const boardContent = textArea.innerText
     
     console.log(boardTitle)
     console.log(boardContent)

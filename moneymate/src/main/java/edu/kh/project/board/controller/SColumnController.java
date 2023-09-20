@@ -41,10 +41,15 @@ public class SColumnController {
 		return "board/ScolumnWrite";
 	}
 	
+	
+	// 칼럼게시글 삽입
 	@PostMapping(value = "/community/4/insert/register", produces = "application/json; charset=UTF-8")
 	@ResponseBody
-	public String boardInsert(@RequestBody Map<String, Object> paramMap
-							, @SessionAttribute("loginMember") Member loginMember) {
+	public int boardInsert(	SBoard board
+							, @RequestBody Map<String, Object> paramMap
+							, @SessionAttribute("loginMember") Member loginMember
+							, @RequestParam(value = "images", required = false) List<MultipartFile> images
+							, HttpSession session) {
 		
 		System.out.println("요청 받음");
 		System.out.println("boardTitle : " + paramMap.get("boardContent"));
@@ -52,13 +57,25 @@ public class SColumnController {
 		int boardCode = 4;
 		int memberNo = loginMember.getMemberNo();
 		
+		// 1. 로그인한 회원번호를 얻어와 board에 세팅
+		board.setMemberNo(loginMember.getMemberNo());
+
+		// 2. boardCode도 board에 세팅
+		board.setBoardCode(boardCode);
+
+		// 3. 업로드된 이미지 서버에 실제로 저장되는 경로
+		//		+ 웹에서 요청 시 이미지를 볼 수 있는 경로(웹 접근경로)
+		String webPath = "/resources/images/board/";
+		String filePath = session.getServletContext().getRealPath(webPath);
+
+		
 		paramMap.put("boardCode", boardCode);
 		paramMap.put("memberNo", memberNo);
 		
 		System.out.println(paramMap);
 		
 		
-		return "board/ScolumnWrite";
+		return service.boardInsert(paramMap, board, images);
 //		int boardCode = 4;
 //		System.out.println("요청 받음");
 //		System.out.println("board : " + board);
