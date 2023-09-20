@@ -196,7 +196,7 @@
 		<foreach collection="list" item="img" separator=" UNION ALL ">
 			SELECT
 			#{img.boardNo} BR_NO,
-			#{img.imageCode} IMG_CD,
+			1 IMG_CD,
 			#{img.imagePath} IMG_PATH,
 			#{img.imageReName} IMG_RENAME,
 			#{img.imageOriginal} IMG_ORIGINAL,
@@ -261,6 +261,7 @@
 	<delete id="imageDelete">
 		DELETE FROM IMAGE
 		WHERE BR_NO = #{boardNo}
+		AND IMG_CD = 1
 		AND IMG_LEVEL IN
 		(${deleteList})
 	</delete>
@@ -354,6 +355,7 @@
 
 		(SELECT IMG_PATH || IMG_RENAME FROM IMAGE I
 		WHERE I.BR_NO = B.BOARD_NO
+		AND IMG_CD = 1
 		AND IMG_LEVEL = 0) THUMBNAIL
 		FROM "BOARD" B
 		JOIN "MEMBER" USING(MEMBER_NO)
