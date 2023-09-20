@@ -61,7 +61,7 @@
         
                         <div class="eachOne">
                             <div>
-                                <i class="fa-solid fa-heart boardLike"></i>
+                                <i class="fa-solid fa-heart boardLike" onclick="cancelLike(${board.boardNo})"></i>
                             </div>
                             <div>
                                 <c:if test="${!empty board.thumbnail}" >

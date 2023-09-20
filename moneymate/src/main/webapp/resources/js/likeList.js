@@ -24,7 +24,7 @@ list.addEventListener('click', (event) => {
 
 /* 선택하면 유지되게 수정해조 */
 
-/* function cancelLike(boardNo){
+function cancelLike(boardNo){
 
   if(!confirm("좋아요를 취소하시겠습니까?")){
     return;
@@ -36,8 +36,9 @@ list.addEventListener('click', (event) => {
 
   .then(result => {
     console.log(result);
+    location.reload(true);
   })
 
   .catch(e => console.log(e));
 
-} */
+}

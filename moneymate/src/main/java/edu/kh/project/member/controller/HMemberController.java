@@ -52,6 +52,7 @@ public class HMemberController {
 		return "member/likeList";
 	}
 	
+	// 좋아요 목록 - 좋아요 취소
 	@GetMapping(value="/member/mypage/likeList/cancelLike")
 	@ResponseBody
 	public int cancelLike (int boardNo, @SessionAttribute("loginMember") Member loginMember) {
