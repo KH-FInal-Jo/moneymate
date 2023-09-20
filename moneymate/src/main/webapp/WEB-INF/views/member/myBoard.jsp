@@ -97,7 +97,6 @@
                         </c:otherwise>
                     </c:choose>
 
-                                
 
                     
                 <div class="pagination-area">
