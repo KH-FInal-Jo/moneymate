@@ -224,44 +224,51 @@ function selectRoomList() {
             li.setAttribute("chat-no", room.chattingNo);
             li.setAttribute("target-no", room.targetNo);
             li.setAttribute("data-id", room.targetNo);
-
+            
             // div 요소 생성
             const chatMessageDiv = document.createElement("div");
             chatMessageDiv.classList.add("chatMessage3");
-
+            
+            const con1Div = document.createElement("div");
+            con1Div.classList.add("con1");
+            
+            const con2Div = document.createElement("div");
+            con2Div.classList.add("con2");
+            
+            const con3Div = document.createElement("div");
+            con3Div.classList.add("con3");
+            
             // 프로필 이미지 추가
             const profileImg = document.createElement("img");
             profileImg.classList.add("result-row-img");
-            if (room.targetProfile === undefined)
+            if (room.targetProfile === null)
                profileImg.setAttribute("src", "/resources/images/id.png");
             else
                profileImg.setAttribute("src", room.targetProfile);
-
+            
             // div 내부에 프로필 이미지 추가
-            chatMessageDiv.appendChild(profileImg);
-
-            // 이름과 메세지 추가
+            con1Div.appendChild(profileImg);
+            
             const nameDiv = document.createElement("div");
             nameDiv.classList.add("target-name");
             nameDiv.textContent = room.targetNickName;
-
+            
             const messageDiv = document.createElement("div");
             messageDiv.classList.add("lastmessage");
             messageDiv.textContent = room.lastMessage;
-
-            // div 내부에 이름과 메세지 추가
-            chatMessageDiv.appendChild(nameDiv);
-            chatMessageDiv.appendChild(messageDiv);
-
-            // 시간 추가
+            
+            con2Div.appendChild(nameDiv);
+            con2Div.appendChild(messageDiv);
+            
             const timeDiv = document.createElement("div");
             timeDiv.textContent = room.sendTime;
             timeDiv.classList.add("sendtime");
-
+            
             // 읽지 않은 메시지 개수가 0보다 큰 경우 출력
             if (room.notReadCount > 0) {
                const notReadCountP = document.createElement("p");
                notReadCountP.classList.add("not-read-count");
+               
                notReadCountP.textContent = room.notReadCount;
                timeDiv.appendChild(notReadCountP);
             } else {
@@ -275,15 +282,21 @@ function selectRoomList() {
                .then(result => console.log(result))
                .catch(err => console.log(err));
             }
-
+            
             // 시간을 div 내부에 추가
-            chatMessageDiv.appendChild(timeDiv);
-
+            con3Div.appendChild(timeDiv);
+            
+            // con1, con2, con3를 chatMessageDiv에 추가
+            chatMessageDiv.appendChild(con1Div);
+            chatMessageDiv.appendChild(con2Div);
+            chatMessageDiv.appendChild(con3Div);
+            
             // chatMessageDiv를 li 요소에 추가
             li.appendChild(chatMessageDiv);
-
+            
             // li 요소를 chattingList에 추가
             chattingList.appendChild(li);
+            
          }
 
          roomListAddEvent();
