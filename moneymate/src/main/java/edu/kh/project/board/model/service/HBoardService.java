@@ -64,6 +64,21 @@ public interface HBoardService {
 	 */
 	int deleteComment(int no);
 
+	/** 조회수 증가
+	 * @return result
+	 */
+	int updateEventRead();
+
+	/** 조회수 조회
+	 * @return readCount
+	 */
+	int eventReadCount();
+
+	/** db 이벤트 사진 목록 조회
+	 * @return
+	 */
+	List<String> selectDbEvent();
+
 	
 
 	

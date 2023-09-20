@@ -115,6 +115,27 @@ public class HBoardDAO {
 		return sqlSession.update("HBoardMapper.deleteComment", no);
 	}
 
+	/** 조회수 증가
+	 * @return result
+	 */
+	public int updateEventRead() {
+		return sqlSession.update("HBoardMapper.updateEventRead");
+	}
+
+	/** 조회수 조회
+	 * @return readCount
+	 */
+	public int eventReadCount() {
+		return sqlSession.selectOne("HBoardMapper.eventReadCount");
+	}
+
+	/** db 이벤트 사진 목록 조회
+	 * @return
+	 */
+	public List<String> selectDbEvent() {
+		return sqlSession.selectList("HBoardMapper.selectDbEvent");
+	}
+
 	
 
 	

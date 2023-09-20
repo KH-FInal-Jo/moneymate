@@ -2,6 +2,9 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"  %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"  %>
 
+<c:set var="commentList" value="${map.commentList}"/>
+<c:set var="readCount" value="${map.readCount}"/>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -32,7 +35,7 @@
         <div>가계부 자랑하기(임시 제목)</div>
         <div>
             <span>조회수</span>
-            <span>5</span>
+            <span>${readCount}</span>
         </div>
 
         <div id="event">

@@ -388,66 +388,74 @@ commentLike.addEventListener("cilck", e => {
 
 }) */
 
-const temp = document.getElementById("commentFrm").innerHTML;
+if(document.getElementById("commentFrm") != null){
+    const temp = document.getElementById("commentFrm").innerHTML;
+
+}
+
 
 // 댓글 등록
 const insertBtn = document.getElementById("insertBtn"); // 등록 버튼
 const commentWrite = document.getElementById("commentWrite"); // 내용
 const inputImg = document.getElementById("imgInput"); // 사진
 
-insertBtn.addEventListener("click" , (e) => {
-
-    e.preventDefault();
-
-    if(loginMemberNo == ""){ // 로그인을 안 한 경우
-        alert("로그인 후 이용해주세요.");
-        return;
-    }
-
-    if(commentWrite.value.trim().length == 0){ // 내용 X
-        alert("댓글 내용 입력 후 등록해주세요");
-        commentWrite.value = "";
-        commentWrite.focus();
-        return;
-    }
-
-    if(inputImg.value == ""){
-        alert("사진 등록은 필수입니다.");
-        return;
-    }
-
-    var form = $('#commentFrm')[0];
-    var formData = new FormData(form);
-    $.ajax({
-        type:"post",
-        enctype:'multipart/form-data',
-        url:'/event/account/insert',
-        data:formData,
-        dataType:'json',
-        processData:false,
-        contentType:false,
-        cache:false,
-        success:function(data){
-            console.log("success : ", data);
-            
-            commentWrite.value = "";
-            inputImg.value = "";
-            document.getElementById("pre").setAttribute("src", "");
-            deleteImage[0].style.display = 'none';
-
-            document.getElementById("commentFrm").innerHTML = "";
-
-            alert("등록되었습니다.")
-            selectList();
-
+if(insertBtn != null){
+    insertBtn.addEventListener("click" , (e) => {
+    
+        e.preventDefault();
+    
+        if(loginMemberNo == ""){ // 로그인을 안 한 경우
+            alert("로그인 후 이용해주세요.");
             return;
-        },
-        error:function(e){
-            console.log("error : ", e);
         }
+    
+        if(commentWrite.value.trim().length == 0){ // 내용 X
+            alert("댓글 내용 입력 후 등록해주세요");
+            commentWrite.value = "";
+            commentWrite.focus();
+            return;
+        }
+    
+        if(inputImg.value == ""){
+            alert("사진 등록은 필수입니다.");
+            return;
+        }
+    
+        var form = $('#commentFrm')[0];
+        var formData = new FormData(form);
+        $.ajax({
+            type:"post",
+            enctype:'multipart/form-data',
+            url:'/event/account/insert',
+            data:formData,
+            dataType:'json',
+            processData:false,
+            contentType:false,
+            cache:false,
+            success:function(data){
+                console.log("success : ", data);
+                
+                commentWrite.value = "";
+                inputImg.value = "";
+                document.getElementById("pre").setAttribute("src", "");
+                deleteImage[0].style.display = 'none';
+    
+                document.getElementById("commentFrm").innerHTML = "";
+    
+                alert("등록되었습니다.")
+                selectList();
+    
+                return;
+            },
+            error:function(e){
+                console.log("error : ", e);
+            }
+        });
+    
     });
 
-});
+}
+
 
 
 // 좋아요
