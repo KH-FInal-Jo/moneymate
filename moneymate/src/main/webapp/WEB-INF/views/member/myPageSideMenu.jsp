@@ -25,9 +25,7 @@
    <div class="j-myPage-member-list">
       <ul class="j-myPage-sidemenu-list">
 
-         <li><a href="#">내 정보 조회</a></li>
-
-         <li><a href="#">내 정보 수정</a></li>
+         <li><a href="/member/mypage">내 정보 조회</a></li>
 
          <li><a href="#">비밀번호 재설정</a></li>
 
