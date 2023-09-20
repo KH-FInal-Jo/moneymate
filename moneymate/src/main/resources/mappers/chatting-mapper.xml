@@ -29,7 +29,7 @@
 		<id property="memberNo" column="MEMBER_NO" />
 		<result property="memberEmail" column="MEMBER_EMAIL" />
 		<result property="memberNickname" column="MEMBER_NICKNAME" />
-		<result property="profileImage" column="PROFILE_IMG" />
+		<result property="profileImage" column="PROFILE" />
 	</resultMap>
 
 
@@ -106,11 +106,11 @@
 
 		<selectKey keyProperty="chattingNo" order="BEFORE"
 			resultType="_int">
-			SELECT SEQ_ROOM_NO.NEXTVAL FROM DUAL
+			SELECT SEQ_CHATTING_NO.NEXTVAL FROM DUAL
 		</selectKey>
 
 		INSERT INTO CHATTING_ROOM
-		VALUES(#{chattingNo}, DEFAULT, #{loginMemberNo}, #{targetNo})
+		VALUES(#{chattingNo}, #{loginMemberNo}, #{targetNo}, DEFAULT)
 	</insert>
 
 
@@ -142,11 +142,20 @@
 
 	<!-- 채팅 상대 검색 -->
 	<select id="selectTarget" resultMap="member_rm">
-		SELECT MEMBER_NO, MEMBER_EMAIL, MEMBER_NICKNAME, PROFILE FROM "MEMBER"
-		WHERE (MEMBER_EMAIL LIKE '%${query}%' OR MEMBER_NICKNAME LIKE
-		'%${query}%')
-		AND SECESSION_FL = 'N'
-		AND MEMBER_NO != #{memberNo}
+		SELECT MEMBER_NO, MEMBER_EMAIL, MEMBER_NICKNAME, PROFILE
+			FROM MEMBER
+			WHERE MEMBER_NO != #{memberNo}
+			AND MEMBER_NO NOT IN (
+			  SELECT DISTINCT
+			    CASE
+			      WHEN OPEN_MEMBER = #{memberNo} THEN PARTICIPANT
+			      ELSE OPEN_MEMBER
+			    END AS MEMBER_NO
+			  FROM CHATTING_ROOM
+			  WHERE OPEN_MEMBER = #{memberNo}
+			  OR PARTICIPANT = #{memberNo}
+			)
+			AND SECESSION_FL = 'N'
 	</select>
 
 </mapper>

@@ -45,13 +45,19 @@
 
                 <div class="chat-my-profile">
                     <div>
-                        <img src="../images/mongja2.jpg">
+                        <c:if test="${empty loginMember.profileImage}" >
+                            <img src="/resources/images/id.png">
+                        </c:if>
+
+                        <c:if test="${!empty loginMember.profileImage}" >
+                            <img src="${loginMember.profileImage}" >
+                        </c:if>
                     </div>
                     <div>
-                        몽자
+                       ${loginMember.memberNickname}
                     </div>
                     <div>
-                        멍멍멍 집갈래...
+                        
                     </div>
                 </div>
 
@@ -78,45 +84,45 @@
         <!-- 메세지 확인 -->
         <div id="leftBar3">
 
-            <div>
+            <%-- <div>
                 <i class="fa-solid fa-magnifying-glass fa-2xl"></i><input type="text" name="inputName" placeholder="검색어를 입력하세요.">
+            </div> --%>
+            <div>
+                <div><i class="fa-solid fa-ellipsis fa-xl"></i></div>            
+                <div>채팅목록</div>            
             </div>
 
+            <ul class="chatting-list">
             <c:forEach var="room" items="${roomList}">
                 <li class="result-row3" chat-no="${room.chattingNo}" target-no="${room.targetNo}"  onclick="roomListAddEvent(this)" data-id="${room.targetNo}">
                     <div class="chatMessage3">
-                        <div>
+                        <div class="con1">
                             <c:if test="${!empty room.targetProfile}">
                                 <img class="result-row-img" src="${room.targetProfile}">
                             </c:if>
                             <c:if test="${empty room.targetProfile}">
-                                <%-- <img class="result-row-img" src="/resources/images/user.png"> --%>
                                 <img class="result-row-img" src="/resources/images/몽자.jpg">
                             </c:if>
                         </div>
-                        <div>
+                        <div class="con2">
                             <div class="target-name">${room.targetNickName}</div>
-                            <div>${room.lastMessage}</div>
+                            <div class="lastmessage">${room.lastMessage}</div>
                         </div>
-                        <div>
-                            <div>
+                        <div class="con3">
+                            <div class="sendtime">
                                 ${room.sendTime}
                             </div>
-                            <div>
-                                <%-- <c:if test="${room.notReadCount > 0}">
-                                    <div class="readCount">${room.notReadCount}</div>
-                                 </c:if> --%>
+                            <div class="notreadcount">
                                  <c:if test="${room.notReadCount > 0}">
                                 <p class="not-read-count">${room.notReadCount}</p>
                                 </c:if>
-                                 <div></div>
                             </div>
                         </div>
 
                     </div>
                 </li>
             </c:forEach>
-
+            </ul>
         </div>
 
         <div class="chatting-main">
@@ -127,17 +133,14 @@
 
             <div class="display-chatting">
                 <div class="opponentUser">
-                    <img class="result-row-img" src="/resources/images/몽자.jpg">
-                    <span>유저일</span>
+                    <img class="result-row-img" src="/resources/images/gray.jpg">
+                    <span></span>
                 </div>
 
                  <div class="wrap">
                     <div class="chat ch1">
-                        <div class="icon"><img src="../images/몽자.jpg" alt=""></div>
-                        <div class="textbox">넹 잘 지내고있죵 제 영상 자주 시청하시나용 속삭이는 몽자요!!</div>
                     </div>
                     <div class="chat ch2">
-                        <div class="textbox">잘 보고있죵! 너무 재밌어요 혹시 사람 아닌가요 ㅋㅋ</div>
                     </div>
                 </div>
 

@@ -73,7 +73,7 @@ main {
 
 #leftBar1 input{
     width: 100%;
-    height: 40px;
+    height: 60px;
     padding-left: 20px;
     padding-top: 20px;
     border: 0;
@@ -85,6 +85,7 @@ main {
 
 #leftBar1 > div:first-child{
     display: flex;
+    height: 70px;
 
     border-bottom: 4px solid #ddd;
 }
@@ -298,22 +299,34 @@ main {
 
 #leftBar3 > div:first-child{
     display: flex;
-
-    border-bottom: 4px solid #ddd;
+    width: 100%;
+    height: 60px;
+    
 }
 
-#leftBar3 > div:first-child > i{
-    margin-top: 37px;
+#leftBar3 > div:first-child  i{
+    margin-top: 25px;
     margin-left: 10px;
     font-size: 44px;
     color: gray;
+}
+#leftBar3 > div:first-child>div:last-child{
+    font-size: 23px;
+    margin-left: 15px;
+    margin-top: 13px;
+}
+
+.chatting-list{
+    width: 550px;
+    
+    margin-left: -30px;
 }
 
 
 
 /* 검색어 나오는 창 */
 .result-row3{
-    width: 95%;
+    width: 100%;
     height: 90px;
 
     border: 3px solid #ddd;
@@ -336,7 +349,7 @@ main {
 }
 
 /* 채팅 메세지 상대 프사 */
-.chatMessage3 > div:first-child{
+.con1{
     width: 65px;
     margin: auto;
     margin-left: 10px;
@@ -349,7 +362,7 @@ main {
     border-radius: 50%;
 }
 
-.chatMessage3 > div:nth-child(2){
+.con2{
     margin-left: 10px;
     display: flex;
     flex-direction: column;
@@ -359,16 +372,16 @@ main {
     width: 360px;
 
 }
-.chatMessage3 > div:nth-child(2) > div:first-child{
+.target-name{
     padding-bottom: 10px;
     font-weight: bold;
 }
-.chatMessage3 > div:nth-child(2) > div:last-child{
+.lastmessage{
     color: rgb(107, 105, 105);
 }
 
 /* 날짜 */
-.chatMessage3 > div:nth-child(3)>div:first-child{
+.sendtime{
     width: 120px;
     display: flex;
     justify-content: center;
@@ -378,7 +391,7 @@ main {
     color: rgb(107, 105, 105);
 }
 
-.chatMessage3 > div:nth-child(3){
+.con3{
     display: flex;
     flex-direction: column;
     align-items: center;
