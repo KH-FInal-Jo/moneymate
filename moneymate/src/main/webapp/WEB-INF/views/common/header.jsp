@@ -23,6 +23,22 @@
             <div class="head-board">
                 <!-- 헤더 글 -->
                 <div class="nav">
+
+
+                    <%-- <div class="headback color-5">
+                        <div class="row columns">
+                        <h3 class="headH3"></h3>
+                        <ul class="menu align-center expanded text-center SMN_effect-25">
+                            <li><a href="" class="headA">Home</a></li>
+                            <li><a href="" class="headA">About</a></li>
+                            <li><a href="" class="headA">Gallery</a></li>
+                            <li><a href="" class="headA">Notes</a></li>
+                            <li><a href="" class="headA">Contact</a></li>
+                        </ul>
+                        </div>
+                    </div> --%>
+
+
                     <a href="/community/1"><span>커뮤니티</span></a>
                     <c:if test="${!empty loginMember}" >
                     <a href="/account/list"><span>가계부</span></a>

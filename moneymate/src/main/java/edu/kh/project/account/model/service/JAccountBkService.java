@@ -29,4 +29,7 @@ public interface JAccountBkService {
 	// 알림함 insert
 	int insertAlert(int selmemberNo);
 
+	// 구독 광고 ㅋ
+	String selectSub(int memberNo);
+
 }

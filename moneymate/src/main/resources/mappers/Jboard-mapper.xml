@@ -178,6 +178,22 @@
 	
 	</update>
 	
+	<!-- 구독 광고 -->
+	<select id="selectSub" resultType="string">
+	
+		SELECT 
+		<![CDATA[
+		(CASE WHEN SUBSCRIBE_END >= SYSDATE THEN 'Y'
+		    ELSE 'N'
+		    END
+		) AS SUBSCRIBE_END
+		 ]]>
+		FROM 
+		SUBSCRIBE
+		WHERE MEMBER_NO = #{memberNo}
+	
+	</select>
+	
 
 
 </mapper>

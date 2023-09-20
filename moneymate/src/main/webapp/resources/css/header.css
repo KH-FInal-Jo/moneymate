@@ -8,6 +8,95 @@
 font-family: 'SDGothic', serif;
 }
 
+
+@import url(https://fonts.googleapis.com/css?family=Lato:400,300,700,900);
+
+.headback {
+    padding: 50px 0 150px 0;
+}
+
+
+
+.menu a {
+    font-family: Lato;
+    font-size: 17pt;
+    font-weight: 400;
+    padding: 15px 25px;
+    /**/
+    position: relative;
+    display: block;
+    text-decoration: none;
+    text-transform: uppercase;
+  }
+
+  .menu >li{
+    list-style: none;
+  }
+
+.headA:hover, .headA:focus{
+    outline: none;
+}
+  
+/*
+---------------------------------------
+hover effect 25
+---------------------------------------
+*/
+
+.SMN_effect-25 a {
+    letter-spacing: 0;
+    transition: 0.35s;
+  }
+  
+  .SMN_effect-25 a:hover, .SMN_effect-25 a:active {
+    letter-spacing: 5px;
+    transition: 0.35s;
+  }
+  
+  .SMN_effect-25 a:after {
+    bottom: -10px;
+  }
+  
+  .SMN_effect-25 a:before {
+    top: -10px;
+  }
+  
+  .SMN_effect-25 a:after, .SMN_effect-25 a:before {
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    border: 1px solid rgba(255, 255, 255, 0);
+    content: " ";
+    display: block;
+    margin: 0 auto;
+    position: relative;
+    transition: all 280ms ease-in-out;
+    width: 0;
+  }
+  
+  .SMN_effect-25 a:hover:after, .SMN_effect-25 a:hover:before {
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    border-color: #fff;
+    transition: width 350ms ease-in-out;
+    width: 100%;
+  }
+  
+  .SMN_effect-25 a:hover:before {
+    width: 100%;
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
 .headMain{
     width: 1900px;
     background-color: white;
