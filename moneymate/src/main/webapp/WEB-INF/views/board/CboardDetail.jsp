@@ -92,7 +92,7 @@
                 <hr class="hr">
     
                 <div class="btn-area">
-                    <c:if test="${loginMember.memberNo == board.memberNo} || ${loginMember.authority == 1}" >
+                    <c:if test="${loginMember.memberNo == comment.memberNo || loginMember.authority == 1}"  >
                         <button id="updateBtn">수정</button>
                         <button id="deleteBtn">삭제</button>
                     </c:if>
@@ -133,9 +133,10 @@
                                     <div class="comment-btn-area">
                                         <button onclick="showInsertComment(${comment.commentNo}, this)">답글</button>   
 
-                                        <c:if test="${loginMember.memberNo == comment.memberNo} || ${loginMember.authority == 1}" >
+                                        <c:if test="${loginMember.memberNo == comment.memberNo || loginMember.authority == 1}"  >
                                             <!-- 로그인 회원과 댓글 작성자가 같은 경우 -->  
-                                            <button onclick="showUpdateComment(${comment.commentNo}, this)">수정</button>     
+                                            <button onclick="showUpdateComment(${comment.commentNo}, this)">수정</button>
+
                                             <button onclick="deleteComment(${comment.commentNo})">삭제</button>
                                         </c:if>   
                                     </div>
