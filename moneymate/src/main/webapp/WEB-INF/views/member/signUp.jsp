@@ -12,7 +12,7 @@
 <script src="https://kit.fontawesome.com/d76028de4f.js" crossorigin="anonymous"></script>
 
 </head>
-<body>
+<body id="body">
 
 <jsp:include page="/WEB-INF/views/common/header.jsp" />
 
@@ -60,7 +60,7 @@
                 <div class="modal-content">
                     <h2>휴대폰 인증</h2>
                     <p><input type="text" placeholder="휴대폰 번호 입력" id="mTel"> <button onclick="authPhone()">인증번호 받기</button></p>
-                    <p><input type="text" placeholder="인증번호 입력" id="confirm"> <button>인증번호 확인</button></p>
+                    <p><input type="text" placeholder="인증번호 입력" id="inputNum"> <button id="confirmNum">인증번호 확인</button></p>
                     <button id="close-modal">닫기</button>
                 </div>
             </div>

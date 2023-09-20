@@ -77,7 +77,7 @@
                                             </c:if>
                                             <a href="/community/${board.boardCode}/${board.boardNo}?cp=${pagination.currentPage}${sp}">${board.boardTitle}</a> [${board.commentCount}]
                                         </div>
-                                        <div class="content"><a>${board.boardContent}</a></div>
+                                        <div class="content"><a href="/community/${board.boardCode}/${board.boardNo}?cp=${pagination.currentPage}${sp}">${board.boardContent}</a></div>
                                         <div class="etc">
                                             <div>
                                                 <i class="fa-solid fa-heart" style="color: #f50505;"></i>: ${board.likeCount}
