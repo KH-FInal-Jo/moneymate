@@ -70,15 +70,20 @@
 
 .title{
     padding-top: 3px;
-    height: 20%;
+    height: 15%;
     padding-left: 10px;
-    font-size: 18px;
+    font-size: 15px;
 }
 .content{
     height: 60%;
     padding-top: 10px;
     padding-left: 10px;
     font-size: 15px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;		
 }
 .etc{
     height: 20%;
@@ -88,6 +93,7 @@
     display: flex;
     justify-content: space-between;
     padding: 0px 20px;
+    padding-top: 10px;
 }
 
 

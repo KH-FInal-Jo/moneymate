@@ -175,19 +175,32 @@ function authPhone(){
 
     const mTel = document.getElementById("mTel");
     const confirmNum = document.getElementById("confirmNum");
+    const inputNum = document.getElementById("inputNum");
+    const modal = document.getElementById("modal");
+    const authKeyMessage = document.getElementById("authKeyMessage");
+    const body = document.getElementById("body");
+    const openmodal = document.getElementById("open-modal");
 
 
     fetch("/member/signUp/authPhone?mTel=" + mTel.value)
     .then(resp => resp.text())
     .then(result => {
 
+        alert("인증번호 전송완료");
         console.log(result);
 
-        alert("인증번호 전송완료");
-
-
-
-
+        confirmNum.addEventListener("click", function(){
+            if(inputNum.value == result){
+                alert("휴대폰 인증 성공!")
+                modal.style.display = "none";
+                checkObj.authKey = true;
+                authKeyMessage.innerText = "인증되었습니다.";
+                authKeyMessage.classList.add("confirm");
+                body.style.overflow = "auto";
+                checkObj.authKey = true;
+                openmodal.remove();
+            }
+        })
 
         
     })
@@ -196,11 +209,7 @@ function authPhone(){
     });
 
     
-}
-
-
-
-
+};
 
 
 

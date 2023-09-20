@@ -28,7 +28,7 @@
 
     <div class="container">
         <div class="logo">
-            <img src="/resources/images/로고.png" alt="">
+            <a href="/"><img src="/resources/images/로고.png" alt=""></a>
         </div>
 
         <div class="input">
@@ -52,7 +52,7 @@
                 </div>
 
                 <div>
-                    <button id="btn1" class="btn1">Login</button>
+                    <button id="btn1" class="btn1">로그인</button>
                 </div>
                 <div>
                         <div class="btn-area">
