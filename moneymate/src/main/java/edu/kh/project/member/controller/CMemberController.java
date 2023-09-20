@@ -22,6 +22,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import edu.kh.project.member.model.dto.Member;
 import edu.kh.project.member.model.service.CMemberService;
+import net.nurigo.java_sdk.exceptions.CoolsmsException;
 
 @Controller
 @RequestMapping("/member")
@@ -235,6 +236,29 @@ public class CMemberController {
 	
 	
 	
+	@GetMapping("/signUp/dupNicknameCheck")
+	@ResponseBody 
+	public int nicknameDupCheck(String nickname) {
+		
+		System.out.println("nickname : " + nickname);
+		
+		return service.nicknameDupCheck(nickname);
+	}
+	
+	
+	
+	
+	
+	 @GetMapping("/signUp/authPhone")
+	 @ResponseBody 
+	 public String memberPhoneCheck(@RequestParam(value = "mTel") String mTel) throws CoolsmsException {
+	  
+	 System.out.println("정말안되?" + mTel);
+	  
+	 return service.memberPhoneCheck(mTel); 
+	 
+	 
+	 }
 	
 	
 	

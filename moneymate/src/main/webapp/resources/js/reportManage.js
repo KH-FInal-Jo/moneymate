@@ -16,7 +16,6 @@ function confirm(boardNo, memberNo){
     .then(resp => resp.text())
     .then(result => {
 
-        console.log("확인했니?" + result);
 
         if(result > 0){
             alert("처리 완료");

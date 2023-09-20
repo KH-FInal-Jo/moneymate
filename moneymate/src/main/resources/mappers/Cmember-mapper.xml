@@ -304,6 +304,16 @@
 		ORDER BY BOARD_NO DESC
 	</select>
 	
+	<!-- 닉네임 중복 검사 -->
+	<select id="nicknameDupCheck" resultType="_int">
+		SELECT COUNT(*) FROM MEMBER 
+		WHERE MEMBER_NICKNAME = #{nickname} 
+		AND SECESSION_FL = 'N'
+	</select>
+	
+	
+	
+	
 	
 	
    
