@@ -155,7 +155,6 @@
         
     </main>
 
-    <script src="/resources/js/adminSidemenu.js"></script>
     <script src="/resources/js/reportManage.js"></script>
 </body>
 </html>

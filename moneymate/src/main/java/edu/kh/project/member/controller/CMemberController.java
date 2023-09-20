@@ -199,7 +199,6 @@ public class CMemberController {
 			
 			Map<String, Object> map = service.selectMyBoard(paramMap, cp);
 			
-			System.out.println(map);
 		 
 			model.addAttribute("map1", map);
 			 

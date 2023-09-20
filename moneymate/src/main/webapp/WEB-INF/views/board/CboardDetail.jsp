@@ -49,7 +49,7 @@
                         
                         <span class="like-area" id="likeArea">
                         	<c:if test="${!empty likeCheck}" >
-                        		<i class="fa-solid fa-heart" style="color: #f50505;"></i>
+                        		<i class="fa-solid fa-heart" ></i>
                         	</c:if>
 	                        <c:if test="${empty likeCheck}" >
 	                            <i class="fa-regular fa-heart" id="boardLike"></i>

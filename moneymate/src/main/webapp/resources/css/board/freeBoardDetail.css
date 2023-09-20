@@ -10,7 +10,7 @@
 
 .board-free-main{
     margin: auto;
-    width: 100%;
+    width: 800px;
     height: auto;
     padding: 25px 50px;
 }
@@ -210,13 +210,13 @@
      resize: none;
  }
  
- .comment-row{
+.comment-row{
     border-top : 1px solid #ccc;
     padding : 15px 0;
- }
+}
  
  
- .child-comment{
+.child-comment{
     padding-left : 50px;
     position: relative;
  }
@@ -232,5 +232,9 @@
 
 .comment-content{
    white-space: pre-wrap;
+}
+
+.red{
+    color: red;
 }
 
