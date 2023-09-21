@@ -20,13 +20,13 @@ public class KMemberDAO {
 		return sqlSession.update("KmemberMapper.updateInfo", updateMember);
 	}
 
-
-	public int changePw(String newPw, int memberNo) {
+	// 비밀번호 변경DAO
+	public int changePw(String newPassword, int memberNo) {
 		Member member = new Member();
 		member.setMemberNo(memberNo);
-		member.setMemberPw(newPw);
+		member.setMemberPw(newPassword);
 		
-		return sqlSession.update("kmemberMapper.changePw", member);
+		return sqlSession.update("KmemberMapper.changePw", member);
 	}
 
 
@@ -41,7 +41,22 @@ public class KMemberDAO {
 	 * @return result
 	 */
 	public int updateProfileImage(Member loginMember) {
-		return sqlSession.update("kmemberMapper.updateProfileImage", loginMember);
+		return sqlSession.update("KmemberMapper.updateProfileImage", loginMember);
+	}
+
+
+	public int memberCheck(Member member) {
+		return sqlSession.selectOne("KmemberMapper.memberCheck", member);
+	}
+
+	
+	/** 회원 비밀번호 조회
+	 * @param memberNo
+	 * @return
+	 */
+	public String selectEncPw(int memberNo) {
+		
+		return sqlSession.selectOne("KmemberMapper.selectEncPw", memberNo);
 	}
 	
 	

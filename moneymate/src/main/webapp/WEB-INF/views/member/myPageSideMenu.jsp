@@ -34,7 +34,7 @@
 
          <li><a href="/member/mypage">내 정보 조회</a></li>
 
-         <li><a href="#">비밀번호 재설정</a></li>
+         <li><a href="/member/mypage/findPw">비밀번호 재설정</a></li>
 
          <li><a href="/member/mypage/myboard">내가 쓴 글</a></li>
 

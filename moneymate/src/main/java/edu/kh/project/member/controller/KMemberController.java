@@ -20,6 +20,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import edu.kh.project.member.model.dto.JMember;
 import edu.kh.project.member.model.dto.Member;
 import edu.kh.project.member.model.service.KMemberService;
+import net.nurigo.java_sdk.exceptions.CoolsmsException;
 
 @SessionAttributes("loginMember")
 @Controller
@@ -46,10 +47,10 @@ public class KMemberController {
 
 
 	// 비밀번호 변경 페이지 이동
-	@GetMapping("/changePw")
-	public String changePw() {
+	@GetMapping("/mypage/findPw")
+	public String myPagefindPw() {
 
-		return "myPage/myPage-changePw";
+		return "member/myPagefindPw";
 	}
 
 
@@ -70,53 +71,66 @@ public class KMemberController {
 	@PostMapping("/mypage")
 	public String myInfo(Member updateMember, String[]memberAddress
 			, @SessionAttribute("loginMember")Member loginMember
-			, RedirectAttributes ra) {
-
-
-
-//		String addr = String.join("^^^", memberAddress);
-//		updateMember.setMemberAddress(addr);
-		System.out.println("loginMember");
+			, RedirectAttributes ra 
+			, @RequestParam("profile")MultipartFile profile // 업로드한 파일
+			, HttpSession session )  throws IllegalStateException, IOException {
 
 		updateMember.setMemberNo(loginMember.getMemberNo());
-
-		int result = service.updateInfo(updateMember);
+		String webPath = "/resources/images/member/";
 		
 
-		String message = null;
+		// 실제로 이미지 파일이 저장되어야 하는 서버 컴퓨터 경로
+		String filePath = session.getServletContext().getRealPath(webPath);
+		// 프로필 이미지 수정 서비스 호출
+		int result = service.updateProfileImage(profile,webPath, filePath,loginMember);
+		
 		if(result > 0) {
-			message = "회원 정보가 수정되었습니다.";					
-			loginMember.setMemberNickname(updateMember.getMemberNickname());
-			loginMember.setMemberTel(updateMember.getMemberTel());
-			loginMember.setMemberAddress(updateMember.getMemberAddress());
-		}else {
-			message = "회원 정보 수정 실패..";
+			
+			int result1 = service.updateInfo(updateMember);
+			
+			
+			String addr = String.join("^^^", memberAddress);
+			updateMember.setMemberAddress(addr);
+			System.out.println("loginMember");
+			
+			String message = null;
+			if(result1 > 0) {
+				message = "회원 정보가 수정되었습니다.";					
+				loginMember.setMemberNickname(updateMember.getMemberNickname());
+				loginMember.setMemberTel(updateMember.getMemberTel());
+				loginMember.setMemberAddress(updateMember.getMemberAddress());
+			}else {
+				message = "회원 정보 수정 실패..";
+			}
+			
+			ra.addFlashAttribute("message",message);
 		}
-
-		ra.addFlashAttribute("message",message);
-
 		return "/member/KmyInfo";
+
+
+
 	}
 
-	@PostMapping("/changePw")
-	public String ChangePw( String currentPw, String newPw
+// 비밀	
+	@PostMapping("/mypage/findPw")
+	public String ChangePw( String Password, String newPassword
 			, @SessionAttribute("loginMember")Member loginMember
 			, RedirectAttributes ra) {
 
 		int memberNo = loginMember.getMemberNo();
 
-		int result = service.changePw(currentPw, newPw, memberNo);
+		int result = service.changePw(Password, newPassword, memberNo);
 
-		String path = "rediret:";
+		String path = "redirect:";
 		String message = null;
 
 		if(result>0) {
 			message="비밀번호가 변경 되었습니다.";
-			path += "myPage";
+			path += "/";
 
 		}else {
 			message="비밀번호가 틀립니다.";
-			path += "changePw";
+			path += "/member/mypage/findPw";
 		}
 		ra.addFlashAttribute("message", message);
 
@@ -127,13 +141,14 @@ public class KMemberController {
 
 	// 프로필 이미지 수정
 	@PostMapping("/member/KmyInfo")
-	public String UpdateProfile(
+	public String updateProfileImage(
 			@RequestParam("profile")MultipartFile profile // 업로드한 파일
 			,@SessionAttribute("loginMember") Member loginMember // 로그인한 회원
 			,RedirectAttributes ra // 리다이렉트 시 메세지 전달
 			,HttpSession session // 세션 객체
 			) throws IllegalStateException, IOException {
 
+		System.out.println("profile" + profile);
 		// 웹 접근 경로
 		String webPath = "/resources/images/member/";
 
@@ -141,7 +156,7 @@ public class KMemberController {
 		String filePath = session.getServletContext().getRealPath(webPath);
 
 		// 프로필 이미지 수정 서비스 호출
-		int result = service.updateProfile(profile,webPath, filePath,loginMember);
+		int result = service.updateProfileImage(profile,webPath, filePath,loginMember);
 
 		String message = null;
 		if(result > 0) message = "프로필 이미지가 변경되었습니다.";
@@ -151,8 +166,31 @@ public class KMemberController {
 
 		return "redirect:/member/KmyInfo";
 	}
+	
+	@GetMapping("/findId")
+	public String findId() {
+		return "/member/KfindId";
+	}
+	@GetMapping("/findPw")
+	public String findPw() {
+		return "/member/KfindPw";
+	}
 
-
+	@PostMapping("/findPw1")
+	public String findPw(Member member) throws CoolsmsException {
+		
+		int count = service.memberCheck(member);
+		System.out.println(count);
+		
+		
+		if(count > 0) {
+			String memberTel = member.getMemberTel();
+			
+			String sendMessage = service.memberPhoneCheck(memberTel); 
+			
+		}
+		return null;
+	}
 
 }
 

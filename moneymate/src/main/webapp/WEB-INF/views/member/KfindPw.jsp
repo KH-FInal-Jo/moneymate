@@ -22,7 +22,7 @@
         </section>
 
         <!-- 중간영역 -->
-         <middle>
+          <middle>
             <section class="findContainer1">
                 <div id="imgTop">
                     <img src="../images/로고.png">
@@ -30,24 +30,26 @@
             </section>
             <section class="findContainer2">
                 <div id="findFont">
-                    <p>아이디 찾기</p>
+                    <p>비밀번호 찾기</p>
                 </div>
             </section>
            
-            <!-- 휴대폰으로 아이디 찾기 -->
+            <!-- 휴대폰으로 비밀번호 찾기 -->
                       
             <section class="findContainer4">
                 <fieldset>
-                    <form action="#">
+                    <form action="/member/findPw1" method="post">
                         <label style="margin-right: 30px;">
                             <input type="radio" name="contact" value="find" checked />
                             <span class="underline">휴대폰으로 아이디 찾기</span> 
                         </label> <br><br>
-                        <input type="text" name="nm" placeholder="이름을 입력해 주세요."> <br>
-                        <input type="text" name="hp" placeholder="휴대폰 번호를 입력해 주세요.">
-                        <button id="check">인증하기</button>
-                        <input type="text" name="certification" placeholder="인증번호 입력"><br><br>
-                        <input type="text" name="findId" placeholder="찾은 아이디 확인">
+                        <input type="text" name="memberName" placeholder="이름을 입력해 주세요."> <br>
+                        <input type="text" name="memberEmail" placeholder="아이디를 입력해 주세요."> <br>
+                        <input type="text" name="memberTel" placeholder="휴대폰 번호를 입력해 주세요.">
+                        <button id="sendmessage" type="submit">발송하기</button><br>
+                        <input type="text" name="certification" placeholder="인증번호 입력">
+                        <button id="check" type="button">인증하기</button><br><br>
+                        <input type="text" name="findPw" placeholder="찾은 비밀번호 확인">
                      
                     </form>
                 
@@ -56,21 +58,22 @@
             </section>
            
            
-            <!-- 이메일로 아이디 찾기 -->
+            <!-- 이메일로 비밀번호 찾기 -->
            
             <section class="findContainer6">
                 <fieldset>
-                    <form action="#">
+                    <form action="/member/findPw2" type="post">
                         <label>
                             <input type="radio" name="contact" value="find" checked />
                             <span class="underline">이메일로 아이디 찾기</span>
                         </label><br><br>
 
-                        <input type="text" name="nm" placeholder="이름을 입력해 주세요."> <br>
-                        <input type="text" name="email" placeholder="이메일을 입력해 주세요.">
-                        <button id="check">인증하기</button>
-                        <input type="text" name="certification" placeholder="인증번호 입력"><br><br>
-                        <input type="text" name="findId" placeholder="찾은 아이디 확인">
+                        <input type="text" name="memberName" placeholder="이름을 입력해 주세요."> <br>
+                        <input type="text" name="memberEmail" placeholder="이메일을 입력해 주세요.">
+                        <button id="check" type="submit">발송하기</button><br>
+                        <input type="text" name="certification" placeholder="인증번호 입력">
+                        <button id="check" type="button">인증하기</button><br><br>
+                        <input type="text" name="findPw" placeholder="찾은 비밀번호 확인">
 
                     </form>
                     

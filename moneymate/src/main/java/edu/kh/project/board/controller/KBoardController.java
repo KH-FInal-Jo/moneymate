@@ -195,6 +195,9 @@ public class KBoardController {
 		return path;
 		
 	}
-
+	
+	/*
+	 * public int boardDelete()
+	 */
 
 }

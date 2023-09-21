@@ -2,7 +2,9 @@ package edu.kh.project.member.model.service;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Random;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -14,6 +16,7 @@ import edu.kh.project.common.utility.Util;
 import edu.kh.project.member.model.dao.KMemberDAO;
 import edu.kh.project.member.model.dto.JMember;
 import edu.kh.project.member.model.dto.Member;
+import net.nurigo.java_sdk.exceptions.CoolsmsException;
 
 @Service
 public class KMemberServiceImpl implements KMemberService{
@@ -31,10 +34,18 @@ public class KMemberServiceImpl implements KMemberService{
 		return dao.updateInfo(updateMember);
 	}
 
+	//비밀번호 변경
+	@Transactional(rollbackFor = Exception.class)
 	@Override
-	public int changePw(String currentPw, String newPw, int memberNo) {
+	public int changePw(String Password, String newPassword, int memberNo) {
 		
-		return dao.changePw(newPw, memberNo);
+		String encPw = dao.selectEncPw(memberNo);
+		
+		if(bcrypt.matches(Password, encPw)) {
+			
+			return dao.changePw(bcrypt.encode(newPassword), memberNo);
+		}
+		return 0;
 	}
 
 	// 마이페이지 사이드메뉴 조회
@@ -44,7 +55,7 @@ public class KMemberServiceImpl implements KMemberService{
 	}
 
 	@Override
-	public int updateProfile(MultipartFile profile, String webPath, String filePath, Member loginMember)  throws IllegalStateException, IOException {
+	public int updateProfileImage(MultipartFile profile, String webPath, String filePath, Member loginMember)  throws IllegalStateException, IOException {
 		
 		// 프로필 이미지 변경 실패 대비
 				String temp = loginMember.getProfileImage(); // 이전 이미지 저장 
@@ -84,6 +95,42 @@ public class KMemberServiceImpl implements KMemberService{
 				
 				return result;
 			}
+
+	// 일치하는 회원의 수
+	@Override
+	public int memberCheck(Member member) {
+	
+		return dao.memberCheck(member);
+	}
+
+	// 휴대폰 인증
+	@Override
+	public String memberPhoneCheck(String memberTel) throws CoolsmsException {
+		String api_key = "NCSWLTB2CC6KOXQZ";
+		String api_secret = "XXEXBLQQDFNSMROTJGVMUREHN2AE1FI1";
+		net.nurigo.java_sdk.api.Message coolsms = new net.nurigo.java_sdk.api.Message(api_key, api_secret);
+			
+		
+		Random rand = new Random(); 
+		String numStr = "";
+		for(int i=0; i<6; i++) {
+			String ran = Integer.toString(rand.nextInt(10)); 
+			numStr += ran;
+		}
+		  
+		HashMap<String, String> params = new HashMap<String, String>();
+	    params.put("to", memberTel);    // 수신전화번호 (ajax로 view 화면에서 받아온 값으로 넘김)
+	    params.put("from", "01026233745");    // 발신전화번호. 테스트시에는 발신,수신 둘다 본인 번호로 하면 됨
+	    params.put("type", "sms"); 
+	    params.put("text", "[MoneyMate] 비밀번호 찾기 인증번호는 [" + numStr + "] 입니다.");
+	    
+	    System.out.println(params);
+	 
+	    coolsms.send(params); // 메시지 전송
+			  
+			  
+		return numStr;
+	}
 		
 		
 
