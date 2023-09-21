@@ -38,7 +38,7 @@ public class KMemberDAO {
 
 	/**이미지 변경
 	 * @param loginMember
-	 * @return
+	 * @return result
 	 */
 	public int updateProfileImage(Member loginMember) {
 		return sqlSession.update("kmemberMapper.updateProfileImage", loginMember);

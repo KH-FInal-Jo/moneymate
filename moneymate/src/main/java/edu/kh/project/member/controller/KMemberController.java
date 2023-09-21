@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttribute;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.multipart.MultipartFile;
@@ -39,10 +38,10 @@ public class KMemberController {
 	}
 
 	// 프로필 이동
-	@GetMapping("/profile")
+	@GetMapping("/member/mypage")
 	public String profile() {
 
-		return "myPage/myPage-profile";
+		return "member/KmyInfo";
 	}
 
 
@@ -127,9 +126,9 @@ public class KMemberController {
 	}
 
 	// 프로필 이미지 수정
-	//@PostMapping("/profile")
+	@PostMapping("/member/KmyInfo")
 	public String UpdateProfile(
-			@RequestParam("profileImage")MultipartFile profileImage // 업로드한 파일
+			@RequestParam("profile")MultipartFile profile // 업로드한 파일
 			,@SessionAttribute("loginMember") Member loginMember // 로그인한 회원
 			,RedirectAttributes ra // 리다이렉트 시 메세지 전달
 			,HttpSession session // 세션 객체
@@ -142,7 +141,7 @@ public class KMemberController {
 		String filePath = session.getServletContext().getRealPath(webPath);
 
 		// 프로필 이미지 수정 서비스 호출
-		int result = service.updateProfile(profileImage,webPath, filePath,loginMember);
+		int result = service.updateProfile(profile,webPath, filePath,loginMember);
 
 		String message = null;
 		if(result > 0) message = "프로필 이미지가 변경되었습니다.";
@@ -150,7 +149,7 @@ public class KMemberController {
 
 		ra.addFlashAttribute("message",message);
 
-		return "redirect:profile";
+		return "redirect:/member/KmyInfo";
 	}
 
 
