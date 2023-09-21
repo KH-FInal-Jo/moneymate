@@ -79,7 +79,7 @@
 
 						<div>
 							<input type="number" id="accBk-money" name="accountMoney"
-								placeholder="금액을 입력해주세요."><h2>원</h2>
+								placeholder="금액을 입력해주세요."><h3>원</h3>
 						</div>
 						<div>
 							<input type="text" name="selectedValue" value="지출" class="out" readonly/>

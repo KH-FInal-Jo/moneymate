@@ -22,9 +22,9 @@ leftBarIcon2.addEventListener("click", function(){
     leftBarIcon2.style.color = 'white';
     leftBarIcon3.style.color = 'black';
     leftBarIcon4.style.color = 'black';
-
-})
-leftBarIcon3.addEventListener("click", function(){
+   })
+   leftBarIcon3.addEventListener("click", function(){
+   location.reload();
 
     leftBar2.style.display = 'block';
     leftBar1.style.display = 'none';
@@ -47,9 +47,53 @@ leftBarIcon4.addEventListener("click", function(){
 })
 
 
+
+/* 모달창 띄우기 */
+// 모달 창 열기
+// JavaScript 코드로 모달 창 열고 닫기
+document.querySelectorAll('.result-row').forEach(function (chatItem) {
+   chatItem.addEventListener('click', function () {
+       const roomId = chatItem.getAttribute('data-room-id'); // 채팅방 고유 식별자
+       const modal = document.getElementById('myModal-' + roomId); // 해당 채팅방에 연결된 모달 선택
+
+       // 모달 열기
+       if (modal) {
+           modal.style.display = 'block';
+       }
+   });
+});
+
+document.querySelectorAll('.close').forEach(function (closeBtn) {
+   closeBtn.addEventListener('click', function () {
+       const modal = closeBtn.closest('.modal'); // 현재 클릭한 닫기 버튼과 연결된 모달 선택
+
+       // 모달 닫기
+       if (modal) {
+           modal.style.display = 'none';
+       }
+   });
+});
+
+
 let divdiv = document.querySelector(".wrap");
 
 divdiv.scrollTop = divdiv.scrollHeight;
+
+const modal = document.getElementsByClassName("modal")[0];
+
+/* 채팅 신고하기 */
+var modal2 = document.getElementById('HidChatReport');
+var showModalButton = document.getElementById('showModalButton');
+
+showModalButton.addEventListener('click', function() {
+    if (modal2.style.display === 'none' || modal2.style.display === '') {
+        modal2.style.display = 'block'; // 모달 창을 표시합니다.
+        modal.style.height = '660px';
+    } else {
+        modal2.style.display = 'none';
+        modal.style.height = '430px' // 모달 창을 숨깁니다.
+    }
+});
 
 
 
@@ -218,86 +262,84 @@ function selectRoomList() {
             leftBarIcon4.style.color = 'white';
             leftBarIcon3.style.color = 'black';
             leftBarIcon2.style.color = 'black';
-
+        
             const li = document.createElement("li");
             li.classList.add("result-row3");
             li.setAttribute("chat-no", room.chattingNo);
             li.setAttribute("target-no", room.targetNo);
             li.setAttribute("data-id", room.targetNo);
-            
-            // div 요소 생성
+        
             const chatMessageDiv = document.createElement("div");
             chatMessageDiv.classList.add("chatMessage3");
-            
+        
             const con1Div = document.createElement("div");
             con1Div.classList.add("con1");
-            
+        
             const con2Div = document.createElement("div");
             con2Div.classList.add("con2");
-            
+        
             const con3Div = document.createElement("div");
             con3Div.classList.add("con3");
-            
-            // 프로필 이미지 추가
+        
+            const profileImgSrc = room.targetProfile ? room.targetProfile : "http://k.kakaocdn.net/dn/dpk9l1/btqmGhA2lKL/Oz0wDuJn1YV2DIn92f6DVK/img_640x640.jpg";
             const profileImg = document.createElement("img");
             profileImg.classList.add("result-row-img");
-            if (room.targetProfile === null)
-               profileImg.setAttribute("src", "http://k.kakaocdn.net/dn/dpk9l1/btqmGhA2lKL/Oz0wDuJn1YV2DIn92f6DVK/img_640x640.jpg");
-            else
-               profileImg.setAttribute("src", room.targetProfile);
-            
-            // div 내부에 프로필 이미지 추가
-            con1Div.appendChild(profileImg);
-            
+            profileImg.setAttribute("src", profileImgSrc);
+        
             const nameDiv = document.createElement("div");
             nameDiv.classList.add("target-name");
             nameDiv.textContent = room.targetNickName;
-            
+        
             const messageDiv = document.createElement("div");
             messageDiv.classList.add("lastmessage");
             messageDiv.textContent = room.lastMessage;
-            
-            con2Div.appendChild(nameDiv);
-            con2Div.appendChild(messageDiv);
-            
+        
             const timeDiv = document.createElement("div");
-            timeDiv.textContent = room.sendTime;
             timeDiv.classList.add("sendtime");
-            
-            // 읽지 않은 메시지 개수가 0보다 큰 경우 출력
-            if (room.notReadCount > 0) {
-               const notReadCountP = document.createElement("p");
+            timeDiv.textContent = room.sendTime;
+
+            const notDiv = document.createElement("div");
+            notDiv.classList.add("notreadcount");
+        
+            let notReadCountP = null;
+            if (room.notReadCount > 0 && room.chattingNo != selectChattingNo) {
+               notReadCountP = document.createElement("p");
                notReadCountP.classList.add("not-read-count");
-               
                notReadCountP.textContent = room.notReadCount;
-               timeDiv.appendChild(notReadCountP);
-            } else {
+               notDiv.appendChild(notReadCountP);
+           } else {
                // 현재 채팅방을 보고 있는 경우, 읽지 않은 플래그를 업데이트
                fetch("/chatting/updateReadFlag", {
-                  method: "PUT",
-                  headers: { "Content-Type": "application/json" },
-                  body: JSON.stringify({ "chattingNo": selectChattingNo, "memberNo": loginMemberNo })
+                   method: "PUT",
+                   headers: { "Content-Type": "application/json" },
+                   body: JSON.stringify({ "chattingNo": selectChattingNo, "memberNo": loginMemberNo })
                })
                .then(resp => resp.text())
-               .then(result => console.log(result))
+               .then(result => {
+                  console.log(result);
+
+                  if (room.chattingNo == selectChattingNo) {
+                     notDiv.innerHTML = "";
+                  }
+
+               })
                .catch(err => console.log(err));
-            }
-            
-            // 시간을 div 내부에 추가
+           }
+        
+            con1Div.appendChild(profileImg);
+            con2Div.appendChild(nameDiv);
+            con2Div.appendChild(messageDiv);
             con3Div.appendChild(timeDiv);
-            
-            // con1, con2, con3를 chatMessageDiv에 추가
+            con3Div.appendChild(notDiv);
+        
             chatMessageDiv.appendChild(con1Div);
             chatMessageDiv.appendChild(con2Div);
             chatMessageDiv.appendChild(con3Div);
-            
-            // chatMessageDiv를 li 요소에 추가
+        
             li.appendChild(chatMessageDiv);
-            
-            // li 요소를 chattingList에 추가
             chattingList.appendChild(li);
-            
-         }
+        }
+        
 
          roomListAddEvent();
       })
@@ -378,7 +420,7 @@ function selectChattingFn() {
         const iconDiv = document.createElement("div");
         iconDiv.classList.add("icon");
         const img = document.createElement("img");
-        img.src = msg.senderNo === loginMemberNo ? "../images/my-profile.jpg" : selectTargetProfile;
+        img.src = msg.senderNo === loginMemberNo ? "http://k.kakaocdn.net/dn/dpk9l1/btqmGhA2lKL/Oz0wDuJn1YV2DIn92f6DVK/img_640x640.jpg" : selectTargetProfile;
         iconDiv.appendChild(img);
 
         const textboxDiv = document.createElement("div");

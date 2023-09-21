@@ -11,7 +11,6 @@
 		<result property="targetNickName" column="TARGET_NICKNAME" />
 		<result property="targetProfile" column="TARGET_PROFILE" />
 		<result property="notReadCount" column="NOT_READ_COUNT" />
-		<result property="stateMessage" column="ST_MESSAGE" />
 	</resultMap>
 
 	<resultMap type="Message" id="message_rm">
@@ -30,6 +29,16 @@
 		<result property="memberEmail" column="MEMBER_EMAIL" />
 		<result property="memberNickname" column="MEMBER_NICKNAME" />
 		<result property="profileImage" column="PROFILE" />
+		<result property="stateMessage" column="ST_MESSAGE"/>
+	</resultMap>
+	
+	<resultMap type="JReport" id="jreport_rm">
+		<id property="reportNo" column="REPORT_NO" />
+
+		<result property="reportedNo" column="REPORTED_NO" />
+		<result property="reportContent" column="REPORT_CONTENT" />
+		<result property="bcNo" column="BC_NO" />
+		<result property="reportCode" column="REPORT_CODE" />
 	</resultMap>
 
 
@@ -37,14 +46,13 @@
 
 	<!-- 채팅방 목록 조회 -->
 	<select id="selectRoomList" resultMap="chattingRoom_rm">
-		
-SELECT
+	SELECT
     CR.CHATTING_NO,
     (SELECT MESSAGE_CONTENT
      FROM (SELECT *
            FROM MESSAGE M2
            WHERE M2.CHATTING_NO = CR.CHATTING_NO
-           ORDER BY M2.MESSAG_NO DESC)
+           ORDER BY MESSAG_NO DESC)
      WHERE ROWNUM = 1) AS LAST_MESSAGE,
     (SELECT TO_CHAR(MAX(SEND_TIME), 'YYYY-MM-DD HH24:MI:SS')
      FROM MESSAGE M
@@ -76,18 +84,13 @@ SELECT
     (SELECT COUNT(*)
      FROM MESSAGE M
      WHERE M.CHATTING_NO = CR.CHATTING_NO
-       AND M.READ_FL = 'N'
-       AND M.SENDER_NO != #{memberNo}) AS NOT_READ_COUNT,
+       AND READ_FL = 'N'
+       AND SENDER_NO != #{memberNo}) AS NOT_READ_COUNT,
     (SELECT MAX(MESSAG_NO)
      FROM MESSAGE M
-     WHERE CR.CHATTING_NO = M.CHATTING_NO) AS MAX_MESSAG_NO,
-    (SELECT ST_MESSAGE
-     FROM MESSAGE
-     WHERE MESSAG_NO = (SELECT MAX(MESSAG_NO)
-                         FROM MESSAGE M
-                         WHERE CR.CHATTING_NO = M.CHATTING_NO)) AS ST_MESSAGE
+     WHERE CR.CHATTING_NO = M.CHATTING_NO) AS MAX_MESSAG_NO
 FROM CHATTING_ROOM CR
-WHERE CR.OPEN_MEMBER = #{memberNo} OR CR.PARTICIPANT = #{memberNo}
+WHERE OPEN_MEMBER = #{memberNo} OR PARTICIPANT = #{memberNo}
 ORDER BY MAX_MESSAG_NO DESC NULLS LAST
 
 
@@ -111,7 +114,7 @@ ORDER BY MAX_MESSAG_NO DESC NULLS LAST
 		</selectKey>
 
 		INSERT INTO CHATTING_ROOM
-		VALUES(#{chattingNo}, #{loginMemberNo}, #{targetNo}, DEFAULT)
+		VALUES(#{chattingNo}, #{loginMemberNo}, #{targetNo})
 	</insert>
 
 
@@ -157,6 +160,18 @@ ORDER BY MAX_MESSAG_NO DESC NULLS LAST
 			  OR PARTICIPANT = #{memberNo}
 			)
 			AND SECESSION_FL = 'N'
+			AND (MEMBER_EMAIL LIKE '%${query}%'
+    		OR MEMBER_NICKNAME LIKE '%${query}%')
 	</select>
+	
+	<!-- 채팅 신고하기 -->
+	<insert id="chatReport">
+		INSERT INTO "REPORT" VALUES(#{reportNo}, #{reportedNo}, #{reportContent}, #{bcNo}, 3)
+	</insert>
+	
+	
+	
+	
+	
 
 </mapper>
