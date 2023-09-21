@@ -77,6 +77,19 @@ public class KBoardServiceImpl implements KBoardService{
 
 
 
+	/**게시글 삭제
+	 *
+	 */
+	@Transactional(rollbackFor = Exception.class)
+	@Override
+	public int boardDelete(int boardNo) {
+		
+		
+		return dao.boardDelete(boardNo);
+	}
+
+
+
 	
 
 

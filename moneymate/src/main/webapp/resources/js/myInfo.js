@@ -1,5 +1,7 @@
 const profileImageDisplay = document.getElementById("profileImageDisplay") // 프로필 이미지
+const deleteImage = document.getElementById("deleteImage") // x 삭제
 const profileImage = document.getElementById("profileImage") // 이미지 태그
+
 
 let initCheck; // 초기 프로필 이미지 상태 저장 변수
 let deleteCheck = -1; // 새로 이미지 업로드 되거나 삭제 됐을때 변수
@@ -67,6 +69,18 @@ if(profileImage != null){
             deleteCheck = 1;
         }
 
+        deleteImage.addEventListener("click", ()=>{
+
+            // 프로필 이미지를 기본 이미지로 변경 
+            profileImageDisplay.setAttribute("src", originalImage)
+            profileImage.value = "" // input type="file"의 value를 삭제
+    
+            deleteCheck = 0;
+    
+    
+        })
+    
+
     });
 
     document.getElementById("UpdateProfile").addEventListener("submit", e=>{
@@ -81,7 +95,7 @@ if(profileImage != null){
         if(flag){
 
             e.preventDefault(); // form 기본 이벤트 제거
-            alert("이미지 변경 후 클릭하세요.")
+            alert("이미지 변경 후 클릭하세요.");
         }
     });
 

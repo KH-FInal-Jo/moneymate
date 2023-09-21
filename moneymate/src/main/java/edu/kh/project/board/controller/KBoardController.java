@@ -17,6 +17,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttribute;
@@ -196,8 +197,31 @@ public class KBoardController {
 		
 	}
 	
-	/*
-	 * public int boardDelete()
-	 */
+	@GetMapping("/2/{boardNo}/delete")
+	public String boardDelete(
+			@PathVariable("boardNo") int boardNo
+		   ,RedirectAttributes ra
+		   ,@RequestHeader("referer") String referer) { 
+		
+		int result = service.boardDelete(boardNo);
+		String message="";
+		String path = "redirect:";
+		if(result>0) {
+			message="게시글이 삭제되었습니다.";
+			path += "/community/2";
+			
+		}else {
+			message="게시글이 삭제에 실패 했습니다.";
+			path += "/community/2/" + boardNo;
+		}
+		
+		ra.addFlashAttribute("message",message);
+		
+		return path;
+		
+		
+	}
+	
+	 
 
 }

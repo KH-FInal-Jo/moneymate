@@ -25,7 +25,7 @@
           <middle>
             <section class="findContainer1">
                 <div id="imgTop">
-                    <img src="../images/로고.png">
+                    <img src="/resources/images/로고.png">
                 </div>
             </section>
             <section class="findContainer2">
@@ -35,7 +35,6 @@
             </section>
            
             <!-- 휴대폰으로 비밀번호 찾기 -->
-                      
             <section class="findContainer4">
                 <fieldset>
                     <form action="/member/findPw1" method="post">
@@ -43,13 +42,13 @@
                             <input type="radio" name="contact" value="find" checked />
                             <span class="underline">휴대폰으로 아이디 찾기</span> 
                         </label> <br><br>
-                        <input type="text" name="memberName" placeholder="이름을 입력해 주세요."> <br>
-                        <input type="text" name="memberEmail" placeholder="아이디를 입력해 주세요."> <br>
-                        <input type="text" name="memberTel" placeholder="휴대폰 번호를 입력해 주세요.">
+                        <input type="text" name="memberName" id="memberName" placeholder="이름을 입력해 주세요."> <br>
+                        <input type="text" name="memberEmail" id="memberEmail" placeholder="아이디를 입력해 주세요."> <br>
+                        <input type="text" name="memberTel" id="memberTel" placeholder="휴대폰 번호를 입력해 주세요.">
                         <button id="sendmessage" type="submit">발송하기</button><br>
-                        <input type="text" name="certification" placeholder="인증번호 입력">
+                        <input type="text" name="certification" id="certification" placeholder="인증번호 입력">
                         <button id="check" type="button">인증하기</button><br><br>
-                        <input type="text" name="findPw" placeholder="찾은 비밀번호 확인">
+                        <input type="text" name="findPw" id="findPw" placeholder="찾은 비밀번호 확인" value="">
                      
                     </form>
                 
@@ -104,6 +103,7 @@
 
 
     </script>
+    <script src="/resources/js/findPw.js"></script>
 </body>
 </html>
 
