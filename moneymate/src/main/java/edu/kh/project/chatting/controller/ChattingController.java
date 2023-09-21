@@ -4,21 +4,27 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttribute;
 import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import edu.kh.project.admin.model.dto.JReport;
 import edu.kh.project.chatting.model.dto.ChattingRoom;
 import edu.kh.project.chatting.model.dto.Message;
 import edu.kh.project.chatting.model.service.ChattingService;
 import edu.kh.project.member.model.dto.Member;
+import oracle.jdbc.proxy.annotation.Post;
 
 @SessionAttributes({"loginMember"})
 @Controller
@@ -85,6 +91,48 @@ public class ChattingController {
     public List<Message> selectMessageList(@RequestParam Map<String, Object> paramMap) {
         return service.selectMessageList(paramMap);
     }
+    
+
+    // 신고하기
+    @PostMapping("/chat/report")
+    public String chatReport(@SessionAttribute("loginMember") Member loginMember
+    					, JReport report
+    					, RedirectAttributes ra
+						, HttpSession session) {
+    	
+    	
+    	report.setReportNo(loginMember.getMemberNo());
+    	
+    	int result = service.chatReport(report);
+		
+
+		String message = null;
+		String path = "redirect:";
+		
+		if(result > 0) { // 성공 시
+			
+			message = "신고되었습니다.";
+			path += "/chatting";
+			
+		}else {
+			message = "신고 실패";
+			path += "/";
+		}
+		
+		ra.addFlashAttribute("message", message);
+
+		return path;
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
     
 }

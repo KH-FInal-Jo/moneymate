@@ -3,6 +3,7 @@ package edu.kh.project.chatting.model.service;
 import java.util.List;
 import java.util.Map;
 
+import edu.kh.project.admin.model.dto.JReport;
 import edu.kh.project.chatting.model.dto.ChattingRoom;
 import edu.kh.project.chatting.model.dto.Message;
 import edu.kh.project.member.model.dto.Member;
@@ -27,5 +28,8 @@ public interface ChattingService {
     * @return memberList
     */
    List<Member> selectTarget(Map<String, Object> map);
+
+   // 신고하기
+   int chatReport(JReport report);
 
 }
