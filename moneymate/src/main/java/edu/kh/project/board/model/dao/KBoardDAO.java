@@ -61,6 +61,10 @@ public class KBoardDAO {
 		return sqlSession.update("KboardMapper.boardUpdate", board);
 	}
 
+	public int boardDelete(int boardNo) {
+		return sqlSession.update("KboardMapper.boardDelete", boardNo);
+	}
+
 
 
 	

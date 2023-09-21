@@ -39,14 +39,14 @@
                         <div class="image-section">
 
                             <c:if test="${empty loginMember.profileImage}" >
-                                <img src="/resources/images/dog1.jpg" class="myInfoImg" id ="profileImageDisplay" alt="프로필 이미지">
+                                <img src="/resources/images/몽자.jpg" class="myInfoImg" id ="profileImageDisplay" alt="프로필 이미지">
                             </c:if>
 
                             <c:if test="${!empty loginMember.profileImage}" >
                                 <img src="${loginMember.profileImage}" id="profileImageDisplay">
                             </c:if>
                         
-                            
+                             <span id="deleteImage">x</span>
                         <!-- 오류나는 부분 -->
                             <div>
                               

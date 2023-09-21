@@ -86,11 +86,11 @@ public class KMemberController {
 		
 		if(result > 0) {
 			
-			int result1 = service.updateInfo(updateMember);
 			
 			
 			String addr = String.join("^^^", memberAddress);
 			updateMember.setMemberAddress(addr);
+			int result1 = service.updateInfo(updateMember);
 			System.out.println("loginMember");
 			
 			String message = null;
@@ -177,20 +177,31 @@ public class KMemberController {
 	}
 
 	@PostMapping("/findPw1")
-	public String findPw(Member member) throws CoolsmsException {
+	public String findPw(Member member, Model model) throws CoolsmsException {
 		
 		int count = service.memberCheck(member);
 		System.out.println(count);
 		
+		String numStr = "";
 		
 		if(count > 0) {
 			String memberTel = member.getMemberTel();
 			
-			String sendMessage = service.memberPhoneCheck(memberTel); 
+			numStr = service.memberPhoneCheck(memberTel); 
 			
 		}
-		return null;
+		
+		System.out.println("numStr : " + numStr);
+		
+		model.addAttribute("numStr",numStr);
+		
+		
+		
+		
+		return "redirect:/member/findPw";
 	}
+	
+	
 
 }
 

@@ -16,13 +16,10 @@ if(deleteBtn != null){
 
     deleteBtn.addEventListener("click", ()=>{
 
-        var currentURL = location.href;
-        var slicedURL = currentURL.slice(0, currentURL.lastIndexOf('/') + 1);
-        console.log(slicedURL);
-
-
+       
         if(confirm("정말로 삭제하시겠습니까?")){
-            location.href = rurl; // get방식으로 url에 요청
+            location.href 
+            = location.pathname + "/delete";
         }
     })
 }

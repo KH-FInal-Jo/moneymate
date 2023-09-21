@@ -5,6 +5,14 @@ import java.util.Map;
 
 import edu.kh.project.board.model.dto.KBoard;
 
+/**
+ * @author user1
+ *
+ */
+/**
+ * @author user1
+ *
+ */
 public interface KBoardService {
 
 	Map<String, Object> selectboardInquiry(int boardCode, int cp);
@@ -32,6 +40,14 @@ public interface KBoardService {
 	 * @return
 	 */
 	int boardUpdate(KBoard board);
+
+	
+	
+	/** 게시글 삭제
+	 * @param boardNo
+	 * @return
+	 */
+	int boardDelete(int boardNo);
 	
 	
 
