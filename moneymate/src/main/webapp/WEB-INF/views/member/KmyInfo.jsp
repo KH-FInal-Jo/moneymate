@@ -45,7 +45,7 @@
                             <c:if test="${!empty loginMember.profileImage}" >
                                 <img src="${loginMember.profileImage}" id="profileImageDisplay">
                             </c:if>
-                        </div>
+                        
                             
                         <!-- 오류나는 부분 -->
                             <div>
@@ -56,7 +56,8 @@
 
                             </div>
                             <!-- 오류나는 부분 -->
-
+                        </div>  
+                        
                         <div class="info-section">
 
                             <table>
@@ -95,20 +96,20 @@
                                 </tr>
                                 <c:set var="addr" value="${fn:split(loginMember.memberAddress, '^^^')}"/>
                                 <tr>
-                                    <th><button id="searchButton" type="button" onclick="sample6_execDaumPostcode()">주소검색</th>
-                                    <td><input type="text" name="memberPostcode" id="sample6_postcode" placeholder="우편번호" maxlength="6"></td>
+                                    <th><button id="searchButton" type="button" onclick="sample6_execDaumPostcode()" >주소검색</th>
+                                    <td><input type="text" name="memberAddress" id="sample6_postcode" placeholder="우편번호" maxlength="6"  value="${addr[0]}"></td>
                                     <td></td>                                                                   
                                 </tr>
                                 <tr>
                                     <th></th>
                                     <td>
-                                        <input type="text" name="memberRoadAddress" id="sample6_address" placeholder="도로명/지번 주소">
+                                        <input type="text" name="memberAddress" id="sample6_address" placeholder="도로명/지번 주소"  value="${addr[1]}">
                                     </td>
                                     <td></td>
                                 </tr>
                                 <tr>
                                     <th></th>
-                                    <td> <input type="text" name="memberJibunAddress" id="sample6_detailAddress" placeholder="상세 주소"></td>
+                                    <td> <input type="text" name="memberAddress" id="sample6_detailAddress" placeholder="상세 주소"  value="${addr[2]}"></td>
                                     <td></td>
                                 </tr>
                             </table>

@@ -70,7 +70,9 @@
         <div class="spans">    
             <span><a href="/member/signUp">회원가입</a></span>
             <span> | </span> 
-            <span><a href="#">ID/PW 찾기</a></span>
+            <span><a href="/member/findId">ID찾기</a></span>
+            <span> | </span> 
+            <span><a href="/member/findPw">PW 찾기</a></span>
         </div>
     </div>
 
