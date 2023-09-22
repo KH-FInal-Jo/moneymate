@@ -193,7 +193,6 @@ if(addBtn!= null){
 
       xBtns.forEach(function(xBtn) {
         xBtn.addEventListener("click", function() {
-            // 부모 <div> 요소를 찾아서 삭제합니다.
             const parentDiv = this.closest(".each-email");
             if (parentDiv) {
                 parentDiv.remove();
@@ -238,9 +237,10 @@ inviteFrm.addEventListener("submit", e => {
   const container = document.getElementById("container");
   const accountDiv = document.createElement("div");
   const newDiv = document.getElementById("new");
+  const accountName = document.getElementById("accountName");
   accountDiv.classList.add("account");
 
-  fetch("/account/make/person")
+  fetch("/account/make/person?name=" + accountName)
 
   .then(resp => resp.text())
 

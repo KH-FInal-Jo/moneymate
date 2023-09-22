@@ -54,24 +54,19 @@ public class HAccountServiceImpl implements HAccountService{
 	// 가계부 생성(개인)
 	@Transactional (rollbackFor = {Exception.class})
 	@Override
-	public int pAccount(Member loginMember) {
-		return dao.pAccount(loginMember);
+	public int pAccount(HAccount account) {
+		return dao.pAccount(account);
 	}
 
 	// 가계부 생성(그룹)
 	@Transactional(rollbackFor = {Exception.class})
 	@Override
-	public int gAccount(Member loginMember, String[] gEmail) {
-		
-		
+	public int gAccount(HAccount account, String[] gEmail) {
 		
 		int result = 0;
 		
-		
 		try {
 			
-			HAccount account = new HAccount();
-			account.setMemberNo(loginMember.getMemberNo());
 			result = dao.insertGroup(account); // 가계부 insert(그룹)
 			
 			for(String email : gEmail) {

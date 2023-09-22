@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttribute;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import edu.kh.project.account.model.dto.HAccount;
 import edu.kh.project.account.model.service.HAccountService;
 import edu.kh.project.member.model.dto.Member;
 
@@ -48,19 +49,28 @@ public class HAccountController {
 	
 	// 가계부 생성
 	@PostMapping("/account/create")
-	public String createAccount(String[] gEmail, RedirectAttributes ra, @SessionAttribute("loginMember") Member loginMember) {
+	public String createAccount(String[] gEmail, String accountName, RedirectAttributes ra, @SessionAttribute("loginMember") Member loginMember) {
 		int result = 0;
+		HAccount account = new HAccount();
+		account.setMemberNo(loginMember.getMemberNo());
+		account.setAccountName(accountName);
+		account.setMemberEmail(loginMember.getMemberEmail());
+		
+		System.out.println(account);
+		
+		
 		if(gEmail == null) {
-			result = service.pAccount(loginMember);
+			result = service.pAccount(account);
+			
 		} else {
 			// 이메일로 회원 초대하는 로직
-			 result = service.gAccount(loginMember, gEmail);
+			 result = service.gAccount(account, gEmail);
 		}
 		
 		if(result>0) {
-			ra.addFlashAttribute("", "가계부가 생성되었습니다.");
+			ra.addFlashAttribute("message", "가계부가 생성되었습니다.");
 		} else {
-			ra.addFlashAttribute("", "가계부 생성 실패");
+			ra.addFlashAttribute("message", "가계부 생성 실패");
 		}
 		
 		return "redirect:/account/list";

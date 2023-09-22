@@ -224,7 +224,7 @@ body {
   left: 0;
   margin: auto;
   width: 300px;
-  height: 500px;
+  height: 570px;
   background-color: white;
   border-radius: 5px;
   z-index: 100;
@@ -247,7 +247,7 @@ body {
   width: 120px;
 }
 
-#modal>div:nth-of-type(2) {
+#modal div:nth-of-type(3) {
   margin-top: 10px;
   margin-left: 10px;
   font-size: 20px;
@@ -263,7 +263,7 @@ body {
   outline: none;
 }
 
-#modal>div:nth-of-type(4) {
+#modal div:nth-of-type(5) {
   /* 그룹 초대 글씨 */
   margin-top: 10px;
   margin-left: 10px;
@@ -319,7 +319,7 @@ body {
   transform: scale(1.1);
 }
 
-#modal>div:nth-of-type(6) {
+#modal div:nth-of-type(6) {
   /* 나의 그룹원 글씨 */
   margin-left: 10px;
   margin-top: 10px;
@@ -371,7 +371,14 @@ body {
   cursor: pointer;
 }
 
-#inviteFrm>div:nth-of-type(2) {
+#inviteFrm>div:nth-of-type(1){
+  margin-left: 10px;
+  margin-top: 10px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+#inviteFrm>div:nth-of-type(7) {
   display: flex;
   justify-content: center;
   align-items: center;

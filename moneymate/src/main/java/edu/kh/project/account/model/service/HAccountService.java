@@ -2,6 +2,7 @@ package edu.kh.project.account.model.service;
 
 import java.util.Map;
 
+import edu.kh.project.account.model.dto.HAccount;
 import edu.kh.project.member.model.dto.Member;
 
 public interface HAccountService {
@@ -22,14 +23,14 @@ public interface HAccountService {
 	 * @param loginMember
 	 * @return
 	 */
-	int pAccount(Member loginMember);
+	int pAccount(HAccount account);
 
 	/** 가계부 생성(그룹)
 	 * @param loginMember
 	 * @param gEmail
 	 * @return
 	 */
-	int gAccount(Member loginMember, String[] gEmail);
+	int gAccount(HAccount account, String[] gEmail);
 	
 	String createAuthKey();
 
