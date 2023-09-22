@@ -25,21 +25,37 @@
                 <div class="nav">
 
 
-                    <%-- <div class="headback color-5">
+                    <div class="headback color-5">
                         <div class="row columns">
                         <h3 class="headH3"></h3>
                         <ul class="menu align-center expanded text-center SMN_effect-25">
-                            <li><a href="" class="headA">Home</a></li>
-                            <li><a href="" class="headA">About</a></li>
-                            <li><a href="" class="headA">Gallery</a></li>
-                            <li><a href="" class="headA">Notes</a></li>
-                            <li><a href="" class="headA">Contact</a></li>
+                            <li class="headLi"><a href="/community/1" class="headA">커뮤니티</a></li>
+
+                            <c:if test="${!empty loginMember}" >
+                                <li class="headLi"><a href="/account/list" class="headA">가계부</a></li>
+                            </c:if>
+
+                            <li class="headLi"><a href="/consumetest" class="headA">소비 테스트</a></li>
+
+                            <li class="headLi"><a href="/event" class="headA">이벤트</a></li>
+
+                            <c:if test="${!empty loginMember}" >
+                                <li class="headLi"><a href="/member/mypage" class="headA">마이페이지</a></li>
+                            </c:if>
+                            
+                            <c:if test="${!empty loginMember}" >
+                                <li class="headLi"><a href="/chatting" class="headA">채팅</a></li>
+                            </c:if>
+
+                            <c:if test="${loginMember.authority == 1}">
+                                <li class="headLi"><a href="/admin/member" class="headA">관리자</a></li>
+                            </c:if>
                         </ul>
                         </div>
-                    </div> --%>
+                    </div>
 
 
-                    <a href="/community/1"><span>커뮤니티</span></a>
+                    <%-- <a href="/community/1"><span>커뮤니티</span></a>
                     <c:if test="${!empty loginMember}" >
                     <a href="/account/list"><span>가계부</span></a>
                     </c:if>
@@ -54,7 +70,7 @@
                     
                     <c:if test="${loginMember.authority == 1}">
                        <a href="/admin/member"><span>관리자</span></a>
-                    </c:if>
+                    </c:if> --%>
                     <span><i class="fa-solid fa-bell fa-2x" id="alarm-btn" style="color: #efe834;"></i></span>
                     <div class="alarm-area">
                         

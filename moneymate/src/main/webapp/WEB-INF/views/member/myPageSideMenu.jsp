@@ -10,7 +10,7 @@
 	   <div>
 	  	<%-- 프사 들어갈 예정 --%>
       <c:if test="${empty loginMember.profileImage}" >
-         <img src="/resources/images/id.jpg" class="myPageSideImg">
+         <img src="/resources/images/id.png" class="myPageSideImg">
       </c:if>
 
       <c:if test="${!empty loginMember.profileImage}" >

@@ -210,6 +210,8 @@
 
     </main>
 
+
+
     
     <script src="https://cdn.jsdelivr.net/npm/sockjs-client@1/dist/sockjs.min.js"></script>
 
@@ -220,6 +222,20 @@
     <script src="/resources/js/chatting.js"></script>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 
+    <%-- session에 message가 존재할 경우 --%>
+        <c:if test="${!empty message}">
+
+            <script>
+                // EL/JSTL 구문이 먼저 해석되는데
+                // 문자열의 경우 따옴표가 없는 상태이니 붙여줘야한다!!!
+                alert("${message}");
+            </script>
+            
+            <%-- message 1회 출력 후 session에서 제거 --%>
+        	<c:remove var="message" scope="session" />
+
+            
+        </c:if>
     
 </body>
 </html>
