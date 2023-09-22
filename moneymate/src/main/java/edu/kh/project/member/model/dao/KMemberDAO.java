@@ -1,6 +1,7 @@
 package edu.kh.project.member.model.dao;
 
 import java.util.List;
+import java.util.Map;
 
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -68,6 +69,33 @@ public class KMemberDAO {
 		member.setMemberTel(memberTel);
 		
 		return sqlSession.update("KmemberMapper.changePw2", member);
+	}
+
+
+	public int memberCheck2(Member member) {
+		return sqlSession.selectOne("KmemberMapper.memberCheck2", member);
+	}
+
+	public int updateAuthKey(Map<String, String> map) {
+		return sqlSession.update("KmemberMapper.updateAuthKey", map);
+	}
+
+	public int insertAuthKey(Map<String, String> map) {
+		return sqlSession.update("KmemberMapper.insertAuthKey", map);
+	}
+
+	public int checkAuthKey(Map<String, Object> paramMap) {
+		return sqlSession.selectOne("KmemberMapper.checkAuthKey", paramMap);
+	}
+
+	public int changePw(String newPw, String memberEmail) {
+		Member member = new Member();
+		
+		
+		member.setMemberPw(newPw);
+		member.setMemberEmail(memberEmail);
+		
+		return sqlSession.update("KmemberMapper.changePw3", member);
 	}
 	
 	

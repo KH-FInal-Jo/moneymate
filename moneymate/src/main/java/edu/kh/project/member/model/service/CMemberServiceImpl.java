@@ -150,7 +150,7 @@ public class CMemberServiceImpl implements CMemberService {
 
 			MimeMessage mail = mailSender.createMimeMessage();
 
-			String subject = "[Board Project]"+title+" 인증코드";
+			String subject = "[moneymate]"+title+" 인증코드";
 
 			String charset = "UTF-8";
 

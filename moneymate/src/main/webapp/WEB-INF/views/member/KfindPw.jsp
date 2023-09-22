@@ -49,7 +49,7 @@
                         <input type="text" name="certification" id="certification" placeholder="인증번호 입력">
                         <button id="check" type="button">인증하기</button><br><br>
                         <input type="password" name="newPw" id="newPw" placeholder="새 비밀번호">
-                        <input type="password" name="newPwConfirm" id="findPwConfirm" placeholder="새 비밀번호 확인">
+                        <input type="password" name="newPwConfirm" id="newPwConfirm" placeholder="새 비밀번호 확인">
                         <button type="button" id="changePw">변경</button>
                      
                     </form>
@@ -61,26 +61,29 @@
            
             <!-- 이메일로 비밀번호 찾기 -->
            
-           <%--  <section class="findContainer6">
+           <section class="findContainer6">
                 <fieldset>
-                    <form action="/member/findPw2" type="post">
+                    <form action="#">
                         <label>
                             <input type="radio" name="contact" value="find" checked />
                             <span class="underline">이메일로 재설정</span>
                         </label><br><br>
 
-                        <input type="text" name="memberName" placeholder="이름을 입력해 주세요."> <br>
-                        <input type="text" name="memberEmail" placeholder="이메일을 입력해 주세요.">
-                        <button id="check" type="submit">발송하기</button><br>
-                        <input type="text" name="certification" placeholder="인증번호 입력">
-                        <button id="check" type="button">인증하기</button><br><br>
-                        <input type="text" name="findPw" placeholder="찾은 비밀번호 확인">
+                        <input type="text" name="memberName2" id="memberName2" placeholder="이름을 입력해 주세요."> <br>
+                        <input type="text" name="memberEmail2" id="memberEmail2" placeholder="이메일을 입력해 주세요.">
+                        <button id="sendmessage2" type="button">발송하기</button><br>
+                        <span id="authKeyMessage"></span> <br>
+                        <input type="text" name="certification2" id="certification2" placeholder="인증번호 입력">
+                        <button id="check2" type="button">인증하기</button><br><br>
+                        <input type="password" name="newPw2" id="newPw2" placeholder="새 비밀번호">
+                        <input type="password" name="newPwConfirm2" id="newPwConfirm2" placeholder="새 비밀번호 확인">
+                        <button type="button" id="changePw2">변경</button>
 
                     </form>
                     
                 </fieldset>
 
-            </section> --%>
+            </section>
 
 
         </middle>

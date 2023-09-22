@@ -2,6 +2,7 @@ package edu.kh.project.member.controller;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpSession;
 
@@ -23,7 +24,7 @@ import edu.kh.project.member.model.dto.Member;
 import edu.kh.project.member.model.service.KMemberService;
 import net.nurigo.java_sdk.exceptions.CoolsmsException;
 
-@SessionAttributes("loginMember")
+@SessionAttributes({"loginMember", "authKey"})
 @Controller
 @RequestMapping("/member")
 public class KMemberController {
@@ -177,6 +178,8 @@ public class KMemberController {
 		return "/member/KfindPw";
 	}
 
+	
+	// 휴대폰 인증번호 보내기
 	@GetMapping("/findPw1")
 	@ResponseBody
 	public String findPw(String memberTel, String memberEmail, String memberName) throws CoolsmsException {
@@ -201,13 +204,11 @@ public class KMemberController {
 	}
 	
 	
+	// 휴대폰 인증받고 비밀번호 재설정
 	@GetMapping("/findPw1/newPw")
 	@ResponseBody
 	public int changePw1(String newPw, String memberEmail, String memberTel) {
 		
-		System.out.println("newPw : " + newPw);
-		System.out.println("memberEmail : " + memberEmail);
-		System.out.println("memberTel : " + memberTel);
 		
 		int result = service.changePw(newPw, memberEmail, memberTel);
 		
@@ -217,6 +218,59 @@ public class KMemberController {
 	}
 	
 	
+	
+	@GetMapping("/findPw2")
+	@ResponseBody
+	public int findPw( String memberEmail, String memberName) throws CoolsmsException {
+		
+		
+		Member member = new Member();
+		
+		member.setMemberName(memberName);
+		member.setMemberEmail(memberEmail);
+		
+		int count = service.memberCheck2(member);
+		
+		if(count > 0) {
+			// 이메일 인증
+		}
+		
+		
+		return count;
+	}
+	
+	// 이메일인증
+	@GetMapping("/setPw/sendEmail")
+	@ResponseBody
+	public int sendEmail(String memberEmail) {
+			
+			
+		return service.sendEmail(memberEmail, "비밀번호 재설정");
+	}
+	
+	
+	@GetMapping("/setPw/checkAuthKey")
+	@ResponseBody
+	public int checkAuthKey(@RequestParam Map<String, Object> paramMap) {
+		
+		
+		return service.checkAuthKey(paramMap);
+	}
+	
+	
+	
+	@GetMapping("/findPw2/newPw")
+	@ResponseBody
+	public int changePw1(String newPw, String memberEmail) {
+		
+		
+		
+		int result = service.changePw(newPw, memberEmail);
+		
+		
+		
+		return result;
+	}
 
 }
 
