@@ -9,6 +9,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.web.multipart.MultipartFile;
 
 import edu.kh.project.board.model.dto.SBoard;
+import edu.kh.project.board.model.dto.SBoardImage;
 
 @Repository
 public class SBoardDAO {
@@ -18,15 +19,38 @@ public class SBoardDAO {
 	
 
 
-	/** 칼럼 게시글 등록
-	 * @param paramMap
-	 * @param images 
+
+
+	/** 칼럼 게시글 삽입
 	 * @param board 
+	 * @param paramMap 
 	 * @return
 	 */
-	public int boardInsert(Map<String, Object> paramMap, SBoard board, List<MultipartFile> images) {
-		// TODO Auto-generated method stub
-		return sqlSession.insert("SBoardMapper.columnInsert", paramMap);
+	public int boardInsert(SBoard board, Map<String, Object> paramMap) {
+		
+		int result = sqlSession.insert("SBoardMapper.columnInsert", paramMap);
+		// -> SQL 수행 후 매개변수 board 객체에는 boardNo가 존재한다.
+		
+		if(result > 0) {
+			result = (int)paramMap.get("boardNo");
+		}
+		
+		System.out.println("DAO boardNO 값 확인 : " + result);
+		
+		return result;
+	}
+
+
+
+
+
+	/** 이미지 리스트 삽입
+	 * @param uploadList
+	 * @return
+	 */
+	public int insertImageList(List<SBoardImage> uploadList) {
+		
+		return sqlSession.insert("SBoardMapper.insertImageList", uploadList);
 	}
 
 }

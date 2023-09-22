@@ -1,5 +1,6 @@
 package edu.kh.project.board.controller;
 
+import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 
@@ -45,23 +46,35 @@ public class SColumnController {
 	// 칼럼게시글 삽입
 	@PostMapping(value = "/community/4/insert/register", produces = "application/json; charset=UTF-8")
 	@ResponseBody
-	public int boardInsert(	SBoard board
+	public String boardInsert(	SBoard board
 							, @RequestBody Map<String, Object> paramMap
 							, @SessionAttribute("loginMember") Member loginMember
 							, @RequestParam(value = "images", required = false) List<MultipartFile> images
-							, HttpSession session) {
+							, HttpSession session
+							, RedirectAttributes ra)throws IllegalStateException, IOException {
 		
 		System.out.println("요청 받음");
 		System.out.println("boardTitle : " + paramMap.get("boardContent"));
 		
 		int boardCode = 4;
+		int boardNo = 0;
 		int memberNo = loginMember.getMemberNo();
 		
 		// 1. 로그인한 회원번호를 얻어와 board에 세팅
-		board.setMemberNo(loginMember.getMemberNo());
+		board.setMemberNo(memberNo);
 
 		// 2. boardCode도 board에 세팅
 		board.setBoardCode(boardCode);
+		
+		// map형식으로 얻어온 값들을 String 변수에 담아주기
+		String boardTitle = (String)paramMap.get("boardTitle");
+		String boardContent = (String)paramMap.get("boardContent");
+		
+		// form형식으로 받은게 아니기 때문에 커맨드 객체 활용 불가능
+		// 직접 값 필드에 넣어주기
+		board.setBoardTitle(boardTitle);
+		board.setBoardContent(boardContent);
+		
 
 		// 3. 업로드된 이미지 서버에 실제로 저장되는 경로
 		//		+ 웹에서 요청 시 이미지를 볼 수 있는 경로(웹 접근경로)
@@ -71,45 +84,45 @@ public class SColumnController {
 		
 		paramMap.put("boardCode", boardCode);
 		paramMap.put("memberNo", memberNo);
+		paramMap.put("boardNo", boardNo);
 		
 		System.out.println(paramMap);
 		
+		// 게시글 삽입 서비스 호출 후 삽입된 게시글 번호 반환 받기
+		boardNo = service.boardInsert(board, images, webPath, filePath, paramMap);
 		
-		return service.boardInsert(paramMap, board, images);
-//		int boardCode = 4;
-//		System.out.println("요청 받음");
-//		System.out.println("board : " + board);
-//		System.out.println("boardTitle : " + boardTitle);
-//		System.out.println("boardContent : " + boardContent);
-//		
-//		// 로그인한 회원의 번호 세팅
-//		board.setMemberNo(loginMember.getMemberNo());
-//		board.setBoardCode(boardCode);
-//		
-//		// 3. 업로드된 이미지 서버에 실제로 저장되는 경로 + 웹에서 요청 시 이미지를 볼수있는 경로(웹 접근경로)
-//		String webPath = "/resources/images/board";
-//		String filePath = session.getServletContext().getRealPath(webPath);
-//		
-//		int registerNo = service.boardInsert(board, images, webPath, filePath);
-//		
-//		String message = null;
-//		String path = "redirect:";
-//		
-//		if(registerNo > 0) {
-//			// 성공
-//			message = "게시글이 등록되었습니다.";
-//			path += "insert";
-//		}else {
-//			message = "게시글이 등록실패.";
-//			path += "insert";
-//		}
-//		
-//		ra.addFlashAttribute("message", message);
-//		
-//		return path;
-//		
+		// 게시글 삽입 성공 시
+		// -> 방금 삽입한 게시글의 상세조회 페이지 리다이렉트
+		
+		String message = null;
+		String path = "redirect:";
+		
+		if(boardNo > 0) {
+			message = "게시글이 등록 되었습니다.";
+			path += "/board/" + boardCode + "/" + boardNo;
+		}else {
+			message = "게시글 등록 실패";
+			path += "insert";
+		}
+		
+		ra.addFlashAttribute("message" + message);
+		
+		return path;
+		
+		
+		
 		
 	}
+	
+	
+	@PostMapping(value = "/community/4/insert/imageList", produces = "application/json; charset=UTF-8")
+    public String handleFileUpload(@RequestParam("file") MultipartFile file) {
+		
+		System.out.println("file : " + file);
+		
+		return null;
+		
+    }
 	
 	
 

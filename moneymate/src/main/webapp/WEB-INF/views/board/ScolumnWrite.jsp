@@ -31,8 +31,8 @@
 
             <div class="write-main">
                 <h3 id="write-title"> 글 제목 : 
-                    <input type="text" placeholder="제목을 입력해주세요." id="Wtitle" name="boardTitle">
                 </h3>
+                <input type="text" placeholder="제목을 입력해주세요." id="Wtitle" name="boardTitle">
     
                 <div class="img-box">
                     <div class="thumbnail">
