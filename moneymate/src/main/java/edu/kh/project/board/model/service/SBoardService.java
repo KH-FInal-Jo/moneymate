@@ -14,14 +14,13 @@ public interface SBoardService {
 
 	/** 칼럼 게시글 등록
 	 * @param board
-	 * @param images
-	 * @param webPath
-	 * @param filePath
-	 * @param paramMap 
+	 * @param filePath 
+	 * @param webPath 
+	 * @param images 
 	 * @return
 	 * @throws IOException 
 	 * @throws IllegalStateException 
 	 */
-	int boardInsert(SBoard board, List<MultipartFile> images, String webPath, String filePath, Map<String, Object> paramMap) throws IllegalStateException, IOException;
+	int boardInsert(SBoard board, List<MultipartFile> images, String webPath, String filePath) throws IllegalStateException, IOException;
 
 }

@@ -111,7 +111,7 @@ public class KMemberServiceImpl implements KMemberService{
 				return result;
 			}
 
-	// 일치하는 회원의 수
+	// 일치하는 회원의 수 휴대폰 인증 처음 서비스
 	@Override
 	public int memberCheck(Member member) {
 	
@@ -257,6 +257,24 @@ public class KMemberServiceImpl implements KMemberService{
 	@Override
 	public int changePw(String newPw, String memberEmail) {
 		return dao.changePw(bcrypt.encode(newPw), memberEmail);
+	}
+
+	/**
+	 *아이디 같은지 체크
+	 */
+	@Override
+	public int memberCheckId(Member member) {
+		return dao.memberCheckId(member);
+	}
+
+	/**
+	 * 찐아이디 찾기
+	 */
+	@Override
+	public String memberFindId(String memberTel, String memberName) {
+		
+		
+		return dao.memberFindId(memberTel, memberName);
 	}
 		
 		

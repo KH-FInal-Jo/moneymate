@@ -114,8 +114,9 @@
 }
 
 
-#comment-content{
+.comment-content{
     width: 60%;
+    white-space: pre-wrap;
 }
 
 .commentWriter > img{
@@ -175,4 +176,10 @@
 
 .boardTitle{
     border-bottom: 2px solid #ddd;
+}
+
+.update-textarea{
+    width: 800px;
+    height: 100px;
+    resize: none;
 }

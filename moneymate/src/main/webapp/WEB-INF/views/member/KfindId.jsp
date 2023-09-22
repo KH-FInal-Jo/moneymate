@@ -25,7 +25,7 @@
          <middle>
             <section class="findContainer1">
                 <div id="imgTop">
-                    <img src="../images/로고.png">
+                    <img src="/resources/images/로고.png">
                 </div>
             </section>
             <section class="findContainer2">
@@ -35,6 +35,7 @@
             </section>
            
             <!-- 휴대폰으로 아이디 찾기 -->
+            <%-- 필요한거 이름, 핸드폰 번호 --%>
                       
             <section class="findContainer4">
                 <fieldset>
@@ -43,11 +44,12 @@
                             <input type="radio" name="contact" value="find" checked />
                             <span class="underline">휴대폰으로 아이디 찾기</span> 
                         </label> <br><br>
-                        <input type="text" name="nm" placeholder="이름을 입력해 주세요."> <br>
-                        <input type="text" name="hp" placeholder="휴대폰 번호를 입력해 주세요.">
-                        <button id="check">인증하기</button>
-                        <input type="text" name="certification" placeholder="인증번호 입력"><br><br>
-                        <input type="text" name="findId" placeholder="찾은 아이디 확인">
+                        <input type="text" name="MemberName" id="MemberName" placeholder="이름을 입력해 주세요."> <br>
+                        <input type="text" name="MemberTel"  id="MemberTel" placeholder="휴대폰 번호를 입력해 주세요.">
+                        <button id="Send" type="button">발송하기</button><br>
+                        <input type="text" name="textCertification" id="textCertification" placeholder="인증번호 입력">
+                        <button id="check" type="button">인증하기</button><br>
+                        <input type="text" name="findId" id="findId" placeholder="찾은 아이디 확인">
                      
                     </form>
                 
@@ -58,7 +60,7 @@
            
             <!-- 이메일로 아이디 찾기 -->
            
-            <section class="findContainer6">
+            <%-- <section class="findContainer6">
                 <fieldset>
                     <form action="#">
                         <label>
@@ -76,7 +78,7 @@
                     
                 </fieldset>
 
-            </section>
+            </section> --%>
 
 
         </middle>
@@ -101,6 +103,8 @@
 
 
     </script>
+
+    <script src="/resources/js/findId.js"></script>
 </body>
 </html>
 

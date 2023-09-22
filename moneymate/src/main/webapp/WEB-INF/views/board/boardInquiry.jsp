@@ -32,7 +32,10 @@
     <main>
     <%-- 헤더 --%>
     <jsp:include page="/WEB-INF/views/common/header.jsp" />
-      
+        <c:if test="${!empty param.open}" >
+            <c:set var="sp" value="&open=${param.open}&q=${param.q}"/>
+        </c:if>
+
 
         <section class="board-notice-content">
 
@@ -46,9 +49,8 @@
                 <div class="Bcontainer2"></div>
                 
                 <div class="Bcontainer3">
-                    <form action="/search" method="get" id="boardSearch">
+                    <form action="/community/2" method="get" id="boardSearch">
                         <select name="open" id="open">
-                            <option value="t">게시글</option>
                             <option value="tn">제목</option>
                             <option value="c">내용</option>
                             <option value="tc">제목+내용</option>
@@ -102,10 +104,10 @@
                         <div class="pagination-container">
                             <ul class="pagination">
                                 <!-- 첫 페이지로 이동 -->
-                    <li><a href="/board/${boardCode}?cp=2${sp}">&lt;&lt;</a></li>
+                    <li><a href="/community/2?cp=2${sp}">&lt;&lt;</a></li>
 
                     <!-- 이전 목록 마지막 번호로 이동 -->
-                    <li><a href="/board/${boardCode}?cp=${pagination.prevPage}${sp}">&lt;</a></li>
+                    <li><a href="/community/2?cp=${pagination.prevPage}${sp}">&lt;</a></li>
 
                
                     <!-- 특정 페이지로 이동 -->
@@ -121,7 +123,7 @@
                                <c:otherwise>
 
                                     <!-- 현재 페이지를 제외한 나머지 -->
-                                    <li><a href="/board/${boardCode}?cp=${i}${sp}">${i}</a></li>
+                                    <li><a href="/community/2?cp=${i}${sp}">${i}</a></li>
                                </c:otherwise>
                             </c:choose>
 
@@ -131,10 +133,10 @@
                     
                     
                     <!-- 다음 목록 시작 번호로 이동 -->
-                    <li><a href="/board/${boardCode}?cp=${pagination.nextPage}${sp}">&gt;</a></li>
+                    <li><a href="/community/2?cp=${pagination.nextPage}${sp}">&gt;</a></li>
 
                     <!-- 끝 페이지로 이동 -->
-                    <li><a href="/board/${boardCode}?cp=${pagination.maxPage}${sp}">&gt;&gt;</a></li>
+                    <li><a href="/community/2?cp=${pagination.maxPage}${sp}">&gt;&gt;</a></li>
 
 
                                 <%-- <li><a href="#">&laquo;</a></li>

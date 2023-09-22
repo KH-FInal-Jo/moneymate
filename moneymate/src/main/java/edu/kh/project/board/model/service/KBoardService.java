@@ -78,6 +78,21 @@ public interface KBoardService {
 	 * @return
 	 */
 	int boardDeleteComment(int commentNo);
+
+
+	/** 조회수 증가
+	 * @param boardNo
+	 * @return
+	 */
+	int updateReadCount(int boardNo);
+
+
+	/** 게시글 검색
+	 * @param paramMap
+	 * @param cp
+	 * @return
+	 */
+	Map<String, Object> selectBoardList(Map<String, Object> paramMap, int cp);
 	
 	
 

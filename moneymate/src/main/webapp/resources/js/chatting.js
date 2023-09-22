@@ -221,7 +221,7 @@ function toggleModal(modalId) {
 
 // 내 친구 검색하기
 const MytargetInput = document.querySelector(".MytargetInput");
-const myFriendList = document.querySelector(".myFriendList");
+const myFriendList = document.querySelector(".myFrSer");
 
 MytargetInput.addEventListener("input", function () {
    const query = MytargetInput.value.trim();
@@ -231,9 +231,12 @@ MytargetInput.addEventListener("input", function () {
       return;
    }
 
+
+
    fetch(`/chatting/myf/selectTarget?query=${query}`)
       .then((resp) => resp.json())
       .then((friendList) => {
+         
          myFriendList.innerHTML = "";
 
          if (friendList.length === 0) {
@@ -256,6 +259,7 @@ MytargetInput.addEventListener("input", function () {
 
                // 모달 열기 이벤트 리스너
                li.addEventListener("click", () => {
+                  
                   const modalId = `myModal-${member.memberNo}`;
                   const modal = document.getElementById(modalId);
                
@@ -265,7 +269,9 @@ MytargetInput.addEventListener("input", function () {
                   console.log(`모달 ${modalId}이(가) HTML에 존재하지 않습니다.`);
                   }
                });
- 
+
+               li.style.color = "blue";
+               li.style.fontWeight = "bold";
 
                li.appendChild(img);
                li.appendChild(span);
@@ -275,6 +281,7 @@ MytargetInput.addEventListener("input", function () {
       })
       .catch((err) => console.log(err));
 });
+
 
 
 

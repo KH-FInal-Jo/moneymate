@@ -63,19 +63,21 @@
                 <i class="fa-solid fa-magnifying-glass fa-2xl"></i><input type="search" class="MytargetInput" name="inputName" placeholder="검색어를 입력하세요.">
             </div>
             <ul class="myFriendList">
-            <c:forEach var="room" items="${roomList}">
-                <li class="result-row" data-toggle="modal" data-room-id="${room.targetNo}">
-                    <div>
-                        <c:if test="${!empty room.targetProfile}">
-                            <img class="result-row-img" src="${room.targetProfile}">
-                        </c:if>
-                        <c:if test="${empty room.targetProfile}">
-                            <img class="result-row-img" src="http://k.kakaocdn.net/dn/dpk9l1/btqmGhA2lKL/Oz0wDuJn1YV2DIn92f6DVK/img_640x640.jpg">
-                        </c:if>
-                    </div>
-                    <span>${room.targetNickName}</span>
-                    <div class="stateMessage">${room.stateMessage}</div>
-                </li>
+                <c:forEach var="room" items="${roomList}">
+                <div class="myFrSer">
+                    <li class="result-row" data-toggle="modal" data-room-id="${room.targetNo}">
+                        <div>
+                            <c:if test="${!empty room.targetProfile}">
+                                <img class="result-row-img" src="${room.targetProfile}">
+                            </c:if>
+                            <c:if test="${empty room.targetProfile}">
+                                <img class="result-row-img" src="http://k.kakaocdn.net/dn/dpk9l1/btqmGhA2lKL/Oz0wDuJn1YV2DIn92f6DVK/img_640x640.jpg">
+                            </c:if>
+                        </div>
+                        <span>${room.targetNickName}</span>
+                        <div class="stateMessage">${room.stateMessage}</div>
+                    </li>
+                </div>
 
                 <div id="myModal-${room.targetNo}" class="modal">
                     <form action="/chat/report" method="post" >

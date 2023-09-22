@@ -143,7 +143,20 @@
 	</update>
 	
 	
+	<!-- 아이디찾기 같은지 비교하는거 (핸드폰 인증)-->
+	<select id="memberCheckId" resultType="_int">
+		SELECT COUNT(*) FROM MEMBER
+		WHERE MEMBER_NAME=#{memberName}
+		AND MEMBER_TEL=#{memberTel}
+	</select>
 	
+	<!-- 찐으로 찾는다 아이디 -->
+	<select id="memberFindId" resultType="string">
+		SELECT MEMBER_EMAIL FROM MEMBER
+		WHERE MEMBER_NAME=#{memberName}
+		AND MEMBER_TEL=#{memberTel}
+		AND SECESSION_FL = 'N'
+	</select>
 
 
 </mapper>

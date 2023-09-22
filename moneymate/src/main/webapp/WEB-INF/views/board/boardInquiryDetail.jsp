@@ -89,7 +89,7 @@
                     <h4>댓글</h4>
                         <c:forEach items="${cList}" var="comment">
                         <li class="comment-list <c:if test='${comment.parentNo != 0}'>child-comment</c:if>">
-                            <p class="commentWriter">
+
 
                                 <c:if test="${empty comment.profileImage}">
                                     <img src="/resources/images/몽자.jpg">
@@ -100,10 +100,10 @@
                                 </c:if>
 
                                 <span>${comment.memberNickname}</span>
-                            </p>
-
-                            <p id="comment-content">${comment.commentContent}</p>
-
+                            </div>
+                            
+                                
+                            <div class="comment-content">${comment.commentContent}</div>
                             <div>
                            
                                 <div class="btn-area2">
