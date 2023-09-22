@@ -4,9 +4,16 @@ import java.io.File;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Random;
 
+import javax.mail.Message;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.mail.MailSender;
+import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -27,6 +34,14 @@ public class KMemberServiceImpl implements KMemberService{
 	@Autowired
 	private BCryptPasswordEncoder bcrypt;
 
+	@Autowired
+	private JavaMailSender mailSender;
+	
+	
+	private String fromEmail = "rjh65395@gmail.com";
+	private String fromUsername = "moneymate";
+	
+	
 	@Transactional(rollbackFor = {Exception.class})
 	@Override
 	public int updateInfo(Member updateMember) {
@@ -120,7 +135,7 @@ public class KMemberServiceImpl implements KMemberService{
 		  
 		HashMap<String, String> params = new HashMap<String, String>();
 	    params.put("to", memberTel);    // 수신전화번호 (ajax로 view 화면에서 받아온 값으로 넘김)
-	    params.put("from", "01026233745");    // 발신전화번호. 테스트시에는 발신,수신 둘다 본인 번호로 하면 됨
+	    params.put("from", "01032702918");    // 발신전화번호. 테스트시에는 발신,수신 둘다 본인 번호로 하면 됨
 	    params.put("type", "sms"); 
 	    params.put("text", "[MoneyMate] 비밀번호 찾기 인증번호는 [" + numStr + "] 입니다.");
 	    
@@ -133,10 +148,115 @@ public class KMemberServiceImpl implements KMemberService{
 	}
 
 	
+	// 휴대폰 인증 성공 시 비밀번호 재설정
 	@Transactional(rollbackFor = Exception.class)
 	@Override
 	public int changePw(String newPw, String memberEmail, String memberTel) {
 		return dao.changePw(bcrypt.encode(newPw), memberEmail, memberTel);
+	}
+
+	
+	// 일치하는 회원의 수  이메일 인증 시
+	@Override
+	public int memberCheck2(Member member) {
+		return dao.memberCheck2(member);
+	}
+
+	
+	
+	
+	@Override
+	public String createAuthKey() {
+		String key = "";
+		for(int i=0 ; i< 6 ; i++) {
+
+			int sel1 = (int)(Math.random() * 3); // 0:숫자 / 1,2:영어
+
+			if(sel1 == 0) {
+
+				int num = (int)(Math.random() * 10); // 0~9
+				key += num;
+
+			}else {
+
+				char ch = (char)(Math.random() * 26 + 65); // A~Z
+
+				int sel2 = (int)(Math.random() * 2); // 0:소문자 / 1:대문자
+
+				if(sel2 == 0) {
+					ch = (char)(ch + ('a' - 'A')); // 소문자로 변경
+				}
+
+				key += ch;
+			}
+
+		}
+		return key;
+	}
+	
+	
+	
+	
+	@Override
+	@Transactional
+	public int sendEmail(String memberEmail, String title) {
+		String authKey = createAuthKey();
+		try {
+
+			MimeMessage mail = mailSender.createMimeMessage();
+
+			String subject = "[moneymate]"+title+" 인증코드";
+
+			String charset = "UTF-8";
+
+			String mailContent 
+			= "<p>moneymate" + title + " 인증코드입니다.</p>"
+					+ "<h3 style='color:blue'>" + authKey + "</h3>";
+
+
+
+			mail.setFrom(new InternetAddress(fromEmail, fromUsername));
+			mail.addRecipient(Message.RecipientType.TO, new InternetAddress(memberEmail));
+
+			// 수신자(받는사람) 지정
+
+			// 이메일 제목 세팅
+			mail.setSubject(subject, charset);
+
+			// 내용 세팅
+			mail.setText(mailContent, charset, "html"); //"html" 추가 시 HTML 태그가 해석됨
+
+			mailSender.send(mail);
+		} catch (Exception e) {
+			e.printStackTrace();
+			return 0;
+		}
+
+		Map<String, String> map = new HashMap<String, String>();
+		map.put("authKey", authKey);
+		map.put("email", memberEmail);
+
+		System.out.println(map); //{inputKey=xNsH0Q, email=khj981008@naver.com}
+
+		int result = dao.updateAuthKey(map);
+
+		if(result == 0) {
+			result = dao.insertAuthKey(map);
+		}
+
+		return result;
+	}
+	
+	
+	@Override
+	public int checkAuthKey(Map<String, Object> paramMap) {
+		return dao.checkAuthKey(paramMap);
+	}
+
+	@Transactional(rollbackFor = Exception.class)
+	@Override
+	public int changePw(String newPw, String memberEmail) {
+		return dao.changePw(bcrypt.encode(newPw), memberEmail);
 	}
 		
 		

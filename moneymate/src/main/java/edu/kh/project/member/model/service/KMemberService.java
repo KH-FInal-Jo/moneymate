@@ -2,6 +2,7 @@ package edu.kh.project.member.model.service;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.web.multipart.MultipartFile;
 
@@ -30,8 +31,21 @@ public interface KMemberService {
 	//휴대폰 인증
 	String memberPhoneCheck(String memberTel) throws CoolsmsException;
 
-	// 로그인x 비밀번호 바꾸기
+	// 로그인x 휴대폰인증 후 비밀번호 바꾸기
 	int changePw(String newPw, String memberEmail, String memberTel);
+
+	// 일치 하는 회원의 수 (이멜 인증)
+	int memberCheck2(Member member);
+
+	String createAuthKey();
+	
+	// 이메일 인증 보내기
+	int sendEmail(String memberEmail, String string);
+
+	int checkAuthKey(Map<String, Object> paramMap);
+
+	// 이메일 인증 후 비밀번호바꾸기
+	int changePw(String newPw, String memberEmail);
 
 		
 
