@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import edu.kh.project.board.model.dao.KBoardDAO;
+import edu.kh.project.board.model.dto.CComment;
 import edu.kh.project.board.model.dto.CPagination;
 import edu.kh.project.board.model.dto.KBoard;
 import edu.kh.project.board.model.exception.FileUploadException;
@@ -89,6 +90,59 @@ public class KBoardServiceImpl implements KBoardService{
 		
 		
 		return dao.boardDelete(boardNo);
+	}
+
+
+
+	/**
+	 * 댓글 조회
+	 */
+	@Override
+	public List<CComment> select(int boardNo) {
+		return dao.select(boardNo);
+	}
+
+
+
+	/**
+	 *댓글 삽입
+	 */
+	@Override
+	@Transactional(rollbackFor = Exception.class)
+	public int insertComment(CComment comment) {
+//		CComment comment= new CComment();
+//		comment.setMemberNo((int)paramMap.get("memberNo"));
+//		comment.setcommentContent((String.valueOf(paramMap.get("commentContent"))));
+		
+		comment.setCommentContent(Util.XSSHandling(comment.getCommentContent()));
+		 
+		return dao.insertComment(comment);
+	}
+
+
+
+	/**
+	 *댓글 수정
+	 */
+	@Override
+	@Transactional(rollbackFor = Exception.class)
+	public int boardUpdate(CComment comment) {
+		
+		comment.setCommentContent(Util.XSSHandling(comment.getCommentContent()));
+		return dao.update(comment);
+	}
+
+
+
+	/**
+	 *댓글 삭제
+	 */
+	@Override
+	@Transactional(rollbackFor = Exception.class)
+	public int boardDeleteComment(int commentNo) {
+		
+		
+		return dao.boardDeleteComment(commentNo);
 	}
 
 

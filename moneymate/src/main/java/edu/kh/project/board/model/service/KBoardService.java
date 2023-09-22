@@ -1,8 +1,10 @@
 package edu.kh.project.board.model.service;
 
 import java.io.IOException;
+import java.util.List;
 import java.util.Map;
 
+import edu.kh.project.board.model.dto.CComment;
 import edu.kh.project.board.model.dto.KBoard;
 
 /**
@@ -48,6 +50,34 @@ public interface KBoardService {
 	 * @return
 	 */
 	int boardDelete(int boardNo);
+
+
+	/** 댓글 조회
+	 * @param boardNo
+	 * @return
+	 */
+	List<CComment> select(int boardNo);
+
+
+	/** 댓글 등록
+	 * @param paramMap
+	 * @return
+	 */
+	int insertComment(CComment comment);
+
+
+	/** 댓글 수정
+	 * @param comment
+	 * @return
+	 */
+	int boardUpdate(CComment comment);
+
+
+	/** 댓글 삭제
+	 * @param commentNo
+	 * @return
+	 */
+	int boardDeleteComment(int commentNo);
 	
 	
 
