@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 
 <c:forEach items="${boardTypeList}" var="boardType">
     <c:if test="${boardType.BOARD_CODE == 2}" >
@@ -84,8 +86,8 @@
 
                  <div class="comment-area">
                     <ul id=commentList>
-                    <h4>${board.commentList}임시</h4>
-                        <%-- <c:forEach items="${board.commentList}" var="comment">
+                    <h4>댓글</h4>
+                        <c:forEach items="${cList}" var="comment">
                         <li id="comment-list <c:if test='${comment.parentNo != 0}'>child-comment</c:if>">
                             <p class="commentWriter">
 
@@ -105,12 +107,9 @@
                             <div>
                            
                                 <div class="btn-area2">
-                                    <button onclick="showInsertComment(${comment.commentNo}, this)">답글</button>
-                                    
                                     <c:if test="${loginMember.memberNo == comment.memberNo}">
                                     <button id="updateBtn" onclick="showUpdateComment(${comment.commentNo}, this)">수정</button>
-                                    <button id="deleteBtn" onclick="deleteComment(${comment.commentNo})">삭제</button>
-                                    
+                                    <button id="deleteBtn" onclick="deleteComment(${comment.commentNo})">삭제</button>                                    
                                     </c:if>
                                 </div>
 
@@ -120,7 +119,7 @@
                             </div>
 
                         </li>
-                        </c:forEach> --%>
+                        </c:forEach>
                     </ul>
                 </div>
 
@@ -134,6 +133,10 @@
     
             </section>
         </section>
+        <script>
+            const loginMemberNo="${loginMember.memberNo}" // 전역변수로 선언해서 자바스크립트도 사용할수 있게 해줌
+            const boardNo="${board.boardNo}"
+        </script>
 
      <jsp:include page="/WEB-INF/views/common/footer.jsp" />
 

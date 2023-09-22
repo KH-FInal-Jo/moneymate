@@ -8,6 +8,7 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import edu.kh.project.board.model.dto.CComment;
 import edu.kh.project.board.model.dto.CPagination;
 import edu.kh.project.board.model.dto.KBoard;
 
@@ -63,6 +64,33 @@ public class KBoardDAO {
 
 	public int boardDelete(int boardNo) {
 		return sqlSession.update("KboardMapper.boardDelete", boardNo);
+	}
+
+	public List<CComment> select(int boardNo) {
+		return sqlSession.selectList("KboardMapper.boardComment", boardNo);
+	}
+
+	public int insertComment(CComment comment) {
+	
+		return sqlSession.insert("KboardMapper.boardinsertComment", comment);
+	}
+
+	/**댓글 수정
+	 * @param comment
+	 * @return result
+	 */
+	public int update(CComment comment) {
+	
+		return sqlSession.update("KboardMapper.boardupdateComment", comment);
+	}
+
+	/** 댓글 삭제
+	 * @param commentNo
+	 * @return
+	 */
+	public int boardDeleteComment(int commentNo) {
+		
+		return sqlSession.delete("KboardMapper.boardDeleteComment", commentNo);
 	}
 
 

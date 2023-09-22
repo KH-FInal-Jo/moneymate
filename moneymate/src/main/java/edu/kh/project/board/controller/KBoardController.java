@@ -14,17 +14,22 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttribute;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import edu.kh.project.board.model.dto.CComment;
 import edu.kh.project.board.model.dto.KBoard;
 import edu.kh.project.board.model.dto.KBoard;
 import edu.kh.project.board.model.dto.KBoard;
@@ -78,7 +83,9 @@ public class KBoardController {
 			// 현재 로그인 상태인 경우
 			// 로그인한 회원이 해당 게시글에 좋아요 눌렀는지 확인
 			
-						
+			// 댓글 조회
+			List<CComment> cList= service.select(boardNo);
+			model.addAttribute("cList",cList);			
 			// forward할 jsp 경로
 			path = "board/boardInquiryDetail";
 			model.addAttribute("board",board);
@@ -220,6 +227,30 @@ public class KBoardController {
 		return path;
 		
 		
+	}
+	
+	
+	@PostMapping("/inquiry/comment")
+	@ResponseBody
+	public int insertComment(@RequestBody CComment comment) {
+		
+		System.out.println(comment);
+		
+		return service.insertComment(comment);
+	}
+	
+	
+	@PutMapping("/inquiry/comment")
+	@ResponseBody
+	public int update(@RequestBody CComment comment) {
+		return service.boardUpdate(comment);
+	}
+	
+	@DeleteMapping("/inquiry/comment")
+	@ResponseBody
+	public int delete(@RequestBody int commentNo) {
+		
+		return service.boardDeleteComment(commentNo);
 	}
 	
 	 
