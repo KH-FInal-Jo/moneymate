@@ -171,6 +171,7 @@ public class KMemberController {
 	
 	@GetMapping("/findId")
 	public String findId() {
+		
 		return "/member/KfindId";
 	}
 	@GetMapping("/findPw")
@@ -184,19 +185,20 @@ public class KMemberController {
 	@ResponseBody
 	public String findPw(String memberTel, String memberEmail, String memberName) throws CoolsmsException {
 		
-		Member member = new Member();
+		Member member = new Member(); // Member 타입에 member 객체 생성
 		
-		member.setMemberTel(memberTel);
-		member.setMemberName(memberName);
-		member.setMemberEmail(memberEmail);
+		member.setMemberTel(memberTel); // 전화번호 세팅 해주고
+		member.setMemberName(memberName); // 이름 세팅 해주고
+		member.setMemberEmail(memberEmail); // 이메일 세팅 해주고
 		
-		int count = service.memberCheck(member);
+		int count = service.memberCheck(member); // 맴버 객체를 가져가서 갯수로 받아오면 되니까 int 형태 -> 서비스 넘어간다~
 		
-		String numStr = "";
+		String numStr = ""; //인증 번호 받는 변수
+		// 휴대폰 인증번호는 DAO 까지 가지 않고 serviceImpl 에서 처리 한다.
 		
 		if(count > 0) {
 			
-			numStr = service.memberPhoneCheck(memberTel); 
+			numStr = service.memberPhoneCheck(memberTel);  // 서비스임플 에 까지만 가서 인증번호 api 진행시켜줌
 			
 		}
 		
@@ -270,6 +272,40 @@ public class KMemberController {
 		
 		
 		return result;
+	}
+	
+	// 아이디 찾을떄 휴대폰 인증
+	@GetMapping("/findId2")
+	@ResponseBody
+	public String findId(String memberTel, String memberName) throws CoolsmsException {
+		Member member = new Member(); // Member 타입에 member 객체 생성
+		
+		member.setMemberTel(memberTel); // 전화번호 세팅 해주고
+		member.setMemberName(memberName); // 이름 세팅 해주고
+		
+		int count = service.memberCheckId(member); // 맴버 객체를 가져가서 갯수로 받아오면 되니까 int 형태 -> 서비스 넘어간다~
+//		
+		
+		
+		String numStr = ""; //인증 번호 받는 변수
+//		// 휴대폰 인증번호는 DAO 까지 가지 않고 serviceImpl 에서 처리 한다.
+//		
+		if(count > 0) {
+			
+			numStr = service.memberPhoneCheck(memberTel);  // 서비스임플 에 까지만 가서 인증번호 api 진행시켜줌
+//			
+		}
+		
+		return numStr;
+	}
+	
+	@GetMapping("/findId3")
+	@ResponseBody
+	public String findCheckId(String memberTel, String memberName) {
+		
+		
+		
+		return service.memberFindId(memberTel, memberName);
 	}
 
 }

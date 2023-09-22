@@ -93,6 +93,34 @@ public class KBoardDAO {
 		return sqlSession.delete("KboardMapper.boardDeleteComment", commentNo);
 	}
 
+	public int updateReadCount(int boardNo) {
+		return sqlSession.update("KboardMapper.updateReadCount", boardNo);
+	}
+
+	/** 검색 게시글 수
+	 * @param paramMap
+	 * @return listCount
+	 */
+	public int getListCount(Map<String, Object> paramMap) {
+		
+		return sqlSession.selectOne("KboardMapper.searchCount", paramMap);
+	}
+
+	/** 검색 게시글 목록
+	 * @param pagination
+	 * @param paramMap
+	 * @return
+	 */
+	public List<KBoard> selectBoardList(CPagination pagination, Map<String, Object> paramMap) {
+		
+		
+		int offset = (pagination.getCurrentPage() - 1)*pagination.getLimit(); // off셋 계산
+		
+		RowBounds rowBounds = new RowBounds(offset, pagination.getLimit());
+		
+		return sqlSession.selectList("KboardMapper.selectSearchBoardList", paramMap, rowBounds);
+	}
+
 
 
 	

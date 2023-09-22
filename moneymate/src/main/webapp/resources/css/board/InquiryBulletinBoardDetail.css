@@ -101,9 +101,9 @@
 }
 
 
-#comment-list{
+.comment-list{
     list-style: none;
-    display: flex;
+    /* display: flex; */
     align-items: center;
 }
 
@@ -114,8 +114,9 @@
 }
 
 
-#comment-content{
+.comment-content{
     width: 60%;
+    white-space: pre-wrap;
 }
 
 .commentWriter > img{
@@ -154,12 +155,17 @@
 }
 
 .btn-area2{
-    padding-top: 40px;
+    display: flex;
+    justify-content: end;
+    margin-right: 50px;
 }
 
 .createDate {
+    display: flex;
+    justify-content: end;
     font-size: 12px;
-    margin: 10px 0;
+    margin-right: 50px;
+    margin-top: 10px;
 }
 
 
@@ -170,4 +176,10 @@
 
 .boardTitle{
     border-bottom: 2px solid #ddd;
+}
+
+.update-textarea{
+    width: 800px;
+    height: 100px;
+    resize: none;
 }

@@ -26,7 +26,7 @@ public interface KMemberService {
 
 	
 	// 일치 하는 회원의 수
-	int memberCheck(Member member);
+	int memberCheck(Member member); // 핸드폰 인증 처음 서비스 
 
 	//휴대폰 인증
 	String memberPhoneCheck(String memberTel) throws CoolsmsException;
@@ -46,6 +46,19 @@ public interface KMemberService {
 
 	// 이메일 인증 후 비밀번호바꾸기
 	int changePw(String newPw, String memberEmail);
+
+	/** 아이디 같은지 체크
+	 * @param member
+	 * @return
+	 */
+	int memberCheckId(Member member);
+
+	/** 찐 으로 아이디 찾기
+	 * @param memberTel
+	 * @param memberName
+	 * @return
+	 */
+	String memberFindId(String memberTel, String memberName);
 
 		
 
