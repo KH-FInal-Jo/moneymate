@@ -23,16 +23,15 @@ public class SBoardDAO {
 
 	/** 칼럼 게시글 삽입
 	 * @param board 
-	 * @param paramMap 
 	 * @return
 	 */
-	public int boardInsert(SBoard board, Map<String, Object> paramMap) {
+	public int boardInsert(SBoard board) {
 		
-		int result = sqlSession.insert("SBoardMapper.columnInsert", paramMap);
+		int result = sqlSession.insert("SBoardMapper.columnInsert", board);
 		// -> SQL 수행 후 매개변수 board 객체에는 boardNo가 존재한다.
 		
 		if(result > 0) {
-			result = (int)paramMap.get("boardNo");
+			result = board.getBoardNo();
 		}
 		
 		System.out.println("DAO boardNO 값 확인 : " + result);
@@ -44,13 +43,17 @@ public class SBoardDAO {
 
 
 
-	/** 이미지 리스트 삽입
+	/** 칼럼 게시글 이미지 삽입
 	 * @param uploadList
 	 * @return
 	 */
 	public int insertImageList(List<SBoardImage> uploadList) {
-		
 		return sqlSession.insert("SBoardMapper.insertImageList", uploadList);
 	}
+
+
+
+
+
 
 }
