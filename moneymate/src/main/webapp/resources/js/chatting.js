@@ -8,10 +8,7 @@ let leftBar2 = document.getElementById("leftBar2");
 let leftBar3 = document.getElementById("leftBar3");
 
 leftBarIcon1.addEventListener("click", function(){
-
-
-window.location.href = "http://localhost/";
-
+   window.location.href = "http://localhost/";
 })
 
 leftBarIcon2.addEventListener("click", function(){
@@ -42,26 +39,23 @@ leftBarIcon4.addEventListener("click", function(){
     leftBarIcon4.style.color = 'white';
     leftBarIcon3.style.color = 'black';
     leftBarIcon2.style.color = 'black';
-     // 페이지를 새로 고침
     
 })
 
 
 
 /* 모달창 띄우기 */
-// 모달 창 열기
-// JavaScript 코드로 모달 창 열고 닫기
-document.querySelectorAll('.result-row').forEach(function (chatItem) {
-   chatItem.addEventListener('click', function () {
-       const roomId = chatItem.getAttribute('data-room-id'); // 채팅방 고유 식별자
-       const modal = document.getElementById('myModal-' + roomId); // 해당 채팅방에 연결된 모달 선택
+document.querySelectorAll('.result-row').forEach(function (friendItem) {
+    friendItem.addEventListener('click', function () {
+        const friendId = friendItem.getAttribute('data-room-id');
+        const friendModal = document.getElementById('myModal-' + friendId);
 
-       // 모달 열기
-       if (modal) {
-           modal.style.display = 'block';
-       }
-   });
+        if (friendModal) {
+            friendModal.style.display = 'block';
+        }
+    });
 });
+
 
 document.querySelectorAll('.close').forEach(function (closeBtn) {
    closeBtn.addEventListener('click', function () {
@@ -81,19 +75,30 @@ divdiv.scrollTop = divdiv.scrollHeight;
 
 const modal = document.getElementsByClassName("modal")[0];
 
-/* 채팅 신고하기 */
-var modal2 = document.getElementById('HidChatReport');
-var showModalButton = document.getElementById('showModalButton');
+var showModalButtons = document.querySelectorAll('.showModalButton');
 
-showModalButton.addEventListener('click', function() {
-    if (modal2.style.display === 'none' || modal2.style.display === '') {
-        modal2.style.display = 'block'; // 모달 창을 표시합니다.
-        modal.style.height = '660px';
-    } else {
-        modal2.style.display = 'none';
-        modal.style.height = '430px' // 모달 창을 숨깁니다.
-    }
+showModalButtons.forEach(function(showModalButton) {
+    showModalButton.addEventListener('click', function() {
+        var modalId = showModalButton.getAttribute('data-target-modal');
+        var modal = document.getElementById(modalId);
+
+        var modal2Id = showModalButton.getAttribute('data-toggle-modal');
+        var modal2 = document.getElementById(modal2Id);
+
+        // 초기에 modal2를 숨겨진 상태로 설정
+
+        if (modal2.style.display === 'none' || modal2.style.display === '') {
+            modal2.style.display = 'block'; 
+            modal.style.height = '660px';
+        } else {
+            modal2.style.display = 'none';
+            modal.style.height = '430px';
+        }
+    });
 });
+
+
+
 
 
 
@@ -195,82 +200,81 @@ targetInput.addEventListener("input", e => {
 });
 
 
+// 모달 열기/닫기 함수
+function toggleModal(modalId) {
+   const modal = document.getElementById(modalId);
+ 
+   if (modal) {
+     // 모달이 존재할 때만 처리
+     if (modal.style.display === 'none' || modal.style.display === '') {
+       modal.style.display = 'block'; // 모달 열기
+     } else {
+       modal.style.display = 'none'; // 모달 닫기
+     }
+   } else {
+     console.log(`모달 ${modalId}이(가) HTML에 존재하지 않습니다.`);
+   }
+ }
+ 
 
 
 
-
-
-/* 내 친구 검색하기 */
-const MytargetInput = document.getElementById("MytargetInput");
-const myFriendList = document.querySelector("#myFriendList");
+// 내 친구 검색하기
+const MytargetInput = document.querySelector(".MytargetInput");
+const myFriendList = document.querySelector(".myFriendList");
 
 MytargetInput.addEventListener("input", function () {
    const query = MytargetInput.value.trim();
 
-   // 입력된 내용이 없을 때
    if (query.length === 0) {
-      myFriendList.innerHTML = ""; // 이전 검색 결과 비우기
+      myFriendList.innerHTML = "";
       return;
    }
 
-   // 입력된 내용이 있을 때
-   if (query.length > 0) {
-      fetch(`/chatting/myFr/selectTarget?query=${query}`)
-         .then((resp) => resp.json())
-         .then((friendList) => {
-            // 검색 결과를 화면에 추가
-            myFriendList.innerHTML = ""; 
+   fetch(`/chatting/myf/selectTarget?query=${query}`)
+      .then((resp) => resp.json())
+      .then((friendList) => {
+         myFriendList.innerHTML = "";
 
-            if (friendList.length === 0) {
+         if (friendList.length === 0) {
+            const li = document.createElement("li");
+            li.classList.add("result-row");
+            li.innerText = "일치하는 친구가 없습니다";
+            myFriendList.appendChild(li);
+         } else {
+            friendList.forEach((member) => {
                const li = document.createElement("li");
                li.classList.add("result-row");
-               li.innerText = "일치하는 친구가 없습니다";
+               li.setAttribute("data-id", member.memberNo);
+
+               const img = document.createElement("img");
+               img.classList.add("result-row-img");
+               img.setAttribute("src", member.profileImage || "http://k.kakaocdn.net/dn/dpk9l1/btqmGhA2lKL/Oz0wDuJn1YV2DIn92f6DVK/img_640x640.jpg");
+
+               const span = document.createElement("span");
+               span.innerHTML = member.memberNickname;
+
+               // 모달 열기 이벤트 리스너
+               li.addEventListener("click", () => {
+                  const modalId = `myModal-${member.memberNo}`;
+                  const modal = document.getElementById(modalId);
+               
+                  if (modal) {
+                  toggleModal(modalId); 
+                  } else {
+                  console.log(`모달 ${modalId}이(가) HTML에 존재하지 않습니다.`);
+                  }
+               });
+ 
+
+               li.appendChild(img);
+               li.appendChild(span);
                myFriendList.appendChild(li);
-            } else {
-               for (let friend of friendList) {
-                  const li = document.createElement("li");
-                  li.classList.add("result-row");
-                  li.setAttribute("data-id", friend.friendId); // 친구 고유 식별자
-
-                  // 프로필 이미지 엘리먼트 생성
-                  const img = document.createElement("img");
-                  img.classList.add("result-row-img");
-                  img.setAttribute("src", friend.profileImageUrl || "기본 이미지 URL"); // 실제 URL 또는 기본 이미지 URL을 사용하세요
-
-                  // 친구 이름 엘리먼트 생성
-                  const span = document.createElement("span");
-                  span.innerHTML = friend.friendName;
-
-                  // 클릭 이벤트 리스너 추가
-                  li.addEventListener("click", () => {
-                     // 여기에서 친구 선택을 처리하십시오. 선택한 친구를 채팅에 추가하거나 다른 작업을 수행할 수 있습니다.
-                     // friend.friendId를 사용하여 선택한 친구를 식별할 수 있습니다.
-                  });
-
-                  // 엘리먼트 조립 및 화면에 추가
-                  li.appendChild(img);
-                  li.appendChild(span);
-                  myFriendList.appendChild(li);
-               }
-            }
-         })
-         .catch((err) => console.log(err));
-   }
+            });
+         }
+      })
+      .catch((err) => console.log(err));
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

@@ -53,4 +53,9 @@ public class ChattingDAO {
 	public int chatReport(JReport report) {
 		return sqlSession.insert("chattingMapper.chatReport", report);
 	}
+
+	// 내친구 조회하기
+	public List<Member> selectMyTarget(Map<String, Object> map) {
+		return sqlSession.selectList("chattingMapper.selectMyTarget", map);
+	}
 }

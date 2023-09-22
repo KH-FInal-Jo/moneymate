@@ -63,6 +63,13 @@ public class ChattingServiceImpl implements ChattingService{
 	public List<Member> selectTarget(Map<String, Object> map) {
 		return dao.selectTarget(map);
 	}
+	
+	
+	// 채팅 상대 검색
+	@Override
+	public List<Member> selectMyTarget(Map<String, Object> map) {
+		return dao.selectMyTarget(map);
+	}
 
 	// 신고하기
 	@Override
