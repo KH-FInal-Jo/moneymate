@@ -58,6 +58,17 @@ public class KMemberDAO {
 		
 		return sqlSession.selectOne("KmemberMapper.selectEncPw", memberNo);
 	}
+
+	public int changePw(String newPw, String memberEmail, String memberTel) {
+		
+		Member member = new Member();
+		
+		member.setMemberPw(newPw);
+		member.setMemberEmail(memberEmail);
+		member.setMemberTel(memberTel);
+		
+		return sqlSession.update("KmemberMapper.changePw2", member);
+	}
 	
 	
 }

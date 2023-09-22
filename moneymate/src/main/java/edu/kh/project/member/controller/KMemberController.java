@@ -179,29 +179,41 @@ public class KMemberController {
 
 	@GetMapping("/findPw1")
 	@ResponseBody
-	public String findPw(Member member, String memberTel) throws CoolsmsException {
+	public String findPw(String memberTel, String memberEmail, String memberName) throws CoolsmsException {
+		
+		Member member = new Member();
+		
+		member.setMemberTel(memberTel);
+		member.setMemberName(memberName);
+		member.setMemberEmail(memberEmail);
 		
 		int count = service.memberCheck(member);
-		System.out.println(count);
 		
 		String numStr = "";
 		
-		System.out.println(memberTel);
-		
 		if(count > 0) {
-			
 			
 			numStr = service.memberPhoneCheck(memberTel); 
 			
 		}
 		
-		System.out.println("numStr : " + numStr);
-		
-		
-		
-		
-		
 		return numStr;
+	}
+	
+	
+	@GetMapping("/findPw1/newPw")
+	@ResponseBody
+	public int changePw1(String newPw, String memberEmail, String memberTel) {
+		
+		System.out.println("newPw : " + newPw);
+		System.out.println("memberEmail : " + memberEmail);
+		System.out.println("memberTel : " + memberTel);
+		
+		int result = service.changePw(newPw, memberEmail, memberTel);
+		
+		
+		
+		return result;
 	}
 	
 	
