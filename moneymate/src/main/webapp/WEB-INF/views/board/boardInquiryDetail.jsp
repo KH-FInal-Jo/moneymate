@@ -88,7 +88,7 @@
                     <ul id=commentList>
                     <h4>댓글</h4>
                         <c:forEach items="${cList}" var="comment">
-                        <li id="comment-list <c:if test='${comment.parentNo != 0}'>child-comment</c:if>">
+                        <li class="comment-list <c:if test='${comment.parentNo != 0}'>child-comment</c:if>">
                             <p class="commentWriter">
 
                                 <c:if test="${empty comment.profileImage}">
