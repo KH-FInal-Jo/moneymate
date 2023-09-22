@@ -13,7 +13,7 @@ const changePw= document.getElementById("changePw");
 sendmessage.addEventListener("click", e=>{
 
     fetch("/member/findPw1?memberTel=" + memberTel.value + "&memberEmail=" + memberEmail.value + "&memberName="+memberName.value)
-    
+            // 얘가 주소값
     .then(resp => resp.text())
     
     .then(result => {

@@ -44,8 +44,8 @@
 			javaType="java.util.ArrayList" ofType="boardNo"> </collection> -->
 
 	</resultMap>
-	
-		<resultMap type="CComment" id="comment_rm">
+
+	<resultMap type="CComment" id="comment_rm">
 		<id property="commentNo" column="COMMENT_NO" />
 		<result property="commentContent" column="COMMENT_CONTENT" />
 		<result property="commentCreateDate" column="COMMENT_DT" />
@@ -97,7 +97,8 @@
 		FROM "BOARD"
 		JOIN "MEMBER" USING(MEMBER_NO)
 		WHERE BOARD_ST='N'
-		AND BOARD_CODE
+		AND
+		BOARD_CODE
 		=#{boardCode}
 		ORDER BY BOARD_NO DESC
 	</select>
@@ -151,7 +152,8 @@
 		BOARD_CONTENT = #{boardContent},
 		BOARD_UPDATE_DT
 		=SYSDATE
-		WHERE BOARD_CODE
+		WHERE
+		BOARD_CODE
 		= #{boardCode}
 		AND BOARD_NO =
 		#{boardNo}
@@ -161,40 +163,141 @@
 	<update id="boardDelete">
 		UPDATE BOARD SET
 		BOARD_ST = 'Y'
-		WHERE BOARD_NO = #{boardNo}
+		WHERE BOARD_NO =
+		#{boardNo}
 		AND BOARD_CODE= 2
 	</update>
-	
+
 	<select id="boardComment" resultMap="comment_rm">
-	
+
 		SELECT COMMENT_NO, COMMENT_CONTENT,
-			TO_CHAR(COMMENT_DT,'YYYY"년" MM"월" DD"일" HH24"시" MI"분"SS"초"')COMMENT_DT,
-			BOARD_NO, MEMBER_NO, MEMBER_NICKNAME, PROFILE, COMMENT_ST
+		TO_CHAR(COMMENT_DT,'YYYY"년" MM"월" DD"일" HH24"시" MI"분"SS"초"')COMMENT_DT,
+		BOARD_NO, MEMBER_NO, MEMBER_NICKNAME, PROFILE, COMMENT_ST
 		FROM "COMMENT"
-		JOIN MEMBER USING(MEMBER_NO)
+		JOIN
+		MEMBER USING(MEMBER_NO)
 		WHERE BOARD_NO = #{boardNo}
 		AND COMMENT_ST = 'N'
-	
+
 	</select>
-	
+
 	<!-- 댓글 등록 -->
 	<insert id="boardinsertComment">
 		INSERT INTO "COMMENT"
-		VALUES (SEQ_COMMENT_NO.NEXTVAL, #{commentContent}, DEFAULT, DEFAULT, #{memberNo}, #{boardNo})
-	
+		VALUES (SEQ_COMMENT_NO.NEXTVAL,
+		#{commentContent}, DEFAULT, DEFAULT, #{memberNo}, #{boardNo})
+
 	</insert>
-	
+
 	<!-- 댓글 수정 -->
 	<update id="boardupdateComment">
 		UPDATE "COMMENT" SET
-		COMMENT_CONTENT = #{commentContent}
+		COMMENT_CONTENT =
+		#{commentContent}
 		WHERE COMMENT_NO = #{commentNo}
 	</update>
-	
+
 	<delete id="boardDeleteComment">
-		UPDATE "COMMENT"SET 
+		UPDATE "COMMENT"SET
 		COMMENT_ST = 'Y'
 		WHERE COMMENT_NO= #{commentNo}
 	</delete>
+
+	<!-- 조회수 업데이트 -->
+	<update id="updateReadCount">
+		UPDATE BOARD SET READ_COUNT=READ_COUNT+1
+		WHERE
+		BOARD_NO =#{boardNo}
+	</update>
+
+	<!-- 게시글 조회 -->
+	<select id="searchCount" resultType="_int">
+		SELECT COUNT(*)
+		FROM BOARD
+
+		<!-- 작성자 검색 -->
+		<if test='open == "w"'>
+			JOIN MEMBER USING(MEMBER_NO)
+		</if>
+		WHERE BOARD_CODE = #{boardCode}
+		AND BOARD_ST = 'N'
+
+		<choose>
+			<when test='open == "tn"'>
+				<!-- 제목 -->
+				AND BOARD_TITLE LIKE '%${q}%'
+			</when>
+
+			<when test='open == "c"'>
+				<!-- 내용 -->
+				AND BOARD_CONTENT LIKE '%${q}%'
+			</when>
+
+			<when test='open == "tc"'>
+				<!-- 제목 + 내용 -->
+				AND (BOARD_TITLE LIKE '%${q}%' OR BOARD_CONTENT LIKE
+				'%${q}%')
+			</when>
+
+			<when test='open == "w"'>
+				<!-- 작성자(닉네임) -->
+				AND MEMBER_NICKNAME LIKE '${q}'
+			</when>
+		</choose>
+	</select>
+	
+	<!-- 게시글 검색 목록 조회 -->
+	
+	<!-- CDATA 태그 : 해당 태그 내부에 작성된 것은 모두 문자로 취급 -->
+	<!-- 게시글 목록 조회 -->
+	<select id="selectSearchBoardList" resultMap="board_rm">
+		SELECT BOARD_NO,
+		BOARD_TITLE, MEMBER_NICKNAME, READ_COUNT,
+
+		<![CDATA[
+		CASE
+			WHEN SYSDATE - BOARD_DT < 1/24/60
+			THEN FLOOR( (SYSDATE - BOARD_DT) * 24 * 60 * 60 ) || '초 전'
+			WHEN SYSDATE - BOARD_DT < 1/24
+			THEN FLOOR( (SYSDATE - BOARD_DT) * 24 * 60) || '분 전'
+			WHEN SYSDATE - BOARD_DT < 1
+			THEN FLOOR( (SYSDATE - BOARD_DT) * 24) || '시간 전'
+			ELSE TO_CHAR(BOARD_DT, 'YYYY-MM-DD')
+		END BOARD_DT,
+		]]>
+		(SELECT COUNT(*) FROM "COMMENT" C
+		WHERE C.BOARD_NO = B.BOARD_NO)
+		COMMENT_COUNT
+
+		FROM "BOARD"
+		B
+		JOIN "MEMBER" USING(MEMBER_NO)
+		WHERE BOARD_ST = 'N'
+		AND BOARD_CODE
+		= #{boardCode}
+		<choose>			
+         	<when test='open == "tn"'>
+            	<!-- 제목 -->
+            	AND BOARD_TITLE LIKE '%${q}%'
+         	</when>
+         
+         	<when test='open == "c"'>
+            	<!-- 내용 -->
+            	AND BOARD_CONTENT LIKE '%${q}%'
+         	</when>
+         
+         	<when test='open == "tc"'>
+            	<!-- 제목 + 내용 -->
+            	AND (BOARD_TITLE LIKE '%${q}%' OR BOARD_CONTENT LIKE '%${q}%')
+         	</when>
+         
+         	<when test='open == "w"'>
+            	<!-- 작성자(닉네임) -->
+            	AND MEMBER_NICKNAME LIKE '${q}'
+         	</when>      
+      </choose>			
+		
+		ORDER BY BOARD_NO DESC
+	</select>
 
 </mapper>

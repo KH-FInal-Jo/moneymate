@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="/resources/css/footer.css">
     <link rel="stylesheet" href="/resources/css/member/findId.css">
     
-    <title>아이디 찾기</title>
+    <title>비밀번호 변경</title>
 </head>
 <body>
 
@@ -30,7 +30,7 @@
             </section>
             <section class="findContainer2">
                 <div id="findFont">
-                    <p>비밀번호 찾기</p>
+                    <p>비밀번호 재설정</p>
                 </div>
             </section>
            

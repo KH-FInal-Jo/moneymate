@@ -46,6 +46,10 @@ public class KMemberDAO {
 	}
 
 
+	/**휴대폰 인증 처음 멤버 체크
+	 * @param member
+	 * @return
+	 */
 	public int memberCheck(Member member) {
 		return sqlSession.selectOne("KmemberMapper.memberCheck", member);
 	}
@@ -96,6 +100,20 @@ public class KMemberDAO {
 		member.setMemberEmail(memberEmail);
 		
 		return sqlSession.update("KmemberMapper.changePw3", member);
+	}
+
+	public int memberCheckId(Member member) {
+		
+		return sqlSession.selectOne("KmemberMapper.memberCheckId", member);
+	}
+
+	public String memberFindId(String memberTel, String memberName) {
+	
+		Member member=new Member();
+		member.setMemberTel(memberTel);
+		member.setMemberName(memberName);
+		
+		return sqlSession.selectOne("KmemberMapper.memberFindId", member);
 	}
 	
 	
