@@ -197,6 +197,85 @@ targetInput.addEventListener("input", e => {
 
 
 
+
+
+
+/* 내 친구 검색하기 */
+const MytargetInput = document.getElementById("MytargetInput");
+const myFriendList = document.querySelector("#myFriendList");
+
+MytargetInput.addEventListener("input", function () {
+   const query = MytargetInput.value.trim();
+
+   // 입력된 내용이 없을 때
+   if (query.length === 0) {
+      myFriendList.innerHTML = ""; // 이전 검색 결과 비우기
+      return;
+   }
+
+   // 입력된 내용이 있을 때
+   if (query.length > 0) {
+      fetch(`/chatting/myFr/selectTarget?query=${query}`)
+         .then((resp) => resp.json())
+         .then((friendList) => {
+            // 검색 결과를 화면에 추가
+            myFriendList.innerHTML = ""; 
+
+            if (friendList.length === 0) {
+               const li = document.createElement("li");
+               li.classList.add("result-row");
+               li.innerText = "일치하는 친구가 없습니다";
+               myFriendList.appendChild(li);
+            } else {
+               for (let friend of friendList) {
+                  const li = document.createElement("li");
+                  li.classList.add("result-row");
+                  li.setAttribute("data-id", friend.friendId); // 친구 고유 식별자
+
+                  // 프로필 이미지 엘리먼트 생성
+                  const img = document.createElement("img");
+                  img.classList.add("result-row-img");
+                  img.setAttribute("src", friend.profileImageUrl || "기본 이미지 URL"); // 실제 URL 또는 기본 이미지 URL을 사용하세요
+
+                  // 친구 이름 엘리먼트 생성
+                  const span = document.createElement("span");
+                  span.innerHTML = friend.friendName;
+
+                  // 클릭 이벤트 리스너 추가
+                  li.addEventListener("click", () => {
+                     // 여기에서 친구 선택을 처리하십시오. 선택한 친구를 채팅에 추가하거나 다른 작업을 수행할 수 있습니다.
+                     // friend.friendId를 사용하여 선택한 친구를 식별할 수 있습니다.
+                  });
+
+                  // 엘리먼트 조립 및 화면에 추가
+                  li.appendChild(img);
+                  li.appendChild(span);
+                  myFriendList.appendChild(li);
+               }
+            }
+         })
+         .catch((err) => console.log(err));
+   }
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // 채팅방 입장 또는 선택 함수
 function chattingEnter(e){
 

@@ -58,77 +58,81 @@
                 </div>
             </div>
 
+            <%-- 유저 검색하기 --%>
+            <div>
+                <i class="fa-solid fa-magnifying-glass fa-2xl"></i><input type="search" id="MytargetInput" name="inputName" placeholder="검색어를 입력하세요.">
+            </div>
 
-                <c:forEach var="room" items="${roomList}">
-                    <li class="result-row" data-toggle="modal" data-room-id="${room.targetNo}">
-                        <div>
-                            <c:if test="${!empty room.targetProfile}">
-                                <img class="result-row-img" src="${room.targetProfile}">
-                            </c:if>
-                            <c:if test="${empty room.targetProfile}">
-                                <img class="result-row-img" src="http://k.kakaocdn.net/dn/dpk9l1/btqmGhA2lKL/Oz0wDuJn1YV2DIn92f6DVK/img_640x640.jpg">
-                            </c:if>
-                        </div>
-                        <span>${room.targetNickName}</span>
-                        <div class="stateMessage">${room.stateMessage}</div>
-                    </li>
-
-                    <div id="myModal-${room.targetNo}" class="modal">
-                        <form action="/chat/report" method="post" >
-                            <div class="modal-content">
-                                <div class="close" data-dismiss="modal">&times;</div>
-                                <div class="modalImg">
-                                    <c:if test="${!empty room.targetProfile}">
-                                        <img class="result-row-img2" src="${room.targetProfile}">
-                                    </c:if>
-                                    <c:if test="${empty room.targetProfile}">
-                                        <img class="result-row-img2" src="http://k.kakaocdn.net/dn/dpk9l1/btqmGhA2lKL/Oz0wDuJn1YV2DIn92f6DVK/img_640x640.jpg">
-                                    </c:if>
-                                </div>
-                                <input type="hidden" name="reportNo" value="${loginMember.memberNo}">
-                                <input type="hidden" name="reportedNo" value="${room.targetNo}">
-                                <input type="hidden" name="reportCode" value="2">
-                                <input type="hidden" name="bcNo" value="${room.chattingNo}">
-
-                                <div class="modalNick">${room.targetNickName}</div>
-                                <div class="modalAdmin"><button type="button"  id="showModalButton">신고</button></div>
-
-                                <div id="HidChatReport">
-                                    <div>신고 이유</div>
-                                    <div><textarea name="reportContent" class="inputReport"></textarea></div>
-                                    <div><button>신고하기</button></div>
-
-                                </div>
-                                <%-- <div>Message</div>
-                                <div>
-                                    <div class="modalSta">${room.stateMessage}</div>
-                                    <button class="edit-button" onclick="openEditModal(${room.targetNo})" data-toggle="modal" data-target="#editModal-${room.targetNo}">수정하기</button>
-                                </div> --%>
-                            </div>
-
-                        </form>
+            <c:forEach var="room" items="${roomList}">
+                <li class="result-row" data-toggle="modal" data-room-id="${room.targetNo}">
+                    <div>
+                        <c:if test="${!empty room.targetProfile}">
+                            <img class="result-row-img" src="${room.targetProfile}">
+                        </c:if>
+                        <c:if test="${empty room.targetProfile}">
+                            <img class="result-row-img" src="http://k.kakaocdn.net/dn/dpk9l1/btqmGhA2lKL/Oz0wDuJn1YV2DIn92f6DVK/img_640x640.jpg">
+                        </c:if>
                     </div>
+                    <span>${room.targetNickName}</span>
+                    <div class="stateMessage">${room.stateMessage}</div>
+                </li>
 
-
-
-                    <!-- 수정 모달 -->
-                    <div id="editModal-${room.targetNo}" class="modal">
+                <div id="myModal-${room.targetNo}" class="modal">
+                    <form action="/chat/report" method="post" >
                         <div class="modal-content">
-                            <div class="modal-header">
-                                <div class="close" data-modal-close="#editModal-${room.targetNo}">&times;</div>
-                                <div>상태 메시지 수정</div>
+                            <div class="close" data-dismiss="modal">&times;</div>
+                            <div class="modalImg">
+                                <c:if test="${!empty room.targetProfile}">
+                                    <img class="result-row-img2" src="${room.targetProfile}">
+                                </c:if>
+                                <c:if test="${empty room.targetProfile}">
+                                    <img class="result-row-img2" src="http://k.kakaocdn.net/dn/dpk9l1/btqmGhA2lKL/Oz0wDuJn1YV2DIn92f6DVK/img_640x640.jpg">
+                                </c:if>
                             </div>
-                            <div class="modal-body">
-                                <div class="form-group">
-                                    <textarea id="editMessage-${room.targetNo}" class="form-control" rows="3">${room.stateMessage}</textarea>
-                                </div>
+                            <input type="hidden" name="reportNo" value="${loginMember.memberNo}">
+                            <input type="hidden" name="reportedNo" value="${room.targetNo}">
+                            <input type="hidden" name="reportCode" value="2">
+                            <input type="hidden" name="bcNo" value="${room.chattingNo}">
+
+                            <div class="modalNick">${room.targetNickName}</div>
+                            <div class="modalAdmin"><button type="button"  id="showModalButton">신고</button></div>
+
+                            <div id="HidChatReport">
+                                <div>신고 이유</div>
+                                <div><textarea name="reportContent" class="inputReport"></textarea></div>
+                                <div><button>신고하기</button></div>
+
                             </div>
-                            <div class="modal-footer">
-                                <button class="btn btn-primary" onclick="updateStateMessage(${room.targetNo})">저장</button>
+                            <%-- <div>Message</div>
+                            <div>
+                                <div class="modalSta">${room.stateMessage}</div>
+                                <button class="edit-button" onclick="openEditModal(${room.targetNo})" data-toggle="modal" data-target="#editModal-${room.targetNo}">수정하기</button>
+                            </div> --%>
+                        </div>
+
+                    </form>
+                </div>
+
+
+
+                <!-- 수정 모달 -->
+                <div id="editModal-${room.targetNo}" class="modal">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <div class="close" data-modal-close="#editModal-${room.targetNo}">&times;</div>
+                            <div>상태 메시지 수정</div>
+                        </div>
+                        <div class="modal-body">
+                            <div class="form-group">
+                                <textarea id="editMessage-${room.targetNo}" class="form-control" rows="3">${room.stateMessage}</textarea>
                             </div>
                         </div>
+                        <div class="modal-footer">
+                            <button class="btn btn-primary" onclick="updateStateMessage(${room.targetNo})">저장</button>
+                        </div>
                     </div>
-                </c:forEach>
+                </div>
+            </c:forEach>
         </div>
 
         <!-- 메세지 확인 -->
