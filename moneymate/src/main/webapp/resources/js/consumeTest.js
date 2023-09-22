@@ -19,8 +19,6 @@ const onClick = (e) => {
         result.push(e.target.dataset.num);
         localStorage.setItem("key", result);
         
-
-        
     }
 
 
@@ -74,9 +72,14 @@ const onClick = (e) => {
     }
 };
 
+if(result.length === 5){
 
-let resultNum = localStorage.getItem("key").split(",");
-resultNum = resultNum.reduce((a,b)=>a+b);
+    localStorage.setItem("key", result);
+    let resultNum = localStorage.getItem("key").split(",");
+    resultNum = resultNum.reduce((pre,cur)=>pre+cur);
+
+    console.log(resultNum);
+}
 
 buttons.forEach((btn)=>btn.addEventListener("click", onClick));
 

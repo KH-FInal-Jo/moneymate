@@ -31,21 +31,28 @@
             <h1>통장의 잔고가</h1>
             <h1>'0'일때??</h1>
         </div>
-    
+        <input type="radio" name="question1" value="1" id="answer1">
+        <input type="radio" name="question1" value="2" id="answer2">
+        <input type="radio" name="question1" value="3" id="answer3">
         <div class="answer">
-            <button class="w-btn w-btn-gra1 w-btn-gra-anim" data-num="1">
-                <h3>기피</h3>
-                <p>돈을 쓸 수 없어서 사람들 만나기가 꺼려진다.</p>
-            </button>
-            <button class="w-btn w-btn-gra1 w-btn-gra-anim" data-num="2">
-                <h3>불안</h3>
-                <p>마음 상태가 무척 불안해지고 조급해진다.</p>
-            </button>
-            <button class="w-btn w-btn-gra1 w-btn-gra-anim" data-num="3">
-                <h3>무관심</h3>
-                <p>신용카드나 대출을 이용해서 쓰면 된다.</p>
-            </button>
-            
+            <label for="answer1">
+                <button class="w-btn w-btn-gra1 w-btn-gra-anim" data-num="1">
+                    <h3>기피</h3>
+                    <p>돈을 쓸 수 없어서 사람들 만나기가 꺼려진다.</p>
+                </button>
+            </label>
+            <label for="answer2">
+                <button class="w-btn w-btn-gra1 w-btn-gra-anim" data-num="2">
+                    <h3>불안</h3>
+                    <p>마음 상태가 무척 불안해지고 조급해진다.</p>
+                </button>
+            </label>
+            <label for="answer3">
+                <button class="w-btn w-btn-gra1 w-btn-gra-anim" data-num="3">
+                    <h3>무관심</h3>
+                    <p>신용카드나 대출을 이용해서 쓰면 된다.</p>
+                </button>
+            </label>
            
         </div>
     </div>
