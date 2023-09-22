@@ -70,6 +70,9 @@ public class KBoardServiceImpl implements KBoardService{
 	@Override
 	public int boardUpdate(KBoard board) {
 		
+		board.setBoardTitle(Util.XSSHandling(board.getBoardTitle()));
+		board.setBoardContent(Util.XSSHandling(board.getBoardContent()));
+		
 		int rowCount = dao.boardUpdate(board);
 		
 		return rowCount;

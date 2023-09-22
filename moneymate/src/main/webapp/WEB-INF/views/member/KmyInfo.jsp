@@ -39,7 +39,7 @@
                         <div class="image-section">
 
                             <c:if test="${empty loginMember.profileImage}" >
-                                <img src="/resources/images/몽자.jpg" class="myInfoImg" id ="profileImageDisplay" alt="프로필 이미지">
+                                <img src="/resources/images/id.png" class="myInfoImg" id ="profileImageDisplay" alt="프로필 이미지">
                             </c:if>
 
                             <c:if test="${!empty loginMember.profileImage}" >

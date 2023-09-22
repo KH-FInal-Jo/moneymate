@@ -11,7 +11,7 @@ if(profileImage != null){
 
     originalImage = profileImageDisplay.getAttribute("src");
 
-    if(originalImage == "/resources/images/dog1.jpg"){ //기본 이미지
+    if(originalImage == "/resources/images/id.png"){ //기본 이미지
         initCheck = false;
     }else{
         initCheck = true;
@@ -32,7 +32,7 @@ if(profileImage != null){
             console.log("파일 선택이 취소됨")
             deleteCheck = -1;
             
-            profileImageDisplay.setAttribute("src",originalImage)
+            profileImageDisplay.setAttribute("src","/resources/images/id.png")
 
             return;
         }
@@ -64,13 +64,15 @@ if(profileImage != null){
             const url = e.target.result;
 
             // 프로필 이미지(img) 태그에 src 속성으로 추가
-            profileImage.setAttribute("src", url);
+            profileImageDisplay.setAttribute("src", url);
 
             deleteCheck = 1;
         }
 
+        
+        
         deleteImage.addEventListener("click", ()=>{
-
+    
             // 프로필 이미지를 기본 이미지로 변경 
             profileImageDisplay.setAttribute("src", originalImage)
             profileImage.value = "" // input type="file"의 value를 삭제
@@ -79,10 +81,8 @@ if(profileImage != null){
     
     
         })
-    
-
     });
-
+    
     document.getElementById("UpdateProfile").addEventListener("submit", e=>{
 
         let flag =true;
