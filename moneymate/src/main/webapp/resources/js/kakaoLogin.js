@@ -55,7 +55,7 @@ function getInfo() {
                 }
 
                 if(result == 1){
-                    alert("로그인 성공!!");
+                    alert(nickname + "님 환영합니다.");
                     location.href="/";
                 }
 
@@ -63,8 +63,6 @@ function getInfo() {
             )
             .catch(err => console.log(err));
 
-            //location.href="/member/kakao"
-            //console.log(email,  nickname);
         },
         fail: function (error) {
             alert('카카오 로그인에 실패했습니다. 관리자에게 문의하세요.' + JSON.stringify(error));
@@ -72,7 +70,6 @@ function getInfo() {
     });
 }
 
-// 5. 로그아웃 기능 - 카카오 서버에 접속하는 엑세스 토큰을 만료, 사용자 어플리케이션의 로그아웃은 따로 진행.
 function kakaoLogout() {
     
     if (!Kakao.Auth.getAccessToken()) {

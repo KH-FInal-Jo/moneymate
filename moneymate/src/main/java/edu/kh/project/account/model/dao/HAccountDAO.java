@@ -44,8 +44,8 @@ public class HAccountDAO {
 	 * @param loginMember
 	 * @return result
 	 */
-	public int pAccount(Member loginMember) {
-		return sqlSession.insert("HAccountMapper.pAccount", loginMember);
+	public int pAccount(HAccount account) {
+		return sqlSession.insert("HAccountMapper.pAccount", account);
 	}
 
 	/** 가계부 (그룹) 테이블 insert

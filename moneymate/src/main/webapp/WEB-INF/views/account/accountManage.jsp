@@ -28,17 +28,22 @@
                 <div>
                     <img src="/resources/images/add-user.png">
                 </div>
-                
-                <div>그룹 초대</div>
-                <div id="input">
-                    <input type="text" id="add-group" placeholder="MoneyMate회원 이메일">
-                    <img src="/resources/images/check.png" id="check-img">
-                    <img src="/resources/images/warning.png" id="warn-img">
-                    <button type="button" id="addBtn">추가</button>
-                </div>
 
-                <div>나의 그룹원</div>
                 <form action="/account/create" method="POST" id="inviteFrm">
+                    <div>가계부 이름</div>
+                    <div>
+                        <input type="text" id="accountName" name="accountName"/>
+                    </div>
+                    
+                    <div>그룹 초대</div>
+                    <div id="input">
+                        <input type="text" id="add-group" placeholder="MoneyMate회원 이메일">
+                        <img src="/resources/images/check.png" id="check-img">
+                        <img src="/resources/images/warning.png" id="warn-img">
+                        <button type="button" id="addBtn">추가</button>
+                    </div>
+
+                    <div>나의 그룹원</div>
                     <div id="groups">
                         <!-- <div class="each-email">
                             <input type="text" class="input-email" readonly value="user@nad.com">
@@ -59,7 +64,7 @@
 
             <c:forEach items="${pList}" var="list">
                 <div class="account">
-                    <div class="name">가계부</div>
+                    <div class="name">${list.accountName}</div>
                     <div class="content">
                         <img src="/resources/images/로고.png" class="logoImg"/>
                         <img src="/resources/images/homework.png" class="logoImg"/>
@@ -73,7 +78,7 @@
 
             <c:forEach items="${gList}" var="list">
                 <div class="account">
-                    <div class="name">그룹 가계부</div>
+                    <div class="name">${list.accountName}</div>
                     <div class="content1">
                         <img src="/resources/images/homework.png" class="logoImg1"/>
                         <c:set var="emails" value="${list.memberEmails}" />

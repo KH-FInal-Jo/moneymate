@@ -4,6 +4,7 @@
 
 	<resultMap type="HAccount" id="account_rm">
 		<id property="accountNo" column="ACNT_NO"/>
+		<result property="accountName" column="ACNT_NAME"/>
 		<result property="memberEmail" column="MEMBER_EMAIL"/>
 		<result property="memberEmails" column="MEMBER_EMAILS"/>
 		<result property="authKey" column="CODE"/>
@@ -11,23 +12,26 @@
 	
 	<!-- 개인 가계부 조회 -->
 	<select id="pList" resultMap="account_rm">
-		SELECT ACNT_NO 
+		SELECT ACNT_NO, ACNT_NAME 
 		FROM ACCOUNTBOOK
-		WHERE MEMBER_NO =#{memberNo}
+		WHERE MEMBER_NO = #{memberNo}
 		ORDER BY ACNT_NO
 	</select>
 	
 	<!-- 그룹 가계부 조회 -->
 	<select id="gList" resultMap="account_rm">
-		SELECT ACNT_NO, LISTAGG(MEMBER_EMAIL, ',,') WITHIN GROUP (ORDER BY MEMBER_EMAIL) AS MEMBER_EMAILS
-		FROM ACCOUNT_GROUP
+		SELECT ACNT_NO, ACNT_NAME, (SELECT LISTAGG(MEMBER_EMAIL, ',,') WITHIN GROUP (ORDER BY MEMBER_EMAIL)  
+		FROM ACCOUNT_GROUP        
 		WHERE 1=1
 		AND ACNT_NO IN (SELECT ACNT_NO 
-		                FROM ACCOUNT_GROUP 
-		                WHERE MEMBER_EMAIL =#{memberEmail}
-		                AND GROUP_FL = 'Y')
-		AND GROUP_FL = 'Y'
-		GROUP BY ACNT_NO
+		                FROM ACCOUNT_GROUP
+		                WHERE MEMBER_EMAIL = #{memberEmail}
+		                )
+		AND GROUP_FL = 'Y') MEMBER_EMAILS
+        FROM ACCOUNT_GROUP
+        JOIN ACCOUNTBOOK USING (ACNT_NO)
+        WHERE MEMBER_EMAIL = #{memberEmail}
+		GROUP BY ACNT_NO, ACNT_NAME
 		ORDER BY ACNT_NO
 	</select>
 	
@@ -39,7 +43,7 @@
 	
 	<!-- 개인 가계부 생성 -->
 	<insert id="pAccount">
-		INSERT INTO ACCOUNTBOOK VALUES(SEQ_ACNT_NO.NEXTVAL, 0, #{memberNo}, NULL, NULL)
+		INSERT INTO ACCOUNTBOOK VALUES(SEQ_ACNT_NO.NEXTVAL, #{memberNo},  #{accountName}, 0 , NULL, NULL)
 	</insert>
 
 	<!-- (그룹) 가계부 테이블 insert -->
@@ -47,7 +51,7 @@
 		<selectKey order="BEFORE" resultType="_int" keyProperty="accountNo">
 			SELECT SEQ_ACNT_NO.NEXTVAL FROM DUAL
 		</selectKey>
-		INSERT INTO ACCOUNTBOOK VALUES(#{accountNo}, 0, #{memberNo}, NULL, NULL)
+		INSERT INTO ACCOUNTBOOK VALUES(#{accountNo},#{memberNo},  #{accountName} , 0 , NULL, NULL)
 	</insert>
 	
 	<!-- 그룹 테이블 insert -->
