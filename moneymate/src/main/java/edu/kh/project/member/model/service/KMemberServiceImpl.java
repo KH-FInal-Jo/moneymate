@@ -106,8 +106,8 @@ public class KMemberServiceImpl implements KMemberService{
 	// 휴대폰 인증
 	@Override
 	public String memberPhoneCheck(String memberTel) throws CoolsmsException {
-		String api_key = "NCSWLTB2CC6KOXQZ";
-		String api_secret = "XXEXBLQQDFNSMROTJGVMUREHN2AE1FI1";
+		String api_key = "NCSDPAWVSKNIKY0W";
+		String api_secret = "RJDCDQVB6H6E0HEURDJ8OVOE9SZW54OV";
 		net.nurigo.java_sdk.api.Message coolsms = new net.nurigo.java_sdk.api.Message(api_key, api_secret);
 			
 		
@@ -130,6 +130,13 @@ public class KMemberServiceImpl implements KMemberService{
 			  
 			  
 		return numStr;
+	}
+
+	
+	@Transactional(rollbackFor = Exception.class)
+	@Override
+	public int changePw(String newPw, String memberEmail, String memberTel) {
+		return dao.changePw(bcrypt.encode(newPw), memberEmail, memberTel);
 	}
 		
 		

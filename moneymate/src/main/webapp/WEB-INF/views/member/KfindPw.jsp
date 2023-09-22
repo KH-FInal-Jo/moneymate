@@ -37,18 +37,20 @@
             <!-- 휴대폰으로 비밀번호 찾기 -->
             <section class="findContainer4">
                 <fieldset>
-                    <form action="/member/findPw1">
+                    <form action="#">
                         <label style="margin-right: 30px;">
                             <input type="radio" name="contact" value="find" checked />
-                            <span class="underline">휴대폰으로 아이디 찾기</span> 
+                            <span class="underline">휴대폰인증으로 재설정</span> 
                         </label> <br><br>
                         <input type="text" name="memberName" id="memberName" placeholder="이름을 입력해 주세요."> <br>
                         <input type="text" name="memberEmail" id="memberEmail" placeholder="아이디를 입력해 주세요."> <br>
                         <input type="text" name="memberTel" id="memberTel" placeholder="휴대폰 번호를 입력해 주세요.">
-                        <button id="sendmessage" type="submit">발송하기</button><br>
+                        <button id="sendmessage" type="button">발송하기</button><br>
                         <input type="text" name="certification" id="certification" placeholder="인증번호 입력">
                         <button id="check" type="button">인증하기</button><br><br>
-                        <input type="text" name="findPw" id="findPw" placeholder="찾은 비밀번호 확인" value="">
+                        <input type="password" name="newPw" id="newPw" placeholder="새 비밀번호">
+                        <input type="password" name="newPwConfirm" id="findPwConfirm" placeholder="새 비밀번호 확인">
+                        <button type="button" id="changePw">변경</button>
                      
                     </form>
                 
@@ -59,12 +61,12 @@
            
             <!-- 이메일로 비밀번호 찾기 -->
            
-            <section class="findContainer6">
+           <%--  <section class="findContainer6">
                 <fieldset>
                     <form action="/member/findPw2" type="post">
                         <label>
                             <input type="radio" name="contact" value="find" checked />
-                            <span class="underline">이메일로 아이디 찾기</span>
+                            <span class="underline">이메일로 재설정</span>
                         </label><br><br>
 
                         <input type="text" name="memberName" placeholder="이름을 입력해 주세요."> <br>
@@ -78,7 +80,7 @@
                     
                 </fieldset>
 
-            </section>
+            </section> --%>
 
 
         </middle>

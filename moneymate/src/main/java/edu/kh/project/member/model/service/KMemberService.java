@@ -30,6 +30,9 @@ public interface KMemberService {
 	//휴대폰 인증
 	String memberPhoneCheck(String memberTel) throws CoolsmsException;
 
+	// 로그인x 비밀번호 바꾸기
+	int changePw(String newPw, String memberEmail, String memberTel);
+
 		
 
 }
