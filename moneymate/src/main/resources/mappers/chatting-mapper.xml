@@ -169,6 +169,31 @@ ORDER BY MAX_MESSAG_NO DESC NULLS LAST
 		INSERT INTO "REPORT" VALUES(#{reportNo}, #{reportedNo}, #{reportContent}, #{bcNo}, 3)
 	</insert>
 	
+	<select id="selectMyTarget" resultMap="member_rm">
+		SELECT M.MEMBER_NO, M.MEMBER_NICKNAME, M.PROFILE
+			FROM MEMBER M
+			WHERE M.MEMBER_NO != #{memberNo}
+			AND M.MEMBER_NO IN (
+			  SELECT DISTINCT
+			    CASE
+			      WHEN C.OPEN_MEMBER = #{memberNo} THEN C.PARTICIPANT
+			      ELSE C.OPEN_MEMBER
+			    END AS MEMBER_NO
+			  FROM CHATTING_ROOM C
+			  WHERE (C.OPEN_MEMBER = #{memberNo} OR C.PARTICIPANT = #{memberNo})
+			    AND EXISTS (
+			      SELECT 1
+			      FROM MEMBER
+			      WHERE MEMBER_NO = CASE
+			                        WHEN C.OPEN_MEMBER = #{memberNo} THEN C.PARTICIPANT
+			                        ELSE C.OPEN_MEMBER
+			                      END
+			        AND SECESSION_FL = 'N'
+			        AND MEMBER_NICKNAME LIKE '%${query}%'
+			    )
+			)
+	</select>
+	
 	
 	
 	

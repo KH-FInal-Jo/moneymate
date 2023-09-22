@@ -28,6 +28,7 @@ public interface ChattingService {
     * @return memberList
     */
    List<Member> selectTarget(Map<String, Object> map);
+   List<Member> selectMyTarget(Map<String, Object> map);
 
    // 신고하기
    int chatReport(JReport report);

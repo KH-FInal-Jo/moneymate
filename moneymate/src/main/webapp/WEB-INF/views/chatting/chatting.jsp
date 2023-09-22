@@ -59,10 +59,10 @@
             </div>
 
             <%-- 유저 검색하기 --%>
-            <div>
-                <i class="fa-solid fa-magnifying-glass fa-2xl"></i><input type="search" id="MytargetInput" name="inputName" placeholder="검색어를 입력하세요.">
+            <div class="myFsearch">
+                <i class="fa-solid fa-magnifying-glass fa-2xl"></i><input type="search" class="MytargetInput" name="inputName" placeholder="검색어를 입력하세요.">
             </div>
-
+            <ul class="myFriendList">
             <c:forEach var="room" items="${roomList}">
                 <li class="result-row" data-toggle="modal" data-room-id="${room.targetNo}">
                     <div>
@@ -95,44 +95,22 @@
                             <input type="hidden" name="bcNo" value="${room.chattingNo}">
 
                             <div class="modalNick">${room.targetNickName}</div>
-                            <div class="modalAdmin"><button type="button"  id="showModalButton">신고</button></div>
+                            <div class="modalAdmin"><button type="button" class="showModalButton" data-target-modal="myModal-${room.targetNo}" data-toggle-modal="HidChatReport-${room.targetNo}">신고</button></div>
 
-                            <div id="HidChatReport">
+
+                            <div class="HidChatReport" id="HidChatReport-${room.targetNo}">
                                 <div>신고 이유</div>
                                 <div><textarea name="reportContent" class="inputReport"></textarea></div>
                                 <div><button>신고하기</button></div>
 
                             </div>
-                            <%-- <div>Message</div>
-                            <div>
-                                <div class="modalSta">${room.stateMessage}</div>
-                                <button class="edit-button" onclick="openEditModal(${room.targetNo})" data-toggle="modal" data-target="#editModal-${room.targetNo}">수정하기</button>
-                            </div> --%>
                         </div>
 
                     </form>
                 </div>
 
-
-
-                <!-- 수정 모달 -->
-                <div id="editModal-${room.targetNo}" class="modal">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <div class="close" data-modal-close="#editModal-${room.targetNo}">&times;</div>
-                            <div>상태 메시지 수정</div>
-                        </div>
-                        <div class="modal-body">
-                            <div class="form-group">
-                                <textarea id="editMessage-${room.targetNo}" class="form-control" rows="3">${room.stateMessage}</textarea>
-                            </div>
-                        </div>
-                        <div class="modal-footer">
-                            <button class="btn btn-primary" onclick="updateStateMessage(${room.targetNo})">저장</button>
-                        </div>
-                    </div>
-                </div>
             </c:forEach>
+            </ul>
         </div>
 
         <!-- 메세지 확인 -->
