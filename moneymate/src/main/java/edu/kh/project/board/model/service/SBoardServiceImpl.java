@@ -28,7 +28,7 @@ public class SBoardServiceImpl implements SBoardService {
 
 	// 칼럼 게시글 등록
 	@Override
-	public int boardInsert(SBoard board, List<MultipartFile> images, String webPath, String filePath, Map<String, Object> paramMap) throws IllegalStateException, IOException {
+	public int boardInsert(SBoard board, List<MultipartFile> images, String webPath, String filePath) throws IllegalStateException, IOException {
 		
 		// XSS 방지 처리
 		board.setBoardContent(Util.XSSHandling(board.getBoardContent()));
@@ -36,17 +36,15 @@ public class SBoardServiceImpl implements SBoardService {
 		
 		// BOARD 테이블 INSERT 하기 (제목, 내용, 작성자, 게시판코드)
 		// -> boardNo(시퀀스로 생성한 번호)반환 받기
-		int boardNo = dao.boardInsert (board,paramMap);
+		int boardNo = dao.boardInsert (board);
 		
-		// 게시글 삽입 성공 시 업로드된 이미지가 있다면 BOARD_IMG 테이블에 삽입하는 DAO 호출
-		if(boardNo > 0) {
-			// 게시글 삽입 성공 시
+		if(boardNo > 0) { // 게시글 삽입 성공 시
 			
 			// 실제로 업로드된 파일의 정보를 기록한 List
 			List<SBoardImage> uploadList = new ArrayList<SBoardImage>();
 			
 			// images에 담겨있는 파일 중 실제 업로드된 파일만 분류
-			for(int i = 0; i<images.size(); i++) {
+			for(int i=0; i<images.size(); i++) {
 				
 				// i번째 요소에 업로드한 파일이 있다면
 				if(images.get(i).getSize() > 0) {
@@ -62,10 +60,9 @@ public class SBoardServiceImpl implements SBoardService {
 					String fileName = images.get(i).getOriginalFilename();
 					
 					img.setImageOriginal(fileName); // 원본명
-					img.setImageReName(Util.fileRename(fileName)); // 파일 변경명
+					img.setImageReName(Util.XSSHandling(fileName)); // 파일 변경명
 					
 					uploadList.add(img);
-					
 					
 				}
 				
@@ -76,15 +73,14 @@ public class SBoardServiceImpl implements SBoardService {
 			// == 업로드한 파일이 있다
 			if(!uploadList.isEmpty()) {
 				
-				// BOARD_IMG테이블에 INSERT하는 DAO 호출
 				int result = dao.insertImageList(uploadList);
-				// result == 삽입된 행ㄷ의 개수 == uploadList.size()
+				// result == 삽입된 행의 개수 == uploadList.size()
 				
 				// 삽입된 행의 개수와 uploadList의 개수가 같다면
 				// == 전체 insert 성공
 				if(result == uploadList.size()) {
 					
-					// 서버에 파일을 저장 (trasferTo())
+					// 서버에 파일을 저장(trasferTo())
 					
 					for(int i=0; i<uploadList.size(); i++) {
 						
@@ -99,13 +95,13 @@ public class SBoardServiceImpl implements SBoardService {
 					
 				} else {
 					// 일부 또는 전체 insert 실패
-					
-					// 예외 강제 발생
-					throw new FileUploadException();
+					throw new FileUploadException(); // 예외 강제 발생
 				}
 				
 			}
+			
 		}
+		
 		
 		
 		return boardNo;
