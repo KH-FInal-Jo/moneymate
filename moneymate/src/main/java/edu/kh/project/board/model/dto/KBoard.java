@@ -21,6 +21,7 @@ public class KBoard {
 	private int readCount;
 	private int boardCode;
 	private String boardName;
+	private int commentList;
 	
 	private int commentCount;
 	
@@ -28,5 +29,5 @@ public class KBoard {
 	private int memberNo;
 		
 
-
+	
 }

@@ -81,6 +81,57 @@
                     <button id="goToList">목록으로</button>
                 </div>
     
+
+                 <div class="comment-area">
+                    <ul id=commentList>
+                    <h4>${board.commentList}임시</h4>
+                        <%-- <c:forEach items="${board.commentList}" var="comment">
+                        <li id="comment-list <c:if test='${comment.parentNo != 0}'>child-comment</c:if>">
+                            <p class="commentWriter">
+
+                                <c:if test="${empty comment.profileImage}">
+                                    <img src="/resources/images/몽자.jpg">
+                                </c:if>
+
+                                 <c:if test="${!empty comment.profileImage}">
+                                    <img src="${comment.profileImage}">
+                                </c:if>
+
+                                <span>${comment.memberNickname}</span>
+                            </p>
+
+                            <p id="comment-content">${comment.commentContent}</p>
+
+                            <div>
+                           
+                                <div class="btn-area2">
+                                    <button onclick="showInsertComment(${comment.commentNo}, this)">답글</button>
+                                    
+                                    <c:if test="${loginMember.memberNo == comment.memberNo}">
+                                    <button id="updateBtn" onclick="showUpdateComment(${comment.commentNo}, this)">수정</button>
+                                    <button id="deleteBtn" onclick="deleteComment(${comment.commentNo})">삭제</button>
+                                    
+                                    </c:if>
+                                </div>
+
+                                <div class="createDate">
+                                    작성일 : 2023-09-05
+                                </div>
+                            </div>
+
+                        </li>
+                        </c:forEach> --%>
+                    </ul>
+                </div>
+
+                <div class="comment-write-area">
+                    <textarea id="commentContent"></textarea>
+                    <button id="addComment">
+                        댓글<br>
+                        등록
+                    </button>
+                </div>
+    
             </section>
         </section>
 
