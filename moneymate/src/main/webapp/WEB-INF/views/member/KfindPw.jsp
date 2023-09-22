@@ -37,7 +37,7 @@
             <!-- 휴대폰으로 비밀번호 찾기 -->
             <section class="findContainer4">
                 <fieldset>
-                    <form action="/member/findPw1" method="post">
+                    <form action="/member/findPw1">
                         <label style="margin-right: 30px;">
                             <input type="radio" name="contact" value="find" checked />
                             <span class="underline">휴대폰으로 아이디 찾기</span> 

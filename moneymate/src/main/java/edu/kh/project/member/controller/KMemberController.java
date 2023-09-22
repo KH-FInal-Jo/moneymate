@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttribute;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.multipart.MultipartFile;
@@ -176,16 +177,19 @@ public class KMemberController {
 		return "/member/KfindPw";
 	}
 
-	@PostMapping("/findPw1")
-	public String findPw(Member member, Model model) throws CoolsmsException {
+	@GetMapping("/findPw1")
+	@ResponseBody
+	public String findPw(Member member, String memberTel) throws CoolsmsException {
 		
 		int count = service.memberCheck(member);
 		System.out.println(count);
 		
 		String numStr = "";
 		
+		System.out.println(memberTel);
+		
 		if(count > 0) {
-			String memberTel = member.getMemberTel();
+			
 			
 			numStr = service.memberPhoneCheck(memberTel); 
 			
@@ -193,12 +197,11 @@ public class KMemberController {
 		
 		System.out.println("numStr : " + numStr);
 		
-		model.addAttribute("numStr",numStr);
 		
 		
 		
 		
-		return "redirect:/member/findPw";
+		return numStr;
 	}
 	
 	
