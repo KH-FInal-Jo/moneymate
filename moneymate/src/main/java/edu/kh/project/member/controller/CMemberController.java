@@ -57,7 +57,7 @@ public class CMemberController {
 			
 			model.addAttribute("loginMember", loginMember);
 			
-			Cookie cookie = new Cookie("saveId", loginMember.getMemberEmail());
+			Cookie cookie = new Cookie("banseoksaveId1", loginMember.getMemberEmail());
 			
 			if(saveId != null) { 
 				cookie.setMaxAge(60 * 60 * 24 * 30); 
@@ -155,7 +155,7 @@ public class CMemberController {
 			
 			status.setComplete();
 			
-			Cookie cookie = new Cookie("saveId", "");
+			Cookie cookie = new Cookie("banseoksaveId1", "");
 			
 			cookie.setMaxAge(0); 
 			

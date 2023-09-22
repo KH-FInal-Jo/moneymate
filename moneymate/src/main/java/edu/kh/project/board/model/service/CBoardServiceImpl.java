@@ -291,7 +291,7 @@ public class CBoardServiceImpl implements CBoardService {
 		return dao.updateComment(comment);
 	}
 
-	// 신고하기
+	// 신고하기sss
 	@Transactional(rollbackFor = {Exception.class})
 	@Override
 	public int insertReport(CReport report) {
