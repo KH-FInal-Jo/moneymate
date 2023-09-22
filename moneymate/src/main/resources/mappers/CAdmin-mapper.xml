@@ -62,7 +62,7 @@
 	
 	
 	<select id="reportDupCheck" resultType="_int">
-		SELECT COUNT(*) FROM REPORT
+		SELECT COUNT(*) FROM "REPORT"
 		WHERE REPORT_NO = #{memberNo}
 		AND BC_NO = #{boardNo}
 		AND REPORT_CODE = 1

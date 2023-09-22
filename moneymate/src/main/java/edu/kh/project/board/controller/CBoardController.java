@@ -103,7 +103,7 @@ public class CBoardController {
 				
 				if(cookies != null) {
 					for( Cookie cookie : cookies) {
-						if(cookie.getName().equals("readBoardNo")) {
+						if(cookie.getName().equals("bsreadBoardNo")) {
 							c = cookie;
 							
 							break;
@@ -116,7 +116,7 @@ public class CBoardController {
 				
 				if(c == null) {
 					
-					c = new Cookie("readBoardNo", "|" + boardNo + "|");
+					c = new Cookie("bsreadBoardNo", "|" + boardNo + "|");
 					
 					result = service.updateReadCount(boardNo);
 					

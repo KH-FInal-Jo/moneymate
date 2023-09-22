@@ -35,14 +35,14 @@
             <form action="/member/login" method="post" id="loginFrm">
 
                 <div class="inputs">
-                    <i class="fa-regular fa-id-badge"></i><input type="text" id="inputId" class="inputId" name="memberEmail" value="${cookie.saveId.value}">
+                    <i class="fa-regular fa-id-badge"></i><input type="text" id="inputId" class="inputId" name="memberEmail" value="${cookie.banseoksaveId1.value}">
                 </div>
     
                 <div class="inputs">
                     <i class="fa-solid fa-lock"></i><input type="password" id="inputPwd" name="memberPw">
                 </div>
                 
-                <c:if test="${ !empty cookie.saveId.value}">
+                <c:if test="${ !empty cookie.banseoksaveId1.value}">
 					<c:set var="chk" value="checked" />
 				</c:if>
                 
