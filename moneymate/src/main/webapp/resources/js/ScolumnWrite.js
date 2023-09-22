@@ -41,12 +41,34 @@ for(let i =0; i < inputImage.length; i++){
 
         }
 
+        const formData = new FormData();
+        formData.append("file", inputImage[i].files[0]);
+
+        fetch("/community/4/insert/imageList", {
+            method: "POST",
+            body: formData
+        })
+        .then(response => response.json())
+        .then(result => {
+            // 파일 업로드 완료 후 처리
+            console.log(result);
+        })
+        .catch(error => {
+            console.error("파일 업로드 중 오류 발생: ", error);
+        });
+
+
+
+
     });
 
 }
 
-const images = document.getElementsByName("images")
-console.log(images)
+
+
+
+
+
 
 // 등록 버튼 ajax
 const registerBtn = document.getElementById("finish")

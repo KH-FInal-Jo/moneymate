@@ -34,4 +34,27 @@
 		#{memberNo})
 	</insert>
 	
+	
+	
+	<!-- 이미지 리스트(여러 개) 삽입 -->
+	<insert id="insertImageList" parameterType="list">
+		INSERT INTO IMAGE
+		SELECT  A.*
+		FROM (
+
+		<foreach collection="list" item="img" separator=" UNION ALL ">
+			SELECT
+			#{img.boardNo} BR_NO,
+			4 IMG_CD,
+			#{img.imagePath} IMG_PATH,
+			#{img.imageReName} IMG_RENAME,
+			#{img.imageOriginal} IMG_ORIGINAL,
+			#{img.imageOrder} IMG_LEVEL
+			FROM DUAL
+		</foreach>
+
+		)A
+
+	</insert>
+	
 </mapper>

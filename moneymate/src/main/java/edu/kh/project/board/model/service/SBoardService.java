@@ -1,5 +1,6 @@
 package edu.kh.project.board.model.service;
 
+import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 
@@ -10,15 +11,17 @@ import edu.kh.project.board.model.dto.SBoard;
 public interface SBoardService {
 
 
+
 	/** 칼럼 게시글 등록
-	 * @param images 
-	 * @param board 
 	 * @param board
 	 * @param images
 	 * @param webPath
 	 * @param filePath
+	 * @param paramMap 
 	 * @return
+	 * @throws IOException 
+	 * @throws IllegalStateException 
 	 */
-	int boardInsert(Map<String, Object> paramMap, SBoard board, List<MultipartFile> images );
+	int boardInsert(SBoard board, List<MultipartFile> images, String webPath, String filePath, Map<String, Object> paramMap) throws IllegalStateException, IOException;
 
 }
