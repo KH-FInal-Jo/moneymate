@@ -114,6 +114,8 @@
     <footer>
         footer
     </footer>
+
+    <script src="/resources/js/ScolumnDetail.js"></script>
     
 </body>
 </html>

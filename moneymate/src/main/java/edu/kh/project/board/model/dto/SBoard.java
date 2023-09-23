@@ -17,4 +17,6 @@ public class SBoard {
 	private int readCount;
 	private int boardCode;
 	private int memberNo;
+	
+	private String thumbNail;
 }

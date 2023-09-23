@@ -10,7 +10,9 @@ import javax.servlet.http.HttpSession;
 import org.apache.commons.collections.map.HashedMap;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -28,26 +30,36 @@ import edu.kh.project.member.model.dto.Member;
 
 @SessionAttributes({"loginMember"})
 @Controller
+@RequestMapping("/community")
 public class SColumnController {
 	
 	@Autowired
 	private SBoardService service;
 	
-	@RequestMapping("/community/4")
-	public String column() {
+	// 게시글 목록 조회
+	@GetMapping("/4")
+	public String column(@SessionAttribute("loginMember") Member loginMember
+						, Model model) {
 	
+		int memberNo = loginMember.getMemberNo();
+		
+		List<SBoard> columnList = service.columnList(memberNo);
+		
+		System.out.println("columnList : " + columnList);
+		
+		model.addAttribute("columnList",columnList);
 		
 		return "board/Scolumn";
 	}
 	
-	@GetMapping("/community/4/insert")
+	@GetMapping("/insert")
 	public String insert() {
 		return "board/ScolumnWrite";
 	}
 	
 	
 	// 칼럼게시글 삽입
-	@PostMapping(value = "/community/4/insert/register", produces = "application/json; charset=UTF-8")
+	@PostMapping(value = "/register", produces = "application/json; charset=UTF-8")
 	@ResponseBody
 	public String boardInsert(	SBoard board
 							, @RequestParam("images") List<MultipartFile> images
@@ -90,6 +102,8 @@ public class SColumnController {
 		// 게시글 삽입 서비스 호출 후 삽입된 게시글 번호 반환 받기
 		boardNo = service.boardInsert(board, images, webPath, filePath);
 		
+		System.out.println("boardNO :" + boardNo);
+		
 		// 게시글 삽입 성공 시
 		// -> 방금 삽입한 게시글의 상세조회 페이지 리다이렉트
 		
@@ -114,7 +128,24 @@ public class SColumnController {
 		
 	}
 	
+	// 게시글 상세조회
+	@GetMapping("/4/{boardNo}")
+	public String columnDetail(@PathVariable("boardNo") int boardNo
+							, Model model) {
+		return "board/ScolumnDetail";
+	}
 	
+	
+	@GetMapping("/previous")
+	@ResponseBody
+	public int columnPrevieous(@RequestParam("boardNo")int boardNo) {
+		
+		System.out.println("이전글 boardNo : " + boardNo);
+		
+		
+		
+		return service.columnPrevieous(boardNo);
+	}
 	
 	
 	
