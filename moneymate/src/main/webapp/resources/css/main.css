@@ -462,3 +462,14 @@ button + button{
     transform: rotate(0deg) translate(-200px,-250px);
     z-index: 1;
 }
+
+.image-container> img{
+   animation: rotate_image 6s ease infinite;transform-origin: 50% 50%;
+  
+}
+@keyframes rotate_image{
+    100% {
+        transform: rotate(360deg);
+    }
+
+}
