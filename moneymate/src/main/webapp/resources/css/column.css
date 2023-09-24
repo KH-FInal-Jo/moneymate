@@ -103,131 +103,78 @@ font-family: 'SDGothic', serif;
     color: white;
 }
 
-
-.one{
+.column-area{
     display: flex;
-    margin: 10px 0 10px 0;
+    height: 300px;
 }
 
 
 /* 1번째줄 첫번째 */
-.one > div:nth-of-type(1){
+.column-area > div:nth-of-type(1){
     display: flex;
-    flex-direction: column;
-    flex-basis: 33.3%;
-}
-
-/* 사진 칸 */
-.one-1 > div:nth-of-type(1){
-    display: flex;
-    flex-basis: 80%;
-    margin: 10px auto;
-}
-
-.one-1 > div:nth-of-type(1) > a{
-    margin: auto;
-}
-
-.one-1 a{
-    text-decoration: none;
-    color: black;
-}
-
-.one-1 img{
-    display: flex;
-    width: 250px;
-    height: 250px;
-    border-radius: 15px;
-}
-
-/* 제목 */
-.one-1 > div:nth-of-type(2){
-    display: flex;
-    flex-basis: 20%;
+    flex-basis: 30%;
     align-items: center;
-    padding-left: 30px;
+    justify-content: center;
+
+    border-bottom: 1px solid #ccc;
 }
-
-
-
-
-
-
 /* 1번째줄 두번째 */
-.one > div:nth-of-type(2){
+.column-area > div:nth-of-type(2){
     display: flex;
-    flex-direction: column;
-    flex-basis: 33.3%;
+    flex-basis: 70%;
+
+    border-bottom: 1px solid #ccc;
 }
 
-/* 사진 칸 */
-.one-2 > div:nth-of-type(1){
-    display: flex;
-    flex-basis: 80%;
-    margin: 10px auto;
-}
-
-.one-2 > div:nth-of-type(1) > a{
-    margin: auto;
-}
-
-.one-2 a{
-    text-decoration: none;
-    color: black;
-}
-
-.one-2 img{
-    display: flex;
+/* 칼럼 사진 영역 */
+.column-area img{
     width: 250px;
     height: 250px;
-    border-radius: 15px;
+    border-radius: 10px;
+
+    border: 1px solid #ccc;
+}
+
+/* 제목, 날짜 영역 */
+.title-area{
+    display: flex;
+    flex-direction: column;
+
+
+}
+
+/* 제목 a태그 */
+.title-area a{
+   text-decoration: none;
+   color: black;
+
+
 }
 
 /* 제목 */
-.one-2 > div:nth-of-type(2){
+.title-area > div:nth-of-type(1){
     display: flex;
-    flex-basis: 20%;
+    flex-basis: 70%;
+
+    padding: 25px 0 0 40px;
+
+    font-size: 25px;
+    
+}
+
+/* 날짜 */
+.title-area > div:nth-of-type(2){
+    display: flex;
+    flex-basis: 30%;
+
+
+    justify-content: end;
     align-items: center;
-    padding-left: 30px;
 }
 
-/* 1번째줄 세번째 */
-.one > div:nth-of-type(3){
-    display: flex;
-    flex-direction: column;
-    flex-basis: 33.3%;
-}
 
-/* 사진 칸 */
-.one-3 > div:nth-of-type(1){
-    display: flex;
-    flex-basis: 80%;
-    margin: 10px auto;
-}
 
-.one-3 > div:nth-of-type(1) > a{
-    margin: auto;
-}
 
-.one-3 a{
-    text-decoration: none;
-    color: black;
-}
-
-.one-3 img{
-    display: flex;
-    width: 250px;
-    height: 250px;
-    border-radius: 15px;
-}
-
-/* 제목 */
-.one-3 > div:nth-of-type(2){
-    display: flex;
-    flex-basis: 20%;
-    align-items: center;
-    padding-left: 30px;
-}
 
 #load{
     width: 200px;
@@ -235,6 +182,10 @@ font-family: 'SDGothic', serif;
 
     font-size: 20px;
     border-radius: 10px;
+    border: 0;
+
+    margin-left: 10px;
+    margin-top: 10px;
 }
 
 footer{

@@ -33,6 +33,7 @@
 
         <section class="main">
 
+
             
             <div class="explain">
                 <div><img src="/resources/images/금융칼럼.jpg"></div>
@@ -46,112 +47,57 @@
 
                 </div>
             </div>
-            <!-- 컬럼 목록 -->        
-
-                <a href="/community/4/insert"><button id="Swrite">글쓰기</button></a>
-
-                <div class="one">
-                    <div class="one-1">
-                        <div><a href="#"><img src="/resources/images/dog1.jpg"></a></div>
-                        <div><a href="#" class="a-title">20대에게 추천하는 신용/체크카드!dddddddddhflkjas dshajklff sadhf jlk</a></div>
-                    </div>
-                    <div class="one-2">
-                        <div><a href="#"><img src="/resources/images/dog1.jpg"></a></div>
-                        <div><a href="#" class="a-title">20대에게 추천하는 신용/체크카드! 안ㄴ녕하세요 안영낭ㄴ머ㅏdfk</a></div>
-                    </div>
-                    <div class="one-3">
-                        <div><a href="#"><img src="/resources/images/dog1.jpg"></a></div>
-                        <div><a href="#" class="a-title">20대에게 추천하는 신용/체크카드!dddd adjlkhf asdjkhlf wqud</a></div>
-                    </div>
-                </div>
-                <div class="one">
-                    <div class="one-1">
-                        <div><a href="#"><img src="resources/images/dog1.jpg"></a></div>
-                        <div><a href="#" class="a-title">20대에게 추천하는 신용/체크카드!dddddddddhflkjas dshajklff sadhf jlk</a></div>
-                    </div>
-                    <div class="one-2">
-                        <div><a href="#"><img src="resources/images/dog1.jpg"></a></div>
-                        <div><a href="#" class="a-title">20대에게 추천하는 신용/체크카드! 안ㄴ녕하세요 안영낭ㄴ머ㅏdfk</a></div>
-                    </div>
-                    <div class="one-3">
-                        <div><a href="#"><img src="resources/images/dog1.jpg"></a></div>
-                        <div><a href="#" class="a-title">20대에게 추천하는 신용/체크카드!dddd adjlkhf asdjkhlf wqud</a></div>
-                    </div>
-                </div>
-                <div class="one">
-                    <div class="one-1">
-                        <div><a href="#"><img src="resources/images/dog1.jpg"></a></div>
-                        <div><a href="#" class="a-title">20대에게 추천하는 신용/체크카드!dddddddddhflkjas dshajklff sadhf jlk</a></div>
-                    </div>
-                    <div class="one-2">
-                        <div><a href="#"><img src="resources/images/dog1.jpg"></a></div>
-                        <div><a href="#" class="a-title">20대에게 추천하는 신용/체크카드! 안ㄴ녕하세요 안영낭ㄴ머ㅏdfk</a></div>
-                    </div>
-                    <div class="one-3">
-                        <div><a href="#"><img src="resources/images/dog1.jpg"></a></div>
-                        <div><a href="#" class="a-title">20대에게 추천하는 신용/체크카드!dddd adjlkhf asdjkhlf wqud</a></div>
-                    </div>
-                </div>
-                <div class="one">
-                    <div class="one-1">
-                        <div><a href="#"><img src="resources/images/dog1.jpg"></a></div>
-                        <div><a href="#" class="a-title">20대에게 추천하는 신용/체크카드!dddddddddhflkjas dshajklff sadhf jlk</a></div>
-                    </div>
-                    <div class="one-2">
-                        <div><a href="#"><img src="resources/images/dog1.jpg"></a></div>
-                        <div><a href="#" class="a-title">20대에게 추천하는 신용/체크카드! 안ㄴ녕하세요 안영낭ㄴ머ㅏdfk</a></div>
-                    </div>
-                    <div class="one-3">
-                        <div><a href="#"><img src="resources/images/dog1.jpg"></a></div>
-                        <div><a href="#" class="a-title">20대에게 추천하는 신용/체크카드!dddd adjlkhf asdjkhlf wqud</a></div>
-                    </div>
-                </div>
-                <div class="one">
-                    <div class="one-1">
-                        <div><a href="#"><img src="resources/images/dog1.jpg"></a></div>
-                        <div><a href="#" class="a-title">20대에게 추천하는 신용/체크카드!dddddddddhflkjas dshajklff sadhf jlk</a></div>
-                    </div>
-                    <div class="one-2">
-                        <div><a href="#"><img src="resources/images/dog1.jpg"></a></div>
-                        <div><a href="#" class="a-title">20대에게 추천하는 신용/체크카드! 안ㄴ녕하세요 안영낭ㄴ머ㅏdfk</a></div>
-                    </div>
-                    <div class="one-3">
-                        <div><a href="#"><img src="resources/images/dog1.jpg"></a></div>
-                        <div><a href="#" class="a-title">20대에게 추천하는 신용/체크카드!dddd adjlkhf asdjkhlf wqud</a></div>
-                    </div>
-                </div>
-                <div class="one">
-                    <div class="one-1">
-                        <div><a href="#"><img src="/resources/images/dog1.jpg"></a></div>
-                        <div><a href="#" class="a-title">20대에게 추천하는 신용/체크카드!dddddddddhflkjas dshajklff sadhf jlk</a></div>
-                    </div>
-                    <div class="one-2">
-                        <div><a href="#"><img src="/resources/images/dog1.jpg"></a></div>
-                        <div><a href="#" class="a-title">20대에게 추천하는 신용/체크카드! 안ㄴ녕하세요 안영낭ㄴ머ㅏdfk</a></div>
-                    </div>
-                    <div class="one-3">
-                        <div><a href="#"><img src="/resources/images/dog1.jpg"></a></div>
-                        <div><a href="#" class="a-title">20대에게 추천하는 신용/체크카드!dddd adjlkhf asdjkhlf wqud</a></div>
-                    </div>
-                </div>
-                <div class="one">
-                    <div class="one-1">
-                        <div><a href="#"><img src="/resources/images/dog1.jpg"></a></div>
-                        <div><a href="#" class="a-title">20대에게 추천하는 신용/체크카드!dddddddddhflkjas dshajklff sadhf jlk</a></div>
-                    </div>
-                    <div class="one-2">
-                        <div><a href="#"><img src="/resources/images/dog1.jpg"></a></div>
-                        <div><a href="#" class="a-title">20대에게 추천하는 신용/체크카드! 안ㄴ녕하세요 안영낭ㄴ머ㅏdfk</a></div>
-                    </div>
-                    <div class="one-3">
-                        <div><a href="#"><img src="/resources/images/dog1.jpg"></a></div>
-                        <div><a href="#" class="a-title">20대에게 추천하는 신용/체크카드!dddd adjlkhf asdjkhlf wqud</a></div>
-                    </div>
-                </div>
+            <!-- 컬럼 목록 -->       
 
 
-                <!-- <a href="#" id="load">MORE</a> -->
-                <button id="load">더보기</button>
+                <c:choose>
+                
+                    <c:when test="${empty columnList}">
+
+                        <%-- 조회된 게시글이 존재하지 않을 경우 --%>
+                         <a href="/community/4/insert"><button id="Swrite">글쓰기</button></a>
+
+                        <div class="one">
+                            게시글이 존재하지 않습니다.
+                        </div>
+
+                    </c:when>
+
+                    <c:otherwise>
+                    <a href="/community/insert"><button id="Swrite">글쓰기</button></a>
+                    
+                        <%-- 게시글 목록 조회 결과가 있다면 --%>
+                        <c:forEach items="${columnList}" var="column">
+                        
+
+                            <div class="column-area">
+                                <div><a href="#"><img src="${column.thumbNail}"></a></div>
+
+                                <div class="title-area">
+                                    <div>
+                                        <a href="/community/4/${column.boardNo}" class="a-title">${column.boardTitle}</a>
+                                    </div>
+                                    <div>
+                                        작성일 : ${column.boardCreateDate}
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            
+                        </c:forEach>
+                        <!-- <a href="#" id="load">MORE</a> -->
+                        <button id="load">더보기</button>
+
+                    </c:otherwise>
+                
+                
+                
+                
+                </c:choose>
+
+              
+
+
 
 
                
@@ -166,6 +112,11 @@
     </main>
 
    <jsp:include page="/WEB-INF/views/common/footer.jsp"></jsp:include>
+
+   
+
+
+   
 
     <script src="/resources/js/column.js"></script>
     

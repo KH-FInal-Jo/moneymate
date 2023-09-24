@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="/resources/css/header.css">
     <link rel="stylesheet" href="/resources/css/board/boardSidemenu-style.css">
 
+
     <script src="https://kit.fontawesome.com/a5af36132e.js" crossorigin="anonymous"></script>
 </head>
 <body>
@@ -44,7 +45,7 @@
                 </div>
     
                 <div id="text" name="boardContent" contentEditable="true">
-    
+                    
                 </div>  
     
                 <div class="btn">
@@ -58,6 +59,8 @@
         
 
     </main>
+
+   
 
     <jsp:include page="/WEB-INF/views/common/footer.jsp"></jsp:include>
 

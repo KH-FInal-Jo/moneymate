@@ -16,6 +16,7 @@ import edu.kh.project.board.model.dto.SBoard;
 import edu.kh.project.board.model.dto.SBoardImage;
 import edu.kh.project.board.model.exception.FileUploadException;
 import edu.kh.project.common.utility.Util;
+import edu.kh.project.member.model.dto.Member;
 
 @Service
 public class SBoardServiceImpl implements SBoardService {
@@ -105,6 +106,25 @@ public class SBoardServiceImpl implements SBoardService {
 		
 		
 		return boardNo;
+	}
+
+
+
+
+	// 칼럼 게시글 목록 조회
+	@Override
+	public List<SBoard> columnList(int memberNo) {
+		return dao.columnList(memberNo);
+	}
+
+
+
+
+	// 이전 게시글 번호 구하기
+	@Override
+	public int columnPrevieous(int boardNo) {
+		// TODO Auto-generated method stub
+		return dao.columnPrevieous(boardNo);
 	}
 	
 	

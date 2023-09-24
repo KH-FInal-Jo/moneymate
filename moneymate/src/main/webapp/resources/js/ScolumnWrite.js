@@ -59,7 +59,7 @@ registerBtn.addEventListener("click", () => {
   formData.append("boardContent", boardContent);
 
   // fetch를 사용하여 서버로 데이터 전송
-  fetch("/community/4/insert/register", {
+  fetch("/community/register", {
     method: "POST",
     body: formData,
   })
