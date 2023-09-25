@@ -249,10 +249,10 @@
 
                     <div class="container1-6">
                         <div class="image-container">
-                            <img src="/resources/images/img_sreen_dark1.png" alt="이미지 1" class="image">
-                            <img src="/resources/images/img_sreen_dark2.png" alt="이미지 2" class="image">
-                            <img src="/resources/images/img_sreen_dark3.png" alt="이미지 3" class="image">
-                            <img src="/resources/images/img_sreen_dark4.png" alt="이미지 4" class="image">
+                           <a href="#"><img src="/resources/images/img_sreen_dark1.png" alt="이미지 1" class="image"></a>
+                           <a href="#"><img src="/resources/images/img_sreen_dark2.png" alt="이미지 2" class="image"></a>
+                           <a href="#"><img src="/resources/images/img_sreen_dark3.png" alt="이미지 3" class="image"></a>
+                           <a href="#"><img src="/resources/images/img_sreen_dark4.png" alt="이미지 4" class="image"></a>                           
                         </div>
                     </div>
 

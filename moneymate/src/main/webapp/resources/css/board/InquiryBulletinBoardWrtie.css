@@ -84,7 +84,7 @@ font-family: 'SDGothic', serif;
 
 .board-content{
     padding: 30px 0;
-    margin: 30px 0;
+    margin: 30px 0 0;
     /* border-top : 3px solid #ccc; */
     /* border-bottom : 3px solid #ccc; */
     font-size: 18px;
@@ -122,3 +122,22 @@ font-family: 'SDGothic', serif;
     font-size: 20px;
     cursor: pointer;
 }
+
+
+#updateBtn{
+
+    /* background:#007bff; */
+
+    background:rgb(12, 64, 202);
+    border-radius: 5px;
+    width: 130px;
+    height: 45px;
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+    letter-spacing: 3px;
+    border: none;
+    cursor: pointer;
+}
+
+

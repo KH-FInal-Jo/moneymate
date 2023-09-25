@@ -85,18 +85,19 @@
     
 
                  <div class="comment-area">
-                    <ul id=commentList>
                     <h4>댓글</h4>
+                    <ul id=commentList>
+                    
                         <c:forEach items="${cList}" var="comment">
-                        <li class="comment-list <c:if test='${comment.parentNo != 0}'>child-comment</c:if>">
+                        <li class="comment-list">
 
-
+                            <div>
                                 <c:if test="${empty comment.profileImage}">
-                                    <img src="/resources/images/몽자.jpg">
+                                    <img class="img50" src="/resources/images/몽자.jpg">
                                 </c:if>
 
                                  <c:if test="${!empty comment.profileImage}">
-                                    <img src="${comment.profileImage}">
+                                    <img class="img50" src="${comment.profileImage}">
                                 </c:if>
 
                                 <span>${comment.memberNickname}</span>
@@ -114,7 +115,7 @@
                                 </div>
 
                                 <div class="createDate">
-                                    작성일 : 2023-09-05
+                                    작성일 : ${comment.commentCreateDate}
                                 </div>
                             </div>
 

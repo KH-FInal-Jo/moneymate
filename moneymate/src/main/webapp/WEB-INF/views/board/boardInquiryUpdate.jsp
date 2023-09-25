@@ -17,7 +17,7 @@
 <body>
 
     <main>
-    <%-- 헤더 --%>${board}
+    <%-- 헤더 --%><%-- ${board} --%>
     <jsp:include page="/WEB-INF/views/common/header.jsp" />
       <section class="board-notice-content">
         <%-- 사이드바 --%>
@@ -29,12 +29,12 @@
                 <form action="update" method="POST" 
                 class="board-write" id="boardWriteFrm" enctype="multipart/form-data">
                     <h1 class="board-title">
-                        <input type="text" class="boardTitle"  name="boardTitle" placeholder="제목" value="${board.boardTitle}">
+                        <input type="text" class="boardTitle"  id="boardTitle" name="boardTitle" placeholder="제목" value="${board.boardTitle}">
                     </h1>
 
                    
                     <div class="board-content">
-                        <textarea class="boardContent" name="boardContent">${board.boardContent}</textarea>
+                        <textarea class="boardContent" id="boardContent" name="boardContent">${board.boardContent}</textarea>
                     </div>
 
                     <div class="board-btn-area">
