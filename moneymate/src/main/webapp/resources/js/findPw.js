@@ -10,6 +10,7 @@ const sendmessage= document.getElementById("sendmessage");
 const check= document.getElementById("check");
 const changePw= document.getElementById("changePw");
 
+
 sendmessage.addEventListener("click", e=>{
 
     fetch("/member/findPw1?memberTel=" + memberTel.value + "&memberEmail=" + memberEmail.value + "&memberName="+memberName.value)
@@ -17,8 +18,19 @@ sendmessage.addEventListener("click", e=>{
     .then(resp => resp.text())
     
     .then(result => {
-
-        alert("인증번호 전송완료");
+        const regEx= /^0(1[01679]|2|[3-6][1-5]|70)\d{3,4}\d{4}$/;
+        const id= /^[a-zA-Z0-9+-\_.]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/;
+        const name=/^[가-힣a-zA-Z]+$/;
+        if(!regEx.test(memberTel.value)){
+            alert("휴대폰 번호를 입력해 주세요");
+            
+        }else if(!id.test(memberEmail.value)){
+            alert("아이디를 입력해주세요.");
+        }else if(!name.test(memberName.value)){
+            alert("이름을 입력해주세요.")
+        }else{
+            alert("인증번호 전송완료");
+        }
 
         check.addEventListener("click", function(){
             if(certification.value == result){

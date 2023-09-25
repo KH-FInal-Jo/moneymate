@@ -31,7 +31,7 @@
             <!-- 중간영역 -->
             <div class="container">
                 <h1>비밀번호 재설정</h1> <br><br>
-                <span>현재 비밀번호가 일치하는 경우 새 비밀번호로 변경할 수 있습니다.</span>
+                <span>현재 비밀번호가 일치하는 경우 새 비밀번호로 변경할 수 있습니다.</span><br><br>
                 <form action="/member/mypage/findPw" method="POST" name="myPageFrm" id="changePwFrm">
                     <label for="newPassword">현재 비밀번호</label>
                     <input type="password" id="Password" name="Password" maxlength="30" required>
@@ -45,7 +45,7 @@
                     <input type="password" id="confirmPassword" name="confirmPassword" maxlength="30" required>
                     <br>
                     
-                    <br><br>
+                    <br>
                     <button type="submit">그만두기</button>
                     <button type="submit">비밀번호 변경</button>
 

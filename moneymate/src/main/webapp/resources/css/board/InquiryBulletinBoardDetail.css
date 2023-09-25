@@ -64,6 +64,11 @@
     justify-content: space-between;
 }
 
+.img50{
+    width: 50px;
+    height: 50px;
+}
+
 .boardImg{
     text-align: center;
     border-bottom: 2px solid #ddd;
@@ -88,11 +93,15 @@
 .btn-area > button {
     border: 0;
     background-color: rgb(12, 64, 202);
+    font-size: 15px;
     color: white;
     font-weight: bold;
     width: 100px;
-    height: 30px;
+    height: 35px;
     cursor: pointer;
+    border-radius: 5px;
+    letter-spacing: 2px;
+    border: none;
 }
 
 .comment-area{
