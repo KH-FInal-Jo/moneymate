@@ -66,6 +66,8 @@ function reportMember(boardNo, loginMemberNo){
     .then(count => {
         if(count == 0){
             location.href = "/community/report?boardNo="+boardNo;
+            alert("신고완료!");
+            return;
         } else{
             alert("같은 게시글을 중복 신고할 수 없습니다.");
         }

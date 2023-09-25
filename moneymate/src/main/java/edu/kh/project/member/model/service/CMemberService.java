@@ -56,4 +56,16 @@ public interface CMemberService {
 
 	String memberPhoneCheck(String mTel) throws CoolsmsException;
 
+
+
+	int dupCheckTestResult(Member member);
+
+
+
+	int insertTestResult(Member member);
+
+
+
+	int updateTestResult(Member member);
+
 }

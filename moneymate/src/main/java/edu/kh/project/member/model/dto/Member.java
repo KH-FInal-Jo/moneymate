@@ -22,5 +22,7 @@ public class Member {
 	private int authority;
 	private String profileImage;
 	private int mileage;
+	
+	private String testResult;
 
 }

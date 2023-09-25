@@ -9,6 +9,7 @@
 
 <link rel="stylesheet" href="/resources/css/consumeTest-question.css">
 <link rel="stylesheet" href="/resources/css/consumeTest-result.css">
+<link rel="stylesheet" href="/resources/css/member/loading.css">
 
 </head>
 <body class="body">
@@ -31,9 +32,6 @@
             <h1>통장의 잔고가</h1>
             <h1>'0'일때??</h1>
         </div>
-        <input type="radio" name="question1" value="1" id="answer1">
-        <input type="radio" name="question1" value="2" id="answer2">
-        <input type="radio" name="question1" value="3" id="answer3">
         <div class="answer">
             <label for="answer1">
                 <button class="w-btn w-btn-gra1 w-btn-gra-anim" data-num="1">
@@ -143,24 +141,28 @@
            
         </div>
     </div>
+    <div class="loading" id="loading">
+            <div class="kinetic" id="kinetic"></div>
+    </div>
+
 
     <div class="result-main">
         <h1>소비테스트 결과</h1>
 
-        <h2>당신의 돈에 대한 태도는</h2> <span class="result">"덕질하는 알뜰형" 입니다.</span>
+        <h2>당신의 돈에 대한 태도는</h2> <span class="result" id="resultTitle">"덕질하는 알뜰형" 입니다.</span>
         
 
+
         <div class="result-img">    
-            <img src="/resources/images/testResult2.webp" class="result-img1 vibration">
+            <img src="/resources/images/testResult2.webp" class="result-img1 vibration" id="resultImg">
         </div>
 
         <div>
             <ol>
-                <li>울적할 때 통장잔고를 보면 마음이 안정돼요.</li>
-                <li>힘들게 모은 돈을 위험한 곳에 투자하고 싶지 않아요.</li>
-                <li>신용카드보다는 체크카드를 선호해요.</li>
-                <li>대출받아 주식투자하는 사람들을 이해하기 힘들어요.</li>
-                <li>보통은 아끼지만, 이거다 싶을 때는 과감히 돈을 쓰기도 해요.</li>
+                <li id="li1">울적할 때 통장잔고를 보면 마음이 안정돼요.</li>
+                <li id="li2">힘들게 모은 돈을 위험한 곳에 투자하고 싶지 않아요.</li>
+                <li id="li3">신용카드보다는 체크카드를 선호해요.</li>
+                <li id="li4">대출받아 주식투자하는 사람들을 이해하기 힘들어요.</li>
             </ol>
         </div>
 
@@ -168,7 +170,7 @@
             <button id="btn-re">다시하기</button>
         </div>
         <div>
-            <button id="btn2">메인페이지로</button>
+            <button id="btn2">메인페이지로(저장)</button>
         </div>
     </div>
 

@@ -252,11 +252,56 @@ public class CMemberController {
 	 @ResponseBody 
 	 public String memberPhoneCheck(@RequestParam(value = "mTel") String mTel) throws CoolsmsException {
 	  
-	 System.out.println("정말안되?" + mTel);
 	  
 	 return service.memberPhoneCheck(mTel); 
 	 
 	 
+	 }
+	 
+	 
+	 @GetMapping("dupCheckTestResult")
+	 @ResponseBody
+	 public int dupCheckTestResult(@SessionAttribute("loginMember") Member loginMember, String testResult) {
+		 
+		 
+		 Member member = new Member();
+		 
+		 member.setTestResult(testResult);
+		 member.setMemberNo(loginMember.getMemberNo());
+		 
+		 return service.dupCheckTestResult(member);
+	 }
+	 
+	 
+	 @GetMapping("insertTestResult")
+	 @ResponseBody
+	 public int insertTestResult(@SessionAttribute("loginMember") Member loginMember, String testResult) {
+		 
+		 
+		 Member member = new Member();
+		 
+		 member.setTestResult(testResult);
+		 member.setMemberNo(loginMember.getMemberNo());
+		 
+		 
+		 return service.insertTestResult(member);
+	 }
+	 
+	 
+	 
+	 
+	 
+	 @GetMapping("updateTestResult")
+	 @ResponseBody
+	 public int updateTestResult(@SessionAttribute("loginMember") Member loginMember, String testResult) {
+		 
+		 
+		 Member member = new Member();
+		 
+		 member.setTestResult(testResult);
+		 member.setMemberNo(loginMember.getMemberNo());
+		 
+		 return service.updateTestResult(member);
 	 }
 	
 	

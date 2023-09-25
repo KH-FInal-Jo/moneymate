@@ -79,8 +79,15 @@
                 e.preventDefault();
                 alert("약관을 읽고 동의해주세요.");
             }
+
+            if(memberPw.value.trim().length == 0){
+                e.preventDefault();
+                alert("비밀번호를 입력해주세요.");
+            }
                 
         })
+
+
 
 
 
