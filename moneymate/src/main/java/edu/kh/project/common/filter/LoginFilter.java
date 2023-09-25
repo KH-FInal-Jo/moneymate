@@ -15,7 +15,7 @@ import javax.servlet.http.HttpSession;
 import edu.kh.project.member.model.dto.Member;
 
 @WebFilter(filterName="loginFilter",
-urlPatterns={"/subscribe/*"})
+urlPatterns={"/subscribe/*", "/consumetest", "/event/calendar"})
 public class LoginFilter implements Filter {
 
 
