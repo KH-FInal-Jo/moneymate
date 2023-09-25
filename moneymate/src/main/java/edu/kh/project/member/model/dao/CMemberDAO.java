@@ -104,4 +104,20 @@ public class CMemberDAO {
 		return sqlSession.selectOne("CmemberMapper.nicknameDupCheck", nickname);
 	}
 
+
+	// 테스트 결과 추가
+	public int dupCheckTestResult(Member member) {
+		return sqlSession.selectOne("CmemberMapper.dupCheckTestResult", member);
+	}
+
+
+	public int insertTestResult(Member member) {
+		return sqlSession.insert("CmemberMapper.insertTestResult", member);
+	}
+
+
+	public int updateTestResult(Member member) {
+		return sqlSession.update("CmemberMapper.updateTestResult", member);
+	}
+
 }

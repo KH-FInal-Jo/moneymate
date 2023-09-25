@@ -320,7 +320,22 @@
 	</select>
 	
 	
+	<select id="dupCheckTestResult" resultType="_int">
+		SELECT COUNT(*) FROM CONTEST 
+		WHERE MEMBER_NO = #{memberNo}
+	</select>
 	
+	<insert id="insertTestResult">
+		INSERT INTO CONTEST VALUES(#{memberNo}, #{testResult})
+	</insert>
+	
+	
+	<update id="updateTestResult">
+		UPDATE CONTEST SET
+		TEST_TITLE = #{testResult}
+		WHERE
+		MEMBER_NO = #{memberNo}
+	</update>
 	
 	
 	

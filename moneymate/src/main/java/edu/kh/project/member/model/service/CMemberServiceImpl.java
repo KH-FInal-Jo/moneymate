@@ -271,4 +271,23 @@ public class CMemberServiceImpl implements CMemberService {
 		return numStr;
 	}
 
+
+	@Override
+	public int dupCheckTestResult(Member member) {
+		return dao.dupCheckTestResult(member);
+	}
+
+
+	
+	@Override
+	public int insertTestResult(Member member) {
+		return dao.insertTestResult(member);
+	}
+
+
+	@Override
+	public int updateTestResult(Member member) {
+		return dao.updateTestResult(member);
+	}
+
 }
