@@ -12,10 +12,35 @@
 		<result property="boardCreateDate" column="BOARD_DT" />
 		<result property="boardUpdateDate" column="BOARD_UPDATE_DT" />
 		<result property="readCount" column="READ_COUNT" />
+		<result property="likeCount" column="LIKE_COUNT" />
+		
 		<result property="memberNo" column="MEMBER_NO" />
+		<result property="memberNickname" column="MEMBER_NICKNAME" />
+		<result property="profileImage" column="PROFILE" />
 		
 		<result property="thumbNail" column="THUMBNAIL" />
+		
+		
+		<collection property="imageList" select="selectImageList"
+			column="BOARD_NO" javaType="java.util.ArrayList" ofType="SBoardImage">
+
+		</collection>
 	
+	</resultMap>
+	
+	
+	<!-- SBoardImage resultMap -->
+	<resultMap type="SBoardImage" id="SBoardImage_rm">
+
+		<id property="imageNo" column="IMG_NO" />
+
+		<result property="imageNo" column="IMG_CD" />
+		<result property="imagePath" column="IMG_PATH" />
+		<result property="imageRename" column="IMG_RENAME" />
+		<result property="imageOriginal" column="IMG_ORIGINAL" />
+		<result property="imageOrder" column="IMG_LEVEL" />
+		<result property="boardNo" column="BR_NO" />
+
 	</resultMap>
 
 	<!-- 게시글 삽입 -->
@@ -74,7 +99,7 @@
 	
 	</select>
 	
-	
+	<!-- 이전 게시글 조회 -->
 	<select id="columnPrevieous" resultType="_int">
 		SELECT MAX(BOARD_NO) AS PREVIOUS FROM(
 		SELECT BOARD_NO FROM BOARD
@@ -82,9 +107,53 @@
 		WHERE BOARD_NO < #{boardNo}
 		]]>
 		AND BOARD_CODE=4
+		AND BOARD_ST = 'N'
 		)
 	</select>
 	
+	
+	<!-- 다음 게시글 조회 -->
+	<select id="columnNext" resultType="_int">
+		SELECT MIN(BOARD_NO) AS PREVIOUS FROM(
+		SELECT BOARD_NO FROM BOARD
+		<![CDATA[
+		WHERE BOARD_NO > #{boardNo}
+		]]>
+		AND BOARD_CODE=4
+		AND BOARD_ST = 'N'
+		)
+	</select>
+	
+	
+	
+	<!-- 게시글 상세 조회 -->
+	<select id="selectBoard" resultMap="SBoard-rm">
+		SELECT BOARD_NO, BOARD_TITLE,
+		BOARD_CONTENT, BOARD_CODE,
+		READ_COUNT, MEMBER_NICKNAME, MEMBER_NO, MEMBER_EMAIL,
+		PROFILE,
+		TO_CHAR(BOARD_DT,'YYYY"년" MM"월" DD"일" HH24:MI:SS')
+		BOARD_DT,
+		TO_CHAR(BOARD_UPDATE_DT,'YYYY"년" MM"월" DD"일" HH24:MI:SS')
+		BOARD_UPDATE_DT,
+		(SELECT COUNT(*)FROM "LIKE" L
+		WHERE L.BR_NO = B.BOARD_NO) LIKE_COUNT
+		FROM BOARD B
+		JOIN MEMBER USING (MEMBER_NO)
+		WHERE
+		BOARD_ST = 'N'
+		AND BOARD_CODE = #{boardCode}
+		AND BOARD_NO = #{boardNo}
+	</select>
+	
+	<!-- 특정 게시글 이미지 조회 -->
+	<select id="selectImageList" resultMap="SBoardImage_rm">
+		SELECT * FROM IMAGE
+		WHERE BR_NO = #{boardNo}
+		AND IMG_CD = 4
+		ORDER BY IMG_LEVEL
+
+	</select>
 	
 	
 	

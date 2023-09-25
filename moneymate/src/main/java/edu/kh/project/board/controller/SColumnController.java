@@ -2,9 +2,12 @@ package edu.kh.project.board.controller;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.apache.commons.collections.map.HashedMap;
@@ -61,7 +64,7 @@ public class SColumnController {
 	// 칼럼게시글 삽입
 	@PostMapping(value = "/register", produces = "application/json; charset=UTF-8")
 	@ResponseBody
-	public String boardInsert(	SBoard board
+	public int boardInsert(	SBoard board
 							, @RequestParam("images") List<MultipartFile> images
 							, @RequestParam(value = "boardTitle") String boardTitle
 							, @RequestParam(value = "boardContent") String boardContent
@@ -100,29 +103,9 @@ public class SColumnController {
 		
 		
 		// 게시글 삽입 서비스 호출 후 삽입된 게시글 번호 반환 받기
-		boardNo = service.boardInsert(board, images, webPath, filePath);
+		return service.boardInsert(board, images, webPath, filePath);
 		
-		System.out.println("boardNO :" + boardNo);
-		
-		// 게시글 삽입 성공 시
-		// -> 방금 삽입한 게시글의 상세조회 페이지 리다이렉트
-		
-		String message = null;
-		String path = "redirect:";
-		
-		if(boardNo > 0) {
-			message = "게시글이 등록 되었습니다.";
-//			path += "/board/" + boardCode + "/" + boardNo;
-			path += "insert";
-		}else {
-			message = "게시글 등록 실패";
-			path += "insert";
-		}
-		
-		ra.addFlashAttribute("message" + message);
-		
-		return path;
-		
+
 		
 		
 		
@@ -131,11 +114,35 @@ public class SColumnController {
 	// 게시글 상세조회
 	@GetMapping("/4/{boardNo}")
 	public String columnDetail(@PathVariable("boardNo") int boardNo
-							, Model model) {
+							, Model model
+							, @SessionAttribute("loginMember")Member loginMember
+							, RedirectAttributes ra
+							, HttpServletRequest req
+							, HttpServletResponse resp) {
+		
+		Map<String, Object> map = new HashMap<String, Object>();
+		
+		int boardCode = 4;
+		
+		map.put("boardCode", boardCode);
+		map.put("boardNo", boardNo);
+		
+		// 게시글 상세조회 서비스 호출
+		SBoard board = service.selectBoard(map);
+		
+		model.addAttribute("board" , board);
+		
+		
+		
+		
+		
+		
+		
 		return "board/ScolumnDetail";
 	}
 	
 	
+	// 이전글
 	@GetMapping("/previous")
 	@ResponseBody
 	public int columnPrevieous(@RequestParam("boardNo")int boardNo) {
@@ -145,6 +152,18 @@ public class SColumnController {
 		
 		
 		return service.columnPrevieous(boardNo);
+	}
+	
+	// 다음글
+	@GetMapping("/next")
+	@ResponseBody
+	public int columnNext(@RequestParam("boardNo")int boardNo) {
+		
+		System.out.println("다음글 boardNo : " + boardNo);
+		
+		
+		
+		return service.columnNext(boardNo);
 	}
 	
 	

@@ -61,7 +61,7 @@ public class SBoardServiceImpl implements SBoardService {
 					String fileName = images.get(i).getOriginalFilename();
 					
 					img.setImageOriginal(fileName); // 원본명
-					img.setImageReName(Util.XSSHandling(fileName)); // 파일 변경명
+					img.setImageRename(Util.XSSHandling(fileName)); // 파일 변경명
 					
 					uploadList.add(img);
 					
@@ -88,7 +88,7 @@ public class SBoardServiceImpl implements SBoardService {
 						int index = uploadList.get(i).getImageOrder();
 						
 						// 파일로 변환
-						String rename = uploadList.get(i).getImageReName();
+						String rename = uploadList.get(i).getImageRename();
 						
 						images.get(index).transferTo(new File(filePath + rename));
 						
@@ -126,6 +126,29 @@ public class SBoardServiceImpl implements SBoardService {
 		// TODO Auto-generated method stub
 		return dao.columnPrevieous(boardNo);
 	}
+
+
+
+	// 다음 게시글 번호 구하기
+	@Override
+	public int columnNext(int boardNo) {
+		// TODO Auto-generated method stub
+		return dao.columnNext(boardNo);
+	}
+
+
+
+
+	// 게시글 상세조회
+	@Override
+	public SBoard selectBoard(Map<String, Object> map) {
+		// TODO Auto-generated method stub
+		return dao.selectBoard(map);
+	}
+
+
+
+
 	
 	
 

@@ -31,26 +31,84 @@
 
 
             <div class="write-main">
-                <h3 id="write-title"> 글 제목 : 
-                </h3>
-                <input type="text" placeholder="제목을 입력해주세요." id="Wtitle" name="boardTitle">
-    
-                <div class="img-box">
-                    <div class="thumbnail">
-                        <label for="img0" class="photo">
-                            <i class="fa-regular fa-image fa-lg" style="color: #1476d2;"></i> 사진첨부
+                
+
+                <!-- <div class="img-box">
+                    <div class="boardImg thumbnail">
+                        <label for="img0">
+                            <img class="preview" src="">
                         </label>
-                        <input type="file" class="inputImage" id="img0" name="images" accept="image/*">
+                        <input type="file" name="images" class="inputImage" id="img0" accept="image/*">
+                        <span class="delete-image">&times;</span>
                     </div>
-                </div>
+                </div> -->
+
+                <!-- 업로드 이미지 영역 -->
+                <!-- <h5>업로드 이미지</h5>
+                <div class="img-box">
+
+                    <div class="boardImg">
+                        <label for="img1">
+                            <img class="preview" src="">
+                        </label>
+                        <input type="file" name="images" class="inputImage" id="img1" accept="image/*">
+                        <span class="delete-image">&times;</span>
+                    </div>
+
+                    <div class="boardImg">
+                        <label for="img2">
+                            <img class="preview" src="">
+                        </label>
+                        <input type="file" name="images" class="inputImage" id="img2" accept="image/*">
+                        <span class="delete-image">&times;</span>
+                    </div>
+
+                    <div class="boardImg">
+                        <label for="img3">
+                            <img class="preview" src="">
+                        </label>
+                        <input type="file" name="images" class="inputImage" id="img3" accept="image/*">
+                        <span class="delete-image">&times;</span>
+                    </div>
+
+                    <div class="boardImg">
+                        <label for="img4">
+                            <img class="preview" src="">
+                        </label>
+                        <input type="file" name="images" class="inputImage" id="img4" accept="image/*">
+                        <span class="delete-image">&times;</span>
+                    </div>
+                </div> -->
+
+
+
+
+                    <h3 id="write-title"> 글 제목 : 
+                    </h3>
+                    <input type="text" placeholder="제목을 입력해주세요." id="Wtitle" name="boardTitle">
+        
+                    <div class="img-box">
+                        <div class="thumbnail">
+                            <label for="img0" class="photo">
+                                <i class="fa-regular fa-image fa-lg" style="color: #1476d2;"></i> 사진첨부(썸네일)
+                            </label>
+                            <input type="file" class="inputImage" id="img0" accept="image/*" multiple>
+                            <!-- <input type="hidden" id="hiddenInput" name="images"> -->
+                        </div>
+                    </div>
+
+                    <div id="text" name="boardContent">
+                        
+                    </div>  
+
+
+                    <div class="btn">
+                        <span><button id="finish">등록하기</button></span>
+                    </div>
+
+
     
-                <div id="text" name="boardContent" contentEditable="true">
-                    
-                </div>  
     
-                <div class="btn">
-                 <span><button id="finish">등록하기</button></span>
-                </div>
     
             </div>
 
