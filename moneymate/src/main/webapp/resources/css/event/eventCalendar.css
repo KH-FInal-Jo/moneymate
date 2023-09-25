@@ -45,6 +45,10 @@ body{
     
 }
 
+table{
+    padding-left: 25px;
+}
+
 #img1{  /* 도장 */
     position: absolute;
     margin-bottom: 10px;

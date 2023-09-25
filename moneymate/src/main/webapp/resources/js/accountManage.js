@@ -160,6 +160,8 @@ if(addGroup != null){
 
 if(addBtn!= null){
   addBtn.addEventListener("click", () => {
+
+    
     if(!flag){
 
       checkImg.style.display = "none";
@@ -228,8 +230,11 @@ inviteFrm.addEventListener("submit", e => {
 
 
 
-  // 이메일 전송하는 코드
-
+    if(document.getElementById("accountName").value.trim().length == 0){
+      alert("가계부 이름을 입력해주세요 !!");
+      e.preventDefault();
+      return;
+    }
 
 
 

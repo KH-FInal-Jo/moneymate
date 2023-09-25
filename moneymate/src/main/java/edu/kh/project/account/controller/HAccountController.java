@@ -40,7 +40,7 @@ public class HAccountController {
 	}
 	
 	// 이메일 회원 검사
-	@PostMapping(value = "/account/emailCheck", produces = "application/json; charset=UTF-8")
+	@PostMapping(value = "/account/emailCheck")
 	@ResponseBody
 	public int dupEmail(@RequestBody String memberEmail) {
 		
