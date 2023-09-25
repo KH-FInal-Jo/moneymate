@@ -16,21 +16,21 @@ let selectedFiles = [];
 
 
 //input 요소와 버튼 요소 가져오기
-const fileInput = document.getElementById('fileInput');
+// const fileInput = document.getElementById('fileInput');
 
-// 파일 선택 시 이벤트 처리
-fileInput.addEventListener('change', () => {
-    const files = fileInput.files;
+// // 파일 선택 시 이벤트 처리
+// fileInput.addEventListener('change', () => {
+//     const files = fileInput.files;
   
-    // 선택한 파일을 배열에 추가
-    for (let i = 0; i < files.length; i++) {
-        selectedFiles.push(files[i].name);
+//     // 선택한 파일을 배열에 추가
+//     for (let i = 0; i < files.length; i++) {
+//         selectedFiles.push(files[i].name);
     
-      }
+//       }
     
     
     
-    });
+//     });
     
 const formData = new FormData();
 
@@ -46,6 +46,7 @@ for (let i = 0; i < inputImages.length; i++) {
     
     for (let j = 0; j < files.length; j++) {
       const file = files[j];
+      console.log(file)
       
       if (file != undefined) {
         const div = document.createElement("div");
@@ -71,7 +72,7 @@ for (let i = 0; i < inputImages.length; i++) {
         textArea.append(div);
 
         // 파일을 FormData에 추가 (images[] 배열에 추가)
-        // formData.append("images", files);
+        formData.append("images", file);
       }
     }
   });
@@ -84,11 +85,32 @@ registerBtn.addEventListener("click", () => {
   console.log("눌림")
   const textArea = document.getElementById("text");
   const boardTitle = document.getElementById("Wtitle").value;
-  const boardContent = textArea.innerText;
+// content div 요소들을 가져옵니다.
+const contentDivs = document.getElementsByClassName("content");
+console.log(contentDivs)
+
+// content div 안의 내용을 저장할 배열을 생성합니다.
+const contentArray = [];
+// console.log(contentArray)
+
+// 각 content div의 내용을 가져와서 배열에 추가합니다.
+for (let i = 0; i < contentDivs.length; i++) {
+  const content = contentDivs[i].value;
+  // contentArray.push(content);
+  console.log(content);
+
+  contentArray.push(content)
+}
+/* 구분자 줘서 DB로 전송 */
+const boardContent = contentArray.join('^^^')
+console.log(boardContent)
+formData.append("boardContent", boardContent)
+
+// contentArray 배열에는 각 content div 안의 내용이 저장됩니다.
+
 
   // 글제목과 글내용을 FormData에 추가
   formData.append("boardTitle", boardTitle);
-  formData.append("boardContent", boardContent);
 
   // fetch를 사용하여 서버로 데이터 전송
   fetch("/community/register", {

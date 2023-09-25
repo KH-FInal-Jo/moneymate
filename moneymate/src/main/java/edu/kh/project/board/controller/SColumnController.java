@@ -130,7 +130,7 @@ public class SColumnController {
 		// 게시글 상세조회 서비스 호출
 		SBoard board = service.selectBoard(map);
 		
-		model.addAttribute("board" , board);
+		model.addAttribute("board", board);
 		
 		
 		
