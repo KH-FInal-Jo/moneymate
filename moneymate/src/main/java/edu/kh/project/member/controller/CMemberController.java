@@ -252,7 +252,6 @@ public class CMemberController {
 	 @ResponseBody 
 	 public String memberPhoneCheck(@RequestParam(value = "mTel") String mTel) throws CoolsmsException {
 	  
-	 System.out.println("정말안되?" + mTel);
 	  
 	 return service.memberPhoneCheck(mTel); 
 	 
@@ -264,7 +263,6 @@ public class CMemberController {
 	 @ResponseBody
 	 public int dupCheckTestResult(@SessionAttribute("loginMember") Member loginMember, String testResult) {
 		 
-		 System.out.println("result : " + testResult);
 		 
 		 Member member = new Member();
 		 
@@ -279,7 +277,6 @@ public class CMemberController {
 	 @ResponseBody
 	 public int insertTestResult(@SessionAttribute("loginMember") Member loginMember, String testResult) {
 		 
-		 System.out.println("result : " + testResult);
 		 
 		 Member member = new Member();
 		 
@@ -296,7 +293,6 @@ public class CMemberController {
 	 @ResponseBody
 	 public int updateTestResult(@SessionAttribute("loginMember") Member loginMember, String testResult) {
 		 
-		 System.out.println("result : " + testResult);
 		 
 		 Member member = new Member();
 		 

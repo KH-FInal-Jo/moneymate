@@ -87,9 +87,9 @@
 
                     <ul class="pagination">
                     
-                        <li><a href="/community/3?cp=1">&lt;&lt;</a></li>
+                        <li><a href="/admin/payment?cp=1">&lt;&lt;</a></li>
 
-                        <li><a href="/community/3?cp=${pagination.prevPage}">&lt;</a></li>
+                        <li><a href="/admin/payment?cp=${pagination.prevPage}">&lt;</a></li>
 
                 
                         <c:forEach var="i" begin="${pagination.startPage}" end="${pagination.endPage}">
@@ -99,7 +99,7 @@
                             </c:when>
                             
                             <c:otherwise>
-                                    <li><a href="/community/3?cp=${i}">${i}</a></li>
+                                    <li><a href="/admin/payment?cp=${i}">${i}</a></li>
                             </c:otherwise>
                             </c:choose>
                             
@@ -107,9 +107,9 @@
                         
                         
                         
-                        <li><a href="/community/3?cp=${pagination.nextPage}">&gt;</a></li>
+                        <li><a href="/admin/payment?cp=${pagination.nextPage}">&gt;</a></li>
 
-                        <li><a href="/community/3?cp=${pagination.maxPage}">&gt;&gt;</a></li>
+                        <li><a href="/admin/payment?cp=${pagination.maxPage}">&gt;&gt;</a></li>
 
                     </ul>
                 </div>

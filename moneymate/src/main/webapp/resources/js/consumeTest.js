@@ -266,8 +266,8 @@ btn2.addEventListener("click", function(){
             fetch("/member/insertTestResult?testResult=" + tResult)
             .then(resp => resp.text())
             .then(result =>{
+                alert("저장완료!");
                 location.href = "/";
-                console.log("추가완료!");
             })
             .catch();
 
@@ -276,8 +276,8 @@ btn2.addEventListener("click", function(){
             fetch("/member/updateTestResult?testResult=" + tResult)
             .then(resp => resp.text())
             .then(result =>{
+                alert("저장완료!");
                 location.href = "/";
-                console.log("업데이트완료!");
             })
             .catch();
         }

@@ -31,9 +31,6 @@
             <h1>통장의 잔고가</h1>
             <h1>'0'일때??</h1>
         </div>
-        <input type="radio" name="question1" value="1" id="answer1">
-        <input type="radio" name="question1" value="2" id="answer2">
-        <input type="radio" name="question1" value="3" id="answer3">
         <div class="answer">
             <label for="answer1">
                 <button class="w-btn w-btn-gra1 w-btn-gra-anim" data-num="1">
