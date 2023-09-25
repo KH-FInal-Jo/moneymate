@@ -74,7 +74,7 @@
 			#{img.boardNo} BR_NO,
 			4 IMG_CD,
 			#{img.imagePath} IMG_PATH,
-			#{img.imageReName} IMG_RENAME,
+			#{img.imageRename} IMG_RENAME,
 			#{img.imageOriginal} IMG_ORIGINAL,
 			#{img.imageOrder} IMG_LEVEL
 			FROM DUAL

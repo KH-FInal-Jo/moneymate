@@ -27,24 +27,9 @@
 
 
     <main class="detailMain">
+           <jsp:include page="/WEB-INF/views/board/boardSideMenu.jsp"></jsp:include>
 
-        <section class="board-sidemenu">
-            <div class="board-community-header">
-                <div>커뮤니티 </div>
-                <div>community</div>
-            </div>
-            <ul class="board-sidemenu-list">
 
-                <li><a href="#">공지사항<i class="fa-solid fa-caret-right fa-xl"></i></a></li>
-                
-                <li><a href="#">문의게시판<i class="fa-solid fa-caret-right fa-xl"></i></a></li>
-                
-                <li><a href="#">자유게시판<i class="fa-solid fa-caret-right fa-xl"></i></a></li>
-                
-                <li><a href="#">컬럼게시판<i class="fa-solid fa-caret-right fa-xl"></i></a></li>
-            </ul>
-
-        </section>
 
         <div class="detail">
 
@@ -63,48 +48,33 @@
 
             <%-- 썸네일 --%>
             <div class="article">
-                <div class="img-box">
-                    <div class="boardImg thumbnail">
-                        <label for="img0">
-                            <img class="preview" src="${board.imageList[0].imagePath}${board.imageList[0].imageRename}">
-                        </label>
-                    </div>
-                </div>
-
-                <!-- 업로드 이미지 영역 -->
-                <h5>업로드 이미지</h5>
-                <div class="img-box">
-
-                    <div class="boardImg">
-                        <label for="img1">
-                            <img class="preview" src="">
-                        </label>
-                    </div>
-
-                    <div class="boardImg">
-                        <label for="img2">
-                            <img class="preview" src="">
-                        </label>
-                    </div>
-
-                    <div class="boardImg">
-                        <label for="img3">
-                            <img class="preview" src="">
-                        </label>
-                    </div>
-
-                    <div class="boardImg">
-                        <label for="img4">
-                            <img class="preview" src="">
-                        </label>
-                    </div>
-                </div>
+                
 
 
 
     
                 <div id="text" name="boardContent">
-                    ${board.boardContent}
+
+
+               
+                    <%-- 현재 게시글 내용의 전체길이를 ('^^^') 기준으로 잘라서 contents 배열에 대입 --%>
+                    <c:set var="contents" value="${fn:split(board.boardContent, '^^^')}" />
+
+                    <%-- 게시글의 이미지 개수를 for문 돌려서 인덱스 번호 생성 --%>
+                    <c:forEach items="${board.imageList}" var="img" varStatus="imgLoop">
+                        <img class="preview" src="${img.imagePath}${img.imageRename}">
+                        
+                        <%-- contents 배열에 인덱스 번호 주어서 0번째, 1번째... 순서대로 요소 출력 --%>
+                        <div class="content">
+                            ${contents[imgLoop.index]}
+                        </div>
+                        <%-- 0번째 요소 출력하고 다시 위로 올라가서 다음번째 이미지 출력 --%>
+
+                    </c:forEach>
+
+
+
+                    <%-- ${board.boardContent} --%>
                 </div> 
 
 

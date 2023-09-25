@@ -92,7 +92,7 @@
                             <label for="img0" class="photo">
                                 <i class="fa-regular fa-image fa-lg" style="color: #1476d2;"></i> 사진첨부(썸네일)
                             </label>
-                            <input type="file" class="inputImage" id="img0" accept="image/*" multiple>
+                            <input type="file" class="inputImage" name="images" id="img0" accept="image/*" multiple>
                             <!-- <input type="hidden" id="hiddenInput" name="images"> -->
                         </div>
                     </div>
