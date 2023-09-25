@@ -49,35 +49,63 @@
         <div class="detail">
 
             <div class="writer">
-                작성자 : 조성진
+                작성자 : ${board.memberNickname}
             </div>
             <div class="createDate">
-                작성일 : 2023년 8월 30일 16:11
+                작성일 : ${board.boardCreateDate}
             </div>
             <div class="readCount">   
-                조회수 : 10
+                조회수 : ${board.readCount}
             </div>
             <div class="title">
-                칼럼 제목
+                ${board.boardTitle}
             </div>
+
+            <%-- 썸네일 --%>
             <div class="article">
-                <div class="articleImage">
-                    <img src="/resources/images/금융칼럼.jpg">
+                <div class="img-box">
+                    <div class="boardImg thumbnail">
+                        <label for="img0">
+                            <img class="preview" src="${board.imageList[0].imagePath}${board.imageList[0].imageRename}">
+                        </label>
+                    </div>
                 </div>
-                <div class="articleMain">
 
-                    정부 지원 상품인 만큼 청년도약계좌와 청년희망적금 중복 가입은 불가능해요. 하지만 과거 정부 지원 상품에 비추어보면, 만기 이후 추가 가입이나 갈아타기는 가능했던 것으로 보이는데요. 신청 기간 전에 해지하거나 갈아타기를 진행할 때는 중도해지이율을 반드시 확인해야 해요.
-                    중도해지이율은 처음 가입 시 약속한 이율이 아닌, 중도 해지 시 별도 적용하는 이율을 의미하는데요. 만약 올해 6월 대략 1년이 넘은 시점에 중도해지한다면, 기본이율의 90%에 보유일수를 계약일수로 나눈 금액을 곱한(기본이율의 90% * 보유일수/계약일수) 중도 해지이율을 적용받을 수 있어요. 기본이율의 90%를 유지한 기간에 비례해 적용하겠다는 셈인 거죠.
+                <!-- 업로드 이미지 영역 -->
+                <h5>업로드 이미지</h5>
+                <div class="img-box">
+
+                    <div class="boardImg">
+                        <label for="img1">
+                            <img class="preview" src="">
+                        </label>
+                    </div>
+
+                    <div class="boardImg">
+                        <label for="img2">
+                            <img class="preview" src="">
+                        </label>
+                    </div>
+
+                    <div class="boardImg">
+                        <label for="img3">
+                            <img class="preview" src="">
+                        </label>
+                    </div>
+
+                    <div class="boardImg">
+                        <label for="img4">
+                            <img class="preview" src="">
+                        </label>
+                    </div>
                 </div>
 
-                <div class="articleImage">
-                    <img src="/resources/images/금융칼럼.jpg">
-                </div>
-                <div class="articleMain">
 
-                    정부 지원 상품인 만큼 청년도약계좌와 청년희망적금 중복 가입은 불가능해요. 하지만 과거 정부 지원 상품에 비추어보면, 만기 이후 추가 가입이나 갈아타기는 가능했던 것으로 보이는데요. 신청 기간 전에 해지하거나 갈아타기를 진행할 때는 중도해지이율을 반드시 확인해야 해요.
-                    중도해지이율은 처음 가입 시 약속한 이율이 아닌, 중도 해지 시 별도 적용하는 이율을 의미하는데요. 만약 올해 6월 대략 1년이 넘은 시점에 중도해지한다면, 기본이율의 90%에 보유일수를 계약일수로 나눈 금액을 곱한(기본이율의 90% * 보유일수/계약일수) 중도 해지이율을 적용받을 수 있어요. 기본이율의 90%를 유지한 기간에 비례해 적용하겠다는 셈인 거죠.
-                </div>
+
+    
+                <div id="text" name="boardContent">
+                    ${board.boardContent}
+                </div> 
 
 
             </div>
@@ -112,7 +140,7 @@
     </main>
 
     <footer>
-        footer
+         <jsp:include page="/WEB-INF/views/common/footer.jsp"></jsp:include>
     </footer>
 
     <script src="/resources/js/ScolumnDetail.js"></script>

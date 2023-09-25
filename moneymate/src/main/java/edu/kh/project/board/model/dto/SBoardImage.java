@@ -11,7 +11,7 @@ public class SBoardImage {
 
 	private int imageNo;
 	private String imagePath;
-	private String imageReName;
+	private String imageRename;
 	private String imageOriginal;
 	private int imageOrder;
 	private int boardNo;

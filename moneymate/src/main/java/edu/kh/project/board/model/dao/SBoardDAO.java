@@ -81,5 +81,31 @@ public class SBoardDAO {
 
 
 
+	/** 다음 게시글 번호 구하기
+	 * @param boardNo
+	 * @return
+	 */
+	public int columnNext(int boardNo) {
+		// TODO Auto-generated method stub
+		return sqlSession.selectOne("SBoardMapper.columnNext", boardNo);
+	}
+
+
+
+
+
+	/** 게시글 상세조회
+	 * @param map
+	 * @return
+	 */
+	public SBoard selectBoard(Map<String, Object> map) {
+		// TODO Auto-generated method stub
+		return sqlSession.selectOne("SBoardMapper.selectBoard", map);
+	}
+
+
+
+
+
 
 }

@@ -8,21 +8,52 @@ window.onload = function () {
   textArea.scrollTop = textArea.scrollHeight;
 };
 
+
+
+
+// 파일을 저장할 배열 생성
+let selectedFiles = [];
+
+
+//input 요소와 버튼 요소 가져오기
+const fileInput = document.getElementById('fileInput');
+
+// 파일 선택 시 이벤트 처리
+fileInput.addEventListener('change', () => {
+    const files = fileInput.files;
+  
+    // 선택한 파일을 배열에 추가
+    for (let i = 0; i < files.length; i++) {
+        selectedFiles.push(files[i].name);
+    
+      }
+    
+    
+    
+    });
+    
 const formData = new FormData();
+
+
+
+
+
 
 for (let i = 0; i < inputImages.length; i++) {
   // 파일이 선택되거나 선택 후 취소되었을 때
   inputImages[i].addEventListener("change", (e) => {
     const files = e.target.files; // 선택된 파일의 데이터 배열
-
+    
     for (let j = 0; j < files.length; j++) {
       const file = files[j];
-
+      
       if (file != undefined) {
         const div = document.createElement("div");
+        const content = document.createElement("textarea")
+        content.classList.add("content")
         const img = document.createElement("img");
-        img.classList.add("text-img");
-
+        img.classList.add("text-img")
+        
         const reader = new FileReader(); // 파일을 읽는 객체
 
         reader.readAsDataURL(file);
@@ -33,14 +64,14 @@ for (let i = 0; i < inputImages.length; i++) {
 
 
         reader.onload = (e) => {
-          img.setAttribute("src", e.target.result);
+          img.setAttribute("src", e.target.result)
         };
 
-        div.append(img);
+        div.append(img,content);
         textArea.append(div);
 
         // 파일을 FormData에 추가 (images[] 배열에 추가)
-        formData.append("images", file);
+        // formData.append("images", files);
       }
     }
   });
@@ -50,6 +81,7 @@ for (let i = 0; i < inputImages.length; i++) {
 const registerBtn = document.getElementById("finish");
 
 registerBtn.addEventListener("click", () => {
+  console.log("눌림")
   const textArea = document.getElementById("text");
   const boardTitle = document.getElementById("Wtitle").value;
   const boardContent = textArea.innerText;
@@ -65,7 +97,11 @@ registerBtn.addEventListener("click", () => {
   })
     .then((response) => response.json())
     .then((result) => {
-      console.log(result);
+      if(result > 0){
+        alert("게시글이 등록되었습니다.")
+
+        location.href = '/community/4'
+      }
     })
     .catch((error) => {
       console.error("파일 업로드 중 오류 발생: ", error);

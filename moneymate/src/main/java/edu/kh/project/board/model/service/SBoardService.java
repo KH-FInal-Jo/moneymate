@@ -36,4 +36,17 @@ public interface SBoardService {
 	 */
 	int columnPrevieous(int boardNo);
 
+	/** 다음 게시글 번호 구하기
+	 * @param boardNo
+	 * @return
+	 */
+	int columnNext(int boardNo);
+
+	/** 게시글 상세조회
+	 * @param map
+	 * @return
+	 */
+	SBoard selectBoard(Map<String, Object> map);
+	
+
 }
