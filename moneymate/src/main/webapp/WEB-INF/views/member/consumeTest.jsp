@@ -9,6 +9,7 @@
 
 <link rel="stylesheet" href="/resources/css/consumeTest-question.css">
 <link rel="stylesheet" href="/resources/css/consumeTest-result.css">
+<link rel="stylesheet" href="/resources/css/member/loading.css">
 
 </head>
 <body class="body">
@@ -140,6 +141,10 @@
            
         </div>
     </div>
+    <div class="loading" id="loading">
+            <div class="kinetic" id="kinetic"></div>
+    </div>
+
 
     <div class="result-main">
         <h1>소비테스트 결과</h1>

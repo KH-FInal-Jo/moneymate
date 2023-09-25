@@ -289,6 +289,8 @@ public class CMemberController {
 	 
 	 
 	 
+	 
+	 
 	 @GetMapping("updateTestResult")
 	 @ResponseBody
 	 public int updateTestResult(@SessionAttribute("loginMember") Member loginMember, String testResult) {

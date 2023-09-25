@@ -7,6 +7,7 @@ const q5 = document.querySelector(".q5");
 const thumbnail = document.querySelector(".thumbnail");
 const resultPage = document.querySelector(".result-main");
 const progress = document.getElementById("progress");
+const loading = document.getElementById("loading");
 const progressNum = document.getElementById("progressNum");
 const resultTitle = document.getElementById("resultTitle");
 const resultImg = document.getElementById("resultImg");
@@ -75,12 +76,19 @@ const onClick = (e) => {
         
     } else if (result.length === 5) {
         q5.style.display = "none";
-        resultPage.style.display="flex";
-        progress.value = 100;
-        progressNum.innerText="5/5";
+        loading.style.display="flex"
         img.style.display = "none";
         thumbnail.style.display = "none";
+        progressNum.innerText="5/5";
+        progress.value = 100;
 
+
+        setTimeout(function(){
+
+            resultPage.style.display="flex";
+            loading.style.display="none"
+
+        }, 2000);
      
         localStorage.setItem("key", result);
         let resultNum = localStorage.getItem("key").split(",");

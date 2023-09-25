@@ -78,6 +78,12 @@ sendAuthKeyBtn.addEventListener("click", function(){
 
     checkObj.authKey = false;
 
+    if(memberEmail.value.trim().length == 0){
+        alert("이메일을 입력해주세요.");
+        return;
+    }
+
+
     if(checkObj.memberEmail){
         fetch("/member/signUp/sendEmail?email="+memberEmail.value)
         .then(resp => resp.text())
@@ -137,6 +143,11 @@ const checkAuthKeyBtn = document.getElementById("checkAuthKeyBtn");
 
 checkAuthKeyBtn.addEventListener("click", function(){
 
+    if(authKey.value.trim().length == 0){
+        alert("인증번호를 입력해주세요.");
+        return;
+    }
+
     if(authMin > 0 || authSec > 0){
         const obj = {"inputKey":authKey.value, "email":tempEmail}
         const query = new URLSearchParams(obj).toString();
@@ -173,6 +184,7 @@ function authPhone(){
         return;
     }
 
+    
     const mTel = document.getElementById("mTel");
     const confirmNum = document.getElementById("confirmNum");
     const inputNum = document.getElementById("inputNum");
@@ -180,7 +192,13 @@ function authPhone(){
     const authKeyMessage = document.getElementById("authKeyMessage");
     const body = document.getElementById("body");
     const openmodal = document.getElementById("open-modal");
+    
+    if(mTel.value.trim().length == 0){
+        alert("휴대폰 번호를 입력해주세요.");
+        return;
+    }
 
+    
 
     fetch("/member/signUp/authPhone?mTel=" + mTel.value)
     .then(resp => resp.text())
@@ -190,6 +208,8 @@ function authPhone(){
         console.log(result);
 
         confirmNum.addEventListener("click", function(){
+
+
             if(inputNum.value == result){
                 alert("휴대폰 인증 성공!")
                 modal.style.display = "none";
