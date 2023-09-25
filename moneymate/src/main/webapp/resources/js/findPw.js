@@ -27,7 +27,7 @@ sendmessage.addEventListener("click", e=>{
         }else if(!id.test(memberEmail.value)){
             alert("아이디를 입력해주세요.");
         }else if(!name.test(memberName.value)){
-            alert("이름을 입력해주세요.")
+            alert("이름을 입력해주세요.");
         }else{
             alert("인증번호 전송완료");
         }
