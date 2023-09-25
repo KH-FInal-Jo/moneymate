@@ -83,7 +83,7 @@
 		                                <td class="center">${board.boardNo}</td>
 		                                <td> 
 		                                    <a href="/community/2/${board.boardNo}?cp=${pagination.currentPage}${sp}">${board.boardTitle}</a>   
-                                                        ${board.commentCount}                        
+                                                        <%-- ${board.commentCount} --%>
 		                                </td>
 		                                
 		                                <td >${board.memberNickname}</td>
