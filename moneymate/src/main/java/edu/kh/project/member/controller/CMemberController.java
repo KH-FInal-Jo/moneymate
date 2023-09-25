@@ -269,6 +269,8 @@ public class CMemberController {
 		 member.setTestResult(testResult);
 		 member.setMemberNo(loginMember.getMemberNo());
 		 
+		 
+		 
 		 return service.dupCheckTestResult(member);
 	 }
 	 
