@@ -10,7 +10,7 @@ font-family: 'SDGothic', serif;
 
 main {
     width: 1400px;
-    height: 700px;
+    height: 845px;
     margin: auto;
 
 
@@ -121,7 +121,7 @@ main {
 /* 채팅 왼쪽 사이드 메뉴 */
 .chat-left-bar{
     width: 50px;
-    height: 100%;
+    height: 703px;
     padding: 25px;
     padding-bottom: 1px;
     padding-top: 40px;
@@ -153,11 +153,12 @@ main {
 
     border-top: 2px solid #ddd;
     margin-top: 20px;
-    padding-bottom: 124px;
+    margin-bottom: -120px;
 
     border-bottom: 4px solid #ddd;
 
     display: none;
+    overflow: auto;
 
 
 }
@@ -172,6 +173,7 @@ main {
     
     margin-bottom: 20px;
     outline: none;
+
 }
 
 #leftBar1 > div:first-child{
@@ -255,7 +257,6 @@ main {
 
     border-top: 2px solid #ddd;
     margin-top: 20px;
-    padding-bottom: 124px;
 
     border-bottom: 4px solid #ddd;
 
@@ -405,7 +406,6 @@ main {
 
     border-top: 2px solid #ddd;
     margin-top: 20px;
-    padding-bottom: 124px;
 
     border-bottom: 4px solid #ddd;
 

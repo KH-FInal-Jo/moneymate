@@ -31,18 +31,11 @@
 
 					<div>${board.boardTitle}</div>
 
-					<div>작성자 : ${board.memberNickname}</div>
+					<div>작성자 : 관리자</div>
 					<div>작성일 : ${board.boardCreateDate}</div>
 					<div>조회수 : ${board.readCount}</div>
 
 				
-
-					<%-- <div>게시글 제목입니다.</div>
-
-					<div>작성자 : 관리자</div>
-					<div>작성일 : 2023.08.28</div>
-					<div>조회수 : 10</div> --%>
-
 					<textarea name="board-notice-content" id="board-notice-content" disabled>${board.boardContent}
                     </textarea>
 
