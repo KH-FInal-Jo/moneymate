@@ -1,6 +1,7 @@
 const updateBtn= document.getElementById("updateBtn");
 const deleteBtn= document.getElementById("deleteBtn");
 const goToList= document.getElementById("goToList");
+const userProfile={userId:"user01@kh.or.kr",isAdmin:true};
 
 if(updateBtn != null){
 
@@ -16,11 +17,18 @@ if(deleteBtn != null){
 
     deleteBtn.addEventListener("click", ()=>{
 
+        if(userProfile.isAdmin){
+            confirmDeletion();
+        }else{
+            alert("삭제 권한이 없습니다.");
+        }
+
        
         if(confirm("정말로 삭제하시겠습니까?")){
             location.href 
             = location.pathname + "/delete";
         }
+        alert("삭제되었습니다.");
     })
 }
 
