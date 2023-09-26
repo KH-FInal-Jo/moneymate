@@ -185,7 +185,7 @@
 	<insert id="boardinsertComment">
 		INSERT INTO "COMMENT"
 		VALUES (SEQ_COMMENT_NO.NEXTVAL,
-		#{commentContent}, DEFAULT, DEFAULT, #{memberNo}, #{boardNo})
+		#{commentContent}, DEFAULT, DEFAULT, #{memberNo}, #{boardNo}, null)
 
 	</insert>
 

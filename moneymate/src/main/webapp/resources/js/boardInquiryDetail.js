@@ -1,7 +1,7 @@
 const updateBtn= document.getElementById("updateBtn");
 const deleteBtn= document.getElementById("deleteBtn");
 const goToList= document.getElementById("goToList");
-const userProfile={userId:"user01@kh.or.kr",isAdmin:true};
+
 
 if(updateBtn != null){
 
@@ -14,6 +14,7 @@ if(updateBtn != null){
 }
 
 if(deleteBtn != null){
+    const userProfile={userId:"user01@kh.or.kr",isAdmin:true};
 
     deleteBtn.addEventListener("click", ()=>{
 
