@@ -107,5 +107,18 @@ public class SBoardDAO {
 
 
 
+	/** 칼럼 좋아요 여부 확인
+	 * @param map
+	 * @return
+	 */
+	public int columnLikeCheck(Map<String, Object> map) {
+		// TODO Auto-generated method stub
+		return sqlSession.selectOne("SBoardMapper.columnLikeCheck",map);
+	}
+
+
+
+
+
 
 }

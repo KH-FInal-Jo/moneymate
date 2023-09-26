@@ -55,7 +55,7 @@ public class SColumnController {
 		return "board/Scolumn";
 	}
 	
-	@GetMapping("/insert")
+	@GetMapping("/4/insert")
 	public String insert() {
 		return "board/ScolumnWrite";
 	}
@@ -132,6 +132,20 @@ public class SColumnController {
 		
 		model.addAttribute("board", board);
 		
+		if(board != null) {
+			// 조회 결과가 있을 경우
+			if(loginMember != null) {
+				// 로그인 상태인 경우
+				map.put("memberNo", loginMember.getMemberNo());
+				
+				// 좋아요 여부 서비스 호출
+				int result = service.columnLikeCheck(map);
+				
+				if(result > 0) {
+					model.addAttribute("likeCheck" , "on");
+				}
+			}
+		}
 		
 		
 		
@@ -167,8 +181,15 @@ public class SColumnController {
 	}
 	
 	
-	
-	
+//	@PostMapping("/like")
+//	@ResponseBody
+//	public int likeCount(@RequestBody Map<String, Integer> paramMap) {
+//		
+//		System.out.println("요청 받음");
+//		
+//		return 0;
+//	}
+//	
 	
 	
 	

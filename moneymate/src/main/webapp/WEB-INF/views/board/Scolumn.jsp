@@ -64,7 +64,7 @@
                     </c:when>
 
                     <c:otherwise>
-                    <a href="/community/insert"><button id="Swrite">글쓰기</button></a>
+                    <a href="/community/4/insert"><button id="Swrite">글쓰기</button></a>
                     
                         <%-- 게시글 목록 조회 결과가 있다면 --%>
                         <c:forEach items="${columnList}" var="column">

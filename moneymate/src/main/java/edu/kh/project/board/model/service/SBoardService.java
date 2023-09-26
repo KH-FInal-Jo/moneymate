@@ -47,6 +47,12 @@ public interface SBoardService {
 	 * @return
 	 */
 	SBoard selectBoard(Map<String, Object> map);
+
+	/** 칼럼 좋아요 여부 확인
+	 * @param map
+	 * @return
+	 */
+	int columnLikeCheck(Map<String, Object> map);
 	
 
 }

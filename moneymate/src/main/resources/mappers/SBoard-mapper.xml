@@ -156,6 +156,16 @@
 	</select>
 	
 	
+	<!-- 칼럼 좋아요 여부 확인 -->
+	<select id="columnLikeCheck" resultType="_int">
+	
+		SELECT COUNT(*) FROM
+		"LIKE"
+		WHERE BR_NO = #{boardNo}
+		AND MEMBER_NO = #{memberNo}
+        AND LIKE_CODE = #{boardCode}	
+	
+	</select>
 	
 	
 	
