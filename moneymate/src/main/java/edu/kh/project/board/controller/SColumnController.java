@@ -48,12 +48,11 @@ public class SColumnController {
 	
 	// 게시글 목록 조회
 	@GetMapping("/4")
-	public String column(@SessionAttribute("loginMember") Member loginMember
-						, Model model) {
+	public String column(
+						 Model model) {
 	
-		int memberNo = loginMember.getMemberNo();
 		
-		List<SBoard> columnList = service.columnList(memberNo);
+		List<SBoard> columnList = service.columnList();
 		
 		System.out.println("columnList : " + columnList);
 		

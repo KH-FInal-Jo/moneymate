@@ -29,7 +29,7 @@ public interface SBoardService {
 	 * @param loginMember
 	 * @return columnList
 	 */
-	List<SBoard> columnList(int memberNo);
+	List<SBoard> columnList();
 
 	/** 이전 게시글 번호 구하기
 	 * @param boardNo

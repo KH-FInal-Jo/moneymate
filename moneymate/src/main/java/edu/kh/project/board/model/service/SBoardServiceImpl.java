@@ -114,8 +114,8 @@ public class SBoardServiceImpl implements SBoardService {
 
 	// 칼럼 게시글 목록 조회
 	@Override
-	public List<SBoard> columnList(int memberNo) {
-		return dao.columnList(memberNo);
+	public List<SBoard> columnList() {
+		return dao.columnList();
 	}
 
 
