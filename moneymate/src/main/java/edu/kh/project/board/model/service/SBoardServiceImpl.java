@@ -148,6 +148,15 @@ public class SBoardServiceImpl implements SBoardService {
 
 
 
+	// 칼럼 좋아요 여부 확인
+	@Override
+	public int columnLikeCheck(Map<String, Object> map) {
+		// TODO Auto-generated method stub
+		return dao.columnLikeCheck(map);
+	}
+
+
+
 
 	
 	

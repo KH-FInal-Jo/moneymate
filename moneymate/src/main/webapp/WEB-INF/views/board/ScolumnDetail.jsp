@@ -82,7 +82,19 @@
             <div>
                 
                     <span><button id="previous">이전글</button></span>
-                    <span id="likeBtn"><i class="fa-regular fa-thumbs-up fa-2x" style="color: #0c40ca;"></i></i> 10</span>
+
+                    <%-- 좋아요 안눌렀을때 --%>
+                    <c:if test="${empty likeCheck}" >
+                        <span id="likeBtn"><i class="fa-regular fa-thumbs-up fa-2x" style="color: #0c40ca;"></i></i> 없음</span>
+
+                    </c:if>
+
+                    <%-- 좋아요 눌렀을 때 --%>
+                    <c:if test="${!empty likeCheck}" >
+                        <span id="likeBtn"><i class="fa-solid fa-thumbs-up fa-2x" style="color: #2c4cce;"></i></i> 10</span>
+                        
+                    </c:if>
+
                     <span><button id="next">다음글</button></span>
             </div>
 
@@ -111,7 +123,16 @@
 
     <footer>
          <jsp:include page="/WEB-INF/views/common/footer.jsp"></jsp:include>
+
     </footer>
+
+
+    <script>
+
+        const boardNo = ${board.boardNo};
+
+        const memberNo = ${loginMember.memberNo}
+    </script>
 
     <script src="/resources/js/ScolumnDetail.js"></script>
     
