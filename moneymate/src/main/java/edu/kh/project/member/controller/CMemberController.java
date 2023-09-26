@@ -297,6 +297,7 @@ public class CMemberController {
 	 @ResponseBody
 	 public int updateTestResult(@SessionAttribute("loginMember") Member loginMember, String testResult) {
 		 
+		 loginMember.setTestResult(testResult);
 		 
 		 Member member = new Member();
 		 

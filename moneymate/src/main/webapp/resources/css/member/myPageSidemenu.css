@@ -26,7 +26,7 @@
 /* 마이페이지 작은 메뉴창 스타일 */
 .j-myPage-content-header{
     width: 95%;
-    height: 30%;
+    height: 35%;
 
     display: flex;
     flex-direction: column;
@@ -37,6 +37,10 @@
 
     border-radius: 22px;
     padding-top: 10px;
+}
+
+.result {
+    height: 50px;
 }
 
 /* 마이페이지 글씨 부분 스타일 */
@@ -64,12 +68,11 @@
 /* 프로필 이미지 부분 */
 .j-myPage-content-header > div:nth-child(2){
     width: 87%;
-    height: 33%;
+    height: 13%;
 
     display: flex;
     justify-content: center;
 
-    margin-top: 18px;
 }
 
 .myPageSideImg{
@@ -85,7 +88,7 @@
 /* 구독 관련 부분 스타일 */
 .j-myPage-sub-content{
     width: 100%;
-    height: 48%;
+    height: 40%;
 }
 /* 구독 현황 스타일 */
 .j-myPage-sub-content > div:first-child{
@@ -93,7 +96,7 @@
     height: 20%;
     display: flex;
 
-    margin-top: 40px;
+    margin-top: 30px;
 
     justify-content: center;
 

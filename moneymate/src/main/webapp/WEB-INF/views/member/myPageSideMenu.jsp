@@ -7,6 +7,7 @@
 <section class="j-myPage-sidemenu">
    <div class="j-myPage-content-header">
       <div>My page</div>
+      <div class="result">소비성향 > ${loginMember.testResult}</div>
 	   <div>
 	  	<%-- 프사 들어갈 예정 --%>
       <c:if test="${empty loginMember.profileImage}" >
@@ -21,7 +22,7 @@
       <div class="j-myPage-sub-content" id="memberList">
          <div>
             <span><span class="j-memberNicknameIn">${loginMember.memberNickname}</span>님의 구독현황 >></span>
-			<span id="sub"></span>
+			   <span id="sub"></span>
          </div>
 		 <div>
             <i class="fa-solid fa-coins fa-xl"></i></i>마일리지 : <span id="mig"></span>
@@ -44,7 +45,6 @@
 
          <li><a href="/member/mypage/secession">회원 탈퇴</a></li>
       </ul>
-
    </div>
 
    <script>
