@@ -252,13 +252,15 @@ main {
 /* ---------------------------------------------------- */
 /* leftBar2 스타일 */
 #leftBar2{
-    width: 465px;
+    width: 478px;
     height: 87.4%;
 
     border-top: 2px solid #ddd;
     margin-top: 20px;
 
     border-bottom: 4px solid #ddd;
+    overflow-x: hidden;
+    overflow-y: auto;
 
 
 }
@@ -328,6 +330,7 @@ main {
     border-top: 0;
 
     margin-top: 10px;
+
 }
 
 .chat-my-profile img{

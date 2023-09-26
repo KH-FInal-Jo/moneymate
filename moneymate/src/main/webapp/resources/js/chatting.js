@@ -259,14 +259,13 @@ MytargetInput.addEventListener("input", function () {
 
                // 모달 열기 이벤트 리스너
                li.addEventListener("click", () => {
-                  
                   const modalId = `myModal-${member.memberNo}`;
                   const modal = document.getElementById(modalId);
-               
+
                   if (modal) {
-                  toggleModal(modalId); 
+                     modal.classList.add("show"); // 모달을 열기 
                   } else {
-                  console.log(`모달 ${modalId}이(가) HTML에 존재하지 않습니다.`);
+                     console.log(`모달 ${modalId}이(가) HTML에 존재하지 않습니다.`);
                   }
                });
 
@@ -281,6 +280,7 @@ MytargetInput.addEventListener("input", function () {
       })
       .catch((err) => console.log(err));
 });
+
 
 
 

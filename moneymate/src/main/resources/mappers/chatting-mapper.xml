@@ -166,7 +166,7 @@ ORDER BY MAX_MESSAG_NO DESC NULLS LAST
 	
 	<!-- 채팅 신고하기 -->
 	<insert id="chatReport">
-		INSERT INTO "REPORT" VALUES(#{reportNo}, #{reportedNo}, #{reportContent}, #{bcNo}, 3)
+		INSERT INTO "REPORT" VALUES(#{reportNo}, #{reportedNo}, #{reportContent}, #{bcNo}, 2, DEFAULT, DEFAULT, DEFAULT)
 	</insert>
 	
 	<select id="selectMyTarget" resultMap="member_rm">
