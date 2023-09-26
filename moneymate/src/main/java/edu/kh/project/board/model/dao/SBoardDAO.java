@@ -10,6 +10,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import edu.kh.project.board.model.dto.SBoard;
 import edu.kh.project.board.model.dto.SBoardImage;
+import edu.kh.project.board.model.dto.SColumnRandom;
 import edu.kh.project.member.model.dto.Member;
 
 @Repository
@@ -115,6 +116,72 @@ public class SBoardDAO {
 		// TODO Auto-generated method stub
 		return sqlSession.selectOne("SBoardMapper.columnLikeCheck",map);
 	}
+
+
+
+
+
+	/** 좋아요 삽입
+	 * @param paramMap
+	 * @return
+	 */
+	public int likeInsert(Map<String, Integer> paramMap) {
+		// TODO Auto-generated method stub
+		return sqlSession.insert("SBoardMapper.likeInsert",paramMap);
+	}
+
+
+
+
+
+	/** 좋아요 삭제
+	 * @param paramMap
+	 * @return
+	 */
+	public int likeDelete(Map<String, Integer> paramMap) {
+		// TODO Auto-generated method stub
+		return sqlSession.delete("SBoardMapper.likeDelete",paramMap);
+	}
+
+
+
+	/** 좋아요 수 조회
+	 * @param paramMap
+	 * @return
+	 */
+	public int likeCount(Map<String, Integer> paramMap) {
+		// TODO Auto-generated method stub
+		return sqlSession.selectOne("SBoardMapper.likeCount",paramMap);
+	}
+
+
+
+
+
+	/** 조회수 증가 서비스
+	 * @param boardNo
+	 * @return
+	 */
+	public int readCount(int boardNo) {
+		// TODO Auto-generated method stub
+		return sqlSession.update("SBoardMapper.readCount",  boardNo);
+	}
+
+
+
+
+
+	/** 다른 칼럼보기 랜덤 3개 번호
+	 * @param boardNo
+	 * @return
+	 */
+	public List<SBoard> selectRandom(Map<String, Object> map) {
+		// TODO Auto-generated method stub
+		return sqlSession.selectList("SBoardMapper.randomCount",  map);
+	}
+
+
+
 
 
 

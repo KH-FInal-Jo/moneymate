@@ -71,6 +71,12 @@
 .content{
     border: 1px solid black;
     height: 300px;
+    width: 100%;
+
+    padding: 10px 0 0 20px;
+
+    resize: none;
+    white-space: wrap;
 }
 
 
@@ -84,17 +90,6 @@
     cursor: pointer;
 }
 
-
-
-
-/* 썸네일 미리보기 영역
-.preview{
-    width: 90%;
-    height: 90%;
-
-    margin-left: 25px;
-
-} */
 
 
 
@@ -113,6 +108,8 @@
 
 /* 내용 */
 #text{
+    display: flex;
+    flex-direction: column;
     padding: 30px 40px;
     margin: 30px 0;
     border: 1px solid black;
@@ -124,7 +121,7 @@
     font-size: 1.1em;
 
     overflow-y : scroll;
-    white-space: wrap;
+    white-space: pre-wrap;
     text-overflow: ellipsis;
 }
 

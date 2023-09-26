@@ -71,7 +71,7 @@
                         
 
                             <div class="column-area">
-                                <div><a href="#"><img src="${column.thumbNail}"></a></div>
+                                <div><a href="/community/4/${column.boardNo}"><img src="${column.thumbNail}"></a></div>
 
                                 <div class="title-area">
                                     <div>

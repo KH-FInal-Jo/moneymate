@@ -65,9 +65,7 @@
                         <img class="preview" src="${img.imagePath}${img.imageRename}">
                         
                         <%-- contents 배열에 인덱스 번호 주어서 0번째, 1번째... 순서대로 요소 출력 --%>
-                        <div class="content">
-                            ${contents[imgLoop.index]}
-                        </div>
+                        <div class="content">${contents[imgLoop.index]}</div>
                         <%-- 0번째 요소 출력하고 다시 위로 올라가서 다음번째 이미지 출력 --%>
 
                     </c:forEach>
@@ -83,40 +81,42 @@
                 
                     <span><button id="previous">이전글</button></span>
 
-                    <%-- 좋아요 안눌렀을때 --%>
-                    <c:if test="${empty likeCheck}" >
-                        <span id="likeBtn"><i class="fa-regular fa-thumbs-up fa-2x" style="color: #0c40ca;"></i></i> 없음</span>
+                    <div>
+                        <%-- 좋아요 안눌렀을때 --%>
+                        <c:if test="${empty likeCheck}" >
+                        <i class="fa-regular fa-thumbs-up fa-2x" style="color: #0c40ca;" id="boardLike"></i></i>
+                        <span id="likeBtn">${board.likeCount}</span>
 
-                    </c:if>
+                        </c:if>
 
-                    <%-- 좋아요 눌렀을 때 --%>
-                    <c:if test="${!empty likeCheck}" >
-                        <span id="likeBtn"><i class="fa-solid fa-thumbs-up fa-2x" style="color: #2c4cce;"></i></i> 10</span>
-                        
-                    </c:if>
+                        <%-- 좋아요 눌렀을 때 --%>
+                        <c:if test="${!empty likeCheck}" >
+                        <i class="fa-solid fa-thumbs-up fa-2x" style="color: #2c4cce;" id="boardLike"></i></i>
+                        <span id="likeBtn">${board.likeCount}</span>
+                            
+                        </c:if>
+                    
+                    </div>
+
 
                     <span><button id="next">다음글</button></span>
             </div>
-
+            
+            <a href="/community/4"><span><button id="list">목록으로</button></span></a>
             
             <div class="other-title">다른 칼럼 보러가기</div>
             <div class="other">
-                <div class="otherView">
+                <c:forEach items="${randomList}" var="random">
 
-                    <div><a href="#"><img src="/resources/images/dog1.jpg"></a></div>
-                    <div><a href="#">다른 칼럼 제목</a></div>
+                    <div class="otherView">
 
-                </div>
-                <div class="otherView">
-                    <div><a href=""><img src="/resources/images/금융칼럼.jpg"></a></div>
-                    <div><a href="">다른 칼럼 제목다른 칼럼 제목다른 칼럼 제목다른 칼럼 제목다른 칼럼 제목</a></div>
+                        <div><a href="/community/4/${random.boardNo}"><img src="${random.thumbNail}"></a></div>
+                        <div><a href="/community/4/${random.boardNo}">${random.boardTitle}</a></div>
 
-                </div>
-                <div class="otherView">
-                    <div><a href=""><img src="/resources/images/dog1.jpg"></a></div>
-                    <div><a href="#">다른 칼럼 제목</a></div>
+                    </div>
+                   
 
-                </div>
+                </c:forEach>
             </div>
         </div>
     </main>

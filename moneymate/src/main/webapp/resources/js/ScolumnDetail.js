@@ -31,6 +31,7 @@ previeous.addEventListener("click", ()=>{
     })
     .catch(e => {
         console.log(e)
+        alert("첫번째 게시글 입니다.")
     })
 
 })
@@ -56,27 +57,30 @@ next.addEventListener("click", ()=>{
     .then(result => {
         console.log(result)
 
+
         location.href = '/community/4/' + result
 
     })
     .catch(e => {
         console.log(e)
+        alert("마지막 게시글 입니다.")
     })
 
 })
 
 /* 좋아요 클릭 시 이벤트 */
 const likeBtn = document.getElementById("likeBtn")
-likeBtn.addEventListener("click", e=>{
+const boardLike = document.getElementById("boardLike")
+boardLike.addEventListener("click", e=>{
     // console.log("눌림")
 
     let check;
 
     if(e.target.classList.contains("fa-regular")){
-        // 좋아요 안눌렀을때
+        // 좋아요 안눌러져 있을 때
         check = 0;
     } else{
-        // 좋아요 눌러져 있을때
+        // 좋아요 눌러져 있을 때
         check = 1;
     }
 
@@ -86,7 +90,7 @@ likeBtn.addEventListener("click", e=>{
         "check"   : check
     }
 
-    fetch("/community/like", {
+    fetch("/community/4/like", {
         method : "POST",
         headers : {"Content-type" : "application/json"},
         body : JSON.stringify(data)
@@ -94,6 +98,19 @@ likeBtn.addEventListener("click", e=>{
     .then(resp => resp.json())
     .then(count => {
         console.log(count)
+
+        if(count == -1){
+            console.log("좋아요 처리 실패")
+            return;
+        }
+
+        // toggle : 클래스가 있으면 없애고, 없으면 추가하고
+        e.target.classList.toggle("fa-regular")
+        e.target.classList.toggle("fa-solid")
+
+        // 좋아요 수 업데이트
+        e.target.nextElementSibling.innerText = count;
+
     })
     .catch(e => {
         console.log(e)
