@@ -129,6 +129,8 @@ changeBtn.addEventListener("click", () => {
     handleFetchChartIncome(month);
 });
 
+let check;
+
 // 월 지출 합계 금액 fetch 함수
 function handleFetch(month) {
     console.log("월:", month);
@@ -146,7 +148,12 @@ function handleFetch(month) {
 
           spend.innerHTML = "지출 : " + formattedMoney + "원";
 
-
+          const incomebtn = document.getElementById("income");
+          if(spend.innerText !== '내역 없음' && incomebtn.innerText == '내역 없음'){
+            // alert("해당 월에 지출 내역이 존재하지 않습니다.")
+            check = 2;
+  
+          }
 
 
       } 
@@ -161,21 +168,33 @@ function handleFetch(month) {
         
         const incomebtn = document.getElementById("income");
         if(incomebtn.innerText == '내역 없음' && spend.innerText == '내역 없음'){
-          alert("해당 월에 지출,수입 내역이 존재하지 않습니다.")
-          return;
+          // alert("해당 월에 지출,수입 내역이 존재하지 않습니다.")
+          check = 0;
         }
-        if(spend.innerText == '내역 없음'){
-          alert("해당 월에 지출 내역이 존재하지 않습니다.")
+        if(spend.innerText == '내역 없음' && incomebtn.innerText !== '내역 없음'){
+          // alert("해당 월에 지출 내역이 존재하지 않습니다.")
+          check = 1;
 
         }
 
+        
+
+        
+          if(check == 0){
+            alert("해당 월에 지출,수입 내역이 존재하지 않습니다.")
+          }
+          if(check == 1){
+            alert("해당 월에 지출 내역이 존재하지 않습니다.")
+          }
+          if(check == 2){
+            alert("해당 월에 수입 내역이 존재하지 않습니다.")
+          }
         
 
         
 
       });
   }
-
 
 
 // 월 수입 합계 금액 fetch 함수
@@ -196,6 +215,7 @@ function handleFetchIncome(month) {
 
           incomebtn.innerHTML = "수입 : " + formattedMoney + "원";
 
+          
         }
       })
       .catch(err => {
@@ -203,12 +223,14 @@ function handleFetchIncome(month) {
         console.log(err);
         const incomebtn = document.getElementById("income");
         incomebtn.innerText = "내역 없음";
-
-        const spend = document.getElementById("spend");
-
+        
         if(spend.innerText !== '내역 없음' && incomebtn.innerText == '내역 없음'){
+          // alert("해당 월에 지출 내역이 존재하지 않습니다.")
+          check = 2;
+  
+        }
+        if(check == 2){
           alert("해당 월에 수입 내역이 존재하지 않습니다.")
-
         }
 
       });
