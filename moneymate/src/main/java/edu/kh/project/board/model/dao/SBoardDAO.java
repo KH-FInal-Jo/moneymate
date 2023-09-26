@@ -61,9 +61,9 @@ public class SBoardDAO {
 	 * @param loginMember
 	 * @return columnList
 	 */
-	public List<SBoard> columnList(int memberNo) {
+	public List<SBoard> columnList() {
 		// TODO Auto-generated method stub
-		return sqlSession.selectList("SBoardMapper.columnList", memberNo);
+		return sqlSession.selectList("SBoardMapper.columnList");
 	}
 
 
