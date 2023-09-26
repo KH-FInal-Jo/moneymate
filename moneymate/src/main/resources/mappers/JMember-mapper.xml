@@ -21,6 +21,7 @@
      	<result property="subscribeNo" column="SUBSCRIBE_NO"/>
      	<result property="subscribeLevel" column="SUBSCRIBE_LEVEL"/>
      	<result property="mileage" column="MILEAGE"/>
+     	<result property="testResult" column="TEST_TITLE"/>
      	
      </resultMap>
 
@@ -31,13 +32,14 @@
 		  CASE
 		    WHEN S.SUBSCRIBE_END < CURRENT_DATE THEN '0'
 		    ELSE COALESCE(TO_CHAR(S.SUBSCRIBE_LEVEL), '0')
-		  END AS SUBSCRIBE_LEVEL,
+		  END AS SUBSCRIBE_LEVEL, TEST_TITLE,
 		  COALESCE(M.MILEAGE, 0) AS MILEAGE
 		  ]]>
 		FROM
 		  MEMBER M
 		LEFT JOIN
 		  SUBSCRIBE S ON M.MEMBER_NO = S.MEMBER_NO
+		JOIN CONTEST C ON (M.MEMBER_NO = C.MEMBER_NO)
 		WHERE
 		  M.MEMBER_NO = #{memberNo}
 	</select>

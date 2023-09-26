@@ -28,6 +28,8 @@ public class JMember {
 	private int subscribeLevel;
 	private int mileage;
 	
+	private String testResult;
+	
 	private int reportCount;
 
 }
