@@ -8,6 +8,89 @@
 font-family: 'SDGothic', serif;
 }
 
+/* 알람 종 */
+.fa-solid{
+    cursor: pointer;
+
+    margin-right: 5px;
+}
+
+.JheadMain{
+    width: 1900px;
+    background-color: white;
+    margin: auto;
+}
+.Jhead{
+    display: flex;
+    height: 200px;
+
+    position: relative;
+}
+
+.alarm-area{
+    margin-top: -170px;
+}
+
+
+.Jalert{
+    margin-top: -180px;
+}
+
+/* 로고 이미지 */
+.Jhead > div:nth-of-type(1){
+    color: red;
+    display: flex;
+    flex-basis: 20%;
+    width: 70%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+/* 헤더 nav, 프로필 */
+.Jhead > div:nth-of-type(2){
+    display: flex;
+    flex-basis: 80%;
+    justify-content: end;
+
+}
+
+
+.Jmenu a {
+    margin-top: -100px;
+    font-weight: 800;
+    /**/
+    position: relative;
+    display: block;
+    text-decoration: none;
+    text-transform: uppercase;
+  }
+
+  .Jmenu >li{
+    list-style: none;
+  }
+
+  #Jalarm-btn{
+    margin-left: 50px;
+}
+
+#Jalarm-btn:hover{
+    transform: scale(1.2);
+    transition-duration: 0.1s;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 .adver1{

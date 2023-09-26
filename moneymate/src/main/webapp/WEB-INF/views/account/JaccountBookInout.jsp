@@ -6,6 +6,7 @@
 <head>
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@10/dist/sweetalert2.min.css">
+<link rel="stylesheet" href="/resources/css/header.css">
 
 <!-- SweetAlert JavaScript -->
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
@@ -27,12 +28,117 @@
 <body>
 
 	<main>
-		<jsp:include page="/WEB-INF/views/common/header.jsp" />
+		<section class="JheadMain">
+
+			<div class="Jhead">
+				<div><a href="/"><img src="/resources/images/로고.png"></a></div>
+				<div class="head-board">
+					<!-- 헤더 글 -->
+					<div class="nav">
+
+
+						<div class="headback color-5">
+							<div class="row columns">
+							<h3 class="headH3"></h3>
+							<ul class="Jmenu align-center expanded text-center SMN_effect-25">
+								<li class="headLi"><a href="/community/1" class="headA">커뮤니티</a></li>
+
+								<c:if test="${!empty loginMember}" >
+									<li class="headLi"><a href="/account/list" class="headA">가계부</a></li>
+								</c:if>
+
+								<li class="headLi"><a href="/consumetest" class="headA">소비 테스트</a></li>
+
+								<li class="headLi"><a href="/event" class="headA">이벤트</a></li>
+
+								<c:if test="${!empty loginMember}" >
+									<li class="headLi"><a href="/member/mypage" class="headA">마이페이지</a></li>
+								</c:if>
+								
+								<c:if test="${!empty loginMember}" >
+									<li class="headLi"><a href="/chatting" class="headA">채팅</a></li>
+								</c:if>
+
+								<c:if test="${loginMember.authority == 1}">
+									<li class="headLi"><a href="/admin/member" class="headA">관리자</a></li>
+								</c:if>
+							</ul>
+							</div>
+						</div>
+
+
+						<%-- <a href="/community/1"><span>커뮤니티</span></a>
+						<c:if test="${!empty loginMember}" >
+						<a href="/account/list"><span>가계부</span></a>
+						</c:if>
+						<a href="/consumetest"><span>소비 테스트</span></a>
+						<a href="/event"><span>이벤트게시판</span></a>
+						<c:if test="${!empty loginMember}" >
+							<a href="/member/mypage"><span>마이페이지</span></a>
+						</c:if>
+						<c:if test="${!empty loginMember}" >
+							<a href="/chatting"><span>채팅</span></a>
+						</c:if>
+						
+						<c:if test="${loginMember.authority == 1}">
+						<a href="/admin/member"><span>관리자</span></a>
+						</c:if> --%>
+						<span class="Jalert"><i class="fa-solid fa-bell fa-2x" id="alarm-btn" style="color: #efe834;"></i></span>
+						<div class="alarm-area">
+							
+							<span id="alarm-number">1</span>
+							<div id="alarm-page">
+								<div class="alarm-check">
+									<span><i class="fa-solid fa-right-to-bracket"></i></span>
+									<a href="#"><span>작성하신 댓글에 답글이 달렸습니다.11</span></a>
+								</div>
+								<div class="alarm-check">
+									<span><i class="fa-solid fa-right-to-bracket"></i></span>
+									<a href="#"><span>작성하신 댓글에 답글이 달렸습니다.22</span></a>
+								</div>
+								<div class="alarm-check">
+									<span><i class="fa-solid fa-right-to-bracket"></i></span>
+									<a href="#"><span>작성하신 댓글에 답글이 달렸습니다.33</span></a>
+								</div>
+								<button id="close-btn">닫기</button>
+		
+
+							</div>
+						</div>
+		
+					</div>
+					<!-- 헤더 프로필 -->
+					<div class="login">
+						<div>
+							
+							<img src="/resources/images/로그인 아이콘.png">
+						</div>
+						<div>
+							<c:choose>
+								<c:when test="${empty loginMember}">
+									<a href="/member/login"><span>LOGIN</span></a>
+									<a href="/member/signUp"><span>회원가입</span></a>
+								</c:when>
+							
+								<c:otherwise>
+									<a href="/member/logout"><span>로그아웃</span></a>
+								</c:otherwise>
+							</c:choose>
+							
+						</div>
+						<div>
+							
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
 
 		<section class="accBk-thumbnail">
 			<img src="/resources/images/accountThumbnail.jpg">
 		</section>
 
+		<section>
 		<c:if test="${sub  != 'Y'}" >
 
 			<div class="adver1">
@@ -46,7 +152,7 @@
 							<img src="/resources/images/aniLogo.png" class="d-block w-100" alt="...">
 						</div>
 						<div class="carousel-item" data-bs-interval="2000">
-							<img src="/resources/images/i.jpg" class="d-block w-100" alt="...">
+							<img src="/resources/images/Slogo.png" class="d-block w-100" alt="...">
 						</div>
 					</div>
 					<button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
@@ -63,6 +169,8 @@
 			</div>
 
 		</c:if>
+		</section>
+
 
 		<!-- 가계부 윗부분 -->
 		<section class="accBk-container">
@@ -290,9 +398,9 @@
 
 
 	</main>
+	<script src="/resources/js/header.js"></script>
 	<script src="/resources/js/accountTarget.js"></script>
 	<script src="/resources/js/accountInout.js"></script>
-
 
 	<script>
 
