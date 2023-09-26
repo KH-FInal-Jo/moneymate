@@ -52,7 +52,7 @@
 							<tr class="inputBoard">
 								<th height="60px">${board.boardNo}</th>
 								<td class="inputTitleAd"><a href="/community/${boardCode}/${board.boardNo}">${board.boardTitle}</a></td>
-								<td>${board.memberNickname}</td>
+								<td>관리자</td>
 								<th>${board.boardCreateDate}</th>
 								<th>${board.readCount}</th>
 							</tr>
