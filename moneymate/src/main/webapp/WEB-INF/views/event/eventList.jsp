@@ -9,22 +9,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>이벤트 목록</title>
 
+    <script src="https://code.createjs.com/easeljs-0.7.1.min.js"></script> 
+
     <link rel="stylesheet" href="/resources/css/event/eventList.css">
     <link rel="stylesheet" href="/resources/css/header.css">
     <link rel="stylesheet" href="/resources/css/footer.css">
 </head>
-<body>
+<body onLoad="init()">
 
-
-    <!-- a태그 안 걸고 js로 해결하기!!! -->
-    <!-- css 추가하고 싶은데.. 리액트 배운 후에 마우스 따라다니는 선 같은 효과 추가하기... -->
-    <!-- 출석체크 이벤트 같은 경우는, 스케줄러 사용해서 하루에 한 번만 참여할 수 있게 !!! -->
-
+    <div id='container'>
+    <canvas id="canvas" ></canvas> 
     <div id="main">
         <div>EVENT</div>
 
-        <div id="container">
+        <div id="Hcontainer">
             <div id="event1" onclick="location.href='/event/calendar'">
+            <%-- <div id="event1" data-href="/event/calendar"> --%>
                 <img src="/resources/images/accountEvent3.png" id="eventImg1">
                 <div id="event1-name">출석체크 이벤트</div>
             </div>
@@ -37,7 +37,8 @@
 
 
     </div>
-    
+    </div>
+    <script src="/resources/js/eventList.js"></script>
     <jsp:include page="/WEB-INF/views/common/footer.jsp"/>
     
 </body>

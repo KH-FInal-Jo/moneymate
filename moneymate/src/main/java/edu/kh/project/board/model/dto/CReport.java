@@ -22,4 +22,7 @@ public class CReport {
 	private String reportDate;
 	private String reportState;
 	
+	
+	private String reportNickname;
+	private String reportedNickname;
 }

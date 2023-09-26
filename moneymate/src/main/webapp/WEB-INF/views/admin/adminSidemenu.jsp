@@ -11,7 +11,7 @@
         <div class="j-admin-sidemenu-content">
             <div id="j-admin-report" onclick="reportBtn()">신고 관리</div>
             <div id="j-admin-report-container">
-                <div><a href="#">채팅</a></div>
+                <div><a href="/admin/reportManage/chatt">채팅</a></div>
                 <div><a href="/admin/reportManage/board">게시판</a></div>
             </div>
             <div><a href="/admin/payment">결제 관리</a></div>

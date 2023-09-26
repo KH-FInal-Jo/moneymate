@@ -74,6 +74,25 @@ public class HAdminServiceImpl implements HAdminService {
 		return dao.selectMember(query);
 	}
 
+	// 채팅 관리자
+	@Override
+	public Map<String, Object> chattReport(int cp) {
+		
+		int reportCount = dao.reportCount();
+		
+		HHPagination pagination = new HHPagination(cp, reportCount);
+		
+		List<JMember> reportList = dao.selectReportList(pagination);
+		
+		Map<String, Object> map = new HashMap<String, Object>();
+		
+		map.put("reportList", reportList);
+		map.put("pagination", pagination);
+		
+		return map;
+	}
+
+
 
 	
 

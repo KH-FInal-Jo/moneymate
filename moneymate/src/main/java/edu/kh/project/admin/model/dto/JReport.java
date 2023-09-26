@@ -11,6 +11,7 @@ public class JReport {
 	
 	private int reportNo;
 	private int reportedNo;
+	
 	private String reportContent;
 	private int bcNo;
 	private int reportCode;

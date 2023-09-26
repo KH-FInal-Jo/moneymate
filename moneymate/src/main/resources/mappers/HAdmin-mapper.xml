@@ -24,6 +24,23 @@
      	<result property="reportCount" column="REPORT_COUNT"/>
      	
      </resultMap>
+     
+     <resultMap type="CReport" id="report_rm">
+		<id property="reportNo" column="REPORT_NO" />
+
+		<result property="reportedNo" column="REPORTED_NO" />
+		<result property="reportContent" column="REPORT_CONTENT" />
+		<result property="boardNo" column="BC_NO" />
+		<result property="reportCode" column="REPORT_CODE" />
+		<result property="reportCategory" column="CATEGORY" />
+		<result property="reportDate" column="REPORT_DATE" />
+		<result property="reportState" column="REPORT_ST" />
+		<result property="memberNickname" column="MEMBER_NICKNAME" />
+		<result property="memberId" column="MEMBER_EMAIL" />
+		<result property="badContent" column="BOARD_CONTENT" />
+		<result property="reportNickname" column="REPORT_NICKNAME" />
+		<result property="reportedNickname" column="REPORTED_NICKNAME" />
+	</resultMap>
 
 	<!-- 회원 수 조회 -->
 	<select id="memberCount" resultType="_int">
@@ -82,6 +99,22 @@
 		OR MEMBER_NAME LIKE '%${query}%'
 		OR MEMBER_EMAIL LIKE '%${query}%')
 		ORDER BY MEMBER_NO
+	</select>
+	
+	<!--  채팅신고된 회원 수 -->
+	<select id="reportCount" resultType="_int">
+		SELECT COUNT(*) FROM "REPORT" WHERE REPORT_ST = 'N'
+	</select>
+	
+	<!-- 채팅 신고 목록 -->
+	<select id="reportList" resultMap="report_rm">
+		
+		SELECT REPORT_NO, 
+		    (SELECT MEMBER_NICKNAME FROM MEMBER M WHERE M.MEMBER_NO =  R.REPORT_NO) REPORT_NICKNAME, 
+		    (SELECT MEMBER_NICKNAME FROM MEMBER M WHERE M.MEMBER_NO =  R.REPORTED_NO) REPORTED_NICKNAME, REPORT_CONTENT,  REPORT_DATE
+		FROM "REPORT" R
+		WHERE REPORT_ST = 'N'
+		AND REPORT_CODE = 2
 	</select>
 	
 	
