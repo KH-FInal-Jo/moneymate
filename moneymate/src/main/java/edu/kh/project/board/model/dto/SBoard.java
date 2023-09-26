@@ -29,4 +29,5 @@ public class SBoard {
 	
 	// 이미지 목록
 	private List<SBoardImage> imageList;
+	
 }

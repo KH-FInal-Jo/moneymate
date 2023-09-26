@@ -14,6 +14,7 @@ import org.springframework.web.multipart.MultipartFile;
 import edu.kh.project.board.model.dao.SBoardDAO;
 import edu.kh.project.board.model.dto.SBoard;
 import edu.kh.project.board.model.dto.SBoardImage;
+import edu.kh.project.board.model.dto.SColumnRandom;
 import edu.kh.project.board.model.exception.FileUploadException;
 import edu.kh.project.common.utility.Util;
 import edu.kh.project.member.model.dto.Member;
@@ -153,6 +154,49 @@ public class SBoardServiceImpl implements SBoardService {
 	public int columnLikeCheck(Map<String, Object> map) {
 		// TODO Auto-generated method stub
 		return dao.columnLikeCheck(map);
+	}
+
+
+
+	// 좋아요 처리
+	@Override
+	public int likeCount(Map<String, Integer> paramMap) {
+		
+		int result = 0;
+		
+		if(paramMap.get("check") == 0) {
+			// 좋아요 안눌러져 있을 때
+			result = dao.likeInsert(paramMap);
+		}else {
+			// 좋아요 눌러져 있을 때
+			result = dao.likeDelete(paramMap);
+		}
+		
+		// 삽입, 삭제 실패 시 
+		if(result == 0) result = -1;
+		
+		
+		
+		
+		return dao.likeCount(paramMap);
+	}
+
+
+
+	// 조회수 증가 서비스
+	@Override
+	public int readCount(int boardNo) {
+		// TODO Auto-generated method stub
+		return dao.readCount(boardNo);
+	}
+
+
+
+	// 다른 칼럼 보기 랜덤 3개 번호
+	@Override
+	public List<SBoard> selectRandom(Map<String, Object> map) {
+		// TODO Auto-generated method stub
+		return dao.selectRandom(map);
 	}
 
 

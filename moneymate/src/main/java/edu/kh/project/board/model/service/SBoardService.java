@@ -7,6 +7,7 @@ import java.util.Map;
 import org.springframework.web.multipart.MultipartFile;
 
 import edu.kh.project.board.model.dto.SBoard;
+import edu.kh.project.board.model.dto.SColumnRandom;
 import edu.kh.project.member.model.dto.Member;
 
 public interface SBoardService {
@@ -53,6 +54,24 @@ public interface SBoardService {
 	 * @return
 	 */
 	int columnLikeCheck(Map<String, Object> map);
+
+	/** 좋아요 처리
+	 * @param paramMap
+	 * @return
+	 */
+	int likeCount(Map<String, Integer> paramMap);
+
+	/** 조회수 증가 서비스
+	 * @param boardNo
+	 * @return
+	 */
+	int readCount(int boardNo);
+
+	/** 다른 칼럼 보기 랜덤 3개 번호
+	 * @param map
+	 * @return
+	 */
+	List<SBoard> selectRandom(Map<String, Object> map);
 	
 
 }

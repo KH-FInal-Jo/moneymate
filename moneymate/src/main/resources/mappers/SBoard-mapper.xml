@@ -25,6 +25,7 @@
 			column="BOARD_NO" javaType="java.util.ArrayList" ofType="SBoardImage">
 
 		</collection>
+		
 	
 	</resultMap>
 	
@@ -42,6 +43,8 @@
 		<result property="boardNo" column="BR_NO" />
 
 	</resultMap>
+	
+	
 
 	<!-- 게시글 삽입 -->
 	<insert id="columnInsert" parameterType="SBoard"
@@ -94,7 +97,6 @@
 		AND IMG_LEVEL = 0
 		AND BOARD_CODE = 4
 		AND BOARD_ST = 'N'
-        AND MEMBER_NO = #{memberNo}
         ORDER BY BOARD_NO DESC
 	
 	</select>
@@ -168,9 +170,60 @@
 	</select>
 	
 	
+	<!-- 좋아요 삽입 -->
+	<insert id="likeInsert">
+		INSERT INTO "LIKE" 
+		VALUES(#{memberNo}, #{boardNo}, 4)
+	</insert>
+	
+	<!-- 좋아요 삭제 -->
+	<delete id="likeDelete">
+		DELETE FROM "LIKE" 
+		WHERE MEMBER_NO = #{memberNo}
+		AND BR_NO = #{boardNo}
+		AND LIKE_CODE = 4
+	</delete>
+	
+	
+	<!-- 좋아요 수 확인 -->
+	<select id="likeCount" resultType="_int">
+	
+		SELECT COUNT(*) AS LIKE_COUNT FROM
+		"LIKE"
+		WHERE BR_NO = #{boardNo}
+        AND LIKE_CODE = 4
+	
+	</select>
+	
+
+	<!-- 조회수 증가 -->
+	<update id="readCount">
+		UPDATE BOARD
+		SET READ_COUNT = READ_COUNT + 1
+		WHERE
+		BOARD_NO = #{boardNo}
+	</update>
 	
 	
 	
+	<!-- 다른 칼럼보기 랜덤 3개 -->
+	<select id="randomCount" resultMap="SBoard-rm">
+	
+		SELECT BOARD_NO, BOARD_TITLE, THUMBNAIL
+			FROM (
+			  SELECT BOARD_NO, BOARD_TITLE, IMG_PATH || IMG_RENAME AS THUMBNAIL 
+			  FROM IMAGE
+			  JOIN BOARD ON(BOARD_NO = BR_NO)
+			  WHERE BOARD_ST = 'N' AND BOARD_CODE = 4
+			  AND BOARD_NO != #{boardNo}
+			  AND IMG_LEVEL = 0
+			  ORDER BY DBMS_RANDOM.RANDOM
+			)
+		<![CDATA[
+		WHERE ROWNUM <= 3
+		]]>
+	
+	</select>
 	
 	
 	
