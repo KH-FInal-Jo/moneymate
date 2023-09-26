@@ -87,5 +87,25 @@ public class HAdminDAO {
 		return sqlSession.selectList("HAdminMapper.selectMember", query);
 	}
 
+	/** 채팅 신고 수 조회
+	 * @return
+	 */
+	public int reportCount() {
+		return sqlSession.selectOne("HAdminMapper.reportCount");
+	}
+
+	/** 채팅 신고 목록 조회
+	 * @param pagination
+	 * @return
+	 */
+	public List<JMember> selectReportList(HHPagination pagination) {
+		int offset
+		= (pagination.getCurrentPage() - 1) * pagination.getLimit();
+		
+		RowBounds rowBounds = new RowBounds(offset, pagination.getLimit());
+		
+		return sqlSession.selectList("HAdminMapper.reportList" , null, rowBounds);
+	}
+
 	
 }

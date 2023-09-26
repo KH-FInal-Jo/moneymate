@@ -8,13 +8,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=\, initial-scale=1.0">
     <title>출석체크 이벤트</title>
-
     <link rel="stylesheet" href="/resources/css/event/eventCalendar.css">
     <link rel="stylesheet" href="/resources/css/header.css">
     <link rel="stylesheet" href="/resources/css/footer.css">
 </head>
 <body>
-
 
     <div id="main">
     

@@ -38,4 +38,12 @@ public interface HAdminService {
 	 */
 	List<JMember> selectMember(String query);
 
+	/** 채팅 관리자
+	 * @param cp
+	 * @return
+	 */
+	Map<String, Object> chattReport(int cp);
+
+	
+
 }

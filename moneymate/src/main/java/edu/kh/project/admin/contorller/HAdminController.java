@@ -61,5 +61,18 @@ public class HAdminController {
 	public List<JMember> selectMember(String query){
 		return service.selectMember(query);
 	}
-
+	
+	// 채팅 관리자 
+	@GetMapping("/admin/reportManage/chatt")
+	public String chattReport(Model model, @RequestParam(value="cp", required=false, defaultValue = "1") int cp) {
+		
+		Map<String, Object> map = service.chattReport(cp);
+		
+		model.addAttribute(map);
+		
+		System.out.println("is it correct? " + map);
+		
+		return "admin/chattingReport";
+	}
+	
 }

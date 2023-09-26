@@ -127,3 +127,6 @@ function gotoEventList(){
 
     location.href = "/event";
 }
+
+
+
