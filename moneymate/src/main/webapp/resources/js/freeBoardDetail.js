@@ -64,6 +64,7 @@ function reportMember(boardNo, loginMemberNo){
     })
     .then(resp => resp.text())
     .then(count => {
+        console.log(count);
         if(count == 0){
             location.href = "/community/report?boardNo="+boardNo;
             return;
