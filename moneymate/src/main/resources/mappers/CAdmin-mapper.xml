@@ -39,6 +39,7 @@
 	<select id="getListCount" resultType="_int">
 		SELECT COUNT(*) FROM REPORT
 		WHERE REPORT_ST = 'N'
+		AND REPORT_CODE = 1
 	</select>
 	
 	

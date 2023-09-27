@@ -64,15 +64,25 @@ public class HAdminController {
 	
 	// 채팅 관리자 
 	@GetMapping("/admin/reportManage/chatt")
-	public String chattReport(Model model, @RequestParam(value="cp", required=false, defaultValue = "1") int cp) {
+	public String chattReport(@RequestParam(value="cp", required=false, defaultValue = "1") int cp
+								, Model model) {
 		
 		Map<String, Object> map = service.chattReport(cp);
 		
-		model.addAttribute(map);
+		model.addAttribute("map", map);
+		// reportManage2에 이상한거 jsp include 되어있었닼ㅋ
+		return "admin/reportManage2";
+	}
+	
+	
+	@PostMapping("/admin/reportManage/confirm2")
+	@ResponseBody
+	public int reportConfirm(@RequestBody Map<String, Object> paramMap) {
 		
-		System.out.println("is it correct? " + map);
 		
-		return "admin/chattingReport";
+		int result = service.reportConfirm(paramMap);
+		
+		return result;
 	}
 	
 }

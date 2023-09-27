@@ -69,6 +69,8 @@
         
     </main>
 
+    <script></script>
+
     <script src="/resources/js/report.js"></script>
 
 </body>

@@ -92,6 +92,11 @@ public class HAdminServiceImpl implements HAdminService {
 		return map;
 	}
 
+	@Override
+	public int reportConfirm(Map<String, Object> paramMap) {
+		return dao.reportConfirm(paramMap);
+	}
+
 
 
 	

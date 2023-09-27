@@ -1,29 +1,26 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"  %>
 
-<%-- <c:set var="pagination" value="${map.pagination}"/>
-<c:set var="reportList" value="${map.reportList}"/> --%>
+<c:set var="pagination" value="${map.pagination}"/>
+<c:set var="reportList" value="${map.reportList}"/>
 
 <!DOCTYPE html>
 <html>
 <head>
-
 <meta charset="UTF-8">
-<title>신고 관리</title>
+<title>Insert title here</title>
 
-<link rel="stylesheet" href="/resources/css/header.css">
 <link rel="stylesheet" href="/resources/css/member/adminSidemenu.css">
-<link rel="stylesheet" href="/resources/css/footer.css">
-<link rel="stylesheet" href="/resources/css/admin/chattReport.css">
+<link rel="stylesheet" href="/resources/css/admin/reportManage2.css">
 
 </head>
 <body>
-<main>
+	<main>
         <jsp:include page="/WEB-INF/views/common/header.jsp"/>
 
         <section class="admin-container">
 
-           <jsp:include page="/WEB-INF/views/admin/chattReport.jsp"/>
+           <jsp:include page="/WEB-INF/views/admin/adminSidemenu.jsp"/>
            
 
             <section class="admin-main">
@@ -36,11 +33,10 @@
                             <th width="20px">이메일</th>
                             <th width="50px">신고이유</th>
                             <th width="50px">신고날짜</th>
+                            <th width="20px">처리</th>
                         </tr>
-                        <%-- <h1>sdklfsdsd ${reportList}</h1> --%>
 
-
-                        <%-- <c:choose>
+                        <c:choose>
                             <c:when test="${empty reportList}">
                                 <tr>
 	                                <th colspan="7">확인하지 않은 신고가 없습니다.</th>
@@ -55,23 +51,24 @@
                                         <td width="40px">${report.memberId}</td>
                                         <td width="40px">${report.reportContent}</td>
                                         <td width="50px">${report.reportDate}</td>
+                                        <td width="20px"><button type="button" id="confirm" onclick="confirm(${report.reportNo}, ${report.reportedNo})">확인</button></td>
                                     </tr>
                                 </c:forEach>
                             </c:otherwise>
-                        </c:choose> --%>
+                        </c:choose>
 
                     </table>
 
                 </div>
 
-                <%-- <div class="pagination-area">
+                <div class="pagination-area">
 
 
                     <ul class="pagination">
                     
-                        <li><a href="/community/3?cp=1">&lt;&lt;</a></li>
+                        <li><a href="/admin/reportManage/chatt?cp=1">&lt;&lt;</a></li>
 
-                        <li><a href="/community/3?cp=${pagination.prevPage}">&lt;</a></li>
+                        <li><a href="/admin/reportManage/chatt?cp=${pagination.prevPage}">&lt;</a></li>
 
                 
                         <c:forEach var="i" begin="${pagination.startPage}" end="${pagination.endPage}">
@@ -81,7 +78,7 @@
                             </c:when>
                             
                             <c:otherwise>
-                                    <li><a href="/community/3?cp=${i}">${i}</a></li>
+                                    <li><a href="/admin/reportManage/chatt?cp=${i}">${i}</a></li>
                             </c:otherwise>
                             </c:choose>
                             
@@ -89,12 +86,13 @@
                         
                         
                         
-                        <li><a href="/community/3?cp=${pagination.nextPage}">&gt;</a></li>
+                        <li><a href="/admin/reportManage/chatt?cp=${pagination.nextPage}">&gt;</a></li>
 
-                        <li><a href="/community/3?cp=${pagination.maxPage}">&gt;&gt;</a></li>
+                        <li><a href="/admin/reportManage/chatt?cp=${pagination.maxPage}">&gt;&gt;</a></li>
 
                     </ul>
-                </div> --%>
+                </div>
+
 
             </section>
 
@@ -104,5 +102,6 @@
         
     </main>
 
+    <script src="/resources/js/reportManage2.js"></script>
 </body>
 </html>
