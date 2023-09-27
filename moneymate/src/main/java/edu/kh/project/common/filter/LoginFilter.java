@@ -15,7 +15,8 @@ import javax.servlet.http.HttpSession;
 import edu.kh.project.member.model.dto.Member;
 
 @WebFilter(filterName="loginFilter",
-urlPatterns={"/subscribe/*", "/consumetest", "/event/calendar"})
+urlPatterns={"/subscribe/*", "/consumetest", "/event/calendar", "/account/*", "/member/mypage/*",
+				"/chatting", "/community/2/boardInquiryWrtie","/community/1/insert", "/community/3/insert", "/community/4/insert"})
 public class LoginFilter implements Filter {
 
 
@@ -38,6 +39,7 @@ public class LoginFilter implements Filter {
 		if(session.getAttribute("loginMember") == null) {
 			session.setAttribute("message", "로그인 후 이용해주세요.");
 			resp.sendRedirect("/");
+			
 
 			// 4) 로그인 상태인 경우 다음 필터 또는 
 			//    DispatcherServlet으로 전달
