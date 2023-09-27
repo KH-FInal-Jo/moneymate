@@ -80,8 +80,10 @@
      <!-- 로그인 -->
      <select id="login" parameterType="Member" resultMap="member_rm">
         SELECT M.MEMBER_NO, MEMBER_PW, MEMBER_EMAIL, MEMBER_NAME, MEMBER_NICKNAME, MEMBER_TEL, 
-           MEMBER_ADDRESS, AUTHORITY, PROFILE FROM "MEMBER" M
-        WHERE SECESSION_FL= 'N'
+           MEMBER_ADDRESS, AUTHORITY, PROFILE, (select TEST_TITLE from  CONTEST C WHERE M.MEMBER_NO = C.MEMBER_NO) TEST_TITLE
+           FROM "MEMBER" M
+        WHERE 1=1
+        and SECESSION_FL= 'N'
         AND MEMBER_EMAIL = #{memberEmail}
      </select>
      
@@ -276,12 +278,13 @@
             
          ]]>
 		(SELECT COUNT(*) FROM "COMMENT" C
-		WHERE C.BOARD_NO = B.BOARD_NO)
+		WHERE C.BOARD_NO = B.BOARD_NO
+		AND COMMENT_ST = 'N')
 		COMMENT_COUNT,
 
 		(SELECT COUNT(*) FROM "LIKE" L
 		WHERE L.BR_NO =	B.BOARD_NO
-		LIKE_CODE = 1) LIKE_COUNT,
+		AND LIKE_CODE = 1) LIKE_COUNT,
 
 		(SELECT IMG_PATH || IMG_RENAME FROM IMAGE I
 		WHERE I.BR_NO = B.BOARD_NO

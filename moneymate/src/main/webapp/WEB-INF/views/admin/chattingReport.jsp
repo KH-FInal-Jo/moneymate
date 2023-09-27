@@ -6,7 +6,6 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=\, initial-scale=1.0">
     <title>Document</title>
 
     <link rel="stylesheet" href="/resources/css/admin/chattReport.css">
@@ -22,6 +21,7 @@
                     <th>신고자</th>
                     <th>피신고자</th>
                     <th>신고 내용</th>
+                    <th>신고 날짜</th>
                     <th>신고 날짜</th>
                 </tr>
 

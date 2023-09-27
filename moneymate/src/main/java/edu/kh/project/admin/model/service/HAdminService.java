@@ -44,6 +44,8 @@ public interface HAdminService {
 	 */
 	Map<String, Object> chattReport(int cp);
 
+	int reportConfirm(Map<String, Object> paramMap);
+
 	
 
 }

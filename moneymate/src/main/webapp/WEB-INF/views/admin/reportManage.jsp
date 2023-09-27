@@ -48,6 +48,7 @@
                                 <div><a href="#">이벤트게시판</a></div>
     
                             </div>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -117,9 +118,9 @@
 
                     <ul class="pagination">
                     
-                        <li><a href="/community/3?cp=1">&lt;&lt;</a></li>
+                        <li><a href="/admin/reportManage/board?cp=1">&lt;&lt;</a></li>
 
-                        <li><a href="/community/3?cp=${pagination.prevPage}">&lt;</a></li>
+                        <li><a href="/admin/reportManage/board?cp=${pagination.prevPage}">&lt;</a></li>
 
                 
                         <c:forEach var="i" begin="${pagination.startPage}" end="${pagination.endPage}">
@@ -129,7 +130,7 @@
                             </c:when>
                             
                             <c:otherwise>
-                                    <li><a href="/community/3?cp=${i}">${i}</a></li>
+                                    <li><a href="/admin/reportManage/board?cp=${i}">${i}</a></li>
                             </c:otherwise>
                             </c:choose>
                             
@@ -137,9 +138,9 @@
                         
                         
                         
-                        <li><a href="/community/3?cp=${pagination.nextPage}">&gt;</a></li>
+                        <li><a href="/admin/reportManage/board?cp=${pagination.nextPage}">&gt;</a></li>
 
-                        <li><a href="/community/3?cp=${pagination.maxPage}">&gt;&gt;</a></li>
+                        <li><a href="/admin/reportManage/board?cp=${pagination.maxPage}">&gt;&gt;</a></li>
 
                     </ul>
                 </div>

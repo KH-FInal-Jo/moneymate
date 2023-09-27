@@ -104,18 +104,29 @@
 	<!--  채팅신고된 회원 수 -->
 	<select id="reportCount" resultType="_int">
 		SELECT COUNT(*) FROM "REPORT" WHERE REPORT_ST = 'N'
+		AND REPORT_CODE = 2
 	</select>
 	
 	<!-- 채팅 신고 목록 -->
 	<select id="reportList" resultMap="report_rm">
 		
-		SELECT REPORT_NO, 
+		SELECT REPORT_NO, REPORTED_NO, (SELECT MEMBER_EMAIL FROM MEMBER M WHERE M.MEMBER_NO = R.REPORTED_NO) MEMBER_EMAIL,
 		    (SELECT MEMBER_NICKNAME FROM MEMBER M WHERE M.MEMBER_NO =  R.REPORT_NO) REPORT_NICKNAME, 
 		    (SELECT MEMBER_NICKNAME FROM MEMBER M WHERE M.MEMBER_NO =  R.REPORTED_NO) REPORTED_NICKNAME, REPORT_CONTENT,  REPORT_DATE
 		FROM "REPORT" R
 		WHERE REPORT_ST = 'N'
 		AND REPORT_CODE = 2
 	</select>
+	
+	
+	
+	<update id="reportConfirm">
+		UPDATE "REPORT" SET 
+		REPORT_ST = 'Y'
+		WHERE REPORTED_NO = #{reportedNo}
+		AND REPORT_NO = #{reportNo}
+		AND REPORT_CODE = 2
+	</update>
 	
 	
 </mapper>

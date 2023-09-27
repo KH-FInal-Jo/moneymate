@@ -29,7 +29,7 @@ public class CAdminDAO {
 		
 		RowBounds rowBounds = new RowBounds(offset, pagination.getLimit());
 		
-		return sqlSession.selectList("CAdminMapper.selectReportList", rowBounds);
+		return sqlSession.selectList("CAdminMapper.selectReportList", null,rowBounds);
 	}
 
 	public int reportConfirm(Map<String, Object> paramMap) {

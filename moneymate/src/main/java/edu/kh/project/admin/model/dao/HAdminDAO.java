@@ -107,5 +107,9 @@ public class HAdminDAO {
 		return sqlSession.selectList("HAdminMapper.reportList" , null, rowBounds);
 	}
 
+	public int reportConfirm(Map<String, Object> paramMap) {
+		return sqlSession.update("HAdminMapper.reportConfirm", paramMap);
+	}
+
 	
 }
