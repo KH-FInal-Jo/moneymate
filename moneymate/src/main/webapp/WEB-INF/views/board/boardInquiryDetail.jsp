@@ -77,9 +77,12 @@
     
                 
     
-                <div class="btn-area">
-                    <button id="updateBtn">수정</button>
-                    <button id="deleteBtn">삭제</button>
+                <div class="btn-area"> 
+                    <c:if test="${loginMember.memberNo == board.memberNo || loginMember.authority == 1 }" >
+
+                     <button id="updateBtn">수정</button>
+                     <button id="deleteBtn">삭제</button>
+                    </c:if>                   
                     <button id="goToList">목록으로</button>
                 </div>
     
@@ -123,15 +126,16 @@
                         </c:forEach>
                     </ul>
                 </div>
-
-                <div class="comment-write-area">
-                    <textarea id="commentContent"></textarea>
-                    <button id="addComment">
-                        댓글<br>
-                        등록
-                    </button>
-                </div>
+                <c:if test="${loginMember.memberNo == comment.memberNo || loginMember.authority == 1}">
+                        <div class="comment-write-area">
+                            <textarea id="commentContent"></textarea>
+                            <button id="addComment">
+                                댓글<br>
+                                등록
+                            </button>
+                        </div>
     
+                </c:if>
             </section>
         </section>
         <script>

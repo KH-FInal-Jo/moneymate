@@ -98,5 +98,6 @@ if(profileImage != null){
             alert("이미지 변경 후 클릭하세요.");
         }
     });
+    alert("프로필이 변경 되었습니다.")
 
 }
