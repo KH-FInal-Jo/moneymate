@@ -19,7 +19,7 @@
         <section>
             <div class="main">
                 <div class="title"><h1>신고하기</h1></div>
-                <form action="/community/report/board" method="POST">
+                <form action="/community/report/board" method="POST" id="submitReport">
                     <div class="content">
                         <div class="writer">
                             <div class="ecc">글쓴이</div>
@@ -53,7 +53,7 @@
 
                             
                             <h5>신고내용</h5>
-                            <textarea name="reportContent" class="reportContent"></textarea>
+                            <textarea name="reportContent" class="reportContent" id="reportContent"></textarea>
                             <div class="btnArea">
                                 <button type="button" id="goBack">뒤로가기</button>
                                 <button id="submit">제출하기</button>
