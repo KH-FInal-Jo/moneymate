@@ -65,10 +65,10 @@
             
         </div>
         <!-- <hr> -->
-
+        
         <div class="container1-2">
             <div class="middle1">
-                <div id="left1"><img src="/resources/images/img_point7.png"> </div>
+                <div id="left1" class="animate__animated animate__rubberBand"><img src="/resources/images/img_point7.png"> </div>
                 <div id="font1">
                     <h1>지갑을 더 스마트하게, 당신의 가계부 파트너.</h1>
                     <b>수입, 지출, 목표 예산, 마일리지 적립 – 모든 것을 한눈에!</b>
@@ -92,20 +92,20 @@
                         <br>
 
                 </div>
-                <div id="right1"> <img src="/resources/images/img_point8.png"> </div>
+                <div id="right1" class="animate__animated animate__rubberBand"> <img src="/resources/images/img_point8.png"> </div>
             </div>
 
         </div>
         <!-- <hr> -->
 
         
-        <div class="container1">
+        <div class="container1-9">
             <div class="lastContainer3">
 
                 <div class="lastContainer4">
 
                     <div class="container1-6">
-                        <div id="image-container">
+                        <div id="image-container" class="animate__animated animate__zoomInLeft">
                             <img src="/resources/images/img_sreen_dark1.png" alt="이미지 1" id="image">
                             <img src="/resources/images/img_sreen_dark2.png" alt="이미지 2" id="image">
                         </div>
@@ -149,8 +149,8 @@
                         <br>                                     
                 </div>
                 
-                <div id="right5"><img src="/resources/images/sample1.png"> </div>
-                <div id="right5"><img src="/resources/images/sample1.png"> </div>
+                <div id="right5"  class="animate__animated animate__flipInY"><img src="/resources/images/sample1.png"> </div>
+                <div id="right5"  class="animate__animated animate__flipInY"><img src="/resources/images/sample1.png"> </div>
             </div>
             <div class="middle5">
                 <div id="font5">
@@ -160,8 +160,8 @@
                     <b>자신만의 금융 이야기를 공유하고, <br>돈을 더 현명하게 다루세요</b>
                 </div>
                 
-                <div id="right5"> <img src="/resources/images/sample1.png"> </div>
-                <div id="right5"> <img src="/resources/images/sample1.png"> </div>
+                <div id="right5" class="animate__animated animate__flipInY"> <img src="/resources/images/sample1.png"> </div>
+                <div id="right5" class="animate__animated animate__flipInY"> <img src="/resources/images/sample1.png"> </div>
             </div>
 
         </div>
@@ -191,13 +191,17 @@
                 
                 
                 <div class="lastContainer2">
-
+                    
                     <div class="container1-6">
-                        <div class="image-container">
-                           <a href="#"><img src="/resources/images/img_sreen_dark1.png" alt="이미지 1" class="image"></a>
-                           <a href="#"><img src="/resources/images/img_sreen_dark2.png" alt="이미지 2" class="image"></a>
-                           <a href="#"><img src="/resources/images/img_sreen_dark3.png" alt="이미지 3" class="image"></a>
-                           <a href="#"><img src="/resources/images/img_sreen_dark4.png" alt="이미지 4" class="image"></a>                           
+                        <div id="image-container" class="animate__animated animate__jackInTheBox">
+                                <img src="/resources/images/img_sreen_dark1.png" alt="이미지 1" class="image">
+
+                                <img src="/resources/images/img_sreen_dark2.png" alt="이미지 2" class="image">
+                            
+                                <img src="/resources/images/img_sreen_dark3.png" alt="이미지 3" class="image">
+                            
+                                <img src="/resources/images/img_sreen_dark4.png" alt="이미지 4" class="image">                          
+                          
                         </div>
                     </div>
 

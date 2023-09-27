@@ -4,20 +4,26 @@ div {border: 1px solid black;}  */
 
 /* main{
     border: 1px solid black;
-} */
+}*/
 
 .container{
     width: 1900px;
-    height: 6000px;    
+    height: 7621px;    
     margin: auto;
     
 }
-
+.container1-9{
+    width: 100%;
+    height: 1050px;
+    display: flex;
+   
+    
+}
 
 /* 1쪽 */
 .container1{
     width: 100%;
-    height: 1000px;
+    height: 1200px;
     display: flex;
    
     
@@ -97,7 +103,7 @@ button + button{
 /* 2쪽 */
 .container1-1{
     width: 100%;
-    height: 1000px;    
+    height: 1200px;    
    
     display: block;
     
@@ -140,7 +146,7 @@ button + button{
 /* 3쪽 */
 .container1-2{
     width: 100%;
-    height: 1000px;
+    height: 1300px;
     display: block;
     
 }
@@ -152,6 +158,7 @@ button + button{
     justify-content: center;
     align-items: center;
     text-align: center;
+    
 }
 
 #left1{
@@ -286,6 +293,7 @@ button + button{
     width: 100%;
     height: 1000px;
     display: block;
+    margin-top: 100px;
     
 }
 
@@ -391,7 +399,7 @@ button + button{
 
 .lastContainer3{
     width: 100%;
-    height: 100%;
+    height: 90%;
     display: flex;
 
 }
@@ -419,22 +427,22 @@ button + button{
    
 }
 
-.image-container {
+#image-container {
     position: relative;
 }
 
-/* .image {
+.image {
     position: absolute;
+    
    
-} */
-
-a>.image{
-    position: absolute;
 }
+
+
 
 .image:nth-child(1) {
     transform: rotate(0deg) translate(0);
     z-index: 4;
+    
 }
 
 .image:nth-child(2) {
