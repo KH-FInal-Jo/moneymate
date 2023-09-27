@@ -8,7 +8,7 @@ div {border: 1px solid black;}  */
 
 .container{
     width: 1900px;
-    height: 7621px;    
+    height: 7121px;    
     margin: auto;
     
 }
@@ -461,7 +461,7 @@ button + button{
 }
 
 
-#image-container{
+#image-container1{
     position: relative;
 }
 

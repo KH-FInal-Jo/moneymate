@@ -3,7 +3,7 @@ window.addEventListener('scroll', function() {
     // 스크롤 위치 확인
     var scrollPosition = window.scrollY;
 
-    // console.log(scrollPosition); // 900
+    console.log(scrollPosition); // 900
 
     
     // 특정 스크롤 위치에서 스타일 변경
@@ -30,6 +30,42 @@ window.addEventListener('scroll', function() {
         document.querySelector('#middle').classList.remove('animate__flipInY');
         document.querySelector('#right').classList.remove('animate__animated');
         document.querySelector('#right').classList.remove('animate__flipInY');
+    }
+
+    if(scrollPosition >= 2200){
+      document.querySelector('#left1').classList.add('animate__animated');
+      document.querySelector('#left1').classList.add('animate__slideInLeft');
+      document.querySelector('#right1').classList.add('animate__animated');
+      document.querySelector('#right1').classList.add('animate__slideInRight');
+    }else{
+      document.querySelector('#left1').classList.remove('animate__animated');
+      document.querySelector('#left1').classList.remove('animate__slideInLeft');
+      document.querySelector('#right1').classList.remove('animate__animated');
+      document.querySelector('#right1').classList.remove('animate__slideInRight');
+    }
+
+    if(scrollPosition >= 3200){
+      document.querySelector('#image-container').classList.add('animate__animated');
+      document.querySelector('#image-container').classList.add('animate__zoomInLeft');
+    }else{
+      document.querySelector('#image-container').classList.remove('animate__animated');
+      document.querySelector('#image-container').classList.remove('animate__zoomInLeft');
+    }
+
+    if(scrollPosition >= 4200){
+      document.querySelector('#right5').classList.add('animate__animated');
+      document.querySelector('#right5').classList.add('animate__flipInY');       
+    }else{
+      document.querySelector('#right5').classList.remove('animate__animated');
+      document.querySelector('#right5').classList.remove('animate__flipInY');  
+    }
+
+    if(scrollPosition >= 5500){
+      document.querySelector('#image-container1').classList.add('animate__animated');
+      document.querySelector('#image-container1').classList.add('animate__jackInTheBox');
+    }else{
+      document.querySelector('#image-container1').classList.remove('animate__animated');
+      document.querySelector('#image-container1').classList.remove('animate__jackInTheBox');
     }
   });
   
