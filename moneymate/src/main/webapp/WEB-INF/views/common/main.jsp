@@ -68,7 +68,7 @@
         
         <div class="container1-2">
             <div class="middle1">
-                <div id="left1" class="animate__animated animate__rubberBand"><img src="/resources/images/img_point7.png"> </div>
+                <div id="left1" class="animate__animated animate__slideInLeft"><img src="/resources/images/img_point7.png"> </div>
                 <div id="font1">
                     <h1>지갑을 더 스마트하게, 당신의 가계부 파트너.</h1>
                     <b>수입, 지출, 목표 예산, 마일리지 적립 – 모든 것을 한눈에!</b>
@@ -92,7 +92,7 @@
                         <br>
 
                 </div>
-                <div id="right1" class="animate__animated animate__rubberBand"> <img src="/resources/images/img_point8.png"> </div>
+                <div id="right1" class="animate__animated animate__slideInRight"> <img src="/resources/images/img_point8.png"> </div>
             </div>
 
         </div>
@@ -193,7 +193,7 @@
                 <div class="lastContainer2">
                     
                     <div class="container1-6">
-                        <div id="image-container" class="animate__animated animate__jackInTheBox">
+                        <div id="image-container1" class="animate__animated animate__jackInTheBox">
                                 <img src="/resources/images/img_sreen_dark1.png" alt="이미지 1" class="image">
 
                                 <img src="/resources/images/img_sreen_dark2.png" alt="이미지 2" class="image">
