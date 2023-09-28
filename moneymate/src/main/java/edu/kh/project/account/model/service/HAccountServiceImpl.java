@@ -90,7 +90,7 @@ public class HAccountServiceImpl implements HAccountService{
 				String mailContent 
 				= "<h1>[MoneyMate] 가계부 초대 링크입니다.</h1>"
 						+ "<button style=\"width: 120px; height: 30px; background-color: lightblue; border: 0; \">" 
-						+ "<a href='http://localhost/account/invite/" + authKey + "'"
+						+ "<a href='http://localhost/accounted/invite/" + authKey + "'"
 						+ "style='text-decoration: none; color: black; font-weight: bold;'"
 						+">" 
 						+ "초대장 바로가기</a>" 
