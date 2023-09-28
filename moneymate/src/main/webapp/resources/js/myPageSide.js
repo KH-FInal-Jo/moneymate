@@ -45,7 +45,9 @@ function selectAll(){ // 회원 전체 조회 함수
 
                     button.addEventListener("click", function () {
                         // 호진언니 구독 화면으로 이동
-                        window.location.href = "http://localhost/subscribe/info"; 
+                        //window.location.href = "http://localhost/subscribe/info"; 
+                        window.location.assign("/subscribe/info");
+
                     });
 
                     sub.appendChild(button);
