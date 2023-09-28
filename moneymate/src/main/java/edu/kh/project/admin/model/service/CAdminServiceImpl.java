@@ -42,6 +42,8 @@ public class CAdminServiceImpl implements CAdminService {
 
 	@Override
 	public int reportDupCheck(Map<String, Object> paramMap) {
+		
+		System.out.println("imple : " + dao.reportDupCheck(paramMap));
 		return dao.reportDupCheck(paramMap);
 	}
 

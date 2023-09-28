@@ -56,12 +56,11 @@ public class CAdminController {
 		return result;
 	}
 	
-	
-	@PostMapping("/admin/reportManage/dupCheck")
+	@PostMapping(value="/admin/reportManage/dupCheck", produces = "application/json; charset=UTF-8")
 	@ResponseBody
 	public int reportDupCheck(@RequestBody Map<String, Object> paramMap) {
 		
-		
+		System.out.println("1111111111"+paramMap);
 		return service.reportDupCheck(paramMap);
 	}
 	
