@@ -12,7 +12,7 @@ font-family: 'SDGothic', serif;
 .accountBook-main{
     display: flex;
     width: 1200px;
-    margin: auto;
+    margin: auto auto 100px auto;
 
     
 }

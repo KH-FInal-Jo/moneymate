@@ -12,12 +12,26 @@
 //    }
 // });
 
+// 칼럼 글
 const columns = document.querySelectorAll(".column-area");
+// 더보기 버튼
 const loadButton = document.getElementById("load");
+// 글쓰기 버튼
+writeBtn = document.getElementById("Swrite")
+
+
+writeBtn.style.display = 'none'
+// 관리자일 때만 글쓰기 보이기
+if(memberNo == 1){
+    writeBtn.style.display = 'block'
+}
+
+loadButton.style.display = 'none'
 
 // 초기에 처음 6개의 칼럼을 보이게 함
 for (let i = 6; i < columns.length; i++) {
     columns[i].style.display = 'none';
+    loadButton.style.display = 'flex'
 }
 
 let visibleItemCount = 6; // 현재 보이는 게시글 수
