@@ -77,7 +77,7 @@ public class HAccountController {
 	}
 	
 	// 초대장 들어가기
-	@GetMapping("/account/invite/{key}")
+	@GetMapping("/accounted/invite/{key}")
 	public String emailInvite(@PathVariable("key") String key, Model model) {
 		
 		model.addAttribute("key", key);
@@ -86,7 +86,7 @@ public class HAccountController {
 	}
 	
 	// 초대장 수락
-	@GetMapping("/account/accept/{key}")
+	@GetMapping("/accounted/accept/{key}")
 	public String inviteAccept(@PathVariable("key") String key, RedirectAttributes ra) {
 		
 		System.out.println("key : " + key);

@@ -165,7 +165,7 @@
 		"LIKE"
 		WHERE BR_NO = #{boardNo}
 		AND MEMBER_NO = #{memberNo}
-        AND LIKE_CODE = #{boardCode}	
+        AND LIKE_CODE = 1	
 	
 	</select>
 	
@@ -173,7 +173,7 @@
 	<!-- 좋아요 삽입 -->
 	<insert id="likeInsert">
 		INSERT INTO "LIKE" 
-		VALUES(#{memberNo}, #{boardNo}, 4)
+		VALUES(#{memberNo}, #{boardNo}, 1)
 	</insert>
 	
 	<!-- 좋아요 삭제 -->
@@ -181,7 +181,7 @@
 		DELETE FROM "LIKE" 
 		WHERE MEMBER_NO = #{memberNo}
 		AND BR_NO = #{boardNo}
-		AND LIKE_CODE = 4
+		AND LIKE_CODE = 1
 	</delete>
 	
 	
@@ -191,7 +191,7 @@
 		SELECT COUNT(*) AS LIKE_COUNT FROM
 		"LIKE"
 		WHERE BR_NO = #{boardNo}
-        AND LIKE_CODE = 4
+        AND LIKE_CODE = 1
 	
 	</select>
 	
