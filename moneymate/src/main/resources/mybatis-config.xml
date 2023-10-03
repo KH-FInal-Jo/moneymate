@@ -31,6 +31,7 @@
         <typeAlias type="edu.kh.project.board.model.dto.CReport" alias="CReport" />
         <typeAlias type="edu.kh.project.admin.model.dto.CPay" alias="CPay" />
         <typeAlias type="edu.kh.project.admin.model.dto.JReport" alias="JReport" />
+        <typeAlias type="edu.kh.project.main.model.websocket.dto.Alert" alias="Alert" />
 	</typeAliases>
 	
 	<!-- mapper 연결 -->

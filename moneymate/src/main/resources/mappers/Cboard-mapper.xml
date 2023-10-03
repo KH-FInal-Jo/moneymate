@@ -409,6 +409,12 @@
 		)
 	</insert>
 	
+	<!-- 알람 테이블 댓글 삽입 -->
+	<insert id="insertAlarmComment">
+		INSERT INTO ALERT VALUES(SEQ_ALERT_NO.NEXTVAL,#{boardNo}, SEQ_COMMENT_NO.NEXTVAL , DEFAULT, DEFAULT, (SELECT MEMBER_NO FROM BOARD
+		WHERE BOARD_NO = #{boardNo}) )
+	</insert>
+	
 	
 	<!-- 댓글 삭제 -->
 	<update id="deleteComment">

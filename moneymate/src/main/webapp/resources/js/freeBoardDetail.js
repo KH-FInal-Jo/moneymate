@@ -264,7 +264,13 @@ function selectCommentList() {
 const addComment = document.getElementById("addComment");
 const commentContent = document.getElementById("commentContent");
 
-addComment.addEventListener("click", e => {
+addComment.addEventListener("click", e=>{
+
+    insertComment(commentContent);
+})
+
+function insertComment(commentContent){
+
     if(loginMemberNo == ""){ 
         alert("로그인 후 이용해주세요.");
         return;
@@ -302,7 +308,9 @@ addComment.addEventListener("click", e => {
         }
     })
     .catch(e => console.log(e));
-});
+
+}
+
 
 
 

@@ -45,6 +45,22 @@
 	</resultMap>
 	
 	
+	
+	
+	<!-- Alert resultMap -->
+	<resultMap type="Alert" id="Alert-rm">
+
+		<id property="alertNo" column="ALERT_NO" />
+
+		<result property="boardNo" column="BOARD_NO" />
+		<result property="commentNo" column="COMMENT_NO" />
+		<result property="alertSt" column="ALERT_ST" />
+		<result property="alertTarget" column="ALERT_TARGET" />
+		<result property="memberNo" column="MEMBER_NO" />
+
+	</resultMap>
+	
+	
 
 	<!-- 게시글 삽입 -->
 	<insert id="columnInsert" parameterType="SBoard"
@@ -225,6 +241,13 @@
 	
 	</select>
 	
+	<select id="alertNumber" resultMap="Alert-rm">
+	
+		SELECT ALERT_NO, BOARD_NO, COMMENT_NO, ALERT_ST, ALERT_TARGET, MEMBER_NO FROM ALERT
+		WHERE MEMBER_NO = #{memberNo}
+		AND ALERT_ST = 'N'
+	
+	</select>
 	
 	
 	
