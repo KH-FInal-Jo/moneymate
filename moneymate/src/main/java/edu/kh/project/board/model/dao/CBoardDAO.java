@@ -157,6 +157,12 @@ public class CBoardDAO {
 	}
 
 
+	// 알람 테이블 댓글 삽입
+	public int insertAlarmComment(CComment comment) {
+		return sqlSession.insert("CboardMapper.insertAlarmComment", comment);
+	}
+
+
 
 	
 

@@ -47,7 +47,7 @@
 
                 </div>
             </div>
-            <!-- 컬럼 목록 -->       
+            <!-- 컬럼 목록 -->      
 
 
                 <c:choose>
@@ -55,7 +55,9 @@
                     <c:when test="${empty columnList}">
 
                         <%-- 조회된 게시글이 존재하지 않을 경우 --%>
-                         <a href="/community/4/insert"><button id="Swrite">글쓰기</button></a>
+
+                        <a href="/community/4/insert"><button id="Swrite">글쓰기</button></a>
+                        
 
                         <div class="one">
                             게시글이 존재하지 않습니다.
@@ -64,7 +66,10 @@
                     </c:when>
 
                     <c:otherwise>
-                    <a href="/community/4/insert"><button id="Swrite">글쓰기</button></a>
+
+
+                        <a href="/community/4/insert"><button id="Swrite">글쓰기</button></a>
+                            
                     
                         <%-- 게시글 목록 조회 결과가 있다면 --%>
                         <c:forEach items="${columnList}" var="column">
@@ -79,6 +84,9 @@
                                     </div>
                                     <div>
                                         작성일 : ${column.boardCreateDate}
+                                    </div>
+                                    <div>
+                                        조회수 : ${column.readCount}
                                     </div>
                                 </div>
                             </div>
@@ -116,7 +124,11 @@
    
 
 
-   
+    <script>
+
+
+        const memberNo = ${loginMember.memberNo}
+    </script>
 
     <script src="/resources/js/column.js"></script>
     

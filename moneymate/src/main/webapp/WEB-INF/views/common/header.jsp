@@ -71,28 +71,37 @@
                     <c:if test="${loginMember.authority == 1}">
                        <a href="/admin/member"><span>관리자</span></a>
                     </c:if> --%>
-                    <span><i class="fa-solid fa-bell fa-2x" id="alarm-btn" style="color: #efe834;"></i></span>
-                    <div class="alarm-area">
-                        
-                        <span id="alarm-number">1</span>
-                        <div id="alarm-page">
-                            <div class="alarm-check">
-                                <span><i class="fa-solid fa-right-to-bracket"></i></span>
-                                <a href="#"><span>작성하신 댓글에 답글이 달렸습니다.11</span></a>
-                            </div>
-                            <div class="alarm-check">
-                                <span><i class="fa-solid fa-right-to-bracket"></i></span>
-                                <a href="#"><span>작성하신 댓글에 답글이 달렸습니다.22</span></a>
-                            </div>
-                            <div class="alarm-check">
-                                <span><i class="fa-solid fa-right-to-bracket"></i></span>
-                                <a href="#"><span>작성하신 댓글에 답글이 달렸습니다.33</span></a>
-                            </div>
-                            <button id="close-btn">닫기</button>
-    
+                    <c:if test="${!empty loginMember}" >
 
+                        <span><i class="fa-solid fa-bell fa-2x" id="alarm-btn" style="color: #efe834;"></i></span>
+                        <div class="alarm-area">
+                            <span id="alarm-number"></span>
+                            <div id="alarm-page">
+                                <div id="modal">
+
+                                    <div id="alarmImg-area"><img src="/resources/images/로고.png" class="alarm-img"></div>
+
+                                    <div id="alarm-head">알림</div>
+
+                                    
+                                    <a href="#">
+                                        <div class="alarm-check">
+                                            <img src=""><div class="alarm-content"></div>
+                                        </div>
+                                    </a>
+                                    
+
+                                    <div id="alarm-date"></div>
+                                    
+                                    <button id="close-btn">닫기</button>
+
+                                </div>
+        
+
+                            </div>
                         </div>
-                    </div>
+
+                    </c:if>
     
                 </div>
                 <!-- 헤더 프로필 -->
@@ -123,6 +132,13 @@
 
 
     </main>
+
+    <script>
+
+        const member = ${loginMember.memberNo}
+        const memberName = "${loginMember.memberNickname}"
+    </script>
+
 
     <script src="/resources/js/header.js"></script>
 </body>

@@ -148,12 +148,6 @@ function handleFetch(month) {
 
           spend.innerHTML = "지출 : " + formattedMoney + "원";
 
-          const incomebtn = document.getElementById("income");
-          if(spend.innerText !== '내역 없음' && incomebtn.innerText == '내역 없음'){
-            // alert("해당 월에 지출 내역이 존재하지 않습니다.")
-            check = 2;
-  
-          }
 
 
       } 
@@ -171,24 +165,11 @@ function handleFetch(month) {
           // alert("해당 월에 지출,수입 내역이 존재하지 않습니다.")
           check = 0;
         }
-        if(spend.innerText == '내역 없음' && incomebtn.innerText !== '내역 없음'){
-          // alert("해당 월에 지출 내역이 존재하지 않습니다.")
-          check = 1;
 
+        if(check == 0){
+          alert("해당 월에 지출,수입 내역이 존재하지 않습니다.")
         }
 
-        
-
-        
-          if(check == 0){
-            alert("해당 월에 지출,수입 내역이 존재하지 않습니다.")
-          }
-          if(check == 1){
-            alert("해당 월에 지출 내역이 존재하지 않습니다.")
-          }
-          if(check == 2){
-            alert("해당 월에 수입 내역이 존재하지 않습니다.")
-          }
         
 
         
@@ -215,6 +196,8 @@ function handleFetchIncome(month) {
 
           incomebtn.innerHTML = "수입 : " + formattedMoney + "원";
 
+
+
           
         }
       })
@@ -223,15 +206,8 @@ function handleFetchIncome(month) {
         console.log(err);
         const incomebtn = document.getElementById("income");
         incomebtn.innerText = "내역 없음";
-        
-        if(spend.innerText !== '내역 없음' && incomebtn.innerText == '내역 없음'){
-          // alert("해당 월에 지출 내역이 존재하지 않습니다.")
-          check = 2;
-  
-        }
-        if(check == 2){
-          alert("해당 월에 수입 내역이 존재하지 않습니다.")
-        }
+
+       
 
       });
   }
