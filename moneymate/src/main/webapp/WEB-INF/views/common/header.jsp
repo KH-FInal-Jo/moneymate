@@ -77,12 +77,25 @@
                         <div class="alarm-area">
                             <span id="alarm-number"></span>
                             <div id="alarm-page">
-                                <div class="alarm-check">
-                                    <span><i class="fa-solid fa-right-to-bracket"></i></span>
-                                    <a href="#"><span class="alarm-content"></span></a>
+                                <div id="modal">
+
+                                    <div id="alarmImg-area"><img src="/resources/images/로고.png" class="alarm-img"></div>
+
+                                    <div id="alarm-head">알림</div>
+
+                                    
+                                    <a href="#">
+                                        <div class="alarm-check">
+                                            <img src=""><div class="alarm-content"></div>
+                                        </div>
+                                    </a>
+                                    
+
+                                    <div id="alarm-date"></div>
+                                    
+                                    <button id="close-btn">닫기</button>
+
                                 </div>
-                                
-                                <button id="close-btn">닫기</button>
         
 
                             </div>
@@ -123,7 +136,7 @@
     <script>
 
         const member = ${loginMember.memberNo}
-
+        const memberName = "${loginMember.memberNickname}"
     </script>
 
 

@@ -17,6 +17,8 @@ public class AlertServiceImpl implements AlertService{
 	// 알람 갯수 받기
 	@Override
 	public List<Alert> alertNumber(int memberNo) {
+		
+		
 		return dao.alertNumber(memberNo);
 	}
 	

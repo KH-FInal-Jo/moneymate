@@ -22,4 +22,5 @@ public class AlertDAO {
 		return sqlSession.selectList("SBoardMapper.alertNumber", memberNo);
 	}
 
+
 }

@@ -56,7 +56,10 @@
 		<result property="commentNo" column="COMMENT_NO" />
 		<result property="alertSt" column="ALERT_ST" />
 		<result property="alertTarget" column="ALERT_TARGET" />
-		<result property="memberNo" column="MEMBER_NO" />
+		<result property="memberNickname" column="MEMBER_NICKNAME" />
+		<result property="content" column="CONTENT" />
+		<result property="alarmDate" column="COMMENT_DT" />
+		<result property="profile" column="PROFILE" />
 
 	</resultMap>
 	
@@ -241,14 +244,35 @@
 	
 	</select>
 	
+	<!-- 알림 데이터 가져오기 -->
 	<select id="alertNumber" resultMap="Alert-rm">
 	
-		SELECT ALERT_NO, BOARD_NO, COMMENT_NO, ALERT_ST, ALERT_TARGET, MEMBER_NO FROM ALERT
-		WHERE MEMBER_NO = #{memberNo}
-		AND ALERT_ST = 'N'
+		SELECT A.ALERT_NO, A.BOARD_NO, A.COMMENT_NO, A.ALERT_ST, A.ALERT_TARGET, M.MEMBER_NICKNAME, M.PROFILE
+        ,
+        <![CDATA[ 
+        CASE
+            WHEN LENGTH(C.COMMENT_CONTENT) <= 30 THEN C.COMMENT_CONTENT]]>
+            ELSE SUBSTR(C.COMMENT_CONTENT,1,30) || '...'
+            END AS CONTENT
+        ,<![CDATA[ 
+        CASE  
+               WHEN SYSDATE - C.COMMENT_DT < 1/24/60
+               THEN FLOOR( (SYSDATE - C.COMMENT_DT) * 24 * 60 * 60 ) || '초 전'
+               WHEN SYSDATE - C.COMMENT_DT < 1/24
+               THEN FLOOR( (SYSDATE - C.COMMENT_DT) * 24 * 60) || '분 전'
+               WHEN SYSDATE - C.COMMENT_DT < 1
+               THEN FLOOR( (SYSDATE - C.COMMENT_DT) * 24) || '시간 전'
+               ELSE TO_CHAR(C.COMMENT_DT, 'YYYY-MM-DD')]]>
+            END COMMENT_DT
+        FROM ALERT A
+        JOIN "COMMENT" C ON (A.COMMENT_NO-1) = C.COMMENT_NO
+        JOIN "MEMBER" M ON C.MEMBER_NO = M.MEMBER_NO
+		WHERE A.MEMBER_NO = #{memberNo}
+		AND A.ALERT_ST = 'N'
+		AND C.MEMBER_NO != #{memberNo}
+		ORDER BY A.ALERT_NO DESC
 	
 	</select>
-	
 	
 	
 	

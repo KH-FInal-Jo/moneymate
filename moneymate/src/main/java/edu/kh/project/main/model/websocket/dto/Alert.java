@@ -14,7 +14,10 @@ public class Alert {
 	private int commentNo;
 	private String alertSt;
 	private String alertTarget;
-	private int memberNo;
+	private String memberNickname;
+	private String content;
+	private String alarmDate;
+	private String profile;
 	
 	
 	

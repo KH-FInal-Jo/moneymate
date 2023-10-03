@@ -9,8 +9,10 @@ const alarm = document.getElementById("alarm-btn")
 /* 알람 숫자 */
 let alarmNum = document.getElementById("alarm-number")
 
-const alarmContent = document.getElementsByClassName("alarm-content")
-// 알림 페이지
+
+
+/* 모달(내용 뜨는 창) */
+const modal = document.getElementById("modal")
 
 
 // 알림함 즉시실행 함수
@@ -26,23 +28,72 @@ if(member !== ''){
         
         for(let i=0; i<result.length; i++){
 
+            const a = document.createElement("a")
+            a.setAttribute("href" , "/community/3/" + result[i].boardNo)
+
             const div = document.createElement("div")
             div.classList.add("alarm-check")
 
 
-            const a = document.createElement("a")
-            a.setAttribute("href" , "/community/3/" + result[i].boardNo)
 
-            const span = document.createElement("span")
-            span.classList.add("alarm-content")
+            const img = document.createElement("img")
+            img.classList.add("alarm-profile")
+            if(result[i].profile == '이미지경로'){
 
-            span.innerHTML = '댓글 달림'
+                img.setAttribute("src", "/resources/images/id.png")
+            } else {
+                img.setAttribute("src", result[i].profile)
+            }
 
-            a.append(span)
-            div.append(a)
-            alarmPage.append(div)
+            if(result[i].profile == ''){
+
+                img.setAttribute("src", "/resources/images/id.png")
+            }
 
 
+
+            const content = document.createElement("div")
+
+
+
+            const date = document.createElement("div")
+            date.classList.add("alarm-date")
+
+
+            console.log(result[i].alertTarget)
+
+            if(result[i].alertTarget == 'O'){
+                content.innerHTML = '목표 예산 달성을 축하드립니다~!'
+                return;
+            }
+
+            
+            content.innerHTML = result[i].memberNickname + '님이 게시글에 댓글을 달았습니다. "'  
+            + result[i].content + '"'
+            
+            date.innerHTML = result[i].alarmDate
+            
+            div.append(img,content)
+            a.append(div)
+            modal.append(a,date)
+            alarmPage.append(modal)
+
+            /* 알림 내역 */
+            const alarmContent = document.getElementsByClassName("alarm-check")
+
+            /* 알림 내역 누르면 읽음으로 변경하기 */
+            for(let i=0; i<alarmContent.length; i++){
+
+                alarmContent[i].addEventListener("click", e=>{
+                    console.log("읽음")
+
+                    // 비동기로 서버로 보내고 update 실행하기
+                    
+                })
+
+            }
+            
+            
         }
 
 
@@ -63,8 +114,12 @@ if(member !== ''){
 
 
 
+
+
 alarm.addEventListener("click", ()=>{
     alarmPage.style.display = 'flex'
+    alarmPage.style.justifyContent = 'center'
+    alarmPage.style.alignItems = 'center'
 })
 
 /* 알림함 닫기버튼 */
