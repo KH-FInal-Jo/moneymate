@@ -88,7 +88,7 @@
 	    </selectKey>
 	
 		INSERT INTO "COMMENT" VALUES(#{commentNo}, #{commentContent}, 
-		SYSDATE, DEFAULT, #{memberNo}, 0)
+		SYSDATE, DEFAULT, #{memberNo}, 0, 0)
 	</insert>
 	
 	<!-- 댓글 이미지 삽입 -->
