@@ -20,11 +20,23 @@
 
         <section class="admin-container">
 
-           <jsp:include page="/WEB-INF/views/admin/adminSidemenu.jsp"/>
+            <section class="j-admin-sidemenu">
+                <div class="j-admin-sidemenu-container">
+                    <div class="j-admin-sidemenu-title"><a href="/admin/member">회원 관리</a></div>
+            
+                    <div class="j-admin-sidemenu-content">
+                        <div id="j-admin-report" onclick="reportBtn()">신고 관리</div>
+                        <div id="j-admin-report-container">
+                            <div><a href="/admin/reportManage/chatt">채팅</a></div>
+                            <div><a href="/admin/reportManage/board">게시판</a></div>
+                        </div>
+                        <div><a href="/admin/payment">결제 관리</a></div>
+                </div>
+            </section>
            
 
             <section class="admin-main">
-            <div><h1>신고관리</h1></div>
+            <div><h1>채팅 신고관리</h1></div>
                 <div class="admin-report-list">
                     <table border="1" class="admin-report-table">
                         <tr class="admin-report-list-header">
@@ -103,5 +115,6 @@
     </main>
 
     <script src="/resources/js/reportManage2.js"></script>
+    <script src="/resources/js/adminSidemenu.js"></script>
 </body>
 </html>

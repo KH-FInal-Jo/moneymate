@@ -114,7 +114,7 @@
             </button>
             <button class="w-btn w-btn-gra1 w-btn-gra-anim" data-num="2">
                 <h3>아직도 여행지만 정해둔 상태...</h3>
-                <h3>핫플만 간간히 사용한다.</h3>
+                <h3>핫플만 간간히 방문한다.</h3>
             </button>
             
            

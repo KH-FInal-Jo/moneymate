@@ -60,9 +60,9 @@
                                         <c:if test="${!empty board.thumbnail}" >
                                             <img src="${board.thumbnail}">
                                         </c:if>
-                                        <c:if test="${empty board.thumbnail}" >
+                                        <!-- <c:if test="${empty board.thumbnail}" >
                                             <img src="/resources/images/mongja2.jpg">
-                                        </c:if>
+                                        </c:if> -->
                                     </div>
                                     <div class="board">
                                         <div class="title">

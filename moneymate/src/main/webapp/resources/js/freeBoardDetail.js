@@ -65,12 +65,12 @@ function reportMember(boardNo, loginMemberNo){
     .then(resp => resp.text())
     .then(count => {
         console.log(count);
-        if(count == 0){
-            location.href = "/community/report?boardNo="+boardNo;
+        location.href = "/community/report?boardNo="+boardNo;
+        /* if(count == 0){
             return;
         } else{
-            alert("같은 게시글을 중복 신고할 수 없습니다.");
-        }
+            alert("같은 게시글을 중복 신고할 수 없습니다.11111111");
+        } */
     })
     .catch();
 
@@ -98,15 +98,29 @@ memberNickname.addEventListener("click", function(){
 
     if(report.length > 0){
 
-        if(true){
-            report[0].nextElementSibling.remove(); 
-            report[0].remove();
         
-        } else{
-            return;
-        }
-    }
+        report[0].nextElementSibling.remove(); 
+        report[0].remove();
+        
+        
+    } else{
+        return;
+    } 
+    /* const existingReportButton = document.querySelector(".report");
     
+    if (existingReportButton) {
+        // 신고 버튼이 이미 존재하는 경우, 제거
+        existingReportButton.remove();
+    }
+
+    const reportBtn = document.createElement("button");
+    reportBtn.innerText = "신고하기";
+    reportBtn.setAttribute("onclick", "reportMember("+boardNo+","+loginMemberNo+", this)");
+    reportBtn.classList.add("report");
+    
+    memberNickname.append(reportBtn);
+ */
+
 })
 
 

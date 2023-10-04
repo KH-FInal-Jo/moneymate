@@ -275,7 +275,7 @@ public class CMemberController {
 	 }
 	 
 	 
-	 @GetMapping("insertTestResult")
+	 @GetMapping("/insertTestResult")
 	 @ResponseBody
 	 public int insertTestResult(@SessionAttribute("loginMember") Member loginMember, String testResult) {
 		 
@@ -293,9 +293,10 @@ public class CMemberController {
 	 
 	 
 	 
-	 @GetMapping("updateTestResult")
+	 @GetMapping("/updateTestResult")
 	 @ResponseBody
 	 public int updateTestResult(@SessionAttribute("loginMember") Member loginMember, String testResult) {
+		 
 		 
 		 loginMember.setTestResult(testResult);
 		 

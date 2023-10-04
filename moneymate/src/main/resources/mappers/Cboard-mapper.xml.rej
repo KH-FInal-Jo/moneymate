@@ -1,0 +1,10 @@
+diff a/moneymate/src/main/resources/mappers/Cboard-mapper.xml b/moneymate/src/main/resources/mappers/Cboard-mapper.xml	(rejected hunks)
+@@ -432,7 +432,7 @@
+ 		VALUES( #{reportNo},
+ 		#{reportedNo},
+ 		#{reportContent},
+-		#{boardNo}, #{reportCode}, #{reportCategory}, DEFAULT, DEFAULT
++		#{boardNo}, 1, #{reportCategory}, DEFAULT, DEFAULT
+ 		)
+ 	</insert>
+ 	
