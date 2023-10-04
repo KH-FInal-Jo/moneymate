@@ -300,6 +300,7 @@
 	
 	</select>
 	
+	<!-- 알람 회원번호 얻어오기 -->
 	<select id="memberNo" resultMap="board_rm">
 	
 		SELECT (SELECT MEMBER_NO  FROM BOARD
@@ -310,8 +311,29 @@
 	
 	</select>
 	
+	<!-- 알람 갯수 조회 -->
+	<select id="countAlarm" resultType="_int">
 	
+		SELECT COUNT(*) FROM ALERT
+		WHERE MEMBER_NO = #{memberNo}
+		AND ALERT_ST = 'N'
 	
+	</select>
+	
+	<!-- boardNo 구하기 -->
+	<select id="selectBoardNo" resultType="_int">
+	
+		SELECT BOARD_NO FROM ALERT
+		WHERE ALERT_NO = #{alertNo}
+	
+	</select>
+	
+	<!-- update 읽음 으로 변경 -->
+	<update id="updateBoard">
+		UPDATE ALERT	
+		SET ALERT_ST = 'Y'
+		WHERE ALERT_NO = #{alertNo}
+	</update>
 	
 	
 	

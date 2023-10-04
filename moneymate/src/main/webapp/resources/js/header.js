@@ -9,6 +9,8 @@ const alarm = document.getElementById("alarm-btn")
 /* 알람 숫자 */
 let alarmNum = document.getElementById("alarm-number")
 
+/* 알람 내역 컨테이너 */
+const container = document.getElementById("content-container")
 
 
 /* 모달(내용 뜨는 창) */
@@ -17,6 +19,8 @@ const modal = document.getElementById("modal")
 
 // 알림함 즉시실행 함수
 if(member !== ''){
+    // 알람 갯수 조회 함수호출
+    countAlarm()
 
     let alertSock;
     alertSock = new SockJS("/alertSock")
@@ -31,6 +35,31 @@ if(member !== ''){
 
     }
 
+    alarm.addEventListener("click", ()=>{
+
+        fetch("/alert/alertNumber")
+        .then(resp => resp.json())
+        .then(result => {
+            console.log(result)
+            selectAlarm(result)
+        })
+    })
+
+    // 알람 갯수 조회 비동기
+    function countAlarm(){
+
+        fetch("/alert/countAlarm")
+        .then(resp => resp.json())
+        .then(count =>{
+
+            alarmNum.innerHTML = count;
+
+        })
+        .catch(e=>{
+            console.log(e)
+        })
+
+    }
 
 
 
@@ -40,11 +69,12 @@ if(member !== ''){
 
 
             
+        container.innerHTML = ''
+        
+        for(let i=0; i<result.length; i++){
             
-            for(let i=0; i<result.length; i++){
-    
                 const a = document.createElement("a")
-                a.setAttribute("href" , "/community/3/" + result[i].boardNo)
+                a.setAttribute("href" , "/alert/update?alertNo=" + result[i].alertNo + "&boardNo=" + result[i].boardNo)
     
                 const div = document.createElement("div")
                 div.classList.add("alarm-check")
@@ -90,23 +120,12 @@ if(member !== ''){
                 
                 div.append(img,content)
                 a.append(div)
-                modal.append(a,date)
+                container.append(a, date)
+                modal.append(container)
                 alarmPage.append(modal)
     
                 /* 알림 내역 */
                 const alarmContent = document.getElementsByClassName("alarm-check")
-    
-                /* 알림 내역 누르면 읽음으로 변경하기 */
-                for(let i=0; i<alarmContent.length; i++){
-    
-                    alarmContent[i].addEventListener("click", e=>{
-                        console.log("읽음")
-    
-                        // 비동기로 서버로 보내고 update 실행하기
-                        
-                    })
-    
-                }
     
                 
                 
