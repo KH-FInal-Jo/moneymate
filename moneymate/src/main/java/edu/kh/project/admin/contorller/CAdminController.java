@@ -60,7 +60,6 @@ public class CAdminController {
 	@ResponseBody
 	public int reportDupCheck(@RequestBody Map<String, Object> paramMap) {
 		
-		System.out.println("1111111111"+paramMap);
 		return service.reportDupCheck(paramMap);
 	}
 	

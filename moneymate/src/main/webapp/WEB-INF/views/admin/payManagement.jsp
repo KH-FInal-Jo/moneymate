@@ -23,24 +23,14 @@
             <section class="j-admin-sidemenu">
                 <div class="j-admin-sidemenu-container">
                     <div class="j-admin-sidemenu-title"><a href="/admin/member">회원 관리</a></div>
-
+            
                     <div class="j-admin-sidemenu-content">
                         <div id="j-admin-report" onclick="reportBtn()">신고 관리</div>
                         <div id="j-admin-report-container">
-                            <div><a href="#">채팅</a></div>
+                            <div><a href="/admin/reportManage/chatt">채팅</a></div>
                             <div><a href="/admin/reportManage/board">게시판</a></div>
                         </div>
                         <div><a href="/admin/payment">결제 관리</a></div>
-                        <div id="j-admin-community-list" onclick="adminCommunity()">게시판 관리</div>
-                            <div id="j-admin-com">
-                                <div><a href="#">공지사항</a></div>
-                                <div><a href="#">문의게시판</a></div>
-                                <div><a href="#">자유게시판</a></div>
-                                <div><a href="#">컬럼게시판</a></div>
-                                <div><a href="#">이벤트게시판</a></div>
-    
-                            </div>
-                    </div>
                 </div>
             </section>
 
