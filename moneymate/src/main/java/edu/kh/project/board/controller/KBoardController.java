@@ -234,8 +234,6 @@ public class KBoardController {
 
 		if(boardNo > 0 ) {
 			// 성공 시
-			System.out.println("ㅎ::" + boardNo);
-			System.out.println("ㅎ::" + cp);
 			message = "게시글이 등록 되었습니다.";
 			path += "/community/2/" + boardNo +"?cp=" + cp;
 		}else {
@@ -335,7 +333,6 @@ public class KBoardController {
 	@ResponseBody
 	public int insertComment(@RequestBody CComment comment) {
 		
-		System.out.println(comment);
 		
 		return service.insertComment(comment);
 	}

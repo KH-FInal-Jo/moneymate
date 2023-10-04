@@ -228,7 +228,6 @@ public class CMemberController {
 	@ResponseBody
 	public int checkAuthKey(@RequestParam Map<String, Object> paramMap) {
 		
-		System.out.println("param : " + paramMap);
 		
 		return service.checkAuthKey(paramMap);
 	}
@@ -239,7 +238,6 @@ public class CMemberController {
 	@ResponseBody 
 	public int nicknameDupCheck(String nickname) {
 		
-		System.out.println("nickname : " + nickname);
 		
 		return service.nicknameDupCheck(nickname);
 	}

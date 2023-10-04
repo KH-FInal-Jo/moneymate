@@ -163,7 +163,6 @@ public class KBoardServiceImpl implements KBoardService{
 	public Map<String, Object> selectBoardList(Map<String, Object> paramMap, int cp) {
 		// 1. 특정 게시판의 삭제되지 않은 검색 조건이 일치하는 게시글 수 조회
 		int listCount = dao.getListCount(paramMap);
-			System.out.println("숫자다"+listCount);
 		// 2. 1번의 조회 결과 + cp를 이용해서 Pagination 객체 생성
 		// -> 내부 필드가 모두 계산되어 초기화 됨
 		CPagination pagination = new CPagination(cp, listCount);

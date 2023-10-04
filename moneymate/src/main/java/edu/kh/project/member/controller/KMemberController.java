@@ -93,7 +93,6 @@ public class KMemberController {
 			String addr = String.join("^^^", memberAddress);
 			updateMember.setMemberAddress(addr);
 			int result1 = service.updateInfo(updateMember);
-			System.out.println("loginMember");
 			
 			String message = null;
 			if(result1 > 0) {
@@ -150,7 +149,6 @@ public class KMemberController {
 			,HttpSession session // 세션 객체
 			) throws IllegalStateException, IOException {
 
-		System.out.println("profile" + profile);
 		// 웹 접근 경로
 		String webPath = "/resources/images/member/";
 

@@ -60,7 +60,6 @@ public class HBoardServiceImpl implements HBoardService {
 		// 내용, 작성자.. insert
 		int commentNo = dao.commentInsert(comment);
 		
-		System.out.println(" 1 : " + comment);
 		
 		if(commentNo>0) { // 글자 관련 삽입 성공 시
 			HBoardImage img = new HBoardImage();
@@ -75,7 +74,6 @@ public class HBoardServiceImpl implements HBoardService {
 			
 			int result = dao.insertCommentImage(img);
 			
-			System.out.println(" 2 : " + result);
 			
 			if(result == 1) {
 				String rename = img.getImageReName();
@@ -138,7 +136,6 @@ public class HBoardServiceImpl implements HBoardService {
 				
 				result = dao.updateCommentImage(img);
 				
-				System.out.println(" 2 : " + result);
 				
 				if(result == 1) {
 					String rename = img.getImageReName();
