@@ -32,8 +32,6 @@ public class HAccountController {
 		// 개인 + 그룹 둘 다 조회.. 각각 조회해서 따로 출력하는 방법이 더 좋을 듯
 		Map<String, Object> map = service.accountList(loginMember);
 		
-		System.out.println(map);
-		
 		model.addAttribute("map", map);
 		
 		return "account/accountManage";
@@ -56,7 +54,6 @@ public class HAccountController {
 		account.setAccountName(accountName);
 		account.setMemberEmail(loginMember.getMemberEmail());
 		
-		System.out.println(account);
 		
 		
 		if(gEmail == null) {
@@ -89,11 +86,9 @@ public class HAccountController {
 	@GetMapping("/accounted/accept/{key}")
 	public String inviteAccept(@PathVariable("key") String key, RedirectAttributes ra) {
 		
-		System.out.println("key : " + key);
 		
 		int result = service.inviteAccept(key);
 		
-		System.out.println("result : " + result);
 		
 		//result = 0;
 		

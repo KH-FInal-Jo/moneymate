@@ -21,7 +21,6 @@ public class AccountDAO {
 	 * @return sumMoney
 	 */
 	public int changeMonth(Map<String, Object> map) {
-		System.out.println("dao 확인 : " + map.get("month"));
 		return sqlSession.selectOne("SmemberMapper.changeMonth",map);
 	}
 	
@@ -30,7 +29,6 @@ public class AccountDAO {
 	 * @return
 	 */
 	public int changeMonthUpdateBigger(Map<String, Object> map) {
-		// TODO Auto-generated method stub
 		return sqlSession.selectOne("SmemberMapper.changeMonthBigger",map);
 	}
 	
@@ -39,7 +37,6 @@ public class AccountDAO {
 	 * @return
 	 */
 	public int changeMonthIncome(Map<String, Object> map) {
-		// TODO Auto-generated method stub
 		return sqlSession.selectOne("SmemberMapper.changeMonthIncome",map);
 	}
 	
@@ -48,7 +45,6 @@ public class AccountDAO {
 	 * @return
 	 */
 	public int changeMonthIncomeBigger(Map<String, Object> map) {
-		// TODO Auto-generated method stub
 		return sqlSession.selectOne("SmemberMapper.changeMonthIncomeBigger", map);
 	}
 
@@ -67,7 +63,6 @@ public class AccountDAO {
 	 * @return
 	 */
 	public List<SAccount> changeMonthBigger(Map<String, Object> map) {
-		// TODO Auto-generated method stub
 		return sqlSession.selectList("SmemberMapper.selectAccountBigger", map);
 	}
 	
@@ -76,7 +71,6 @@ public class AccountDAO {
 	 * @return
 	 */
 	public List<SAccount> changeMonthUpdateIncome(Map<String, Object> map) {
-		// TODO Auto-generated method stub
 		return sqlSession.selectList("SmemberMapper.selectAccountIncome" , map);
 	}
 	
@@ -85,7 +79,6 @@ public class AccountDAO {
 	 * @return
 	 */
 	public List<SAccount> changeMonthUpdateIncomeBigger(Map<String, Object> map) {
-		// TODO Auto-generated method stub
 		return sqlSession.selectList("SmemberMapper.selectAccountIncomeBigger", map);
 	}
 
@@ -95,7 +88,6 @@ public class AccountDAO {
 	 * @return
 	 */
 	public List<SAccount> changeChart(Map<String, Object> map) {
-		// TODO Auto-generated method stub
 		return sqlSession.selectList("SmemberMapper.selectChart", map);
 	}
 	
@@ -104,7 +96,6 @@ public class AccountDAO {
 	 * @return
 	 */
 	public List<SAccount> changeChartBigger(Map<String, Object> map) {
-		// TODO Auto-generated method stub
 		return sqlSession.selectList("SmemberMapper.selectChartBigger", map);
 	}
 
@@ -115,7 +106,6 @@ public class AccountDAO {
 	 * @return
 	 */
 	public List<SAccount> changeChartIncome(Map<String, Object> map) {
-		// TODO Auto-generated method stub
 		return sqlSession.selectList("SmemberMapper.selectChartIncome",map);
 	}
 
@@ -124,7 +114,6 @@ public class AccountDAO {
 	 * @return
 	 */
 	public List<SAccount> changeChartIncomeBigger(Map<String, Object> map) {
-		// TODO Auto-generated method stub
 		return sqlSession.selectList("SmemberMapper.selectChartIncomeBigger", map);
 	}
 
@@ -133,7 +122,6 @@ public class AccountDAO {
 	 * @return
 	 */
 	public List<SAccount> categoryName(Map<String, Object> map) {
-		// TODO Auto-generated method stub
 		return sqlSession.selectList("SmemberMapper.categoryName", map);
 	}
 
@@ -142,7 +130,6 @@ public class AccountDAO {
 	 * @return
 	 */
 	public List<SAccount> categoryNameIncome(Map<String, Object> map) {
-		// TODO Auto-generated method stub
 		return sqlSession.selectList("SmemberMapper.categoryNameIncome", map);
 	}
 
@@ -151,7 +138,6 @@ public class AccountDAO {
 	 * @return
 	 */
 	public List<SAccount> categoryNameBigger(Map<String, Object> map) {
-		// TODO Auto-generated method stub
 		return sqlSession.selectList("SmemberMapper.categoryNameBigger", map);
 	}
 
@@ -160,7 +146,6 @@ public class AccountDAO {
 	 * @return
 	 */
 	public List<SAccount> categoryNameIncomeBigger(Map<String, Object> map) {
-		// TODO Auto-generated method stub
 		return sqlSession.selectList("SmemberMapper.categoryNameIncomeBigger", map);
 	}
 
