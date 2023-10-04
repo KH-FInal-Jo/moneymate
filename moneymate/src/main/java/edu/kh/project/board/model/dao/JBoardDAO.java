@@ -19,7 +19,6 @@ public class JBoardDAO {
 	public List<JBoard> selectBoardNotice(int boardCode) {
 		
 		
-		System.out.println(boardCode);
 		
 		return sqlSession.selectList("selectBoardNotice", boardCode);
 	}

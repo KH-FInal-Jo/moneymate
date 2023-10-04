@@ -61,7 +61,6 @@ public class HBoardController {
 			
 			String calendarListJson = gson.toJson(calendarList);
 			
-			System.out.println(calendarListJson);
 			
 			model.addAttribute("calendarListJson",calendarListJson);
 		}
@@ -207,13 +206,11 @@ public class HBoardController {
 		comment.setCommentContent(updateContent);
 		
 		comment.setMemberNo(loginMember.getMemberNo());
-		//System.out.println("first " + comment);
 		String webPath = "/resources/images/event/";
 		String filePath = session.getServletContext().getRealPath(webPath);
 		
 		int result = service.commentUpdate(comment, updateImage, webPath, filePath);
 		
-		//System.out.println("직전 " + result);
 		
 		return result;
 	}

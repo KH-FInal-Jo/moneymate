@@ -49,7 +49,6 @@ public class ChattingServiceImpl implements ChattingService{
 
 	@Override
 	public List<Message> selectMessageList( Map<String, Object> paramMap) {
-		System.out.println(paramMap);
 		List<Message> messageList = dao.selectMessageList(  Integer.parseInt( String.valueOf(paramMap.get("chattingNo") )));
 
 		if(!messageList.isEmpty()) {
