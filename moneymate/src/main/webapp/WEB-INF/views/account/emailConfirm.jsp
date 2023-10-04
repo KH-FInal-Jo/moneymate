@@ -24,7 +24,7 @@
             <div>가계부에 초대되었습니다</div>
             <div id="btnArea">
                 <button id="no" onclick="goBack()">거절</button>
-                <button id="yes" onclick="location.href='/account/accept/${key}'">수락</button>
+                <button id="yes" onclick="location.href='/accounted/accept/${key}'">수락</button>
             </div>
         </div>
     </div>

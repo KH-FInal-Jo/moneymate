@@ -45,6 +45,25 @@
 	</resultMap>
 	
 	
+	
+	
+	<!-- Alert resultMap -->
+	<resultMap type="Alert" id="Alert-rm">
+
+		<id property="alertNo" column="ALERT_NO" />
+
+		<result property="boardNo" column="BOARD_NO" />
+		<result property="commentNo" column="COMMENT_NO" />
+		<result property="alertSt" column="ALERT_ST" />
+		<result property="alertTarget" column="ALERT_TARGET" />
+		<result property="memberNickname" column="MEMBER_NICKNAME" />
+		<result property="content" column="CONTENT" />
+		<result property="alarmDate" column="COMMENT_DT" />
+		<result property="profile" column="PROFILE" />
+
+	</resultMap>
+	
+	
 
 	<!-- 게시글 삽입 -->
 	<insert id="columnInsert" parameterType="SBoard"
@@ -90,7 +109,7 @@
 	<!-- 칼럼 게시글 목록 조회 -->
 	<select id="columnList" resultMap="SBoard-rm">
 	
-		SELECT BOARD_NO, BOARD_TITLE, BOARD_DT, IMG_PATH || IMG_RENAME AS THUMBNAIL FROM IMAGE I
+		SELECT BOARD_NO, BOARD_TITLE, BOARD_DT, READ_COUNT, IMG_PATH || IMG_RENAME AS THUMBNAIL FROM IMAGE I
         JOIN BOARD ON (BR_NO = BOARD_NO)
         JOIN MEMBER USING(MEMBER_NO)
 		WHERE I.BR_NO = BOARD_NO
@@ -165,7 +184,7 @@
 		"LIKE"
 		WHERE BR_NO = #{boardNo}
 		AND MEMBER_NO = #{memberNo}
-        AND LIKE_CODE = #{boardCode}	
+        AND LIKE_CODE = 1	
 	
 	</select>
 	
@@ -173,7 +192,7 @@
 	<!-- 좋아요 삽입 -->
 	<insert id="likeInsert">
 		INSERT INTO "LIKE" 
-		VALUES(#{memberNo}, #{boardNo}, 4)
+		VALUES(#{memberNo}, #{boardNo}, 1)
 	</insert>
 	
 	<!-- 좋아요 삭제 -->
@@ -181,7 +200,7 @@
 		DELETE FROM "LIKE" 
 		WHERE MEMBER_NO = #{memberNo}
 		AND BR_NO = #{boardNo}
-		AND LIKE_CODE = 4
+		AND LIKE_CODE = 1
 	</delete>
 	
 	
@@ -191,7 +210,7 @@
 		SELECT COUNT(*) AS LIKE_COUNT FROM
 		"LIKE"
 		WHERE BR_NO = #{boardNo}
-        AND LIKE_CODE = 4
+        AND LIKE_CODE = 1
 	
 	</select>
 	
@@ -225,7 +244,35 @@
 	
 	</select>
 	
+	<!-- 알림 데이터 가져오기 -->
+	<select id="alertNumber" resultMap="Alert-rm">
 	
+		SELECT A.ALERT_NO, A.BOARD_NO, A.COMMENT_NO, A.ALERT_ST, A.ALERT_TARGET, M.MEMBER_NICKNAME, M.PROFILE
+        ,
+        <![CDATA[ 
+        CASE
+            WHEN LENGTH(C.COMMENT_CONTENT) <= 30 THEN C.COMMENT_CONTENT]]>
+            ELSE SUBSTR(C.COMMENT_CONTENT,1,30) || '...'
+            END AS CONTENT
+        ,<![CDATA[ 
+        CASE  
+               WHEN SYSDATE - C.COMMENT_DT < 1/24/60
+               THEN FLOOR( (SYSDATE - C.COMMENT_DT) * 24 * 60 * 60 ) || '초 전'
+               WHEN SYSDATE - C.COMMENT_DT < 1/24
+               THEN FLOOR( (SYSDATE - C.COMMENT_DT) * 24 * 60) || '분 전'
+               WHEN SYSDATE - C.COMMENT_DT < 1
+               THEN FLOOR( (SYSDATE - C.COMMENT_DT) * 24) || '시간 전'
+               ELSE TO_CHAR(C.COMMENT_DT, 'YYYY-MM-DD')]]>
+            END COMMENT_DT
+        FROM ALERT A
+        JOIN "COMMENT" C ON (A.COMMENT_NO-1) = C.COMMENT_NO
+        JOIN "MEMBER" M ON C.MEMBER_NO = M.MEMBER_NO
+		WHERE A.MEMBER_NO = #{memberNo}
+		AND A.ALERT_ST = 'N'
+		AND C.MEMBER_NO != #{memberNo}
+		ORDER BY A.ALERT_NO DESC
+	
+	</select>
 	
 	
 	

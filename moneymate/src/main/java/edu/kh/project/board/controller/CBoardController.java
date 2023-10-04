@@ -310,8 +310,13 @@ public class CBoardController {
 	@PostMapping(value = "/comment")
 	@ResponseBody
 	public int insertComment (@RequestBody CComment comment) {
+		
+		
+		
 		return service.insertComment(comment);
 	}
+	
+	
 	
 	@DeleteMapping("/comment")
 	@ResponseBody

@@ -43,6 +43,7 @@ public interface CBoardService {
 	int updateComment(CComment comment);
 
 	int insertReport(CReport report);
+	
 
 
 	

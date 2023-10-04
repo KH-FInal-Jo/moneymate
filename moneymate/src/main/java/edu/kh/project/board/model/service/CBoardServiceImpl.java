@@ -278,7 +278,14 @@ public class CBoardServiceImpl implements CBoardService {
 		
 		comment.setCommentContent(Util.XSSHandling(comment.getCommentContent()));
 		
-		return dao.insertComment(comment);
+		int result = dao.insertComment(comment);
+		
+		// 댓글 테이블 삽입 성공 시 알림 테이블에도 insert
+		if(result > 0) {
+			return dao.insertAlarmComment(comment);
+		}
+		
+		return result;
 	}
 
 	@Override
