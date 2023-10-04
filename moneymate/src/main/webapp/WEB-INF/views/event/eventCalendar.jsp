@@ -67,7 +67,7 @@
 
         <!-- 모달 -->
         <div id="modal-container">
-            <div id="modal">
+            <div id="Hmodal">
                 <div>5 마일리지가 적립되었습니다.</div>
                 <div>
                     <button type="button" id="mileBtn" class="w-btn w-btn-gra1 w-btn-gra-anim" onclick="gotoEventList()">확인</button>

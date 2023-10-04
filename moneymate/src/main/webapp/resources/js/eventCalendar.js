@@ -82,7 +82,7 @@ function choiceDate(newDIV) {
 
     newDIV.classList.add("choiceDay");           // 선택된 날짜에 "choiceDay" class 추가
 
-    document.getElementById("modal").style.display = "block";
+    document.getElementById("Hmodal").style.display = "block";
     
 }
 

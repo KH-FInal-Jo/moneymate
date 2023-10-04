@@ -183,7 +183,8 @@ td {
 } */
 
 
-#modal{
+#Hmodal{
+    /* display: none; */
     
     position: absolute;
 
@@ -208,7 +209,7 @@ td {
 
 
 
-#modal>div:nth-of-type(1){
+#Hmodal>div:nth-of-type(1){
     height: 250px;
 
     display: flex;
@@ -218,7 +219,7 @@ td {
     font-weight: bold;
 }
 
-#modal>div:nth-of-type(2){
+#Hmodal>div:nth-of-type(2){
     display: flex;
     justify-content: center;
     align-items: center;
