@@ -62,7 +62,6 @@ public class HMemberDAO {
 	 * @return
 	 */
 	public int kakaoSignUp(Map<String, String> paramMap) {
-		System.out.println("회원가입 DAO까지 왔니?");
 		return sqlSession.insert("HMemberMapper.kakaoSignUp", paramMap);
 	}
 

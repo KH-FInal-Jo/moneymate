@@ -181,7 +181,6 @@ public class CMemberServiceImpl implements CMemberService {
 		map.put("authKey", authKey);
 		map.put("email", email);
 
-		System.out.println(map); //{inputKey=xNsH0Q, email=khj981008@naver.com}
 
 		int result = dao.updateAuthKey(map);
 
@@ -263,7 +262,6 @@ public class CMemberServiceImpl implements CMemberService {
 	    params.put("type", "sms"); 
 	    params.put("text", "[MoneyMate] 회원가입 인증번호는 [" + numStr + "] 입니다.");
 	    
-	    System.out.println(params);
 	 
 	    coolsms.send(params); // 메시지 전송
 			  

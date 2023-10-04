@@ -32,9 +32,6 @@ public class HMemberController {
 							, @RequestParam(value="cp", required = false, defaultValue = "1") int cp
 							, Model model) {
 		
-		//System.out.println(boardCode);
-		//System.out.println(memberNo);
-		//System.out.println(cp);
 		
 		// 좋아요 목록 조회
 		// 게시판 이름, 게시글 제목, 썸네일, 작성자, 작성일, 조회수 (좋아요한 게시글만)
@@ -45,7 +42,6 @@ public class HMemberController {
 		
 		Map<String, Object> resMap = service.selectLike(map);
 		
-		//System.out.println(resMap);
 		
 		model.addAttribute("resMap", resMap);
 		
@@ -64,7 +60,6 @@ public class HMemberController {
 		
 		int result = service.cancelLike(board);
 		
-		System.out.println("result " + result);
 		
 		return result;
 	}

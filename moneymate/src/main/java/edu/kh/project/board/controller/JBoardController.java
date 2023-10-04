@@ -37,7 +37,6 @@ public class JBoardController {
 		
 		model.addAttribute("boardList", boardList);
 		
-		System.out.println(boardList);
 		
 		return "board/JboardNotice";
 		
@@ -118,7 +117,6 @@ public class JBoardController {
 		
 		model.addAttribute("board", board);
 		
-		System.out.println(board);
 		
 		return "board/JboardWrite";
 	}

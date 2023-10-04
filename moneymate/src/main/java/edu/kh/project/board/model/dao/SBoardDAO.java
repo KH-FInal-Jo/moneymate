@@ -36,7 +36,6 @@ public class SBoardDAO {
 			result = board.getBoardNo();
 		}
 		
-		System.out.println("DAO boardNO 값 확인 : " + result);
 		
 		return result;
 	}

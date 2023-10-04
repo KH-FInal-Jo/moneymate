@@ -31,7 +31,6 @@ public class SAlertController {
 	@ResponseBody
 	public List<Alert> alertNumber(@SessionAttribute("loginMember") Member loginMember) {
 		
-//		System.out.println("알람 요청 받음");
 		
 		int memberNo = loginMember.getMemberNo();
 		
@@ -59,7 +58,6 @@ public class SAlertController {
 							 , @RequestParam("boardNo") int boardNo) {
 		
 		
-		System.out.println("update 요청 받음" + alertNo + "boardNo : " + boardNo);
 		
 		int result = service.updateBoard(alertNo);
 		

@@ -54,7 +54,6 @@ public class SColumnController {
 		
 		List<SBoard> columnList = service.columnList();
 		
-		System.out.println("columnList : " + columnList);
 		
 		model.addAttribute("columnList",columnList);
 		model.addAttribute("loginMember",loginMember);
@@ -80,10 +79,6 @@ public class SColumnController {
 							, HttpSession session
 							, RedirectAttributes ra)throws IllegalStateException, IOException {
 		
-		System.out.println("요청 받음");
-		System.out.println("boardTitle : " + boardTitle);
-		System.out.println("boardContent : " + boardContent);
-		System.out.println("file : " + images);
 		
 		int boardCode = 4;
 		int boardNo = 0;
@@ -254,7 +249,6 @@ public class SColumnController {
 	@ResponseBody
 	public int columnPrevieous(@RequestParam("boardNo")int boardNo) {
 		
-		System.out.println("이전글 boardNo : " + boardNo);
 		
 		
 		
@@ -266,7 +260,6 @@ public class SColumnController {
 	@ResponseBody
 	public int columnNext(@RequestParam("boardNo")int boardNo) {
 		
-		System.out.println("다음글 boardNo : " + boardNo);
 		
 		
 		
@@ -278,8 +271,6 @@ public class SColumnController {
 	@ResponseBody
 	public int likeCount(@RequestBody Map<String, Integer> paramMap) {
 		
-		System.out.println("좋아요 요청 받음");
-		System.out.println(paramMap);
 		
 		return service.likeCount(paramMap);
 	}
