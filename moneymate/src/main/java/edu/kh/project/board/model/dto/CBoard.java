@@ -21,8 +21,8 @@ public class CBoard {
    private int boardCode;
    private String boardName;
    
-   private int BmemberNo;
-   private int CmemberNo;
+   private int bMemberNo;
+   private int cMemberNo;
    
    private int commentCount;
    private int likeCount; 

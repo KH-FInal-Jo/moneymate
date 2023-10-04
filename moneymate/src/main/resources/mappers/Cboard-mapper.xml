@@ -393,10 +393,15 @@
    </select>
    
    
-   <!-- 댓글 삽입 -->
-   <insert id="insertComment">
+<!-- 댓글 삽입 -->
+   <insert id="insertComment" useGeneratedKeys="true">
+   
+      <selectKey order="BEFORE" resultType="_int"
+         keyProperty="commentNo">
+         SELECT SEQ_COMMENT_NO.NEXTVAL FROM DUAL
+      </selectKey>
       INSERT INTO "COMMENT"
-      VALUES(SEQ_COMMENT_NO.NEXTVAL, #{commentContent}, DEFAULT, DEFAULT, #{memberNo}, #{boardNo}, 
+      VALUES(#{commentNo}, #{commentContent}, DEFAULT, DEFAULT, #{memberNo}, #{boardNo}, 
       
       <!-- 동적 sql : if 문 -->
       
