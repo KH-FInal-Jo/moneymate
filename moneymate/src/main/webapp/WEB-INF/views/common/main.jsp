@@ -106,8 +106,8 @@
 
                     <div class="container1-6">
                         <div id="image-container" class="animate__animated animate__zoomInLeft">
-                            <img src="/resources/images/img_sreen_dark1.png" alt="이미지 1" id="image">
-                            <img src="/resources/images/img_sreen_dark2.png" alt="이미지 2" id="image">
+                            <%-- <img src="/resources/images/photo5.png" alt="이미지 1" class="image1"> --%>
+                            <img src="/resources/images/photo6.png" alt="이미지 2" class="image1">
                         </div>
                     </div>
 
@@ -149,8 +149,8 @@
                         <br>                                     
                 </div>
                 
-                <div id="right5"  class="animate__animated animate__flipInY"><img src="/resources/images/sample1.png"> </div>
-                <div id="right5"  class="animate__animated animate__flipInY"><img src="/resources/images/sample1.png"> </div>
+                <div id="right5"  class="animate__animated animate__flipInY"><img src="/resources/images/photo1.png"> </div>
+                <div id="right6"  class="animate__animated animate__flipInY"><img src="/resources/images/photo3.png"> </div>
             </div>
             <div class="middle5">
                 <div id="font5">
@@ -160,8 +160,8 @@
                     <b>자신만의 금융 이야기를 공유하고, <br>돈을 더 현명하게 다루세요</b>
                 </div>
                 
-                <div id="right5" class="animate__animated animate__flipInY"> <img src="/resources/images/sample1.png"> </div>
-                <div id="right5" class="animate__animated animate__flipInY"> <img src="/resources/images/sample1.png"> </div>
+                <div id="right7" class="animate__animated animate__flipInY"> <img src="/resources/images/photo2.png"> </div>
+                <div id="right8" class="animate__animated animate__flipInY"> <img src="/resources/images/photo4.png"> </div>
             </div>
 
         </div>
