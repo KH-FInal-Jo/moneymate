@@ -86,7 +86,7 @@ public class TestWebsocketHandler extends TextWebSocketHandler{
 			if(userNo == board.getBmemberNo()) {
 				
 				List<Alert> alertList = service.alertNumber(board.getBmemberNo());
-				
+				System.out.println("가져오나?" + alertList);
 				try {
 					s.sendMessage(new TextMessage(new Gson().toJson(alertList)));
 				} catch (IOException e) {
