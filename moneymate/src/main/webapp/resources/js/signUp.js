@@ -188,7 +188,7 @@ function authPhone(){
     const mTel = document.getElementById("mTel");
     const confirmNum = document.getElementById("confirmNum");
     const inputNum = document.getElementById("inputNum");
-    const modal = document.getElementById("modal");
+    const modal = document.getElementById("modal1");
     const authKeyMessage = document.getElementById("authKeyMessage");
     const body = document.getElementById("body");
     const openmodal = document.getElementById("open-modal");
