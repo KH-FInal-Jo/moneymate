@@ -14,7 +14,7 @@
 </head>
 <body id="body">
 
-<jsp:include page="/WEB-INF/views/common/header.jsp" />
+<%-- <jsp:include page="/WEB-INF/views/common/header.jsp" /> --%>
 
 <section class="signUp-content">
 
@@ -64,7 +64,7 @@
 
             <button id="open-modal" type="button">→휴대폰 인증으로 대신하기</button>
 
-            <div id="modal">
+            <div id="modal1">
                 <div class="modal-content">
                     <h2>휴대폰 인증</h2>
                     <p><input type="text" placeholder="휴대폰 번호 입력" id="mTel"> <button onclick="authPhone()">인증번호 받기</button></p>
