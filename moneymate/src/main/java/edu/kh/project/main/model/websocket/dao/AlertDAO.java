@@ -6,6 +6,7 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import edu.kh.project.board.model.dto.CBoard;
 import edu.kh.project.main.model.websocket.dto.Alert;
 
 @Repository
@@ -20,6 +21,15 @@ public class AlertDAO {
 	 */
 	public List<Alert> alertNumber(int memberNo) {
 		return sqlSession.selectList("SBoardMapper.alertNumber", memberNo);
+	}
+
+	/** 글쓴이, 부모댓글 회원번호
+	 * @param commentNo
+	 * @return
+	 */
+	public CBoard memberNo(int commentNo) {
+		// TODO Auto-generated method stub
+		return sqlSession.selectOne("SBoardMapper.memberNo", commentNo);
 	}
 
 

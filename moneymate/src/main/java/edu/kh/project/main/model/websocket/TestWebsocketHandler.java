@@ -1,13 +1,23 @@
 package edu.kh.project.main.model.websocket;
 
+import java.io.IOException;
 import java.util.Collections;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.socket.CloseStatus;
 import org.springframework.web.socket.TextMessage;
 import org.springframework.web.socket.WebSocketSession;
 import org.springframework.web.socket.handler.TextWebSocketHandler;
+
+import com.google.gson.Gson;
+
+import edu.kh.project.board.model.dto.CBoard;
+import edu.kh.project.main.model.websocket.dto.Alert;
+import edu.kh.project.main.model.websocket.service.AlertService;
+import edu.kh.project.member.model.dto.Member;
 
 public class TestWebsocketHandler extends TextWebSocketHandler{
 	
@@ -18,6 +28,9 @@ public class TestWebsocketHandler extends TextWebSocketHandler{
 	// synchronizedSet : 동기화된 Set 객체 반환
 	// -> 멀티쓰레드(줄 안서고 기능들이 서로 실행되려고 함)
 	//	  환경에서 스레드 간의 의도치 않은 충돌을 예방하기 위해서 동기(줄세움)
+	
+	@Autowired
+	private AlertService service;
 	
 	private Set<WebSocketSession> sessions
 		= Collections.synchronizedSet(new HashSet<>());
@@ -32,6 +45,7 @@ public class TestWebsocketHandler extends TextWebSocketHandler{
 		sessions.add(session);
 		
 	}
+	
 
 	// - 클라이언트로부터 텍스트 메세지를 받았을 때 실행
 	@Override
@@ -56,6 +70,53 @@ public class TestWebsocketHandler extends TextWebSocketHandler{
 		
 		// sessions에서 나간 클라이언트의 정보를 제거
 		sessions.remove(session);
+	}
+
+	// serviceImpl 호출 메소드
+	public void sendAlert(int commentNo) {
+		System.out.println("핸들러 호출 메소드");
+		
+		CBoard board = service.memberNo(commentNo);
+		
+		for(WebSocketSession s : sessions) {
+			
+			// 로그인한 회원 번호
+			int userNo = ((Member)s.getAttributes().get("loginMember")).getMemberNo();
+			
+			if(userNo == board.getBmemberNo()) {
+				
+				List<Alert> alertList = service.alertNumber(board.getBmemberNo());
+				
+				try {
+					s.sendMessage(new TextMessage(new Gson().toJson(alertList)));
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				
+			}
+			
+			if(board.getCmemberNo() != 0) {
+				if(userNo == board.getCmemberNo()) {
+					
+					List<Alert> alertList = service.alertNumber(board.getCmemberNo());
+					
+					try {
+						s.sendMessage(new TextMessage(new Gson().toJson(alertList)));
+					} catch (IOException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+					
+				}
+				
+			}
+			
+			
+			
+		}
+		
+		
 	}
 	
 }

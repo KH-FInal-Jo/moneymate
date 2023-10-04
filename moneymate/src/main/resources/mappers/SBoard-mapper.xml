@@ -274,6 +274,16 @@
 	
 	</select>
 	
+	<select id="memberNo" resultType="_int">
+	
+		SELECT (SELECT MEMBER_NO  FROM BOARD
+	      WHERE BOARD_NO = (SELECT BOARD_NO FROM "COMMENT" WHERE COMMENT_NO = #{commentNo})) B_MEMBER_NO,
+	      (SELECT MEMBER_NO  FROM "COMMENT"
+	      WHERE COMMENT_NO = (SELECT PARENT_NO FROM "COMMENT" WHERE COMMENT_NO = #{commentNo})) C_MEMBER_NO
+	      FROM DUAL
+	
+	</select>
+	
 	
 	
 	
