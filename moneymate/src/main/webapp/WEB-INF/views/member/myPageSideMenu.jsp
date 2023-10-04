@@ -8,7 +8,7 @@
    <div class="j-myPage-content-header">
       <div>My page</div>
       <div class="result">소비성향 > ${loginMember.testResult}</div>
-	   <div>
+	   <div class="JmemberPro">
 	  	<%-- 프사 들어갈 예정 --%>
       <c:if test="${empty loginMember.profileImage}" >
          <img src="/resources/images/id.png" class="myPageSideImg">

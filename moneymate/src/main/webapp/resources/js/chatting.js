@@ -244,6 +244,7 @@ MytargetInput.addEventListener("input", function () {
             li.classList.add("result-row");
             li.innerText = "일치하는 친구가 없습니다";
             myFriendList.appendChild(li);
+            
          } else {
             friendList.forEach((member) => {
                const li = document.createElement("li");
