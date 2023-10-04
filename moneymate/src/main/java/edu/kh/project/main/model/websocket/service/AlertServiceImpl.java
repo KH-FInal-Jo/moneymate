@@ -29,6 +29,26 @@ public class AlertServiceImpl implements AlertService{
 		// TODO Auto-generated method stub
 		return dao.memberNo(commentNo);
 	}
+
+	// 알람 갯수 조회
+	@Override
+	public int countAlarm(int memberNo) {
+		return dao.countAlarm(memberNo);
+	}
+
+	// boardNo 구하기
+	@Override
+	public int selectBoardNo(int alertNo) {
+		// TODO Auto-generated method stub
+		return dao.selectBoardNo(alertNo);
+	}
+
+	// update 읽음으로 변경
+	@Override
+	public int updateBoard(int alertNo) {
+		// TODO Auto-generated method stub
+		return dao.updateBoard(alertNo);
+	}
 	
 	
 

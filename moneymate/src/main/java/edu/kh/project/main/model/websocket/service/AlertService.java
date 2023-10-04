@@ -21,4 +21,22 @@ public interface AlertService {
 	 */
 	CBoard memberNo(int commentNo);
 
+	/** 알람 갯수 조회
+	 * @param memberNo
+	 * @return
+	 */
+	int countAlarm(int memberNo);
+
+	/** boardNo 구하기
+	 * @param alertNo
+	 * @return
+	 */
+	int selectBoardNo(int alertNo);
+
+	/** update 읽음으로 변경
+	 * @param alertNo
+	 * @return
+	 */
+	int updateBoard(int alertNo);
+
 }

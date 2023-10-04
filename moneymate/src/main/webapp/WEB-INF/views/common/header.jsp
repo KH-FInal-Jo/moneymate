@@ -83,15 +83,19 @@
 
                                     <div id="alarm-head">알림</div>
 
+                                    <div id="content-container">
                                     
-                                    <a href="#">
-                                        <div class="alarm-check">
-                                            <img src=""><div class="alarm-content"></div>
-                                        </div>
-                                    </a>
-                                    
+                                        <a href="#">
+                                            <div class="alarm-check">
+                                                <img src=""><div class="alarm-content"></div>
+                                            </div>
+                                        </a>
+                                        
 
-                                    <div id="alarm-date"></div>
+                                        <div id="alarm-date"></div>
+                                    </div>
+
+                                    
                                     
                                     <button id="close-btn">닫기</button>
 

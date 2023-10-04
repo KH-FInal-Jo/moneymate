@@ -32,5 +32,32 @@ public class AlertDAO {
 		return sqlSession.selectOne("SBoardMapper.memberNo", commentNo);
 	}
 
+	/** 알람 갯수 조회
+	 * @param memberNo
+	 * @return
+	 */
+	public int countAlarm(int memberNo) {
+		// TODO Auto-generated method stub
+		return sqlSession.selectOne("SBoardMapper.countAlarm", memberNo);
+	}
+
+	/** boardNo 구하기
+	 * @param alertNo
+	 * @return
+	 */
+	public int selectBoardNo(int alertNo) {
+		// TODO Auto-generated method stub
+		return sqlSession.selectOne("SBoardMapper.selectBoardNo", alertNo);
+	}
+
+	/** update 읽음으로 변경
+	 * @param alertNo
+	 * @return
+	 */
+	public int updateBoard(int alertNo) {
+		// TODO Auto-generated method stub
+		return sqlSession.update("SBoardMapper.updateBoard", alertNo);
+	}
+
 
 }
