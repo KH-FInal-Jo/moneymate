@@ -114,7 +114,7 @@ form[name="signUp-form"]{
     cursor: pointer;
 }
 
-#modal {
+#modal1 {
     position: fixed;
     z-index: 1;
     left: 0;

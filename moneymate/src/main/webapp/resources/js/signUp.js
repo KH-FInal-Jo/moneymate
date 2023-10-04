@@ -458,7 +458,7 @@ document.getElementById("signUpFrm").addEventListener("submit", e => {
 
 });
 
-const modal = document.getElementById("modal");
+const modal = document.getElementById("modal1");
 const openModalBtn = document.getElementById("open-modal");
 const closeModalBtn = document.getElementById("close-modal");
 
