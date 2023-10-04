@@ -290,7 +290,7 @@ button + button{
 
 
 .container1-5{
-    width: 100%;
+    width: 95%;
     height: 1000px;
     display: block;
     margin-top: 100px;
@@ -299,11 +299,12 @@ button + button{
 
 
 .middle5{
-    width: 90%;
+    width: 100%;
     height: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
+    
     /* text-align: center; */
 }
 
@@ -368,13 +369,51 @@ button + button{
     margin-right: 0;
     padding-left: 0;
     display: flex;
+    border-radius: 20px;
+   
+}
+#right6{
+    width: 20%;
+    margin-right: 0;
+    padding-left: 0;
+    display: flex;
+    border-radius: 20px;
+   
+}
+#right7{
+    width: 20%;
+    margin-right: 0;
+    padding-left: 0;
+    display: flex;
+    border-radius: 20px;
+   
+}
+#right8{
+    width: 20%;
+    margin-right: 0;
+    padding-left: 0;
+    display: flex;
+    border-radius: 20px;
    
 }
 
 #right5>img{
     max-height: 500px;
+    border-radius: 20px;
+}
+#right6>img{
+    max-height: 500px;
+    border-radius: 20px;
+}
+#right7>img{
+    max-height: 500px;
+    border-radius: 20px;
 }
 
+#right8>img{
+    max-height: 500px;
+    border-radius: 20px;
+}
 
 
 
@@ -423,7 +462,7 @@ button + button{
     justify-content: center;
     align-items: center;
     height: 60%;    
-    margin-right: 300px;
+    margin-right: 600px;
    
 }
 
@@ -431,10 +470,21 @@ button + button{
     position: relative;
 }
 
-.image {
+.image1 {
     position: absolute;
     
    
+}
+
+.image1:nth-child(1) {
+    transform: rotate(0deg) translate(0);
+    z-index: 2;
+    
+}
+
+.image1:nth-child(2) {
+    transform: rotate(0deg) translate(-300px, -300px); /* 이미지 간격 및 각도 조절 */
+    z-index: 1;
 }
 
 
@@ -465,7 +515,7 @@ button + button{
     position: relative;
 }
 
-#image{
+.image{
     position: absolute;
 }
 

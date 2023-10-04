@@ -54,10 +54,22 @@ window.addEventListener('scroll', function() {
 
     if(scrollPosition >= 4200){
       document.querySelector('#right5').classList.add('animate__animated');
-      document.querySelector('#right5').classList.add('animate__flipInY');       
+      document.querySelector('#right5').classList.add('animate__flipInY');
+      document.querySelector('#right6').classList.add('animate__animated');
+      document.querySelector('#right6').classList.add('animate__flipInY');  
+      document.querySelector('#right7').classList.add('animate__animated');
+      document.querySelector('#right7').classList.add('animate__flipInY');
+      document.querySelector('#right8').classList.add('animate__animated');
+      document.querySelector('#right8').classList.add('animate__flipInY');        
     }else{
       document.querySelector('#right5').classList.remove('animate__animated');
-      document.querySelector('#right5').classList.remove('animate__flipInY');  
+      document.querySelector('#right5').classList.remove('animate__flipInY');
+      document.querySelector('#right6').classList.remove('animate__animated');
+      document.querySelector('#right6').classList.remove('animate__flipInY');
+      document.querySelector('#right7').classList.remove('animate__animated');
+      document.querySelector('#right7').classList.remove('animate__flipInY'); 
+      document.querySelector('#right8').classList.remove('animate__animated');
+      document.querySelector('#right8').classList.remove('animate__flipInY');       
     }
 
     if(scrollPosition >= 5500){
