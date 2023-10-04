@@ -63,6 +63,32 @@
 
 	</resultMap>
 	
+	<resultMap type="CBoard" id="board_rm">
+
+      <id property="boardNo" column="BOARD_NO" />
+
+      <result property="boardTitle" column="BOARD_TITLE" />
+      <result property="boardCode" column="BOARD_CODE" />
+      <result property="boardName" column="BOARD_NAME" />
+      <result property="boardContent" column="BOARD_CONTENT" />
+      <result property="boardCreateDate" column="BOARD_DT" />
+      <result property="boardUpdateDate" column="BOARD_UPDATE_DT" />
+      <result property="readCount" column="READ_COUNT" />
+      <result property="commentCount" column="COMMENT_COUNT" />
+      <result property="likeCount" column="LIKE_COUNT" />
+      <result property="memberNickname" column="MEMBER_NICKNAME" />
+
+      <result property="memberNo" column="MEMBER_NO" />
+      <result property="profileImage" column="PROFILE_IMG" />
+
+      <result property="thumbnail" column="THUMBNAIL" />
+
+      <result property="bMemberNo" column="B_MEMBER_NO" />
+      <result property="cMemberNo" column="C_MEMBER_NO" />
+      <result property="commentSt" column="COMMENT_ST" />
+      <result property="boardSt" column="BOARD_ST" />
+   </resultMap>
+	
 	
 
 	<!-- 게시글 삽입 -->
@@ -274,7 +300,7 @@
 	
 	</select>
 	
-	<select id="memberNo" resultType="_int">
+	<select id="memberNo" resultMap="board_rm">
 	
 		SELECT (SELECT MEMBER_NO  FROM BOARD
 	      WHERE BOARD_NO = (SELECT BOARD_NO FROM "COMMENT" WHERE COMMENT_NO = #{commentNo})) B_MEMBER_NO,

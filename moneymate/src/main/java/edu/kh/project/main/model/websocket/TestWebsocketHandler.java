@@ -77,15 +77,16 @@ public class TestWebsocketHandler extends TextWebSocketHandler{
 		System.out.println("핸들러 호출 메소드");
 		
 		CBoard board = service.memberNo(commentNo);
+		System.out.println("board : " + board);
 		
 		for(WebSocketSession s : sessions) {
 			
 			// 로그인한 회원 번호
 			int userNo = ((Member)s.getAttributes().get("loginMember")).getMemberNo();
 			
-			if(userNo == board.getBmemberNo()) {
+			if(userNo == board.getBMemberNo()) {
 				
-				List<Alert> alertList = service.alertNumber(board.getBmemberNo());
+				List<Alert> alertList = service.alertNumber(board.getBMemberNo());
 				System.out.println("가져오나?" + alertList);
 				try {
 					s.sendMessage(new TextMessage(new Gson().toJson(alertList)));
@@ -96,11 +97,11 @@ public class TestWebsocketHandler extends TextWebSocketHandler{
 				
 			}
 			
-			if(board.getCmemberNo() != 0) {
-				if(userNo == board.getCmemberNo()) {
+			if(board.getCMemberNo() != 0) {
+				if(userNo == board.getCMemberNo()) {
 					
-					List<Alert> alertList = service.alertNumber(board.getCmemberNo());
-					
+					List<Alert> alertList = service.alertNumber(board.getCMemberNo());
+					System.out.println("CMember 가져오나?" + alertList);
 					try {
 						s.sendMessage(new TextMessage(new Gson().toJson(alertList)));
 					} catch (IOException e) {

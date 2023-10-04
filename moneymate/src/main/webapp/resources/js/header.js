@@ -23,9 +23,11 @@ if(member !== ''){
 
     alertSock.onmessage = e => {
 
-        var map = JSON.parse(e.data);
-        alarmCount.inner
+        var alertList = JSON.parse(e.data);
+        console.log(alertList.length);
+        alarmNum.innerHTML = alertList.length;
         
+        selectAlarm(alertList)
 
     }
 
@@ -34,15 +36,10 @@ if(member !== ''){
 
     console.log("로그인 함")
 
-    function selectAlarm(){
+    function selectAlarm(result){
 
 
-        fetch("/alert/alertNumber")
-        .then(resp => resp.json())
-        .then(result => {
-            console.log(result)
             
-            alarmNum.innerHTML = result.length;
             
             for(let i=0; i<result.length; i++){
     
@@ -116,12 +113,6 @@ if(member !== ''){
             }
     
     
-    
-        })
-        .catch(e => {
-            console.log(e)
-            console.log("못가져옴 ㅅㄱ")
-        })
 
     }
 
@@ -156,17 +147,17 @@ closeBtn.addEventListener("click",()=>{
 const alarmArr = document.querySelectorAll(".alarm-check")
 
 /* 알람 숫자 증가 */
-if(alarmArr.length == ""){
-    /* 알람없으면 숫자 안보이게 */
-    alarmNum.style.display = 'none'
+// if(alarmArr.length == ""){
+//     /* 알람없으면 숫자 안보이게 */
+//     alarmNum.style.display = 'none'
     
-}else{
-    for(let i=0; i<alarmArr.length; i++){
-        alarmNum.innerHTML = i+1
+// }else{
+//     for(let i=0; i<alarmArr.length; i++){
+//         alarmNum.innerHTML = i+1
     
-    }
+//     }
 
-}
+// }
 
 /* 알람 목록 누르면 없애기 */
 for(let i=0; i<alarmArr.length; i++){

@@ -75,7 +75,7 @@
 
                         <span><i class="fa-solid fa-bell fa-2x" id="alarm-btn" style="color: #efe834;"></i></span>
                         <div class="alarm-area">
-                            <span id="alarm-number"></span>
+                            <span id="alarm-number">0</span>
                             <div id="alarm-page">
                                 <div id="modal">
 
@@ -139,7 +139,7 @@
         const memberName = "${loginMember.memberNickname}"
     </script>
 
-
+    <script src="https://cdn.jsdelivr.net/npm/sockjs-client@1/dist/sockjs.min.js"></script>
     <script src="/resources/js/header.js"></script>
 </body>
 </html>
