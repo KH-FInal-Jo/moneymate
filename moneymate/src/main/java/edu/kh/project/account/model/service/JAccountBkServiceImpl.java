@@ -119,7 +119,6 @@ public class JAccountBkServiceImpl implements JAccountBkService{
 		//LocalDate currentDate = LocalDate.now();
 		
 		
-		//System.out.println("endDate" +endDate);
 		// 목표 금액, 시작, 종료 날짜 가져오기
 		//if (endDate.isEqual(currentDate)) {
 			
@@ -130,7 +129,6 @@ public class JAccountBkServiceImpl implements JAccountBkService{
 		    // endDate가 현재 날짜보다 이후인 경우
 		    // 여기서 원하는 작업을 수행하세요.
 			
-			//System.out.println("endDate" +endDate);
 		//}
 		
 		

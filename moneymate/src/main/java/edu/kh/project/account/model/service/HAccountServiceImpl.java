@@ -73,9 +73,6 @@ public class HAccountServiceImpl implements HAccountService{
 				
 				String authKey = createAuthKey();
 				
-				System.out.println("이메일 하나씩 출력");
-				System.out.println(email);
-				
 				
 				//인증메일 보내기
 				MimeMessage mail = mailSender.createMimeMessage();

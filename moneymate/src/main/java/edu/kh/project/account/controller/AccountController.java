@@ -45,9 +45,6 @@ public class AccountController {
 							@RequestParam("accountNo") String accountNo,
 						@SessionAttribute("loginMember") Member loginMember) {
 					   
-	    System.out.println("달 : " + month);
-	    System.out.println("가계부번호 : " + accountNo);
-	    System.out.println("멤버번호 : " + loginMember.getMemberNo());
 	    int memberNo = loginMember.getMemberNo();
 	    
 	    

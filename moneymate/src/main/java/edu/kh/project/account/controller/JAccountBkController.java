@@ -53,7 +53,6 @@ public class JAccountBkController {
 			sub = "N";
 			
 		}
-		System.out.println(sub);
 		model.addAttribute("useMoney", useMoney);
 		model.addAttribute("account", account);
 		model.addAttribute("sub", sub);
