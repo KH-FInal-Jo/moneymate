@@ -92,7 +92,7 @@
                 <hr class="hr">
     
                 <div class="btn-area">
-                    <c:if test="${loginMember.memberNo == comment.memberNo || loginMember.authority == 1}"  >
+                    <c:if test="${loginMember.memberNo == board.memberNo || loginMember.authority == 1}"  >
                         <button id="updateBtn">수정</button>
                         <button id="deleteBtn">삭제</button>
                     </c:if>
