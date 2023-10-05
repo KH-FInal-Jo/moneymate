@@ -82,7 +82,6 @@
     <script>
         // var calendarList = <c:out value="${calendarList}" />;
         var calendarList = '${calendarListJson}';
-        // JavaScript 코드에서 calendarList를 사용할 수 있습니다.
         console.log("calendarList" + calendarList); // 확인을 위해 콘솔에 출력
     </script>
 
