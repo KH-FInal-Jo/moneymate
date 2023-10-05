@@ -65,7 +65,7 @@
                                     <th>이름</th>
                                     <td  class="borderno">
                                         <input type="text" name="memberName" maxlength="8"
-                                            value="${loginMember.memberName}" id="memberName">
+                                            value="${loginMember.memberName}" id="memberName" readonly>
                                             
                                     </td>
                                     <td></td>

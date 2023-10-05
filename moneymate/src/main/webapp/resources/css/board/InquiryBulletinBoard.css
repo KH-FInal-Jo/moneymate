@@ -11,6 +11,7 @@ font-family: 'SDGothic', serif;
 
 .InquiryBulletinBoardmain{
     width: 100%;
+   
 }
 
 .Bcontainer1{
@@ -50,6 +51,7 @@ th, td {
     border: 1px solid #ccc;
     padding: 8px;
     text-align: left;
+   
 }
 
 th {
@@ -116,6 +118,7 @@ th {
     padding: 5px 10px;
     /* border: 1px solid #ddd; */
     border-radius: 3px;
+  
 }
 
 .pagination li a:hover {
@@ -244,4 +247,9 @@ th {
 /* 검색 버튼 아이콘 위치 조정 */
 .search-button i {
     margin-right: 5px;
+}
+
+a{
+    text-decoration: none;
+    color: black;
 }
