@@ -63,4 +63,21 @@ public class CAdminServiceImpl implements CAdminService {
 		return map;
 	}
 
+	@Override
+	public Map<String, Object> selectPayList(Map<String, Object> paramMap, int cp) {
+		
+		int payCount = dao.getPayCount(paramMap);
+		
+		CPagination pagination = new CPagination(cp, payCount);
+		
+		List<CPay> payList = dao.selectPayList(pagination, paramMap);
+		
+		Map<String, Object> map = new HashMap<String, Object>();
+		
+		map.put("pagination", pagination);
+		map.put("payList", payList);
+		
+		return map;
+	}
+
 }

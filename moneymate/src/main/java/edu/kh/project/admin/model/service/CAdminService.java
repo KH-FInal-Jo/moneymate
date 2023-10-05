@@ -12,4 +12,6 @@ public interface CAdminService {
 
 	Map<String, Object> selectPayList(int cp);
 
+	Map<String, Object> selectPayList(Map<String, Object> paramMap, int cp);
+
 }

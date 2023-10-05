@@ -20,12 +20,21 @@ public class CAdminController {
 	private CAdminService service;
 	
 	@GetMapping("/admin/payment")
-	public String paymentManage (@RequestParam(value="cp", required=false, defaultValue = "1") int cp, Model model) {
+	public String paymentManage (@RequestParam(value="cp", required=false, defaultValue = "1") int cp, Model model
+								, @RequestParam Map<String, Object> paramMap) {
 		
-		Map<String, Object> map = service.selectPayList(cp);
 		
+		if(paramMap.get("query") == null) {
+			
+			Map<String, Object> map = service.selectPayList(cp);
+			model.addAttribute("map", map);
+			
+		} else {
+			Map<String, Object> map = service.selectPayList(paramMap, cp);
+
+			model.addAttribute("map", map);
+		}
 		
-		model.addAttribute("map", map);
 		
 		
 		return "admin/payManagement";

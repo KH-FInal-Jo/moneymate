@@ -86,5 +86,21 @@
 	</select>
 	
 	
+	<select id="getPayCount_search" resultType="_int">
+		SELECT COUNT(*) FROM CALCULATE C
+		JOIN "MEMBER" M ON(M.MEMBER_NO = C.MEMBER_NO)
+		WHERE M.MEMBER_NICKNAME LIKE '%${query}%'
+	</select>
+	
+	<select id="selectPayList_search" resultMap="pay_rm">
+		SELECT C.MEMBER_NO, M.MEMBER_NICKNAME, M.MEMBER_EMAIL, S.SUBSCRIBE_START, S.SUBSCRIBE_END, C.USE_MILE
+		FROM CALCULATE C
+		JOIN "MEMBER" M ON(M.MEMBER_NO = C.MEMBER_NO)
+		JOIN "SUBSCRIBE" S ON(S.MEMBER_NO = C.MEMBER_NO)
+		WHERE C.MEMBER_NO = S.MEMBER_NO
+		AND M.MEMBER_NICKNAME LIKE '%${query}%'
+	</select>
+	
+	
 	
 </mapper>
