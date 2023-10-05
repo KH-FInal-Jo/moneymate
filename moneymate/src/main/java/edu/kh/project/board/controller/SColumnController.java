@@ -58,8 +58,10 @@ public class SColumnController {
 		model.addAttribute("columnList",columnList);
 		model.addAttribute("loginMember",loginMember);
 		
-		
+			
 		return "board/Scolumn";
+		
+		
 	}
 	
 	@GetMapping("/4/insert")
