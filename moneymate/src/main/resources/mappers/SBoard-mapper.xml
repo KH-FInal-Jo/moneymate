@@ -120,7 +120,7 @@
 		<foreach collection="list" item="img" separator=" UNION ALL ">
 			SELECT
 			#{img.boardNo} BR_NO,
-			4 IMG_CD,
+			1 IMG_CD,
 			#{img.imagePath} IMG_PATH,
 			#{img.imageRename} IMG_RENAME,
 			#{img.imageOriginal} IMG_ORIGINAL,
@@ -197,7 +197,7 @@
 	<select id="selectImageList" resultMap="SBoardImage_rm">
 		SELECT * FROM IMAGE
 		WHERE BR_NO = #{boardNo}
-		AND IMG_CD = 4
+		AND IMG_CD = 1
 		ORDER BY IMG_LEVEL
 
 	</select>
