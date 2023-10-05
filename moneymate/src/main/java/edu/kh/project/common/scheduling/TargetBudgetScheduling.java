@@ -51,7 +51,6 @@ public class TargetBudgetScheduling {
 
 		List<JAccountBook> accountBk = service.selectAccountBk2();
 
-		System.out.println(accountBk);
 
 		LocalDate currentDate = LocalDate.now();
 
@@ -61,9 +60,6 @@ public class TargetBudgetScheduling {
 				int bigAccountNo = account.getBigAccountNo();
 				int targetMoney = account.getTargetMoney();
 				int memberNo = account.getMemberNo();
-				System.out.println("big" + bigAccountNo);
-				System.out.println("targetMoney :" + targetMoney);
-				System.out.println("memberNo : " + memberNo);
 
 				String endDateStr = account.getEndDate();
 
@@ -79,17 +75,12 @@ public class TargetBudgetScheduling {
 						// 지출 금액 가져오기
 						int useMoney = service.accountBkSelect(selbigAccountNo);
 
-						System.out.println("번호 가져오기" + selbigAccountNo);
-						System.out.println("지출금액 가져오기" + useMoney);
-						System.out.println("멤버넘버 가져오기" + selmemberNo);
 
 						if (useMoney <= targetMoney) {
-							System.out.println("목표예산 성공!!");
 							// 마일리지 update
 							int result = service.insertMileage(selmemberNo);
 							// 알림함 insert
 							int result2 = service.insertAlert(selmemberNo);
-							System.out.println("result 찍히나?" + result);
 						} else {
 							System.out.println("목표예산 실패");
 						}
