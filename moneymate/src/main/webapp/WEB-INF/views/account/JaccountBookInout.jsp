@@ -86,7 +86,7 @@
 						<span class="Jalert"><i class="fa-solid fa-bell fa-2x" id="alarm-btn" style="color: #efe834;"></i></span>
 						<div class="alarm-area">
 							
-							<span id="alarm-number">1</span>
+							<%-- <span id="alarm-number">1</span>
 							<div id="alarm-page">
 								<div class="alarm-check">
 									<span><i class="fa-solid fa-right-to-bracket"></i></span>
@@ -103,7 +103,7 @@
 								<button id="close-btn">닫기</button>
 		
 
-							</div>
+							</div> --%>
 						</div>
 		
 					</div>
