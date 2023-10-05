@@ -1,3 +1,6 @@
+const result = document.getElementById("result");
+
+
 function selectAll(){ // 회원 전체 조회 함수
 
     // ajax 코드
@@ -63,6 +66,18 @@ function selectAll(){ // 회원 전체 조회 함수
 
                 mig.innerHTML = item.mileage;
 
+
+
+                fetch("/member/mypage/sidemenu2")
+                .then(resp => resp.text())
+                .then(testResult => {
+                    if(testResult == ""){
+                        result.innerHTML = "소비테스트를 진행해주세요.";
+                    }else{
+                        result.innerHTML = "소비성향 : " + testResult;
+                    }
+                })
+                .catch();
             }
 
 

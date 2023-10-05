@@ -37,5 +37,9 @@ public class JMemberDAO {
 		return sqlSession.selectList("JBoardMapper.BselectBookmark", map, rowBounds);
 	}
 
+	public String selectMypage3(int memberNo) {
+		return sqlSession.selectOne("JMemberMapper.selectTestResult", memberNo);
+	}
+
 
 }

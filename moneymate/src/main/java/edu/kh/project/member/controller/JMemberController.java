@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.http.client.utils.Punycode;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -58,6 +59,23 @@ public class JMemberController {
 		model.addAttribute("memberList",memberList);
 		
 		return memberList;
+	}
+	
+	
+	@GetMapping(value="/member/mypage/sidemenu2", produces = "application/json; charset=UTF-8")
+	@ResponseBody
+	public String selectMypage3(@SessionAttribute("loginMember") Member loginMember
+			, Model model) {
+		
+		int memberNo = loginMember.getMemberNo();
+		
+		System.out.println("memberNo : " + memberNo);
+		
+		String testResult = service.selectMypage3(memberNo);
+		
+		System.out.println("testResult : " + testResult);
+		
+		return testResult;
 	}
 
 }
