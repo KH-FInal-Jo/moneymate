@@ -24,7 +24,7 @@
 
                 <form action="/community/3/insert" method="POST" class="board-write" id="boardWriteFrm" enctype="multipart/form-data">
                     <h1 class="board-title">
-                        <input type="text" name="boardTitle" placeholder="제목" value="">
+                        <input type="text" name="boardTitle" id="boardTitle" placeholder="제목">
                     </h1>
 
                     <h5>업로드 이미지</h5>
@@ -72,7 +72,7 @@
                     </div>
 
                     <div class="board-content">
-                        <textarea class="boardContent" name="boardContent"></textarea>
+                        <textarea class="boardContent" name="boardContent" id="boardContent"></textarea>
                     </div>
 
                     <div class="board-btn-area">

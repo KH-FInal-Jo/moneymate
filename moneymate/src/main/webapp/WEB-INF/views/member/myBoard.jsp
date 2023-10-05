@@ -75,6 +75,9 @@
                                             <c:if test="${board.boardCode == 3}" >
                                                 [자유]
                                             </c:if>
+                                            <c:if test="${board.boardCode == 4}" >
+                                                [컬럼]
+                                            </c:if>
                                             <a href="/community/${board.boardCode}/${board.boardNo}?cp=${pagination.currentPage}${sp}">${board.boardTitle}</a> [${board.commentCount}]
                                         </div>
                                         <div class="content"><a href="/community/${board.boardCode}/${board.boardNo}?cp=${pagination.currentPage}${sp}">${board.boardContent}</a></div>

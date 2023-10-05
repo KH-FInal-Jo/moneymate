@@ -71,7 +71,7 @@
 
 
                     <div class="btn">
-                        <button id="quitSecession">그만두기</button>
+                        <button id="quitSecession" type="button">그만두기</button>
                         <button id="secession">탈퇴하기</button>
                     </div>
                 </form>
@@ -85,6 +85,7 @@
         const secessionFrm = document.getElementById("secessionFrm");
         const memberPw = document.getElementById("memberPw");
         const check = document.getElementById("check");
+        const quitSecession = document.getElementById("quitSecession");
 
         secessionFrm.addEventListener("submit", e => {
             if(check.checked == false){
@@ -97,6 +98,10 @@
                 alert("비밀번호를 입력해주세요.");
             }
                 
+        })
+
+        quitSecession.addEventListener("click", function(){
+            location.href = "/member/mypage";
         })
 
 
