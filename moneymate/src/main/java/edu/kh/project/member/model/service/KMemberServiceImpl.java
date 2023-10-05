@@ -139,6 +139,7 @@ public class KMemberServiceImpl implements KMemberService{
 	    params.put("type", "sms"); 
 	    params.put("text", "[MoneyMate] 비밀번호 찾기 인증번호는 [" + numStr + "] 입니다.");
 	    
+        System.out.println(params);
 	 
 	    coolsms.send(params); // 메시지 전송
 			  
@@ -235,6 +236,7 @@ public class KMemberServiceImpl implements KMemberService{
 		map.put("authKey", authKey);
 		map.put("email", memberEmail);
 
+        System.out.println(map); 
 
 		int result = dao.updateAuthKey(map);
 

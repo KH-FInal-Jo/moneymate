@@ -180,6 +180,8 @@ public class CMemberServiceImpl implements CMemberService {
 		Map<String, String> map = new HashMap<String, String>();
 		map.put("authKey", authKey);
 		map.put("email", email);
+		
+        System.out.println(map); 
 
 
 		int result = dao.updateAuthKey(map);
@@ -261,6 +263,8 @@ public class CMemberServiceImpl implements CMemberService {
 	    params.put("from", "01032702918");    // 발신전화번호. 테스트시에는 발신,수신 둘다 본인 번호로 하면 됨
 	    params.put("type", "sms"); 
 	    params.put("text", "[MoneyMate] 회원가입 인증번호는 [" + numStr + "] 입니다.");
+	    
+        System.out.println(params);
 	    
 	 
 	    coolsms.send(params); // 메시지 전송
