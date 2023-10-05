@@ -80,7 +80,22 @@ public class HSubscribeController {
 
 		subscribe.setMemberNo(loginMember.getMemberNo());
 		subscribe.setPrice(Integer.valueOf((String) paramMap.get("amount")));
-		subscribe.setUseMile(Integer.parseInt((String) paramMap.get("useMile")));
+
+		if(paramMap.get("useMile") == "") { 
+			
+			subscribe.setUseMile(0);
+		} else {
+			subscribe.setUseMile(Integer.parseInt((String)paramMap.get("useMile")));
+			
+		}
+
+
+		/*
+		 * if (paramMap.get("useMile") == null ||
+		 * paramMap.get("useMile").toString().isEmpty()) { paramMap.put("useMile", "0");
+		 * } else { paramMap.put("useMile", paramMap.get("useMile").toString()); }
+		 * subscribe.setUseMile(Integer.parseInt((String) paramMap.get("useMile")));
+		 */
 
 		int result = service.kg(subscribe);
 
@@ -111,7 +126,7 @@ public class HSubscribeController {
 
 
 		Subscribe subscribe = new Subscribe();
-		
+
 		subscribe.setPrice(price);
 
 		if(price == 2900) {
@@ -141,7 +156,7 @@ public class HSubscribeController {
 	@PostMapping("/subscribe/end/cash")
 	public String subscribeCash(String[] useMile, String cashName, int realPrice, int prePrice) {
 
-		
+
 
 		Subscribe subscribe = new Subscribe();
 

@@ -2,8 +2,6 @@
 Kakao.init('47e9495bf5271c60736965397a22179b');
 console.log( Kakao.isInitialized() ); // 초기화 판단여부
 
-// 3. 데모버전으로 들어가서 카카오로그인 코드를 확인.
-
 function loginWithKakao(){
     Kakao.Auth.login({
         success: function (authObj) {
@@ -19,7 +17,6 @@ function loginWithKakao(){
 
 } 
 
-// 4. 엑세스 토큰을 발급받고, 아래 함수를 호출시켜서 사용자 정보를 받아옴.
 function getInfo() {
     Kakao.API.request({
         url: '/v2/user/me',
@@ -45,10 +42,6 @@ function getInfo() {
             .then(resp => resp.text())
 
             .then( result => {
-
-                // result 가 1이면 회원가입 성공
-                // result 가 -1이면 로그인  성공
-                
 
                 if(result == 0){
                     alert("로그인 실패..")
