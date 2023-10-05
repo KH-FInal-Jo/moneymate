@@ -321,7 +321,7 @@ const nameMessage = document.getElementById("nameMessage");
 
 memberName.addEventListener("input", () => {
     if(memberName.value.trim().length == 0){
-        nameMessage.innerText = "한글,영여,숫자로만 2~20글자"
+        nameMessage.innerText = "한글,영어,숫자로만 2~20글자"
         nameMessage.classList.remove("error", "confirm");
 
         checkObj.memberName = false;
