@@ -38,7 +38,7 @@
 
 
         <section class="board-notice-content">
-
+        <div class="main">
         <%-- 사이드바 --%>
            <jsp:include page="/WEB-INF/views/board/boardSideMenu.jsp" />
 
@@ -156,8 +156,8 @@
 
             </section>
 
-        </section>
-
+            </section>
+        </div>
 <%-- 푸터 --%>
      <jsp:include page="/WEB-INF/views/common/footer.jsp" />
     </main>
