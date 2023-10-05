@@ -52,7 +52,21 @@ public class CAdminDAO {
 		
 		RowBounds rowBounds = new RowBounds(offset, pagination.getLimit());
 		
-		return sqlSession.selectList("CAdminMapper.selectPayList", rowBounds);
+		return sqlSession.selectList("CAdminMapper.selectPayList", null, rowBounds);
+	}
+
+	public int getPayCount(Map<String, Object> paramMap) {
+		return sqlSession.selectOne("CAdminMapper.getPayCount_search", paramMap);
+	}
+
+	public List<CPay> selectPayList(CPagination pagination, Map<String, Object> paramMap) {
+		
+		int offset
+		= (pagination.getCurrentPage() - 1) * pagination.getLimit();
+		
+		RowBounds rowBounds = new RowBounds(offset, pagination.getLimit());
+		
+		return sqlSession.selectList("CAdminMapper.selectPayList_search", paramMap, rowBounds);
 	}
 
 }

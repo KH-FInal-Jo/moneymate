@@ -456,11 +456,12 @@ document.getElementById("signUpFrm").addEventListener("submit", e => {
             switch(key){
                 case "check"      : alert("위 약관을 동의해주세요."); break;
                 case "memberEmail"      : alert("이메일이 유효하지 않습니다."); break;
+                case "authKey"        : alert("인증번호가 유효하지 않습니다."); break;
                 case "memberPw"         : alert("비밀번호가 유효하지 않습니다."); break;
                 case "memberPwConfirm"  : alert("비밀번호가 확인되지 않았습니다."); break;
+                case "memberName"  : alert("이름이 유효하지 않습니다."); break;
                 case "memberNickname"   : alert("닉네임이 유효하지 않습니다."); break;
                 case "memberTel"        : alert("전화번호가 유효하지 않습니다."); break;
-                case "authKey"        : alert("인증번호가 유효하지 않습니다."); break;
             }
 
             document.getElementById(key).focus();

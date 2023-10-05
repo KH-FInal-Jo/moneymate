@@ -103,6 +103,13 @@
 
                     </ul>
                 </div>
+
+                <div class="searchArea">
+                    <form action="/admin/payment" method="get" id="paymentSearch">
+                        <input type="text" placeholder="닉네임을 입력해주세요." id="query"  name="query" value="${param.query}">
+                        <button id="search">검색</button>
+                    </form>
+                </div>
             </section>
         </section>
         </section>
