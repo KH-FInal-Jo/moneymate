@@ -69,11 +69,7 @@ public class JMemberController {
 		
 		int memberNo = loginMember.getMemberNo();
 		
-		System.out.println("memberNo : " + memberNo);
-		
 		String testResult = service.selectMypage3(memberNo);
-		
-		System.out.println("testResult : " + testResult);
 		
 		return testResult;
 	}
