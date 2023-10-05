@@ -40,13 +40,14 @@ let totalItemCount = columns.length; // 전체 게시글 수
 console.log(totalItemCount);
 
 loadButton.addEventListener("click", function() {
-    // 숨겨진 칼럼 중 2개씩 보이게 함
+    // 숨겨진 칼럼 중 6개씩 보이게 함
     for (let i = visibleItemCount; i < visibleItemCount + 6; i++) {
         if (i >= totalItemCount) {
             loadButton.style.display = "none"; // 더 이상 게시글이 없으면 버튼 숨기기
+            alert("마지막 게시글입니다.")
             break;
         }
         columns[i].style.display = "flex"; // 새로운 칼럼을 보이게 함
     }
-    visibleItemCount += 6; // 더보기를 클릭할 때 2개의 게시글 더 보이도록
+    visibleItemCount += 6; // 더보기를 클릭할 때 6개의 게시글 더 보이도록
 });

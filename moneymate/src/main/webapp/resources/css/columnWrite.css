@@ -15,10 +15,13 @@
     flex-direction: column;
     margin-left: 20px;
 }
+
 /* 제목 입력 input */
 #Wtitle{
-    height: 30px;
+    height: 40px;
     width: 700px;
+
+    margin-bottom: 20px;
 }
 /* 글 제목 */
 #write-title{
@@ -137,14 +140,18 @@
 .btn{
     display: flex;
     justify-content: end;
+
 }
 
 /* 등록하기 버튼 */
 #finish{
     background-color: wheat;
+    border-radius: 5px;
     border: 0;
-    width: 100px;
-    height: 30px;
+    width: 120px;
+    height: 40px;
     font-size: 15px;
     cursor: pointer;
+
+    margin-left: 30px;
 }

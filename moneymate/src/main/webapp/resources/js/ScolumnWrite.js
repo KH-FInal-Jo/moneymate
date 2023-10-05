@@ -35,7 +35,11 @@ let selectedFiles = [];
 const formData = new FormData();
 
 
+/* 글 제목 input */
+const cTitle = document.getElementById("Wtitle")
 
+
+console.log(cTitle.value.trim().length)
 
 
 
@@ -82,41 +86,47 @@ for (let i = 0; i < inputImages.length; i++) {
 const registerBtn = document.getElementById("finish");
 
 registerBtn.addEventListener("click", () => {
-  console.log("눌림")
-  const textArea = document.getElementById("text");
-  const boardTitle = document.getElementById("Wtitle").value;
-// content div 요소들을 가져옵니다.
-const contentDivs = document.getElementsByClassName("content");
-console.log(contentDivs)
+    console.log("눌림")
+    const textArea = document.getElementById("text");
+    const boardTitle = document.getElementById("Wtitle").value;
+  // content div 요소들을 가져옵니다.
+  const contentDivs = document.getElementsByClassName("content");
+  console.log(contentDivs)
 
-// content div 안의 내용을 저장할 배열을 생성합니다.
-const contentArray = [];
-// console.log(contentArray)
+  // content div 안의 내용을 저장할 배열을 생성합니다.
+  const contentArray = [];
+  // console.log(contentArray)
 
-// 각 content div의 내용을 가져와서 배열에 추가합니다.
-for (let i = 0; i < contentDivs.length; i++) {
-  const content = contentDivs[i].value;
-  // contentArray.push(content);
-  console.log(content);
+  // 각 content div의 내용을 가져와서 배열에 추가합니다.
+  for (let i = 0; i < contentDivs.length; i++) {
+    const content = contentDivs[i].value;
+    // contentArray.push(content);
+    console.log(content);
 
-  contentArray.push(content)
-}
-/* 구분자 줘서 DB로 전송 */
-const boardContent = contentArray.join('^^^')
-console.log(boardContent)
-formData.append("boardContent", boardContent)
+    contentArray.push(content)
+  }
+  /* 구분자 줘서 DB로 전송 */
+  const boardContent = contentArray.join('^^^')
+  console.log(boardContent)
+  formData.append("boardContent", boardContent)
 
-// contentArray 배열에는 각 content div 안의 내용이 저장됩니다.
+  // contentArray 배열에는 각 content div 안의 내용이 저장됩니다.
 
 
-  // 글제목과 글내용을 FormData에 추가
-  formData.append("boardTitle", boardTitle);
+    // 글제목과 글내용을 FormData에 추가
+    formData.append("boardTitle", boardTitle);
 
-  // fetch를 사용하여 서버로 데이터 전송
-  fetch("/community/register", {
-    method: "POST",
-    body: formData,
-  })
+    // fetch를 사용하여 서버로 데이터 전송
+    if(cTitle.value.trim().length == 0){
+      alert("제목을 입력해 주세요.")
+      cTitle.focus()
+      return;
+    }
+
+    fetch("/community/register", {
+      method: "POST",
+      body: formData,
+    })
     .then((response) => response.json())
     .then((result) => {
       if(result > 0){
@@ -128,4 +138,5 @@ formData.append("boardContent", boardContent)
     .catch((error) => {
       console.error("파일 업로드 중 오류 발생: ", error);
     });
-});
+  
+})
