@@ -68,7 +68,7 @@
                     <c:otherwise>
 
 
-                        <a href="/community/4/insert"><button id="Swrite">글쓰기</button></a>
+                        <button id="Swrite"><a href="/community/4/insert" id="write-a">글쓰기</a></button>
                             
                     
                         <%-- 게시글 목록 조회 결과가 있다면 --%>

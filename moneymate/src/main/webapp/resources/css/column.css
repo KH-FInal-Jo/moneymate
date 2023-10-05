@@ -33,9 +33,20 @@ font-family: 'SDGothic', serif;
     width: 100px;
     height: 40px;
 
-    font-weight: bold;
+    border: 0;
+    border-radius: 5px;
 
-    margin-left: 25px;
+    background-color: bisque;
+
+    margin: 0 0px 20px 10px;
+    cursor: pointer;
+
+    font-size: 18px;
+}
+
+#write-a{
+    text-decoration: none;
+    color: black;
 }
 
 /* 칼럼 설명란 */
@@ -195,12 +206,14 @@ font-family: 'SDGothic', serif;
     justify-content: center;
     align-items: center;
 
-    width: 130px;
-    height: 60px;
+    width: 120px;
+    height: 40px;
+
+    background-color: bisque;
 
     text-align: center;
 
-    font-size: 25px;
+    font-size: 20px;
     border-radius: 10px;
     border: 0;
 
