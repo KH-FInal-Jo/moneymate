@@ -22,13 +22,13 @@ function selectAll(){ // 회원 전체 조회 함수
 
                 if (item.subscribeLevel === 0) {
                     const button = document.createElement("button");
-                    button.textContent = "구독하기  💨";
+                    button.textContent = "구독하기";
 
                     button.style.backgroundColor = "skyblue";    
                     button.style.color = "white"; 
                     button.style.border = "none"; 
                     button.style.cursor = "pointer";
-                    button.style.width = "100px";
+                    button.style.width = "80px";
                     button.style.height = "25px";
 
                     button.addEventListener("mouseenter", function () {
@@ -41,7 +41,7 @@ function selectAll(){ // 회원 전체 조회 함수
                         button.style.backgroundColor = "skyblue";
                         button.style.color = "white";
                         button.style.border = "none";
-                        button.style.width = "100px";
+                        button.style.width = "80px";
                         button.style.height = "25px";
                     });
 
