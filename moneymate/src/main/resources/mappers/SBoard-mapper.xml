@@ -314,9 +314,14 @@
 	<!-- 알람 갯수 조회 -->
 	<select id="countAlarm" resultType="_int">
 	
-		SELECT COUNT(*) FROM ALERT
-		WHERE MEMBER_NO = #{memberNo}
-		AND ALERT_ST = 'N'
+		SELECT count(*)
+        FROM ALERT A
+        JOIN "COMMENT" C ON (A.COMMENT_NO-1) = C.COMMENT_NO
+        JOIN "MEMBER" M ON C.MEMBER_NO = M.MEMBER_NO
+		WHERE A.MEMBER_NO = #{memberNo}
+		AND A.ALERT_ST = 'N'
+		AND C.MEMBER_NO != #{memberNo}
+		ORDER BY A.ALERT_NO DESC
 	
 	</select>
 	
