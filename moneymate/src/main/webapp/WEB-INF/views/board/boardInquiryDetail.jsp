@@ -81,7 +81,9 @@
                     <c:if test="${loginMember.memberNo == board.memberNo || loginMember.authority == 1 }" >
 
                      <button id="updateBtn">수정</button>
+                     
                      <button id="deleteBtn">삭제</button>
+                     
                     </c:if>                   
                     <button id="goToList">목록으로</button>
                 </div>
@@ -116,11 +118,14 @@
                                     <button id="deleteBtn" onclick="deleteComment(${comment.commentNo})">삭제</button>                                    
                                     </c:if>
                                 </div>
-
                                 <div class="createDate">
-                                    작성일 : ${comment.commentCreateDate}
+                                   <%--  작성일 : ${comment.commentCreateDate} --%>
                                 </div>
                             </div>
+                            <div class="createDate">
+                                    작성일 : ${comment.commentCreateDate}
+                            </div>
+                            
 
                         </li>
                         </c:forEach>

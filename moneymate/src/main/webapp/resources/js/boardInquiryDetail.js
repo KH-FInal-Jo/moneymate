@@ -13,18 +13,10 @@ if(updateBtn != null){
     })
 }
 
-if(deleteBtn != null){
-    const userProfile={userId:"user01@kh.or.kr",isAdmin:true};
+if(deleteBtn != null){   
 
     deleteBtn.addEventListener("click", ()=>{
-
-        if(userProfile.isAdmin){
-            confirmDeletion();
-        }else{
-            alert("삭제 권한이 없습니다.");
-        }
-
-       
+               
         if(confirm("정말로 삭제하시겠습니까?")){
             location.href 
             = location.pathname + "/delete";
