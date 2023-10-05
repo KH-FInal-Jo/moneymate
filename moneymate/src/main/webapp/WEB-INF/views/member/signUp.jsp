@@ -67,9 +67,9 @@
             <div id="modal1">
                 <div class="modal-content">
                     <h2>휴대폰 인증</h2>
-                    <p><input type="text" placeholder="휴대폰 번호 입력" id="mTel"> <button onclick="authPhone()">인증번호 받기</button></p>
-                    <p><input type="text" placeholder="인증번호 입력" id="inputNum"> <button id="confirmNum">인증번호 확인</button></p>
-                    <button id="close-modal">닫기</button>
+                    <p><input type="text" placeholder="휴대폰 번호 입력" id="mTel"> <button type="button" onclick="authPhone()">인증번호 받기</button></p>
+                    <p><input type="text" placeholder="인증번호 입력" id="inputNum"> <button type="button" id="confirmNum">인증번호 확인</button></p>
+                    <button type="button" id="close-modal">닫기</button>
                 </div>
             </div>
 
