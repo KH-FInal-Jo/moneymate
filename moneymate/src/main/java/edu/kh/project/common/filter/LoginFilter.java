@@ -16,7 +16,7 @@ import edu.kh.project.member.model.dto.Member;
 
 @WebFilter(filterName="loginFilter",
 urlPatterns={"/subscribe/*", "/consumetest", "/event/calendar", "/account/*", "/member/mypage/*",
-				"/chatting", "/community/2/boardInquiryWrtie","/community/1/insert", "/community/3/insert", "/community/4/insert"})
+				"/chatting", "/community/2/boardInquiryWrtie","/community/1/insert", "/community/3/insert", "/community/4/insert", "/community/4"})
 public class LoginFilter implements Filter {
 
 
