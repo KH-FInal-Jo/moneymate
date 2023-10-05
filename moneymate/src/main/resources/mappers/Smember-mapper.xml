@@ -22,7 +22,6 @@
 		WHERE ACNT_DATE IN (SELECT ACNT_DATE FROM "ACCOUNT_DETAIL" 
 		WHERE SUBSTR(ACNT_DATE, 7, 1) = #{month})
 		AND ACNT_NO = #{accountNo}
-		AND MEMBER_NO = #{memberNo}
 		AND INOUT_NM = '지출'
 		AND ACNT_ST = 'N'
 	</select>
@@ -35,7 +34,6 @@
 		WHERE ACNT_DATE IN (SELECT ACNT_DATE FROM "ACCOUNT_DETAIL" 
 		WHERE SUBSTR(ACNT_DATE, 6, 2) = #{month})
 		AND ACNT_NO = #{accountNo}
-		AND MEMBER_NO = #{memberNo}
 		AND INOUT_NM = '지출'
 		AND ACNT_ST = 'N'
 	</select>
@@ -48,7 +46,6 @@
 		WHERE ACNT_DATE IN (SELECT ACNT_DATE FROM "ACCOUNT_DETAIL" 
 		WHERE SUBSTR(ACNT_DATE, 7, 1) = #{month})
 		AND ACNT_NO = #{accountNo}
-		AND MEMBER_NO = #{memberNo}
 		AND INOUT_NM = '수입'
 		AND ACNT_ST = 'N'
 	</select>
@@ -61,7 +58,6 @@
 		WHERE ACNT_DATE IN (SELECT ACNT_DATE FROM "ACCOUNT_DETAIL" 
 		WHERE SUBSTR(ACNT_DATE, 6, 2) = #{month})
 		AND ACNT_NO = #{accountNo}
-		AND MEMBER_NO = #{memberNo}
 		AND INOUT_NM = '수입'
 		AND ACNT_ST = 'N'
 	</select>
@@ -74,7 +70,6 @@
 		WHERE ACNT_DATE IN (SELECT ACNT_DATE FROM "ACCOUNT_DETAIL" 
 		                    WHERE SUBSTR(ACNT_DATE, 7, 1) = #{month})
 		AND ACNT_NO = #{accountNo}
-		AND MEMBER_NO = #{memberNo}
 		AND ACNT_ST = 'N'
 		AND INOUT_NM = '지출'
 		ORDER BY ACNT_DATE DESC
@@ -88,7 +83,6 @@
 		WHERE ACNT_DATE IN (SELECT ACNT_DATE FROM "ACCOUNT_DETAIL" 
 		                    WHERE SUBSTR(ACNT_DATE, 6, 2) = #{month})
 		AND ACNT_NO = #{accountNo}
-		AND MEMBER_NO = #{memberNo}
 		AND ACNT_ST = 'N'
 		AND INOUT_NM = '지출'
 		ORDER BY ACNT_DATE DESC
@@ -102,7 +96,6 @@
 		WHERE ACNT_DATE IN (SELECT ACNT_DATE FROM "ACCOUNT_DETAIL" 
 		                    WHERE SUBSTR(ACNT_DATE, 7, 1) = #{month})
 		AND ACNT_NO = #{accountNo}
-		AND MEMBER_NO = #{memberNo}
 		AND ACNT_ST = 'N'
 		AND INOUT_NM = '수입'
 		ORDER BY ACNT_DATE DESC
@@ -116,7 +109,6 @@
 		WHERE ACNT_DATE IN (SELECT ACNT_DATE FROM "ACCOUNT_DETAIL" 
 		                    WHERE SUBSTR(ACNT_DATE, 6, 2) = #{month})
 		AND ACNT_NO = #{accountNo}
-		AND MEMBER_NO = #{memberNo}
 		AND ACNT_ST = 'N'
 		AND INOUT_NM = '수입'
 		ORDER BY ACNT_DATE DESC
@@ -130,7 +122,6 @@
 		JOIN ACCOUNTBOOK USING(ACNT_NO)
 		WHERE ACNT_DATE IN (SELECT ACNT_DATE FROM "ACCOUNT_DETAIL" 
 		                    WHERE SUBSTR(ACNT_DATE, 7, 1) = #{month})
-		AND MEMBER_NO = #{memberNo}
 		AND ACNT_NO = #{accountNo}
 		AND ACNT_ST = 'N'
 		AND INOUT_NM = '지출'
@@ -147,7 +138,6 @@
 		JOIN ACCOUNTBOOK USING(ACNT_NO)
 		WHERE ACNT_DATE IN (SELECT ACNT_DATE FROM "ACCOUNT_DETAIL" 
 		                    WHERE SUBSTR(ACNT_DATE, 6, 2) = #{month})
-		AND MEMBER_NO = #{memberNo}
 		AND ACNT_NO = #{accountNo}
 		AND ACNT_ST = 'N'
 		AND INOUT_NM = '지출'
@@ -164,7 +154,6 @@
 			JOIN ACCOUNTBOOK USING(ACNT_NO)
 			WHERE ACNT_DATE IN (SELECT ACNT_DATE FROM "ACCOUNT_DETAIL" 
 			                    WHERE SUBSTR(ACNT_DATE, 7, 1) = #{month})
-			AND MEMBER_NO = #{memberNo}
 			AND ACNT_NO = #{accountNo}
 			AND ACNT_ST = 'N'
 			AND INOUT_NM = '수입'
@@ -181,7 +170,6 @@
 			JOIN ACCOUNTBOOK USING(ACNT_NO)
 			WHERE ACNT_DATE IN (SELECT ACNT_DATE FROM "ACCOUNT_DETAIL" 
 			                    WHERE SUBSTR(ACNT_DATE, 6, 2) = #{month})
-			AND MEMBER_NO = #{memberNo}
 			AND ACNT_NO = #{accountNo}
 			AND ACNT_ST = 'N'
 			AND INOUT_NM = '수입'
@@ -199,7 +187,6 @@
 		WHERE ACNT_DATE IN (SELECT ACNT_DATE FROM "ACCOUNT_DETAIL" 
 		                    WHERE SUBSTR(ACNT_DATE, 7, 1) = #{month})
 		AND ACNT_NO = #{accountNo}
-		AND MEMBER_NO = #{memberNo}
 		AND ACNT_ST = 'N'
 		AND INOUT_NM = '지출'
 		AND ACNT_CATEGORY = #{name}
@@ -214,7 +201,6 @@
 		WHERE ACNT_DATE IN (SELECT ACNT_DATE FROM "ACCOUNT_DETAIL" 
 		                    WHERE SUBSTR(ACNT_DATE, 6, 2) = #{month})
 		AND ACNT_NO = #{accountNo}
-		AND MEMBER_NO = #{memberNo}
 		AND ACNT_ST = 'N'
 		AND INOUT_NM = '지출'
 		AND ACNT_CATEGORY = #{name}
@@ -230,7 +216,6 @@
 		WHERE ACNT_DATE IN (SELECT ACNT_DATE FROM "ACCOUNT_DETAIL" 
 		                    WHERE SUBSTR(ACNT_DATE, 7, 1) = #{month})
 		AND ACNT_NO = #{accountNo}
-		AND MEMBER_NO = #{memberNo}
 		AND ACNT_ST = 'N'
 		AND INOUT_NM = '수입'
 		AND ACNT_CATEGORY = #{name}
@@ -246,7 +231,6 @@
 		WHERE ACNT_DATE IN (SELECT ACNT_DATE FROM "ACCOUNT_DETAIL" 
 		                    WHERE SUBSTR(ACNT_DATE, 6, 2) = #{month})
 		AND ACNT_NO = #{accountNo}
-		AND MEMBER_NO = #{memberNo}
 		AND ACNT_ST = 'N'
 		AND INOUT_NM = '수입'
 		AND ACNT_CATEGORY = #{name}

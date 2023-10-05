@@ -83,7 +83,7 @@ if(member !== ''){
     
                 const img = document.createElement("img")
                 img.classList.add("alarm-profile")
-                if(result[i].profile == ''){
+                if(result[i].profile == null){
     
                     img.setAttribute("src", "/resources/images/id.png")
                 } else {
