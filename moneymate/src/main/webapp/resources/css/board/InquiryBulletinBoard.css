@@ -8,10 +8,19 @@
 font-family: 'SDGothic', serif;
 }
 
-
+.main{
+    width: 1200px;
+    display: flex;
+}
 .InquiryBulletinBoardmain{
-    width: 100%;
+    width: 75%;
    
+}
+
+.side{
+    display: flex;
+    width: 25%;
+    border: 1px solid black;
 }
 
 .Bcontainer1{
