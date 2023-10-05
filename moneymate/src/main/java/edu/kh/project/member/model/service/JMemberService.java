@@ -12,4 +12,6 @@ public interface JMemberService {
 	// 북마크 조회하기
 	Map<String, Object> selectBookmark(Map<String, Object> map);
 
+	String selectMypage3(int memberNo);
+
 }

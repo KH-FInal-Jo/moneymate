@@ -63,4 +63,10 @@
 		AND BOARD_ST = 'N'
 	</select>
 	
+	<!-- 테스트 결과 조회 -->
+	<select id="selectTestResult" resultType="string">
+		SELECT TEST_TITLE FROM CONTEST
+		WHERE MEMBER_NO = #{memberNo}
+	</select>
+	
 </mapper>

@@ -47,4 +47,9 @@ public class JMemberServiceImpl implements JMemberService{
 		return bkmap;
 
 	}
+
+	@Override
+	public String selectMypage3(int memberNo) {
+		return dao.selectMypage3(memberNo);
+	}
 }
