@@ -68,7 +68,7 @@
 	<!-- 공지사항 작성하기 -->
 	<insert id="insertBoardNotice">
 		INSERT INTO BOARD
-		VALUES(#{boardNo}, #{boardTitle},#{boardContent},DEFAULT, DEFAULT, DEFAULT, DEFAULT, 1, 2)
+		VALUES(#{boardNo}, #{boardTitle},#{boardContent},DEFAULT, DEFAULT, DEFAULT, DEFAULT, 1, 1)
 	
 	</insert>
 	
@@ -126,7 +126,7 @@
         BOARD_ST, READ_COUNT,BOARD_CODE, MEMBER_NO, MEMBER_NICKNAME
 		FROM BOARD
 		JOIN MEMBER USING(MEMBER_NO)
-		WHERE MEMBER_NO = 2
+		WHERE MEMBER_NO = 1
 		AND BOARD_NO = #{boardNo}
 		AND BOARD_CODE = 1
 		AND BOARD_ST = 'N'

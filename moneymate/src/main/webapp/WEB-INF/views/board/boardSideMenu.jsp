@@ -16,7 +16,7 @@
 
 		<li><a href="/community/3">자유게시판<i class="fa-solid fa-caret-right fa-xl"></i></a></li>
 
-		<li><a href="/community/4">컬럼게시판<i class="fa-solid fa-caret-right fa-xl"></i></a></li>
+		<li><a href="/community/4">칼럼게시판<i class="fa-solid fa-caret-right fa-xl"></i></a></li>
 	</ul>
 
 </section>
