@@ -43,10 +43,23 @@ memberEmail.addEventListener("input", () => {
         fetch("/member/signUp/emaildupCheck?email="+ memberEmail.value)
         .then(resp => resp.text())
         .then(count => {
+
             console.log(count);
-            emailMessage.innerText="올바른 이메일 형식입니다.";
-            emailMessage.classList.remove("error");
-            emailMessage.classList.add("confirm");
+            if(count == 0){
+
+                checkObj.memberEmail = true;
+                emailMessage.innerText="올바른 이메일 형식입니다.";
+                emailMessage.classList.remove("error");
+                emailMessage.classList.add("confirm");
+
+                
+            } else{
+                emailMessage.innerText="이미 사용중인 이메일입니다.";
+                emailMessage.classList.remove("confirm");
+                emailMessage.classList.add("error");
+
+                checkObj.memberEmail = false;
+            }
     
             checkObj.memberEmail = true;
         })
