@@ -1,29 +1,30 @@
+## 가계부 관리 사이트 MoneyMate
+
 ![header](https://capsule-render.vercel.app/api?type=cylinder&text=MoneyMate&color=00B3FF&fontColor=E5F7FF)
-
+<br>
+<br>
 ### 😊 Team Member
-<a href="https://github.com/hj-1008">
+<a href="https://github.com/anzkanzk87">
     <img src="https://img.shields.io/badge/github-181717?style=for-the-badge&logo=github&logoColor=white"> 
-</a>
-
+</a> 강신욱
 <br>
 <a href="https://github.com/banseo">
     <img src="https://img.shields.io/badge/github-181717?style=for-the-badge&logo=github&logoColor=white"> 
-</a>
+</a> 최반석
 <br>
-
-<a href="https://github.com/anzkanzk87">
-    <img src="https://img.shields.io/badge/github-181717?style=for-the-badge&logo=github&logoColor=white"> 
-</a>
-<br>
-
 <a href="https://github.com/Sungjinchosj">
     <img src="https://img.shields.io/badge/github-181717?style=for-the-badge&logo=github&logoColor=white"> 
-</a>
+</a> 조성진
+<br>
+<a href="https://github.com/hj-1008">
+    <img src="https://img.shields.io/badge/github-181717?style=for-the-badge&logo=github&logoColor=white"> 
+</a> 권호진
+
 <br>
 
 <a href="https://github.com/jys1348">
     <img src="https://img.shields.io/badge/github-181717?style=for-the-badge&logo=github&logoColor=white"> 
-</a>
+</a> 정연수
 <br>
 
 ### 🔨 Once we've used 🔨
