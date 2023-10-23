@@ -3,6 +3,16 @@
 ![header](https://capsule-render.vercel.app/api?type=cylinder&text=MoneyMate&color=00B3FF&fontColor=E5F7FF)
 <br>
 <br>
+
+### 📍 프로젝트 소개
+<a href="https://docs.google.com/presentation/d/e/2PACX-1vSuLZon8GiY55w51WtvdsmSCe1qKUFTcc-3czfjg9AaVy8_qiwBWv-eu6xRPe_Z1LlYw2ohK5j54IHi/pub?start=false&loop=false&delayms=3000">
+    <img src="https://img.shields.io/badge/googleslides-FBBC04?style=for-the-badge&logo=googleslides&logoColor=white"> 
+</a>
+
+개인 가계부뿐만 아니라 그룹으로 공유하여 관리할 수 있는 PC 가계부 사이트
+<br>
+<br>
+
 ### 😊 Team Member
 <a href="https://github.com/anzkanzk87">
     <img src="https://img.shields.io/badge/github-181717?style=for-the-badge&logo=github&logoColor=white"> 
