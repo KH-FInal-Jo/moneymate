@@ -13,6 +13,10 @@ import edu.kh.project.board.model.dto.SBoardImage;
 import edu.kh.project.board.model.dto.SColumnRandom;
 import edu.kh.project.member.model.dto.Member;
 
+/**
+ * @author USER
+ *
+ */
 @Repository
 public class SBoardDAO {
 
@@ -177,6 +181,19 @@ public class SBoardDAO {
 	public List<SBoard> selectRandom(Map<String, Object> map) {
 		// TODO Auto-generated method stub
 		return sqlSession.selectList("SBoardMapper.randomCount",  map);
+	}
+
+
+
+
+
+	/** 칼럼 게시글 삭제하기
+	 * @param boardNo
+	 * @return
+	 */
+	public int columnDelete(int boardNo) {
+		// TODO Auto-generated method stub
+		return sqlSession.update("SBoardMapper.columnDelete",  boardNo);
 	}
 
 

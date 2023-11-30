@@ -443,8 +443,19 @@
    
    <!-- 알람 테이블 댓글 삽입 -->
    <insert id="insertAlarmComment">
-      INSERT INTO ALERT VALUES(SEQ_ALERT_NO.NEXTVAL,#{boardNo}, SEQ_COMMENT_NO.NEXTVAL , DEFAULT, DEFAULT, (SELECT MEMBER_NO FROM BOARD
-      WHERE BOARD_NO = #{boardNo}) )
+      INSERT INTO ALERT VALUES(SEQ_ALERT_NO.NEXTVAL,#{boardNo}, SEQ_COMMENT_NO.NEXTVAL , DEFAULT, DEFAULT, 
+        <!-- 부모 댓글 -->
+      <if test="parentNo == 0">
+	      (SELECT MEMBER_NO FROM BOARD
+	      WHERE BOARD_NO = #{boardNo}) 
+      </if>
+      
+      <!-- 자식 댓글 -->
+      <if test="parentNo != 0">
+      	(SELECT MEMBER_NO  FROM "COMMENT"
+      	WHERE COMMENT_NO = (SELECT PARENT_NO FROM "COMMENT" WHERE COMMENT_NO = #{commentNo}))
+      </if>
+     )
    </insert>
    
    

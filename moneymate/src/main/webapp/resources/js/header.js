@@ -90,10 +90,7 @@ if(member !== ''){
                     img.setAttribute("src", result[i].profile)
                 }
     
-                if(result[i].profile == ''){
-    
-                    img.setAttribute("src", "/resources/images/id.png")
-                }
+              
     
     
     

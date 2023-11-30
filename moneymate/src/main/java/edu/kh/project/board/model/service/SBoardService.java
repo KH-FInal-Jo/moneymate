@@ -72,6 +72,12 @@ public interface SBoardService {
 	 * @return
 	 */
 	List<SBoard> selectRandom(Map<String, Object> map);
+
+	/** 칼럼 게시글 삭제하기
+	 * @param boardNo
+	 * @return
+	 */
+	int columnDelete(int boardNo);
 	
 
 }

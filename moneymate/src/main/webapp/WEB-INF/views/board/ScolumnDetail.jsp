@@ -103,6 +103,18 @@
             </div>
             
             <a href="/community/4"><span><button id="list">목록으로</button></span></a>
+
+            <%-- 관리자만 보이게 --%>
+            <c:if test="${loginMember.memberNo == 1}" >
+                <div id="update-area">
+
+                    <button id="delete-btn">삭제하기</button>
+                    <button id="update-btn">수정하기</button>
+                </div>
+
+            </c:if>
+
+
             
             <div class="other-title">다른 칼럼 보러가기</div>
             <div class="other">

@@ -5,6 +5,9 @@ const previeous = document.getElementById("previous")
 // 다음글 버튼
 const next = document.getElementById("next")
 
+// 삭제하기 버튼
+const deleteBtn = document.getElementById("delete-btn")
+
 previeous.addEventListener("click", ()=>{
 
     // 현재 URL을 가져오기
@@ -67,6 +70,48 @@ next.addEventListener("click", ()=>{
     })
 
 })
+
+// 삭제하기 버튼 누를 시
+deleteBtn.addEventListener("click", ()=>{
+
+    if(confirm("게시글을 삭제하시겠습니까?")){
+
+        // 현재 URL을 가져오기
+        // http://localhost/community/4/9
+        let url = window.location.href;
+    
+        // URL을 "/"문자로 분할하여 배열로 저장
+        let urlParts = url.split("/")
+        console.log(urlParts)
+        // = ['http:', '', 'localhost', 'community', '4', '9']
+    
+        // urlParts[5] == 9
+        let boardNo = urlParts[urlParts.length - 1]
+    
+        // console.log(boardNo)
+    
+        fetch(`/community/columnDelete?boardNo=${boardNo}`)
+        .then(resp => resp.json())
+        .then(result => {
+            console.log(result)
+    
+            if(result > 0){
+    
+                alert("게시글이 삭제되었습니다.")
+            }
+    
+            location.href = '/community/4/'
+    
+    
+    
+        })
+        .catch(e => {
+            console.log(e)
+        })
+    }
+
+})
+
 
 /* 좋아요 클릭 시 이벤트 */
 const likeBtn = document.getElementById("likeBtn")

@@ -268,6 +268,14 @@ public class SColumnController {
 		return service.columnNext(boardNo);
 	}
 	
+	// 삭제하기
+	@GetMapping("/columnDelete")
+	@ResponseBody
+	public int columnDelete(@RequestParam("boardNo")int boardNo) {
+		
+		return service.columnDelete(boardNo);
+	}
+	
 	// 좋아요 처리
 	@PostMapping("/4/like")
 	@ResponseBody

@@ -340,6 +340,12 @@
 		WHERE ALERT_NO = #{alertNo}
 	</update>
 	
+	<!-- 칼럼 게시글 삭제하기 -->
+	<update id="columnDelete">
+		UPDATE BOARD SET BOARD_ST = 'Y'
+		WHERE BOARD_NO = #{boardNo}
+	</update>
+	
 	
 	
 </mapper>

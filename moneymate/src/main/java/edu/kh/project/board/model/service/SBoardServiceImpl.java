@@ -201,6 +201,15 @@ public class SBoardServiceImpl implements SBoardService {
 
 
 
+	// 칼럼 게시글 삭제하기
+	@Override
+	public int columnDelete(int boardNo) {
+		// TODO Auto-generated method stub
+		return dao.columnDelete(boardNo);
+	}
+
+
+
 
 	
 	

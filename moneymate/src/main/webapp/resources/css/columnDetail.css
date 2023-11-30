@@ -194,6 +194,33 @@
     background-color: wheat;
 
 }
+/* 삭제,수정 영역 */
+#update-area{
+    margin-bottom: 30px;
+}
+
+/* 삭제하기 버튼 */
+#delete-btn{
+    margin-top: 20px;
+    background-color: wheat;
+    width: 100px;
+    height: 30px;
+    border: 0;
+    cursor: pointer;
+
+}
+
+/* 수정하기 버튼 */
+#update-btn{
+    margin-left: 20px;
+    background-color: wheat;
+    width: 100px;
+    height: 30px;
+    border: 0;
+    cursor: pointer;
+
+}
+
 
 
 
